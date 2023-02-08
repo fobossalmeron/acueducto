@@ -57,7 +57,8 @@
       "resources": [
         { "title": "podcast", "link": "/podcast" },
         { "title": "artículos", "link": "/articulos" },
-        { "title": "diagnóstico", "link": "/diagnostico" }
+        { "title": "diagnóstico", "link": "/diagnostico" },
+        { "title": "webinars", "link": "/webinars" }
       ],
       "policies": [
         { "title": "cookies", "link": "/cookies" },
