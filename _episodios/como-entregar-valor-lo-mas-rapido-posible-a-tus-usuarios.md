@@ -8,8 +8,8 @@ category: Founder
 description: Acompáñanos con Carlos Canizal, CTO de Moons, la startup de ortodoncia B2C de última tecnología con mayor crecimiento de mercado en Latinoamérica.
 insights:
   - <b>Business before tech.</b> Carlos y su equipo están enfocados en resolver retos de negocio que tengan un impacto ágil en sus usuarios. Para esto hacen experimentos que podrían generar deuda técnica o utilizar tecnologías que no son las más nuevas con tal de probar un concepto velozmente.
-  - <b>La mejor contratación es la que hace fit con tu cultura.</b> Al momento de buscar nuevos desarrolladores, en Moons priorizan este fit más que la capacidad técnica que tenga el perfil
-  - <b>Y número tres:</b> <b>que las tecnologías como el no-code o la Inteligencia artificial lejos de quitarte tu trabajo te ahorrarán mucha talacha repetitiva</b>
+  - <b>La mejor contratación es la que hace fit con tu cultura.</b> Al momento de buscar nuevos desarrolladores, en Moons priorizan este fit más que la capacidad técnica que tenga el perfil.
+  - <b>Y número tres:</b> <b>que las tecnologías como el no-code o la Inteligencia artificial lejos de quitarte tu trabajo te ahorrarán mucha talacha repetitiva.</b>
 spotify: https://open.spotify.com/episode/7uUOkDHlyFvwHaQyudtfXA
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-entregar-valor-lo-m%C3%A1s-r%C3%A1pido-posible-a-tus/id1500473556?i=1000601761745
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjMyMjgyNQ?sa=X&ved=0CAUQkfYCahcKEwj4vezNmbb9AhUAAAAAHQAAAAAQAQ
