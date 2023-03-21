@@ -166,13 +166,6 @@ export default function Salvajenada({ locale, setTitle, pt }) {
                 >
                   <Spotify />
                 </a>
-                <a
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  href="https://music.apple.com/mx/playlist/canasta-b%C3%A1sica/pl.u-e98lkq9hK27VzP"
-                >
-                  <AppleMusic />
-                </a>
               </div>
             </Fade>
           </Sticky>
