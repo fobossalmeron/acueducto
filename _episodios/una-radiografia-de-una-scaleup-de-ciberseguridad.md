@@ -1,6 +1,6 @@
 ---
 episode: 90
-date: "2022-04-17"
+date: "2023-04-17"
 title: Una radiografía de una scaleup de ciberseguridad
 guest: Sebastián Fernández
 business: VU Security
