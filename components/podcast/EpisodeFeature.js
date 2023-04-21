@@ -19,8 +19,8 @@ const EpisodeFeature = ({
           <Picture
             src={`/assets/img/podcast/solas/${episode}.jpg`}
             alt={title + " - " + guest}
-            height={142}
-            width={142}
+            height={episode >= 91 ? 206 : 142}
+            width={episode >= 91 ? 365 : 142}
           />
         </PictureContainer>
         <Fade triggerOnce>
