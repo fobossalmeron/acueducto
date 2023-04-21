@@ -14,8 +14,8 @@ const EpisodeFeature = ({
 }) => {
   return (
     <Link href={"/podcast/" + slug} passHref key={"npd" + episode}>
-      <NewPod blue={blue}>
-        <PictureContainer hoverable={true}>
+      <NewPod blue={blue} episode={episode}>
+        <PictureContainer hoverable={true} episode={episode}>
           <Picture
             src={`/assets/img/podcast/solas/${episode}.jpg`}
             alt={title + " - " + guest}
@@ -57,7 +57,7 @@ const PictureContainer = styled.div`
     border-radius: 25px;
     overflow: hidden;
     display: inline-block;
-    height: 142px;
+    height: ${ (episode) => episode >= 91 ? "206" : "142" }px;
   }
   img {
     transition: all 0.25s ease-out;
@@ -153,7 +153,7 @@ const NewPod = styled.a`
     border-radius: 40px;
     ${PictureContainer} {
       min-width: unset;
-      max-width: 150px;
+      max-width: ${(p) => (p.episode >= 91 ? "none" : "142px")};
       margin-bottom: 2rem;
     }
   }
