@@ -57,24 +57,24 @@ const EpisodePage = ({
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
             <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+            {youtube && (
+              <Center>
+                <VideoContainer>
+                  <Video>
+                    <YouTubePlayer
+                      className="react-player"
+                      light={`/assets/img/podcast/youtube/${episode}.jpg`}
+                      url={embedYoutube}
+                      controls={true}
+                      width="100%"
+                      height="100%"
+                    />
+                  </Video>
+                </VideoContainer>
+              </Center>
+            )}
           </>
         </Fade>
-        {youtube && (
-          <VideoContainer>
-            <Video>
-              <Fade triggerOnce>
-                <YouTubePlayer
-                  className="react-player"
-                  light={`/assets/img/podcast/youtube/${episode}.jpg`}
-                  url={embedYoutube}
-                  controls={true}
-                  width="100%"
-                  height="100%"
-                />
-              </Fade>
-            </Video>
-          </VideoContainer>
-        )}
         <Fade triggerOnce>
           <EpisodePreview
             hideImageMobile
@@ -148,11 +148,16 @@ const EpisodePage = ({
 
 export default React.memo(EpisodePage);
 
+const Center = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
 const VideoContainer = styled.div`
   max-width: 800px;
   width: 100%;
   height: auto;
-  margin-top: 5%;
+  margin-top: 8%;
   @media (max-width: 620px) {
     margin-top: 10%;
   }
