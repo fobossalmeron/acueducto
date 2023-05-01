@@ -18,7 +18,14 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
     setTitle(head.headerTitle);
   }, [locale]);
 
-  const categories = ["founder", "producto", "inversor", "growth", "todas"];
+  const categories = [
+    "founder",
+    "producto",
+    "inversor",
+    "growth",
+    "desarrollo",
+    "todas",
+  ];
 
   const sort = (category) => {
     let allCats = document.querySelectorAll(`.out`);
@@ -34,9 +41,7 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
     }
 
     if (category != "todas") {
-      let allNotEpisodes = document.querySelectorAll(
-        `.npd:not(.${category})`
-      );
+      let allNotEpisodes = document.querySelectorAll(`.npd:not(.${category})`);
       for (let epis of allNotEpisodes) {
         epis.style.display = "none";
       }
