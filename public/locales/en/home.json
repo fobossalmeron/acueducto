@@ -5,69 +5,69 @@
     "header_title": ""
   },
   "landing": {
-    "heading": "apalanca tu negocio con tecnología",
-    "tagline": "Somos un estudio de productos digitales en CDMX.",
-    "button": "casos de estudio"
+    "heading": "empower your business with technology",
+    "tagline": "We are a digital product studio in Mexico City.",
+    "button": "case studies"
   },
   "intro": {
-    "title": "con increíbles productos digitales",
-    "p": "Nuestro equipo se alinea a tus objetivos de negocio para echar a andar proyectos tecnológicos en tu empresa.<br/><br/>Convertimos el problema que estás enfrentando en una idea, tu idea en una solución y esta solución en software de la mano de:"
+    "title": "with incredible digital products",
+    "p": "Our team aligns with your business objectives to kick-start technological projects in your company.<br/><br/>We turn the problem you're facing into an idea, your idea into a solution, and this solution into software, hand in hand with:"
   },
-  "carousel": ["ingenieros", "diseñadores", "product managers"],
+  "carousel": ["engineers", "designers", "product managers"],
   "services": {
-    "title": "diseñados para escalar",
+    "title": "designed to scale",
     "areas": [
       {
-        "title": "investigación y facilitación",
-        "p": "Analizamos junto a ti tus objetivos de negocios y las necesidades de tus usuarios. Paralelamente, hacemos un análisis de herramientas que ya resuelven el problema que estamos solucionando para entender patrones y expectativas de usuario."
+        "title": "research and facilitation",
+        "p": "We analyze your business goals and the needs of your users together with you. Simultaneously, we conduct an analysis of tools that already solve the problem we are addressing in order to understand user patterns and expectations."
       },
       {
-        "title": "diseño",
-        "p": "Construimos una experiencia que te hace pensar el mínimo, muestra naturalmente cuál es el siguiente paso y entrega resultados lo más rápido posible"
+        "title": "design",
+        "p": "We build an experience that makes you think minimally, naturally displays the next step, and delivers results as quickly as possible"
       },
       {
-        "title": "desarrollo",
-        "p": "Desarrollamos arquitecturas escalables y escribimos código de calidad"
+        "title": "development",
+        "p": "We develop scalable architectures and write quality code"
       },
       {
-        "title": "crecimiento",
-        "p": "Una vez vivo, empujamos la evolución de tu producto iterando progresivamente para alcanzar nuevos objetivos"
+        "title": "growth",
+        "p": "Once live, we drive the evolution of your product by progressively iterating to reach new goals"
       }
     ]
   },
   "clients": {
     "intro": {
-      "title": "para negocios que buscan innovar",
-      "p": "Te ayudamos a ejecutar proyectos que pueden transformar tu organización en una con mejores operaciones, una arquitectura escalable y una experiencia de cliente de primer nivel."
+      "title": "For businesses seeking innovation",
+      "p": "We help you execute projects that can transform your organization into one with improved operations, a scalable architecture, and a first-class customer experience."
     },
-    "span": "Hemos trabajado con",
-    "cta": "ve nuestro trabajo"
+    "span": "We have worked with",
+    "cta": "See our work"
   },
   "faq": {
-    "title": "para negocios que buscan innovar",
+    "title": "For businesses seeking innovation",
     "questions": [
       {
-        "title": "¿qué tipo de proyectos pueden construir?",
-        "p": "Analizamos junto a ti tus objetivos de negocios y las necesidades de tus usuarios. Paralelamente, hacemos un análisis de herramientas que ya resuelven el problema que estamos solucionando para entender patrones y expectativas de usuario"
+        "title": "What kind of projects can they build?",
+        "p": "We analyze your business goals and your users' needs together with you. Simultaneously, we conduct an analysis of tools that already solve the problem we are addressing in order to understand user patterns and expectations."
       },
       {
-        "title": "¿en cuánto tiempo podrían construir algo para mi negocio?",
-        "p": "Construimos una experiencia que te hace pensar el mínimo, muestra naturalmente cuál es el siguiente paso y entrega resultados lo más rápido posible"
+        "title": "How long would it take to build something for my business?",
+        "p": "We build an experience that minimizes your need to think, naturally shows the next step, and delivers results as quickly as possible"
       },
       {
-        "title": "¿ofrecen servicios de diseño?",
-        "p": "Desarrollamos arquitecturas escalables y escribimos código de calidad"
+        "title": "Do you offer design services?",
+        "p": "We develop scalable architectures and write quality code."
       },
       {
-        "title": "¿cuánto cuesta un proyecto?",
-        "p": "Una vez vivo, empujamos la evolución de tu producto iterando progresivamente para alcanzar nuevos objetivos"
+        "title": "How much does a project cost?",
+        "p": "Once live, we drive the evolution of your product by progressively iterating to achieve new goals"
       }
     ]
   },
   "podcast": {
     "intro": {
-      "title": "conoce la historia detrás de productos increíbles",
-      "p": "Aprende cómo construyen producto las empresas de servicios digitales más importantes de Latinoamérica de la mano de nuestro CEO, Artemio Pedraza y nuestro COO, Rodrigo Salmerón.<br/><br/>Disponible en todas las plataformas de streaming."
+      "title": "discover the story behind amazing products.",
+      "p": "Learn how the leading digital service companies in Latin America build products, with insights from our CEO, Artemio Pedraza, and our COO, Rodrigo Salmerón.<br/><br/>Available on all streaming platforms."
     }
   }
 }
