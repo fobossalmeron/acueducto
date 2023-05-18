@@ -22,7 +22,7 @@
       ],
       "title": "<b>Acto I</b><br/>El Portal B360",
       "subtitle": "Un sueño para la experiencia de sus clientes y la optimización de sus operaciones internas",
-      "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente. Y en Borgatta, particularmente en el servicio de maquila de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando. Este es un proceso sumamente complejo ya que involucra retos como:",
+      "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente.<br/>Y en Borgatta, particularmente en el servicio de maquila de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando.<br/>Este es un proceso sumamente complejo ya que involucra retos como:",
       "lessons": [
         {
           "title": "1",
@@ -47,16 +47,8 @@
       ]
     },
     "second_section": {
-      "quote": {
-        "quote": "El mayor reto era explicar la compleja intersección entre la tecnología blockchain y la democracia de una manera emocionante para el lector. Necesitábamos una página que pudiera comunicar de manera clara y rápida lo que es Blockstem.",
-        "name": "Gonzalo Bañuelos",
-        "label": "Cofundador, Blockstem"
-      },
-      "p": "Blockstem había tenido éxito con instituciones privadas tales como el Tec de Monterrey y Global Shapers Community validando el valor de sus servicios, sin embargo carecían de un portal web que respaldara y presentara su iniciativa, y que atendiera todas las posibles objeciones que podían tener tanto clientes potenciales como posibles inversionistas. Buscaban una herramienta para recargarse sobre ella al momento de salir a vender su empresa, así que comenzamos a trabajar."
-    },
-    "third_section": {
-      "title": "<b>Acto II</b><br/>La educación como piedra angular",
-      "p": "Cuando estás en la punta de lanza de la innovación es casi imposible que aquellos que no lo están no entiendan de qué estás hablando. Esto es algo que sucede actualmente con las tecnologías alrededor de Blockchain. Lo primero que hicimos fue desarrollar un whitepaper que introdujera a sus lectores en los siguientes aspectos:",
+      "title": "<b>Acto II</b><br/>¿Cómo acelerar la transformación digital en un corporativo?",
+      "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
       "aspects": [
         {
           "p": "Los problemas que amenazan las actuales democracias de Latinoamérica tales como la corrupción, la desconfianza y la mala administración"

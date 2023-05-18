@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import PageClipper from "components/layout/PageClipper";
 import Head from "components/layout/Head";
 import clientLocale from "utils/clientLocale";
+import ssrLocale from "utils/ssrLocale";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
@@ -19,6 +20,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
 
   useEffect(() => {
+    console.log(t, locale, 'data')
     clientLocale({
       locale: locale,
       fileName: "work.borgatta.json",
@@ -32,6 +34,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperBorgatta>
+      {console.log(locale, t, 'locale')}
       <Head
         {...t?.head}
         image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
@@ -64,11 +67,28 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           </LessonContainer>
         </TextColumn>
       </FirstSection>
+      <SecondSection>
+        <TextColumn>
+          <P>{t.second_section.p}</P>
+        </TextColumn>
+      </SecondSection>
     </PageClipperBorgatta>
   );
 };
 
 export default Borgatta;
+
+export const getStaticProps = async (context) => {
+  const pt = ssrLocale({
+    locale: context.locale,
+    fileName: "work.borgatta.json",
+  });
+  return {
+    props: {
+      pt,
+    },
+  };
+};
 
 const PageClipperBorgatta = styled(PageClipper)`
   background: ${mainGradient};
@@ -94,7 +114,7 @@ const LandSection = styled(CommonSection)`
 
 const FirstSection = styled(CommonSection)`
   color: ${(props) => props.theme.colors.foreground};
-  padding-bottom: 10%;
+  padding-bottom: 15.8%;
   font-size: 45px;
   h2 {
     font-size: 65.8px;
@@ -118,20 +138,27 @@ const FirstSection = styled(CommonSection)`
     font-size: 18px;
     color: #FFFFFF;
     line-height: 131%;
+    max-width: 700px;
   }
 `;
 
 const LessonContainer = styled.div`
   margin-top: 10%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+`;
+
+const SecondSection = styled(CommonSection)`
+  background-color: #f3f4f5;
+  color: ${(props) => props.theme.colors.over_white};
+  padding-bottom: 8%;
+  padding-top: 3%;
 `;
 
 const Lesson = styled.div`
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
   border-radius: 24px;
+  width: 50%;
 
   &:not(:last-of-type) {
     margin-bottom: 32px;
@@ -145,7 +172,7 @@ const Lesson = styled.div`
     }
   }
   p {
-    margin: 69px 24px 24px 24px;
+    margin: 20px 24px 24px 24px;
     font-size: 16.5px;
   }
   span {
@@ -157,5 +184,20 @@ const Lesson = styled.div`
     width: 24px;
     height: 24px;
     border-radius: 50%;
+    margin: 24px;
+  }
+`;
+
+const LogosContainer = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10%;
+  justify-content: space-around;
+  margin-top: 5%;
+  img {
+    max-height: 100px;
+    width: auto;
+    max-width: 50%;
   }
 `;
