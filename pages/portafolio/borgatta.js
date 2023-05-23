@@ -10,6 +10,8 @@ import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
 import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
+import Quote from "components/caseStudy/shared/Quote";
+import Picture from "components/caseStudy/shared/Picture";
 
 const bAccent2 = "rgba(255, 255, 255, 0.7)";
 const mainGradient =
@@ -20,7 +22,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
 
   useEffect(() => {
-    console.log(t, locale, 'data')
     clientLocale({
       locale: locale,
       fileName: "work.borgatta.json",
@@ -34,7 +35,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperBorgatta>
-      {console.log(locale, t, 'locale')}
       <Head
         {...t?.head}
         image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
@@ -53,25 +53,65 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         {/* <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo> */}
-        <TextColumn>
+        <FirstTextColumn>
           <H2>{t?.intro_section.title}</H2>
           <H3>{t?.intro_section.subtitle}</H3>
           <P>{t?.intro_section.p}</P>
           <LessonContainer>
             {t?.intro_section.lessons.map((lesson, i) => (
               <Lesson key={`lessn${i}`}>
-                <span>{lesson.title}</span>
+                <span>{i + 1}</span>
                 <p>{lesson.p}</p>
               </Lesson>
             ))}
           </LessonContainer>
-        </TextColumn>
+        </FirstTextColumn>
+        <Picture
+            src="/assets/img/casestudies/borgatta/page.png"
+            alt="Page"
+            width={992.57}
+            height={600}
+            withWrapper
+          />
       </FirstSection>
       <SecondSection>
-        <TextColumn>
+        <FirstTextColumn>
+          <H2>{t?.second_section.title}</H2>
           <P>{t.second_section.p}</P>
-        </TextColumn>
+        </FirstTextColumn>
+          <AspectContainer>
+            {t.second_section.aspects.map((aspect, i) => (
+              <Aspect key={`aspect${i}`}>
+                <span>{i + 1}</span>
+                <h4>{aspect.title}</h4>
+                <p>{aspect.p}</p>
+              </Aspect>
+            ))}
+          </AspectContainer>
+          <Quote quote={t.second_section.quote} color={"#1F2A2D"} />
       </SecondSection>
+      <ThirdSection>
+        <TextColumn>
+          <H2>{t.third_section.title}</H2>
+          <P>{t.third_section.p}</P>
+        </TextColumn>
+          {t.third_section.results.map((result, i) => (
+            <Results key={`result${i}`}>
+              <span>{i + 1}</span>
+              <p>{result.title}</p>
+              <p>{result.digits}</p>
+              <p>{result.subtitle}</p>
+              <p>{result.p}</p>
+            </Results>
+          ))}
+        <Quote quote={t.third_section.quote} color={"#1F2A2D"} />
+      </ThirdSection>
+      <FourthSection>
+        <TextColumn>
+          <H2>{t.fourth_section.title}</H2>
+          <P>{t.fourth_section.p}</P>
+        </TextColumn>
+      </FourthSection>
     </PageClipperBorgatta>
   );
 };
@@ -142,26 +182,41 @@ const FirstSection = styled(CommonSection)`
   }
 `;
 
+const FirstTextColumn = styled.div`
+  margin: 0 25.69%;
+`;
+
 const LessonContainer = styled.div`
   margin-top: 10%;
   display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(159px, 181px);
+  gap: 32px;
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #f3f4f5;
-  color: ${(props) => props.theme.colors.over_white};
+  background-color: #FBFBFD;
+  color: #626262;
   padding-bottom: 8%;
   padding-top: 3%;
+
+  h2 {
+    color: #D76E32;
+  }
 `;
 
 const Lesson = styled.div`
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
   border-radius: 24px;
-  width: 50%;
-
-  &:not(:last-of-type) {
-    margin-bottom: 32px;
+  
+  &:nth-child(1) {
+    width: 320px;
+  }
+  &:nth-child(2) {
+    width: 348px;
+  }
+  &:nth-child(5) {
   }
   &:nth-of-type(2) {
     span {
@@ -188,16 +243,90 @@ const Lesson = styled.div`
   }
 `;
 
-const LogosContainer = styled.div`
-  width: 100%;
+const AspectContainer = styled.div`
+  margin-top: 10%;
+  margin: 0 232px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: minmax(261px);
+  gap: 48px;
+`;
+
+const Aspect = styled.div`
   display: flex;
-  align-items: center;
-  margin-bottom: 10%;
-  justify-content: space-around;
-  margin-top: 5%;
-  img {
-    max-height: 100px;
-    width: auto;
-    max-width: 50%;
+  flex-direction: column;
+  width: 464px;
+  margin: 5% 0;
+  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1), 0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
+  border-radius: 32px;
+  padding: 24px;
+  line-height: 131%;
+  font-weight: 400;
+
+  span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13.67px;
+    position: relative;
+    border: 2px solid #D76E32;
+    width: 25px;
+    height: 25px;
+    color: #D76E32;
+    border-radius: 50%;
+    margin-bottom: 20px; 
   }
+  h4 {
+    color: #060809;
+    font-weight: 500;
+    margin-bottom: 12px; 
+  }
+  p {
+    font-size: 16.5px;
+  }
+`;
+
+const ThirdSection = styled(CommonSection)`
+  padding-bottom: 8%;
+  color: ${(props) => props.theme.colors.over_black};
+  background: ${mainGradient};
+  h2,
+  h3 {
+    color: ${(props) => props.theme.colors.foreground};
+    b {
+      color: ${bAccent2};
+    }
+  }
+`;
+
+const Results = styled.div`
+  display: flex;
+  width: 50%;
+  margin: 5% 0;
+  span {
+    background: ${bAccent2};
+    min-width: 28px;
+    width: 28px;
+    line-height: 0;
+    min-height: 28px;
+    height: 28px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    border-radius: 100%;
+    font-weight: 300;
+    color: ${(p) => p.theme.colors.background};
+    margin-top: 2px;
+    padding-bottom:3px;
+  }
+  p {
+    max-width: 630px;
+  }
+`;
+
+const FourthSection = styled(CommonSection)`
+  background-color: #f3f4f5;
+  color: ${(props) => props.theme.colors.over_white};
+  padding: 10% 0;
 `;

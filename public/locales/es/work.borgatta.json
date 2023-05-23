@@ -25,23 +25,18 @@
       "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente.<br/>Y en Borgatta, particularmente en el servicio de maquila de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando.<br/>Este es un proceso sumamente complejo ya que involucra retos como:",
       "lessons": [
         {
-          "title": "1",
           "p": "Una comunicación constante entre doctores y el equipo técnico de Borgatta"
         },
         {
-          "title": "2",
           "p": "Transparencia en el proceso interno para identificar retrasos, errores y los responsables de estos"
         },
         {
-          "title": "3",
           "p": "Identificar y prever errores en los archivos de los pacientes de más de 1,000 doctores que, además, administran múltiples casos al mismo tiempo"
         },
         {
-          "title": "4",
           "p": "Recabar información constantemente de todo el proceso para mejorar"
         },
         {
-          "title": "5",
           "p": "Diferentes métodos y esquemas de cobranza y facturación en 4 países diferentes"
         }
       ]
@@ -51,32 +46,84 @@
       "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
       "aspects": [
         {
-          "p": "Los problemas que amenazan las actuales democracias de Latinoamérica tales como la corrupción, la desconfianza y la mala administración"
+          "title": "Riesgos de negocio",
+          "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de que no fuéramos a proponer algo descabellado o que le pusiera el pie a alguna de estas áreas."
         },
         {
-          "p": "La solución que representa Blockchain para solucionar estos problemas y ofrecer una alternativa más segura, confiable y escalable."
+          "title": "Riesgos de usabilidad",
+          "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar herramientas que los hacen pensar el mínimo, indican naturalmente el siguiente paso y entregan resultados lo más rápido posible."
+        },
+        {
+          "title": "Riesgos de valor",
+          "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
+        },
+        {
+          "title": "Riesgos de viabilidad",
+          "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
         }
       ],
-      "p2": "Esta pieza de contenido, co-creada de la mano e intelecto de Cata y Gonzalo, ayuda a que cualquier interesado en el proyecto pueda tener un panorama completo de la propuesta de valor que ofrece Blockstem.",
-      "subtitle": "Un sitio pensado para clientes pero también para inversionistas",
-      "p3": "El sitio de Blockstem no sólo resuelve los aspectos básicos que un cliente prospecto puede buscar: propuesta de valor, solución, contacto, confianza, etc. sino que también apela a preguntas fundamentales que se hacen inversionistas antes de depositar su capital y confianza en un proyecto, tales como ¿cuál es el mercado de esta compañía?, ¿qué los hace únicos?, ¿cómo sobrevivirán en el futuro?, ¿por qué la oportunidad es ahora?"
+      "quote": {
+        "quote": "Creemos que nuestro mundo es muy complejo de comprender y ustedes entendieron nuestro lenguaje y nuestra visión.<br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
+        "name": "Estefanía Mejía",
+        "label": "directora creativa, Borgatta"
+      }
+    },
+    "third_section": {
+      "title": "<b>Acto III</b><br/>Y los resultados fueron excepcionales",
+      "p": "La plataforma recién terminó su fase beta y en sus primeros meses viva logramos:",
+      "results": [
+        {
+          "title": "+",
+          "digits": "200k",
+          "subtitle": "",
+          "p": "mensajes que antes eran enviados por +15 medios distintos ahora fueron enviados en una plataforma centralizada."
+        },
+        {
+          "title": "",
+          "digits": "4",
+          "subtitle": "países",
+          "p": "están habilitados en el portal. Esta fue adecuada según las necesidades y preferencias operacionales de cada lugar."
+        },
+        {
+          "title": "",
+          "digits": "100%",
+          "subtitle": "",
+          "p": "de precisión al subir archivos de casos, evitando cualquier error o confusión."
+        },
+        {
+          "title": "+",
+          "digits": "2600",
+          "subtitle": "doctores",
+          "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
+        },
+        {
+          "title": "+",
+          "digits": "100",
+          "subtitle": "casos",
+          "p": "han sido administrados por doctores en un mismo lugar."
+        },
+        {
+          "title": "+",
+          "digits": "$300k",
+          "subtitle": "ahorrados",
+          "p": "gracias al tiempo de operación reducido a partir de la implementación de la plataforma."
+        },
+        {
+          "title": "",
+          "digits": "100%",
+          "subtitle": "",
+          "p": "de los casos han sido gestionados con total transparencia de manera interna. Dejando ver en qué parte del proceso se está y quién es el responsable de cada tarea en él."
+        }
+      ],
+      "quote": {
+        "quote": "Con este proyecto dimos un paso que queríamos dar desde hace mucho tiempo pero que nunca lo habíamos conseguido.<br/>Acueducto es una empresa que suma en todas nuestras áreas y que ahora es parte de Borgatta.",
+        "name": "Cindy Borgatta",
+        "label": "CMO, Borgatta"
+      }
     },
     "fourth_section": {
-      "p": "Vale la pena mencionar que al iniciar el proyecto hicimos un análisis del diseño de marca y producto de Blockstem. Este dejó ver que las bases visuales del proyecto necesitaban ser reforzadas, por lo que nos dimos a la tarea de refinar gráficos, tipografías y el look & feel de la experiencia web para dar un sentido mucho más minimalista y elegante a Blockstem.",
-      "body": "cuerpo de texto",
-      "titles": "títulos"
-    },
-    "sixth_section": {
-      "title": "<b>Acto III</b><br/>CMS accesible para equipos sin experiencia en programación",
-      "p": "La edición de los textos y contenidos del sitio son de fácil acceso y tienen efectos inmediatos. No es necesario levantar un ticket con un equipo de programación para hacer modificaciones en él. El equipo de Blockstem puede sencillamente entrar a un editor intuitivo y cambiar títulos, imágenes, textos, agregar artículos a su blog y más; lo que permite un acercamiento ágil a la narrativa que quieren dar con su sitio.",
-      "stat1": "Descargas del Whitepaper en los primeros dos meses",
-      "stat2": "Menciones en coloquios blockchain",
-      "quote": {
-        "quote": "Nuestro sitio es muy profesional y elegante. Esto refleja la seriedad con la que tomamos nuestra misión como empresa, misma que se pulió muchísimo en los talleres de negocio y marca que tuvimos. Ahora podemos comunicar Blockstem como un proyecto que inspira confianza tanto a posibles usuarios de nuestra tecnología así como a inversionistas.",
-        "name": "Catalina Rodríguez",
-        "label": "Cofundadora, Blockstem"
-      },
-      "p2": "No cualquiera tiene el estómago para intentar cambiar problemas tan profundos como los que presenta Latinoamérica en sus democracias. Estamos felices de haber ayudado en el camino de Cata y Gonzalo y le deseamos todo el éxito posible a este proyecto."
+      "title": "<b>Acto III</b><br/>Ahora es momento de voltear, una vez más, hacia el horizonte",
+      "p": "Gracias a este tipo de iniciativas y ambición Borgatta es uno de los líderes en una industria tan competida como lo es la de manufactura de equipo dental. Y ahora que dieron vida a una plataforma con tantas funcionalidades que ayudan tanto a sus clientes como a su equipo de operación; Cindy y su equipo siguen haciendo lo mismo que los trajo hasta este punto: buscar incesantemente como mejorar y ser más competitivos."
     },
     "seventh_section": {
       "linkp": "visita"
