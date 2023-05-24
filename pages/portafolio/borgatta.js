@@ -12,6 +12,8 @@ import { H2, H3, P } from "components/shared/Dangerously";
 import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
 import Quote from "components/caseStudy/shared/Quote";
 import Picture from "components/caseStudy/shared/Picture";
+import NextStudy from "components/caseStudy/shared/NextStudy";
+import ContactFooter from "components/shared/footers/ContactFooter";
 
 const bAccent2 = "rgba(255, 255, 255, 0.7)";
 const mainGradient =
@@ -67,12 +69,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           </LessonContainer>
         </FirstTextColumn>
         <Picture
-            src="/assets/img/casestudies/borgatta/page.png"
-            alt="Page"
-            width={992.57}
-            height={600}
-            withWrapper
-          />
+          src="/assets/img/casestudies/borgatta/page.png"
+          alt="Page"
+          width={992.57}
+          height={600}
+          withWrapper
+        />
       </FirstSection>
       <SecondSection>
         <FirstTextColumn>
@@ -88,6 +90,13 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               </Aspect>
             ))}
           </AspectContainer>
+          <Picture
+            src="/assets/img/casestudies/borgatta/cases.png"
+            alt="Page"
+            width={700}
+            height={517.71}
+            withWrapper
+          />
           <Quote quote={t.second_section.quote} color={"#1F2A2D"} />
       </SecondSection>
       <ThirdSection>
@@ -95,15 +104,18 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.third_section.title}</H2>
           <P>{t.third_section.p}</P>
         </TextColumn>
+        <ResultContainer>
           {t.third_section.results.map((result, i) => (
             <Results key={`result${i}`}>
-              <span>{i + 1}</span>
-              <p>{result.title}</p>
-              <p>{result.digits}</p>
-              <p>{result.subtitle}</p>
-              <p>{result.p}</p>
+              <div>
+                <H2>{result.title}</H2>
+                <h1>{result.digits}</h1>
+                <H3>{result.subtitle}</H3>
+              </div>
+              <P>{result.p}</P>
             </Results>
           ))}
+        </ResultContainer>
         <Quote quote={t.third_section.quote} color={"#1F2A2D"} />
       </ThirdSection>
       <FourthSection>
@@ -112,6 +124,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <P>{t.fourth_section.p}</P>
         </TextColumn>
       </FourthSection>
+      <NextStudy link="blockstem" />
+      <ContactFooter />
     </PageClipperBorgatta>
   );
 };
@@ -138,14 +152,15 @@ const PageClipperBorgatta = styled(PageClipper)`
 const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-image: url("/assets/img/casestudies/borgatta/main-bg.svg");
-  background-position: left center;
-  background-size: auto 75%;
+  background-position: left bottom;
+  background-size: auto 72%;
   background-repeat: no-repeat;
   align-items: flex-end;
   & > div {
-    max-width: 400px;
-    width: 70%;
-    margin-right: 10%;
+    max-width: 684px;
+    width: 100%;
+    margin-right: 26%;
+    margin-bottom: 15%;
   }
   svg {
     width: 100%;
@@ -153,22 +168,21 @@ const LandSection = styled(CommonSection)`
 `;
 
 const FirstSection = styled(CommonSection)`
-  color: ${(props) => props.theme.colors.foreground};
-  padding-bottom: 15.8%;
-  font-size: 45px;
+  color: #FFFFFF;
+  padding-bottom: 10.7%;
   h2 {
+    font-weight: 500;
     font-size: 65.8px;
-    padding: 15% 0 0 0;
-    color: ${(props) => props.theme.colors.foreground};
     b {
-      color: ${bAccent2};
+      color: rgba(255, 255, 255, 0.7);
       font-weight: 400;
+      font-size: 45px;
     }
   }
   h3 {
     font-size: 37.8px;
     font-weight: 500;
-    padding: 1% 0 5% 0;
+    padding: 4px 0px 26px 0px;
     line-height: 131%;
     margin: 0;
     max-width: 700px;
@@ -188,6 +202,7 @@ const FirstTextColumn = styled.div`
 
 const LessonContainer = styled.div`
   margin-top: 10%;
+  margin-bottom: 13.8%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(159px, 181px);
@@ -197,11 +212,24 @@ const LessonContainer = styled.div`
 const SecondSection = styled(CommonSection)`
   background-color: #FBFBFD;
   color: #626262;
-  padding-bottom: 8%;
-  padding-top: 3%;
+  padding-bottom: 11.11%;
+  padding-top: 11.11%;
 
   h2 {
     color: #D76E32;
+    font-weight: 500;
+    font-size: 65.8px;
+    line-height: 105%;
+    padding: 4px 0px 26px 0px;
+    b {
+      color: rgba(215, 110, 50, 0.7);
+      font-weight: 400;
+      font-size: 45px;
+    }
+  }
+  p {
+    font-size: 18px;
+    line-height: 131%;
   }
 `;
 
@@ -244,11 +272,9 @@ const Lesson = styled.div`
 `;
 
 const AspectContainer = styled.div`
-  margin-top: 10%;
-  margin: 0 232px;
+  margin: 6.7% 15.53%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(261px);
   gap: 48px;
 `;
 
@@ -256,12 +282,10 @@ const Aspect = styled.div`
   display: flex;
   flex-direction: column;
   width: 464px;
-  margin: 5% 0;
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1), 0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
   line-height: 131%;
-  font-weight: 400;
 
   span {
     display: flex;
@@ -287,46 +311,88 @@ const Aspect = styled.div`
 `;
 
 const ThirdSection = styled(CommonSection)`
-  padding-bottom: 8%;
-  color: ${(props) => props.theme.colors.over_black};
+  padding-bottom: 3.48%;
+  padding-top: 3.48%;
+  color: #FFFFFF;
   background: ${mainGradient};
-  h2,
-  h3 {
-    color: ${(props) => props.theme.colors.foreground};
+  h2 {
+    color: #F3F4F5;
+    font-weight: 500;
+    font-size: 65.8px;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
     b {
-      color: ${bAccent2};
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+      font-size: 45px;
     }
   }
+  p {
+    font-size: 18px;
+    line-height: 131%;
+  }
+`;
+
+const ResultContainer = styled.div`
+  margin: 100px 220px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
 `;
 
 const Results = styled.div`
   display: flex;
-  width: 50%;
-  margin: 5% 0;
-  span {
-    background: ${bAccent2};
-    min-width: 28px;
-    width: 28px;
-    line-height: 0;
-    min-height: 28px;
-    height: 28px;
+  flex-direction: column;
+  width: 488px;
+  padding: 0px 40px 40px 40px;
+  background: rgba(255, 255, 255, 0.07);
+  box-shadow: 0px 2px 9px rgba(11, 82, 112, 0.06);
+  border-radius: 32px;
+
+  div {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 15px;
-    border-radius: 100%;
-    font-weight: 300;
-    color: ${(p) => p.theme.colors.background};
-    margin-top: 2px;
-    padding-bottom:3px;
+    align-items: baseline;
+  }
+  h1 {
+    font-size: 80px;
+  }
+  h2 {
+    font-size: 34px;
+    padding: 0px;
+  }
+  h3 {
+    font-size: 48px;
   }
   p {
-    max-width: 630px;
+    font-size: 18px;
+    line-height: 131%;
+  }
+  &:nth-child(4), &:nth-child(6) {
+    div {
+      background-color: blue;
+    }
   }
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #f3f4f5;
-  color: ${(props) => props.theme.colors.over_white};
+  background-color: #F4F4F4;
+  color: #626262;
   padding: 10% 0;
+
+  h2 {
+    color: #D76E32;
+    font-weight: 500;
+    font-size: 65.8px;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
+    b {
+      color: rgba(215, 110, 50, 0.7);
+      font-weight: 400;
+      font-size: 45px;
+    }
+  }
+  p {
+    font-size: 18px;
+    line-height: 131%;
+  }
 `;
