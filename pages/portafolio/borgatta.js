@@ -10,7 +10,7 @@ import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
 import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
-import Quote from "components/caseStudy/shared/Quote";
+import Quote from "components/caseStudy/shared/Quote2";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
@@ -97,7 +97,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             height={517.71}
             withWrapper
           />
-          <Quote quote={t.second_section.quote} color={"#1F2A2D"} />
+          <Quote quote={t.second_section.quote} color={"#4F4F4F"} authorColor={"#060809"}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -116,7 +116,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             </Results>
           ))}
         </ResultContainer>
-        <Quote quote={t.third_section.quote} color={"#1F2A2D"} />
+        <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
         <TextColumn>
@@ -147,6 +147,9 @@ export const getStaticProps = async (context) => {
 const PageClipperBorgatta = styled(PageClipper)`
   background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
+  @media (max-width: 890px) {
+    padding-top: 0px;
+  }
 `;
 
 const LandSection = styled(CommonSection)`
@@ -155,15 +158,35 @@ const LandSection = styled(CommonSection)`
   background-position: left bottom;
   background-size: auto 72%;
   background-repeat: no-repeat;
-  align-items: flex-end;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
   & > div {
     max-width: 684px;
-    width: 100%;
-    margin-right: 26%;
-    margin-bottom: 15%;
+    width: 72%;
+    margin-top: 10%;
   }
   svg {
     width: 100%;
+  }
+  @media (max-width: 890px) {
+    justify-content: center;
+    background-size: auto 52%;
+    svg {
+      overflow: visible;
+    }
+    & > div {
+      max-width: 423px;
+      margin: 0% 0% 25% 0%;
+    }
+  }
+  @media (max-width: 730px) {
+    align-items: center;
+    background-position: center center;
+    & > div {
+      max-width: 300px;
+      margin-right: 0;
+    }
   }
 `;
 
@@ -198,6 +221,10 @@ const FirstSection = styled(CommonSection)`
 
 const FirstTextColumn = styled.div`
   margin: 0 25.69%;
+  p {
+    font-size: 18px;
+    line-height: 131%;
+  }
 `;
 
 const LessonContainer = styled.div`
@@ -226,10 +253,6 @@ const SecondSection = styled(CommonSection)`
       font-weight: 400;
       font-size: 45px;
     }
-  }
-  p {
-    font-size: 18px;
-    line-height: 131%;
   }
 `;
 
@@ -276,6 +299,10 @@ const AspectContainer = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 48px;
+  p {
+    font-size: 18px;
+    line-height: 131%;
+  }
 `;
 
 const Aspect = styled.div`
