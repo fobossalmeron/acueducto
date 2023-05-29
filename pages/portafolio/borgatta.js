@@ -9,7 +9,7 @@ import CommonSection from "components/caseStudy/shared/CommonSection";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
-import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
+//import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
 import Quote from "components/caseStudy/shared/Quote2";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -46,7 +46,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       <Fade triggerOnce>
         <LandSection>
           <Fade delay={300} triggerOnce>
-            <LogoBorgatta/>
+            {/* <LogoBorgatta/> */}
+            <Logo/>
           </Fade>
         </LandSection>
       </Fade>
@@ -71,8 +72,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <Picture
           src="/assets/img/casestudies/borgatta/page.png"
           alt="Page"
-          width={992.57}
-          height={600}
+          width={982.09}
+          height={580}
           withWrapper
         />
       </FirstSection>
@@ -152,24 +153,36 @@ const PageClipperBorgatta = styled(PageClipper)`
   }
 `;
 
+const Logo = styled.div`
+  min-height: 94px;
+  height: 100%;
+  max-width: 684px;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/img/casestudies/borgatta/brand-md.svg");
+
+  @media (max-width: 630px) {
+    min-height: 116px;
+    background-image: url("/assets/img/casestudies/borgatta/brand-sm.svg");
+  }
+`;
+
 const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-image: url("/assets/img/casestudies/borgatta/main-bg.svg");
   background-position: left bottom;
-  background-size: auto 72%;
+  background-size: auto 55%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
   align-items: center;
+
   & > div {
     max-width: 684px;
     width: 72%;
-    margin-top: 10%;
+    margin-top: 19%;
   }
-  svg {
-    width: 100%;
-  }
-  @media (max-width: 890px) {
+  @media (max-width: 1000px) {
     justify-content: center;
     background-size: auto 52%;
     svg {
@@ -177,15 +190,17 @@ const LandSection = styled(CommonSection)`
     }
     & > div {
       max-width: 423px;
-      margin: 0% 0% 25% 0%;
+      margin: 0% 0% 13% 0%;
     }
   }
-  @media (max-width: 730px) {
+  @media (max-width: 630px) {
+    justify-content: center;
     align-items: center;
-    background-position: center center;
+    background-image: url("/assets/img/casestudies/borgatta/main-sm.svg");
+    background-size: 100%;
     & > div {
-      max-width: 300px;
-      margin-right: 0;
+      max-width: 189.41px;
+      margin: 0% 0% 60% 0%;
     }
   }
 `;
