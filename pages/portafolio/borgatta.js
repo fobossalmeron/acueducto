@@ -176,21 +176,18 @@ const LandSection = styled(CommonSection)`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
   & > div {
     max-width: 684px;
     width: 72%;
-    margin-top: 19%;
+    margin-top: 18%;
   }
   @media (max-width: 1000px) {
     justify-content: center;
-    background-size: auto 52%;
-    svg {
-      overflow: visible;
-    }
+    bottom: 13%;
+    background-size: auto 53%;
     & > div {
       max-width: 423px;
-      margin: 0% 0% 13% 0%;
+      margin: 0% 0% 10% 0%;
     }
   }
   @media (max-width: 630px) {
@@ -411,7 +408,6 @@ const Results = styled.div`
   }
   &:nth-child(4), &:nth-child(6) {
     div {
-      background-color: blue;
     }
   }
 `;
