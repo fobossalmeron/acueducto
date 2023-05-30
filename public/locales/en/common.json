@@ -19,6 +19,12 @@
   "lang": "en",
   "casestudies": [
     {
+      "title": "borgatta",
+      "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy<br/>",
+      "link": "borgatta",
+      "bg_format": "png"
+    },
+    {
       "title": "how to educate your customers and investors to become a leader in your industry",
       "tags": "Strategy<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
       "link": "blockstem",

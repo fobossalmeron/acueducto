@@ -350,8 +350,9 @@ const Aspect = styled.div`
 `;
 
 const ThirdSection = styled(CommonSection)`
+  height: auto;
   padding-bottom: 3.48%;
-  padding-top: 3.48%;
+  padding-top: 10%;
   color: #FFFFFF;
   background: ${mainGradient};
   h2 {
@@ -369,7 +370,7 @@ const ThirdSection = styled(CommonSection)`
 `;
 
 const ResultContainer = styled.div`
-  margin: 100px 220px;
+  margin: 100px 220px 0px 220px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
@@ -432,15 +433,10 @@ const FourthSection = styled(CommonSection)`
     font-size: 18px;
     line-height: 131%;
   }
-  svg{
-    padding-top: 5%;
-    width: 100%;
-  }
 `;
 
 const Screens = styled.div`
-  min-height: 100vh;
-  height: 100%;
+  min-height: 10%;
   min-width: 100%;
   background-size: 100%;
   background-repeat: no-repeat;
