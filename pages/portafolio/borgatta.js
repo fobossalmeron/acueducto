@@ -37,12 +37,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperBorgatta>
-      <Head
+      {/* <Head
         {...t?.head}
         image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/borgatta"}
-        // en_canonical={"https://acueducto.studio/en/work/borgatta"}
-      />
+        en_canonical={"https://acueducto.studio/en/work/borgatta"}
+      /> */}
       <Fade triggerOnce>
         <LandSection>
           <Fade delay={300} triggerOnce>
