@@ -15,7 +15,6 @@ import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 
-const bAccent2 = "rgba(255, 255, 255, 0.7)";
 const mainGradient =
   "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);";
 
@@ -37,16 +36,15 @@ const Borgatta = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperBorgatta>
-      {/* <Head
-        {...t?.head}
-        image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
+      <Head
+        // {...t?.head}
+        // image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/borgatta"}
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
-      /> */}
+      />
       <Fade triggerOnce>
         <LandSection>
           <Fade delay={300} triggerOnce>
-            {/* <LogoBorgatta/> */}
             <Logo/>
           </Fade>
         </LandSection>
@@ -57,16 +55,16 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <IntroVideo link={t.link} />
         </EditVideo> */}
         <FirstTextColumn>
-          <H2>{t?.intro_section.title}</H2>
+          {/* <H2>{t?.intro_section.title}</H2>
           <H3>{t?.intro_section.subtitle}</H3>
-          <P>{t?.intro_section.p}</P>
+          <P>{t?.intro_section.p}</P> */}
           <LessonContainer>
-            {t?.intro_section.lessons.map((lesson, i) => (
+            {/* {t?.intro_section.lessons.map((lesson, i) => (
               <Lesson key={`lessn${i}`}>
                 <span>{i + 1}</span>
                 <p>{lesson.p}</p>
               </Lesson>
-            ))}
+            ))} */}
           </LessonContainer>
         </FirstTextColumn>
         <Picture
@@ -79,17 +77,17 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </FirstSection>
       <SecondSection>
         <FirstTextColumn>
-          <H2>{t?.second_section.title}</H2>
-          <P>{t.second_section.p}</P>
+          {/* <H2>{t?.second_section.title}</H2>
+          <P>{t.second_section.p}</P> */}
         </FirstTextColumn>
           <AspectContainer>
-            {t.second_section.aspects.map((aspect, i) => (
+            {/* {t.second_section.aspects.map((aspect, i) => (
               <Aspect key={`aspect${i}`}>
                 <span>{i + 1}</span>
                 <h4>{aspect.title}</h4>
                 <p>{aspect.p}</p>
               </Aspect>
-            ))}
+            ))} */}
           </AspectContainer>
           <Picture
             src="/assets/img/casestudies/borgatta/cases.png"
@@ -98,15 +96,15 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             height={517.71}
             withWrapper
           />
-          <Quote quote={t.second_section.quote} color={"#4F4F4F"} authorColor={"#060809"}/>
+          {/* <Quote quote={t.second_section.quote} color={"#4F4F4F"} authorColor={"#060809"}/> */}
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
-          <P>{t.third_section.p}</P>
+          {/* <H2>{t.third_section.title}</H2>
+          <P>{t.third_section.p}</P> */}
         </TextColumn>
         <ResultContainer>
-          {t.third_section.results.map((result, i) => (
+          {/* {t.third_section.results.map((result, i) => (
             <Results key={`result${i}`}>
               <div>
                 <H2>{result.title}</H2>
@@ -115,9 +113,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               </div>
               <P>{result.p}</P>
             </Results>
-          ))}
+          ))} */}
         </ResultContainer>
-        <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
+        {/* <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/> */}
       </ThirdSection>
       <FourthSection>
         <TextColumn>
