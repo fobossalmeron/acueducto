@@ -28,6 +28,11 @@ function LanguageToggler({ hasLoaded, locale }) {
     // console.log(router.asPath + " " + router.locale);
     if (locale == "en") {
       switch (router.asPath) {
+        case "/work/borgatta":
+          Router.push("/portafolio/borgatta", "/portafolio/borgatta", {
+            locale: "es",
+          });
+          break;
         case "/work/blockstem":
           Router.push("/portafolio/blockstem", "/portafolio/blockstem", {
             locale: "es",
@@ -78,6 +83,11 @@ function LanguageToggler({ hasLoaded, locale }) {
       }
     } else {
       switch (router.asPath) {
+        case "/portafolio/borgatta":
+          Router.push("/portafolio/borgatta", "/work/borgatta", {
+            locale: "en",
+          });
+          break;
         case "/portafolio/blockstem":
           Router.push("/portafolio/blockstem", "/work/blockstem", {
             locale: "en",
