@@ -9,11 +9,11 @@ import CommonSection from "components/caseStudy/shared/CommonSection";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
-//import LogoBorgatta from "public/assets/img/casestudies/borgatta/logoBorgatta.svg";
 import Quote from "components/caseStudy/shared/Quote2";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
+import Components from "public/assets/img/casestudies/borgatta/components.svg";
 
 const mainGradient =
   "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);";
@@ -37,8 +37,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   return (
     <PageClipperBorgatta>
       <Head
-        // {...t?.head}
-        // image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
+        {...t?.head}
+        image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/borgatta"}
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
@@ -55,16 +55,16 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <IntroVideo link={t.link} />
         </EditVideo> */}
         <FirstTextColumn>
-          {/* <H2>{t?.intro_section.title}</H2>
+          <H2>{t?.intro_section.title}</H2>
           <H3>{t?.intro_section.subtitle}</H3>
-          <P>{t?.intro_section.p}</P> */}
+          <P>{t?.intro_section.p}</P>
           <LessonContainer>
-            {/* {t?.intro_section.lessons.map((lesson, i) => (
+            {t?.intro_section.lessons.map((lesson, i) => (
               <Lesson key={`lessn${i}`}>
                 <span>{i + 1}</span>
                 <p>{lesson.p}</p>
               </Lesson>
-            ))} */}
+            ))}
           </LessonContainer>
         </FirstTextColumn>
         <Picture
@@ -77,17 +77,17 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </FirstSection>
       <SecondSection>
         <FirstTextColumn>
-          {/* <H2>{t?.second_section.title}</H2>
-          <P>{t.second_section.p}</P> */}
+          <H2>{t?.second_section.title}</H2>
+          <P>{t.second_section.p}</P>
         </FirstTextColumn>
           <AspectContainer>
-            {/* {t.second_section.aspects.map((aspect, i) => (
+            {t.second_section.aspects.map((aspect, i) => (
               <Aspect key={`aspect${i}`}>
                 <span>{i + 1}</span>
                 <h4>{aspect.title}</h4>
                 <p>{aspect.p}</p>
               </Aspect>
-            ))} */}
+            ))}
           </AspectContainer>
           <Picture
             src="/assets/img/casestudies/borgatta/cases.png"
@@ -96,15 +96,15 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             height={517.71}
             withWrapper
           />
-          {/* <Quote quote={t.second_section.quote} color={"#4F4F4F"} authorColor={"#060809"}/> */}
+          <Quote quote={t.second_section.quote} authorColor={"#060809"} color={"#4F4F4F"}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          {/* <H2>{t.third_section.title}</H2>
-          <P>{t.third_section.p}</P> */}
+          <H2>{t.third_section.title}</H2>
+          <P>{t.third_section.p}</P>
         </TextColumn>
         <ResultContainer>
-          {/* {t.third_section.results.map((result, i) => (
+          {t.third_section.results.map((result, i) => (
             <Results key={`result${i}`}>
               <div>
                 <H2>{result.title}</H2>
@@ -113,15 +113,17 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               </div>
               <P>{result.p}</P>
             </Results>
-          ))} */}
+          ))}
         </ResultContainer>
-        {/* <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/> */}
+        <Screens />
+        <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
         <TextColumn>
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
+        <Components />
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />
@@ -169,7 +171,7 @@ const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-image: url("/assets/img/casestudies/borgatta/main-bg.svg");
   background-position: left bottom;
-  background-size: auto 55%;
+  background-size: auto 72%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
@@ -177,7 +179,7 @@ const LandSection = styled(CommonSection)`
   & > div {
     max-width: 684px;
     width: 72%;
-    margin-top: 18%;
+    margin-top: 13%;
   }
   @media (max-width: 1000px) {
     justify-content: center;
@@ -364,10 +366,6 @@ const ThirdSection = styled(CommonSection)`
       font-size: 45px;
     }
   }
-  p {
-    font-size: 18px;
-    line-height: 131%;
-  }
 `;
 
 const ResultContainer = styled.div`
@@ -406,6 +404,9 @@ const Results = styled.div`
   }
   &:nth-child(4), &:nth-child(6) {
     div {
+      display: grid;
+      grid-template-columns: 30px auto;
+      grid-template-rows: 45%;
     }
   }
 `;
@@ -413,7 +414,7 @@ const Results = styled.div`
 const FourthSection = styled(CommonSection)`
   background-color: #F4F4F4;
   color: #626262;
-  padding: 10% 0;
+  padding-top: 10%;
 
   h2 {
     color: #D76E32;
@@ -431,4 +432,17 @@ const FourthSection = styled(CommonSection)`
     font-size: 18px;
     line-height: 131%;
   }
+  svg{
+    padding-top: 5%;
+    width: 100%;
+  }
+`;
+
+const Screens = styled.div`
+  min-height: 100vh;
+  height: 100%;
+  min-width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage.png");
 `;

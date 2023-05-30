@@ -22,7 +22,7 @@ const Quote = ({
           <Mark />
         </QuoteMark>
         <Blockquote>{quote.quote}</Blockquote>
-        <Author>– {quote.name}</Author>
+        <Author passedAuthorColor={color}>– {quote.name}</Author>
         {quote.label ? <Label>{quote.label}</Label> : null}
       </QuoteLimiter>
     </Fade>
