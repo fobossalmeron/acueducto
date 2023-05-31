@@ -15,6 +15,7 @@ import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import Components from "public/assets/img/casestudies/borgatta/components.svg";
 
+const white = "#FFFFFF";
 const mainGradient =
   "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);";
 
@@ -148,14 +149,13 @@ export const getStaticProps = async (context) => {
 const PageClipperBorgatta = styled(PageClipper)`
   background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
-  @media (max-width: 890px) {
-    padding-top: 0px;
+  @media (max-width: 630px) {
+    padding: 0px;
   }
 `;
 
 const Logo = styled.div`
   min-height: 94px;
-  height: 100%;
   max-width: 684px;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -169,32 +169,34 @@ const Logo = styled.div`
 
 const LandSection = styled(CommonSection)`
   min-height: 100vh;
+  width: 100%;
   background-image: url("/assets/img/casestudies/borgatta/main-bg.svg");
   background-position: left bottom;
-  background-size: auto 72%;
+  background-size: 100%;
   background-repeat: no-repeat;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   & > div {
     max-width: 684px;
-    width: 72%;
-    margin-top: 13%;
+    width: 100%;
+    margin-top: 15%;
   }
   @media (max-width: 1000px) {
     justify-content: center;
     bottom: 13%;
-    background-size: auto 53%;
     & > div {
       max-width: 423px;
       margin: 0% 0% 10% 0%;
     }
   }
+  @media (max-width: 850px) {
+    & > div {
+      max-width: 300px;
+    }
+  }
   @media (max-width: 630px) {
-    justify-content: center;
-    align-items: center;
     background-image: url("/assets/img/casestudies/borgatta/main-sm.svg");
-    background-size: 100%;
     & > div {
       max-width: 189.41px;
       margin: 0% 0% 60% 0%;
@@ -203,31 +205,45 @@ const LandSection = styled(CommonSection)`
 `;
 
 const FirstSection = styled(CommonSection)`
-  color: #FFFFFF;
+  color: ${white};
   padding-bottom: 10.7%;
-  h2 {
+  h2, h3 {
     font-weight: 500;
+  }
+  h2 {
     font-size: 65.8px;
     b {
-      color: rgba(255, 255, 255, 0.7);
+      opacity: 0.7;
       font-weight: 400;
       font-size: 45px;
     }
   }
   h3 {
     font-size: 37.8px;
-    font-weight: 500;
-    padding: 4px 0px 26px 0px;
+    padding-bottom: 26px;
     line-height: 131%;
-    margin: 0;
-    max-width: 700px;
   }
-  ul li,
-  p {
-    font-size: 18px;
-    color: #FFFFFF;
-    line-height: 131%;
-    max-width: 700px;
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 52px;
+      b {
+        font-size: 32px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 33px;
+      b {
+        font-size: 20px;
+      }
+    }
+    h3 {
+      font-size: 19px;
+    }
   }
 `;
 
@@ -237,15 +253,77 @@ const FirstTextColumn = styled.div`
     font-size: 18px;
     line-height: 131%;
   }
+  @media (max-width: 630px) {
+    margin: 0 10.13%;
+    max-width: 299px;
+    p {
+      font-size: 15px;
+    }
+  }
 `;
 
 const LessonContainer = styled.div`
+  width: 700px;
   margin-top: 10%;
   margin-bottom: 13.8%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: minmax(159px, 181px);
   gap: 32px;
+
+  @media (max-width: 630px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+`;
+
+const Lesson = styled.div`
+  background: rgba(255, 255, 255, 0.06);
+  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
+  border-radius: 24px;
+  font-size: 16.5px;
+  
+  &:nth-child(1), &:nth-child(5) {
+    width: 320px;
+  }
+  &:nth-child(2) {
+    width: 348px;
+  }
+  &:nth-child(3) {
+    width: 394px;
+  }
+  &:nth-child(4) {
+    width: 326px;
+  }
+  p {
+    margin: 20px 24px 24px 24px;
+  }
+  span {
+    display: flex;
+    justify-content: center;
+    font-size: 13.67px;
+    position: relative;
+    border: 2px solid #FFFFFF;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin: 24px;
+  }
+
+  @media (max-width: 630px) {
+    width: 100%;
+    &:nth-child(1), &:nth-child(2), &:nth-child(5) {
+      width: 100%;
+    }
+    p {
+      margin: 20px;
+      font-size: 15px;
+    }
+    span {
+      margin: 20px 20px 16px 20px;
+    }
+  }
 `;
 
 const SecondSection = styled(CommonSection)`
@@ -265,44 +343,6 @@ const SecondSection = styled(CommonSection)`
       font-weight: 400;
       font-size: 45px;
     }
-  }
-`;
-
-const Lesson = styled.div`
-  background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
-  border-radius: 24px;
-  
-  &:nth-child(1) {
-    width: 320px;
-  }
-  &:nth-child(2) {
-    width: 348px;
-  }
-  &:nth-child(5) {
-  }
-  &:nth-of-type(2) {
-    span {
-      &::before,
-      &::after {
-        background: linear-gradient(92.93deg, #1e6a5a -6.6%, #4da38b 150.71%);
-      }
-    }
-  }
-  p {
-    margin: 20px 24px 24px 24px;
-    font-size: 16.5px;
-  }
-  span {
-    display: flex;
-    justify-content: center;
-    font-size: 13.67px;
-    position: relative;
-    border: 2px solid #FFFFFF;
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    margin: 24px;
   }
 `;
 
