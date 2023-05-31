@@ -59,6 +59,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t?.intro_section.title}</H2>
           <H3>{t?.intro_section.subtitle}</H3>
           <P>{t?.intro_section.p}</P>
+        </FirstTextColumn>
           <LessonContainer>
             {t?.intro_section.lessons.map((lesson, i) => (
               <Lesson key={`lessn${i}`}>
@@ -67,7 +68,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               </Lesson>
             ))}
           </LessonContainer>
-        </FirstTextColumn>
         <Picture
           src="/assets/img/casestudies/borgatta/page.png"
           alt="Page"
@@ -77,27 +77,27 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         />
       </FirstSection>
       <SecondSection>
-        <FirstTextColumn>
+        <SecondTextColumn>
           <H2>{t?.second_section.title}</H2>
           <P>{t.second_section.p}</P>
-        </FirstTextColumn>
-          <AspectContainer>
-            {t.second_section.aspects.map((aspect, i) => (
-              <Aspect key={`aspect${i}`}>
-                <span>{i + 1}</span>
-                <h4>{aspect.title}</h4>
-                <p>{aspect.p}</p>
-              </Aspect>
-            ))}
-          </AspectContainer>
-          <Picture
-            src="/assets/img/casestudies/borgatta/cases.png"
-            alt="Page"
-            width={700}
-            height={517.71}
-            withWrapper
-          />
-          <Quote quote={t.second_section.quote} authorColor={"#060809"} color={"#4F4F4F"}/>
+        </SecondTextColumn>
+        <AspectContainer>
+          {t.second_section.aspects.map((aspect, i) => (
+            <Aspect key={`aspect${i}`}>
+              <span>{i + 1}</span>
+              <h4>{aspect.title}</h4>
+              <p>{aspect.p}</p>
+            </Aspect>
+          ))}
+        </AspectContainer>
+        <Picture
+          src="/assets/img/casestudies/borgatta/cases.png"
+          alt="Page"
+          width={700}
+          height={517.71}
+          withWrapper
+        />
+        <Quote quote={t.second_section.quote} authorColor={"#060809"} color={"#4F4F4F"}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -120,10 +120,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
-        <TextColumn>
+        <FourthTextColumn>
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
-        </TextColumn>
+        </FourthTextColumn>
         <Components />
       </FourthSection>
       <NextStudy link="blockstem" />
@@ -212,6 +212,7 @@ const FirstSection = styled(CommonSection)`
   }
   h2 {
     font-size: 65.8px;
+    padding-bottom: 4px;
     b {
       opacity: 0.7;
       font-weight: 400;
@@ -219,8 +220,8 @@ const FirstSection = styled(CommonSection)`
     }
   }
   h3 {
+    padding: 0px;
     font-size: 37.8px;
-    padding-bottom: 26px;
     line-height: 131%;
   }
   @media (max-width: 1000px) {
@@ -233,6 +234,9 @@ const FirstSection = styled(CommonSection)`
     h3 {
       font-size: 30px;
     }
+    .image {
+      padding: 0px 30px;
+    }
   }
   @media (max-width: 630px) {
     h2 {
@@ -244,31 +248,22 @@ const FirstSection = styled(CommonSection)`
     h3 {
       font-size: 19px;
     }
-  }
-`;
-
-const FirstTextColumn = styled.div`
-  margin: 0 25.69%;
-  p {
-    font-size: 18px;
-    line-height: 131%;
-  }
-  @media (max-width: 630px) {
-    margin: 0 10.13%;
-    max-width: 299px;
-    p {
-      font-size: 15px;
+    .image {
+      padding: 0px 10px;
     }
   }
 `;
+const FirstTextColumn = styled(TextColumn)`
+  max-width: 700px;
+`;
 
 const LessonContainer = styled.div`
-  width: 700px;
-  margin-top: 10%;
-  margin-bottom: 13.8%;
+  padding: 0 5%;
+  margin-top: 4.5%;
+  margin-bottom: 7.2%;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: minmax(159px, 181px);
+  grid-template-columns: auto auto;
+  grid-template-rows: 159px 181px 159px;
   gap: 32px;
 
   @media (max-width: 630px) {
@@ -282,7 +277,6 @@ const Lesson = styled.div`
   background: rgba(255, 255, 255, 0.06);
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
   border-radius: 24px;
-  font-size: 16.5px;
   
   &:nth-child(1), &:nth-child(5) {
     width: 320px;
@@ -294,9 +288,10 @@ const Lesson = styled.div`
     width: 394px;
   }
   &:nth-child(4) {
-    width: 326px;
+    width: 274px;
   }
   p {
+    font-size: 16.5px;
     margin: 20px 24px 24px 24px;
   }
   span {
@@ -312,9 +307,8 @@ const Lesson = styled.div`
   }
 
   @media (max-width: 630px) {
-    width: 100%;
-    &:nth-child(1), &:nth-child(2), &:nth-child(5) {
-      width: 100%;
+    &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+      width: 299px;
     }
     p {
       margin: 20px;
@@ -344,23 +338,64 @@ const SecondSection = styled(CommonSection)`
       font-size: 45px;
     }
   }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 52px;
+      b {
+        font-size: 32px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 33px;
+      b {
+        font-size: 20px;
+      }
+    }
+    h3 {
+      font-size: 19px;
+    }
+    .image {
+      padding: 0px 10px;
+    }
+  }
+`;
+
+const SecondTextColumn = styled(TextColumn)`
+  @media (max-width: 630px) {
+    padding: 0 6%;
+  }
 `;
 
 const AspectContainer = styled.div`
   margin: 6.7% 15.53%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 305px 283px;
   gap: 48px;
   p {
     font-size: 18px;
     line-height: 131%;
+  }
+  @media (max-width: 1000px) {
+    margin: 6.7% 3.5%;
+  }
+  @media (max-width: 630px) {
+    margin: 6.7% 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 `;
 
 const Aspect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 464px;
+  width: 100%;
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1), 0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
@@ -387,11 +422,15 @@ const Aspect = styled.div`
   p {
     font-size: 16.5px;
   }
+  @media (max-width: 630px) {
+    p {
+      font-size: 15px;
+    }
+  }
 `;
 
 const ThirdSection = styled(CommonSection)`
-  height: auto;
-  padding-bottom: 3.48%;
+  padding-bottom: 10%;
   padding-top: 10%;
   color: #FFFFFF;
   background: ${mainGradient};
@@ -410,16 +449,17 @@ const ThirdSection = styled(CommonSection)`
 `;
 
 const ResultContainer = styled.div`
-  margin: 100px 220px 0px 220px;
+  width: 1000px;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
+  padding: 0 5%;
 `;
 
 const Results = styled.div`
   display: flex;
   flex-direction: column;
-  width: 488px;
+  width: 100%;
   padding: 0px 40px 40px 40px;
   background: rgba(255, 255, 255, 0.07);
   box-shadow: 0px 2px 9px rgba(11, 82, 112, 0.06);
@@ -452,6 +492,14 @@ const Results = styled.div`
   }
 `;
 
+const Screens = styled.div`
+  min-height: 100%;
+  width: 100%;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage.png");
+`;
+
 const FourthSection = styled(CommonSection)`
   background-color: #F4F4F4;
   color: #626262;
@@ -473,12 +521,41 @@ const FourthSection = styled(CommonSection)`
     font-size: 18px;
     line-height: 131%;
   }
+  svg {
+    height: 100%;
+    width: 100%;
+    margin: 7% 0%;
+    padding: 0% 1%;
+  }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 52px;
+      b {
+        font-size: 32px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 33px;
+      b {
+        font-size: 20px;
+      }
+    }
+    h3 {
+      font-size: 19px;
+    }
+    p {
+      font-size: 15px;
+    }
+  }
 `;
 
-const Screens = styled.div`
-  min-height: 10%;
-  min-width: 100%;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage.png");
+const FourthTextColumn = styled(TextColumn)`
+  @media (max-width: 630px) {
+    padding: 0 6%;
+  }
 `;

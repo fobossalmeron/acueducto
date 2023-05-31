@@ -22,7 +22,7 @@ const Quote = ({
           <Mark />
         </QuoteMark>
         <Blockquote>{quote.quote}</Blockquote>
-        <Author passedAuthorColor={color}>– {quote.name}</Author>
+        <Author passedAuthorColor={authorColor}>– {quote.name}</Author>
         {quote.label ? <Label>{quote.label}</Label> : null}
       </QuoteLimiter>
     </Fade>
@@ -89,21 +89,30 @@ const QuoteWrapper = styled.div`
   }
   @media (max-width: 1000px) {
     font-size: 2.5rem;
+    blockquote {
+      margin: 0;
+      position: relative;
+      font-size: 28px;
+      line-height: 120%;
+    }
     ${Author} {
-      font-size: 2rem;
+      font-size: 28px;
     }
     ${Label} {
       margin-left: 20px;
     }
   }
   @media (max-width: 700px) {
-    font-size: 2.2rem;
+    padding: 0% 6%;
+    blockquote {
+      font-size: 22px;
+    }
     ${Author} {
-      font-size: 1.8rem;
+      font-size: 18px;
     }
     ${Label} {
       margin-left: 17px;
-      font-size: 1rem;
+      font-size: 10px;
     }
   }
 `;
