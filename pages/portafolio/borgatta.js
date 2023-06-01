@@ -104,7 +104,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.third_section.title}</H2>
           <P>{t.third_section.p}</P>
         </TextColumn>
-        <ResultContainer>
+        {/* <ResultContainer>
           {t.third_section.results.map((result, i) => (
             <Results key={`result${i}`}>
               <div>
@@ -115,7 +115,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               <P>{result.p}</P>
             </Results>
           ))}
-        </ResultContainer>
+        </ResultContainer> */}
         <Screens />
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
@@ -446,6 +446,30 @@ const ThirdSection = styled(CommonSection)`
       font-size: 45px;
     }
   }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 52px;
+      b {
+        font-size: 32px;
+      }
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 33px;
+      b {
+        font-size: 20px;
+      }
+    }
+    h3 {
+      font-size: 19px;
+    }
+    p {
+      font-size: 15px;
+    }
 `;
 
 const ResultContainer = styled.div`
@@ -493,11 +517,16 @@ const Results = styled.div`
 `;
 
 const Screens = styled.div`
-  min-height: 100%;
+  min-height: 2300px;
   width: 100%;
-  background-size: 100%;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
-  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage.png");
+  background-position: left top;
+  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage-md.png");
+  @media (max-width: 630px) {
+    min-height: 1750px;
+    background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage-sm.svg");
+  }
 `;
 
 const FourthSection = styled(CommonSection)`
