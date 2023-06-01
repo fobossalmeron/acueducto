@@ -14,6 +14,8 @@ import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import Components from "public/assets/img/casestudies/borgatta/components.svg";
+import ResultsOnThePageSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.svg";
+import ResultsOnThePageMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.svg";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -22,6 +24,7 @@ const mainGradient =
 const Borgatta = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
   const [t, setT] = useState(pt);
+  const [isMobile, setIsMobile] = useState();
 
   useEffect(() => {
     clientLocale({
@@ -32,6 +35,11 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         setTitle(nT.head.headerTitle);
       },
     });
+    if (window.innerWidth <= 760) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
     setloadAssets(true);
   }, [locale]);
 
@@ -60,6 +68,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H3>{t?.intro_section.subtitle}</H3>
           <P>{t?.intro_section.p}</P>
         </FirstTextColumn>
+        <Fade delay={300} triggerOnce>
           <LessonContainer>
             {t?.intro_section.lessons.map((lesson, i) => (
               <Lesson key={`lessn${i}`}>
@@ -68,6 +77,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               </Lesson>
             ))}
           </LessonContainer>
+        </Fade>
         <Picture
           src="/assets/img/casestudies/borgatta/page.png"
           alt="Page"
@@ -82,13 +92,15 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <P>{t.second_section.p}</P>
         </SecondTextColumn>
         <AspectContainer>
-          {t.second_section.aspects.map((aspect, i) => (
-            <Aspect key={`aspect${i}`}>
-              <span>{i + 1}</span>
-              <h4>{aspect.title}</h4>
-              <p>{aspect.p}</p>
-            </Aspect>
-          ))}
+          <Fade delay={300} triggerOnce>
+            {t.second_section.aspects.map((aspect, i) => (
+              <Aspect key={`aspect${i}`}>
+                <span>{i + 1}</span>
+                <h4>{aspect.title}</h4>
+                <p>{aspect.p}</p>
+              </Aspect>
+            ))}
+          </Fade>
         </AspectContainer>
         <Picture
           src="/assets/img/casestudies/borgatta/cases.png"
@@ -104,19 +116,27 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.third_section.title}</H2>
           <P>{t.third_section.p}</P>
         </TextColumn>
-        {/* <ResultContainer>
-          {t.third_section.results.map((result, i) => (
-            <Results key={`result${i}`}>
-              <div>
-                <H2>{result.title}</H2>
-                <h1>{result.digits}</h1>
-                <H3>{result.subtitle}</H3>
-              </div>
-              <P>{result.p}</P>
-            </Results>
-          ))}
-        </ResultContainer> */}
-        <Screens />
+        <ResultContainer>
+          <Fade delay={300} triggerOnce>
+            {t.third_section.results.map((result, i) => (
+              <Results key={`result${i}`}>
+                <div>
+                  <H2>{result.title}</H2>
+                  <h1>{result.digits}</h1>
+                  <H3>{result.subtitle}</H3>
+                </div>
+                <P>{result.p}</P>
+              </Results>
+            ))}
+          </Fade>
+        </ResultContainer>
+        <Fade delay={300} triggerOnce>
+          {!isMobile ? (
+            <ResultsOnThePageMd />
+          ) : (
+            <ResultsOnThePageSm />
+          )}
+        </Fade>
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
@@ -124,7 +144,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </FourthTextColumn>
-        <Components />
+        <Fade delay={300} triggerOnce>
+          <Components />
+        </Fade>
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />
@@ -266,7 +288,7 @@ const LessonContainer = styled.div`
   grid-template-rows: 159px 181px 159px;
   gap: 32px;
 
-  @media (max-width: 630px) {
+  @media (max-width: 800px) {
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -283,6 +305,7 @@ const Lesson = styled.div`
   }
   &:nth-child(2) {
     width: 348px;
+    margin-left: -21%;
   }
   &:nth-child(3) {
     width: 394px;
@@ -306,9 +329,10 @@ const Lesson = styled.div`
     margin: 24px;
   }
 
-  @media (max-width: 630px) {
+  @media (max-width: 800px) {
     &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
       width: 299px;
+      margin-left: 0px;
     }
     p {
       margin: 20px;
@@ -446,6 +470,9 @@ const ThirdSection = styled(CommonSection)`
       font-size: 45px;
     }
   }
+  svg {
+    width: 100%;
+  }
   @media (max-width: 1000px) {
     h2 {
       font-size: 52px;
@@ -478,6 +505,8 @@ const ResultContainer = styled.div`
   grid-template-columns: repeat(2, 1fr);
   gap: 24px;
   padding: 0 5%;
+  margin-top: 100px;
+  margin-bottom: -6%;
 `;
 
 const Results = styled.div`
@@ -517,15 +546,15 @@ const Results = styled.div`
 `;
 
 const Screens = styled.div`
-  min-height: 2300px;
+  min-height: 137em;
   width: 100%;
-  background-size: 100% 100%;
+  background-size: 100%;
   background-repeat: no-repeat;
   background-position: left top;
   background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage-md.png");
   @media (max-width: 630px) {
-    min-height: 1750px;
-    background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage-sm.svg");
+    min-height: 111em;
+    background-size: 100%;
   }
 `;
 
