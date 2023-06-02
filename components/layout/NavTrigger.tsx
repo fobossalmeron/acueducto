@@ -6,14 +6,16 @@ const NavTrigger = ({
   hasLoaded,
   toggleNav,
   isOpen,
+  route,
 }: {
   hasLoaded: boolean;
   toggleNav: () => void;
   isOpen: boolean;
+  route: string;
 }) => {
   const doToggleNav = () => toggleNav();
   return (
-    <TriggerContainer visible={hasLoaded}>
+    <TriggerContainer visible={hasLoaded} route={route}>
       <Trigger onClick={doToggleNav} open={isOpen}>
         <Hamburger />
       </Trigger>
@@ -72,7 +74,7 @@ const TriggerContainer = styled.div<{ visible: boolean }>`
   margin: 0px auto;
   max-width: 1500px;
   pointer-events: none;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: ${(props) => (props.route === '/portafolio/borgatta' ? 'normal' : 'exclusion')};
   transition: opacity 0.3s ease 0.35s;
   @media (max-width: 1530px) {
     padding-right: 60px;

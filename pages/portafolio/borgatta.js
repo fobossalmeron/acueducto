@@ -13,9 +13,6 @@ import Quote from "components/caseStudy/shared/Quote2";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import Components from "public/assets/img/casestudies/borgatta/components.svg";
-import ResultsOnThePageSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.svg";
-import ResultsOnThePageMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.svg";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -35,26 +32,29 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         setTitle(nT.head.headerTitle);
       },
     });
-    if (window.innerWidth <= 760) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
+
+    window.addEventListener("resize", function(){
+      if (window.innerWidth <= 650) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    });
     setloadAssets(true);
-  }, [locale]);
+  }, [locale, isMobile]);
 
   return (
     <PageClipperBorgatta>
       <Head
         {...t?.head}
-        image={{ fileName: "og_image_blockstem.png", alt: t?.head.image_alt }}
+        image={{ fileName: "og_image_borgatta.png", alt: t?.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/borgatta"}
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
       <Fade triggerOnce>
         <LandSection>
           <Fade delay={300} triggerOnce>
-            <Logo/>
+            <LogoBorgatta />
           </Fade>
         </LandSection>
       </Fade>
@@ -132,13 +132,22 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             ))}
           </Fade>
         </ResultContainer>
-        <Fade delay={300} triggerOnce>
-          {!isMobile ? (
-            <ResultsOnThePageMd />
-          ) : (
-            <ResultsOnThePageSm />
-          )}
-        </Fade>
+        
+        <ResultsOnThePage>
+          <Fade delay={300} triggerOnce>
+            {!isMobile ? (
+                <img
+                  src="/assets/img/casestudies/borgatta/resultsOnThePage-md.png"
+                  alt="Web B360"
+                />
+              ) : (
+                <img
+                  src="/assets/img/casestudies/borgatta/resultsOnThePage-sm.png"
+                  alt="Web B360"
+                />
+            )}
+          </Fade>
+        </ResultsOnThePage>
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
@@ -147,7 +156,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <P>{t.fourth_section.p}</P>
         </FourthTextColumn>
         <Fade delay={300} triggerOnce>
-          <Components />
+          <img
+            src="/assets/img/casestudies/borgatta/components.png"
+            alt="Web B360"
+          />
         </Fade>
       </FourthSection>
       <NextStudy link="blockstem" />
@@ -156,7 +168,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   );
 };
 
-export default Borgatta;
+export default React.memo(Borgatta);
 
 export const getStaticProps = async (context) => {
   const pt = ssrLocale({
@@ -170,6 +182,13 @@ export const getStaticProps = async (context) => {
   };
 };
 
+const ResultsOnThePage = styled.div`
+  width: 100%;
+  img {
+    width: 100%;
+  }
+`;
+
 const PageClipperBorgatta = styled(PageClipper)`
   background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
@@ -178,15 +197,15 @@ const PageClipperBorgatta = styled(PageClipper)`
   }
 `;
 
-const Logo = styled.div`
-  min-height: 94px;
+const LogoBorgatta = styled.div`
+  min-height: 96px;
   max-width: 684px;
   background-size: 100%;
   background-repeat: no-repeat;
   background-image: url("/assets/img/casestudies/borgatta/brand-md.svg");
 
   @media (max-width: 630px) {
-    min-height: 116px;
+    min-height: 124px;
     background-image: url("/assets/img/casestudies/borgatta/brand-sm.svg");
   }
 `;
@@ -194,7 +213,7 @@ const Logo = styled.div`
 const LandSection = styled(CommonSection)`
   min-height: 100vh;
   width: 100%;
-  background-image: url("/assets/img/casestudies/borgatta/main-bg.svg");
+  background-image: url("/assets/img/casestudies/borgatta/main-md.png");
   background-position: left bottom;
   background-size: 100%;
   background-repeat: no-repeat;
@@ -220,7 +239,8 @@ const LandSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
-    background-image: url("/assets/img/casestudies/borgatta/main-sm.svg");
+    bottom: 0%;
+    background-image: url("/assets/img/casestudies/borgatta/main-sm.png");
     & > div {
       max-width: 189.41px;
       margin: 0% 0% 60% 0%;
@@ -472,9 +492,6 @@ const ThirdSection = styled(CommonSection)`
       font-size: 4.5rem;
     }
   }
-  svg {
-    width: 100%;
-  }
   @media (max-width: 1000px) {
     h2 {
       font-size: 5.2rem;
@@ -512,12 +529,11 @@ const ResultContainer = styled.div`
   margin-bottom: -6%;
 
   @media (max-width: 1000px) {
-    grid-template-columns: auto;
-    grid-template-rows: auto;
-    padding: 0 10%;
+    padding: 0 5%;
   }
   @media (max-width: 630px) {
-    padding: 0 5%;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     margin-bottom: 63px;
     margin-top: 48px;
   }
@@ -552,14 +568,11 @@ const Results = styled.div`
     font-size: 1.8rem;
     line-height: 131%;
   }
-  &:nth-child(2) {
-    background-color: blue;
-    div {
-      display: flex;
-      flez-direction: row;
-    }
-  }
+  
   @media (max-width: 1000px) {
+    h1 {
+      font-size: 6.8rem;
+    }
     h2 {
       font-size: 5.2rem;
     }
@@ -619,11 +632,9 @@ const FourthSection = styled(CommonSection)`
     font-size: 1.8rem;
     line-height: 131%;
   }
-  svg {
-    height: 100%;
+  img {
     width: 100%;
-    margin: 7% 0%;
-    padding: 0% 1%;
+    padding: 5% 1%;
   }
   @media (max-width: 1000px) {
     h2 {

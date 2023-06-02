@@ -11,7 +11,7 @@ function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
       document.getElementById("land").scrollIntoView({ behavior: "smooth" }));
   };
   return (
-    <TopHeader reveal={hasLoaded}>
+    <TopHeader reveal={hasLoaded} route={route}>
       <Link href="/" passHref locale={locale}>
         <LogoLink onClick={backUp}>
           <h1>acueducto</h1>
@@ -55,7 +55,7 @@ const TopHeader = styled.header<{ reveal: boolean }>`
   margin: 0px auto;
   max-width: 1500px;
   pointer-events: none;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: ${(props) => (props.route === '/portafolio/borgatta' ? 'normal' : 'exclusion')};
   opacity: ${(props) => (props.reveal ? 1 : 0)};
   transition: opacity 0.3s ease-out 0.15s;
   @media (max-width: 1530px) {

@@ -34,11 +34,21 @@ const SingleCase = (props) => {
                 src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
                 alt={`logo_${props.link}`}
               />
-              <VidReplacer
-                style={{
-                  backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
-                }}
-              />
+              {props.link === 'borgatta' 
+                ? <VidReplacer
+                    style={{
+                      backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
+                      backgroundSize: '100%',
+                      backgroundRepeat: 'no-repeat',
+                      backgroundPosition: 'bottom',
+                    }}
+                  />
+                : <VidReplacer
+                    style={{
+                      backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
+                    }}
+                  />
+              }
             </VidContainer>
           </Fade>
         </a>

@@ -149,6 +149,7 @@ const Layout = ({ t, hasLoaded, children }) => {
           toggleNav={toggleNav}
           isOpen={isOpen}
           hasLoaded={hasLoaded}
+          route={router.route}
         />
         <Header
           isOpen={isOpen}
