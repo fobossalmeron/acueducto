@@ -73,28 +73,16 @@
       "p": "La plataforma recién terminó su fase beta y en sus primeros meses viva logramos:",
       "results": [
         {
-          "title": "+",
-          "digits": "200k",
-          "subtitle": "",
-          "p": "mensajes que antes eran enviados por +15 medios distintos ahora fueron enviados en una plataforma centralizada."
-        },
-        {
-          "title": "",
-          "digits": "4",
-          "subtitle": "países",
-          "p": "están habilitados en el portal. Esta fue adecuada según las necesidades y preferencias operacionales de cada lugar."
-        },
-        {
           "title": "",
           "digits": "100%",
           "subtitle": "",
           "p": "de precisión al subir archivos de casos, evitando cualquier error o confusión."
         },
         {
-          "title": "+",
-          "digits": "2600",
-          "subtitle": "doctores",
-          "p": "tienen acceso a la plataforma."
+          "title": "",
+          "digits": "4",
+          "subtitle": "países",
+          "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
         },
         {
           "title": "+",
@@ -104,15 +92,27 @@
         },
         {
           "title": "+",
-          "digits": "$300k",
-          "subtitle": "ahorrados",
-          "p": "gracias al tiempo de operación reducido a partir de la implementación de la plataforma."
+          "digits": "2600",
+          "subtitle": "doctores",
+          "p": "tienen acceso a la plataforma."
         },
         {
           "title": "",
           "digits": "100%",
           "subtitle": "",
-          "p": "de los casos han sido gestionados con total transparencia de manera interna. Dejando ver en qué parte del proceso se está y quién es el responsable de cada tarea en él."
+          "p": "de los casos han sido gestionados con total transparencia. Dejando ver en qué parte del proceso se está y quién fue el responsable de cada tarea realizada."
+        },
+        {
+          "title": "+",
+          "digits": "$300k",
+          "subtitle": "ahorrados",
+          "p": "gracias al tiempo de operación reducido a partir de la implementación de la plataforma."
+        },
+        {
+          "title": "+",
+          "digits": "200k",
+          "subtitle": "",
+          "p": "mensajes que antes eran enviados por +3 medios distintos ahora fueron enviados en una plataforma centralizada."
         }
       ],
       "quote": {

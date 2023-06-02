@@ -121,8 +121,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             {t.third_section.results.map((result, i) => (
               <Results key={`result${i}`}>
                 <div>
-                  <H2>{result.title}</H2>
-                  <h1>{result.digits}</h1>
+                  <span>
+                    <H2>{result.title}</H2>
+                    <h1>{result.digits}</h1>
+                  </span>
                   <H3>{result.subtitle}</H3>
                 </div>
                 <P>{result.p}</P>
@@ -233,28 +235,28 @@ const FirstSection = styled(CommonSection)`
     font-weight: 500;
   }
   h2 {
-    font-size: 65.8px;
+    font-size: 6.58rem;
     padding-bottom: 4px;
     b {
       opacity: 0.7;
       font-weight: 400;
-      font-size: 45px;
+      font-size: 4.5rem;
     }
   }
   h3 {
     padding: 0px;
-    font-size: 37.8px;
+    font-size: 3.78rem;
     line-height: 131%;
   }
   @media (max-width: 1000px) {
     h2 {
-      font-size: 52px;
+      font-size: 5.2rem;
       b {
-        font-size: 32px;
+        font-size: 3.2rem;
       }
     }
     h3 {
-      font-size: 30px;
+      font-size: 3rem;
     }
     .image {
       padding: 0px 30px;
@@ -262,13 +264,13 @@ const FirstSection = styled(CommonSection)`
   }
   @media (max-width: 630px) {
     h2 {
-      font-size: 33px;
+      font-size: 3.3rem;
       b {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
     h3 {
-      font-size: 19px;
+      font-size: 1.9rem;
     }
     .image {
       padding: 0px 10px;
@@ -314,13 +316,13 @@ const Lesson = styled.div`
     width: 274px;
   }
   p {
-    font-size: 16.5px;
+    font-size: 1.65rem;
     margin: 20px 24px 24px 24px;
   }
   span {
     display: flex;
     justify-content: center;
-    font-size: 13.67px;
+    font-size: 1.367rem;
     position: relative;
     border: 2px solid #FFFFFF;
     width: 24px;
@@ -331,12 +333,12 @@ const Lesson = styled.div`
 
   @media (max-width: 800px) {
     &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
-      width: 299px;
+      width: 100%;
       margin-left: 0px;
     }
     p {
       margin: 20px;
-      font-size: 15px;
+      font-size: 1.5rem;
     }
     span {
       margin: 20px 20px 16px 20px;
@@ -353,35 +355,35 @@ const SecondSection = styled(CommonSection)`
   h2 {
     color: #D76E32;
     font-weight: 500;
-    font-size: 65.8px;
+    font-size: 6.58rem;
     line-height: 105%;
     padding: 4px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 45px;
+      font-size: 4.5rem;
     }
   }
   @media (max-width: 1000px) {
     h2 {
-      font-size: 52px;
+      font-size: 5.2rem;
       b {
-        font-size: 32px;
+        font-size: 3.2rem;
       }
     }
     h3 {
-      font-size: 30px;
+      font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
     h2 {
-      font-size: 33px;
+      font-size: 3.3rem;
       b {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
     h3 {
-      font-size: 19px;
+      font-size: 1.9rem;
     }
     .image {
       padding: 0px 10px;
@@ -399,10 +401,10 @@ const AspectContainer = styled.div`
   margin: 6.7% 15.53%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 305px 283px;
+  grid-template-rows: auto auto;
   gap: 48px;
   p {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 131%;
   }
   @media (max-width: 1000px) {
@@ -429,7 +431,7 @@ const Aspect = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 13.67px;
+    font-size: 1.367rem;
     position: relative;
     border: 2px solid #D76E32;
     width: 25px;
@@ -444,11 +446,11 @@ const Aspect = styled.div`
     margin-bottom: 12px; 
   }
   p {
-    font-size: 16.5px;
+    font-size: 1.65rem;
   }
   @media (max-width: 630px) {
     p {
-      font-size: 15px;
+      font-size: 1.5rem;
     }
   }
 `;
@@ -461,13 +463,13 @@ const ThirdSection = styled(CommonSection)`
   h2 {
     color: #F3F4F5;
     font-weight: 500;
-    font-size: 65.8px;
+    font-size: 6.58rem;
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
       color: rgba(255, 255, 255, 0.7);
       font-weight: 400;
-      font-size: 45px;
+      font-size: 4.5rem;
     }
   }
   svg {
@@ -475,9 +477,9 @@ const ThirdSection = styled(CommonSection)`
   }
   @media (max-width: 1000px) {
     h2 {
-      font-size: 52px;
+      font-size: 5.2rem;
       b {
-        font-size: 32px;
+        font-size: 3.2rem;
       }
     }
     h3 {
@@ -486,61 +488,99 @@ const ThirdSection = styled(CommonSection)`
   }
   @media (max-width: 630px) {
     h2 {
-      font-size: 33px;
+      font-size: 3.3rem;
       b {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
     h3 {
-      font-size: 19px;
+      font-size: 1.9rem;
     }
     p {
-      font-size: 15px;
+      font-size: 1.5rem;
     }
+  }
 `;
 
 const ResultContainer = styled.div`
-  width: 1000px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 50% 50%;
+  grid-template-rows: auto;
   gap: 24px;
-  padding: 0 5%;
+  padding: 0 15.27%;
   margin-top: 100px;
   margin-bottom: -6%;
+
+  @media (max-width: 1000px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+    padding: 0 10%;
+  }
+  @media (max-width: 630px) {
+    padding: 0 5%;
+    margin-bottom: 63px;
+    margin-top: 48px;
+  }
 `;
 
 const Results = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  padding: 0px 40px 40px 40px;
+  padding: 40px;
   background: rgba(255, 255, 255, 0.07);
   box-shadow: 0px 2px 9px rgba(11, 82, 112, 0.06);
   border-radius: 32px;
 
-  div {
+  div span {
     display: flex;
     align-items: baseline;
   }
   h1 {
-    font-size: 80px;
+    font-size: 8rem;
+    line-height: 6.5rem;
   }
   h2 {
-    font-size: 34px;
+    font-size: 3.4rem;
     padding: 0px;
   }
   h3 {
-    font-size: 48px;
+    font-size: 4.8rem;
+    line-height: 4rem;
+    padding-bottom: 2.4rem;
   }
   p {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 131%;
   }
-  &:nth-child(4), &:nth-child(6) {
+  &:nth-child(2) {
+    background-color: blue;
     div {
-      display: grid;
-      grid-template-columns: 30px auto;
-      grid-template-rows: 45%;
+      display: flex;
+      flez-direction: row;
+    }
+  }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 5.2rem;
+    }
+    h3 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 630px) {
+    padding: 20px;
+    h1 {
+      font-size: 5.6rem;
+    }
+    h2 {
+      font-size: 3.3rem;
+    }
+    h3 {
+      font-size: 3.6rem;
+      padding-bottom: 1.6rem;
+    }
+    p {
+      font-size: 1.5rem;
     }
   }
 `;
@@ -566,17 +606,17 @@ const FourthSection = styled(CommonSection)`
   h2 {
     color: #D76E32;
     font-weight: 500;
-    font-size: 65.8px;
+    font-size: 6.58rem;
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 45px;
+      font-size: 4.5rem;
     }
   }
   p {
-    font-size: 18px;
+    font-size: 1.8rem;
     line-height: 131%;
   }
   svg {
@@ -587,27 +627,27 @@ const FourthSection = styled(CommonSection)`
   }
   @media (max-width: 1000px) {
     h2 {
-      font-size: 52px;
+      font-size: 5.2rem;
       b {
-        font-size: 32px;
+        font-size: 3.2rem;
       }
     }
     h3 {
-      font-size: 30px;
+      font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
     h2 {
-      font-size: 33px;
+      font-size: 3.3rem;
       b {
-        font-size: 20px;
+        font-size: 2rem;
       }
     }
     h3 {
-      font-size: 19px;
+      font-size: 1.9rem;
     }
     p {
-      font-size: 15px;
+      font-size: 1.5rem;
     }
   }
 `;
