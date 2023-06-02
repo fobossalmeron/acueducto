@@ -80,14 +80,14 @@
         },
         {
           "title": "",
-          "digits": "4",
-          "subtitle": "países",
+          "digits": "4 países",
+          "subtitle": "",
           "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
         },
         {
           "title": "+",
-          "digits": "100",
-          "subtitle": "casos",
+          "digits": "100 casos",
+          "subtitle": "",
           "p": "han sido administrados por doctores en un mismo lugar."
         },
         {

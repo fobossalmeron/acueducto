@@ -123,7 +123,13 @@ const Borgatta = ({ locale, setTitle, pt }) => {
                 <div>
                   <span>
                     <H2>{result.title}</H2>
-                    <h1>{result.digits}</h1>
+                    {result.digits.length > 4 
+                      ? <div>
+                          <h1>{result.digits.split(" ")[0]}</h1>
+                          <H3>{result.digits.split(" ")[1]}</H3>
+                        </div> 
+                      : <h1>{result.digits}</h1>
+                    }
                   </span>
                   <H3>{result.subtitle}</H3>
                 </div>
@@ -531,9 +537,11 @@ const ResultContainer = styled.div`
   @media (max-width: 1000px) {
     padding: 0 5%;
   }
-  @media (max-width: 630px) {
+  @media (max-width: 800px) {
     grid-template-columns: auto;
     grid-template-rows: auto auto;
+  }
+  @media (max-width: 630px) {
     margin-bottom: 63px;
     margin-top: 48px;
   }
@@ -547,10 +555,6 @@ const Results = styled.div`
   box-shadow: 0px 2px 9px rgba(11, 82, 112, 0.06);
   border-radius: 32px;
 
-  div span {
-    display: flex;
-    align-items: baseline;
-  }
   h1 {
     font-size: 8rem;
     line-height: 6.5rem;
@@ -568,6 +572,23 @@ const Results = styled.div`
     font-size: 1.8rem;
     line-height: 131%;
   }
+
+  div span {
+    display: flex;
+    align-items: baseline;
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      h3 {
+        font-size: 4.8rem;
+        line-height: 4rem;
+        padding-bottom: 0;
+        padding-left: 12px;
+      }
+    }
+  }
   
   @media (max-width: 1000px) {
     h1 {
@@ -577,7 +598,10 @@ const Results = styled.div`
       font-size: 5.2rem;
     }
     h3 {
-      font-size: 3rem;
+      font-size: 4.2rem;
+    }
+    div span div h3{
+      font-size: 4.2rem;  
     }
   }
   @media (max-width: 630px) {
@@ -594,6 +618,9 @@ const Results = styled.div`
     }
     p {
       font-size: 1.5rem;
+    }
+    div span div h3{
+      font-size: 3.6rem;  
     }
   }
 `;
