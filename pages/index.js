@@ -64,7 +64,7 @@ function Index({ locale, setTitle, pt }) {
       <Services services={t.services} />
       <TitleSection {...t.clients.intro} borderTop />
       <LogosSection>
-        <Fade>
+        <Fade triggerOnce>
           <span>{t.clients.span}</span>
           <>
             {!isMobile ? (

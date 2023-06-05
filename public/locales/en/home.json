@@ -6,7 +6,7 @@
   },
   "landing": {
     "heading": "empower your business with technology",
-    "tagline": "We are a digital product studio in Mexico City.",
+    "tagline": "We are a digital product studio based in Mexico City.",
     "button": "case studies"
   },
   "intro": {
@@ -15,15 +15,15 @@
   },
   "carousel": ["engineers", "designers", "product managers"],
   "services": {
-    "title": "designed to scale",
+    "title": "designed and developed to scale",
     "areas": [
       {
         "title": "research and facilitation",
-        "p": "We analyze your business goals and the needs of your users together with you. Simultaneously, we conduct an analysis of tools that already solve the problem we are addressing in order to understand user patterns and expectations."
+        "p": "We analyze your business goals and the needs of your users together with you. Simultaneously, we conduct an analysis of already existing tools in order to understand user patterns and expectations"
       },
       {
         "title": "design",
-        "p": "We build an experience that makes you think minimally, naturally displays the next step, and delivers results as quickly as possible"
+        "p": "We build experiences that make you think minimally, naturally display the next step, and deliver results as quickly as possible"
       },
       {
         "title": "development",
@@ -37,7 +37,7 @@
   },
   "clients": {
     "intro": {
-      "title": "For businesses seeking innovation",
+      "title": "for businesses seeking innovation",
       "p": "We help you execute projects that can transform your organization into one with improved operations, a scalable architecture, and a first-class customer experience."
     },
     "span": "We have worked with",
@@ -52,7 +52,7 @@
       },
       {
         "title": "how long would it take to build something for my business?",
-        "p": "we build an experience that minimizes your need to think, naturally shows the next step, and delivers results as quickly as possible"
+        "p": "Practically anything: websites, web applications, mobile applications, blogs, platforms, internal dashboards... whatever your business needs. We can also help you automate business operations with dynamic forms, data manipulation, and database management to digitize and optimize your work."
       },
       {
         "title": "do you offer design services?",
