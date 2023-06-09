@@ -1,12 +1,12 @@
 {
     "head": {
       "title": "Borgatta | Acueducto",
-      "description": "Cómo educar a tus clientes e inversionistas para posicionarte como líder de tu industria.",
-      "image_alt": "Borgatta, caso de estudio por Acueducto",
+      "description": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market.",
+      "image_alt": "Borgatta, case study on Acueducto.",
       "headerTitle": "Case Study | Borgatta"
     },
     "headerTitle": "Borgatta",
-    "title": "cómo educar a tus clientes e inversionistas para posicionarte como líder de tu industria",
+    "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market.",
     "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
     "video": "borgatta.mp4",
     "logo": "borgatta.svg",
@@ -20,50 +20,50 @@
         "product management",
         "product strategy"
       ],
-      "title": "<b>Acto I</b><br/>El Portal B360",
-      "subtitle": "Un sueño para la experiencia de sus clientes y la optimización de sus operaciones internas",
-      "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente.<br/>Y en Borgatta, particularmente en el servicio de maquila de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando.<br/>Este es un proceso sumamente complejo ya que involucra retos como:",
+      "title": "<b>Act I</b><br/>The B360 Portal",
+      "subtitle": "A dream for customer experience and the optimization of internal operations",
+      "p": "We love working with organizations that are constantly thinking about how to improve their business to better serve their customers and make their employees' work more efficient.<br/><br/>And at Borgatta, particularly in the invisible aligner manufacturing service, they had dreamed of a platform that could solve a series of problems they were facing. This is an extremely complex process that involves challenges such as:",
       "lessons": [
         {
-          "p": "Una comunicación constante entre doctores y el equipo técnico de Borgatta"
+          "p": "Constant communication between doctors and Borgatta's technical team"
         },
         {
-          "p": "Transparencia en el proceso interno para identificar retrasos, errores y los responsables de estos"
+          "p": "Transparency in the internal process to identify delays, errors, and those responsible for them"
         },
         {
-          "p": "Identificar y prever errores en los archivos de los pacientes de más de 1,000 doctores que, además, administran múltiples casos al mismo tiempo"
+          "p": "Identifying and anticipating errors in the files of over 2,600 doctors' patients who also handle multiple cases simultaneously"
         },
         {
-          "p": "Recabar información constantemente de todo el proceso para mejorar"
+          "p": "Constantly gathering information from the entire process to improve."
         },
         {
-          "p": "Diferentes métodos y esquemas de cobranza y facturación en 4 países diferentes"
+          "p": "Different payment and billing methods and schemes in four different countries."
         }
       ]
     },
     "second_section": {
-      "title": "<b>Acto II</b><br/>¿Cómo acelerar la transformación digital en un corporativo?",
-      "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
+      "title": "<b>Act II</b><br/>How to accelerate digital transformation in a corporation?",
+      "p": "For Borgatta, digital technology is not something new as the company is a pioneer in medical technology in Latin America. However, the step they were looking to take with the B360 Portal is one that needed to ensure reducing:",
       "aspects": [
         {
-          "title": "Riesgos de negocio",
-          "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de que no fuéramos a proponer algo descabellado o que le pusiera el pie a alguna de estas áreas."
+          "title": "Business risks",
+          "p": "We discussed with all aspects of the business (customers, manufacturing, finance, marketing, and strategic management) that this new platform would impact to ensure that we developed a tool that would have a positive impact on each area of the company."
         },
         {
-          "title": "Riesgos de usabilidad",
-          "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar herramientas que los hacen pensar el mínimo, indican naturalmente el siguiente paso y entregan resultados lo más rápido posible."
+          "title": "Usability risks",
+          "p": "We designed prototypes and conducted extensive testing, both with doctors and the manufacturing team, to ensure that we designed a product that requires minimal thinking, intuitively indicates the next step, and delivers results as quickly as possible."
         },
         {
-          "title": "Riesgos de valor",
-          "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
+          "title": "Value risks",
+          "p": "We validated in over 50 user interviews where we heard from both doctors and Borgatta employees that the digital alternative we built was more efficient and user-friendly than what they were experiencing at that moment."
         },
         {
-          "title": "Riesgos de viabilidad",
-          "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
+          "title": "Viability risks",
+          "p": "Our software engineering team validated, step by step, that we could build a platform capable of being developed with a small team and that would be easy to maintain and scale in the long term according to Borgatta's objectives."
         }
       ],
       "quote": {
-        "quote": "Creemos que nuestro mundo es muy complejo de comprender y ustedes entendieron nuestro lenguaje y nuestra visión.<br/><br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
+        "quote": "We believe that our world is very complex to understand, and you understood our language and our vision.<br/><br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
         "name": "Estefanía Mejía",
         "label": "directora creativa, Borgatta"
       }
