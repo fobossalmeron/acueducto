@@ -31,7 +31,7 @@
       },
       {
         "title": "growth",
-        "p": "Once live, we drive the evolution of your product by progressively iterating to reach new goals"
+        "p": "Once alive, we drive the evolution of your product by progressively iterating to reach new goals"
       }
     ]
   },
@@ -48,26 +48,26 @@
     "questions": [
       {
         "title": "what kind of projects can we build?",
-        "p": "we analyze your business goals and your users' needs together with you. Simultaneously, we conduct an analysis of tools that already solve the problem we are addressing in order to understand user patterns and expectations."
+        "p": "Practically anything: websites, web applications, mobile applications, blogs, platforms, internal dashboards... whatever your business needs. We can also help you automate business operations with dynamic forms, data manipulation, and databases to digitize and optimize your work."
       },
       {
         "title": "how long would it take to build something for my business?",
-        "p": "Practically anything: websites, web applications, mobile applications, blogs, platforms, internal dashboards... whatever your business needs. We can also help you automate business operations with dynamic forms, data manipulation, and database management to digitize and optimize your work."
+        "p": "Depending on the specifications, but approximately 16 weeks."
       },
       {
         "title": "do you offer design services?",
-        "p": "we develop scalable architectures and write quality code."
+        "p": "We are a design studio above all. We firmly believe that amazing user experiences should also be beautiful."
       },
       {
         "title": "how much does a project cost?",
-        "p": "once live, we drive the evolution of your product by progressively iterating to achieve new goals"
+        "p": "Each project has a fixed monthly fee, so you will know how much you will spend from the beginning. We will need to consider some costs of other tools/services that we use to build your project. These costs will be charged directly to you in a transparent manner."
       }
     ]
   },
   "podcast": {
     "intro": {
       "title": "discover the story behind amazing products",
-      "p": "Learn how the leading digital service companies in Latin America build products, with insights from our CEO, Artemio Pedraza, and our COO, Rodrigo Salmerón.<br/><br/>Available on all streaming platforms."
+      "p": "Learn how the leading digital service companies in Latin America build products, with insights from our CEO, Artemio Pedraza, and our COO, Rodrigo Salmerón.<br/><br/>Available on all streaming platforms (spanish)."
     }
   }
 }
