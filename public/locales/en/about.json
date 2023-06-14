@@ -6,8 +6,8 @@
     "headerTitle": "About"
   },
   "intro": {
-    "title": "bienvenido a acueducto",
-    "p": "Este es un lugar diseñado para personas que construyen cosas donde antes no había nada y son optimistas respecto al impacto que tiene la tecnología en la sociedad y en los negocios.</br></br>Somos un grupo de profesionales, <b>distribuidos en el mundo</b>, cuya energía e intelecto están al servicio de organizaciones que necesitan soluciones con tecnología digital a los problemas que enfrentan.</br></br>Para nuestros clientes somos eficientes e innovadores; para nuestro equipo, la oportunidad para hacer el mejor trabajo de nuestras vidas y crecer tanto personal como profesionalmente."
+    "title": "welcome to Acueducto",
+    "p": "This place is designed for people who love to build things, and who are optimistic on the impact technology can have on society and businesses.</br></br>We are a group of professionals, <b>distributed around the world</b>, whose energy and intellect are dedicated to organizations in need of digital technology solutions for the challenges they face.</br></br>For our clients, we are efficient and innovative; for our team, it is an opportunity to do the best work of our lives and to grow both personally and professionally."
   },
   "team": [
     {
@@ -28,40 +28,40 @@
     },
     "beliefs": [
       {
-        "title": "We get involved",
-        "p": "Trust us, long lasting relationships get the best results."
+        "title": "we go from less to more.",
+        "p": "We focus on the functionalities that truly move the needle"
       },
       {
-        "title": "We love challenges",
-        "p": "And amazing work can happen if we analyze them together."
+        "title": "we get involved with you",
+        "p": "Trust us, long-term relationships lead to more significant results"
       },
       {
-        "title": "We are quality driven",
-        "p": "If our work is not incredible, why bother doing it?"
+        "title": "we love challenges",
+        "p": "Analyzing them together allows us to tackle them in the best way possible"
       },
       {
-        "title": "We are human",
-        "p": "We put people first, working respecfully with respectful clients."
+        "title": "we are obsessed with quality",
+        "p": "Our work has to be impeccable. Otherwise, what's the point?"
       },
       {
-        "title": "We work for your users",
-        "p": "There may be times we will have to side with them."
+        "title": "we are humans",
+        "p": "We prioritize human quality, working with respect and with respectful clients."
       },
       {
-        "title": "We are tech romantics",
-        "p": "Future solutions for today's problems, expect the bleeding edge."
+        "title": "we work for your users",
+        "p": "There will be moments when we will stand on their side."
       },
       {
-        "title": "We are fair",
-        "p": "We rate our work on the added value we bring to your business."
+        "title": "we are romantics of technology",
+        "p": "We firmly believe that technology helps us make people's lives easier."
       },
       {
-        "title": "We keep learning",
-        "p": "We embrace change, a lot of times it’s part of the solution."
+        "title": "we love to learn",
+        "p": "We embrace change, as it is often part of the solution."
       },
       {
-        "title": "We are always open",
-        "p": "We love feedback, hearing what you have to say is a fundamental part of our process."
+        "title": "we are accessible",
+        "p": "Listening to your opinion is a fundamental part of our process."
       }
     ],
     "cases": {
