@@ -74,7 +74,7 @@ const TriggerContainer = styled.div<{ visible: boolean }>`
   margin: 0px auto;
   max-width: 1500px;
   pointer-events: none;
-  mix-blend-mode: ${(props) => (props.route === '/portafolio/borgatta' ? 'normal' : 'exclusion')};
+  mix-blend-mode: exclusion;
   transition: opacity 0.3s ease 0.35s;
   @media (max-width: 1530px) {
     padding-right: 60px;

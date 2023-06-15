@@ -13,6 +13,7 @@ import Quote from "components/caseStudy/shared/Quote2";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
+import IntroVideo from "components/caseStudy/shared/IntroVideo";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -60,9 +61,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </Fade>
       <FirstSection>
         <Marquee tags={t?.intro_section.tags} />
-        {/* <EditVideo>
+        <EditVideo>
           <IntroVideo link={t.link} />
-        </EditVideo> */}
+        </EditVideo>
         <FirstTextColumn>
           <H2>{t?.intro_section.title}</H2>
           <H3>{t?.intro_section.subtitle}</H3>
@@ -102,14 +103,93 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             ))}
           </Fade>
         </AspectContainer>
-        <Picture
-          src="/assets/img/casestudies/borgatta/cases.png"
-          alt="Page"
-          width={700}
-          height={517.71}
-          withWrapper
-        />
-        <Quote quote={t.second_section.quote} authorColor={"#060809"} color={"#4F4F4F"}/>
+        <CasesContainer>
+          <Picture
+            src="/assets/img/casestudies/borgatta/case1.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case2.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case3.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case4.gif"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case5.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case6.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case7.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case8.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case9.gif"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case10.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case11.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+          <Picture
+            src="/assets/img/casestudies/borgatta/case12.png"
+            alt="Page"
+            width={163}
+            height={163}
+            withWrapper
+          />
+        </CasesContainer>
+        <Quote quote={t.second_section.quote} authorColor={"#4F4F4F"} color={"#4F4F4F"}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -138,7 +218,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             ))}
           </Fade>
         </ResultContainer>
-        
         <ResultsOnThePage>
           <Fade delay={300} triggerOnce>
             {!isMobile ? (
@@ -162,10 +241,18 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <P>{t.fourth_section.p}</P>
         </FourthTextColumn>
         <Fade delay={300} triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/components.png"
-            alt="Web B360"
-          />
+          {!isMobile ? (
+              <img
+                src="/assets/img/casestudies/borgatta/components-md.png"
+                alt="Web B360"
+              />
+            ) : (
+              <img
+                src="/assets/img/casestudies/borgatta/components-sm.png"
+                alt="Web B360"
+              />
+            )
+          }
         </Fade>
       </FourthSection>
       <NextStudy link="blockstem" />
@@ -229,7 +316,7 @@ const LandSection = styled(CommonSection)`
   & > div {
     max-width: 684px;
     width: 100%;
-    margin-top: 15%;
+    margin-top: 200px;
   }
   @media (max-width: 1000px) {
     justify-content: center;
@@ -271,8 +358,13 @@ const FirstSection = styled(CommonSection)`
   }
   h3 {
     padding: 0px;
+    padding-bottom: 4%;
     font-size: 3.78rem;
     line-height: 131%;
+    margin-bottom: 0px;
+  }
+  .image {
+    padding-top: 3.5%;
   }
   @media (max-width: 1000px) {
     h2 {
@@ -299,7 +391,7 @@ const FirstSection = styled(CommonSection)`
       font-size: 1.9rem;
     }
     .image {
-      padding: 0px 10px;
+      padding: 3% 10px;
     }
   }
 `;
@@ -411,8 +503,28 @@ const SecondSection = styled(CommonSection)`
     h3 {
       font-size: 1.9rem;
     }
-    .image {
-      padding: 0px 10px;
+  }
+`;
+
+const CasesContainer = styled.div`
+  display: grid;
+  grid-column-gap: 2%;
+  grid-row-gap: 2%;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  padding: 4% 0% 2% 0%;
+  img {
+    border-radius: 24.3px;
+  }
+  @media (max-width: 1000px) {
+    padding: 9% 5% 6% 5%;
+  }
+  @media (max-width: 630px) {
+    padding: 7% 5%;
+    grid-column-gap: 1%;
+    grid-row-gap: 1%;
+    img {
+      border-radius: 10.4px;
     }
   }
 `;
@@ -424,23 +536,23 @@ const SecondTextColumn = styled(TextColumn)`
 `;
 
 const AspectContainer = styled.div`
-  margin: 6.7% 15.53%;
+  padding: 6.7% 15.53%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto auto;
-  gap: 48px;
+  grid-column-gap: 5%;
+  grid-row-gap: 9%;
   p {
     font-size: 1.8rem;
     line-height: 131%;
   }
   @media (max-width: 1000px) {
-    margin: 6.7% 3.5%;
+    padding: 6.7% 3.5%;
   }
   @media (max-width: 630px) {
-    margin: 6.7% 5%;
+    padding: 6.7% 5%;
     display: flex;
     flex-direction: column;
-    gap: 20px;
   }
 `;
 
@@ -485,7 +597,8 @@ const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
   color: #FFFFFF;
-  background: ${mainGradient};
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);
+  background-blend-mode: normal, overlay, normal;
   h2 {
     color: #F3F4F5;
     font-weight: 500;
@@ -661,7 +774,7 @@ const FourthSection = styled(CommonSection)`
   }
   img {
     width: 100%;
-    padding: 5% 1%;
+    padding: 7% 1%;
   }
   @media (max-width: 1000px) {
     h2 {
@@ -687,11 +800,35 @@ const FourthSection = styled(CommonSection)`
     p {
       font-size: 1.5rem;
     }
+    img {
+      width: 100%;
+      padding: 16% 6%;
+    }
   }
 `;
 
 const FourthTextColumn = styled(TextColumn)`
   @media (max-width: 630px) {
     padding: 0 6%;
+  }
+`;
+
+const EditVideo = styled.div`
+  padding: 3%;
+  border-radius: 40px;
+  background-color: transparent;
+  & > div {
+    padding: 0px;
+  }
+  @media (max-width: 1300px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 700px) {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 20px;
+  }
+  @media (max-width: 500px) {
+    border-radius: 17px;
   }
 `;

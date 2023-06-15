@@ -55,7 +55,7 @@ const TopHeader = styled.header<{ reveal: boolean }>`
   margin: 0px auto;
   max-width: 1500px;
   pointer-events: none;
-  mix-blend-mode: ${(props) => (props.route === '/portafolio/borgatta' ? 'normal' : 'exclusion')};
+  mix-blend-mode: exclusion;
   opacity: ${(props) => (props.reveal ? 1 : 0)};
   transition: opacity 0.3s ease-out 0.15s;
   @media (max-width: 1530px) {
