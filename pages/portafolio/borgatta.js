@@ -6,6 +6,7 @@ import ssrLocale from "utils/ssrLocale";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
+import LandSection from "components/caseStudy/borgatta/Landing";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
@@ -41,7 +42,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         setIsMobile(false);
       }
     });
+    
     setloadAssets(true);
+
   }, [locale, isMobile]);
 
   return (
@@ -53,11 +56,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
       <Fade triggerOnce>
-        <LandSection>
+        <LandSection isMobile={isMobile}/>
+        {/* <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoBorgatta />
           </Fade>
-        </LandSection>
+        </LandSection> */}
       </Fade>
       <FirstSection>
         <Marquee tags={t?.intro_section.tags} />
@@ -290,56 +294,56 @@ const PageClipperBorgatta = styled(PageClipper)`
   }
 `;
 
-const LogoBorgatta = styled.div`
-  min-height: 96px;
-  max-width: 684px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-image: url("/assets/img/casestudies/borgatta/brand-md.svg");
+// const LogoBorgatta = styled.div`
+//   min-height: 96px;
+//   max-width: 684px;
+//   background-size: 100%;
+//   background-repeat: no-repeat;
+//   background-image: url("/assets/img/casestudies/borgatta/brand-md.svg");
 
-  @media (max-width: 630px) {
-    min-height: 124px;
-    background-image: url("/assets/img/casestudies/borgatta/brand-sm.svg");
-  }
-`;
+//   @media (max-width: 630px) {
+//     min-height: 124px;
+//     background-image: url("/assets/img/casestudies/borgatta/brand-sm.svg");
+//   }
+// `;
 
-const LandSection = styled(CommonSection)`
-  min-height: 100vh;
-  width: 100%;
-  background-image: url("/assets/img/casestudies/borgatta/main-md.png");
-  background-position: left bottom;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  & > div {
-    max-width: 684px;
-    width: 100%;
-    margin-top: 200px;
-  }
-  @media (max-width: 1000px) {
-    justify-content: center;
-    bottom: 13%;
-    & > div {
-      max-width: 423px;
-      margin: 0% 0% 10% 0%;
-    }
-  }
-  @media (max-width: 850px) {
-    & > div {
-      max-width: 300px;
-    }
-  }
-  @media (max-width: 630px) {
-    bottom: 0%;
-    background-image: url("/assets/img/casestudies/borgatta/main-sm.png");
-    & > div {
-      max-width: 189.41px;
-      margin: 0% 0% 60% 0%;
-    }
-  }
-`;
+// const LandSection = styled(CommonSection)`
+//   min-height: 100vh;
+//   width: 100%;
+//   background-image: url("/assets/img/casestudies/borgatta/main-md.png");
+//   background-position: left bottom;
+//   background-size: 100%;
+//   background-repeat: no-repeat;
+//   display: flex;
+//   justify-content: flex-start;
+//   align-items: center;
+//   & > div {
+//     max-width: 684px;
+//     width: 100%;
+//     margin-top: 200px;
+//   }
+//   @media (max-width: 1000px) {
+//     justify-content: center;
+//     bottom: 13%;
+//     & > div {
+//       max-width: 423px;
+//       margin: 0% 0% 10% 0%;
+//     }
+//   }
+//   @media (max-width: 850px) {
+//     & > div {
+//       max-width: 300px;
+//     }
+//   }
+//   @media (max-width: 630px) {
+//     bottom: 0%;
+//     background-image: url("/assets/img/casestudies/borgatta/main-sm.png");
+//     & > div {
+//       max-width: 189.41px;
+//       margin: 0% 0% 60% 0%;
+//     }
+//   }
+// `;
 
 const FirstSection = styled(CommonSection)`
   color: ${white};
