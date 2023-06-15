@@ -63,11 +63,13 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo>
-        <FirstTextColumn>
-          <H2>{t?.intro_section.title}</H2>
-          <H3>{t?.intro_section.subtitle}</H3>
-          <P>{t?.intro_section.p}</P>
-        </FirstTextColumn>
+        <Fade delay={300} triggerOnce>
+          <FirstTextColumn>
+            <H2>{t?.intro_section.title}</H2>
+            <H3>{t?.intro_section.subtitle}</H3>
+            <P>{t?.intro_section.p}</P>
+          </FirstTextColumn>
+        </Fade>
         <Fade delay={300} triggerOnce>
           <LessonContainer>
             {t?.intro_section.lessons.map((lesson, i) => (
@@ -87,10 +89,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         />
       </FirstSection>
       <SecondSection>
-        <SecondTextColumn>
-          <H2>{t?.second_section.title}</H2>
-          <P>{t.second_section.p}</P>
-        </SecondTextColumn>
+        <Fade delay={300} triggerOnce>
+          <SecondTextColumn>
+            <H2>{t?.second_section.title}</H2>
+            <P>{t.second_section.p}</P>
+          </SecondTextColumn>
+        </Fade>
         <AspectContainer>
           <Fade delay={300} triggerOnce>
             {t.second_section.aspects.map((aspect, i) => (
@@ -103,98 +107,124 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           </Fade>
         </AspectContainer>
         <CasesContainer>
-          <Picture
-            src="/assets/img/casestudies/borgatta/case1.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case2.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case3.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case4.gif"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case5.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case6.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case7.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case8.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case9.gif"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case10.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case11.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/borgatta/case12.png"
-            alt="Page"
-            width={163}
-            height={163}
-            withWrapper
-          />
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case1.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case2.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case3.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case4.gif"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case5.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case6.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case7.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case8.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case9.gif"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case10.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case11.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Picture
+              src="/assets/img/casestudies/borgatta/case12.png"
+              alt="Page"
+              width={163}
+              height={163}
+              withWrapper
+            />
+          </Fade>
         </CasesContainer>
         <Quote quote={t.second_section.quote} authorColor={"#4F4F4F"} color={"#4F4F4F"}/>
       </SecondSection>
       <ThirdSection>
-        <TextColumn>
-          <H2>{t.third_section.title}</H2>
-          <P>{t.third_section.p}</P>
-        </TextColumn>
+        <Fade delay={300} triggerOnce>
+          <TextColumn>
+            <H2>{t.third_section.title}</H2>
+            <P>{t.third_section.p}</P>
+          </TextColumn>
+        </Fade>
         <ResultContainer>
           <Fade delay={300} triggerOnce>
             {t.third_section.results.map((result, i) => (
@@ -235,10 +265,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
       </ThirdSection>
       <FourthSection>
-        <FourthTextColumn>
-          <H2>{t.fourth_section.title}</H2>
-          <P>{t.fourth_section.p}</P>
-        </FourthTextColumn>
+        <Fade delay={300} triggerOnce>
+          <FourthTextColumn>
+            <H2>{t.fourth_section.title}</H2>
+            <P>{t.fourth_section.p}</P>
+          </FourthTextColumn>
+        </Fade>
         <Fade delay={300} triggerOnce>
           {!isMobile ? (
               <img
@@ -764,7 +796,7 @@ const FourthTextColumn = styled(TextColumn)`
 const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
-  background-color: transparent;
+  background-color: #FBFBFD;
   & > div {
     padding: 0px;
   }

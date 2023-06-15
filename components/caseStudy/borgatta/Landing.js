@@ -48,97 +48,100 @@ const Landing = () => {
             <img
               src="/assets/img/casestudies/borgatta/landing2.png"
               alt="Web B360"
+              className="landing2"
             />
           </Fade>
         </FirstColumn>
-      <SecondColumn>
-        <Fade delay={1500} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landing3.png"
-            alt="Web B360"
-          />
-        </Fade>
-      </SecondColumn>
-      <ThirdColumn>
-        <Fade delay={1400} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landing4.png"
-            alt="Web B360"
-          />
-        </Fade>
-      </ThirdColumn>
-      <FourthColumn>
-        <Fade delay={1150} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landing5.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1250} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landing6.png"
-            alt="Web B360"
-          />
-        </Fade>
-      </FourthColumn>
-      <FifthColumn>
-        <Fade delay={1600} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landing7.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1500} direction="up" triggerOnce>
-          <img
-          src="/assets/img/casestudies/borgatta/landing8.png"
-          alt="Web B360"
-        />
-        </Fade>
-      </FifthColumn>
-    </PicturesContainer>
+        <SecondColumn>
+          <Fade delay={1500} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing3.png"
+              alt="Web B360"
+            />
+          </Fade>
+        </SecondColumn>
+        <ThirdColumn>
+          <Fade delay={1400} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing4.png"
+              alt="Web B360"
+            />
+          </Fade>
+        </ThirdColumn>
+        <FourthColumn>
+          <Fade delay={1150} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing5.png"
+              alt="Web B360"
+            />
+          </Fade>
+          <Fade delay={1250} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing6.png"
+              alt="Web B360"
+              className="landing6"
+            />
+          </Fade>
+        </FourthColumn>
+        <FifthColumn>
+          <Fade delay={1600} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing7.png"
+              alt="Web B360"
+            />
+          </Fade>
+          <Fade delay={1500} direction="up" triggerOnce>
+            <img
+              src="/assets/img/casestudies/borgatta/landing8.png"
+              alt="Web B360"
+              className="landing8"
+            />
+          </Fade>
+        </FifthColumn>
+      </PicturesContainer>
       ) : (
         <PicturesContainerMobile>
-      <FirstRowMobile>
-        <Fade delay={1300} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile1.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1100} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile2.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1100} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile4.png"
-            alt="Web B360"
-          />
-        </Fade>
-      </FirstRowMobile>
-      <SecondRowMobile>
-        <Fade delay={1500} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile3.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1500} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile5.png"
-            alt="Web B360"
-          />
-        </Fade>
-        <Fade delay={1500} direction="up" triggerOnce>
-          <img
-            src="/assets/img/casestudies/borgatta/landingMobile6.png"
-            alt="Web B360"
-          />
-        </Fade>
-      </SecondRowMobile>
-    </PicturesContainerMobile>
+          <FirstRowMobile>
+            <Fade delay={1300} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile1.png"
+                alt="Web B360"
+              />
+            </Fade>
+            <Fade delay={1100} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile2.png"
+                alt="Web B360"
+              />
+            </Fade>
+            <Fade delay={1100} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile4.png"
+                alt="Web B360"
+              />
+            </Fade>
+          </FirstRowMobile>
+          <SecondRowMobile>
+            <Fade delay={1500} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile3.png"
+                alt="Web B360"
+              />
+            </Fade>
+            <Fade delay={1500} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile5.png"
+                alt="Web B360"
+              />
+            </Fade>
+            <Fade delay={1500} direction="up" triggerOnce>
+              <img
+                src="/assets/img/casestudies/borgatta/landingMobile6.png"
+                alt="Web B360"
+              />
+            </Fade>
+          </SecondRowMobile>
+        </PicturesContainerMobile>
       )
     }
   </LandSection>)
@@ -174,9 +177,20 @@ const PicturesContainer = styled.span`
 const FirstColumn = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: flex-end;
   gap: 3.5%;
   img {
     width: 100%;
+    height: 100%;
+  }
+  .landing2 {
+    max-width: 120px;
+  }
+  @media (max-width: 1000px) {
+    .landing2{
+      max-width: 74.3px;
+      max-height: 54.5px;
+    }
   }
 `;
 
@@ -184,6 +198,7 @@ const SecondColumn = styled.span`
   margin-top: 6%;
   img {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -191,16 +206,28 @@ const ThirdColumn = styled.span`
   margin-top: 11%;
   img {
     width: 100%;
+    height: 100%;
   }
 `;
 
 const FourthColumn = styled.span`
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
   gap: 4%;
   margin-top: 6%;
   img {
     width: 100%;
+    height: 100%;
+  }
+  .landing6 {
+    max-width: 174px;
+  }
+  @media (max-width: 1000px) {
+    .landing6{
+      max-width: 107.9px;
+      max-height: 70px;
+    }
   }
 `;
 
@@ -210,6 +237,16 @@ const FifthColumn = styled.span`
   gap: 4%;
   img {
     width: 100%;
+    height: 100%;
+  }
+  .landing8{
+    max-width: 93px;
+  }
+  @media (max-width: 1000px) {
+    .landing8{
+      max-width: 57.6px;
+      max-height: 57.6px;
+    }
   }
 `;
 
@@ -226,6 +263,7 @@ const FirstRowMobile = styled.span`
   gap: 2%;
   img {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -236,6 +274,7 @@ const SecondRowMobile = styled.span`
   gap: 2%;
   img {
     width: 100%;
+    height: 100%;
   }
 `;
 
@@ -249,7 +288,7 @@ const LandSection = styled(CommonSection)`
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-bottom: 1%;
+    padding-bottom: 2%;
     width: 100%;
   }
   & > span {

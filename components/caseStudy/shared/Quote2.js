@@ -16,7 +16,7 @@ const Quote = ({
     noMargin={noMargin}
     specialMarginBottom={specialMarginBottom}
   >
-    <Fade triggerOnce>
+    <Fade delay={300} triggerOnce>
       <QuoteLimiter>
         <QuoteMark passedColor={color}>
           <Mark />
