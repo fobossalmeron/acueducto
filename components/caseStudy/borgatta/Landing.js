@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
-import Picture from "components/caseStudy/shared/Picture";
 import { useState } from "react";
 import { useEffect } from "react";
 
@@ -11,7 +10,7 @@ const Landing = () => {
   useEffect(() => {
 
     window.addEventListener("resize", function(){
-      if (window.innerWidth <= 650) {
+      if (window.innerWidth <= 600) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
@@ -23,90 +22,77 @@ const Landing = () => {
   return (
   <LandSection>
     <Fade delay={1100} triggerOnce>
-      <LogoBorgatta />
+      <LogoBorgatta>
+        {!isMobile 
+            ? <img
+                src="/assets/img/casestudies/borgatta/brand-md.svg"
+                alt="Web B360"
+              />
+            : <img
+                src="/assets/img/casestudies/borgatta/brand-sm.svg"
+                alt="Web B360"
+              />
+        }
+        </LogoBorgatta>
     </Fade>
     {!isMobile ? (
       <PicturesContainer>
         <FirstColumn>
           <Fade delay={1300} direction="up" triggerOnce>
-            <Picture
+            <img
               src="/assets/img/casestudies/borgatta/landing1.png"
-              alt="Page"
-              width={180}
-              height={231}
-              withWrapper
+              alt="Web B360"
             />
           </Fade>
           <Fade delay={1100} direction="up" triggerOnce>
-            <Picture
+            <img
               src="/assets/img/casestudies/borgatta/landing2.png"
-              alt="Page"
-              width={120}
-              height={88}
-              withWrapper
+              alt="Web B360"
             />
           </Fade>
         </FirstColumn>
       <SecondColumn>
         <Fade delay={1500} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landing3.png"
-            alt="Page"
-            width={263.3}
-            height={327.5}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
       </SecondColumn>
       <ThirdColumn>
         <Fade delay={1400} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landing4.png"
-            alt="Page"
-            width={392.7}
-            height={289.7}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
       </ThirdColumn>
       <FourthColumn>
         <Fade delay={1150} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landing5.png"
-            alt="Page"
-            width={319}
-            height={187}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1250} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landing6.png"
-            alt="Page"
-            width={174.3}
-            height={112.8}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
       </FourthColumn>
       <FifthColumn>
         <Fade delay={1600} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landing7.png"
-            alt="Page"
-            width={130}
-            height={184}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1500} direction="up" triggerOnce>
-          <Picture
-            src="/assets/img/casestudies/borgatta/landing8.png"
-            alt="Page"
-            width={93}
-            height={93}
-            withWrapper
-          />
+          <img
+          src="/assets/img/casestudies/borgatta/landing8.png"
+          alt="Web B360"
+        />
         </Fade>
       </FifthColumn>
     </PicturesContainer>
@@ -114,59 +100,41 @@ const Landing = () => {
         <PicturesContainerMobile>
       <FirstRowMobile>
         <Fade delay={1300} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile1.png"
-            alt="Page"
-            width={135}
-            height={168}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1100} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile2.png"
-            alt="Page"
-            width={89.66}
-            height={89.66}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1100} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile4.png"
-            alt="Page"
-            width={135}
-            height={203}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
       </FirstRowMobile>
       <SecondRowMobile>
         <Fade delay={1500} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile3.png"
-            alt="Page"
-            width={60}
-            height={77.5}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1500} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile5.png"
-            alt="Page"
-            width={220}
-            height={162.45}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
         <Fade delay={1500} direction="up" triggerOnce>
-          <Picture
+          <img
             src="/assets/img/casestudies/borgatta/landingMobile6.png"
-            alt="Page"
-            width={64.25}
-            height={54.45}
-            withWrapper
+            alt="Web B360"
           />
         </Fade>
       </SecondRowMobile>
@@ -180,16 +148,19 @@ export default Landing;
 
 const LogoBorgatta = styled.div`
   width: 100%; 
-  min-height: 96px;
-  max-width: 684px;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-image: url("/assets/img/casestudies/borgatta/brand-md.svg");
+  display: flex;
+  justify-content: center;
 
-  @media (max-width: 630px) {
-    min-height: 124px;
-    background-image: url("/assets/img/casestudies/borgatta/brand-sm.svg");
+  img {
+    max-height: 96px;
+    min-width: 400px;
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    img {
+      min-height: 124px;
+    }
   }
 `;
 
@@ -204,14 +175,23 @@ const FirstColumn = styled.div`
   display: flex;
   flex-direction: column;
   gap: 3.5%;
+  img {
+    width: 100%;
+  }
 `;
 
 const SecondColumn = styled.span`
   margin-top: 6%;
+  img {
+    width: 100%;
+  }
 `;
 
 const ThirdColumn = styled.span`
   margin-top: 11%;
+  img {
+    width: 100%;
+  }
 `;
 
 const FourthColumn = styled.span`
@@ -219,12 +199,18 @@ const FourthColumn = styled.span`
   flex-direction: column;
   gap: 4%;
   margin-top: 6%;
+  img {
+    width: 100%;
+  }
 `;
 
 const FifthColumn = styled.span`
   display: flex;
   flex-direction: column;
   gap: 4%;
+  img {
+    width: 100%;
+  }
 `;
 
 const PicturesContainerMobile = styled.span`
@@ -238,6 +224,9 @@ const FirstRowMobile = styled.span`
   flex-direction: row;
   align-items: end;
   gap: 2%;
+  img {
+    width: 100%;
+  }
 `;
 
 const SecondRowMobile = styled.span`
@@ -245,6 +234,9 @@ const SecondRowMobile = styled.span`
   flex-direction: row;
   align-items: start;
   gap: 2%;
+  img {
+    width: 100%;
+  }
 `;
 
 const LandSection = styled(CommonSection)`
@@ -262,6 +254,9 @@ const LandSection = styled(CommonSection)`
   }
   & > span {
     width: 100%;
+    .span{
+      width: 100%;
+    }
   }
   @media (max-width: 1300px) {
     min-height: 94vh;
@@ -271,13 +266,18 @@ const LandSection = styled(CommonSection)`
     }
   }
   @media (max-width: 1000px) {
-    min-height: 94vh;
     & > div {
       max-width: 423px;
       padding-bottom: 4%;
     }
   }
-  @media (max-width: 630px) {
+  @media (max-width: 810px) {
+    & > div {
+      max-width: 189.41px;
+      padding-bottom: 4%;
+    }
+  }
+  @media (max-width: 490px) {
     min-height: 95vh;
     bottom: 0%;
     & > div {
