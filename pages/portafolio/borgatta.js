@@ -7,6 +7,7 @@ import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import LandSection from "components/caseStudy/borgatta/Landing";
+import AnimatedUIComponents from "components/caseStudy/borgatta/AnimatedUIComponents";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
@@ -270,7 +271,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-        <Fade delay={300} triggerOnce>
+        <AnimatedUIComponents />
+        {/* <Fade delay={300} triggerOnce>
           {!isMobile ? (
               <img
                 src="/assets/img/casestudies/borgatta/components-md.png"
@@ -283,7 +285,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               />
             )
           }
-        </Fade>
+        </Fade> */}
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />
