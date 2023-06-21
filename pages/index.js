@@ -29,11 +29,13 @@ function Index({ locale, setTitle, pt }) {
         setTitle(nT.head.headerTitle);
       },
     });
-    if (window.innerWidth < 760) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
+    window.addEventListener("resize", function(){
+      if (window.innerWidth <= 760) {
+        setIsMobile(true);
+      } else {
+        setIsMobile(false);
+      }
+    });
   }, [locale]);
 
   return (
@@ -70,15 +72,15 @@ function Index({ locale, setTitle, pt }) {
             {!isMobile ? (
               <Picture
                 src="/assets/img/layout/clients.png"
-                width={932}
-                height={108}
+                width={913}
+                height={107}
                 alt="Clientes"
               />
             ) : (
               <Picture
                 src="/assets/img/layout/clientsMobile.png"
-                width={616}
-                height={150}
+                width={608}
+                height={151}
                 alt="Clientes"
               />
             )}
