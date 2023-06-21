@@ -10,11 +10,14 @@ import LandSection from "components/caseStudy/borgatta/Landing";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
-import Quote from "components/caseStudy/shared/Quote2";
+import Quote from "components/caseStudy/shared/Quote";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
+import Image from "next/image";
+import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
+import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -59,26 +62,26 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <LandSection isMobile={isMobile}/>
       </Fade>
       <FirstSection>
-        <Marquee tags={t?.intro_section.tags} />
+        <Marquee tags={t.intro_section.tags} />
         <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo>
         <Fade delay={300} triggerOnce>
-          <FirstTextColumn>
-            <H2>{t?.intro_section.title}</H2>
-            <H3>{t?.intro_section.subtitle}</H3>
-            <P>{t?.intro_section.p}</P>
-          </FirstTextColumn>
-        </Fade>
-        <Fade delay={300} triggerOnce>
-          <LessonContainer>
-            {t?.intro_section.lessons.map((lesson, i) => (
-              <Lesson key={`lessn${i}`}>
-                <span>{i + 1}</span>
-                <p>{lesson.p}</p>
-              </Lesson>
-            ))}
-          </LessonContainer>
+          <TextColumn>
+            <H2>{t.intro_section.title}</H2>
+            <H3>{t.intro_section.subtitle}</H3>
+            <P>{t.intro_section.p}</P>
+            <Fade delay={300} triggerOnce>
+              <LessonContainer>
+                {t?.intro_section.lessons.map((lesson, i) => (
+                  <Lesson key={`lessn${i}`}>
+                    <span>{i + 1}</span>
+                    <p>{lesson.p}</p>
+                  </Lesson>
+                ))}
+              </LessonContainer>
+            </Fade>
+          </TextColumn>
         </Fade>
         <Picture
           src="/assets/img/casestudies/borgatta/page.png"
@@ -89,12 +92,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         />
       </FirstSection>
       <SecondSection>
-        <Fade delay={300} triggerOnce>
-          <SecondTextColumn>
+          <TextColumn>
             <H2>{t?.second_section.title}</H2>
             <P>{t.second_section.p}</P>
-          </SecondTextColumn>
-        </Fade>
+          </TextColumn>
         <AspectContainer>
           <Fade delay={300} triggerOnce>
             {t.second_section.aspects.map((aspect, i) => (
@@ -216,15 +217,14 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             />
           </Fade>
         </CasesContainer>
-        <Quote quote={t.second_section.quote} authorColor={"#4F4F4F"} color={"#4F4F4F"}/>
+        <Quote quote={t.second_section.quote} color={"#060809"} />
+        {/* <Quote quote={t.second_section.quote} authorColor={"#4F4F4F"} color={"#4F4F4F"}/> */}
       </SecondSection>
       <ThirdSection>
-        <Fade delay={300} triggerOnce>
-          <TextColumn>
-            <H2>{t.third_section.title}</H2>
-            <P>{t.third_section.p}</P>
-          </TextColumn>
-        </Fade>
+        <TextColumn>
+          <H2>{t.third_section.title}</H2>
+          <P>{t.third_section.p}</P>
+        </TextColumn>
         <ResultContainer>
           <Fade delay={300} triggerOnce>
             {t.third_section.results.map((result, i) => (
@@ -236,7 +236,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
                       ? <div>
                           <h1>{result.digits.split(" ")[0]}</h1>
                           <H3>{result.digits.split(" ")[1]}</H3>
-                        </div> 
+                        </div>
                       : <h1>{result.digits}</h1>
                     }
                   </span>
@@ -250,27 +250,26 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <ResultsOnThePage>
           <Fade delay={300} triggerOnce>
             {!isMobile ? (
-                <img
-                  src="/assets/img/casestudies/borgatta/resultsOnThePage-md.png"
+                <Image
+                  src={ResultMd}
                   alt="Web B360"
                 />
               ) : (
-                <img
-                  src="/assets/img/casestudies/borgatta/resultsOnThePage-sm.png"
+                <Image
+                  src={ResultSm}
                   alt="Web B360"
                 />
             )}
           </Fade>
         </ResultsOnThePage>
-        <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/>
+        <Quote quote={t.second_section.quote} color={"#F4F4F4"} />
+        {/* <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/> */}
       </ThirdSection>
       <FourthSection>
-        <Fade delay={300} triggerOnce>
-          <FourthTextColumn>
-            <H2>{t.fourth_section.title}</H2>
-            <P>{t.fourth_section.p}</P>
-          </FourthTextColumn>
-        </Fade>
+        <TextColumn>
+          <H2>{t.fourth_section.title}</H2>
+          <P>{t.fourth_section.p}</P>
+        </TextColumn>
         <Fade delay={300} triggerOnce>
           {!isMobile ? (
               <img
@@ -328,20 +327,21 @@ const FirstSection = styled(CommonSection)`
     font-weight: 500;
   }
   h2 {
-    font-size: 6.58rem;
+    font-size: 5.6rem;
     padding-bottom: 4px;
     b {
       opacity: 0.7;
       font-weight: 400;
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
   h3 {
     padding: 0px;
     padding-bottom: 4%;
-    font-size: 3.78rem;
+    font-size: 3.2rem;
     line-height: 131%;
     margin-bottom: 0px;
+    width: 100%;
   }
   .image {
     padding-top: 3.5%;
@@ -375,14 +375,10 @@ const FirstSection = styled(CommonSection)`
     }
   }
 `;
-const FirstTextColumn = styled(TextColumn)`
-  max-width: 700px;
-`;
 
 const LessonContainer = styled.div`
-  padding: 0 5%;
-  margin-top: 4.5%;
-  margin-bottom: 7.2%;
+  padding-top: 9%;
+  padding-bottom: 7.2%;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 159px 181px 159px;
@@ -397,7 +393,6 @@ const LessonContainer = styled.div`
 
 const Lesson = styled.div`
   background: rgba(255, 255, 255, 0.06);
-  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1);
   border-radius: 24px;
   
   &:nth-child(1), &:nth-child(5) {
@@ -453,13 +448,13 @@ const SecondSection = styled(CommonSection)`
   h2 {
     color: #D76E32;
     font-weight: 500;
-    font-size: 6.58rem;
+    font-size: 5.6rem;
     line-height: 105%;
     padding: 4px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
   @media (max-width: 1000px) {
@@ -540,6 +535,7 @@ const Aspect = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
+  background: #FFFFFF;
   box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1), 0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
@@ -577,18 +573,18 @@ const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
   color: #FFFFFF;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);
+  background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
   h2 {
     color: #F3F4F5;
     font-weight: 500;
-    font-size: 6.58rem;
+    font-size: 5.6rem;
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
       color: rgba(255, 255, 255, 0.7);
       font-weight: 400;
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
   @media (max-width: 1000px) {
@@ -620,7 +616,7 @@ const ThirdSection = styled(CommonSection)`
 
 const ResultContainer = styled.div`
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-columns: 1fr 1fr;
   grid-template-rows: auto;
   gap: 24px;
   padding: 0 15.27%;
@@ -645,11 +641,11 @@ const Results = styled.div`
   flex-direction: column;
   padding: 40px;
   background: rgba(255, 255, 255, 0.07);
-  box-shadow: 0px 2px 9px rgba(11, 82, 112, 0.06);
   border-radius: 32px;
+  max-width: 488px;
 
   h1 {
-    font-size: 8rem;
+    font-size: 7rem;
     line-height: 6.5rem;
   }
   h2 {
@@ -657,9 +653,8 @@ const Results = styled.div`
     padding: 0px;
   }
   h3 {
-    font-size: 4.8rem;
-    line-height: 4rem;
-    padding-bottom: 2.4rem;
+    font-size: 4.5rem;
+    padding-bottom: 1rem;
   }
   p {
     font-size: 1.8rem;
@@ -676,7 +671,6 @@ const Results = styled.div`
       align-items: baseline;
       h3 {
         font-size: 4.8rem;
-        line-height: 4rem;
         padding-bottom: 0;
         padding-left: 12px;
       }
@@ -739,13 +733,13 @@ const FourthSection = styled(CommonSection)`
   h2 {
     color: #D76E32;
     font-weight: 500;
-    font-size: 6.58rem;
+    font-size: 5.6rem;
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 4.5rem;
+      font-size: 4rem;
     }
   }
   p {

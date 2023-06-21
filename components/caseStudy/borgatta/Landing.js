@@ -3,6 +3,9 @@ import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
 import { useState } from "react";
 import { useEffect } from "react";
+import Image from "next/image";
+import Landing1 from "public/assets/img/casestudies/borgatta/landing1.png";
+import Landing2 from "public/assets/img/casestudies/borgatta/landing2.png";
 
 const Landing = () => {
   const [isMobile, setIsMobile] = useState();
@@ -39,14 +42,14 @@ const Landing = () => {
       <PicturesContainer>
         <FirstColumn>
           <Fade delay={1300} direction="up" triggerOnce>
-            <img
-              src="/assets/img/casestudies/borgatta/landing1.png"
+            <Image
+              src={Landing1}
               alt="Web B360"
             />
           </Fade>
           <Fade delay={1100} direction="up" triggerOnce>
             <img
-              src="/assets/img/casestudies/borgatta/landing2.png"
+              src={Landing2}
               alt="Web B360"
               className="landing2"
             />
