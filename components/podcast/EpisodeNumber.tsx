@@ -7,11 +7,12 @@ const EpisodeNumber = ({ episode }: { episode: number }) => {
 export default EpisodeNumber;
 
 const Number = styled.div`
-  display: block;
+  display: flex;
   background-color: ${(p) => p.theme.colors.accent};
   border-radius: 100px;
   padding: 11px 10px 10px;
   text-align: center;
+  justify-content: center;
   font-weight: 200;
   font-size: 2.0rem;
   width: 45px;
