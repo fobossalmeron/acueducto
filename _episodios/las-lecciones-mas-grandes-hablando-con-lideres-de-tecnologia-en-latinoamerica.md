@@ -9,6 +9,7 @@ description: Para nuestro capítulo número 100 tenemos una edición especial do
 insights:
 apple: https://podcasts.apple.com/us/podcast/e100-las-lecciones-m%C3%A1s-grandes-hablando-con-l%C3%ADderes/id1500473556?i=1000618386910
 spotify: https://open.spotify.com/episode/3JeSVUAXVtRMFTKDymgr9R
+google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMzA5NzM3MQ?sa=X&ved=0CAUQkfYCahgKEwjgiOWwvuH_AhUAAAAAHQAAAAAQkwU
 youtube: https://www.youtube.com/watch?v=BKTUVdBQSYo
 ---
 
