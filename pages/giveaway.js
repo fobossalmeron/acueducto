@@ -7,6 +7,7 @@ import PageClipper from "components/layout/PageClipper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
+import { Router } from "next/router";
 
 export default function LinkEnBio({ locale, setTitle, pt }) {
   let { head, title, links, secondary_links, p } = pt;
