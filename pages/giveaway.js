@@ -7,11 +7,11 @@ import PageClipper from "components/layout/PageClipper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import Articulos from "public/assets/img/layout/linkenbio/articulos.svg";
-import Podcast from "public/assets/img/layout/linkenbio/podcast.svg";
+import { useRouter } from "next/router";
 
 export default function LinkEnBio({ locale, setTitle, pt }) {
   let { head, title, links, secondary_links, p } = pt;
+  const router = useRouter();
 
   useEffect(() => {
     setTitle(head.headerTitle);
@@ -21,48 +21,21 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
     <PageClipper>
       <Head
         {...head}
-        es_canonical={"https://acueducto.studio/linkenbio"}
+        es_canonical={"https://acueducto.studio/giveaway"}
       ></Head>
       <MetalPinnedSection title={title}>
         <ul>
-          {links.map((link, index) => (
-            <Resource key={"linkentry" + index}>
-              {index === 0 && (
+            <Resource key={"linkentry" + 0}>
                 <img src="/assets/img/layout/linkenbio/giveaway.png" alt="Paticipa por un sitio de $175,000 mxn"/>
-              )}
-              {index === 1 && (
-                <img src="/assets/img/layout/linkenbio/kit.png" alt="Kit de inicio para Startups"/>
-              )}
-              {index === 3 && <Articulos />}
-              {index === 2 && <Podcast />}
-              <Link href={link.url} passHref locale={locale}>
-                <a>
-                  <Fade triggerOnce>
-                    <span>{link.subtitle}</span>
-                    <h2>{link.title}</h2>
-                  </Fade>
-                </a>
-              </Link>
+                <Link href={links[0].url} passHref locale={locale}>
+                    <a>
+                        <Fade triggerOnce>
+                            <span>{links[0].subtitle}</span>
+                            <h2>{links[0].title}</h2>
+                        </Fade>
+                    </a>
+                </Link>
             </Resource>
-          ))}
-        </ul>
-        <Subtitle>{p}</Subtitle>
-        <ul>
-          {secondary_links.map((link, index) => (
-            <Resource key={"linkentry2" + index}>
-                            {index === 1 && (
-                <img src="/assets/img/layout/linkenbio/portafolio.png" alt="Casos de estudio"/>
-              )}
-              <Link href={link.url} passHref>
-                <a>
-                  <Fade triggerOnce>
-                    <span>{link.subtitle}</span>
-                    <h2>{link.title}</h2>
-                  </Fade>
-                </a>
-              </Link>
-            </Resource>
-          ))}
         </ul>
       </MetalPinnedSection>
       <ContactFooter />
@@ -71,7 +44,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
 }
 
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "linkenbio.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: "giveaway.json" });
   if (!pt) {
     return {
       notFound: true,
@@ -83,15 +56,6 @@ export const getStaticProps = async (context) => {
     },
   };
 };
-
-const Subtitle = styled.p`
-  color: ${(p) => p.theme.colors.accent} !important;
-  font-size: 2.3rem;
-  margin: 25px 0 20px;
-  @media (max-width: 1250px) {
-    font-size: 2rem;
-  }
-`;
 
 const SecondaryUl = styled.ul`
   display: grid;
@@ -109,6 +73,7 @@ const Resource = styled.li`
   position: relative;
   overflow: hidden;
   transition: 0.2s ease-out border-color;
+  margin-bottom: 45%;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       border-color: ${(p) => p.theme.colors.accent};
@@ -166,6 +131,7 @@ const Resource = styled.li`
   }
   @media (max-width: 600px) {
     border-radius: 20px;
+    margin-bottom: 60vh;
     border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
     a {
       padding: 13% 2% 5.5% 5%;
