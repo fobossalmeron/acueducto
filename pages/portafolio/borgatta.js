@@ -645,7 +645,6 @@ const Results = styled.div`
   background: rgba(255, 255, 255, 0.07);
   border-radius: 32px;
   max-width: 488px;
-
   h1 {
     font-size: 7rem;
     line-height: 6.5rem;

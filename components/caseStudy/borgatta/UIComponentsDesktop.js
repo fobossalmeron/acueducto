@@ -79,111 +79,143 @@ const UIComponentsDesktop= () => {
       <SecondComponentsContainer>
         <div style={{display: 'flex', flexDirection: 'row', gap: "2%"}}>
           <div style={{display: 'flex', flexDirection: 'column', gap: "24px"}}>
+            <Slide delay={370} direction="up" triggerOnce>
             <Image
               src={UIComponent6}
               alt="Web B360"
               width={319}
               height={202}
             />
+            </Slide>
+            <Slide delay={420} direction="up" triggerOnce>
             <Image
               src={UIComponent7}
               alt="Web B360"
               width={319}
               height={336}
             />
+            </Slide>
+            <Slide delay={410} direction="up" triggerOnce>
             <Image
               src={UIComponent8}
               alt="Web B360"
               width={319}
               height={252}
             />
+            </Slide>
           </div>
           <div style={{gap: "24px", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center"}}>
+            <Slide delay={410} direction="up" triggerOnce>
             <Image
               src={UIComponent9}
               alt="Web B360"
               width={296}
               height={47}
             />
+            </Slide>
             <div style={{display: 'flex', flexDirection: 'row', gap: "24px"}}>
+            <Slide delay={210} direction="up" triggerOnce>
               <Image
                 src={UIComponent10}
                 alt="Web B360"
                 width={97}
-                height={97}
+                height={104}
               />
+              </Slide>
+              <Slide delay={410} direction="up" triggerOnce>
               <Image
                 src={UIComponent11}
                 alt="Web B360"
                 width={97}
                 height={104}
               />
+              </Slide>
+              <Slide delay={310} direction="up" triggerOnce>
               <Image
                 src={UIComponent12}
                 alt="Web B360"
                 width={97}
                 height={104}
               />
+              </Slide>
+              <Slide delay={290} direction="up" triggerOnce>
               <Image
                 src={UIComponent13}
                 alt="Web B360"
                 width={97}
                 height={104}
               />
+              </Slide>
             </div>
+            <Slide delay={400} direction="up" triggerOnce>
             <Image
               src={UIComponent14}
               alt="Web B360"
               width={381}
               height={348}
             />
+            </Slide>
           </div>
         </div>
         <div style={{display: "flex", flexDirection: "row", gap: "24px"}}>
+          <Slide delay={450} direction="up" triggerOnce>
           <Image
             src={UIComponent15}
             alt="Web B360"
             width={129}
             height={83.5}
           />
+          </Slide>
+          <Slide delay={410} direction="up" triggerOnce>
           <Image
             src={UIComponent16}
             alt="Web B360"
             width={129}
             height={83.5}
             />
+          </Slide>
+          <Slide delay={320} direction="up" triggerOnce>
           <Image
             src={UIComponent17}
             alt="Web B360"
             width={129}
             height={83.5}
           />
+          </Slide>
+          <Slide delay={380} direction="up" triggerOnce>
           <Image
             src={UIComponent18}
             alt="Web B360"
             width={129}
             height={83.5}
           />
+          </Slide>
+          <Slide delay={420} direction="up" triggerOnce>
           <Image
             src={UIComponent19}
             alt="Web B360"
             width={129}
             height={83.5}
           />
+          </Slide>
         </div>
         <div style={{display: 'flex', justifyContent:"flex-end", alignItems: "flex-start", gap: "24px", width: "100%"}}>
+        <Slide delay={450} direction="up" triggerOnce>
           <Image
             src={UIComponent20}
             alt="Web B360"
             width={167}
             height={151}
           />
+          </Slide>
+          <Slide delay={210} direction="up" triggerOnce>
           <Image
             src={UIComponent21}
             alt="Web B360"
             width={185}
             height={203}
           />
+          </Slide>
         </div>
       </SecondComponentsContainer>
     </>
