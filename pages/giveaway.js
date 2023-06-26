@@ -7,10 +7,11 @@ import PageClipper from "components/layout/PageClipper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import { Router } from "next/router";
+import { useRouter } from "next/router";
 
 export default function LinkEnBio({ locale, setTitle, pt }) {
   let { head, title, links, secondary_links, p } = pt;
+  const router = useRouter();
 
   useEffect(() => {
     setTitle(head.headerTitle);
@@ -36,24 +37,6 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
                 </Link>
             </Resource>
         </ul>
-        <Subtitle>{p}</Subtitle>
-        <ul>
-          {secondary_links.map((link, index) => (
-            <Resource key={"linkentry2" + index}>
-                {index === 1 && (
-                    <img src="/assets/img/layout/linkenbio/portafolio.png" alt="Casos de estudio"/>
-                )}
-              <Link href={link.url} passHref>
-                <a>
-                  <Fade triggerOnce>
-                    <span>{link.subtitle}</span>
-                    <h2>{link.title}</h2>
-                  </Fade>
-                </a>
-              </Link>
-            </Resource>
-          ))}
-        </ul>
       </MetalPinnedSection>
       <ContactFooter />
     </PageClipper>
@@ -61,7 +44,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
 }
 
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "linkenbio.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: "giveaway.json" });
   if (!pt) {
     return {
       notFound: true,
@@ -73,15 +56,6 @@ export const getStaticProps = async (context) => {
     },
   };
 };
-
-const Subtitle = styled.p`
-  color: ${(p) => p.theme.colors.accent} !important;
-  font-size: 2.3rem;
-  margin: 25px 0 20px;
-  @media (max-width: 1250px) {
-    font-size: 2rem;
-  }
-`;
 
 const SecondaryUl = styled.ul`
   display: grid;
@@ -99,6 +73,7 @@ const Resource = styled.li`
   position: relative;
   overflow: hidden;
   transition: 0.2s ease-out border-color;
+  margin-bottom: 45%;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       border-color: ${(p) => p.theme.colors.accent};
@@ -156,6 +131,7 @@ const Resource = styled.li`
   }
   @media (max-width: 600px) {
     border-radius: 20px;
+    margin-bottom: 60vh;
     border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
     a {
       padding: 13% 2% 5.5% 5%;
