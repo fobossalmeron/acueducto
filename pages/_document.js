@@ -90,6 +90,7 @@ export default class MyDocument extends Document {
           </div>
           <Main />
           <NextScript />
+          <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.10.1/tsparticles.confetti.bundle.min.js"></script>
           {/* <script
             type="text/javascript"
             id="hs-script-loader"

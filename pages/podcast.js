@@ -31,6 +31,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
     if (window.matchMedia("(max-width: 600px)").matches) {
       setIsMobile(true);
     }
+    episode100();
   }, [locale]);
 
   const activateSubscribePixels = (data) => {
@@ -63,6 +64,14 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
     });
     activateSubscribePixels(data);
   };
+
+  function episode100(){
+    confetti({
+      particleCount: 500,
+      spread: 75,
+      origin: { y: 0.6 }
+    });
+  }
 
   return (
     <PageClipper>
