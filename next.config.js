@@ -4,6 +4,15 @@
 const path = require("path");
 
 const nextConfig = {
+  async redirects() {
+    return [
+      {
+        source: '/giveaway',
+        destination: 'https://tally.so/r/3xj185',
+        permanent: true,
+      },
+    ]
+  },
   compiler: {
     styledComponents: {
       displayName: true,
