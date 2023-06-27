@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
+import { keyframes } from "@emotion/react";
 import { useState } from "react";
 import { useEffect } from "react";
 import Image from "next/image";
@@ -39,7 +40,7 @@ const Landing = () => {
 
   return (
     <LandSection>
-      <Fade delay={750} triggerOnce>
+      <Fade delay={1100} triggerOnce>
         <LogoBorgatta>
           {!isMobile 
             ? <img
@@ -56,105 +57,105 @@ const Landing = () => {
       {!isMobile ? (
         <PicturesContainer>
           <FirstColumn>
-            <Slide delay={700} direction="up" triggerOnce>
+            <Fade delay={1300} direction="up" triggerOnce>
               <Image
                 src={Landing1}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={800} direction="up" triggerOnce className="landing2">
+            </Fade>
+            <Fade delay={1400} direction="up" triggerOnce className="landing2">
               <Image
                 src={Landing2}
                 alt="Web B360"
               />
-            </Slide>
+            </Fade>
           </FirstColumn>
           <SecondColumn>
-            <Slide delay={900} direction="up" triggerOnce>
+            <Fade delay={1500} direction="up" triggerOnce>
               <Image
                 src={Landing3}
                 alt="Web B360"
               />
-            </Slide>
+            </Fade>
           </SecondColumn>
           <ThirdColumn>
-            <Slide delay={800} direction="up" triggerOnce>
+            <Fade delay={1400} direction="up" triggerOnce>
               <Image
                 src={Landing4}
                 alt="Web B360"
               />
-            </Slide>
+            </Fade>
           </ThirdColumn>
           <FourthColumn>
-            <Slide delay={550} direction="up" triggerOnce>
+            <Fade delay={1150} direction="up" triggerOnce>
               <Image
                 src={Landing5}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={650} direction="up" triggerOnce className="landing6">
+            </Fade>
+            <Fade delay={1250} direction="up" triggerOnce className="landing6">
               <Image
                 src={Landing6}
                 alt="Web B360"
               />
-            </Slide>
+            </Fade>
           </FourthColumn>
           <FifthColumn>
-            <Slide delay={1000} direction="up" triggerOnce>
+            <Fade delay={1600} direction="up" triggerOnce>
               <Image
                 src={Landing7}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={900} direction="up" triggerOnce className="landing8">
+            </Fade>
+            <Fade delay={1500} direction="up" triggerOnce className="landing8">
               <Image
                 src={Landing8}
                 alt="Web B360"
               />
-            </Slide>
+            </Fade>
           </FifthColumn>
         </PicturesContainer>
         ) : (
           <PicturesContainerMobile>
             <FirstRowMobile>
-              <Slide delay={700} direction="up" triggerOnce>
+              <Fade delay={1300} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile1}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={500} direction="up" triggerOnce>
+              </Fade>
+              <Fade delay={1250} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile2}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={500} direction="up" triggerOnce>
+              </Fade>
+              <Fade delay={1150} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile4}
                   alt="Web B360"
                 />
-              </Slide>
+              </Fade>
             </FirstRowMobile>
             <SecondRowMobile>
-              <Slide delay={900} direction="up" triggerOnce>
+              <Fade delay={1350} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile3}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={900} direction="up" triggerOnce>
+              </Fade>
+              <Fade delay={1350} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile5}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={900} direction="up" triggerOnce>
+              </Fade>
+              <Fade delay={1300} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile6}
                   alt="Web B360"
                 />
-              </Slide>
+              </Fade>
             </SecondRowMobile>
           </PicturesContainerMobile>
         )
@@ -164,6 +165,16 @@ const Landing = () => {
 };
 
 export default Landing;
+
+// const customAnimation = keyframes`
+//   from {
+//     transform: translate3d(0, 0, 0);
+//   }
+
+//   to {
+//     transform: translate3d(0, 0, 10%);
+//   }
+// `;
 
 const LogoBorgatta = styled.div`
   width: 100%; 
@@ -313,3 +324,4 @@ const LandSection = styled(CommonSection)`
     }
   }
 `;
+
