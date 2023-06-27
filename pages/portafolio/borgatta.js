@@ -71,7 +71,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <TextColumn>
             <H2>{t.intro_section.title}</H2>
             <H3>{t.intro_section.subtitle}</H3>
-            <P>{t.intro_section.p}</P>
+            <P style={{ maxWidth: '700px' }}>
+              {t.intro_section.p}
+            </P>
             <Fade delay={300} triggerOnce>
               <LessonContainer>
                 {t?.intro_section.lessons.map((lesson, i) => (
@@ -229,7 +231,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <ResultContainer>
           <Fade delay={300} triggerOnce>
             {t.third_section.results.map((result, i) => (
-              <Results key={`result${i}`}>
+              <Results key={`result${i}`} className={`result${i}`}>
                 <div>
                   <span>
                     <H2>{result.title}</H2>
@@ -272,20 +274,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <P>{t.fourth_section.p}</P>
         </TextColumn>
         <AnimatedUIComponents />
-        {/* <Fade delay={300} triggerOnce>
-          {!isMobile ? (
-              <img
-                src="/assets/img/casestudies/borgatta/components-md.png"
-                alt="Web B360"
-              />
-            ) : (
-              <img
-                src="/assets/img/casestudies/borgatta/components-sm.png"
-                alt="Web B360"
-              />
-            )
-          }
-        </Fade> */}
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />
@@ -530,6 +518,7 @@ const AspectContainer = styled.div`
     padding: 6.7% 5%;
     display: flex;
     flex-direction: column;
+    gap: 20px;
   }
 `;
 
@@ -575,7 +564,6 @@ const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
   color: #FFFFFF;
-  background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
   h2 {
     color: #F3F4F5;
@@ -625,12 +613,27 @@ const ResultContainer = styled.div`
   margin-top: 100px;
   margin-bottom: -6%;
 
+  .result3 {
+    margin-top: -11%;
+  }
+
+  .result5 {
+    margin-top: -5%;
+  }
+
   @media (max-width: 1000px) {
     padding: 0 5%;
   }
   @media (max-width: 800px) {
     grid-template-columns: auto;
     grid-template-rows: auto auto;
+    .result3 {
+      margin-top: 0%;
+    }
+  
+    .result5 {
+      margin-top: 0%;
+    }
   }
   @media (max-width: 630px) {
     margin-bottom: 63px;
@@ -645,6 +648,7 @@ const Results = styled.div`
   background: rgba(255, 255, 255, 0.07);
   border-radius: 32px;
   max-width: 488px;
+
   h1 {
     font-size: 7rem;
     line-height: 6.5rem;

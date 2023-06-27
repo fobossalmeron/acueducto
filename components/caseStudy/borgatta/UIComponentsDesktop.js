@@ -78,7 +78,7 @@ const UIComponentsDesktop= () => {
       </FirstComponentsContainer>
       <SecondComponentsContainer>
         <RowDesktop gap='2%'>
-          <ColumnDesktop gap='24px'>
+          <ColumnDesktop gap='1rem'>
             <Fade delay={370} direction="up" triggerOnce>
               <Image
                 src={UIComponent6}
@@ -265,4 +265,5 @@ const FirstComponentsContainer = styled.div`
   display: grid;
   grid-template-rows: auto auto;
   gap: 1%;
+  margin-top: -2%;
 `;

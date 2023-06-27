@@ -9,6 +9,11 @@ const AnimatedUIComponents= () => {
   const [isMobile, setIsMobile] = useState();
 
   useEffect(() => {
+    if (window.innerWidth <= 600) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    };
     window.addEventListener("resize", function(){
       if (window.innerWidth <= 600) {
         setIsMobile(true);
@@ -16,7 +21,6 @@ const AnimatedUIComponents= () => {
         setIsMobile(false);
       }
     });
-
   }, [isMobile]);
 
   return (
@@ -24,7 +28,7 @@ const AnimatedUIComponents= () => {
       {!isMobile 
         ? <UIComponentsDesktop />
         : <UIComponentsMobile />
-    }
+      }
     </MainContainer>
   )
 };

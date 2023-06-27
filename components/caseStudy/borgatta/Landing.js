@@ -23,7 +23,11 @@ const Landing = () => {
   const [isMobile, setIsMobile] = useState();
 
   useEffect(() => {
-
+    if (window.innerWidth <= 600) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    };
     window.addEventListener("resize", function(){
       if (window.innerWidth <= 600) {
         setIsMobile(true);
@@ -31,7 +35,6 @@ const Landing = () => {
         setIsMobile(false);
       }
     });
-
   }, [isMobile]);
 
   return (
