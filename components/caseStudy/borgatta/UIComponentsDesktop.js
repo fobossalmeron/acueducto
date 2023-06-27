@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Image from "next/image";
-import { Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import UIComponent1 from "public/assets/img/casestudies/borgatta/UIComponent1.png";
 import UIComponent2 from "public/assets/img/casestudies/borgatta/UIComponent2.png";
 import UIComponent3 from "public/assets/img/casestudies/borgatta/UIComponent3.png";
@@ -28,194 +28,194 @@ const UIComponentsDesktop= () => {
     <>
       <FirstComponentsContainer>
         <FirstRow>
-          <Slide delay={300} direction="up" triggerOnce>
+          <Fade delay={300} direction="up" triggerOnce>
             <Image
               src={UIComponent1}
               alt="Web B360"
               width={255}
               height={379}
             />
-          </Slide>
-          <Slide delay={400} direction="up" triggerOnce>
+          </Fade>
+          <Fade delay={400} direction="up" triggerOnce>
             <Image
               src={UIComponent2}
               alt="Web B360"
               width={240}
               height={348}
             />
-          </Slide>
+          </Fade>
         </FirstRow>
         <SecondRow>
           <>
-            <Slide delay={350} direction="up" triggerOnce>
+            <Fade delay={350} direction="up" triggerOnce>
               <Image
                 src={UIComponent3}
                 alt="Web B360"
                 width={249}
                 height={362}
               />
-            </Slide>
+            </Fade>
           </>
-          <div style={{display: 'flex', flexDirection: 'column', alignItems: "flex-end", gap: "10px"}}>
-            <Slide delay={450} direction="up" triggerOnce>
+          <ColumnDesktop gap='10px' style={{ alignItems: "flex-end" }}>
+            <Fade delay={450} direction="up" triggerOnce>
               <Image
                 src={UIComponent4}
                 alt="Web B360"
                 width={283}
                 height={259}
               />
-            </Slide>
-            <Slide delay={320} direction="up" triggerOnce>
+            </Fade>
+            <Fade delay={320} direction="up" triggerOnce>
               <Image
                 src={UIComponent5}
                 alt="Web B360"
                 width={249}
                 height={359}
               />
-            </Slide>
-          </div>
+            </Fade>
+          </ColumnDesktop>
         </SecondRow>
       </FirstComponentsContainer>
       <SecondComponentsContainer>
-        <div style={{display: 'flex', flexDirection: 'row', gap: "2%"}}>
-          <div style={{display: 'flex', flexDirection: 'column', gap: "24px"}}>
-            <Slide delay={370} direction="up" triggerOnce>
-            <Image
-              src={UIComponent6}
-              alt="Web B360"
-              width={319}
-              height={202}
-            />
-            </Slide>
-            <Slide delay={420} direction="up" triggerOnce>
-            <Image
-              src={UIComponent7}
-              alt="Web B360"
-              width={319}
-              height={336}
-            />
-            </Slide>
-            <Slide delay={410} direction="up" triggerOnce>
-            <Image
-              src={UIComponent8}
-              alt="Web B360"
-              width={319}
-              height={252}
-            />
-            </Slide>
-          </div>
-          <div style={{gap: "24px", display: "flex", flexDirection: "column", alignItems: "flex-start", justifyContent: "center"}}>
-            <Slide delay={410} direction="up" triggerOnce>
-            <Image
-              src={UIComponent9}
-              alt="Web B360"
-              width={296}
-              height={47}
-            />
-            </Slide>
-            <div style={{display: 'flex', flexDirection: 'row', gap: "24px"}}>
-            <Slide delay={210} direction="up" triggerOnce>
+        <RowDesktop gap='2%'>
+          <ColumnDesktop gap='24px'>
+            <Fade delay={370} direction="up" triggerOnce>
               <Image
-                src={UIComponent10}
+                src={UIComponent6}
                 alt="Web B360"
-                width={97}
-                height={104}
+                width={319}
+                height={202}
               />
-              </Slide>
-              <Slide delay={410} direction="up" triggerOnce>
+            </Fade>
+            <Fade delay={420} direction="up" triggerOnce>
               <Image
-                src={UIComponent11}
+                src={UIComponent7}
                 alt="Web B360"
-                width={97}
-                height={104}
+                width={319}
+                height={336}
               />
-              </Slide>
-              <Slide delay={310} direction="up" triggerOnce>
+            </Fade>
+            <Fade delay={410} direction="up" triggerOnce>
               <Image
-                src={UIComponent12}
+                src={UIComponent8}
                 alt="Web B360"
-                width={97}
-                height={104}
+                width={319}
+                height={252}
               />
-              </Slide>
-              <Slide delay={290} direction="up" triggerOnce>
+            </Fade>
+          </ColumnDesktop>
+          <ColumnDesktop gap='2%' style={{ alignItems: "flex-start", justifyContent: "center" }}>
+            <Fade delay={410} direction="up" triggerOnce>
               <Image
-                src={UIComponent13}
+                src={UIComponent9}
                 alt="Web B360"
-                width={97}
-                height={104}
+                width={296}
+                height={47}
               />
-              </Slide>
-            </div>
-            <Slide delay={400} direction="up" triggerOnce>
+            </Fade>
+            <RowDesktop gap='5%'>
+              <Fade delay={210} direction="up" triggerOnce>
+                <Image
+                  src={UIComponent10}
+                  alt="Web B360"
+                  width={97}
+                  height={114}
+                />
+              </Fade>
+              <Fade delay={410} direction="up" triggerOnce>
+                <Image
+                  src={UIComponent11}
+                  alt="Web B360"
+                  width={97}
+                  height={104}
+                />
+              </Fade>
+              <Fade delay={310} direction="up" triggerOnce>
+                <Image
+                  src={UIComponent12}
+                  alt="Web B360"
+                  width={97}
+                  height={106}
+                />
+              </Fade>
+              <Fade delay={290} direction="up" triggerOnce>
+                <Image
+                  src={UIComponent13}
+                  alt="Web B360"
+                  width={97}
+                  height={106}
+                />
+              </Fade>
+            </RowDesktop>
+            <Fade delay={400} direction="up" triggerOnce>
+              <Image
+                src={UIComponent14}
+                alt="Web B360"
+                width={381}
+                height={348}
+              />
+            </Fade>
+          </ColumnDesktop>
+        </RowDesktop>
+        <RowDesktop gap='2%'>
+          <Fade delay={450} direction="up" triggerOnce>
             <Image
-              src={UIComponent14}
+              src={UIComponent15}
               alt="Web B360"
-              width={381}
-              height={348}
+              width={129}
+              height={83.5}
             />
-            </Slide>
-          </div>
-        </div>
-        <div style={{display: "flex", flexDirection: "row", gap: "24px"}}>
-          <Slide delay={450} direction="up" triggerOnce>
-          <Image
-            src={UIComponent15}
-            alt="Web B360"
-            width={129}
-            height={83.5}
-          />
-          </Slide>
-          <Slide delay={410} direction="up" triggerOnce>
-          <Image
-            src={UIComponent16}
-            alt="Web B360"
-            width={129}
-            height={83.5}
+          </Fade>
+          <Fade delay={410} direction="up" triggerOnce>
+            <Image
+              src={UIComponent16}
+              alt="Web B360"
+              width={129}
+              height={83.5}
             />
-          </Slide>
-          <Slide delay={320} direction="up" triggerOnce>
-          <Image
-            src={UIComponent17}
-            alt="Web B360"
-            width={129}
-            height={83.5}
-          />
-          </Slide>
-          <Slide delay={380} direction="up" triggerOnce>
-          <Image
-            src={UIComponent18}
-            alt="Web B360"
-            width={129}
-            height={83.5}
-          />
-          </Slide>
-          <Slide delay={420} direction="up" triggerOnce>
-          <Image
-            src={UIComponent19}
-            alt="Web B360"
-            width={129}
-            height={83.5}
-          />
-          </Slide>
-        </div>
+          </Fade>
+          <Fade delay={320} direction="up" triggerOnce>
+            <Image
+              src={UIComponent17}
+              alt="Web B360"
+              width={129}
+              height={83.5}
+            />
+          </Fade>
+          <Fade delay={380} direction="up" triggerOnce>
+            <Image
+              src={UIComponent18}
+              alt="Web B360"
+              width={129}
+              height={83.5}
+            />
+          </Fade>
+          <Fade delay={420} direction="up" triggerOnce>
+            <Image
+              src={UIComponent19}
+              alt="Web B360"
+              width={129}
+              height={83.5}
+            />
+          </Fade>
+        </RowDesktop>
         <div style={{display: 'flex', justifyContent:"flex-end", alignItems: "flex-start", gap: "24px", width: "100%"}}>
-        <Slide delay={450} direction="up" triggerOnce>
-          <Image
-            src={UIComponent20}
-            alt="Web B360"
-            width={167}
-            height={151}
-          />
-          </Slide>
-          <Slide delay={210} direction="up" triggerOnce>
-          <Image
-            src={UIComponent21}
-            alt="Web B360"
-            width={185}
-            height={203}
-          />
-          </Slide>
+          <Fade delay={350} direction="up" triggerOnce>
+            <Image
+              src={UIComponent20}
+              alt="Web B360"
+              width={167}
+              height={151}
+            />
+          </Fade>
+          <Fade delay={210} direction="up" triggerOnce>
+            <Image
+              src={UIComponent21}
+              alt="Web B360"
+              width={185}
+              height={203}
+            />
+          </Fade>
         </div>
       </SecondComponentsContainer>
     </>
@@ -223,6 +223,18 @@ const UIComponentsDesktop= () => {
 };
   
 export default UIComponentsDesktop;
+
+const RowDesktop = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: ${(props) => props.gap ? props.gap : '0px'};
+`;
+
+const ColumnDesktop = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: ${(props) => props.gap ? props.gap : '0px'};
+`;
 
 const SecondRow = styled.div`
   width: 100%;
