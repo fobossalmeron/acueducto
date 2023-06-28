@@ -8,7 +8,6 @@ import NavTrigger from "./NavTrigger";
 import { useRouter } from "next/router";
 import CookieMessage from "./CookieMessage";
 import ScrollIncentive from "./ScrollIncentive";
-import { initGA, logPageView } from "utils/analytics";
 import ReactPixel from "react-facebook-pixel";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import NewsletterPopup from "components/NewsletterPopup";
@@ -46,21 +45,15 @@ const Layout = ({ t, hasLoaded, children }) => {
   );
 
   const initializePixels = () => {
-    if (!window.GA_INITIALIZED) {
-      initGA();
-      window.GA_INITIALIZED = true;
-    }
-    logPageView();
-
-    const options = {
-      autoConfig: true,
-      debug: false,
-    };
-    ReactPixel.init("506854653278097", null, options);
-    ReactPixel.pageView();
     TagManager.initialize({
       gtmId: "GTM-NQHHFWF",
     });
+    const fbPptions = {
+      autoConfig: true,
+      debug: false,
+    };
+    ReactPixel.init("506854653278097", null, fbPptions);
+    ReactPixel.pageView();
     LinkedInTag.init("1943114", "dc", false);
   };
 
@@ -91,7 +84,6 @@ const Layout = ({ t, hasLoaded, children }) => {
       setIsAbout(false);
       setShowPopup(false);
     }
-    hasLoaded && logPageView();
     hasLoaded && ReactPixel.pageView();
   }, [router.route]);
 

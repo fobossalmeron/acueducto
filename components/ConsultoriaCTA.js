@@ -11,14 +11,9 @@ import { useRouter } from "next/router";
 import BorderLink from "components/shared/BorderedLink";
 import delayForLoading from "utils/delayForLoading";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
-import { logEvent, advancedMatching } from "utils/analytics";
+import { advancedMatching } from "utils/analytics";
 
-const ConsultoriaCTA = ({
-  cta,
-  id,
-  diagnostico_cta,
-  price,
-}) => {
+const ConsultoriaCTA = ({ cta, id, diagnostico_cta, price }) => {
   // const router = useRouter();
   // solo es necesario para las consultorías
 
@@ -37,7 +32,6 @@ const ConsultoriaCTA = ({
     ReactPixel.init("506854653278097", advancedMatching(data.email));
     // Pidió consultoría
     ReactPixel.track("SubmitApplication", { email: data.email });
-    logEvent("consultoría", "dejó email");
     // delayForLoading(1500).then(() => router.push("/consultoria/pago"));
     // estamos usando el agendador de hubspot para reuniones, no consultorías
   };
@@ -48,13 +42,11 @@ const ConsultoriaCTA = ({
       {price ? (
         <Span>{`${cta.price} <em>${cta.sessions}</em>`}</Span>
       ) : (
-        <span className="noPrice">
-          elevemos tu negocio
-        </span>
+        <span className="noPrice">elevemos tu negocio</span>
       )}
       <SpecialA>
         <Link href={"/contacto"} passHref>
-          <ButtonArrow text={cta.submit} inverse className="clean"/>
+          <ButtonArrow text={cta.submit} inverse className="clean" />
         </Link>
       </SpecialA>
 

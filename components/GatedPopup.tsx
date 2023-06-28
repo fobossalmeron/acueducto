@@ -3,7 +3,7 @@ import { useState } from "react";
 import { H4 } from "components/shared/Dangerously";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
-import { logEvent, advancedMatching } from "utils/analytics";
+import { advancedMatching } from "utils/analytics";
 import GateForm from "components/GateForm";
 import { Fade } from "react-awesome-reveal";
 
@@ -25,7 +25,6 @@ const NewsletterPopup = ({ content }) => {
       },
     });
     ReactPixel.init("506854653278097", advancedMatching(data.email));
-    logEvent("mvs-gated", "dejó datos");
     ReactPixel.track("QualifiedLead", { email: data.email });
     setShowPopup(false);
   };
