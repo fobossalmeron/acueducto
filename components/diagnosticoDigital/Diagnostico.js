@@ -4,7 +4,7 @@ import { useForm } from "react-hook-form";
 import { Fade } from "react-awesome-reveal";
 import Arrow from "components/shared/Arrow";
 import { createContact } from "utils/sendinBlue";
-import { logEvent, advancedMatching } from "utils/analytics";
+import { advancedMatching } from "utils/analytics";
 import delayForLoading from "utils/delayForLoading";
 import Results from "./Results";
 import ReactPixel from "react-facebook-pixel";
@@ -73,7 +73,6 @@ const Diagnostico = ({ diagnose_section, results_section }) => {
     setResults([estrategia, cultura, competencia, data.firstName]);
     ReactPixel.init("506854653278097", advancedMatching(data.email));
     ReactPixel.track("Lead", { email: data.email }); // Hizo el diagnóstico
-    logEvent("diagnostico", "dejó email");
     delayForLoading(1500).then(() => setTestStatus("done"));
   };
 
@@ -98,19 +97,6 @@ const Diagnostico = ({ diagnose_section, results_section }) => {
   useEffect(() => {
     qIndex === aIndex && setAIndexShouldIncrease(true);
   }, [qIndex]);
-
-  useEffect(() => {
-    console.log(aIndex);
-    if (aIndex === 1) {
-      logEvent("diagnostico", "empezó diagnóstico");
-    }
-    if (aIndex === 10) {
-      logEvent("diagnostico", "llegó a pregunta 10");
-    }
-    if (aIndex === NUMBER_OF_QS) {
-      logEvent("diagnostico", "llegó a recolección");
-    }
-  }, [aIndex]);
 
   function handleClick() {
     if (qIndex < NUMBER_OF_QS) {

@@ -1,10 +1,8 @@
 import styled from "styled-components";
 import EpisodeProps from "utils/types/EpisodeProps";
-import { logEvent } from "utils/analytics";
 import ReactPixel from "react-facebook-pixel";
 import { P } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-
 
 interface EpisodeComplete extends EpisodeProps {
   episode?: number;
@@ -22,7 +20,6 @@ const BroadcastRouter = ({
   trackClicks,
 }: EpisodeComplete) => {
   const handleLog = (episode: number, medium: string): void => {
-    logEvent("Podcast_play", `E0${episode}`, medium);
     ReactPixel.trackCustom("Podcast_play", {
       episode: `E0${episode}`,
       medio: medium,
@@ -30,77 +27,77 @@ const BroadcastRouter = ({
   };
   return (
     <Fade triggerOnce>
-    <LogoList>
-      {children && <P>{children + " "}</P>}
-      {spotify && (
-        <a
-          onClick={() => (trackClicks ? handleLog(episode, "Spotify") : null)}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={spotify}
-        >
-          Spotify
-          <img
-            src="/assets/img/layout/logos/spotify.svg"
-            alt="Escucha en Spotify"
-            width="33px"
-            height="43px"
-          />
-        </a>
-      )}
-      {apple && (
-        <a
-          onClick={() =>
-            trackClicks ? handleLog(episode, "ApplePodcasts") : null
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          href={apple}
-        >
-          Apple Podcasts
-          <img
-            src="/assets/img/layout/logos/applepodcasts.svg"
-            alt="Escucha en Apple Podcasts"
-            width="33px"
-            height="43px"
-          />
-        </a>
-      )}
-      {google && (
-        <a
-          onClick={() =>
-            trackClicks ? handleLog(episode, "GooglePodcasts") : null
-          }
-          target="_blank"
-          rel="noopener noreferrer"
-          href={google}
-        >
-          Google Podcasts
-          <img
-            src="/assets/img/layout/logos/googlepodcasts.svg"
-            alt="Escucha en Apple Podcasts"
-            width="33px"
-            height="43px"
-          />
-        </a>
-      )}
-      {youtube && (
-        <a
-          onClick={() => (trackClicks ? handleLog(episode, "YouTube") : null)}
-          target="_blank"
-          rel="noopener noreferrer"
-          href={youtube}
-        >
-          Youtube
-          <img
-            src="/assets/img/layout/logos/youtube.svg"
-            alt="Escucha en YouTube"
-            width="33px"
-            height="43px"
-          />
-        </a>
-      )}
-    </LogoList>
+      <LogoList>
+        {children && <P>{children + " "}</P>}
+        {spotify && (
+          <a
+            onClick={() => (trackClicks ? handleLog(episode, "Spotify") : null)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={spotify}
+          >
+            Spotify
+            <img
+              src="/assets/img/layout/logos/spotify.svg"
+              alt="Escucha en Spotify"
+              width="33px"
+              height="43px"
+            />
+          </a>
+        )}
+        {apple && (
+          <a
+            onClick={() =>
+              trackClicks ? handleLog(episode, "ApplePodcasts") : null
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            href={apple}
+          >
+            Apple Podcasts
+            <img
+              src="/assets/img/layout/logos/applepodcasts.svg"
+              alt="Escucha en Apple Podcasts"
+              width="33px"
+              height="43px"
+            />
+          </a>
+        )}
+        {google && (
+          <a
+            onClick={() =>
+              trackClicks ? handleLog(episode, "GooglePodcasts") : null
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            href={google}
+          >
+            Google Podcasts
+            <img
+              src="/assets/img/layout/logos/googlepodcasts.svg"
+              alt="Escucha en Apple Podcasts"
+              width="33px"
+              height="43px"
+            />
+          </a>
+        )}
+        {youtube && (
+          <a
+            onClick={() => (trackClicks ? handleLog(episode, "YouTube") : null)}
+            target="_blank"
+            rel="noopener noreferrer"
+            href={youtube}
+          >
+            Youtube
+            <img
+              src="/assets/img/layout/logos/youtube.svg"
+              alt="Escucha en YouTube"
+              width="33px"
+              height="43px"
+            />
+          </a>
+        )}
+      </LogoList>
     </Fade>
   );
 };

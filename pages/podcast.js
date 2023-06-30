@@ -18,7 +18,7 @@ import Tilt from "react-parallax-tilt";
 import { Persona, Check, BuildStory } from "components/shared/Icons";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
-import { logEvent, advancedMatching } from "utils/analytics";
+import { advancedMatching } from "utils/analytics";
 
 const iconArray = [Persona, Check, BuildStory];
 
@@ -37,7 +37,6 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
   const activateSubscribePixels = (data) => {
     ReactPixel.init("506854653278097", advancedMatching(data.email));
     // Suscripción a la newsletter
-    logEvent("newsletter-popup", "dejó email");
     ReactPixel.track("Subscribe", { email: data.email });
   };
 
@@ -65,11 +64,11 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
     activateSubscribePixels(data);
   };
 
-  function episode100(){
+  function episode100() {
     confetti({
       particleCount: 500,
       spread: 75,
-      origin: { y: 0.6 }
+      origin: { y: 0.6 },
     });
   }
 
