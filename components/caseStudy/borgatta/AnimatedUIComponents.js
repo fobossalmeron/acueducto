@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import CommonSection from "components/caseStudy/shared/CommonSection";
 import { useState } from "react";
 import { useEffect } from "react";
 import UIComponentsDesktop from "./UIComponentsDesktop";
@@ -39,4 +38,6 @@ const MainContainer = styled.div`
   display: flex;
   gap: 1.3%;
   padding: 0 2% 25% 2%;
+  width: 100%;
+  justify-content: center;
 `;

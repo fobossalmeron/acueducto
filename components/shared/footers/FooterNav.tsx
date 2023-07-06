@@ -220,6 +220,7 @@ const Colophon = styled.div`
   grid-column: 2 / span 11;
   margin-top: 10%;
   font-size: 1.6rem;
+  
   p {
     color: ${(p) => p.theme.colors.accent};
   }
@@ -237,6 +238,9 @@ const Colophon = styled.div`
     padding-right: 8px;
     padding-bottom: 5px;
     left: 0;
+  }
+  &:hover{
+    background-color: #080C0C;
   }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
@@ -276,8 +280,11 @@ const Colophon = styled.div`
       }
     }
   }
-  a {
-    justify-self: start;
-    ${BorderLink({ showLink: true })}
+  div {
+    a {
+      justify-self: start;
+      ${BorderLink({ showLink: true })}
+    }
+    background-image: none;
   }
 `;

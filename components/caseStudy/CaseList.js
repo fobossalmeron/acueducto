@@ -30,25 +30,22 @@ const SingleCase = (props) => {
           <Fade triggerOnce>
             <VidContainer>
               {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              <Logo
-                src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                alt={`logo_${props.link}`}
-              />
               {props.link === 'borgatta' 
-                ? <VidReplacer
-                    style={{
-                      backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
-                      backgroundSize: '100%',
-                      backgroundRepeat: 'no-repeat',
-                      backgroundPosition: 'bottom',
-                    }}
+                ? <Logo
+                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                    alt={`logo_${props.link}`}
+                    style={{ width: '55%' }}
                   />
-                : <VidReplacer
-                    style={{
-                      backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
-                    }}
+                : <Logo
+                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                    alt={`logo_${props.link}`}
                   />
               }
+              <VidReplacer
+                style={{
+                  backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
+                }}
+              />
             </VidContainer>
           </Fade>
         </a>

@@ -20,7 +20,7 @@ import UIComponent21 from "public/assets/img/casestudies/borgatta/UIComponent21.
 
 const UIComponentsMobile= () => {
     return (
-      <ColumnMobile gap='4px' style={{ padding: '16% 3% 0 3%' }}>
+      <ColumnMobile gap='4px' style={{ paddingTop: '16%' }}>
         <FirstComponentsContainerMobile>
           <FirstRowMobile>
             <ColumnMobile gap='4px'>
