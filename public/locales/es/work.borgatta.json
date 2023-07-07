@@ -73,38 +73,34 @@
       "p": "La plataforma terminó su fase beta y aunque estamos convencidos de que nos esperan muchos logros más en el futuro, en sus primeros meses viva conseguimos:",
       "results": [
         {
-          "title": "",
-          "digits": "100%",
+          "title": "100%",
           "subtitle": "transparencia",
           "p": "en movimientos del Portal con total visibilidad en retrasos y conflictos"
         },
         {
-          "title": "",
-          "digits": "4 países",
-          "subtitle": "",
+          "title": "4 países",
           "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
         },
         {
-          "title": "+",
-          "digits": "50 casos",
-          "subtitle": "",
+          "sign": "+",
+          "title": "50 casos",
           "p": "de tratamientos terminados y administrados por la nueva plataforma"
         },
         {
-          "title": "+",
-          "digits": "2600",
+          "sign": "+",
+          "title": "2600",
           "subtitle": "doctores",
           "p": "capacitados tienen acceso a la plataforma."
         },
         {
-          "title": "+",
-          "digits": "600",
+          "sign": "+",
+          "title": "600",
           "subtitle": "mensajes",
           "p": "(que antes eran enviados por múltiples canales) centralizados en el Portal."
         },
         {
-          "title": "+",
-          "digits": "$700k",
+          "sign": "+",
+          "title": "$700k",
           "subtitle": "facturados",
           "p": "de forma automática sin necesidad de enviar comprobantes ni revisar estados de cuenta"
         }

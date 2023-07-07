@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import { Fade, Slide } from "react-awesome-reveal";
+import { Fade } from "react-awesome-reveal";
 import { useState } from "react";
 import { useEffect } from "react";
 import Image from "next/image";
@@ -18,6 +18,9 @@ import LandingMobile3 from "public/assets/img/casestudies/borgatta/landingMobile
 import LandingMobile4 from "public/assets/img/casestudies/borgatta/landingMobile4.png";
 import LandingMobile5 from "public/assets/img/casestudies/borgatta/landingMobile5.png";
 import LandingMobile6 from "public/assets/img/casestudies/borgatta/landingMobile6.png";
+import React from "react";
+import { keyframes } from "@emotion/core";
+import Reveal from "react-awesome-reveal";
 
 const Landing = () => {
   const [isMobile, setIsMobile] = useState();
@@ -56,105 +59,189 @@ const Landing = () => {
       {!isMobile ? (
         <PicturesContainer>
           <FirstColumn>
-            <Slide delay={700} direction="up" triggerOnce>
+            <Reveal keyframes={customAnimation} delay={1300} direction="up" triggerOnce>
               <Image
                 src={Landing1}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={800} direction="up" triggerOnce className="landing2">
+            </Reveal>
+            {/* <Fade delay={1300} direction="up" triggerOnce>
+              <Image
+                src={Landing1}
+                alt="Web B360"
+              />
+            </Fade> */}
+            <Reveal keyframes={customAnimation} delay={1550} direction="up" triggerOnce className="landing2">
               <Image
                 src={Landing2}
                 alt="Web B360"
               />
-            </Slide>
+            </Reveal>
+            {/* <Fade delay={1550} direction="up" triggerOnce className="landing2">
+              <Image
+                src={Landing2}
+                alt="Web B360"
+              />
+            </Fade> */}
           </FirstColumn>
           <SecondColumn>
-            <Slide delay={900} direction="up" triggerOnce>
+            <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
               <Image
                 src={Landing3}
                 alt="Web B360"
               />
-            </Slide>
+            </Reveal>
+            {/* <Fade delay={1500} direction="up" triggerOnce>
+              <Image
+                src={Landing3}
+                alt="Web B360"
+              />
+            </Fade> */}
           </SecondColumn>
           <ThirdColumn>
-            <Slide delay={800} direction="up" triggerOnce>
+            <Reveal keyframes={customAnimation} delay={1400} direction="up" triggerOnce>
               <Image
                 src={Landing4}
                 alt="Web B360"
               />
-            </Slide>
+            </Reveal>
+            {/* <Fade delay={1400} direction="up" triggerOnce>
+              <Image
+                src={Landing4}
+                alt="Web B360"
+              />
+            </Fade> */}
           </ThirdColumn>
           <FourthColumn>
-            <Slide delay={550} direction="up" triggerOnce>
+            <Reveal keyframes={customAnimation} delay={1150} direction="up" triggerOnce>
               <Image
                 src={Landing5}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={650} direction="up" triggerOnce className="landing6">
+            </Reveal>
+            {/* <Fade delay={1150} direction="up" triggerOnce>
+              <Image
+                src={Landing5}
+                alt="Web B360"
+              />
+            </Fade> */}
+            <Reveal keyframes={customAnimation} delay={1250} direction="up" triggerOnce className="landing6">
               <Image
                 src={Landing6}
                 alt="Web B360"
               />
-            </Slide>
+            </Reveal>
+            {/* <Fade delay={1250} direction="up" triggerOnce className="landing6">
+              <Image
+                src={Landing6}
+                alt="Web B360"
+              />
+            </Fade> */}
           </FourthColumn>
           <FifthColumn>
-            <Slide delay={1000} direction="up" triggerOnce>
+            <Reveal keyframes={customAnimation} delay={1600} direction="up" triggerOnce>
               <Image
                 src={Landing7}
                 alt="Web B360"
               />
-            </Slide>
-            <Slide delay={900} direction="up" triggerOnce className="landing8">
+            </Reveal>
+            {/* <Fade delay={1600} direction="up" triggerOnce>
+              <Image
+                src={Landing7}
+                alt="Web B360"
+              />
+            </Fade> */}
+            <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce className="landing8">
               <Image
                 src={Landing8}
                 alt="Web B360"
               />
-            </Slide>
+            </Reveal>
+            {/* <Fade delay={1500} direction="up" triggerOnce className="landing8">
+              <Image
+                src={Landing8}
+                alt="Web B360"
+              />
+            </Fade> */}
           </FifthColumn>
         </PicturesContainer>
         ) : (
           <PicturesContainerMobile>
             <FirstRowMobile>
-              <Slide delay={1100} direction="up" triggerOnce>
+              <Reveal keyframes={customAnimation} delay={1300} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile1}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={1000} direction="up" triggerOnce>
+              </Reveal>
+              {/* <Fade delay={1300} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile1}
+                  alt="Web B360"
+                />
+              </Fade> */}
+              <Reveal keyframes={customAnimation} delay={1100} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile2}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={850} direction="up" triggerOnce>
+              </Reveal>
+              {/* <Fade delay={1100} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile2}
+                  alt="Web B360"
+                />
+              </Fade> */}
+              <Reveal keyframes={customAnimation} delay={1100} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile4}
                   alt="Web B360"
                 />
-              </Slide>
+              </Reveal>
+              {/* <Fade delay={1100} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile4}
+                  alt="Web B360"
+                />
+              </Fade> */}
             </FirstRowMobile>
             <SecondRowMobile>
-              <Slide delay={950} direction="up" triggerOnce>
+              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile3}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={1100} direction="up" triggerOnce>
+              </Reveal>
+              {/* <Fade delay={1500} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile3}
+                  alt="Web B360"
+                />
+              </Fade> */}
+              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile5}
                   alt="Web B360"
                 />
-              </Slide>
-              <Slide delay={1000} direction="up" triggerOnce>
+              </Reveal>
+              {/* <Fade delay={1500} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile5}
+                  alt="Web B360"
+                />
+              </Fade> */}
+              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
                 <Image
                   src={LandingMobile6}
                   alt="Web B360"
                 />
-              </Slide>
+              </Reveal>
+              {/* <Fade delay={1500} direction="up" triggerOnce>
+                <Image
+                  src={LandingMobile6}
+                  alt="Web B360"
+                />
+              </Fade> */}
             </SecondRowMobile>
           </PicturesContainerMobile>
         )
@@ -164,6 +251,17 @@ const Landing = () => {
 };
 
 export default Landing;
+
+const customAnimation = keyframes`
+  from {
+    opacity: 0;
+    transform: translate3d(0, 95px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+`;
 
 const LogoBorgatta = styled.div`
   width: 100%; 

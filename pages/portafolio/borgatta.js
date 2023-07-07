@@ -19,6 +19,7 @@ import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import Image from "next/image";
 import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
 import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
+import CaseTable from "../../components/caseStudy/borgatta/CaseTable";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -71,7 +72,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <TextColumn>
             <H2>{t.intro_section.title}</H2>
             <H3>{t.intro_section.subtitle}</H3>
-            <P style={{ maxWidth: '700px' }}>
+            <P>
               {t.intro_section.p}
             </P>
             <Fade delay={300} triggerOnce>
@@ -110,118 +111,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             ))}
           </Fade>
         </AspectContainer>
-        <CasesContainer>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case1.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case2.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case3.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case4.gif"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case5.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case6.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case7.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case8.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case9.gif"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case10.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case11.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-          <Fade delay={300} triggerOnce>
-            <Picture
-              src="/assets/img/casestudies/borgatta/case12.png"
-              alt="Page"
-              width={163}
-              height={163}
-              withWrapper
-            />
-          </Fade>
-        </CasesContainer>
+        <CaseTable />
         <Quote quote={t.second_section.quote} color={"#060809"} />
-        {/* <Quote quote={t.second_section.quote} authorColor={"#4F4F4F"} color={"#4F4F4F"}/> */}
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -234,16 +125,16 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               <Results key={`result${i}`} className={`result${i}`}>
                 <div>
                   <span>
-                    <H2>{result.title}</H2>
-                    {result.digits.length > 4 
+                    {result.sign && <h4>{result.sign}</h4>}
+                    {result.title.length > 4 
                       ? <div>
-                          <h1>{result.digits.split(" ")[0]}</h1>
-                          <H3>{result.digits.split(" ")[1]}</H3>
+                          <h2>{result.title.split(" ")[0]}</h2>
+                          <H3>{result.title.split(" ")[1]}</H3>
                         </div>
-                      : <h1>{result.digits}</h1>
+                      : <h2>{result.title}</h2>
                     }
                   </span>
-                  <H3>{result.subtitle}</H3>
+                  {result.subtitle && <H3>{result.subtitle}</H3>}
                 </div>
                 <P>{result.p}</P>
               </Results>
@@ -266,7 +157,6 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           </Fade>
         </ResultsOnThePage>
         <Quote quote={t.second_section.quote} color={"#F4F4F4"} />
-        {/* <Quote quote={t.third_section.quote} color={"#F4F4F4"} authorColor={"#F4F4F4"}/> */}
       </ThirdSection>
       <FourthSection>
         <TextColumn>
@@ -471,35 +361,6 @@ const SecondSection = styled(CommonSection)`
   }
 `;
 
-const CasesContainer = styled.div`
-  display: grid;
-  grid-column-gap: 2%;
-  grid-row-gap: 2%;
-  grid-template-rows: auto;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  padding: 4% 0% 2% 0%;
-  img {
-    border-radius: 24.3px;
-  }
-  @media (max-width: 1000px) {
-    padding: 9% 5% 6% 5%;
-  }
-  @media (max-width: 630px) {
-    padding: 7% 5%;
-    grid-column-gap: 1%;
-    grid-row-gap: 1%;
-    img {
-      border-radius: 10.4px;
-    }
-  }
-`;
-
-const SecondTextColumn = styled(TextColumn)`
-  @media (max-width: 630px) {
-    padding: 0 6%;
-  }
-`;
-
 const AspectContainer = styled.div`
   padding: 6.7% 15.53%;
   display: grid;
@@ -618,7 +479,7 @@ const ResultContainer = styled.div`
   }
 
   .result5 {
-    margin-top: -5%;
+    margin-top: -4%;
   }
 
   @media (max-width: 1000px) {
@@ -649,21 +510,23 @@ const Results = styled.div`
   border-radius: 32px;
   max-width: 488px;
 
-  h1 {
+  h2 {
     font-size: 7rem;
     line-height: 6.5rem;
-  }
-  h2 {
-    font-size: 3.4rem;
     padding: 0px;
   }
   h3 {
     font-size: 4.5rem;
-    padding-bottom: 1rem;
+    line-height: 131%;
+  }
+  h4 {
+    font-size: 3.4rem;
+    padding: 0px;
   }
   p {
     font-size: 1.8rem;
     line-height: 131%;
+    padding-top: 1rem;
   }
 
   div span {
@@ -683,11 +546,8 @@ const Results = styled.div`
   }
   
   @media (max-width: 1000px) {
-    h1 {
-      font-size: 6.8rem;
-    }
     h2 {
-      font-size: 5.2rem;
+      font-size: 6.8rem;
     }
     h3 {
       font-size: 4.2rem;
@@ -698,11 +558,8 @@ const Results = styled.div`
   }
   @media (max-width: 630px) {
     padding: 20px;
-    h1 {
-      font-size: 5.6rem;
-    }
     h2 {
-      font-size: 3.3rem;
+      font-size: 5.6rem;
     }
     h3 {
       font-size: 3.6rem;
