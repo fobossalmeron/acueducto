@@ -276,8 +276,11 @@ const Colophon = styled.div`
       }
     }
   }
-  a {
-    justify-self: start;
-    ${BorderLink({ showLink: true })}
+  div {
+    a {
+      justify-self: start;
+      ${BorderLink({ showLink: true })}
+    }
+    background-image: none;
   }
 `;
