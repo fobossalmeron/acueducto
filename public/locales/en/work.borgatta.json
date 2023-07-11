@@ -3,7 +3,7 @@
     "title": "Borgatta | Acueducto",
     "description": "How to digitally transform a corporation that seeks to execute ideas in an agile and scalable manner.",
     "image_alt": "Borgatta, caso de estudio por Acueducto",
-    "headerTitle": "Case Study | Borgatta"
+    "headerTitle": "Borgatta"
   },
   "headerTitle": "Borgatta",
   "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market - Borgatta",
@@ -73,38 +73,34 @@
     "p": "The platform completed its beta phase, and although we are convinced that many more achievements await us in the future, in its first few months, we accomplished the following:",
     "results": [
       {
-        "title": "",
-        "digits": "100%",
+        "title": "100%",
         "subtitle": "transparency",
         "p": "in Portal movements with full visibility on delays and conflicts"
       },
       {
-        "title": "",
-        "digits": "4 countries",
-        "subtitle": "",
+        "title": "4 countries",
         "p": "that can use the platform while respecting each location's operational preferences."
       },
       {
-        "title": "+",
-        "digits": "50 cases",
-        "subtitle": "",
+        "sign": "+",
+        "title": "50 cases",
         "p": "of treatments completed and managed by the new platform"
       },
       {
-        "title": "+",
-        "digits": "2600",
+        "sign": "+",
+        "title": "2600",
         "subtitle": "doctors",
         "p": "trained now have access to the platform."
       },
       {
-        "title": "+",
-        "digits": "600",
+        "sign": "+",
+        "title": "600",
         "subtitle": "messages",
         "p": "(previously sent through multiple channels) centralized in the Portal."
       },
       {
-        "title": "+",
-        "digits": "$700k",
+        "sign": "+",
+        "title": "$700k",
         "subtitle": "invoiced",
         "p": "automatically without the need to submit receipts or review account statements"
       }

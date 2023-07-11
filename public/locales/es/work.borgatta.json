@@ -1,121 +1,121 @@
 {
-    "head": {
-      "title": "Borgatta | Acueducto",
-      "description": "Cómo transformar digitalmente a un corporativo que busca ejecutar ideas de manera ágil y escalable.",
-      "image_alt": "Borgatta, caso de estudio por Acueducto",
-      "headerTitle": "Case Study | Borgatta"
-    },
-    "headerTitle": "Borgatta",
-    "title": "Una Chief Marketing Officer impulsando la innovación en un corporativo con 50 años en el mercado - Borgatta",
-    "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
-    "video": "blockstem.mp4",
-    "logo": "borgatta.svg",
-    "link": "borgatta",
-    "intro_section": {
-      "tags": [
-        "Diseño UX",
-        "Diseño UI",
-        "Web app",
-        "Desarrollo de software",
-        "Product Management",
-        "Estrategia de producto"
-      ],
-      "title": "<b>Acto I</b><br/>El Portal B360",
-      "subtitle": "Un sueño para la experiencia de sus clientes y la optimización de sus operaciones internas",
-      "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente. <br/><br/>Y en Borgatta, particularmente en el servicio de manufactura de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando. Este es un proceso sumamente complejo ya que involucra retos como:",
-      "lessons": [
-        {
-          "p": "Una comunicación constante entre doctores y el equipo técnico de Borgatta"
-        },
-        {
-          "p": "Transparencia en el proceso interno para identificar retrasos, errores y los responsables de estos"
-        },
-        {
-          "p": "Identificar y prever errores en los archivos de los pacientes de más de 2,600 doctores que, además, administran múltiples casos al mismo tiempo"
-        },
-        {
-          "p": "Recabar información constantemente de todo el proceso para mejorar"
-        },
-        {
-          "p": "Diferentes métodos y esquemas de cobranza y facturación en 4 países diferentes"
-        }
-      ]
-    },
-    "second_section": {
-      "title": "<b>Acto II</b><br/>¿Cómo acelerar la transformación digital en un corporativo?",
-      "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
-      "aspects": [
-        {
-          "title": "Riesgos de negocio",
-          "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de desarrollar una herramienta que impactara positivamente a cada área de la empresa."
-        },
-        {
-          "title": "Riesgos de usabilidad",
-          "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar un producto que los hace pensar el mínimo, indica naturalmente el siguiente paso y entrega resultados lo más rápido posible."
-        },
-        {
-          "title": "Riesgos de valor",
-          "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
-        },
-        {
-          "title": "Riesgos de viabilidad",
-          "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
-        }
-      ],
-      "quote": {
-        "quote": "Creemos que nuestro mundo es muy complejo de comprender y ustedes entendieron nuestro lenguaje y nuestra visión.<br/><br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
-        "name": "Estefanía Mejía",
-        "label": "directora creativa, Borgatta"
+  "head": {
+    "title": "Borgatta | Acueducto",
+    "description": "Cómo transformar digitalmente a un corporativo que busca ejecutar ideas de manera ágil y escalable.",
+    "image_alt": "Borgatta, caso de estudio por Acueducto",
+    "headerTitle": "Borgatta"
+  },
+  "headerTitle": "Borgatta",
+  "title": "Una Chief Marketing Officer impulsando la innovación en un corporativo con 50 años en el mercado - Borgatta",
+  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
+  "video": "blockstem.mp4",
+  "logo": "borgatta.svg",
+  "link": "borgatta",
+  "intro_section": {
+    "tags": [
+      "Diseño UX",
+      "Diseño UI",
+      "Web app",
+      "Desarrollo de software",
+      "Product Management",
+      "Estrategia de producto"
+    ],
+    "title": "<b>Acto I</b><br/>El Portal B360",
+    "subtitle": "Un sueño para la experiencia de sus clientes y la optimización de sus operaciones internas",
+    "p": "Nos encanta trabajar con organizaciones que todos los días están pensando en cómo mejorar su negocio para servir mejor a sus clientes y hacer la labor de sus empleados más eficiente. <br/><br/>Y en Borgatta, particularmente en el servicio de manufactura de alineadores invisibles, habían soñado con una plataforma que pudiera resolver una serie de problemas que estaban enfrentando. Este es un proceso sumamente complejo ya que involucra retos como:",
+    "lessons": [
+      {
+        "p": "Una comunicación constante entre doctores y el equipo técnico de Borgatta"
+      },
+      {
+        "p": "Transparencia en el proceso interno para identificar retrasos, errores y los responsables de estos"
+      },
+      {
+        "p": "Identificar y prever errores en los archivos de los pacientes de más de 2,600 doctores que, además, administran múltiples casos al mismo tiempo"
+      },
+      {
+        "p": "Recabar información constantemente de todo el proceso para mejorar"
+      },
+      {
+        "p": "Diferentes métodos y esquemas de cobranza y facturación en 4 países diferentes"
       }
-    },
-    "third_section": {
-      "title": "<b>Acto III</b><br/>Y los resultados fueron excepcionales",
-      "p": "La plataforma terminó su fase beta y aunque estamos convencidos de que nos esperan muchos logros más en el futuro, en sus primeros meses viva conseguimos:",
-      "results": [
-        {
-          "title": "100%",
-          "subtitle": "transparencia",
-          "p": "en movimientos del Portal con total visibilidad en retrasos y conflictos"
-        },
-        {
-          "title": "4 países",
-          "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
-        },
-        {
-          "sign": "+",
-          "title": "50 casos",
-          "p": "de tratamientos terminados y administrados por la nueva plataforma"
-        },
-        {
-          "sign": "+",
-          "title": "2600",
-          "subtitle": "doctores",
-          "p": "capacitados tienen acceso a la plataforma."
-        },
-        {
-          "sign": "+",
-          "title": "600",
-          "subtitle": "mensajes",
-          "p": "(que antes eran enviados por múltiples canales) centralizados en el Portal."
-        },
-        {
-          "sign": "+",
-          "title": "$700k",
-          "subtitle": "facturados",
-          "p": "de forma automática sin necesidad de enviar comprobantes ni revisar estados de cuenta"
-        }
-      ],
-      "quote": {
-        "quote": "Con este proyecto dimos un paso que queríamos dar desde hace mucho tiempo pero que nunca lo habíamos conseguido.<br/><br/>Acueducto es una empresa que suma en todas nuestras áreas y que ahora es parte de Borgatta.",
-        "name": "Cindy Borgatta",
-        "label": "CMO, Borgatta"
+    ]
+  },
+  "second_section": {
+    "title": "<b>Acto II</b><br/>¿Cómo acelerar la transformación digital en un corporativo?",
+    "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
+    "aspects": [
+      {
+        "title": "Riesgos de negocio",
+        "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de desarrollar una herramienta que impactara positivamente a cada área de la empresa."
+      },
+      {
+        "title": "Riesgos de usabilidad",
+        "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar un producto que los hace pensar el mínimo, indica naturalmente el siguiente paso y entrega resultados lo más rápido posible."
+      },
+      {
+        "title": "Riesgos de valor",
+        "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
+      },
+      {
+        "title": "Riesgos de viabilidad",
+        "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
       }
-    },
-    "fourth_section": {
-      "title": "<b>Acto III</b><br/>Ahora es momento de voltear, una vez más, hacia el horizonte",
-      "p": "Gracias a este tipo de iniciativas y ambición, Borgatta es uno de los líderes en una industria tan competida como lo es la de manufactura de equipo dental.<br/><br/>Y ahora que dieron vida a una plataforma con tantas funcionalidades que ayudan tanto a sus clientes como a su equipo de operación; Cindy y su equipo siguen haciendo lo mismo que los trajo hasta este punto: buscar incesantemente como mejorar y ser más competitivos."
-    },
-    "seventh_section": {
-      "linkp": "visita"
+    ],
+    "quote": {
+      "quote": "Creemos que nuestro mundo es muy complejo de comprender y ustedes entendieron nuestro lenguaje y nuestra visión.<br/><br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
+      "name": "Estefanía Mejía",
+      "label": "directora creativa, Borgatta"
     }
+  },
+  "third_section": {
+    "title": "<b>Acto III</b><br/>Y los resultados fueron excepcionales",
+    "p": "La plataforma terminó su fase beta y aunque estamos convencidos de que nos esperan muchos logros más en el futuro, en sus primeros meses viva conseguimos:",
+    "results": [
+      {
+        "title": "100%",
+        "subtitle": "transparencia",
+        "p": "en movimientos del Portal con total visibilidad en retrasos y conflictos"
+      },
+      {
+        "title": "4 países",
+        "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
+      },
+      {
+        "sign": "+",
+        "title": "50 casos",
+        "p": "de tratamientos terminados y administrados por la nueva plataforma"
+      },
+      {
+        "sign": "+",
+        "title": "2600",
+        "subtitle": "doctores",
+        "p": "capacitados tienen acceso a la plataforma."
+      },
+      {
+        "sign": "+",
+        "title": "600",
+        "subtitle": "mensajes",
+        "p": "(que antes eran enviados por múltiples canales) centralizados en el Portal."
+      },
+      {
+        "sign": "+",
+        "title": "$700k",
+        "subtitle": "facturados",
+        "p": "de forma automática sin necesidad de enviar comprobantes ni revisar estados de cuenta"
+      }
+    ],
+    "quote": {
+      "quote": "Con este proyecto dimos un paso que queríamos dar desde hace mucho tiempo pero que nunca lo habíamos conseguido.<br/><br/>Acueducto es una empresa que suma en todas nuestras áreas y que ahora es parte de Borgatta.",
+      "name": "Cindy Borgatta",
+      "label": "CMO, Borgatta"
+    }
+  },
+  "fourth_section": {
+    "title": "<b>Acto III</b><br/>Ahora es momento de voltear, una vez más, hacia el horizonte",
+    "p": "Gracias a este tipo de iniciativas y ambición, Borgatta es uno de los líderes en una industria tan competida como lo es la de manufactura de equipo dental.<br/><br/>Y ahora que dieron vida a una plataforma con tantas funcionalidades que ayudan tanto a sus clientes como a su equipo de operación; Cindy y su equipo siguen haciendo lo mismo que los trajo hasta este punto: buscar incesantemente como mejorar y ser más competitivos."
+  },
+  "seventh_section": {
+  "linkp": "visita"
   }
+}

@@ -184,6 +184,7 @@ export default UIComponentsMobile;
 const RowMobile = styled.div`
   display: flex;
   flex-direction: row;
+  width: 100%;
   gap: ${(props) => props.gap ? props.gap : '0px'};
 `;
 
