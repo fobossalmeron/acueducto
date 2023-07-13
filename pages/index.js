@@ -72,15 +72,15 @@ function Index({ locale, setTitle, pt }) {
             {!isMobile ? (
               <Picture
                 src="/assets/img/layout/clients.png"
-                width={913}
-                height={107}
+                width={1040}
+                height={101}
                 alt="Clientes"
               />
             ) : (
               <Picture
                 src="/assets/img/layout/clientsMobile.png"
-                width={608}
-                height={151}
+                width={703}
+                height={154}
                 alt="Clientes"
               />
             )}
