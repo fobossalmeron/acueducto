@@ -6,14 +6,16 @@ const NavTrigger = ({
   hasLoaded,
   toggleNav,
   isOpen,
+  route,
 }: {
   hasLoaded: boolean;
   toggleNav: () => void;
   isOpen: boolean;
+  route: string;
 }) => {
   const doToggleNav = () => toggleNav();
   return (
-    <TriggerContainer visible={hasLoaded}>
+    <TriggerContainer visible={hasLoaded} route={route}>
       <Trigger onClick={doToggleNav} open={isOpen}>
         <Hamburger />
       </Trigger>

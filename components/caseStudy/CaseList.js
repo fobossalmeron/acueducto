@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { P } from "components/shared/Dangerously";
+import { P, H4 } from "components/shared/Dangerously";
 import BorderLink from "components/shared/BorderedLink";
 import { Fade } from "react-awesome-reveal";
 import Arrow from "components/shared/Arrow";
@@ -30,10 +30,17 @@ const SingleCase = (props) => {
           <Fade triggerOnce>
             <VidContainer>
               {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              <Logo
-                src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                alt={`logo_${props.link}`}
-              />
+              {props.link === 'borgatta' 
+                ? <Logo
+                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                    alt={`logo_${props.link}`}
+                    style={{ width: '55%' }}
+                  />
+                : <Logo
+                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                    alt={`logo_${props.link}`}
+                  />
+              }
               <VidReplacer
                 style={{
                   backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
@@ -47,7 +54,10 @@ const SingleCase = (props) => {
         <Fade triggerOnce>
           <LinkComplex>
             <a>
-              <Hoverable>{props.title}</Hoverable>
+              {props.link === "borgatta" 
+                ? <HoverableItalic>{props.title}</HoverableItalic>
+                : <Hoverable>{props.title}</Hoverable>
+              }
             </a>
           </LinkComplex>
         </Fade>
@@ -87,6 +97,10 @@ const CaseList = ({ limit }) => {
 export default React.memo(CaseList);
 
 const Hoverable = styled.h4`
+  ${BorderLink({ showLink: false })}
+`;
+
+const HoverableItalic = styled(H4)`
   ${BorderLink({ showLink: false })}
 `;
 

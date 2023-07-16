@@ -19,10 +19,16 @@
   "lang": "en",
   "casestudies": [
     {
+      "title": "An <i>innovative chief marketing officer</i> driving innovation in a corporation with 50 years in the market",
+      "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy<br/>",
+      "link": "borgatta",
+      "bg_format": "svg"
+    },
+    {
       "title": "how to educate your customers and investors to become a leader in your industry",
       "tags": "Strategy<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
       "link": "blockstem",
-      "bg_format": "png"
+      "bg_format": "svg"
     },
     {
       "title": "a unique ecommerce niche in Mexico",

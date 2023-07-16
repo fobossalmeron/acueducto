@@ -12,10 +12,16 @@
   "lang": "es",
   "casestudies": [
     {
+      "title": "una <i>chief marketing officer</i> impulsando la innovación en un corporativo con 50 años en el mercado",
+      "tags": "Diseño UX<br/>Diseño UI<br/>Web app<br/>Desarrollo de software<br/>Product Management<br/>Estrategia de producto<br/>",
+      "link": "borgatta",
+      "bg_format": "svg"
+    },
+    {
       "title": "cómo educar a tus clientes e inversionistas para posicionarte como líder de tu industria",
       "tags": "Estrategia<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
       "link": "blockstem",
-      "bg_format": "png"
+      "bg_format": "svg"
     },
     {
       "title": "un ecommerce único en México",

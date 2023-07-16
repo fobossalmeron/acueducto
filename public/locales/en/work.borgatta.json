@@ -1,0 +1,118 @@
+{
+  "head": {
+    "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market | Borgatta",
+    "description": "How to digitally transform a corporation that seeks to execute ideas in an agile and scalable manner.",
+    "image_alt": "Borgatta, case study by Acueducto",
+    "headerTitle": "Borgatta"
+  },
+  "headerTitle": "Borgatta",
+  "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market - Borgatta",
+  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",
+  "video": "borgatta.mp4",
+  "logo": "borgatta.svg",
+  "link": "borgatta",
+  "intro_section": {
+    "tags": [
+      "UX Design",
+      "UI Design",
+      "Web app",
+      "Software Development",
+      "Product Management",
+      "Product Strategy"
+    ],
+    "title": "<b>Act I</b><br/>The B360 Portal",
+    "subtitle": "A dream for customer experience and optimization of internal operations",
+    "p": "We love working with organizations that are constantly thinking about how to improve their business to better serve their customers and make their employees' work more efficient. <br/><br/>And at Borgatta, particularly in the invisible aligner manufacturing service, they had dreamed of a platform that could solve a series of problems they were facing. This is an extremely complex process that involves challenges such as:",
+    "lessons": [
+      {
+        "p": "Constant communication between doctors and Borgatta's technical team"
+      },
+      {
+        "p": "Transparency in the internal process to identify delays, errors, and those responsible for them"
+      },
+      {
+        "p": "Identifying and anticipating errors in the files of over 2,600 doctors' patients who also manage multiple cases simultaneously"
+      },
+      {
+        "p": "Constantly gathering information from the entire process to improve"
+      },
+      {
+        "p": "Different billing and invoicing methods and schemes in 4 different countries"
+      }
+    ]
+  },
+  "second_section": {
+    "title": "<b>Act II</b><br/>How to accelerate digital transformation in a corporation?",
+    "p": "For Borgatta, digital technology is not new, as the company is a pioneer in medical technology in Latin America. However, the step they wanted to take with the B360 Portal needed to ensure the reduction of:",
+    "aspects": [
+      {
+        "title": "Business risks",
+        "p": "We talked to all areas of the business (clients, manufacturing, finance, marketing, and strategic management) that this new platform would impact to ensure we develop a tool that positively impacts each area of the company."
+      },
+      {
+        "title": "Usability risks",
+        "p": "We designed prototypes and conducted exhaustive tests, both with doctors and the manufacturing team, to ensure we design a product that requires minimal thinking, naturally indicates the next step, and delivers results as quickly as possible."
+      },
+      {
+        "title": "Value risks",
+        "p": "We validated in more than 50 user interviews where we heard from both doctors and Borgatta employees that the digital alternative we built was more efficient and user-friendly than what they were experiencing at that time."
+      },
+      {
+        "title": "Viability risks",
+        "p": "Our team of software engineers validated step by step that we could build a platform capable of being developed with a reduced team, easy to maintain, and scalable in the long term according to Borgatta's objectives."
+      }
+    ],
+    "quote": {
+      "quote": "We believe that our world is very complex to understand, and you understood our language and our vision.<br/><br/>More than an external and isolated agent, the experience has been one of teamwork with the best methodologies, which you bring to the table.",
+      "name": "Estefanía Mejía",
+      "label": "creative director, Borgatta"
+    }
+  },
+  "third_section": {
+    "title": "<b>Act III</b><br/>And the results were exceptional",
+    "p": "The platform completed its beta phase, and although we are convinced that many more achievements await us in the future, in its first few months, we accomplished the following:",
+    "results": [
+      {
+        "title": "100%",
+        "subtitle": "transparency",
+        "p": "in Portal movements with full visibility on delays and conflicts"
+      },
+      {
+        "title": "4 countries",
+        "p": "that can use the platform while respecting each location's operational preferences."
+      },
+      {
+        "sign": "+",
+        "title": "50 cases",
+        "p": "of treatments completed and managed by the new platform"
+      },
+      {
+        "sign": "+",
+        "title": "2600",
+        "subtitle": "doctors",
+        "p": "trained now have access to the platform."
+      },
+      {
+        "sign": "+",
+        "title": "600",
+        "subtitle": "messages",
+        "p": "(previously sent through multiple channels) centralized in the Portal."
+      },
+      {
+        "sign": "+",
+        "title": "$700k",
+        "subtitle": "invoiced",
+        "p": "automatically without the need to submit receipts or review account statements"
+      }
+    ],
+    "quote": {
+      "quote": "With this project, we took a step we wanted to take for a long time but had never achieved.<br/><br/>Acueducto is a company that adds value in all our areas and is now part of Borgatta.",
+      "name": "Cindy Borgatta",
+      "label": "CMO, Borgatta"
+    }
+  },
+  "fourth_section": {
+    "title": "<b>Act III</b><br/>Now it's time to look once again towards the horizon",
+    "p": "Thanks to initiatives and ambition like this, Borgatta is one of the leaders in an industry as competitive as dental equipment manufacturing.<br/><br/>And now that they have brought to life a platform with so many functionalities that help both their customers and their operations team, Cindy and her team continue to do the same thing that brought them to this point: relentlessly seeking improvement and competitiveness."
+  }
+}

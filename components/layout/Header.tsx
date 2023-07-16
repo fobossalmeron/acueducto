@@ -11,7 +11,7 @@ function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
       document.getElementById("land").scrollIntoView({ behavior: "smooth" }));
   };
   return (
-    <TopHeader reveal={hasLoaded}>
+    <TopHeader reveal={hasLoaded} route={route}>
       <Link href="/" passHref locale={locale}>
         <LogoLink onClick={backUp}>
           <h1>acueducto</h1>

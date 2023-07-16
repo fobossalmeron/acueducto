@@ -1,14 +1,16 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 
-const TextColumn = ({ children }) => (
-  <Column>
+const TextColumn = ({ children, padding }) => (
+  <Column 
+    passedPadding={padding}
+  >
     <Fade triggerOnce>{children}</Fade>
   </Column>
 );
 
 const Column = styled.div`
-  padding: 0 5%;
+  padding: ${(props) => props.passedPadding ? props.passedPadding : '0 5%' };
   h2 {
     padding: 15% 0 5% 0;
     font-weight: 300;
