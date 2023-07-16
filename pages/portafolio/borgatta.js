@@ -40,16 +40,15 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       },
     });
 
-    window.addEventListener("resize", function(){
+    window.addEventListener("resize", function () {
       if (window.innerWidth <= 650) {
         setIsMobile(true);
       } else {
         setIsMobile(false);
       }
     });
-    
-    setloadAssets(true);
 
+    setloadAssets(true);
   }, [locale, isMobile]);
 
   return (
@@ -61,20 +60,18 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
       <Fade triggerOnce>
-        <LandSection isMobile={isMobile}/>
+        <LandSection isMobile={isMobile} />
       </Fade>
       <FirstSection>
         <Marquee tags={t.intro_section.tags} />
         <EditVideo>
-          <IntroVideo link={t.link} />
+          <IntroVideo desktopLayout link={t.link} />
         </EditVideo>
         <Fade delay={300} triggerOnce>
           <TextColumn>
             <H2>{t.intro_section.title}</H2>
             <H3>{t.intro_section.subtitle}</H3>
-            <P>
-              {t.intro_section.p}
-            </P>
+            <P>{t.intro_section.p}</P>
             <Fade delay={300} triggerOnce>
               <LessonContainer>
                 {t?.intro_section.lessons.map((lesson, i) => (
@@ -96,10 +93,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         />
       </FirstSection>
       <SecondSection>
-          <TextColumn>
-            <H2>{t?.second_section.title}</H2>
-            <P>{t.second_section.p}</P>
-          </TextColumn>
+        <TextColumn>
+          <H2>{t?.second_section.title}</H2>
+          <P>{t.second_section.p}</P>
+        </TextColumn>
         <AspectContainer>
           <Fade delay={300} triggerOnce>
             {t.second_section.aspects.map((aspect, i) => (
@@ -126,13 +123,14 @@ const Borgatta = ({ locale, setTitle, pt }) => {
                 <div>
                   <span>
                     {result.sign && <h4>{result.sign}</h4>}
-                    {result.title.length > 4 
-                      ? <div>
-                          <h2>{result.title.split(" ")[0]}</h2>
-                          <H3>{result.title.split(" ")[1]}</H3>
-                        </div>
-                      : <h2>{result.title}</h2>
-                    }
+                    {result.title.length > 4 ? (
+                      <div>
+                        <h2>{result.title.split(" ")[0]}</h2>
+                        <H3>{result.title.split(" ")[1]}</H3>
+                      </div>
+                    ) : (
+                      <h2>{result.title}</h2>
+                    )}
                   </span>
                   {result.subtitle && <H3>{result.subtitle}</H3>}
                 </div>
@@ -144,15 +142,9 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         <ResultsOnThePage>
           <Fade delay={300} triggerOnce>
             {!isMobile ? (
-                <Image
-                  src={ResultMd}
-                  alt="Web B360"
-                />
-              ) : (
-                <Image
-                  src={ResultSm}
-                  alt="Web B360"
-                />
+              <Image src={ResultMd} alt="Web B360" />
+            ) : (
+              <Image src={ResultSm} alt="Web B360" />
             )}
           </Fade>
         </ResultsOnThePage>
@@ -203,7 +195,8 @@ const PageClipperBorgatta = styled(PageClipper)`
 const FirstSection = styled(CommonSection)`
   color: ${white};
   padding-bottom: 10.7%;
-  h2, h3 {
+  h2,
+  h3 {
     font-weight: 500;
   }
   h2 {
@@ -274,8 +267,9 @@ const LessonContainer = styled.div`
 const Lesson = styled.div`
   background: rgba(255, 255, 255, 0.06);
   border-radius: 24px;
-  
-  &:nth-child(1), &:nth-child(5) {
+
+  &:nth-child(1),
+  &:nth-child(5) {
     width: 320px;
   }
   &:nth-child(2) {
@@ -297,7 +291,7 @@ const Lesson = styled.div`
     justify-content: center;
     font-size: 1.367rem;
     position: relative;
-    border: 2px solid #FFFFFF;
+    border: 2px solid #ffffff;
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -305,7 +299,11 @@ const Lesson = styled.div`
   }
 
   @media (max-width: 800px) {
-    &:nth-child(1), &:nth-child(2), &:nth-child(3), &:nth-child(4), &:nth-child(5) {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
       width: 100%;
       margin-left: 0px;
     }
@@ -320,13 +318,13 @@ const Lesson = styled.div`
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #FBFBFD;
+  background-color: #fbfbfd;
   color: #626262;
   padding-bottom: 11.11%;
   padding-top: 11.11%;
 
   h2 {
-    color: #D76E32;
+    color: #d76e32;
     font-weight: 500;
     font-size: 5.6rem;
     line-height: 105%;
@@ -387,8 +385,9 @@ const Aspect = styled.div`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: #FFFFFF;
-  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1), 0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
+  background: #ffffff;
+  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1),
+    0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
   line-height: 131%;
@@ -399,17 +398,17 @@ const Aspect = styled.div`
     justify-content: center;
     font-size: 1.367rem;
     position: relative;
-    border: 2px solid #D76E32;
+    border: 2px solid #d76e32;
     width: 25px;
     height: 25px;
-    color: #D76E32;
+    color: #d76e32;
     border-radius: 50%;
-    margin-bottom: 20px; 
+    margin-bottom: 20px;
   }
   h4 {
     color: #060809;
     font-weight: 500;
-    margin-bottom: 12px; 
+    margin-bottom: 12px;
   }
   p {
     font-size: 1.65rem;
@@ -424,10 +423,10 @@ const Aspect = styled.div`
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
-  color: #FFFFFF;
+  color: #ffffff;
   background-blend-mode: normal, overlay, normal;
   h2 {
-    color: #F3F4F5;
+    color: #f3f4f5;
     font-weight: 500;
     font-size: 5.6rem;
     line-height: 105%;
@@ -491,7 +490,7 @@ const ResultContainer = styled.div`
     .result3 {
       margin-top: 0%;
     }
-  
+
     .result5 {
       margin-top: 0%;
     }
@@ -544,7 +543,7 @@ const Results = styled.div`
       }
     }
   }
-  
+
   @media (max-width: 1000px) {
     h2 {
       font-size: 6.8rem;
@@ -552,8 +551,8 @@ const Results = styled.div`
     h3 {
       font-size: 4.2rem;
     }
-    div span div h3{
-      font-size: 4.2rem;  
+    div span div h3 {
+      font-size: 4.2rem;
     }
   }
   @media (max-width: 630px) {
@@ -568,8 +567,8 @@ const Results = styled.div`
     p {
       font-size: 1.5rem;
     }
-    div span div h3{
-      font-size: 3.6rem;  
+    div span div h3 {
+      font-size: 3.6rem;
     }
   }
 `;
@@ -588,12 +587,12 @@ const Screens = styled.div`
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
   color: #626262;
   padding-top: 10%;
 
   h2 {
-    color: #D76E32;
+    color: #d76e32;
     font-weight: 500;
     font-size: 5.6rem;
     line-height: 105%;
@@ -652,7 +651,7 @@ const FourthTextColumn = styled(TextColumn)`
 const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
-  background-color: #FBFBFD;
+  background-color: #f7f6f7;
   & > div {
     padding: 0px;
   }

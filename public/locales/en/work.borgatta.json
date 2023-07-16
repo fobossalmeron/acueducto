@@ -1,14 +1,14 @@
 {
   "head": {
-    "title": "Borgatta | Acueducto",
+    "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market | Borgatta",
     "description": "How to digitally transform a corporation that seeks to execute ideas in an agile and scalable manner.",
-    "image_alt": "Borgatta, caso de estudio por Acueducto",
+    "image_alt": "Borgatta, case study by Acueducto",
     "headerTitle": "Borgatta"
   },
   "headerTitle": "Borgatta",
   "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market - Borgatta",
-  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
-  "video": "blockstem.mp4",
+  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",
+  "video": "borgatta.mp4",
   "logo": "borgatta.svg",
   "link": "borgatta",
   "intro_section": {
@@ -114,8 +114,5 @@
   "fourth_section": {
     "title": "<b>Act III</b><br/>Now it's time to look once again towards the horizon",
     "p": "Thanks to initiatives and ambition like this, Borgatta is one of the leaders in an industry as competitive as dental equipment manufacturing.<br/><br/>And now that they have brought to life a platform with so many functionalities that help both their customers and their operations team, Cindy and her team continue to do the same thing that brought them to this point: relentlessly seeking improvement and competitiveness."
-  },
-  "seventh_section": {
-    "linkp": "visit"
   }
 }
