@@ -12,6 +12,8 @@ import LogoRecupera from "public/assets/img/casestudies/recupera/logoRecupera.sv
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
 import Quote from "components/caseStudy/shared/Quote";
+import NextStudy from "components/caseStudy/shared/NextStudy";
+import ContactFooter from "components/shared/footers/ContactFooter";
 
 const white = "#FFFFFF";
 
@@ -78,8 +80,45 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <TextColumn>
             <H2>{t?.second_section.title}</H2>
             <P>{t.second_section.p}</P>
+            <Fade delay={300} triggerOnce>
+              <ChallengesContainer>
+                {t?.second_section.challenges.map((challenge, i) => (
+                  <Challenge key={`challenge${i}`}>
+                    <span>{i + 1}</span>
+                    <p>{challenge.p}</p>
+                  </Challenge>
+                ))}
+              </ChallengesContainer>
+            </Fade>
           </TextColumn>
       </SecondSection>
+      <ThirdSection>
+        <TextColumn>
+          <H2>{t.third_section.title}</H2>
+          <P>{t.third_section.p}</P>
+          <div>
+            <H3>{t.third_section.points.first.subtitle}</H3>
+            <P>{t.third_section.points.first.p}</P>
+          </div>
+          <div>
+            <H3>{t.third_section.points.second.subtitle}</H3>
+            <P>{t.third_section.points.second.p}</P>
+          </div>
+          <div>
+            <H3>{t.third_section.points.third.subtitle}</H3>
+            <P>{t.third_section.points.third.p}</P>
+          </div>
+        </TextColumn>
+      </ThirdSection>
+      <FourthSection>
+        <TextColumn>
+          <H2>{t.fourth_section.title}</H2>
+          <P>{t.fourth_section.p}</P>
+        </TextColumn>
+        <Quote quote={t.fourth_section.quote} color={"#292D34"} />
+      </FourthSection>
+      <NextStudy link="borgatta" />
+      <ContactFooter />
     </PageClipperBorgatta>
   );
 }
@@ -97,6 +136,111 @@ export const getStaticProps = async (context) => {
     },
   };
 };
+
+const FourthSection = styled(CommonSection)`
+  background-color: #FEFAF5;
+  color: #5C5C81;
+  padding-top: 10%;
+
+  h2 {
+    color: #292D34;
+    font-weight: 500;
+    font-size: 5.6rem;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
+    b {
+      color: #7368F8;
+      font-weight: 400;
+      font-size: 4rem;
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 131%;
+  }
+  img {
+    width: 100%;
+    padding: 7% 1%;
+  }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 5.2rem;
+      b {
+        font-size: 3.2rem;
+      }
+    }
+    h3 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 3.3rem;
+      b {
+        font-size: 2rem;
+      }
+    }
+    h3 {
+      font-size: 1.9rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+    img {
+      width: 100%;
+      padding: 16% 6%;
+    }
+  }
+`;
+
+const ThirdSection = styled(CommonSection)`
+  padding-bottom: 10%;
+  padding-top: 10%;
+  color: #FFFFFF;
+  h2 {
+    color: #f3f4f5;
+    font-weight: 500;
+    font-size: 5.6rem;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
+    b {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+      font-size: 4rem;
+    }
+  }
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 5.2rem;
+      b {
+        font-size: 3.2rem;
+      }
+    }
+    h3 {
+      font-size: 30px;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 3.3rem;
+      b {
+        font-size: 2rem;
+      }
+    }
+    h3 {
+      font-size: 1.9rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
+`;
+
+const Challenge = styled.div`
+`;
+
+const ChallengesContainer = styled.div`
+`;
 
 const SecondSection = styled(CommonSection)`
   background-color: #FEFAF5;
@@ -144,9 +288,8 @@ const LandSection = styled(CommonSection)`
   min-height: 100vh;
 
   & > div {
-    max-width: 400px;
+    max-width: 600px;
     width: 70%;
-    margin-right: 10%;
   }
   svg {
     width: 100%;
@@ -155,7 +298,6 @@ const LandSection = styled(CommonSection)`
     background-size: auto 65%;
     & > div {
       max-width: 300px;
-      margin-right: 10%;
     }
   }
   @media (max-width: 850px) {

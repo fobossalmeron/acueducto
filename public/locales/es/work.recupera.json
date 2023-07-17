@@ -1,6 +1,6 @@
 {
     "head": {
-      "title": "Borgatta | Recupera",
+      "title": "Cómo validar una app en el mercado lo más rápido y barato posible | Recupera",
       "description": "Así se desarrolla un servicio web con tecnología no-code",
       "image_alt": "Recupera, caso de estudio por Acueducto",
       "headerTitle": "Recupera"
@@ -31,78 +31,75 @@
     "second_section": {
       "title": "<b>Acto II</b><br/>Estos fueron los retos del proyecto",
       "p": "Karla tenía la convicción de que el problema que está solucionando es uno latente en México. Pero faltaban algunas piezas del rompecabezas:",
-      "aspects": [
+      "challenges": [
         {
-          "title": "Riesgos de negocio",
-          "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de desarrollar una herramienta que impactara positivamente a cada área de la empresa."
+          "p": "No sabía si la idea iba a gustar en el mercado. Antes de hacer una inversión grande en un producto, comprobar la necesidad es vital, por lo que había que probar el producto con usuarios reales."
         },
         {
-          "title": "Riesgos de usabilidad",
-          "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar un producto que los hace pensar el mínimo, indica naturalmente el siguiente paso y entrega resultados lo más rápido posible."
+          "p": "No tenía conocimiento técnico o un cofundador técnico. Para los fundadores sin trasfondo en desarrollo de software es más difícil construir una solución para probarla, afortunadamente aquí es donde entramos nosotros."
         },
         {
-          "title": "Riesgos de valor",
-          "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
-        },
-        {
-          "title": "Riesgos de viabilidad",
-          "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
+          "p": "No tenía muchos recursos y no quería muchísimo dinero en construir un Minimum Viable Product (MVP) sólo para validar una idea."
         }
-      ],
-      "quote": {
-        "quote": "Creemos que nuestro mundo es muy complejo de comprender y ustedes entendieron nuestro lenguaje y nuestra visión.<br/><br/>Más que un agente externo y aislado la experiencia ha sido una de trabajo en equipo con las mejores metodologías, que ustedes son quienes las traen a la mesa.",
-        "name": "Estefanía Mejía",
-        "label": "directora creativa, Borgatta"
-      }
+      ]
     },
     "third_section": {
-      "title": "<b>Acto III</b><br/>Y los resultados fueron excepcionales",
-      "p": "La plataforma terminó su fase beta y aunque estamos convencidos de que nos esperan muchos logros más en el futuro, en sus primeros meses viva conseguimos:",
-      "results": [
-        {
-          "title": "100%",
-          "subtitle": "transparencia",
-          "p": "en movimientos del Portal con total visibilidad en retrasos y conflictos"
+      "title": "<b>Acto III</b><br/>Y es así como los abordamos",
+      "p": "Nos pusimos manos a la obra y, de la mano de Karla, diseñamos un plan de proyecto que contemplara las limitantes pero nos permitiera iterar, probar con usuarios reales y validar si existía el mercado.",
+      "points": {
+        "first": {
+          "subtitle": "Hicimos una serie de design sprints",
+          "p":"Donde entrevistamos a expertos en el problema que estábamos resolviendo, bocetamos, prototipamos y probamos múltiples soluciones con usuarios reales para validar la idea de negocio en el mercado."
         },
-        {
-          "title": "4 países",
-          "p": "podrán utilizar la plataforma respetando las preferencias operacionales de cada lugar."
+        "second": {
+          "subtitle": "Construimos una marca",
+          "p":"Una marca con un nombre, logo, tipografía, paleta de color y UI Kit, así como una landing page con un diseño limpio y minimalista que dialoga con la calidad visual de las aplicaciones más exitosas del mundo. Si bien Karla es una solopreneur, su sitio refleja una compañía confiable con todo un equipo detrás de la misión y visión de Recupera."
         },
-        {
-          "sign": "+",
-          "title": "50 casos",
-          "p": "de tratamientos terminados y administrados por la nueva plataforma"
-        },
-        {
-          "sign": "+",
-          "title": "2600",
-          "subtitle": "doctores",
-          "p": "capacitados tienen acceso a la plataforma."
-        },
-        {
-          "sign": "+",
-          "title": "600",
-          "subtitle": "mensajes",
-          "p": "(que antes eran enviados por múltiples canales) centralizados en el Portal."
-        },
-        {
-          "sign": "+",
-          "title": "$700k",
-          "subtitle": "facturados",
-          "p": "de forma automática sin necesidad de enviar comprobantes ni revisar estados de cuenta"
+        "third": {
+          "subtitle": "Desarrollamos una herramienta no-code",
+          "p":"Aunque esta versión del producto presenta limitaciones para el sistema de la herramienta beta, que no tiene la misma experiencia UI que se diseñó durante el design sprint, es lo suficientemente poderosa para servir a cientos de usuarios y comenzar a generar tracción."
         }
-      ],
-      "quote": {
-        "quote": "Con este proyecto dimos un paso que queríamos dar desde hace mucho tiempo pero que nunca lo habíamos conseguido.<br/><br/>Acueducto es una empresa que suma en todas nuestras áreas y que ahora es parte de Borgatta.",
-        "name": "Cindy Borgatta",
-        "label": "CMO, Borgatta"
       }
     },
     "fourth_section": {
-      "title": "<b>Acto III</b><br/>Ahora es momento de voltear, una vez más, hacia el horizonte",
-      "p": "Gracias a este tipo de iniciativas y ambición, Borgatta es uno de los líderes en una industria tan competida como lo es la de manufactura de equipo dental.<br/><br/>Y ahora que dieron vida a una plataforma con tantas funcionalidades que ayudan tanto a sus clientes como a su equipo de operación; Cindy y su equipo siguen haciendo lo mismo que los trajo hasta este punto: buscar incesantemente como mejorar y ser más competitivos."
-    },
-    "seventh_section": {
-    "linkp": "visita"
+      "title": "<b>Acto IV</b><br/>Algunos específicos del proyecto",
+      "p": "A pesar de que el sistema de Recupera es uno con pocas funcionalidades y algunas limitaciones de personalización por su naturaleza no-code, el objetivo de este proyecto era ir de 0 a 1. O mejor dicho: validar una idea en el mercado y comenzar a generar tracción.<br/><br/>Pocas cosas son tan emocionantes como participar en la construcción de un producto que resuelve una necesidad real y en esta ocasión tuvimos la oportunidad de ayudarle a Karla a concretar su visión. Estas son algunas de las funcionalidades que se incorporaron al proyecto:",
+      "functionalities": [
+        {
+          "p": "Pasarela de pagos"
+        },
+        {
+          "p": "Autenticación"
+        },
+        {
+          "p": "Dashboard personalizado"
+        },
+        {
+          "p": "Hasta 1000 usuarios con no-code"
+        },
+        {
+          "p": "Contenido educativo"
+        },
+        {
+          "p": "Gestión de usuarios y cuentas"
+        },
+        {
+          "p": "Cálculo de saldo a favor"
+        },
+        {
+          "p": "Sitio de ventas"
+        },
+        {
+          "p": "Consulta de datos fiscales"
+        },
+        {
+          "p": "Idea de negocio validada"
+        }
+      ],
+      "quote": {
+        "quote": "No hay una sola persona que no me haya dicho que el trabajo que hicimos fue excepcional, que el diseño es uno limpio y sofisticado o que la idea de negocios es una muy valiosa. Ahora lo que necesitamos es distribución para este producto excepcional.",
+        "name": "Karla Hernández",
+        "label": "CEO, Recupera"
+      }
     }
   }
