@@ -148,7 +148,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             )}
           </Fade>
         </ResultsOnThePage>
-        <Quote quote={t.second_section.quote} color={"#F4F4F4"} />
+        <Quote quote={t.third_section.quote} color={"#F4F4F4"} />
       </ThirdSection>
       <FourthSection>
         <TextColumn>
