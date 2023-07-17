@@ -1,13 +1,13 @@
 {
   "head": {
-    "title": "Borgatta | Acueducto",
-    "description": "Cómo transformar digitalmente a un corporativo que busca ejecutar ideas de manera ágil y escalable.",
+    "title": "Una Chief Marketing Officer impulsando la innovación en un corporativo con 50 años en el mercado | Borgatta",
+    "description": "Cómo transformar digitalmente a un corporativo que busca ejecutar ideas de manera ágil y escalable. Conoce nuestro trabajo con Borgatta.",
     "image_alt": "Borgatta, caso de estudio por Acueducto",
     "headerTitle": "Borgatta"
   },
   "headerTitle": "Borgatta",
   "title": "Una Chief Marketing Officer impulsando la innovación en un corporativo con 50 años en el mercado - Borgatta",
-  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
+  "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",
   "video": "blockstem.mp4",
   "logo": "borgatta.svg",
   "link": "borgatta",
@@ -17,7 +17,7 @@
       "Diseño UI",
       "Web app",
       "Desarrollo de software",
-      "Product Management",
+      "Product management",
       "Estrategia de producto"
     ],
     "title": "<b>Acto I</b><br/>El Portal B360",
@@ -114,8 +114,5 @@
   "fourth_section": {
     "title": "<b>Acto III</b><br/>Ahora es momento de voltear, una vez más, hacia el horizonte",
     "p": "Gracias a este tipo de iniciativas y ambición, Borgatta es uno de los líderes en una industria tan competida como lo es la de manufactura de equipo dental.<br/><br/>Y ahora que dieron vida a una plataforma con tantas funcionalidades que ayudan tanto a sus clientes como a su equipo de operación; Cindy y su equipo siguen haciendo lo mismo que los trajo hasta este punto: buscar incesantemente como mejorar y ser más competitivos."
-  },
-  "seventh_section": {
-  "linkp": "visita"
   }
 }
