@@ -30,7 +30,7 @@ const SingleCase = (props) => {
           <Fade triggerOnce>
             <VidContainer>
               {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              {props.link === 'borgatta' 
+              {props.link === 'borgatta' || props.link === 'recupera'
                 ? <Logo
                     src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
                     alt={`logo_${props.link}`}
