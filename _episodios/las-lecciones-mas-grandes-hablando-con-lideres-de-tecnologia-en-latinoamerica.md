@@ -488,6 +488,6 @@ No es mentira, ya acabamos. Muchísimas gracias por escucharnos y por llegar has
 
 **Artemio**:  Nos vemos en lo que sigue, siempre hay que dar ese siguiente paso hasta la próxima. 
 
-Ah, bueno, antes de que se vayan quiero recordarle a todos que en [cuandoelriosuena.com](cuandoelriosuena.com), ustedes pueden suscribirse a la *newsletter* de este programa, si ustedes lo hacen, nosotros prometemos enviarles una notificación cada que tengamos un capítulo nuevo. 
+Ah, bueno, antes de que se vayan quiero recordarle a todos que en [cuandoelriosuena.com](http://cuandoelriosuena.com/), ustedes pueden suscribirse a la *newsletter* de este programa, si ustedes lo hacen, nosotros prometemos enviarles una notificación cada que tengamos un capítulo nuevo. 
 
 Nos vemos a la próxima.
