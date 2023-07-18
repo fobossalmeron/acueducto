@@ -9,11 +9,27 @@ import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
 import LogoRecupera from "public/assets/img/casestudies/recupera/logoRecupera.svg";
+import BrandRecupera1Md from "public/assets/img/casestudies/recupera/brand1Md.svg";
+import BrandRecupera2Md from "public/assets/img/casestudies/recupera/brand2Md.svg";
+import BrandRecupera1Sm from "public/assets/img/casestudies/recupera/brand1Sm.svg";
+import BrandRecupera2Sm from "public/assets/img/casestudies/recupera/brand2Sm.svg";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
 import Quote from "components/caseStudy/shared/Quote";
 import NextStudy from "components/caseStudy/shared/NextStudy";
+import Picture from "components/caseStudy/shared/Picture";
 import ContactFooter from "components/shared/footers/ContactFooter";
+import ScreenshotsMd from "public/assets/img/casestudies/recupera/screenshotsMd.png";
+import ScreenshotsSm from "public/assets/img/casestudies/recupera/screenshotsSm.png";
+import Presentations from "public/assets/img/casestudies/recupera/presentations.png";
+import Mobile from "public/assets/img/casestudies/recupera/mobile.png";
+import UiComponentsMd from "public/assets/img/casestudies/recupera/uiComponentsMd.png";
+import UiComponentsSm from "public/assets/img/casestudies/recupera/uiComponentsSm.png";
+import ToolsMd from "public/assets/img/casestudies/recupera/toolsMd.png";
+import ToolsSm from "public/assets/img/casestudies/recupera/toolsSm.png";
+import FunctionalitiesMd from "public/assets/img/casestudies/recupera/functionalitiesMd.png";
+import FunctionalitiesSm from "public/assets/img/casestudies/recupera/functionalitiesSm.png";
+import DesktopMobile from "public/assets/img/casestudies/recupera/desktop-mobile.png";
 
 const white = "#FFFFFF";
 
@@ -54,9 +70,31 @@ const Recupera = ({ locale, setTitle, pt }) => {
       />
       <Fade triggerOnce>
         <LandSection>
-          <Fade delay={300} triggerOnce>
-            <LogoRecupera />
-          </Fade>
+          {!isMobile ? (
+            <>
+              <Fade delay={300} triggerOnce>
+                <BrandRecupera1Md />
+              </Fade>
+              <Fade delay={300} triggerOnce className="logo">
+                <LogoRecupera />
+              </Fade>
+              <Fade delay={300} triggerOnce>
+                <BrandRecupera2Md />
+              </Fade>
+            </>
+          ) : (
+            <>
+              <Fade delay={300} triggerOnce className="brand1">
+                <BrandRecupera1Sm />
+              </Fade>
+              <Fade delay={300} triggerOnce className="logo">
+                <LogoRecupera />
+              </Fade>
+              <Fade delay={300} triggerOnce className="brand2">
+                <BrandRecupera2Sm />
+              </Fade>
+            </>
+          )}
         </LandSection>
       </Fade>
       <FirstSection>
@@ -64,15 +102,26 @@ const Recupera = ({ locale, setTitle, pt }) => {
         <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo>
+        <TextColumn>
+          <H2>{t.intro_section.title}</H2>
+          <P>
+            {t.intro_section.p}
+          </P>
+        </TextColumn>
         <Fade delay={300} triggerOnce>
-          <TextColumn>
-            <H2>{t.intro_section.title}</H2>
-            <P>
-              {t.intro_section.p}
-            </P>
-            <Fade delay={300} triggerOnce>
-            </Fade>
-          </TextColumn>
+          {!isMobile ? (
+            <Picture
+              src={ScreenshotsMd}
+              alt="Screenshots"
+              withWrapper
+            />
+          ) : (
+            <Picture
+              src={ScreenshotsSm}
+              alt="Screenshots"
+              withWrapper
+            />
+          )}
         </Fade>
         <Quote quote={t.intro_section.quote} color={"#F4F4F4"} />
       </FirstSection>
@@ -91,23 +140,65 @@ const Recupera = ({ locale, setTitle, pt }) => {
               </ChallengesContainer>
             </Fade>
           </TextColumn>
+          <Picture
+            src={Presentations}
+            alt="Presentations"
+            withWrapper
+          />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
           <H2>{t.third_section.title}</H2>
           <P>{t.third_section.p}</P>
-          <div>
+        </TextColumn>
+        <TextColumn>
+          <FirstPoint>
             <H3>{t.third_section.points.first.subtitle}</H3>
             <P>{t.third_section.points.first.p}</P>
-          </div>
-          <div>
+            <Picture
+              src={Mobile}
+              alt="Component"
+              withWrapper
+            />
+          </FirstPoint>
+        </TextColumn>
+        <TextColumn>
+          <SecondPoint>
             <H3>{t.third_section.points.second.subtitle}</H3>
             <P>{t.third_section.points.second.p}</P>
-          </div>
-          <div>
+          </SecondPoint>
+        </TextColumn>
+        {!isMobile ? (
+          <Picture
+            src={UiComponentsMd}
+            alt="UiComponents"
+            withWrapper
+          />
+          ) : (
+            <Picture
+              src={UiComponentsSm}
+              alt="UiComponents"
+              withWrapper
+            />
+          )}
+        <TextColumn>
+          <ThirdPoint>
             <H3>{t.third_section.points.third.subtitle}</H3>
             <P>{t.third_section.points.third.p}</P>
-          </div>
+            {!isMobile ? (
+              <Picture
+                src={ToolsMd}
+                alt="Herramientas"
+                withWrapper
+              />
+              ) : (
+                <Picture
+                  src={ToolsSm}
+                  alt="Herramientas"
+                  withWrapper
+                />
+            )}
+          </ThirdPoint>
         </TextColumn>
       </ThirdSection>
       <FourthSection>
@@ -115,7 +206,27 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
+        {!isMobile ? (
+            <Picture
+              src={FunctionalitiesMd}
+              alt="Funcionalidades"
+              withWrapper
+            />
+          ) : (
+            <Picture
+              src={FunctionalitiesSm}
+              alt="Funcionalidades"
+              withWrapper
+            />
+        )}
         <Quote quote={t.fourth_section.quote} color={"#292D34"} />
+        <DesktopAndMobile>     
+          <Picture
+            src={DesktopMobile}
+            alt="Devices"
+            withWrapper
+          />
+        </DesktopAndMobile>
       </FourthSection>
       <NextStudy link="borgatta" />
       <ContactFooter />
@@ -137,30 +248,100 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const FourthSection = styled(CommonSection)`
-  background-color: #FEFAF5;
-  color: #5C5C81;
-  padding-top: 10%;
+const PageClipperBorgatta = styled(PageClipper)`
+  background: linear-gradient(46deg, #6137D7 0%, #5C50ED 100%);
+  @media (max-width: 1300px) {
+    padding: 0px;
+  }
+`;
 
-  h2 {
-    color: #292D34;
+const LandSection = styled(CommonSection)`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  svg {
+    width: 100%;
+  }
+
+  .logo {
+    max-width: 600px;
+    right: -4%;
+    position: relative;
+  }
+
+  @media (max-width: 1000px) {
+    & > div {
+      max-width: 300px;
+    }
+  }
+  @media (max-width: 650px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .logo {
+      max-width: 223px;
+      right: 0%;
+      position: relative;
+    }
+    .brand1 {
+      align-self: flex-start;
+    }
+    .brand2 {
+      align-self: flex-end;
+    }
+  }
+`;
+
+const EditVideo = styled.div`
+  padding: 3%;
+  border-radius: 40px;
+  background-color: #FBFBFD;
+  & > div {
+    padding: 0px;
+  }
+  @media (max-width: 1300px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 700px) {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 20px;
+  }
+  @media (max-width: 500px) {
+    border-radius: 17px;
+  }
+`;
+
+const FirstSection = styled(CommonSection)`
+  color: ${white};
+  padding-bottom: 10.7%;
+  h2, h3 {
     font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px;
+  }
+  h2 {
+    font-size: 5.8rem;
+    padding-bottom: 26px;
     b {
-      color: #7368F8;
+      color: #FAD166;
+      opacity: 0.7;
       font-weight: 400;
       font-size: 4rem;
     }
   }
-  p {
-    font-size: 1.8rem;
+  h3 {
+    padding: 0px;
+    padding-bottom: 4%;
+    font-size: 3.2rem;
     line-height: 131%;
-  }
-  img {
+    margin-bottom: 0px;
     width: 100%;
-    padding: 7% 1%;
+  }
+  .image {
+    padding: 7.5% 0% 0% 0%;
   }
   @media (max-width: 1000px) {
     h2 {
@@ -183,63 +364,11 @@ const FourthSection = styled(CommonSection)`
     h3 {
       font-size: 1.9rem;
     }
-    p {
-      font-size: 1.5rem;
-    }
-    img {
-      width: 100%;
-      padding: 16% 6%;
-    }
-  }
-`;
 
-const ThirdSection = styled(CommonSection)`
-  padding-bottom: 10%;
-  padding-top: 10%;
-  color: #FFFFFF;
-  h2 {
-    color: #f3f4f5;
-    font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px;
-    b {
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 400;
-      font-size: 4rem;
+    .image {
+      padding: 11% 0% 5% 0%;
     }
   }
-  @media (max-width: 1000px) {
-    h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    h3 {
-      font-size: 30px;
-    }
-  }
-  @media (max-width: 630px) {
-    h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    h3 {
-      font-size: 1.9rem;
-    }
-    p {
-      font-size: 1.5rem;
-    }
-  }
-`;
-
-const Challenge = styled.div`
-`;
-
-const ChallengesContainer = styled.div`
 `;
 
 const SecondSection = styled(CommonSection)`
@@ -251,7 +380,7 @@ const SecondSection = styled(CommonSection)`
   h2 {
     color: #292D34;
     font-weight: 500;
-    font-size: 5.6rem;
+    font-size: 5.8rem;
     line-height: 105%;
     padding: 4px 0px 26px 0px;
     b {
@@ -284,91 +413,81 @@ const SecondSection = styled(CommonSection)`
   }
 `;
 
-const LandSection = styled(CommonSection)`
-  min-height: 100vh;
+const ChallengesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  padding-top: 4.8rem;
+  padding-bottom: 8rem;
 
-  & > div {
-    max-width: 600px;
-    width: 70%;
+  @media (max-width: 630px) {
+    padding-bottom: 4.8rem;
   }
-  svg {
-    width: 100%;
-  }
-  @media (max-width: 1000px) {
-    background-size: auto 65%;
-    & > div {
-      max-width: 300px;
-    }
-  }
-  @media (max-width: 850px) {
-    background-size: auto 55%;
-    svg {
-      overflow: visible;
-      path {
-        filter: drop-shadow(0px 0px 45px rgba(43, 44, 4, 1));
-      }
-    }
-    & > div {
-      margin-right: 12%;
-    }
-  }
-  @media (max-width: 730px) {
+`;
+
+const Challenge = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  span {
+    background-color: #7368F8;
+    width: 31px;
+    height: 31px;
+    min-width: 31px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    background-position: center center;
-    & > div {
-      max-width: 300px;
-      margin-right: 0;
+    color: #FEFAF5;
+    border-radius: 50%;
+  }
+
+  p {
+    max-width: 640px;
+  }
+
+  @media (max-width: 630px) {
+    flex-direction: column;
+    gap: 12px;
+    span {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
     }
   }
 `;
 
-const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: #FBFBFD;
-  & > div {
-    padding: 0px;
-  }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
-  }
-  @media (max-width: 500px) {
-    border-radius: 17px;
-  }
-`;
-
-const FirstSection = styled(CommonSection)`
-  color: ${white};
-  padding-bottom: 10.7%;
-  h2, h3 {
-    font-weight: 500;
-  }
+const ThirdSection = styled(CommonSection)`
+  padding-bottom: 10%;
+  padding-top: 10%;
+  color: #FFFFFF;
   h2 {
-    font-size: 5.6rem;
-    padding-bottom: 4px;
+    color: #f3f4f5;
+    font-weight: 500;
+    font-size: 5.8rem;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
     b {
       color: #FAD166;
-      opacity: 0.7;
       font-weight: 400;
       font-size: 4rem;
     }
   }
-  h3 {
-    padding: 0px;
-    padding-bottom: 4%;
-    font-size: 3.2rem;
-    line-height: 131%;
-    margin-bottom: 0px;
-    width: 100%;
+  h3{
+    font-size: 3.6rem;
+    font-weight: 400;
+    padding: 7.5% 0 0 0;
+    margin-bottom: 12px;
   }
+
+  div div div p {
+    font-size: 1.65rem;
+  }
+
   .image {
-    padding-top: 3.5%;
+    padding-top: 7rem;
   }
+
   @media (max-width: 1000px) {
     h2 {
       font-size: 5.2rem;
@@ -377,10 +496,7 @@ const FirstSection = styled(CommonSection)`
       }
     }
     h3 {
-      font-size: 3rem;
-    }
-    .image {
-      padding: 0px 30px;
+      font-size: 30px;
     }
   }
   @media (max-width: 630px) {
@@ -393,12 +509,127 @@ const FirstSection = styled(CommonSection)`
     h3 {
       font-size: 1.9rem;
     }
+    p {
+      font-size: 1.5rem;
+    }
     .image {
-      padding: 3% 10px;
+      padding-top: 4.8rem;
+      position: relative;
+      left: 3%;
     }
   }
 `;
 
-const PageClipperBorgatta = styled(PageClipper)`
-  background: linear-gradient(46deg, #6137D7 0%, #5C50ED 100%);
+const FirstPoint = styled.div`
+  .image {
+    max-width: 649px;
+    position: relative;
+    left: 10%;
+  }
+  @media (max-width: 630px) {
+    .image {
+      padding-top: 10%;
+    }
+  }
+`;
+
+const SecondPoint = styled.div`
+  width: 100%;
+`;
+
+const ThirdPoint = styled.div`
+  h3{
+    padding-top: 0%;
+  }
+  .image {
+    width: 100%;
+    max-width: 630px;
+    padding-top: 6.7rem;
+    padding-bottom: 6.7rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+  }
+  }
+  @media (max-width: 630px) {
+    .image {
+      padding-top: 5rem;
+    }
+  }
+`;
+
+const DesktopAndMobile = styled.div`
+  background-image: url("/assets/img/casestudies/recupera/backgroundDesktopMobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .image{
+    position: relative;
+    right: -18%;
+    width: 100%;
+    max-width: 1458px;
+  }
+`;
+
+const FourthSection = styled(CommonSection)`
+  background-color: #FEFAF5;
+  color: #5C5C81;
+  padding-top: 10%;
+
+  h2 {
+    color: #292D34;
+    font-weight: 500;
+    font-size: 5.6rem;
+    line-height: 105%;
+    padding: 0px 0px 26px 0px;
+    b {
+      color: #7368F8;
+      font-weight: 400;
+      font-size: 4rem;
+    }
+  }
+  p {
+    font-size: 1.8rem;
+    line-height: 131%;
+  }
+
+  .image {
+    width: 100%;
+    max-width: 1000px;
+    padding: 7% 0% 0% 0%;
+    display: flex;
+    justify-content: center;
+  }
+
+  @media (max-width: 1000px) {
+    h2 {
+      font-size: 5.2rem;
+      b {
+        font-size: 3.2rem;
+      }
+    }
+    h3 {
+      font-size: 3rem;
+    }
+  }
+  @media (max-width: 630px) {
+    h2 {
+      font-size: 3.3rem;
+      b {
+        font-size: 2rem;
+      }
+    }
+    h3 {
+      font-size: 1.9rem;
+    }
+    p {
+      font-size: 1.5rem;
+    }
+  }
 `;

@@ -1,121 +1,105 @@
 {
-    "head": {
-      "title": "Borgatta | Recupera",
-      "description": "How to digitally transform a corporation that seeks to execute ideas in an agile and scalable manner.",
-      "image_alt": "Borgatta, caso de estudio por Acueducto",
-      "headerTitle": "Borgatta"
-    },
-    "headerTitle": "Recupera",
-    "title": "A Chief Marketing Officer driving innovation in a corporation with 50 years in the market - Borgatta",
-    "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy",   
-    "video": "blockstem.mp4",
-    "logo": "borgatta.svg",
-    "link": "borgatta",
-    "intro_section": {
-      "tags": [
-        "UX Design",
-        "UI Design",
-        "Web app",
-        "Software Development",
-        "Product Management",
-        "Product Strategy"
-      ],
-      "title": "<b>Act I</b><br/>The B360 Portal",
-      "subtitle": "A dream for customer experience and optimization of internal operations",
-      "p": "We love working with organizations that are constantly thinking about how to improve their business to better serve their customers and make their employees' work more efficient. <br/><br/>And at Borgatta, particularly in the invisible aligner manufacturing service, they had dreamed of a platform that could solve a series of problems they were facing. This is an extremely complex process that involves challenges such as:",
-      "lessons": [
-        {
-          "p": "Constant communication between doctors and Borgatta's technical team"
-        },
-        {
-          "p": "Transparency in the internal process to identify delays, errors, and those responsible for them"
-        },
-        {
-          "p": "Identifying and anticipating errors in the files of over 2,600 doctors' patients who also manage multiple cases simultaneously"
-        },
-        {
-          "p": "Constantly gathering information from the entire process to improve"
-        },
-        {
-          "p": "Different billing and invoicing methods and schemes in 4 different countries"
-        }
-      ]
-    },
-    "second_section": {
-      "title": "<b>Act II</b><br/>How to accelerate digital transformation in a corporation?",
-      "p": "For Borgatta, digital technology is not new, as the company is a pioneer in medical technology in Latin America. However, the step they wanted to take with the B360 Portal needed to ensure the reduction of:",
-      "aspects": [
-        {
-          "title": "Business risks",
-          "p": "We talked to all areas of the business (clients, manufacturing, finance, marketing, and strategic management) that this new platform would impact to ensure we develop a tool that positively impacts each area of the company."
-        },
-        {
-          "title": "Usability risks",
-          "p": "We designed prototypes and conducted exhaustive tests, both with doctors and the manufacturing team, to ensure we design a product that requires minimal thinking, naturally indicates the next step, and delivers results as quickly as possible."
-        },
-        {
-          "title": "Value risks",
-          "p": "We validated in more than 50 user interviews where we heard from both doctors and Borgatta employees that the digital alternative we built was more efficient and user-friendly than what they were experiencing at that time."
-        },
-        {
-          "title": "Viability risks",
-          "p": "Our team of software engineers validated step by step that we could build a platform capable of being developed with a reduced team, easy to maintain, and scalable in the long term according to Borgatta's objectives."
-        }
-      ],
-      "quote": {
-        "quote": "We believe that our world is very complex to understand, and you understood our language and our vision.<br/><br/>More than an external and isolated agent, the experience has been one of teamwork with the best methodologies, which you bring to the table.",
-        "name": "Estefanía Mejía",
-        "label": "creative director, Borgatta"
+  "head": {
+    "title": "How to Validate an App in the Market as Fast and Cheap as Possible | Recupera",
+    "description": "This is how a web service is developed with no-code technology",
+    "image_alt": "Recupera, case study by Acueducto",
+    "headerTitle": "Recupera"
+  },
+  "headerTitle": "Recupera",
+  "title": "How to Validate an App in the Market as Fast and Cheap as Possible - Recupera",
+  "tags": "UI Design<br/>Web Development<br/>No-Code Development<br/>Branding<br/>Product Management<br/>Product Strategy",
+  "video": "blockstem.mp4",
+  "logo": "recupera.svg",
+  "link": "blockstem",
+  "intro_section": {
+    "tags": [
+      "UI Design",
+      "Web Development",
+      "No-Code Development",
+      "Branding",
+      "Product Management",
+      "Product Strategy"
+    ],
+    "title": "<b>Act I</b><br/>How to Validate an App in the Market as Fast and Cheap as Possible",
+    "p": "Karla is the founder of Recupera, a technological startup that helps salaried workers throughout Mexico to meet their tax obligations and recover their balance in favor of the SAT with just a few clicks.<br/><br/>This is Karla's first entrepreneurial venture, and despite lacking technical knowledge or a technical co-founder, she possesses one of the most challenging characteristics to find in the digital entrepreneurial ecosystem: an ambitious and innovative solution to a problem that exists on a societal scale.",
+    "quote": {
+      "quote": "Thanks to the workshops and sessions we had, I felt an integral part of the development and validation process. I perfectly understand why we made all the decisions we made and why we designed the tool as we did.<br/><br/>Ever since I heard your podcast, I knew I had to work with you, but your way of working and the quality of it surprised me. Everything was always very professional and efficient.",
+      "name": "Karla Hernández",
+      "label": "CEO, Recupera"
+    }
+  },
+  "second_section": {
+    "title": "<b>Act II</b><br/>These were the Project's Challenges",
+    "p": "Karla was convinced that the problem she was solving is a latent one in Mexico. But there were some missing pieces of the puzzle:",
+    "challenges": [
+      {
+        "p": "She didn't know if the idea would be well-received in the market. Before making a large investment in a product, verifying the need is vital, so the product had to be tested with real users."
+      },
+      {
+        "p": "She had no technical knowledge or a technical co-founder. For founders without a background in software development, building a solution to test it is more challenging, fortunately, that's where we come in."
+      },
+      {
+        "p": "She didn't have many resources and didn't want to invest a lot of money in building a Minimum Viable Product (MVP) just to validate an idea."
       }
-    },
-    "third_section": {
-      "title": "<b>Act III</b><br/>And the results were exceptional",
-      "p": "The platform completed its beta phase, and although we are convinced that many more achievements await us in the future, in its first few months, we accomplished the following:",
-      "results": [
-        {
-          "title": "100%",
-          "subtitle": "transparency",
-          "p": "in Portal movements with full visibility on delays and conflicts"
-        },
-        {
-          "title": "4 countries",
-          "p": "that can use the platform while respecting each location's operational preferences."
-        },
-        {
-          "sign": "+",
-          "title": "50 cases",
-          "p": "of treatments completed and managed by the new platform"
-        },
-        {
-          "sign": "+",
-          "title": "2600",
-          "subtitle": "doctors",
-          "p": "trained now have access to the platform."
-        },
-        {
-          "sign": "+",
-          "title": "600",
-          "subtitle": "messages",
-          "p": "(previously sent through multiple channels) centralized in the Portal."
-        },
-        {
-          "sign": "+",
-          "title": "$700k",
-          "subtitle": "invoiced",
-          "p": "automatically without the need to submit receipts or review account statements"
-        }
-      ],
-      "quote": {
-        "quote": "With this project, we took a step we wanted to take for a long time but had never achieved.<br/><br/>Acueducto is a company that adds value in all our areas and is now part of Borgatta.",
-        "name": "Cindy Borgatta",
-        "label": "CMO, Borgatta"
+    ]
+  },
+  "third_section": {
+    "title": "<b>Act III</b><br/>And Here's How We Approached It",
+    "p": "We got to work and, hand in hand with Karla, we designed a project plan that considered the limitations but allowed us to iterate, test with real users, and validate if the market existed.",
+    "points": {
+      "first": {
+        "subtitle": "We conducted a series of design sprints",
+        "p": "Where we interviewed experts in the problem we were solving, sketched, prototyped, and tested multiple solutions with real users to validate the business idea in the market."
+      },
+      "second": {
+        "subtitle": "We built a brand",
+        "p": "A brand with a name, logo, typography, color palette, and UI Kit, as well as a landing page with a clean and minimalist design that aligns with the visual quality of the most successful applications in the world. Although Karla is a solopreneur, her site reflects a reliable company with a whole team behind Recupera's mission and vision."
+      },
+      "third": {
+        "subtitle": "We developed a no-code tool",
+        "p": "Although this version of the product has limitations compared to the UI experience designed during the design sprint, it is powerful enough to serve hundreds of users and start gaining traction."
       }
-    },
-    "fourth_section": {
-      "title": "<b>Act III</b><br/>Now it's time to look once again towards the horizon",
-      "p": "Thanks to initiatives and ambition like this, Borgatta is one of the leaders in an industry as competitive as dental equipment manufacturing.<br/><br/>And now that they have brought to life a platform with so many functionalities that help both their customers and their operations team, Cindy and her team continue to do the same thing that brought them to this point: relentlessly seeking improvement and competitiveness."
-    },
-    "seventh_section": {
-      "linkp": "visit"
+    }
+  },
+  "fourth_section": {
+    "title": "<b>Act IV</b><br/>Some Specifics of the Project",
+    "p": "Although Recupera's system has few features and some limitations of customization due to its no-code nature, the goal of this project was to go from 0 to 1. In other words, to validate an idea in the market and start gaining traction.<br/><br/>There are few things as exciting as participating in the construction of a product that solves a real need, and this time we had the opportunity to help Karla bring her vision to life. Here are some of the functionalities that were incorporated into the project:",
+    "functionalities": [
+      {
+        "p": "Payment gateway"
+      },
+      {
+        "p": "Authentication"
+      },
+      {
+        "p": "Personalized dashboard"
+      },
+      {
+        "p": "Up to 1000 users with no-code"
+      },
+      {
+        "p": "Educational content"
+      },
+      {
+        "p": "User and account management"
+      },
+      {
+        "p": "Calculation of favorable balance"
+      },
+      {
+        "p": "Sales site"
+      },
+      {
+        "p": "Consultation of tax data"
+      },
+      {
+        "p": "Validated business idea"
+      }
+    ],
+    "quote": {
+      "quote": "There is not a single person who hasn't told me that the work we did was exceptional, that the design is clean and sophisticated, or that the business idea is very valuable. Now what we need is distribution for this exceptional product.",
+      "name": "Karla Hernández",
+      "label": "CEO, Recupera"
     }
   }
+}
