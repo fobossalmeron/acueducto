@@ -558,25 +558,6 @@ const ThirdPoint = styled.div`
   }
 `;
 
-const DesktopAndMobile = styled.div`
-  background-image: url("/assets/img/casestudies/recupera/backgroundDesktopMobile.svg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-
-  .image{
-    position: relative;
-    right: -18%;
-    width: 100%;
-    max-width: 1458px;
-  }
-`;
-
 const FourthSection = styled(CommonSection)`
   background-color: #FEFAF5;
   color: #5C5C81;
@@ -631,5 +612,24 @@ const FourthSection = styled(CommonSection)`
     p {
       font-size: 1.5rem;
     }
+  }
+`;
+
+const DesktopAndMobile = styled.div`
+  background-image: url("/assets/img/casestudies/recupera/backgroundDesktopMobile.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+
+  .image{
+    position: relative;
+    right: -18%;
+    width: 100%;
+    max-width: 1458px;
   }
 `;
