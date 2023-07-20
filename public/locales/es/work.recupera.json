@@ -21,7 +21,7 @@
         "Estrategia de producto"
       ],
       "title": "<b>Acto I</b><br/>Cómo validar una app en el mercado lo más rápido y barato posible",
-      "p": "Karla es la fundadora de Recupera, una startup tecnológica que ayuda a los asalariados de todo México a cumplir con sus obligaciones fiscales y a recuperar su saldo a favor del SAT con un par de clicks.<br/><br/>Este es el primer emprendimiento de Karla y, a pesar de no contar con conocimientos tecnológicos o un cofundador técnico, cuenta con una de las características más difíciles de encontrar en el ecosistema de emprendimiento digital: una solución ambiciosa e innovadora a un problema que existe a escala en la sociedad.",
+      "p": "Karla es la fundadora de Recupera, una startup tecnológica que ayuda a los asalariados de todo México a cumplir con sus obligaciones fiscales y a recuperar su saldo a favor del SAT con un par de clicks.<br/><br/>Este es el segundo emprendimiento de Karla y, a pesar de no contar con conocimientos tecnológicos o un cofundador técnico, cuenta con una de las características más difíciles de encontrar en el ecosistema de emprendimiento digital: una solución ambiciosa e innovadora a un problema que existe a escala en la sociedad.",
       "quote": {
         "quote": "Gracias a los workshops y sesiones que tuvimos me sentí parte integral del proceso de desarrollo y validación. Entiendo perfectamente por qué se tomaron todas las decisiones que tomamos y por qué diseñamos la herramienta como lo hicimos.<br/><br/>Desde que escuché su podcast sabía que tenía que trabajar con ustedes pero su forma de trabajo y la calidad del mismo me sorprendió. Todo siempre fue muy profesional y eficiente.",
         "name": "Karla Hernández",
@@ -56,7 +56,7 @@
           "p":"Una marca con un nombre, logo, tipografía, paleta de color y UI Kit, así como una landing page con un diseño limpio y minimalista que dialoga con la calidad visual de las aplicaciones más exitosas del mundo. Si bien Karla es una solopreneur, su sitio refleja una compañía confiable con todo un equipo detrás de la misión y visión de Recupera."
         },
         "third": {
-          "subtitle": "Desarrollamos una herramienta no-code",
+          "subtitle": "Desarrollamos una </br>herramienta no-code",
           "p":"Aunque esta versión del producto presenta limitaciones para el sistema de la herramienta beta, que no tiene la misma experiencia UI que se diseñó durante el design sprint, es lo suficientemente poderosa para servir a cientos de usuarios y comenzar a generar tracción."
         }
       }

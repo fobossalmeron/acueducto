@@ -21,15 +21,13 @@ import Picture from "components/caseStudy/shared/Picture";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import ScreenshotsMd from "public/assets/img/casestudies/recupera/screenshotsMd.png";
 import ScreenshotsSm from "public/assets/img/casestudies/recupera/screenshotsSm.png";
-import Presentations from "public/assets/img/casestudies/recupera/presentations.png";
 import Mobile from "public/assets/img/casestudies/recupera/mobile.png";
 import UiComponentsMd from "public/assets/img/casestudies/recupera/uiComponentsMd.png";
 import UiComponentsSm from "public/assets/img/casestudies/recupera/uiComponentsSm.png";
 import ToolsMd from "public/assets/img/casestudies/recupera/toolsMd.png";
 import ToolsSm from "public/assets/img/casestudies/recupera/toolsSm.png";
-import FunctionalitiesMd from "public/assets/img/casestudies/recupera/functionalitiesMd.png";
-import FunctionalitiesSm from "public/assets/img/casestudies/recupera/functionalitiesSm.png";
 import DesktopMobile from "public/assets/img/casestudies/recupera/desktop-mobile.png";
+import ScreensAnimation from "components/caseStudy/recupera/ScreensAnimation";
 
 const white = "#FFFFFF";
 
@@ -87,10 +85,10 @@ const Recupera = ({ locale, setTitle, pt }) => {
               <Fade delay={300} triggerOnce className="brand1">
                 <BrandRecupera1Sm />
               </Fade>
-              <Fade delay={300} triggerOnce className="logo">
+              <Fade delay={500} triggerOnce className="logo">
                 <LogoRecupera />
               </Fade>
-              <Fade delay={300} triggerOnce className="brand2">
+              <Fade delay={600} triggerOnce className="brand2">
                 <BrandRecupera2Sm />
               </Fade>
             </>
@@ -133,18 +131,16 @@ const Recupera = ({ locale, setTitle, pt }) => {
               <ChallengesContainer>
                 {t?.second_section.challenges.map((challenge, i) => (
                   <Challenge key={`challenge${i}`}>
-                    <span>{i + 1}</span>
+                    <span>
+                      <p>{i + 1}</p>
+                    </span>
                     <p>{challenge.p}</p>
                   </Challenge>
                 ))}
               </ChallengesContainer>
             </Fade>
           </TextColumn>
-          <Picture
-            src={Presentations}
-            alt="Presentations"
-            withWrapper
-          />
+          <ScreensAnimation />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -206,19 +202,13 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-        {!isMobile ? (
-            <Picture
-              src={FunctionalitiesMd}
-              alt="Funcionalidades"
-              withWrapper
-            />
-          ) : (
-            <Picture
-              src={FunctionalitiesSm}
-              alt="Funcionalidades"
-              withWrapper
-            />
-        )}
+        <FunctionalitiesContainer>
+          {t?.fourth_section.functionalities.map((functionality, i) => (
+              <div key={`functionality${i}`}>
+                <p>{functionality.p}</p>
+              </div>
+          ))}
+        </FunctionalitiesContainer>
         <Quote quote={t.fourth_section.quote} color={"#292D34"} />
         <DesktopAndMobile>     
           <Picture
@@ -327,8 +317,7 @@ const FirstSection = styled(CommonSection)`
     padding-bottom: 26px;
     b {
       color: #FAD166;
-      opacity: 0.7;
-      font-weight: 400;
+      font-weight: 200;
       font-size: 4rem;
     }
   }
@@ -343,6 +332,11 @@ const FirstSection = styled(CommonSection)`
   .image {
     padding: 7.5% 0% 0% 0%;
   }
+
+svg {
+  fill: black;
+}
+
   @media (max-width: 1000px) {
     h2 {
       font-size: 5.2rem;
@@ -385,7 +379,7 @@ const SecondSection = styled(CommonSection)`
     padding: 4px 0px 26px 0px;
     b {
       color: #7368F8;
-      font-weight: 400;
+      font-weight: 200;
       font-size: 4rem;
     }
   }
@@ -418,7 +412,7 @@ const ChallengesContainer = styled.div`
   flex-direction: column;
   gap: 32px;
   padding-top: 4.8rem;
-  padding-bottom: 8rem;
+  padding-bottom: 10rem;
 
   @media (max-width: 630px) {
     padding-bottom: 4.8rem;
@@ -429,21 +423,24 @@ const Challenge = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-
+  
+  p {
+    max-width: 640px;
+  }
   span {
     background-color: #7368F8;
-    width: 31px;
-    height: 31px;
+    width: 31.1px;
+    height: 31.1px;
     min-width: 31px;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #FEFAF5;
     border-radius: 50%;
-  }
-
-  p {
-    max-width: 640px;
+    p {
+      font-weight: 500;
+      max-width: none;
+    }
   }
 
   @media (max-width: 630px) {
@@ -469,7 +466,7 @@ const ThirdSection = styled(CommonSection)`
     padding: 0px 0px 26px 0px;
     b {
       color: #FAD166;
-      font-weight: 400;
+      font-weight: 200;
       font-size: 4rem;
     }
   }
@@ -571,13 +568,9 @@ const FourthSection = styled(CommonSection)`
     padding: 0px 0px 26px 0px;
     b {
       color: #7368F8;
-      font-weight: 400;
+      font-weight: 200;
       font-size: 4rem;
     }
-  }
-  p {
-    font-size: 1.8rem;
-    line-height: 131%;
   }
 
   .image {
@@ -612,6 +605,23 @@ const FourthSection = styled(CommonSection)`
     p {
       font-size: 1.5rem;
     }
+  }
+`;
+
+const FunctionalitiesContainer = styled.div`
+  color: #4F4F4F;
+  font-size: 28.2px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: repeat(5, auto);
+  gap: 35px;
+
+  div {
+    background-color: #FFFFFF;
+    padding: 21.17px;
+    width: auto;
+    display: flex;
+    justify-content: center;
   }
 `;
 
