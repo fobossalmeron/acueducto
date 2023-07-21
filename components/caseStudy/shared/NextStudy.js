@@ -23,7 +23,8 @@ const NextStudy = ({
         <LogoContainer>
           <Logo
             style={{
-              backgroundImage: `url(/assets/img/casestudies/${link}/portfolio_logo.svg)`,
+              backgroundImage: 
+                link === 'borgatta' ? `url(/assets/img/casestudies/${link}/nextPortfolio_logo.svg)` : `url(/assets/img/casestudies/${link}/portfolio_logo.svg)`,
             }}
           />
         </LogoContainer>
