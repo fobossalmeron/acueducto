@@ -20,6 +20,7 @@ import Image from "next/image";
 import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
 import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
 import CaseTable from "../../components/caseStudy/borgatta/CaseTable";
+import Page from "public/assets/img/casestudies/borgatta/page.png";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -85,10 +86,8 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           </TextColumn>
         </Fade>
         <Picture
-          src="/assets/img/casestudies/borgatta/page.png"
+          src={Page}
           alt="Page"
-          width={982.09}
-          height={580}
           withWrapper
         />
       </FirstSection>
@@ -101,7 +100,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <Fade delay={300} triggerOnce>
             {t.second_section.aspects.map((aspect, i) => (
               <Aspect key={`aspect${i}`}>
-                <span>{i + 1}</span>
+                <Picture
+                  src={`/assets/img/casestudies/borgatta/Icon${i + 1}.svg`}
+                  width={"50"}
+                  height={"50"} 
+                  alt="Aspecto"
+                />
                 <h4>{aspect.title}</h4>
                 <p>{aspect.p}</p>
               </Aspect>
@@ -218,6 +222,7 @@ const FirstSection = styled(CommonSection)`
   }
   .image {
     padding-top: 3.5%;
+    max-width: 982px;
   }
   @media (max-width: 1000px) {
     h2 {
@@ -396,13 +401,7 @@ const Aspect = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 1.367rem;
     position: relative;
-    border: 2px solid #d76e32;
-    width: 25px;
-    height: 25px;
-    color: #d76e32;
-    border-radius: 50%;
     margin-bottom: 20px;
   }
   h4 {
