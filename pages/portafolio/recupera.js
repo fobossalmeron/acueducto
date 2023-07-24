@@ -21,7 +21,11 @@ import Picture from "components/caseStudy/shared/Picture";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import ScreenshotsMd from "public/assets/img/casestudies/recupera/screenshotsMd.png";
 import ScreenshotsSm from "public/assets/img/casestudies/recupera/screenshotsSm.png";
-import Mobile from "public/assets/img/casestudies/recupera/mobile.png";
+// import Mobile from "public/assets/img/casestudies/recupera/mobile.png";
+import MobileBackground from "public/assets/img/casestudies/recupera/mobile1.png";
+import UIMobile1 from "public/assets/img/casestudies/recupera/UIMobile1.png";
+import UIMobile2 from "public/assets/img/casestudies/recupera/UIMobile2.png";
+import UIMobile3 from "public/assets/img/casestudies/recupera/UIMobile3.png";
 import UiComponentsMd from "public/assets/img/casestudies/recupera/uiComponentsMd.png";
 import UiComponentsSm from "public/assets/img/casestudies/recupera/uiComponentsSm.png";
 import ToolsMd from "public/assets/img/casestudies/recupera/toolsMd.png";
@@ -152,11 +156,39 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <FirstPoint>
             <H3>{t.third_section.points.first.subtitle}</H3>
             <P>{t.third_section.points.first.p}</P>
-            <Picture
+            {/* <Picture
               src={Mobile}
               alt="Component"
               withWrapper
-            />
+            /> */}
+            <MobilePicture>
+              <Picture
+                src={MobileBackground}
+                alt="Component"
+                withWrapper
+              />
+              <div className='picture1'>
+                <Picture
+                  src={UIMobile1}
+                  alt="Component"
+                  withWrapper
+                />
+              </div>
+              <div className="picture2">
+                <Picture
+                  src={UIMobile2}
+                  alt="Component"
+                  withWrapper
+                />
+              </div>
+              <div className="picture3">
+                <Picture
+                  src={UIMobile3}
+                  alt="Component"
+                  withWrapper
+                />
+              </div>
+            </MobilePicture>
           </FirstPoint>
         </TextColumn>
         <TextColumn>
@@ -588,6 +620,29 @@ const ThirdSection = styled(CommonSection)`
       position: relative;
       left: 3%;
     }
+  }
+`;
+
+const MobilePicture = styled.div`
+  width: 100%;
+  height: 100%;
+  position: relative;
+  // background-image: url("/assets/img/casestudies/recupera/mobile1.png");
+  // background-repeat: no-repeat;
+  // background-size: contain;
+  // background-position: center;
+
+  .picture1 {
+    position: absolute;
+  }
+  .picture2 {
+    position: absolute;
+    top: 0;
+    left: 5rem;
+    max-width: 320px;
+  }
+  .picture3 {
+    position: absolute;
   }
 `;
 
