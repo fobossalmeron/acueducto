@@ -46,18 +46,22 @@
     "p": "For Borgatta, digital technology is not new, as the company is a pioneer in medical technology in Latin America. However, the step they wanted to take with the B360 Portal needed to ensure the reduction of:",
     "aspects": [
       {
+        "icon": "/assets/img/casestudies/borgatta/Icon1.svg",
         "title": "Business risks",
         "p": "We talked to all areas of the business (clients, manufacturing, finance, marketing, and strategic management) that this new platform would impact to ensure we develop a tool that positively impacts each area of the company."
       },
       {
+        "icon": "/assets/img/casestudies/borgatta/Icon2.svg",
         "title": "Usability risks",
         "p": "We designed prototypes and conducted exhaustive tests, both with doctors and the manufacturing team, to ensure we design a product that requires minimal thinking, naturally indicates the next step, and delivers results as quickly as possible."
       },
       {
+        "icon": "/assets/img/casestudies/borgatta/Icon3.svg",
         "title": "Value risks",
         "p": "We validated in more than 50 user interviews where we heard from both doctors and Borgatta employees that the digital alternative we built was more efficient and user-friendly than what they were experiencing at that time."
       },
       {
+        "icon": "/assets/img/casestudies/borgatta/Icon4.svg",
         "title": "Viability risks",
         "p": "Our team of software engineers validated step by step that we could build a platform capable of being developed with a reduced team, easy to maintain, and scalable in the long term according to Borgatta's objectives."
       }
