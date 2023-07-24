@@ -46,22 +46,18 @@
     "p": "Para Borgatta la tecnología digital no es cosa nueva ya que la empresa es pionera en tecnología médica en América Latina. Sin embargo, el paso que buscaban dar con el Portal B360 es uno que necesitaba asegurarse de reducir:",
     "aspects": [
       {
-        "icon": "/assets/img/casestudies/borgatta/Icon1.svg",
         "title": "Riesgos de negocio",
         "p": "Platicamos con todas las aristas del negocio (clientes, manufactura, finanzas, marketing y dirección estratégica) que esta nueva plataforma impactaría para asegurarnos de desarrollar una herramienta que impactara positivamente a cada área de la empresa."
       },
       {
-        "icon": "/assets/img/casestudies/borgatta/Icon2.svg",
         "title": "Riesgos de usabilidad",
         "p": "Diseñamos prototipos e hicimos pruebas exhaustivas, tanto con doctores como con el equipo de manufactura, para asegurarnos de diseñar un producto que los hace pensar el mínimo, indica naturalmente el siguiente paso y entrega resultados lo más rápido posible."
       },
       {
-        "icon": "/assets/img/casestudies/borgatta/Icon3.svg",
         "title": "Riesgos de valor",
         "p": "Validamos en más de 50 entrevistas de usuario donde escuchamos, de boca tanto de doctores como de empleados de Borgatta, que la alternativa digital que construimos era una más eficiente y amigable que la que estaban viviendo en ese momento."
       },
       {
-        "icon": "/assets/img/casestudies/borgatta/Icon4.svg",
         "title": "Riesgos de viabilidad",
         "p": "Nuestro equipo de ingenieros de software validó, paso por paso, que pudiéramos construir una plataforma capaz de desarrollarse con un equipo reducido y que fuera fácil de mantener y escalar en el largo plazo según los objetivos de Borgatta."
       }

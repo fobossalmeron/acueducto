@@ -101,7 +101,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             {t.second_section.aspects.map((aspect, i) => (
               <Aspect key={`aspect${i}`}>
                 <Picture
-                  src={aspect.icon}
+                  src={`/assets/img/casestudies/borgatta/Icon${i + 1}.svg`}
                   width={"50"}
                   height={"50"} 
                   alt="Aspecto"
