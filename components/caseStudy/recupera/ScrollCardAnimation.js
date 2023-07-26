@@ -9,7 +9,6 @@ import Screenshot6 from "public/assets/img/casestudies/recupera/screenshot6.png"
 import Screenshot7 from "public/assets/img/casestudies/recupera/screenshot7.png";
 import Screenshot8 from "public/assets/img/casestudies/recupera/Screenshot8.png";
 import Screenshot9 from "public/assets/img/casestudies/recupera/Screenshot9.png";
-import Screenshot10 from "public/assets/img/casestudies/recupera/Screenshot10.png";
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 
@@ -156,7 +155,7 @@ const ScrollCardAnimation = (props) => {
                 withWrapper
               />
               <Picture
-                src={Screenshot10}
+                src={Screenshot5}
                 alt="Screenshots"
                 withWrapper
               />
