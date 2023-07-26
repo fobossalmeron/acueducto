@@ -28,13 +28,10 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
           {links.map((link, index) => (
             <Resource key={"linkentry" + index}>
               {index === 0 && (
-                <img src="/assets/img/layout/linkenbio/giveaway.png" alt="Paticipa por un sitio de $175,000 mxn"/>
-              )}
-              {index === 1 && (
                 <img src="/assets/img/layout/linkenbio/kit.png" alt="Kit de inicio para Startups"/>
               )}
-              {index === 3 && <Articulos />}
-              {index === 2 && <Podcast />}
+              {index === 2 && <Articulos />}
+              {index === 1 && <Podcast />}
               <Link href={link.url} passHref locale={locale}>
                 <a>
                   <Fade triggerOnce>
