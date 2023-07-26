@@ -7,7 +7,7 @@ import Head from "components/layout/Head";
 import Marquee from "components/caseStudy/shared/Marquee";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import { Fade } from "react-awesome-reveal";
+import Reveal, { Fade, Slide } from "react-awesome-reveal";
 import LogoRecupera from "public/assets/img/casestudies/recupera/logoRecupera.svg";
 import BrandRecupera1Md from "public/assets/img/casestudies/recupera/brand1Md.svg";
 import BrandRecupera2Md from "public/assets/img/casestudies/recupera/brand2Md.svg";
@@ -19,20 +19,15 @@ import Quote from "components/caseStudy/shared/Quote";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import Picture from "components/caseStudy/shared/Picture";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import ScreenshotsMd from "public/assets/img/casestudies/recupera/screenshotsMd.png";
-import ScreenshotsSm from "public/assets/img/casestudies/recupera/screenshotsSm.png";
-// import Mobile from "public/assets/img/casestudies/recupera/mobile.png";
-import MobileBackground from "public/assets/img/casestudies/recupera/mobile1.png";
-import UIMobile1 from "public/assets/img/casestudies/recupera/UIMobile1.png";
-import UIMobile2 from "public/assets/img/casestudies/recupera/UIMobile2.png";
-import UIMobile3 from "public/assets/img/casestudies/recupera/UIMobile3.png";
-import UiComponentsMd from "public/assets/img/casestudies/recupera/uiComponentsMd.png";
-import UiComponentsSm from "public/assets/img/casestudies/recupera/uiComponentsSm.png";
 import ToolsMd from "public/assets/img/casestudies/recupera/toolsMd.png";
 import ToolsSm from "public/assets/img/casestudies/recupera/toolsSm.png";
 import DesktopMobile from "public/assets/img/casestudies/recupera/desktop-mobile.png";
 import ScreensAnimation from "components/caseStudy/recupera/ScreensAnimation";
 import UIComponentsAnimation from "../../components/caseStudy/recupera/UIComponentsAnimation";
+import { keyframes } from "@emotion/core";
+import ScrollCardAnimation from "../../components/caseStudy/recupera/ScrollCardAnimation";
+import Functionalities from "../../components/caseStudy/recupera/Functionalities";
+import IPhoneAnimation from "../../components/caseStudy/recupera/IPhoneAnimation";
 
 const white = "#FFFFFF";
 
@@ -112,21 +107,9 @@ const Recupera = ({ locale, setTitle, pt }) => {
           </P>
         </TextColumn>
         <Fade delay={300} triggerOnce>
-          {!isMobile ? (
-            <Picture
-              src={ScreenshotsMd}
-              alt="Screenshots"
-              withWrapper
-            />
-          ) : (
-            <Picture
-              src={ScreenshotsSm}
-              alt="Screenshots"
-              withWrapper
-            />
-          )}
+          <ScrollCardAnimation />
         </Fade>
-        <Quote quote={t.intro_section.quote} color={"#F4F4F4"} />
+        <Quote quote={t.intro_section.quote} color={"#F4F4F4"} mark={"#060809"}/>
       </FirstSection>
       <SecondSection>
           <TextColumn>
@@ -156,39 +139,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <FirstPoint>
             <H3>{t.third_section.points.first.subtitle}</H3>
             <P>{t.third_section.points.first.p}</P>
-            {/* <Picture
-              src={Mobile}
-              alt="Component"
-              withWrapper
-            /> */}
-            <MobilePicture>
-              <Picture
-                src={MobileBackground}
-                alt="Component"
-                withWrapper
-              />
-              <div className='picture1'>
-                <Picture
-                  src={UIMobile1}
-                  alt="Component"
-                  withWrapper
-                />
-              </div>
-              <div className="picture2">
-                <Picture
-                  src={UIMobile2}
-                  alt="Component"
-                  withWrapper
-                />
-              </div>
-              <div className="picture3">
-                <Picture
-                  src={UIMobile3}
-                  alt="Component"
-                  withWrapper
-                />
-              </div>
-            </MobilePicture>
+            <IPhoneAnimation />
           </FirstPoint>
         </TextColumn>
         <TextColumn>
@@ -197,15 +148,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
             <P>{t.third_section.points.second.p}</P>
           </SecondPoint>
         </TextColumn>
-        {!isMobile ? (
-          <UIComponentsAnimation/>
-          ) : (
-            <Picture
-              src={UiComponentsSm}
-              alt="UiComponents"
-              withWrapper
-            />
-          )}
+          <UIComponentsAnimation isMobile={isMobile}/>
         <TextColumn>
           <ThirdPoint>
             <H3>{t.third_section.points.third.subtitle}</H3>
@@ -231,91 +174,14 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-        <FunctionalitiesBackground>
-          {!isMobile ? (
-            <FunctionalitiesContainer>
-              <FunctionalitiesRow>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[0].p}</p>
-                </Functionality>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[1].p}</p>
-                </Functionality>
-              </FunctionalitiesRow>
-              <FunctionalitiesRow>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[2].p}</p>
-                </Functionality>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[3].p}</p>
-                </Functionality>
-              </FunctionalitiesRow>
-              <FunctionalitiesRow>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[4].p}</p>
-                </Functionality>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[5].p}</p>
-                </Functionality>
-              </FunctionalitiesRow>
-              <FunctionalitiesRow>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[6].p}</p>
-                </Functionality>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[7].p}</p>
-                </Functionality>
-              </FunctionalitiesRow>
-              <FunctionalitiesRow>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[8].p}</p>
-                </Functionality>
-                <Functionality>
-                  <p>{t?.fourth_section.functionalities[9].p}</p>
-                </Functionality>
-              </FunctionalitiesRow>
-            </FunctionalitiesContainer>
-              ) : (
-                <FunctionalitiesContainer>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[0].p}</p>
-                  </Functionality>
-                  <FunctionalitiesRow>
-                    <Functionality>
-                      <p>{t?.fourth_section.functionalities[1].p}</p>
-                    </Functionality>
-                    <Functionality>
-                      <p>{t?.fourth_section.functionalities[2].p}</p>
-                    </Functionality>
-                  </FunctionalitiesRow>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[3].p}</p>
-                  </Functionality>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[4].p}</p>
-                  </Functionality>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[5].p}</p>
-                  </Functionality>
-                  <FunctionalitiesRow>
-                    <Functionality>
-                      <p>{t?.fourth_section.functionalities[6].p}</p>
-                    </Functionality>
-                    <Functionality>
-                      <p>{t?.fourth_section.functionalities[7].p}</p>
-                    </Functionality>
-                  </FunctionalitiesRow>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[8].p}</p>
-                  </Functionality>
-                  <Functionality>
-                    <p>{t?.fourth_section.functionalities[9].p}</p>
-                  </Functionality>
-                </FunctionalitiesContainer>
-              )
-          }
-        </FunctionalitiesBackground>
-        <Quote quote={t.fourth_section.quote} color={"#292D34"} />
+        <Functionalities 
+          isMobile={isMobile}
+          t={t.fourth_section}
+        />
+        <Quote 
+          quote={t.fourth_section.quote} 
+          color={"#292D34"}
+        />
         <DesktopAndMobile>     
           <Picture
             src={DesktopMobile}
@@ -344,8 +210,10 @@ export const getStaticProps = async (context) => {
   };
 };
 
+
+
 const PageClipperBorgatta = styled(PageClipper)`
-  background: linear-gradient(46deg, #6137D7 0%, #5C50ED 100%);
+  background: linear-gradient(46deg, #6239D9 0%, #5C50ED 100%);
   @media (max-width: 1300px) {
     padding: 0px;
   }
@@ -435,13 +303,10 @@ const FirstSection = styled(CommonSection)`
     margin-bottom: 0px;
     width: 100%;
   }
-  .image {
-    padding: 7.5% 0% 0% 0%;
-  }
 
-svg {
-  fill: black;
-}
+  .image {
+    border-radius: 7.4px;
+  }
 
   @media (max-width: 1000px) {
     h2 {
@@ -463,10 +328,6 @@ svg {
     }
     h3 {
       font-size: 1.9rem;
-    }
-
-    .image {
-      padding: 11% 0% 5% 0%;
     }
   }
 `;
@@ -539,13 +400,15 @@ const Challenge = styled.div`
     height: 31.1px;
     min-width: 31px;
     display: flex;
-    justify-content: center;
-    align-items: center;
     color: #FEFAF5;
     border-radius: 50%;
+    align-items: center;
+    justify-content: center;
     p {
       font-weight: 500;
-      max-width: none;
+      line-height: 18px;
+      text-align: center;
+      margin-bottom: 2px;
     }
   }
 
@@ -563,6 +426,7 @@ const Challenge = styled.div`
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
+  background-color: #6239D9;
   color: #FFFFFF;
   h2 {
     color: #f3f4f5;
@@ -623,35 +487,7 @@ const ThirdSection = styled(CommonSection)`
   }
 `;
 
-const MobilePicture = styled.div`
-  width: 100%;
-  height: 100%;
-  position: relative;
-  // background-image: url("/assets/img/casestudies/recupera/mobile1.png");
-  // background-repeat: no-repeat;
-  // background-size: contain;
-  // background-position: center;
-
-  .picture1 {
-    position: absolute;
-  }
-  .picture2 {
-    position: absolute;
-    top: 0;
-    left: 5rem;
-    max-width: 320px;
-  }
-  .picture3 {
-    position: absolute;
-  }
-`;
-
 const FirstPoint = styled.div`
-  .image {
-    max-width: 649px;
-    position: relative;
-    left: 10%;
-  }
   @media (max-width: 630px) {
     .image {
       padding-top: 10%;
@@ -733,73 +569,6 @@ const FourthSection = styled(CommonSection)`
     }
     p {
       font-size: 1.5rem;
-    }
-  }
-`;
-
-const FunctionalitiesBackground = styled.div`
-  background-image: url("/assets/img/casestudies/recupera/backgroundFunctionality.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
-  background-position: center;
-  margin-top: 6%;
-`;
-
-const FunctionalitiesContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 35px;
-  color: #4F4F4F;
-  font-size: 2.8rem;
-  padding: 60px;    
-  align-items: center;
-  @media (max-width: 1110px) {
-    gap: 28px;
-    padding: 40px;  
-  }
-  @media (max-width: 600px) {
-    gap: 10px;
-    padding: 10px;  
-  }
-`;
-
-const FunctionalitiesRow = styled.div`
-  display: flex;
-  flexDirection: row;
-  gap: 35px;
-  justify-content: center;
-  @media (max-width: 1110px) {
-    gap: 28px;
-  }
-  @media (max-width: 600px) {
-    gap: 10px;
-  }
-`;
-
-const Functionality = styled.div`
-  display: flex;
-  width: fit-content;
-  justify-content: center;
-  border-radius: 21.2px;
-  background-color: #FFFFFF;
-  padding: 21.17px;
-  box-shadow: 0px 33.351463317871094px 50.027191162109375px 0px rgba(40, 3, 109, 0.12);
-  text-align: center;
-
-  @media (max-width: 1110px) {
-    padding: 17px;
-    font-size: 2.3rem;
-  }
-  @media (max-width: 940px) {
-    border-radius: 17px;
-    padding: 10px;
-    font-size: 1.8rem;
-  }
-  @media (max-width: 680px) {
-    padding: 6px;
-    border-radius: 8px;
-    p {
-      font-size: 1.4rem;
     }
   }
 `;

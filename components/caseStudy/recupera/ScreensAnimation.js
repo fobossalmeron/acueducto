@@ -1,16 +1,13 @@
 import styled from "styled-components";
-import { useState } from "react";
 import Screen1 from "public/assets/img/casestudies/recupera/screen1.png";
-// import Transparency from "public/assets/img/casestudies/recupera/transparency.svg";
-// import Transparency1 from "public/assets/img/casestudies/recupera/trasparency1.png";
 import Screen2 from "public/assets/img/casestudies/recupera/screen2.png";
 import Screen3 from "public/assets/img/casestudies/recupera/screen3.png";
+import Lottie from "lottie-react";
+import animationData from "public/assets/img/casestudies/recupera/lottie-recupera.json";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/image";
 
 const ScreenAnimation = () => {
-  const [isMobile, setIsMobile] = useState();
-
   return (
     <DesktopAnimation>
       <Fade delay={300} direction="up" triggerOnce className="screen1">
@@ -21,10 +18,18 @@ const ScreenAnimation = () => {
       </Fade>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
         <Fade delay={400} direction="right" triggerOnce className="screen2">
-          <Image
-            src={Screen2}
-            alt="Recupera"
-          />
+          <>
+            <Image
+              src={Screen2}
+              alt="Recupera"
+            />
+            <div className="lottie">
+              <Lottie
+                animationData={animationData}
+                loop={true}
+              />
+            </div>
+          </>
         </Fade>
         <Fade delay={420} direction="up" triggerOnce className="screen3">
           <Image
@@ -55,6 +60,13 @@ const DesktopAnimation = styled.div`
   .screen2 span {
     border-radius: 28px;
     box-shadow: 0px 20px 60px 0px rgba(40, 3, 109, 0.12), 0px 40px 60px 0px rgba(40, 3, 109, 0.06);
+  }
+
+  .lottie {
+    width: 24%;
+    position: absolute;
+    top: 30%;
+    left: 15%;
   }
 
   .screen3 {
