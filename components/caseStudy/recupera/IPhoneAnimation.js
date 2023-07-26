@@ -97,18 +97,18 @@ const MobilePicture = styled.div`
   }
 
   .moveUpDown {
-    animation: moveUpDown 2s forwards;
+    animation: moveUpDown 2s ease;
   }
 
   @keyframes moveUpDown {
     0%, 90% {
-      transform: translateY(2px);
+      transform: translateY(1%);
     }
     100% {
-      transform: translateY(0px);
+      transform: translateY(0%);
     }
     50% {
-      transform: translateY(-3px);
+      transform: translateY(-1%);
     }
   }
 `;

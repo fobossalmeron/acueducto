@@ -13,55 +13,55 @@ const Functionalities = (props) => {
                 <p>{props.t.functionalities[0].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={310} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[1].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={320} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[2].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={330} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[3].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={340} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[4].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={350} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[5].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={360} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[6].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={370} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[7].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={380} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[8].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={390} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[9].p}</p>
               </Functionality>
@@ -76,50 +76,50 @@ const Functionalities = (props) => {
             </Functionality>
           </Fade>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={310} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[1].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={320} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[2].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
-          <Fade delay={300} triggerOnce>
+          <Fade delay={330} triggerOnce>
             <Functionality>
               <p>{props.t.functionalities[3].p}</p>
             </Functionality>
           </Fade>
-          <Fade delay={300} triggerOnce>
+          <Fade delay={340} triggerOnce>
             <Functionality>
               <p>{props.t.functionalities[4].p}</p>
             </Functionality>
           </Fade>
-          <Fade delay={300} triggerOnce>
+          <Fade delay={350} triggerOnce>
             <Functionality>
               <p>{props.t.functionalities[5].p}</p>
             </Functionality>
           </Fade>
           <FunctionalitiesRow>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={360} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[6].p}</p>
               </Functionality>
             </Fade>
-            <Fade delay={300} triggerOnce>
+            <Fade delay={370} triggerOnce>
               <Functionality>
                 <p>{props.t.functionalities[7].p}</p>
               </Functionality>
             </Fade>
           </FunctionalitiesRow>
-          <Fade delay={300} triggerOnce>
+          <Fade delay={380} triggerOnce>
             <Functionality>
               <p>{props.t.functionalities[8].p}</p>
             </Functionality>
           </Fade>
-          <Fade delay={300} triggerOnce>
+          <Fade delay={390} triggerOnce>
             <Functionality>
               <p>{props.t.functionalities[9].p}</p>
             </Functionality>
