@@ -7,8 +7,8 @@ import Screenshot4 from "public/assets/img/casestudies/recupera/screenshot4.png"
 import Screenshot5 from "public/assets/img/casestudies/recupera/screenshot5.png";
 import Screenshot6 from "public/assets/img/casestudies/recupera/screenshot6.png";
 import Screenshot7 from "public/assets/img/casestudies/recupera/screenshot7.png";
-import Screenshot8 from "public/assets/img/casestudies/recupera/Screenshot8.png";
-import Screenshot9 from "public/assets/img/casestudies/recupera/Screenshot9.png";
+import Screenshot8 from "public/assets/img/casestudies/recupera/screenshot8.png";
+import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png";
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 
