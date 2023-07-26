@@ -11,7 +11,7 @@ import Screenshot8 from "public/assets/img/casestudies/recupera/Screenshot8.png"
 import Screenshot9 from "public/assets/img/casestudies/recupera/Screenshot9.png";
 import Screenshot10 from "public/assets/img/casestudies/recupera/Screenshot10.png";
 import styled from 'styled-components';
-import { useInView } from 'react-intersection-observer';
+import { Fade } from 'react-awesome-reveal';
 
 const ScrollCardAnimation = (props) => {
   const [isMobile, setIsMobile] = useState();
@@ -27,13 +27,9 @@ const ScrollCardAnimation = (props) => {
     });
 
     const handleScroll = () => {
-      console.log('que pasa1')
       setScrollY(window.scrollY);
-      console.log(window.scrollY)
     };
-
     window.addEventListener('scroll', handleScroll);
-    console.log('que pasa2')
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -47,8 +43,9 @@ const ScrollCardAnimation = (props) => {
       transform: `translateX(${offsetX}px)`,
     };
   };
+  
   return (
-    <>
+    <Fade delay={300} triggerOnce>
       {
         !isMobile ? 
           <PicturesContainer>
@@ -166,7 +163,7 @@ const ScrollCardAnimation = (props) => {
             </ThirdRowMobile>
           </PicturesContainerMobile>
       }
-    </>
+    </Fade>
   );
 };
 
@@ -176,25 +173,12 @@ const PicturesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 14.9px;
-  margin: 5% 0%;
+  margin-top: 5%;
 
   .image {
     span {
       border-radius: 7.4px;
-      flex: 1 0 auto;
     }
-  }
-
-  .card {
-    transition: transform 3s ease;
-  }
-  
-  .move-left {
-    transform: translateX(-15%);
-  }
-
-  .move-right {
-    transform: translateX(15%);
   }
 `;
 
@@ -218,7 +202,7 @@ const PicturesContainerMobile = styled.div`
   display: flex;
   flex-direction: column;
   gap: 9.5px;
-  margin: 2% 0%;
+  margin-top: 2%;
   padding: 7% 0%;
 
   .image {
@@ -226,18 +210,6 @@ const PicturesContainerMobile = styled.div`
       border-radius: 7.4px;
       flex: 1 0 auto;
     }
-  }
-
-  .card {
-    transition: transform 3s ease;
-  }
-  
-  .move-left {
-    transform: translateX(-15%);
-  }
-
-  .move-right {
-    transform: translateX(15%);
   }
 `;
 

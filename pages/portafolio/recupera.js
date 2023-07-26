@@ -24,7 +24,6 @@ import ToolsSm from "public/assets/img/casestudies/recupera/toolsSm.png";
 import DesktopMobile from "public/assets/img/casestudies/recupera/desktop-mobile.png";
 import ScreensAnimation from "components/caseStudy/recupera/ScreensAnimation";
 import UIComponentsAnimation from "../../components/caseStudy/recupera/UIComponentsAnimation";
-import { keyframes } from "@emotion/core";
 import ScrollCardAnimation from "../../components/caseStudy/recupera/ScrollCardAnimation";
 import Functionalities from "../../components/caseStudy/recupera/Functionalities";
 import IPhoneAnimation from "../../components/caseStudy/recupera/IPhoneAnimation";
@@ -106,9 +105,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
             {t.intro_section.p}
           </P>
         </TextColumn>
-        <Fade delay={300} triggerOnce>
-          <ScrollCardAnimation />
-        </Fade>
+        <ScrollCardAnimation />
         <Quote quote={t.intro_section.quote} color={"#F4F4F4"} mark={"#060809"}/>
       </FirstSection>
       <SecondSection>
