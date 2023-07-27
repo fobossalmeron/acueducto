@@ -27,7 +27,7 @@ const UIComponentsAnimation = (props) => {
     <>
     {!props.isMobile ?
       <Desktop>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', alignItems: 'end', justifyContent: 'center' }}>
+        <Row style={{ alignItems: 'end' }}>
           <Fade delay={400} direction="up" triggerOnce className="UIComponent1">
             <Image
               src={UIComponent1}
@@ -46,15 +46,15 @@ const UIComponentsAnimation = (props) => {
               alt="Recupera"
             />
           </Fade>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', alignItems: 'end', justifyContent: 'center' }}>
+        </Row>
+        <Row style={{ alignItems: 'end' }}>
           <Fade delay={400} direction="up" triggerOnce className="UIComponent4">
             <Image
               src={UIComponent4}
               alt="Recupera"
             />
           </Fade>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2%', justifyContent: 'space-around', height: '100%' }}>
+          <Column style={{ gap: '2%', justifyContent: 'space-around', height: '100%' }}>
             <Fade delay={400} direction="up" triggerOnce className="UIComponent5">
               <Image
                 src={UIComponent5}
@@ -67,16 +67,16 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
+          </Column>
           <Fade delay={420} direction="up" triggerOnce className="UIComponent7">
             <Image
               src={UIComponent7}
               alt="Recupera"
             />
           </Fade>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', justifyContent: 'center'}}>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1.2rem', alignItems: 'end' }}>
+        </Row>
+        <Row>
+          <Column style={{ gap: '1.2rem', alignItems: 'end' }}>
             <Fade delay={400} direction="up" triggerOnce className="UIComponent8">
               <Image
                 src={UIComponent8}
@@ -101,8 +101,8 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2%' }}>
+          </Column>
+          <Column style={{ gap: '2%' }}>
             <Fade delay={400} direction="up" triggerOnce className="UIComponent12">
               <Image
                 src={UIComponent12}
@@ -115,8 +115,8 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2%' }}>
+          </Column>
+          <Column style={{ gap: '2%' }}>
             <Fade delay={420} direction="up" triggerOnce className="UIComponent14">
               <Image
                 src={UIComponent14}
@@ -129,19 +129,19 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
-        </div>
+          </Column>
+        </Row>
       </Desktop>
     : 
       <Mobile>  
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', alignItems: 'end', justifyContent: 'center' }}>
+        <Row style={{ alignItems: 'end' }}>
           <Fade delay={420} direction="up" triggerOnce className="UIComponent2">
             <Image
               src={UIComponent2}
               alt="Recupera"
             />
           </Fade>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2%', alignItems: 'start', justifyContent: 'end' }}>
+          <Column style={{ gap: '2%', alignItems: 'start', justifyContent: 'end' }}>
             <Fade delay={420} direction="up" triggerOnce className="UIComponent15">
               <Image
                 src={UIComponent15}
@@ -154,9 +154,9 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', alignItems: 'end', justifyContent: 'center' }}>
+          </Column>
+        </Row>
+        <Row style={{ alignItems: 'end' }}>
           <Fade delay={400} direction="up" triggerOnce className="UIComponent3">
             <Image
               src={UIComponent3}
@@ -169,8 +169,8 @@ const UIComponentsAnimation = (props) => {
               alt="Recupera"
             />
           </Fade>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', justifyContent: 'center'}}>
+        </Row>
+        <Row>
           <Fade delay={420} direction="up" triggerOnce className="UIComponent11">
             <Image
               src={UIComponent11}
@@ -183,15 +183,15 @@ const UIComponentsAnimation = (props) => {
               alt="Recupera"
             />
           </Fade>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '2%', justifyContent: 'center'}}>
+        </Row>
+        <Row>
           <Fade delay={420} direction="up" triggerOnce className="UIComponent7">
             <Image
               src={UIComponent7}
               alt="Recupera"
             />
           </Fade>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '2%', justifyContent: 'center'}}>
+          <Column style={{ gap: '2%', justifyContent: 'center'}}>
             <Fade delay={420} direction="up" triggerOnce className="UIComponent16">
               <Image
                 src={UIComponent16}
@@ -210,14 +210,14 @@ const UIComponentsAnimation = (props) => {
                 alt="Recupera"
               />
             </Fade>
-          </div>
+          </Column>
           <Fade delay={420} direction="up" triggerOnce className="UIComponent4">
             <Image
               src={UIComponent4}
               alt="Recupera"
             />
           </Fade>
-        </div>
+        </Row>
       </Mobile>
     }
     </>
@@ -358,5 +358,16 @@ const Mobile = styled.div`
   .UIComponent16, .UIComponent17, .UIComponent18 {
     max-width: 87px;
   }
-  
+`;
+
+const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  justify-content: center;
+`;
+
+const Column = styled.div`
+  display: flex;
+  flex-direction: column;
 `;

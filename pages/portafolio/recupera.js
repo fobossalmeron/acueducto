@@ -301,10 +301,6 @@ const FirstSection = styled(CommonSection)`
     width: 100%;
   }
 
-  .image {
-    border-radius: 7.4px;
-  }
-
   @media (max-width: 1000px) {
     h2 {
       font-size: 5.2rem;
