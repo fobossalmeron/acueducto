@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Picture from "components/caseStudy/shared/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
@@ -11,10 +11,31 @@ import Screenshot8 from "public/assets/img/casestudies/recupera/screenshot8.png"
 import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png";
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
+import { Element } from 'react-scroll';
 
 const ScrollCardAnimation = (props) => {
   const [isMobile, setIsMobile] = useState();
-  const [scrollY, setScrollY] = useState(0);
+
+  const handleScrollAnimation = () => {
+    const scrollY = window.scrollY;
+    const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
+    const moveAmount = progress * 70; // Ajustar este multiplicador según la velocidad de la animación
+
+    const card1 = document.getElementById("card1");
+    if (card1) {
+      card1.style.transform = `translateX(${moveAmount}px)`;
+    }
+
+    const card2 = document.getElementById("card2");
+    if (card2) {
+      card2.style.transform = `translateX(-${moveAmount}px)`;
+    }
+
+    const card3 = document.getElementById("card3");
+    if (card3) {
+      card3.style.transform = `translateX(${moveAmount}px)`;
+    }
+  };
 
   useEffect(() => {
     window.addEventListener("resize", function(){
@@ -25,141 +46,136 @@ const ScrollCardAnimation = (props) => {
       }
     });
 
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScrollAnimation);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScrollAnimation);
     };
   }, []);
-
-  const handleCardMove = (isLeft) => {
-    const direction = isLeft ? -1 : 1;
-    const offsetX = (scrollY/10) * (!isMobile ? 0.15 : 0.10) * direction;
-    return {
-      transform: `translateX(${offsetX}px)`,
-    };
-  };
   
   return (
     <Fade delay={300} triggerOnce>
       {
         !isMobile ? 
           <PicturesContainer>
-            <FirstRow
-              style={handleCardMove(true)}
-            >
-              <Picture
-                src={Screenshot1}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot2}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot3}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot4}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot5}
-                alt="Screenshots"
-                withWrapper
-              />
-            </FirstRow>
-            <SecondRow
-              style={handleCardMove(false)}
-            >
-              <Picture
-                src={Screenshot6}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot7}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot8}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot9}
-                alt="Screenshots"
-                withWrapper
-              />
-            </SecondRow>
+            <Element name="card1" className="scroll-element">
+              <FirstRow id="card1">
+                <Picture
+                  src={Screenshot1}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot2}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot3}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot4}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot5}
+                  alt="Screenshots"
+                  withWrapper
+                />
+              </FirstRow>
+            </Element>
+            <Element name="card2" className="scroll-element">
+              <SecondRow id="card2">
+                <Picture
+                  src={Screenshot6}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot7}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot8}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot9}
+                  alt="Screenshots"
+                  withWrapper
+                />
+              </SecondRow>
+            </Element>
           </PicturesContainer> 
         : 
           <PicturesContainerMobile>
-            <FirstRowMobile style={handleCardMove(true)}>
-              <Picture
-                src={Screenshot1}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot2}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot3}
-                alt="Screenshots"
-                withWrapper
-              />
-            </FirstRowMobile>
-            <SecondRowMobile style={handleCardMove(false)}>
-              <Picture
-                src={Screenshot3}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot7}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot8}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot1}
-                alt="Screenshots"
-                withWrapper
-              />
-            </SecondRowMobile>
-            <ThirdRowMobile style={handleCardMove(true)}>
-              <Picture
-                src={Screenshot6}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot9}
-                alt="Screenshots"
-                withWrapper
-              />
-              <Picture
-                src={Screenshot5}
-                alt="Screenshots"
-                withWrapper
-              />
-            </ThirdRowMobile>
+            <Element name="card1" className="scroll-element">
+              <FirstRowMobile id="card1">
+                <Picture
+                  src={Screenshot1}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot2}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot3}
+                  alt="Screenshots"
+                  withWrapper
+                />
+              </FirstRowMobile>
+            </Element>
+            <Element name="card1" className="scroll-element">
+              <SecondRowMobile id="card2">
+                <Picture
+                  src={Screenshot3}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot7}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot8}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot1}
+                  alt="Screenshots"
+                  withWrapper
+                />
+              </SecondRowMobile>
+            </Element>
+            <Element name="card3" className="scroll-element">
+              <ThirdRowMobile id="card3">
+                <Picture
+                  src={Screenshot6}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot9}
+                  alt="Screenshots"
+                  withWrapper
+                />
+                <Picture
+                  src={Screenshot5}
+                  alt="Screenshots"
+                  withWrapper
+                />
+              </ThirdRowMobile>
+            </Element>
           </PicturesContainerMobile>
       }
     </Fade>
@@ -217,8 +233,8 @@ const FirstRowMobile = styled.div`
   flex-direction: row;
   gap: 9.5px;
   width: 120%;
-  align-self: center;
-  transition: transform 0.1s ease;
+  position: relative;
+  right: 35%;
 `;
 
 const SecondRowMobile = styled.div`
@@ -227,7 +243,6 @@ const SecondRowMobile = styled.div`
   flex-direction: row;
   width: 161%;
   align-self: center;
-  transition: transform 0.1s ease;
 `;
 
 const ThirdRowMobile = styled.div`
@@ -235,6 +250,6 @@ const ThirdRowMobile = styled.div`
   flex-direction: row;
   gap: 9.5px;
   width: 123%;
-  align-self: center;
-  transition: transform 0.1s ease;
+  position: relative;
+  right: 35%;
 `;

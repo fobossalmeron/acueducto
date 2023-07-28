@@ -109,23 +109,23 @@ const Recupera = ({ locale, setTitle, pt }) => {
         <Quote quote={t.intro_section.quote} color={"#F4F4F4"} mark={"#060809"}/>
       </FirstSection>
       <SecondSection>
-          <TextColumn>
-            <H2>{t?.second_section.title}</H2>
-            <P>{t.second_section.p}</P>
-            <Fade delay={300} triggerOnce>
-              <ChallengesContainer>
-                {t?.second_section.challenges.map((challenge, i) => (
-                  <Challenge key={`challenge${i}`}>
-                    <span>
-                      <p>{i + 1}</p>
-                    </span>
-                    <p>{challenge.p}</p>
-                  </Challenge>
-                ))}
-              </ChallengesContainer>
-            </Fade>
-          </TextColumn>
-          <ScreensAnimation />
+        <TextColumn>
+          <H2>{t?.second_section.title}</H2>
+          <P>{t.second_section.p}</P>
+          <ChallengesContainer>
+            {t?.second_section.challenges.map((challenge, i) => (
+              <Fade delay={300} triggerOnce>
+                <Challenge key={`challenge${i}`}>
+                  <span>
+                    <p>{i + 1}</p>
+                  </span>
+                  <p>{challenge.p}</p>
+                </Challenge>
+              </Fade>
+            ))}
+          </ChallengesContainer>
+        </TextColumn>
+        <ScreensAnimation />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
