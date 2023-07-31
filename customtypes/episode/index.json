@@ -1,0 +1,127 @@
+{
+  "id": "episode",
+  "label": "Episode",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": { "label": "UID", "placeholder": "Colocar el title" },
+        "type": "UID"
+      },
+      "introduction": {
+        "type": "Group",
+        "config": {
+          "label": "Introduction",
+          "fields": {
+            "episode": {
+              "type": "Number",
+              "config": { "label": "Episode", "placeholder": "" }
+            },
+            "date": {
+              "type": "Text",
+              "config": { "label": "Date", "placeholder": "" }
+            },
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Title",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "guest": {
+              "type": "Text",
+              "config": { "label": "Guest", "placeholder": "" }
+            },
+            "business": {
+              "type": "Text",
+              "config": { "label": "Business", "placeholder": "" }
+            },
+            "category": {
+              "type": "Text",
+              "config": { "label": "Category", "placeholder": "" }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Description",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "insights": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Insights",
+                "placeholder": "",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "spotify": {
+              "type": "Text",
+              "config": { "label": "Spotify", "placeholder": "" }
+            },
+            "google": {
+              "type": "Text",
+              "config": { "label": "Google", "placeholder": "" }
+            },
+            "apple": {
+              "type": "Text",
+              "config": { "label": "Apple", "placeholder": "" }
+            },
+            "youtube": {
+              "type": "Text",
+              "config": { "label": "Youtube", "placeholder": "" }
+            }
+          }
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Images",
+          "fields": {
+            "episode": {
+              "type": "Image",
+              "config": {
+                "label": "Podcast",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "solas": {
+              "type": "Image",
+              "config": { "label": "Solas", "constraint": {}, "thumbnails": [] }
+            },
+            "youtube": {
+              "type": "Image",
+              "config": {
+                "label": "Youtube",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "gif": {
+              "type": "Image",
+              "config": { "label": "Gif ", "constraint": {}, "thumbnails": [] }
+            }
+          }
+        }
+      }
+    }
+  }
+}
