@@ -64,8 +64,6 @@ const PrismicEpisodePreview = ({
               height={180}
               width={180}
             /> */}
-          
-          <p>h</p>
 
           <PrismicNextImage
             field={image}

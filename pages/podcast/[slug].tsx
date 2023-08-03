@@ -91,8 +91,8 @@ export async function getStaticProps({
   const numberOfE = Object.keys(episodes).length + 1;
 
   //CMS Prismic
-  const prismicClient = createClient({ previewData });
-  const prismicEpisode = await prismicClient.getByUID('episode', `${params.slug}`);
+  // const prismicClient = createClient({ previewData });
+  // const prismicEpisode = await prismicClient.getByUID('episode', `${params.slug}`);
   
   if (!episode) {
     return {
@@ -111,7 +111,7 @@ export async function getStaticProps({
         ...next,
       },
 
-      prismicEpisode: prismicEpisode,
+      //prismicEpisode: prismicEpisode,
     },
   };
 };
