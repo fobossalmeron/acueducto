@@ -21,7 +21,10 @@
             },
             "date": {
               "type": "Text",
-              "config": { "label": "Date", "placeholder": "" }
+              "config": {
+                "label": "Date",
+                "placeholder": "Year-Month-Day. Ej: 2023-07-23"
+              }
             },
             "title": {
               "type": "StructuredText",

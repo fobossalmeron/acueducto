@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import EpisodePreview from "components/podcast/EpisodePreview";
+import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
@@ -10,8 +11,9 @@ import ResourceFooter from "components/shared/footers/ResourceFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 import { H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
+import { createClient } from "../../prismicio";
 
-function Podcasts({ locale, setTitle, episodes, pt }) {
+function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
   const { intro, head } = pt;
 
   useEffect(() => {
@@ -89,6 +91,10 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
               </CatList>
             </CatFilter>
           </Fade>
+          
+          {prismicEpisodes.map((prismicEpisode, index) => (
+              <PrismicEpisodePreview {...prismicEpisode} key={"npd" + index} />
+            ))}
           <PodcastList>
             {episodes.map((episode, index) => (
               <EpisodePreview {...episode} key={"npd" + index} />
@@ -107,7 +113,7 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
 
 export default React.memo(Podcasts);
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context, previewData) => {
   const sortedEpisodes = getAllEpisodes(["slug", "episode"]).sort((ep1, ep2) =>
     ep1.episode > ep2.episode ? 1 : -1
   );
@@ -133,10 +139,18 @@ export const getStaticProps = async (context) => {
       notFound: true,
     };
   }
+
+  const client = createClient({ previewData });
+  const prismicEpisodes = await client.getAllByType("episode");
+
+  console.log(prismicEpisodes[0].data.images[0].episode, 'prismicEpisodes');
+
   return {
     props: {
       episodes: [...episodes],
       pt,
+
+      prismicEpisodes: [...prismicEpisodes],
     },
   };
 };

@@ -22,7 +22,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Date field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Year-Month-Day. Ej: 2023-07-23
    * - **API ID Path**: episode.introduction[].date
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
