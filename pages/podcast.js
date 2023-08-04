@@ -120,10 +120,11 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
         </div>
         <Limiter>
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            { lastEpisode.slug === 'como-luce-el-departamento-de-people-de-una-empresa-con-45mil-empleados'
+            {/* {(lastPrismicEpisode.data.introduction[0].episode >= 105)
               ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
               : <EpisodeFeature {...lastEpisode} blue />
-            }
+            } */}
+            <EpisodeFeature {...lastEpisode} blue />
           </Tilt>
         </Limiter>
       </FullSection>

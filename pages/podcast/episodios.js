@@ -91,11 +91,10 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
               </CatList>
             </CatFilter>
           </Fade>
-          
-          {prismicEpisodes.map((prismicEpisode, index) => (
-              <PrismicEpisodePreview {...prismicEpisode} key={"npd" + index} />
-            ))}
           <PodcastList>
+            {/* {prismicEpisodes.map((prismicEpisode, index) => (
+              <PrismicEpisodePreview {...prismicEpisode} key={"npd" + index} />
+            ))} */}
             {episodes.map((episode, index) => (
               <EpisodePreview {...episode} key={"npd" + index} />
             ))}

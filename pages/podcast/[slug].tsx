@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { GetStaticProps, GetStaticPropsContext } from "next";
+import { GetStaticProps } from "next";
 import EpisodeProps from "utils/types/EpisodeProps";
 import markdownToHtml from "utils/markdownToHtml";
 import {
@@ -11,12 +11,8 @@ import Head from "components/layout/Head";
 import EpisodePage from "components/podcast/EpisodePage";
 import PageClipper from "components/layout/PageClipper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
-import { createClient } from "../../prismicio";
-import PrismicEpisodeProps from "utils/types/PrismicEpisodeProps";
 
-type PageParams = { slug: string }
-
-export default function Episodio({ locale, setTitle, episode, numberOfE, prismicEpisode }) {
+export default function Episodio({ locale, setTitle, episode, numberOfE }) {
   useEffect(() => {
     setTitle("Podcast");
   }, [locale]);
@@ -46,11 +42,8 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, prismic
   );
 }
 
-export async function getStaticProps({
-  params,
-  previewData,
-}: GetStaticPropsContext<PageParams>) {
-  const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
+export const getStaticProps: GetStaticProps = async (context) => {
+  const episode: EpisodeProps = getEpisodeBySlug(context.params.slug, [
     "title",
     "guest",
     "date",
@@ -89,10 +82,6 @@ export async function getStaticProps({
   //For podcast episode number in footer
   const episodes = getAllEpisodes(["slug"]);
   const numberOfE = Object.keys(episodes).length + 1;
-
-  //CMS Prismic
-  // const prismicClient = createClient({ previewData });
-  // const prismicEpisode = await prismicClient.getByUID('episode', `${params.slug}`);
   
   if (!episode) {
     return {
@@ -110,8 +99,6 @@ export async function getStaticProps({
       nextEpisode: {
         ...next,
       },
-
-      //prismicEpisode: prismicEpisode,
     },
   };
 };

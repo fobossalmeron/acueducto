@@ -42,7 +42,7 @@ const PrismicEpisodePreview = ({
   const google = data.introduction[0].google;
   const youtube = data.introduction[0].youtube;
   const image = data.images[0].episode.url;
-  console.log(image, 'image')
+
   return (
     <>
       <NewPod
