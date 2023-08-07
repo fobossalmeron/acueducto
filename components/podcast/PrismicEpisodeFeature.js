@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
-import Picture from "components/caseStudy/shared/Picture";
 import BorderLink from "components/shared/BorderedLink";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -14,21 +13,16 @@ const PrismicEpisodeFeature = ({
   const title = data.introduction[0].title[0].text;
   const guest = data.introduction[0].guest;
   const business = data.introduction[0].business;
-  const image = data.images[0].episode.url;
+  const image = data.images[0].solas;
 
   return (
     <Link href={"/podcast/" + uid} passHref key={"npd" + episode}>
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
-          {/* <Picture
-            src={`/assets/img/podcast/solas/${episode}.jpg`}
-            alt={title + " - " + guest}
-            height={episode >= 91 ? 206 : 142}
-            width={episode >= 91 ? 365 : 142}
-          /> */}
           <PrismicNextImage
             field={image}
-            imgixParams={{w: 206, h:365}}
+            height={206}
+            width={365}
           />
         </PictureContainer>
         <Fade triggerOnce>
@@ -61,11 +55,11 @@ const H2overable = styled.h3`
 
 const PictureContainer = styled.div`
   margin-bottom: 7%;
-  & > div {
+  & > span {
     border-radius: 25px;
-    overflow: hidden;
-    display: inline-block;
-    height: ${ (episode) => episode >= 91 ? "206" : "142" }px;
+    overflow: hidden !important;
+    display: inline-block !important;
+    height: 142px !important;
   }
   img {
     transition: all 0.25s ease-out;

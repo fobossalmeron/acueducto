@@ -91,10 +91,12 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
               </CatList>
             </CatFilter>
           </Fade>
-          <PodcastList>
-            {/* {prismicEpisodes.map((prismicEpisode, index) => (
+          <PodcastList style={{ marginBottom: '-5%' }}>
+            {prismicEpisodes.map((prismicEpisode, index) => (
               <PrismicEpisodePreview {...prismicEpisode} key={"npd" + index} />
-            ))} */}
+            )).reverse()}
+          </PodcastList>
+          <PodcastList>
             {episodes.map((episode, index) => (
               <EpisodePreview {...episode} key={"npd" + index} />
             ))}
@@ -139,8 +141,10 @@ export const getStaticProps = async (context, previewData) => {
     };
   }
 
+  //CMS Prismic
   const client = createClient({ previewData });
   const prismicEpisodes = await client.getAllByType("episode");
+
 
   console.log(prismicEpisodes[0].data.images[0].episode, 'prismicEpisodes');
 

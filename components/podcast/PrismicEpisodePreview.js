@@ -41,7 +41,7 @@ const PrismicEpisodePreview = ({
   const apple = data.introduction[0].apple;
   const google = data.introduction[0].google;
   const youtube = data.introduction[0].youtube;
-  const image = data.images[0].episode.url;
+  const image = data.images[0].episode;
 
   return (
     <>
@@ -58,17 +58,21 @@ const PrismicEpisodePreview = ({
           hoverable={!longFormat}
           hideImageMobile={hideImageMobile}
         > 
-          {/* <Picture
-              src={`/assets/img/podcast/${episode}.jpg`}
-              alt={title + " - " + guest}
-              height={180}
-              width={180}
-            /> */}
-
-          <PrismicNextImage
-            field={image}
-            imgixParams={{w: 180, h:180}}
+          {longFormat ? (
+            <PrismicNextImage
+              field={image}
+                width="180"
+                height="180"
           />
+          ) : (
+            <LinkComplex>
+              <PrismicNextImage
+                field={image}
+                height={simplest ? 185 : 180}
+                width={simplest ? 185 : 180}
+              />
+            </LinkComplex>
+          )}
         </PictureContainer>
         <div>
           <Fade triggerOnce>

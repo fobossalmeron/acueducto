@@ -112,7 +112,10 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
             <h2>{banner.title}</h2>
             <p>{banner.p}</p>
             <div>
-              <Link href={"/podcast/" + lastEpisode.slug} passHref>
+              <Link 
+                href={"/podcast/" + lastPrismicEpisode.uid} 
+                passHref
+              >
                 <ButtonArrow text={banner.button} />
               </Link>
             </div>
@@ -120,11 +123,10 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
         </div>
         <Limiter>
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            {/* {(lastPrismicEpisode.data.introduction[0].episode >= 105)
+            {(lastPrismicEpisode.data.introduction[0].episode >= 105)
               ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
               : <EpisodeFeature {...lastEpisode} blue />
-            } */}
-            <EpisodeFeature {...lastEpisode} blue />
+            }
           </Tilt>
         </Limiter>
       </FullSection>

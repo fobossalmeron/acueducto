@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import EpisodeProps from "utils/types/EpisodeProps";
 import markdownToHtml from "utils/markdownToHtml";
@@ -11,6 +11,9 @@ import Head from "components/layout/Head";
 import EpisodePage from "components/podcast/EpisodePage";
 import PageClipper from "components/layout/PageClipper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
+import type { GetStaticPropsContext } from 'next';
+import { createClient } from '../../prismicio';
+import * as prismic from '@prismicio/client'
 
 export default function Episodio({ locale, setTitle, episode, numberOfE }) {
   useEffect(() => {
@@ -42,8 +45,12 @@ export default function Episodio({ locale, setTitle, episode, numberOfE }) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async (context) => {
-  const episode: EpisodeProps = getEpisodeBySlug(context.params.slug, [
+export async function getStaticProps({
+  params,
+  previewData
+}: GetStaticPropsContext) {
+  if (!params.slug){
+    const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
     "title",
     "guest",
     "date",
@@ -84,6 +91,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   const numberOfE = Object.keys(episodes).length + 1;
   
   if (!episode) {
+    console.log(episode.slug,'slug')
     return {
       notFound: true,
     };
@@ -98,21 +106,37 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
       nextEpisode: {
         ...next,
-      },
+      }
     },
   };
+  }
+  else {
+        //CMS Prismic
+    const client = createClient({ previewData });
+    const prismicEpisode = await client.getByUID('episode', `no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos`)
+
+    console.log('funciono :)')
+
+  return {
+    props: {
+      prismicEpisode: {
+        ...prismicEpisode,
+      }
+    },
+  };
+  }
 };
 
 export async function getStaticPaths() {
   const episodes = getAllEpisodes(["slug"]);
-  return {
-    paths: episodes.map((episode: EpisodeProps) => {
-      return {
-        params: {
-          slug: episode.slug,
-        },
-      };
-    }),
-    fallback: false,
-  };
+    return {
+      paths: episodes.map((episode: EpisodeProps) => {
+        return {
+          params: {
+            slug: episode.slug,
+          },
+        };
+      }),
+      fallback: false,
+  } 
 }
