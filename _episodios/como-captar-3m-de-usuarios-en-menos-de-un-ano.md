@@ -1,18 +1,18 @@
 ---
 episode: 106
 date: "2023-08-07"
-title: Como captar 30M de usuarios en menos de un año
+title: Como captar 3M de usuarios en menos de un año
 guest: Iván Canales
 business: Nubank
 category: Operador
-description: Bienvenido a un episodio con Iván Canales, General Manager en Nu Mexico, la división mexicana de Nubank, la fintech más exitosa en el ecosistema de startups de LATAM.
+description: Bienvenido a un episodio con Iván Canales, General Manager en Nu Mexico, la división mexicana de Nubank, el servicio bancario digital más exitoso de Latinoamérica.
 insights:
   - <b>Ten en tu equipo alguien que te tenga la confianza para señalarte cuando necesitas un descanso</b>
   - <b>Los equipos de producto y soporte conviven día a día para construir productos increíbles </b>
   - <b>La gran diferencia entre una empresa pública y una privada radica en cómo se reporta a sus inversionistas</b>
   - <b>Para que un equipo tome decisiones en la dirección correcta es importante sobrecomunicar tus objetivos y que esperas del equipo</b>
 spotify: https://open.spotify.com/episode/16nMH6S9ihiRC9mZ5aUlWg
-apple: https://podcasts.apple.com/us/podcast/e106-como-captar-30m-de-usuarios-en-menos-de-un/id1500473556?i=1000623646748
+apple: https://podcasts.apple.com/us/podcast/e106-como-captar-3m-de-usuarios-en-menos-de-un/id1500473556?i=1000623646748
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMzM1NTA3Nw?sa=X&ved=0CAUQkfYCahcKEwioitO9gMuAAxUAAAAAHQAAAAAQAQ
 youtube: https://www.youtube.com/watch?v=8c-0swlob48
 ---
