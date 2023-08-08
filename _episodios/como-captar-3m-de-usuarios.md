@@ -1,7 +1,7 @@
 ---
 episode: 106
 date: "2023-08-07"
-title: Como captar 3M de usuarios en menos de un año
+title: Como captar 3M de usuarios
 guest: Iván Canales
 business: Nubank
 category: Operador
