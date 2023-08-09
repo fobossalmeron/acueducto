@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { H1, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 import EpisodePreview from "components/podcast/EpisodePreview";
+import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "./EpisodeNumber";
 import Link from "next/link";
@@ -15,7 +16,7 @@ import CenteredSection, {
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
 
-const EpisodePage = ({
+const PrismicEpisodePage = ({
   uid,
   data,
 }) => {
@@ -151,14 +152,14 @@ const EpisodePage = ({
         </Fade>
         <NextEp>
           <p>Escucha otro episodio</p>
-          {/* <EpisodePreview {...next} simplest /> */}
+          {/* <PrismicEpisodePreview {...next} simplest /> */}
         </NextEp>
       </CenteredSection>
     </>
   );
 };
 
-export default React.memo(EpisodePage);
+export default React.memo(PrismicEpisodePage);
 
 const Center = styled.div`
   display: flex;

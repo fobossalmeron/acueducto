@@ -19,20 +19,12 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, prismic
     setTitle("Podcast");
   }, [locale]);
 
-  if(slugMatchesPrismic){
-    const episodeNumber = slugMatchesPrismic.data.introduction[0].episode;
-    const category = slugMatchesPrismic.data.introduction[0].category;
-    const title = slugMatchesPrismic.data.introduction[0].title[0].text;
-    const guest = slugMatchesPrismic.data.introduction[0].guest;
-    const business = slugMatchesPrismic.data.introduction[0].business;
-    const date = slugMatchesPrismic.data.introduction[0].date;
-    const description = slugMatchesPrismic.data.introduction[0].description[0].text;
-    const spotify = slugMatchesPrismic.data.introduction[0].spotify;
-    const apple = slugMatchesPrismic.data.introduction[0].apple;
-    const google = slugMatchesPrismic.data.introduction[0].google;
-    const youtube = slugMatchesPrismic.data.introduction[0].youtube;
-    const gif = slugMatchesPrismic.data.images[0].gif;
-  }
+  const episodeNumber = slugMatchesPrismic?.data.introduction[0].episode;
+  const title = slugMatchesPrismic?.data.introduction[0].title[0].text;
+  const guest = slugMatchesPrismic?.data.introduction[0].guest;
+  const business = slugMatchesPrismic?.data.introduction[0].business;
+  const description = slugMatchesPrismic?.data.introduction[0].description[0].text;
+  const gif = slugMatchesPrismic?.data.images[0].gif;
 
   return (
     <PageClipper>
@@ -62,21 +54,21 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, prismic
       {slugMatchesPrismic && 
         <>
           <Head
-            title={ slugMatchesPrismic.data.introduction[0].title[0].text + " | " + slugMatchesPrismic.data.introduction[0].guest + ", " + slugMatchesPrismic.data.introduction[0].business}
-            description={slugMatchesPrismic.data.introduction[0].description[0].text}
+            title={ title + " | " + guest + ", " + business}
+            description={description}
             headerTitle="Episodio"
             es_canonical={`https://acueducto.studio/podcast/${slugMatchesPrismic.uid}`}
             image={{
-              fileName: slugMatchesPrismic.data.images[0].gif,
-              alt: slugMatchesPrismic.data.introduction[0].title[0].text + " | " + slugMatchesPrismic.data.introduction[0].guest + ", " + slugMatchesPrismic.data.introduction[0].business,
+              fileName: gif,
+              alt: title + " | " + guest + ", " + business,
             }}
           ></Head>
           <PrismicEpisodePage {...slugMatchesPrismic} slug={slugMatchesPrismic.uid} />
-          {/* <ResourceFooter
+          <ResourceFooter
             shadow
-            identify={prismicEpisode.slug[0]}
-            podcastEpisodes={numberOfE}
-          />  */}
+            identify={slugMatchesPrismic.uid}
+            podcastEpisodes={episodeNumber}
+          /> 
         </>
       }
     </PageClipper>
@@ -128,7 +120,8 @@ export async function getStaticProps({
         ]
       );
     
-      const content = await markdownToHtml(episode.content || "");
+      const content = await markdownToHtml( episode.content.toString() || "");
+      console.log(typeof episode.content, 'que pasa aquii')
     
       //For podcast episode number in footer
       const episodes = getAllEpisodes(["slug"]);
