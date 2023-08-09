@@ -232,36 +232,6 @@ export type EpisodeDocument<Lang extends string = string> =
 
 export type AllDocumentTypes = EpisodeDocument;
 
-/**
- * Default variation for EpisodePreview Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EpisodePreviewSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Record<string, never>,
-  never
->;
-
-/**
- * Slice variation for *EpisodePreview*
- */
-type EpisodePreviewSliceVariation = EpisodePreviewSliceDefault;
-
-/**
- * EpisodePreview Shared Slice
- *
- * - **API ID**: `episode_preview`
- * - **Description**: EpisodePreview
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EpisodePreviewSlice = prismic.SharedSlice<
-  "episode_preview",
-  EpisodePreviewSliceVariation
->;
-
 declare module "@prismicio/client" {
   interface CreateClient {
     (
@@ -271,13 +241,6 @@ declare module "@prismicio/client" {
   }
 
   namespace Content {
-    export type {
-      EpisodeDocument,
-      EpisodeDocumentData,
-      AllDocumentTypes,
-      EpisodePreviewSlice,
-      EpisodePreviewSliceVariation,
-      EpisodePreviewSliceDefault,
-    };
+    export type { EpisodeDocument, EpisodeDocumentData, AllDocumentTypes };
   }
 }

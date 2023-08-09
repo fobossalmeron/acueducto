@@ -2,6 +2,4 @@
 
 import dynamic from "next/dynamic";
 
-export const components = {
-  episode_preview: dynamic(() => import("./EpisodePreview")),
-};
+export const components = {};
