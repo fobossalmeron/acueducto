@@ -1,13 +1,13 @@
-import * as prismic from '@prismicio/client'
-import { enableAutoPreviews } from '@prismicio/next'
+import * as prismic from '@prismicio/client';
+import { enableAutoPreviews } from '@prismicio/next';
 
-const repositoryName = 'acueductostudio'
-const endpoint = prismic.getRepositoryEndpoint(repositoryName)
+export const repositoryName = 'acueductostudio';
+const endpoint = prismic.getRepositoryEndpoint(repositoryName);
 
 export const createClient = ({ previewData }) => {
-  const client = prismic.createClient(endpoint)
+  const client = prismic.createClient(endpoint);
 
-  enableAutoPreviews({ client, previewData })
+  enableAutoPreviews({ client, previewData });
 
-  return client
+  return client;
 }

@@ -9,8 +9,8 @@ import en from "public/locales/en/common.json";
 import es from "public/locales/es/common.json";
 import { LangProvider } from "utils/LangContext";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { PrismicPreview } from '@prismicio/next'
-import { repositoryName } from '../prismicio'
+import { PrismicPreview } from '@prismicio/next';
+import { repositoryName } from '../prismicio';
 
 //can we dynamic import es or en accordingly?
 
