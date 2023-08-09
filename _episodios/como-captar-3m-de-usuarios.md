@@ -3,9 +3,9 @@ episode: 106
 date: "2023-08-07"
 title: Como captar 3M de usuarios
 guest: Iván Canales
-business: Nubank
+business: Nu Mexico
 category: Operador
-description: Bienvenido a un episodio con Iván Canales, General Manager en Nu Mexico, la división mexicana de Nubank, el servicio bancario digital más exitoso de Latinoamérica.
+description: Bienvenido a un episodio con Iván Canales, General Manager en Nu Mexico, la división mexicana de Nu Mexico, el servicio bancario digital más exitoso de Latinoamérica.
 insights:
   - <b>Ten en tu equipo alguien que te tenga la confianza para señalarte cuando necesitas un descanso</b>
   - <b>Los equipos de producto y soporte conviven día a día para construir productos increíbles </b>
