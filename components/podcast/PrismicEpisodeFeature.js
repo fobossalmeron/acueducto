@@ -21,8 +21,8 @@ const PrismicEpisodeFeature = ({
         <PictureContainer hoverable={true} episode={episode}>
           <PrismicNextImage
             field={image}
-            height={206}
-            width={365}
+            height="206"
+            width="365"
             alt=""
           />
         </PictureContainer>
@@ -56,16 +56,16 @@ const H2overable = styled.h3`
 
 const PictureContainer = styled.div`
   margin-bottom: 7%;
-  & > span {
-    border-radius: 25px;
-    overflow: hidden !important;
-    display: inline-block !important;
-    height: 142px !important;
-  }
+  border-radius: 25px;
+  overflow: hidden !important;
+  display: inline-block !important;
+  height: 142px !important;
   img {
     transition: all 0.25s ease-out;
     background-color: #131516;
     transform: scale(1.01);
+    width: 100%;
+    height: 100%;
   }
 `;
 
