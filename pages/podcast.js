@@ -115,6 +115,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
               <Link 
                 href={"/podcast/" + lastPrismicEpisode.uid} 
                 passHref
+                legacyBehavior
               >
                 <ButtonArrow text={banner.button} />
               </Link>
@@ -149,7 +150,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
           </div>
         </FeatureList>
         <Fade>
-          <Link href={"/podcast/episodios"} passHref>
+          <Link href={"/podcast/episodios"} passHref legacyBehavior>
             <ButtonArrow text={favorites.button} inverse={true} />
           </Link>
         </Fade>

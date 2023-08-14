@@ -18,7 +18,7 @@ const PrismicEpisodePreview = ({
   hideImageMobile,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/podcast/" + uid } passHref>
+    <Link href={"/podcast/" + uid } passHref legacyBehavior>
       <a className="clean">{children}</a>
     </Link>
   );
@@ -63,6 +63,7 @@ const PrismicEpisodePreview = ({
               field={image}
                 width="180"
                 height="180"
+                alt=""
           />
           ) : (
             <LinkComplex>
@@ -70,6 +71,7 @@ const PrismicEpisodePreview = ({
                 field={image}
                 height={simplest ? 185 : 180}
                 width={simplest ? 185 : 180}
+                alt=""
               />
             </LinkComplex>
           )}
@@ -78,7 +80,7 @@ const PrismicEpisodePreview = ({
           <Fade triggerOnce>
             <HoverableContainer>
               {!longFormat && !simplest && (
-                <LinkComplex>
+                <LinkComplex legacyBehavior>
                   <H2overable>{title}</H2overable>
                 </LinkComplex>
               )}

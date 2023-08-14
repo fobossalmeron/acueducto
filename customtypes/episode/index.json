@@ -7,7 +7,10 @@
   "json": {
     "Main": {
       "uid": {
-        "config": { "label": "UID", "placeholder": "Colocar el title" },
+        "config": {
+          "label": "UID",
+          "placeholder": "Colocar el title sin ñ/espaciados/mayus/tildes, separados por un guion"
+        },
         "type": "UID"
       },
       "introduction": {
@@ -17,7 +20,10 @@
           "fields": {
             "episode": {
               "type": "Number",
-              "config": { "label": "Episode", "placeholder": "" }
+              "config": {
+                "label": "Episode",
+                "placeholder": "Numero de episodio"
+              }
             },
             "date": {
               "type": "Text",
@@ -60,26 +66,26 @@
               "type": "StructuredText",
               "config": {
                 "label": "Insights",
-                "placeholder": "",
+                "placeholder": "Colocar en una lista",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
             },
             "spotify": {
               "type": "Text",
-              "config": { "label": "Spotify", "placeholder": "" }
+              "config": { "label": "Spotify", "placeholder": "https://www..." }
             },
             "google": {
               "type": "Text",
-              "config": { "label": "Google", "placeholder": "" }
+              "config": { "label": "Google", "placeholder": "https://www..." }
             },
             "apple": {
               "type": "Text",
-              "config": { "label": "Apple", "placeholder": "" }
+              "config": { "label": "Apple", "placeholder": "https://www..." }
             },
             "youtube": {
               "type": "Text",
-              "config": { "label": "Youtube", "placeholder": "" }
+              "config": { "label": "Youtube", "placeholder": "https://www..." }
             }
           }
         }

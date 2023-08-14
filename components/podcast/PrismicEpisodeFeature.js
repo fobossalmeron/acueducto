@@ -16,13 +16,14 @@ const PrismicEpisodeFeature = ({
   const image = data.images[0].solas;
 
   return (
-    <Link href={"/podcast/" + uid} passHref key={"npd" + episode}>
+    <Link href={"/podcast/" + uid} passHref key={"npd" + episode} legacyBehavior>
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
           <PrismicNextImage
             field={image}
             height={206}
             width={365}
+            alt=""
           />
         </PictureContainer>
         <Fade triggerOnce>

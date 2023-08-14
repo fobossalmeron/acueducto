@@ -18,6 +18,7 @@ const NextStudy = ({
       as={(context.lang === "en" ? "/work/" : "/portafolio/") + link}
       passHref
       locale={context.lang}
+      legacyBehavior
     >
       <Wrapper margined={margined}>
         <LogoContainer>

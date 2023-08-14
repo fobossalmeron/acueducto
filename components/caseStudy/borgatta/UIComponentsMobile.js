@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { Fade } from "react-awesome-reveal";
 import UIComponent1 from "public/assets/img/casestudies/borgatta/UIComponent1.png";
 import UIComponent2 from "public/assets/img/casestudies/borgatta/UIComponent2.png";

@@ -19,6 +19,7 @@ const SingleCase = (props) => {
       }
       locale={props.lang}
       passHref
+      legacyBehavior
     >
       {children}
     </Link>

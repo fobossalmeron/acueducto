@@ -13,7 +13,7 @@ const EpisodeFeature = ({
   blue,
 }) => {
   return (
-    <Link href={"/podcast/" + slug} passHref key={"npd" + episode}>
+    <Link href={"/podcast/" + slug} passHref key={"npd" + episode} legacyBehavior>
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
           <Picture

@@ -12,7 +12,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Episode field in *Episode → Introduction*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Numero de episodio
    * - **API ID Path**: episode.introduction[].episode
    * - **Documentation**: https://prismic.io/docs/field#number
    */
@@ -82,7 +82,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Insights field in *Episode → Introduction*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Colocar en una lista
    * - **API ID Path**: episode.introduction[].insights
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
@@ -92,7 +92,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Spotify field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: https://www...
    * - **API ID Path**: episode.introduction[].spotify
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -102,7 +102,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Google field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: https://www...
    * - **API ID Path**: episode.introduction[].google
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -112,7 +112,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Apple field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: https://www...
    * - **API ID Path**: episode.introduction[].apple
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -122,7 +122,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Youtube field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: https://www...
    * - **API ID Path**: episode.introduction[].youtube
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */

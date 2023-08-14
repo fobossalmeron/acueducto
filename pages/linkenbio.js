@@ -32,7 +32,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
               )}
               {index === 2 && <Articulos />}
               {index === 1 && <Podcast />}
-              <Link href={link.url} passHref locale={locale}>
+              <Link href={link.url} passHref locale={locale} legacyBehavior>
                 <a>
                   <Fade triggerOnce>
                     <span>{link.subtitle}</span>
@@ -50,7 +50,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
                             {index === 1 && (
                 <img src="/assets/img/layout/linkenbio/portafolio.png" alt="Casos de estudio"/>
               )}
-              <Link href={link.url} passHref>
+              <Link href={link.url} passHref legacyBehavior>
                 <a>
                   <Fade triggerOnce>
                     <span>{link.subtitle}</span>

@@ -28,7 +28,7 @@ const EpisodePreview = ({
   hideImageMobile,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/podcast/" + slug} passHref>
+    <Link href={"/podcast/" + slug} passHref legacyBehavior>
       <a className="clean">{children}</a>
     </Link>
   );
@@ -76,7 +76,7 @@ const EpisodePreview = ({
           <Fade triggerOnce>
             <HoverableContainer>
               {!longFormat && !simplest && (
-                <LinkComplex>
+                <LinkComplex legacyBehavior>
                   <H2overable>{title}</H2overable>
                 </LinkComplex>
               )}
@@ -131,7 +131,7 @@ const EpisodePreview = ({
           </Fade>
           <ButtonSpace>
             {simplest && (
-              <Link href={"/podcast/" + slug + "#cuandoelriosuena"} passHref>
+              <Link href={"/podcast/" + slug + "#cuandoelriosuena"} passHref legacyBehavior>
                 <ButtonArrow
                   text={text ? text : "seguir aprendiendo"}
                   inverse

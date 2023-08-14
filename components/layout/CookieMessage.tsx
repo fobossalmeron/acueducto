@@ -66,7 +66,7 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
         </Divider>
         <p>
           {tt.p}
-          <Link href="/cookies" passHref>
+          <Link href="/cookies" passHref legacyBehavior>
             <Hoverable>{tt.link}</Hoverable>
           </Link>
           {tt.p_continued}
@@ -78,7 +78,8 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
 
 export default CookieMessage;
 
-const Hoverable = styled.a`
+//Aqui
+const Hoverable = styled.span`
   ${BorderLink({ showLink: true })}
 `;
 

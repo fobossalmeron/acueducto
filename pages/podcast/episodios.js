@@ -145,9 +145,6 @@ export const getStaticProps = async (context, previewData) => {
   const client = createClient({ previewData });
   const prismicEpisodes = await client.getAllByType("episode");
 
-
-  console.log(prismicEpisodes[0].data.images[0].episode, 'prismicEpisodes');
-
   return {
     props: {
       episodes: [...episodes],

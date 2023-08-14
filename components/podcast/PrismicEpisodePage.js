@@ -44,7 +44,7 @@ const PrismicEpisodePage = ({
       >
         <Fade triggerOnce>
           <IntroLogo>
-            <Link href="/podcast" passHref>
+            <Link href="/podcast" passHref legacyBehavior>
               <a>
                 <THoverable>cuando el río suena</THoverable>
                 <span>

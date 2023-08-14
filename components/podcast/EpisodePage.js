@@ -41,7 +41,7 @@ const EpisodePage = ({
       >
         <Fade triggerOnce>
           <IntroLogo>
-            <Link href="/podcast" passHref>
+            <Link href="/podcast" passHref legacyBehavior>
               <a>
                 <THoverable>cuando el río suena</THoverable>
                 <span>
@@ -61,14 +61,14 @@ const EpisodePage = ({
               <Center>
                 <VideoContainer>
                   <Video>
-                    <YouTubePlayer
+                    {/* <YouTubePlayer
                       className="react-player"
                       light={`/assets/img/podcast/youtube/${episode}.jpg`}
                       url={embedYoutube}
                       controls={true}
                       width="100%"
                       height="100%"
-                    />
+                    /> */}
                   </Video>
                 </VideoContainer>
               </Center>
