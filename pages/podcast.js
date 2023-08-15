@@ -124,7 +124,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
         </div>
         <Limiter>
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            {(lastPrismicEpisode.data.introduction[0].episode >= 105)
+            {(lastPrismicEpisode.data.introduction[0].episode > 105)
               ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
               : <EpisodeFeature {...lastEpisode} blue />
             }
@@ -257,10 +257,7 @@ export const getStaticProps = async (context, previewData) => {
 
   const prismicClient = createClient({ previewData });
   const prismicEpisodes = await prismicClient.getAllByType("episode");
-  const lastPrismicEpisode = prismicEpisodes[0];
-
-  const prismicEpisode = await prismicClient.getByUID('episode', `como-luce-el-departamento-de-people-de-una-empresa-con-45mil-empleados`)
-  console.log(prismicEpisodes, 'epidosiojsdfn')
+  const lastPrismicEpisode = prismicEpisodes[prismicEpisodes.length - 1];
 
   return {
     props: {

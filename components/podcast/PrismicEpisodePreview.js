@@ -69,8 +69,8 @@ const PrismicEpisodePreview = ({
             <LinkComplex>
               <PrismicNextImage
                 field={image}
-                height={simplest ? 185 : 180}
-                width={simplest ? 185 : 180}
+                height={simplest ? "185" : "180"}
+                width={simplest ? "185" : "180"}
                 alt=""
               />
             </LinkComplex>
