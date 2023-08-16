@@ -33,7 +33,7 @@ const PrismicEpisodePreview = ({
       <a className="clean">{children}</a>
     </Link>
   );
-  
+
   let fullDate = new Date(`${date}T00:00:00`);
   let shortDate = fullDate.toLocaleDateString("es-MX");
   let formatDate = fullDate.toLocaleDateString("es-MX", {
@@ -50,7 +50,9 @@ const PrismicEpisodePreview = ({
         className={`${
           category == "Growth/marketing"
             ? "growth-marketing"
-            : category.toLowerCase()
+            : category 
+              ? category.toLowerCase()
+              : ''
         } npd`}
       >
         <PictureContainer
