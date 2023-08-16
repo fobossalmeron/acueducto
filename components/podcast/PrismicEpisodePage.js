@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import { H1, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import EpisodePreview from "components/podcast/EpisodePreview";
 import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "./EpisodeNumber";
@@ -15,10 +14,12 @@ import CenteredSection, {
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
+import { PrismicRichText } from '@prismicio/react'
 
 const PrismicEpisodePage = ({
   uid,
   data,
+  next,
 }) => {
   const episode = data.introduction[0].episode;
   const category = data.introduction[0].category;
@@ -31,7 +32,8 @@ const PrismicEpisodePage = ({
   const apple = data.introduction[0].apple;
   const google = data.introduction[0].google;
   const youtube = data.introduction[0].youtube;
-  const youtubeImage = data.images[0].youtube;
+  const youtubeImage = data.images[0].youtube.url;
+  const podcastImage = data.images[0].episode;
   const insights = data.introduction[0].insights;
   const content = data.body;
 
@@ -79,7 +81,7 @@ const PrismicEpisodePage = ({
           </>
         </Fade>
         <Fade triggerOnce>
-          <EpisodePreview
+          <PrismicEpisodePreview
             hideImageMobile
             title={title}
             guest={guest}
@@ -89,6 +91,7 @@ const PrismicEpisodePage = ({
             apple={apple}
             google={google}
             youtube={youtube}
+            podcastImage={podcastImage}
             episode={episode}
             description={description}
             date={date}
@@ -121,17 +124,7 @@ const PrismicEpisodePage = ({
           {spotify && (
             <Content>
               {content && <ContentType>Transcript</ContentType>}
-                {content.map((dialog, i) => (
-                  <PrismicTranscript 
-                    key={"dialog" + i}
-                    className={dialog.type}
-                  >
-                    {dialog.text.includes(':') 
-                      ? dialog.text.split(':')[0] + ':' + dialog.text.split(':')[1]
-                      : dialog.text 
-                    }
-                  </PrismicTranscript>
-                )) }
+                <PrismicRichText field={content}/>
             </Content>
           )}
         </Fade>

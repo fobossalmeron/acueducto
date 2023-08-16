@@ -21,12 +21,12 @@ export interface EpisodeDocumentDataIntroductionItem {
   /**
    * Date field in *Episode → Introduction*
    *
-   * - **Field Type**: Text
-   * - **Placeholder**: Year-Month-Day. Ej: 2023-07-23
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].date
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#date
    */
-  date: prismic.KeyTextField;
+  date: prismic.DateField;
 
   /**
    * Title field in *Episode → Introduction*
@@ -61,12 +61,21 @@ export interface EpisodeDocumentDataIntroductionItem {
   /**
    * Category field in *Episode → Introduction*
    *
-   * - **Field Type**: Text
+   * - **Field Type**: Select
    * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].category
-   * - **Documentation**: https://prismic.io/docs/field#key-text
+   * - **Documentation**: https://prismic.io/docs/field#select
    */
-  category: prismic.KeyTextField;
+  category: prismic.SelectField<
+    | "Founder"
+    | "Producto"
+    | "Operador"
+    | "People"
+    | "Innovación "
+    | "Desarrollo"
+    | "Inversor"
+    | "Growth"
+  >;
 
   /**
    * Description field in *Episode → Introduction*

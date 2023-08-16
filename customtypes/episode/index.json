@@ -26,11 +26,8 @@
               }
             },
             "date": {
-              "type": "Text",
-              "config": {
-                "label": "Date",
-                "placeholder": "Year-Month-Day. Ej: 2023-07-23"
-              }
+              "type": "Date",
+              "config": { "label": "Date", "placeholder": "" }
             },
             "title": {
               "type": "StructuredText",
@@ -50,8 +47,21 @@
               "config": { "label": "Business", "placeholder": "" }
             },
             "category": {
-              "type": "Text",
-              "config": { "label": "Category", "placeholder": "" }
+              "type": "Select",
+              "config": {
+                "label": "Category",
+                "placeholder": "",
+                "options": [
+                  "Founder",
+                  "Producto",
+                  "Operador",
+                  "People",
+                  "Innovación ",
+                  "Desarrollo",
+                  "Inversor",
+                  "Growth"
+                ]
+              }
             },
             "description": {
               "type": "StructuredText",

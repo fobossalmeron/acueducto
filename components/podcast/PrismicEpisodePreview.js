@@ -2,7 +2,6 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import { P } from "components/shared/Dangerously";
-import Picture from "components/caseStudy/shared/Picture";
 import BroadcastRouter from "./BroadcastRouter";
 import EpisodeNumber from "./EpisodeNumber";
 import ShareRouter from "./ShareRouter";
@@ -11,37 +10,37 @@ import ButtonArrow from "components/shared/footers/ButtonArrow";
 import { PrismicNextImage } from "@prismicio/next";
 
 const PrismicEpisodePreview = ({
-  uid,
-  data,
+  title,
+  guest,
+  business,
+  description,
+  category,
+  slug,
+  date,
+  spotify,
+  apple,
+  google,
+  youtube,
+  podcastImage,
+  episode,
   longFormat,
   simplest,
+  text,
   hideImageMobile,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/podcast/" + uid } passHref legacyBehavior>
+    <Link href={"/podcast/" + slug } passHref legacyBehavior>
       <a className="clean">{children}</a>
     </Link>
   );
-  let fullDate = new Date(`${data.introduction[0].date}T00:00:00`);
+  
+  let fullDate = new Date(`${date}T00:00:00`);
   let shortDate = fullDate.toLocaleDateString("es-MX");
   let formatDate = fullDate.toLocaleDateString("es-MX", {
     year: "numeric",
     month: "long",
     day: "numeric",
   });
-
-  const episode = data.introduction[0].episode;
-  const category = data.introduction[0].category;
-  const title = data.introduction[0].title[0].text;
-  const guest = data.introduction[0].guest;
-  const business = data.introduction[0].business;
-  const date = data.introduction[0].date;
-  const description = data.introduction[0].description[0].text;
-  const spotify = data.introduction[0].spotify;
-  const apple = data.introduction[0].apple;
-  const google = data.introduction[0].google;
-  const youtube = data.introduction[0].youtube;
-  const image = data.images[0].episode;
 
   return (
     <>
@@ -60,15 +59,15 @@ const PrismicEpisodePreview = ({
         > 
           {longFormat ? (
             <PrismicNextImage
-              field={image}
+              field={podcastImage}
                 width="180"
                 height="180"
                 alt=""
-          />
+            />
           ) : (
             <LinkComplex>
               <PrismicNextImage
-                field={image}
+                field={podcastImage}
                 height={simplest ? "185" : "180"}
                 width={simplest ? "185" : "180"}
                 alt=""
@@ -126,7 +125,7 @@ const PrismicEpisodePreview = ({
             <div>
               {longFormat && spotify && (
                 <ShareRouter
-                  shareUrl={`https://acueducto.studio/podcast/${uid}`}
+                  shareUrl={`https://acueducto.studio/podcast/${slug}`}
                 >
                   Comparte
                 </ShareRouter>

@@ -84,6 +84,8 @@ export async function getStaticProps({
     const prismicEpisode = await client.getAllByType("episode");
 
     const slugMatchesPrismic = prismicEpisode.find(objeto => objeto.uid === params.slug);
+    const nextPrismic = prismicEpisode.find(objeto => objeto.uid === params.slug);
+    console.log(params, 'params')
 
     if(!slugMatchesPrismic) {
       const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
@@ -121,7 +123,6 @@ export async function getStaticProps({
       );
     
       const content = await markdownToHtml( episode.content.toString() || "");
-      console.log(typeof episode.content, 'que pasa aquii')
     
       //For podcast episode number in footer
       const episodes = getAllEpisodes(["slug"]);
@@ -151,6 +152,9 @@ export async function getStaticProps({
       return {
         props: {
           slugMatchesPrismic: slugMatchesPrismic || null,
+          nextEpisodePrismic: {
+            ...nextPrismic,
+          },
         },
       };
     }

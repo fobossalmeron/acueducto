@@ -9,7 +9,7 @@ import PageClipper from "components/layout/PageClipper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { H1, H2, H3 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
@@ -124,7 +124,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
         </div>
         <Limiter>
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            {(lastPrismicEpisode.data.introduction[0].episode > 105)
+            {(lastPrismicEpisode.data.introduction[0].episode >= 105)
               ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
               : <EpisodeFeature {...lastEpisode} blue />
             }
@@ -257,7 +257,9 @@ export const getStaticProps = async (context, previewData) => {
 
   const prismicClient = createClient({ previewData });
   const prismicEpisodes = await prismicClient.getAllByType("episode");
-  const lastPrismicEpisode = prismicEpisodes[prismicEpisodes.length - 1];
+  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+
+  const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
 
   return {
     props: {
