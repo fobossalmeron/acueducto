@@ -61,14 +61,14 @@ const EpisodePage = ({
               <Center>
                 <VideoContainer>
                   <Video>
-                    {/* <YouTubePlayer
+                    <YouTubePlayer
                       className="react-player"
                       light={`/assets/img/podcast/youtube/${episode}.jpg`}
                       url={embedYoutube}
                       controls={true}
                       width="100%"
                       height="100%"
-                    /> */}
+                    />
                   </Video>
                 </VideoContainer>
               </Center>

@@ -14,7 +14,7 @@ import ResourceFooter from "components/shared/footers/ResourceFooter";
 import type { GetStaticPropsContext } from 'next';
 import { createClient } from '../../prismicio';
 
-export default function Episodio({ locale, setTitle, episode, numberOfE, prismicEpisode, slugMatchesPrismic }) {
+export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpisodePrismic, slugMatchesPrismic }) {
   useEffect(() => {
     setTitle("Podcast");
   }, [locale]);
@@ -63,7 +63,7 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, prismic
               alt: title + " | " + guest + ", " + business,
             }}
           ></Head>
-          <PrismicEpisodePage {...slugMatchesPrismic} slug={slugMatchesPrismic.uid} />
+          <PrismicEpisodePage {...slugMatchesPrismic} nextEpisodePrismic={...nextEpisodePrismic} slug={slugMatchesPrismic.uid} />
           <ResourceFooter
             shadow
             identify={slugMatchesPrismic.uid}
@@ -83,9 +83,31 @@ export async function getStaticProps({
     const client = createClient({ previewData });
     const prismicEpisode = await client.getAllByType("episode");
 
-    const slugMatchesPrismic = prismicEpisode.find(objeto => objeto.uid === params.slug);
-    const nextPrismic = prismicEpisode.find(objeto => objeto.uid === params.slug);
-    console.log(params, 'params')
+    const slugMatchesPrismic = prismicEpisode.find(ep => ep.uid === params.slug);
+
+    const nextToMd: EpisodeProps = getEpisodeBySlug(
+      getNextEpisodeSlug(105),
+      [
+        "title",
+        "guest",
+        "date",
+        "business",
+        "category",
+        "description",
+        "episode",
+        "slug",
+        "spotify",
+        "apple",
+        "google",
+        "youtube",
+      ]
+    );
+
+    const nextPrismic = slugMatchesPrismic && prismicEpisode.find((ep) => 
+      ep.data.introduction[0].episode === (slugMatchesPrismic.data.introduction[0].episode - 1) 
+      ? ep
+      : nextToMd
+    );
 
     if(!slugMatchesPrismic) {
       const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
@@ -146,6 +168,7 @@ export async function getStaticProps({
             ...next,
           },
           slugMatchesPrismic: slugMatchesPrismic || null,
+          revalidate: 10,
         },
       };
     } else {
@@ -155,6 +178,7 @@ export async function getStaticProps({
           nextEpisodePrismic: {
             ...nextPrismic,
           },
+          revalidate: 10,
         },
       };
     }
@@ -175,6 +199,6 @@ export async function getStaticPaths() {
         slug: slug,
       },
     })),
-    fallback: false,
+    fallback: 'blocking',
   };
 }

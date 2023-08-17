@@ -21,13 +21,14 @@ const PrismicEpisodePreview = ({
   apple,
   google,
   youtube,
-  podcastImage,
   episode,
   longFormat,
+  podcastImage,
   simplest,
   text,
   hideImageMobile,
 }) => {
+
   const LinkComplex = ({ children }) => (
     <Link href={"/podcast/" + slug } passHref legacyBehavior>
       <a className="clean">{children}</a>
@@ -136,7 +137,7 @@ const PrismicEpisodePreview = ({
           </Fade>
           <ButtonSpace>
             {simplest && (
-              <Link href={`/podcast/${uid}#cuandoelriosuena`} passHref>
+              <Link href={`/podcast/${slug}#cuandoelriosuena`} passHref legacyBehavior>
                 <ButtonArrow
                   text={"seguir aprendiendo"}
                   inverse

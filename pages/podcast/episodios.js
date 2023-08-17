@@ -93,8 +93,23 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
           </Fade>
           <PodcastList style={{ marginBottom: '-5%' }}>
             {prismicEpisodes.map((prismicEpisode, index) => (
-              <PrismicEpisodePreview {...prismicEpisode} key={"npd" + index} />
-            )).reverse()}
+              <PrismicEpisodePreview 
+                title={prismicEpisode.data.introduction[0].title[0].text}
+                guest={prismicEpisode.data.introduction[0].guest}
+                business={prismicEpisode.data.introduction[0].business}
+                slug={prismicEpisode.uid}
+                spotify={prismicEpisode.data.introduction[0].spotify}
+                apple={prismicEpisode.data.introduction[0].apple}
+                google={prismicEpisode.data.introduction[0].google}
+                youtube={prismicEpisode.data.introduction[0].youtube}
+                podcastImage={prismicEpisode.data.images[0].episode}
+                episode={prismicEpisode.data.introduction[0].episode}
+                description={prismicEpisode.data.introduction[0].description[0].text}
+                date={prismicEpisode.data.introduction[0].date}
+                category={prismicEpisode.data.introduction[0].category}
+                key={"npd" + index} 
+              />
+            ))}
           </PodcastList>
           <PodcastList>
             {episodes.map((episode, index) => (
@@ -144,13 +159,14 @@ export const getStaticProps = async (context, previewData) => {
   //CMS Prismic
   const client = createClient({ previewData });
   const prismicEpisodes = await client.getAllByType("episode");
+  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
 
   return {
     props: {
       episodes: [...episodes],
       pt,
 
-      prismicEpisodes: [...prismicEpisodes],
+      prismicEpisodes: [...orderedPrismicEpisodes],
     },
   };
 };
