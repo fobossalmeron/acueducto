@@ -85,6 +85,8 @@ export async function getStaticProps({
 
     const slugMatchesPrismic = prismicEpisode.find(ep => ep.uid === params.slug);
 
+    console.log(slugMatchesPrismic, 'hi')
+
     const nextToMd: EpisodeProps = getEpisodeBySlug(
       getNextEpisodeSlug(105),
       [
@@ -105,9 +107,11 @@ export async function getStaticProps({
 
     const nextPrismic = slugMatchesPrismic && prismicEpisode.find((ep) => 
       ep.data.introduction[0].episode === (slugMatchesPrismic.data.introduction[0].episode - 1) 
-      ? ep
-      : nextToMd
+        ? ep
+        : nextToMd
     );
+
+    console.log(nextPrismic, 'next')
 
     if(!slugMatchesPrismic) {
       const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
@@ -168,7 +172,6 @@ export async function getStaticProps({
             ...next,
           },
           slugMatchesPrismic: slugMatchesPrismic || null,
-          revalidate: 10,
         },
       };
     } else {
@@ -178,7 +181,6 @@ export async function getStaticProps({
           nextEpisodePrismic: {
             ...nextPrismic,
           },
-          revalidate: 10,
         },
       };
     }
@@ -199,6 +201,6 @@ export async function getStaticPaths() {
         slug: slug,
       },
     })),
-    fallback: 'blocking',
+    fallback: false,
   };
 }

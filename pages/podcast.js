@@ -269,7 +269,6 @@ export const getStaticProps = async (context, previewData) => {
 
       prismicEpisodes: [...prismicEpisodes],
       lastPrismicEpisode: lastPrismicEpisode,
-      revalidate: 10,
     },
   };
 };
