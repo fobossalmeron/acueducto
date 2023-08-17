@@ -167,6 +167,7 @@ export const getStaticProps = async (context, previewData) => {
       pt,
 
       prismicEpisodes: [...orderedPrismicEpisodes],
+      revalidate: 10,
     },
   };
 };
