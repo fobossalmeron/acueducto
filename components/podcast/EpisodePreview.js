@@ -47,7 +47,9 @@ const EpisodePreview = ({
         className={`${
           category == "Growth/marketing"
             ? "growth-marketing"
-            : category.toLowerCase()
+            : category 
+              ? category.toLowerCase()
+              : ''
         } npd`}
       >
         <PictureContainer

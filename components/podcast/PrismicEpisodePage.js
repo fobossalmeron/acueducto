@@ -15,11 +15,13 @@ import CenteredSection, {
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
 import { PrismicRichText } from '@prismicio/react'
+import EpisodePreview from "./EpisodePreview";
 
 const PrismicEpisodePage = ({
   uid,
   data,
   nextEpisodePrismic,
+  findNextPrismic,
 }) => {
   const episode = data.introduction[0].episode;
   const category = data.introduction[0].category;
@@ -145,23 +147,26 @@ const PrismicEpisodePage = ({
         </Fade>
         <NextEp>
           <p>Escucha otro episodio</p>
-          <PrismicEpisodePreview
-            hideImageMobile
-            title={nextEpisodePrismic.data.introduction[0].title[0].text}
-            guest={nextEpisodePrismic.data.introduction[0].guest}
-            business={nextEpisodePrismic.data.introduction[0].business}
-            slug={nextEpisodePrismic.uid}
-            spotify={nextEpisodePrismic.data.introduction[0].spotify}
-            apple={nextEpisodePrismic.data.introduction[0].apple}
-            google={nextEpisodePrismic.data.introduction[0].google}
-            youtube={nextEpisodePrismic.data.introduction[0].youtube}
-            podcastImage={nextEpisodePrismic.data.images[0].episode}
-            episode={nextEpisodePrismic.data.introduction[0].episode}
-            description={nextEpisodePrismic.data.introduction[0].description[0].text}
-            date={nextEpisodePrismic.data.introduction[0].date}
-            category={nextEpisodePrismic.data.introduction[0].category}
-            simplest 
-          />
+          {findNextPrismic ?
+            <PrismicEpisodePreview
+              hideImageMobile
+              title={nextEpisodePrismic.data.introduction[0].title[0].text}
+              guest={nextEpisodePrismic.data.introduction[0].guest}
+              business={nextEpisodePrismic.data.introduction[0].business}
+              slug={nextEpisodePrismic.uid}
+              spotify={nextEpisodePrismic.data.introduction[0].spotify}
+              apple={nextEpisodePrismic.data.introduction[0].apple}
+              google={nextEpisodePrismic.data.introduction[0].google}
+              youtube={nextEpisodePrismic.data.introduction[0].youtube}
+              podcastImage={nextEpisodePrismic.data.images[0].episode}
+              episode={nextEpisodePrismic.data.introduction[0].episode}
+              description={nextEpisodePrismic.data.introduction[0].description[0].text}
+              date={nextEpisodePrismic.data.introduction[0].date}
+              category={nextEpisodePrismic.data.introduction[0].category}
+              simplest 
+            />
+          : <EpisodePreview {...nextEpisodePrismic} simplest />
+        }
         </NextEp>
       </CenteredSection>
     </>

@@ -28,7 +28,6 @@ const PrismicEpisodePreview = ({
   text,
   hideImageMobile,
 }) => {
-
   const LinkComplex = ({ children }) => (
     <Link href={"/podcast/" + slug } passHref legacyBehavior>
       <a className="clean">{children}</a>
