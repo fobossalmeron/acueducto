@@ -9,10 +9,20 @@ type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
  */
 export interface EpisodeDocumentDataIntroductionItem {
   /**
+   * Title field in *Episode → Introduction*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Requerido*
+   * - **API ID Path**: episode.introduction[].title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField;
+
+  /**
    * Episode field in *Episode → Introduction*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: Numero de episodio
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].episode
    * - **Documentation**: https://prismic.io/docs/field#number
    */
@@ -22,27 +32,17 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Date field in *Episode → Introduction*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].date
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   date: prismic.DateField;
 
   /**
-   * Title field in *Episode → Introduction*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: episode.introduction[].title
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField;
-
-  /**
    * Guest field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].guest
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -52,7 +52,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Business field in *Episode → Introduction*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].business
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -62,7 +62,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Category field in *Episode → Introduction*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].category
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -81,7 +81,7 @@ export interface EpisodeDocumentDataIntroductionItem {
    * Description field in *Episode → Introduction*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
+   * - **Placeholder**: Requerido*
    * - **API ID Path**: episode.introduction[].description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */

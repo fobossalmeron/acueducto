@@ -18,39 +18,36 @@
         "config": {
           "label": "Introduction",
           "fields": {
-            "episode": {
-              "type": "Number",
-              "config": {
-                "label": "Episode",
-                "placeholder": "Numero de episodio"
-              }
-            },
-            "date": {
-              "type": "Date",
-              "config": { "label": "Date", "placeholder": "" }
-            },
             "title": {
               "type": "StructuredText",
               "config": {
                 "label": "Title",
-                "placeholder": "",
+                "placeholder": "Requerido*",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
             },
+            "episode": {
+              "type": "Number",
+              "config": { "label": "Episode", "placeholder": "Requerido*" }
+            },
+            "date": {
+              "type": "Date",
+              "config": { "label": "Date", "placeholder": "Requerido*" }
+            },
             "guest": {
               "type": "Text",
-              "config": { "label": "Guest", "placeholder": "" }
+              "config": { "label": "Guest", "placeholder": "Requerido*" }
             },
             "business": {
               "type": "Text",
-              "config": { "label": "Business", "placeholder": "" }
+              "config": { "label": "Business", "placeholder": "Requerido*" }
             },
             "category": {
               "type": "Select",
               "config": {
                 "label": "Category",
-                "placeholder": "",
+                "placeholder": "Requerido*",
                 "options": [
                   "Founder",
                   "Producto",
@@ -67,7 +64,7 @@
               "type": "StructuredText",
               "config": {
                 "label": "Description",
-                "placeholder": "",
+                "placeholder": "Requerido*",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
