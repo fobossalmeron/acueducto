@@ -29,7 +29,7 @@ export default function Work({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/work"}
       />
       <TitleSection {...t.intro} />
-      <CaseList limit={5} />
+      <CaseList limit={4} />
       <ContactFooter />
     </PageClipper>
   );
