@@ -79,6 +79,7 @@ const NewHead = ({
       {
         //Image and alt for Open Graph
         image ? (
+          image.fileName.includes('og_image') ?
           <>
             <meta
               property="og:image"
@@ -86,6 +87,13 @@ const NewHead = ({
             />
             <meta property="og:image:alt" content={image.alt} />
           </>
+          : <>
+              <meta
+                property="og:image"
+                content={`https://acueducto.studio/assets/img/og/${image}`}
+              />
+              <meta property="og:image:alt" content={image.alt} />
+        </>
         ) : (
           <>
             <meta
