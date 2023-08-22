@@ -103,23 +103,7 @@ const PrismicEpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           {spotify && insights && (
-            <Content as={Insights}>
-              <ContentType insights>Insights</ContentType>
-              <p>
-                Si solo tienes un minuto, lo más importante que pueden aprender
-                operadores, inversionistas y fundadores de {business} es lo
-                siguiente:
-              </p>
-              <Transcript as={"div"}>
-                {insights && (
-                  <ul>
-                    {insights.map((insight, i) => (
-                      <Li key={"insight" + i} style={{ fontWeight: 200 }}>{insight.text}</Li>
-                    ))}
-                  </ul>
-                )}
-              </Transcript>
-            </Content>
+            <PrismicRichText field={insights}/>
           )}
         </Fade>
         <Fade>
