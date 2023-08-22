@@ -68,5 +68,9 @@ export function getNextEpisodeSlug(currentEpisode) {
   const allSlugs = getAllEpisodes(["slug"]);
 
   //find slug by looking for next episode position in slug array
-  return allSlugs[nextEpPosInArr].slug;
+  if (nextEpPosInArr == -1) {
+    return allSlugs[33].slug;
+  } else {
+    return allSlugs[nextEpPosInArr].slug;
+  }
 }

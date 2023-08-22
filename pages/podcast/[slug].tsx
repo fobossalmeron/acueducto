@@ -85,6 +85,7 @@ export async function getStaticProps({
   previewData
 }: GetStaticPropsContext) {
     //CMS Prismic
+    console.log('debe entrar aca si ES un ep de prismic')
     const client = createClient({ previewData });
     const prismicEpisode = await client.getAllByType("episode");
 
@@ -115,6 +116,7 @@ export async function getStaticProps({
     const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
 
     if(!slugMatchesPrismic) {
+      console.log('debe entrar aca si no es un ep de prismic')
       const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
         "title",
         "guest",
