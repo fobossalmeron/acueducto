@@ -11,10 +11,10 @@ insights:
   - <b>No importa cuál sea el departamento, la gestión de personas siempre será un reto.</b> Operaciones, finanzas, marketing, ventas, lo que quieras. En todas las áreas el reto más grande siempre será el factor humano.
   - <b>Puedes hacer maravillas para la cultura y comunicación de tu empresa con un Slack bien organizado</b>
   - <b>Las stock options son incentivos para que los empleados compartan el éxito de tu empresa y también para generar un sentido de propiedad en el negocio.</b>
-spotify: https://open.spotify.com/episode/3KvXNa2xAnEJOoJJ7E1BZL
-apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-escalar-un-departamento-de-people-alicia-ortiz-beek/id1500473556?i=1000625159999
-google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMzQ0Mzk1OA?sa=X&ved=0CAUQkfYCahcKEwj4yuHspu6AAxUAAAAAHQAAAAAQAQ
-youtube: https://www.youtube.com/watch?v=rslq4Rjbjvg
+spotify: https://open.spotify.com/episode/7uISOwapa9hJx2ak66kl4j
+apple: https://podcasts.apple.com/us/podcast/e108-c%C3%B3mo-escalar-un-departamento-de-people/id1500473556?i=1000625300333
+google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMzQ1MjA0Mw?sa=X&ved=0CAUQkfYCahcKEwjg78uku_GAAxUAAAAAHQAAAAAQAQ
+youtube: https://www.youtube.com/watch?v=pfgTx--PcCA
 ---
 
 **Artemio**: Hola ¿Qué tal? Bienvenidos a todos a una edición más de Cuando El Río Suena. Una edición bastante peculiar y podría decirse histórica, ya que por primera vez me encuentro solo en este espacio sin mi *co host* Rodrigo Salmerón, a quien extraño mucho, resulta que está en un viaje a Japón y estamos teniendo problemas técnicos, ya nos comió el tiempo y tenemos que empezar este capítulo para que la cosa no se detenga. El día de hoy tenemos de invitada a Alicia Ortiz, quien es Head Of People and Culture en Beek ¿Cómo estás, Alicia?
