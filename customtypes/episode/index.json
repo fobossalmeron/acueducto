@@ -9,45 +9,48 @@
       "uid": {
         "config": {
           "label": "UID",
-          "placeholder": "Colocar el title sin ñ/espaciados/mayus/tildes, separados por un guion"
+          "placeholder": "Se autocompletara si colocas el Título del episodio"
         },
         "type": "UID"
       },
       "introduction": {
         "type": "Group",
         "config": {
-          "label": "Introduction",
+          "label": "Introducción",
           "fields": {
             "title": {
               "type": "StructuredText",
               "config": {
-                "label": "Title",
-                "placeholder": "Requerido*",
+                "label": "Título del episodio",
+                "placeholder": "Sin número, ni invitado, ni empresa",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
             },
             "episode": {
               "type": "Number",
-              "config": { "label": "Episode", "placeholder": "Requerido*" }
+              "config": { "label": "Número del episodio", "placeholder": "" }
             },
             "date": {
               "type": "Date",
-              "config": { "label": "Date", "placeholder": "Requerido*" }
+              "config": {
+                "label": "Fecha de publicación planeada",
+                "placeholder": ""
+              }
             },
             "guest": {
               "type": "Text",
-              "config": { "label": "Guest", "placeholder": "Requerido*" }
+              "config": { "label": "Invitado", "placeholder": "" }
             },
             "business": {
               "type": "Text",
-              "config": { "label": "Business", "placeholder": "Requerido*" }
+              "config": { "label": "Empresa", "placeholder": "" }
             },
             "category": {
               "type": "Select",
               "config": {
-                "label": "Category",
-                "placeholder": "Requerido*",
+                "label": "Categoría",
+                "placeholder": "",
                 "options": [
                   "Founder",
                   "Producto",
@@ -63,8 +66,8 @@
             "description": {
               "type": "StructuredText",
               "config": {
-                "label": "Description",
-                "placeholder": "Requerido*",
+                "label": "Descripción",
+                "placeholder": "Excluye: \"Lo más importante que pueden aprender operadores... es lo siguiente:\"",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
@@ -73,26 +76,38 @@
               "type": "StructuredText",
               "config": {
                 "label": "Insights",
-                "placeholder": "Colocar en una lista",
+                "placeholder": "Convertir el texto en lista, la primera oración de cada punto en negrita",
                 "allowTargetBlank": true,
                 "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
               }
             },
             "spotify": {
               "type": "Text",
-              "config": { "label": "Spotify", "placeholder": "https://www..." }
+              "config": {
+                "label": "URL de Spotify",
+                "placeholder": "https://www..."
+              }
             },
             "google": {
               "type": "Text",
-              "config": { "label": "Google", "placeholder": "https://www..." }
+              "config": {
+                "label": "URL de Google",
+                "placeholder": "https://www..."
+              }
             },
             "apple": {
               "type": "Text",
-              "config": { "label": "Apple", "placeholder": "https://www..." }
+              "config": {
+                "label": "URL de Apple",
+                "placeholder": "https://www..."
+              }
             },
             "youtube": {
               "type": "Text",
-              "config": { "label": "Youtube", "placeholder": "https://www..." }
+              "config": {
+                "label": "URL de Youtube",
+                "placeholder": "https://www..."
+              }
             }
           }
         }
@@ -109,31 +124,39 @@
       "images": {
         "type": "Group",
         "config": {
-          "label": "Images",
+          "label": "Imagenes",
           "fields": {
             "episode": {
               "type": "Image",
               "config": {
-                "label": "Podcast",
+                "label": "Portada del podcast (400x400)",
                 "constraint": {},
                 "thumbnails": []
               }
             },
             "solas": {
               "type": "Image",
-              "config": { "label": "Solas", "constraint": {}, "thumbnails": [] }
+              "config": {
+                "label": "Ilustración (508x285)",
+                "constraint": {},
+                "thumbnails": []
+              }
             },
             "youtube": {
               "type": "Image",
               "config": {
-                "label": "Youtube",
+                "label": "Portada de Youtube (1600x900)",
                 "constraint": {},
                 "thumbnails": []
               }
             },
             "gif": {
               "type": "Image",
-              "config": { "label": "Gif ", "constraint": {}, "thumbnails": [] }
+              "config": {
+                "label": "Gif para compartir, OpenG (800x800)",
+                "constraint": {},
+                "thumbnails": []
+              }
             }
           }
         }

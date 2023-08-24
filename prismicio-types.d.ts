@@ -5,64 +5,64 @@ import type * as prismic from "@prismicio/client";
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] };
 
 /**
- * Item in *Episode → Introduction*
+ * Item in *Episode → Introducción*
  */
 export interface EpisodeDocumentDataIntroductionItem {
   /**
-   * Title field in *Episode → Introduction*
+   * Título del episodio field in *Episode → Introducción*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: Sin número, ni invitado, ni empresa
    * - **API ID Path**: episode.introduction[].title
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   title: prismic.RichTextField;
 
   /**
-   * Episode field in *Episode → Introduction*
+   * Número del episodio field in *Episode → Introducción*
    *
    * - **Field Type**: Number
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].episode
    * - **Documentation**: https://prismic.io/docs/field#number
    */
   episode: prismic.NumberField;
 
   /**
-   * Date field in *Episode → Introduction*
+   * Fecha de publicación planeada field in *Episode → Introducción*
    *
    * - **Field Type**: Date
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].date
    * - **Documentation**: https://prismic.io/docs/field#date
    */
   date: prismic.DateField;
 
   /**
-   * Guest field in *Episode → Introduction*
+   * Invitado field in *Episode → Introducción*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].guest
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   guest: prismic.KeyTextField;
 
   /**
-   * Business field in *Episode → Introduction*
+   * Empresa field in *Episode → Introducción*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].business
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   business: prismic.KeyTextField;
 
   /**
-   * Category field in *Episode → Introduction*
+   * Categoría field in *Episode → Introducción*
    *
    * - **Field Type**: Select
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: *None*
    * - **API ID Path**: episode.introduction[].category
    * - **Documentation**: https://prismic.io/docs/field#select
    */
@@ -78,27 +78,27 @@ export interface EpisodeDocumentDataIntroductionItem {
   >;
 
   /**
-   * Description field in *Episode → Introduction*
+   * Descripción field in *Episode → Introducción*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Requerido*
+   * - **Placeholder**: Excluye: "Lo más importante que pueden aprender operadores... es lo siguiente:"
    * - **API ID Path**: episode.introduction[].description
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   description: prismic.RichTextField;
 
   /**
-   * Insights field in *Episode → Introduction*
+   * Insights field in *Episode → Introducción*
    *
    * - **Field Type**: Rich Text
-   * - **Placeholder**: Colocar en una lista
+   * - **Placeholder**: Convertir el texto en lista, la primera oración de cada punto en negrita
    * - **API ID Path**: episode.introduction[].insights
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   insights: prismic.RichTextField;
 
   /**
-   * Spotify field in *Episode → Introduction*
+   * URL de Spotify field in *Episode → Introducción*
    *
    * - **Field Type**: Text
    * - **Placeholder**: https://www...
@@ -108,7 +108,7 @@ export interface EpisodeDocumentDataIntroductionItem {
   spotify: prismic.KeyTextField;
 
   /**
-   * Google field in *Episode → Introduction*
+   * URL de Google field in *Episode → Introducción*
    *
    * - **Field Type**: Text
    * - **Placeholder**: https://www...
@@ -118,7 +118,7 @@ export interface EpisodeDocumentDataIntroductionItem {
   google: prismic.KeyTextField;
 
   /**
-   * Apple field in *Episode → Introduction*
+   * URL de Apple field in *Episode → Introducción*
    *
    * - **Field Type**: Text
    * - **Placeholder**: https://www...
@@ -128,7 +128,7 @@ export interface EpisodeDocumentDataIntroductionItem {
   apple: prismic.KeyTextField;
 
   /**
-   * Youtube field in *Episode → Introduction*
+   * URL de Youtube field in *Episode → Introducción*
    *
    * - **Field Type**: Text
    * - **Placeholder**: https://www...
@@ -139,11 +139,11 @@ export interface EpisodeDocumentDataIntroductionItem {
 }
 
 /**
- * Item in *Episode → Images*
+ * Item in *Episode → Imagenes*
  */
 export interface EpisodeDocumentDataImagesItem {
   /**
-   * Podcast field in *Episode → Images*
+   * Portada del podcast (400x400) field in *Episode → Imagenes*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -153,7 +153,7 @@ export interface EpisodeDocumentDataImagesItem {
   episode: prismic.ImageField<never>;
 
   /**
-   * Solas field in *Episode → Images*
+   * Ilustración (508x285) field in *Episode → Imagenes*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -163,7 +163,7 @@ export interface EpisodeDocumentDataImagesItem {
   solas: prismic.ImageField<never>;
 
   /**
-   * Youtube field in *Episode → Images*
+   * Portada de Youtube (1600x900) field in *Episode → Imagenes*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -173,7 +173,7 @@ export interface EpisodeDocumentDataImagesItem {
   youtube: prismic.ImageField<never>;
 
   /**
-   * Gif  field in *Episode → Images*
+   * Gif para compartir, OpenG (800x800) field in *Episode → Imagenes*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -188,7 +188,7 @@ export interface EpisodeDocumentDataImagesItem {
  */
 interface EpisodeDocumentData {
   /**
-   * Introduction field in *Episode*
+   * Introducción field in *Episode*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
@@ -212,7 +212,7 @@ interface EpisodeDocumentData {
   body: prismic.RichTextField;
 
   /**
-   * Images field in *Episode*
+   * Imagenes field in *Episode*
    *
    * - **Field Type**: Group
    * - **Placeholder**: *None*
