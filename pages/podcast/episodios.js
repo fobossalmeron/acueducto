@@ -217,7 +217,6 @@ const PodcastGrid = styled.div`
   background-size: cover;
   background-position: top right;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 0.2rem 1rem;
   width: 100%;
   display: grid;
   padding: 10% 4%;
