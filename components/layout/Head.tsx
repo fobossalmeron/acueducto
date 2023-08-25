@@ -84,6 +84,7 @@ const NewHead = ({
               property="og:image"
               content={image.fileName.includes('/acueducto.studio/assets') ? `https://acueducto.studio/assets/img/og/${image.fileName}` : image.fileName}
             />
+            <meta property="og:image:type" content="gif" />
             <meta property="og:image:alt" content={image.alt} />
           </>
         ) : (
