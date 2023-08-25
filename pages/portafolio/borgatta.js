@@ -16,7 +16,7 @@ import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
 import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
 import CaseTable from "../../components/caseStudy/borgatta/CaseTable";

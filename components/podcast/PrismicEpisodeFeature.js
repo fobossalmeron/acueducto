@@ -1,26 +1,29 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
-import Picture from "components/caseStudy/shared/Picture";
 import BorderLink from "components/shared/BorderedLink";
+import { PrismicNextImage } from "@prismicio/next";
 
-const EpisodeFeature = ({
-  title,
-  guest,
-  business,
-  slug,
-  episode,
+const PrismicEpisodeFeature = ({
+  uid,
+  data,
   blue,
 }) => {
+  const episode = data.introduction[0].episode;
+  const title = data.introduction[0].title[0].text;
+  const guest = data.introduction[0].guest;
+  const business = data.introduction[0].business;
+  const image = data.images[0].solas;
+
   return (
-    <Link href={"/podcast/" + slug} passHref key={"npd" + episode} legacyBehavior>
+    <Link href={"/podcast/" + uid} passHref key={"npd" + episode} legacyBehavior>
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
-          <Picture
-            src={`/assets/img/podcast/solas/${episode}.jpg`}
-            alt={title + " - " + guest}
-            height={episode >= 91 ? 206 : 142}
-            width={episode >= 91 ? 365 : 142}
+          <PrismicNextImage
+            field={image}
+            height="206"
+            width="365"
+            alt=""
           />
         </PictureContainer>
         <Fade triggerOnce>
@@ -38,7 +41,7 @@ const EpisodeFeature = ({
   );
 };
 
-export default EpisodeFeature;
+export default PrismicEpisodeFeature;
 
 const HoverableContainer = styled.div`
   margin-bottom: 8px;
@@ -53,16 +56,16 @@ const H2overable = styled.h3`
 
 const PictureContainer = styled.div`
   margin-bottom: 7%;
-  & > div {
-    border-radius: 25px;
-    overflow: hidden;
-    display: inline-block;
-    height: ${ (episode) => episode >= 91 ? "206" : "142" }px;
-  }
+  border-radius: 25px;
+  overflow: hidden !important;
+  display: inline-block !important;
+  height: 145px !important;
   img {
     transition: all 0.25s ease-out;
     background-color: #131516;
-    transform: scale(1.01);
+    transform: scale(1);
+    width: 100%;
+    height: 104%;
   }
 `;
 

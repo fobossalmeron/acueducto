@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { H1, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import EpisodePreview from "components/podcast/EpisodePreview";
+import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "./EpisodeNumber";
 import Link from "next/link";
@@ -14,24 +14,31 @@ import CenteredSection, {
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
+import { PrismicRichText } from '@prismicio/react'
+import EpisodePreview from "./EpisodePreview";
 
-const EpisodePage = ({
-  title,
-  date,
-  guest,
-  insights,
-  business,
-  category,
-  description,
-  slug,
-  spotify,
-  apple,
-  google,
-  youtube,
-  episode,
-  content,
-  next,
+const PrismicEpisodePage = ({
+  uid,
+  data,
+  nextEpisodePrismic,
+  findNextPrismic,
 }) => {
+  const episode = data.introduction[0].episode;
+  const category = data.introduction[0].category;
+  const title = data.introduction[0].title[0].text;
+  const guest = data.introduction[0].guest;
+  const business = data.introduction[0].business;
+  const date = data.introduction[0].date;
+  const description = data.introduction[0].description[0].text;
+  const spotify = data.introduction[0].spotify;
+  const apple = data.introduction[0].apple;
+  const google = data.introduction[0].google;
+  const youtube = data.introduction[0].youtube;
+  const youtubeImage = data.images[0].youtube.url;
+  const podcastImage = data.images[0].episode;
+  const insights = data.introduction[0].insights;
+  const content = data.body;
+
   const embedYoutube = youtube && youtube.replace("watch?v=", "embed/");
   return (
     <>
@@ -63,7 +70,7 @@ const EpisodePage = ({
                   <Video>
                     <YouTubePlayer
                       className="react-player"
-                      light={`/assets/img/podcast/youtube/${episode}.jpg`}
+                      light={youtubeImage}
                       url={embedYoutube}
                       controls={true}
                       width="100%"
@@ -76,16 +83,17 @@ const EpisodePage = ({
           </>
         </Fade>
         <Fade triggerOnce>
-          <EpisodePreview
+          <PrismicEpisodePreview
             hideImageMobile
             title={title}
             guest={guest}
             business={business}
-            slug={slug}
+            slug={uid}
             spotify={spotify}
             apple={apple}
             google={google}
             youtube={youtube}
+            podcastImage={podcastImage}
             episode={episode}
             description={description}
             date={date}
@@ -102,15 +110,7 @@ const EpisodePage = ({
                 operadores, inversionistas y fundadores de {business} es lo
                 siguiente:
               </p>
-              <Transcript as={"div"}>
-                {insights && (
-                  <ul>
-                    {insights.map((insight, i) => (
-                      <Li key={"insight" + i}>{insight}</Li>
-                    ))}
-                  </ul>
-                )}
-              </Transcript>
+              <PrismicRichText field={insights.map(e => e)}/>
             </Content>
           )}
         </Fade>
@@ -118,7 +118,7 @@ const EpisodePage = ({
           {spotify && (
             <Content>
               {content && <ContentType>Transcript</ContentType>}
-              <Transcript>{content}</Transcript>
+                <PrismicRichText field={content}/> 
             </Content>
           )}
         </Fade>
@@ -131,7 +131,7 @@ const EpisodePage = ({
                   compártelo con esa persona.
                 </RouterSpace>
                 <ShareRouter
-                  shareUrl={`https://acueducto.studio/podcast/${slug}`}
+                  shareUrl={`https://acueducto.studio/podcast/${uid}`}
                 />
               </>
             )}
@@ -139,14 +139,33 @@ const EpisodePage = ({
         </Fade>
         <NextEp>
           <p>Escucha otro episodio</p>
-          <EpisodePreview {...next} simplest />
+          {findNextPrismic ?
+            <PrismicEpisodePreview
+              hideImageMobile
+              title={nextEpisodePrismic.data.introduction[0].title[0].text}
+              guest={nextEpisodePrismic.data.introduction[0].guest}
+              business={nextEpisodePrismic.data.introduction[0].business}
+              slug={nextEpisodePrismic.uid}
+              spotify={nextEpisodePrismic.data.introduction[0].spotify}
+              apple={nextEpisodePrismic.data.introduction[0].apple}
+              google={nextEpisodePrismic.data.introduction[0].google}
+              youtube={nextEpisodePrismic.data.introduction[0].youtube}
+              podcastImage={nextEpisodePrismic.data.images[0].episode}
+              episode={nextEpisodePrismic.data.introduction[0].episode}
+              description={nextEpisodePrismic.data.introduction[0].description[0].text}
+              date={nextEpisodePrismic.data.introduction[0].date}
+              category={nextEpisodePrismic.data.introduction[0].category}
+              simplest 
+            />
+          : <EpisodePreview {...nextEpisodePrismic} simplest />
+        }
         </NextEp>
       </CenteredSection>
     </>
   );
 };
 
-export default React.memo(EpisodePage);
+export default React.memo(PrismicEpisodePage);
 
 const Center = styled.div`
   display: flex;
@@ -201,6 +220,23 @@ const CenteredDiv = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
+`;
+
+const PrismicTranscript = styled(Transcript)`
+  font-size: 1.7rem;
+  line-height: 25px;
+  margin-bottom: 2rem;
+  color: rgb(79, 79, 79);
+
+  heading2 {
+    font-size: 2.6rem;
+    font-weight: 300;
+    color: rgb(24, 32, 36);
+    line-height: 120%;
+    text-align: left;
+    margin-bottom: 1.1rem;
+    margin-top: 4rem;
+  }
 `;
 
 const ContentType = styled.span`

@@ -45,7 +45,7 @@ const ConsultoriaCTA = ({ cta, id, diagnostico_cta, price }) => {
         <span className="noPrice">elevemos tu negocio</span>
       )}
       <SpecialA>
-        <Link href={"/contacto"} passHref>
+        <Link href={"/contacto"} passHref legacyBehavior>
           <ButtonArrow text={cta.submit} inverse className="clean" />
         </Link>
       </SpecialA>
@@ -75,7 +75,7 @@ const ConsultoriaCTA = ({ cta, id, diagnostico_cta, price }) => {
             <h3>{cta.title2}</h3>
             <p>
               <span>{cta.linktext}</span>
-              <Link href={cta.link[0]}>
+              <Link href={cta.link[0]} legacyBehavior>
                 <a>{cta.link[1]}</a>
               </Link>
               <span>{cta.linktext2}</span>

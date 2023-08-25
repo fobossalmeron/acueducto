@@ -13,7 +13,7 @@ export default function Nav(props) {
     const router = useRouter();
     const child = React.Children.only(children);
     return (
-      <Link {...props} href={href} as={as} passHref locale={locale}>
+      <Link {...props} href={href} as={as} passHref locale={locale} legacyBehavior>
         {React.cloneElement(child, { active: router.pathname === href })}
       </Link>
     );
@@ -124,6 +124,7 @@ export default function Nav(props) {
                 as={l.cookies.as ? l.cookies.as : l.cookies.link}
                 locale={props.locale}
                 passHref
+                legacyBehavior
               >
                 <Hoverable>{l.cookies.title}</Hoverable>
               </Link>
@@ -133,6 +134,7 @@ export default function Nav(props) {
                 as={l.privacy.as ? l.privacy.as : l.privacy.link}
                 locale={props.locale}
                 passHref
+                legacyBehavior
               >
                 <Hoverable>{l.privacy.title}</Hoverable>
               </Link>

@@ -12,7 +12,7 @@ function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
   };
   return (
     <TopHeader reveal={hasLoaded} route={route}>
-      <Link href="/" passHref locale={locale}>
+      <Link href="/" passHref locale={locale} legacyBehavior>
         <LogoLink onClick={backUp}>
           <h1>acueducto</h1>
           <Logo />
@@ -86,7 +86,9 @@ const TopHeader = styled.header<{ reveal: boolean }>`
   }
 `;
 
-const LogoLink = styled.a`
+//Aqui
+
+const LogoLink = styled.div`
   display: flex;
   grid-column: 1 / span 2;
   max-width: 130px;

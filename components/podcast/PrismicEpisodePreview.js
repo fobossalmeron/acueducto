@@ -2,14 +2,14 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import { P } from "components/shared/Dangerously";
-import Picture from "components/caseStudy/shared/Picture";
 import BroadcastRouter from "./BroadcastRouter";
 import EpisodeNumber from "./EpisodeNumber";
 import ShareRouter from "./ShareRouter";
 import BorderLink from "components/shared/BorderedLink";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
+import { PrismicNextImage } from "@prismicio/next";
 
-const EpisodePreview = ({
+const PrismicEpisodePreview = ({
   title,
   guest,
   business,
@@ -23,15 +23,17 @@ const EpisodePreview = ({
   youtube,
   episode,
   longFormat,
+  podcastImage,
   simplest,
   text,
   hideImageMobile,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/podcast/" + slug} passHref legacyBehavior>
+    <Link href={"/podcast/" + slug } passHref legacyBehavior>
       <a className="clean">{children}</a>
     </Link>
   );
+
   let fullDate = new Date(`${date}T00:00:00`);
   let shortDate = fullDate.toLocaleDateString("es-MX");
   let formatDate = fullDate.toLocaleDateString("es-MX", {
@@ -39,6 +41,7 @@ const EpisodePreview = ({
     month: "long",
     day: "numeric",
   });
+
   return (
     <>
       <NewPod
@@ -55,21 +58,21 @@ const EpisodePreview = ({
         <PictureContainer
           hoverable={!longFormat}
           hideImageMobile={hideImageMobile}
-        >
+        > 
           {longFormat ? (
-            <Picture
-              src={`/assets/img/podcast/${episode}.jpg`}
-              alt={title + " - " + guest}
-              height={180}
-              width={180}
+            <PrismicNextImage
+              field={podcastImage}
+                width="180"
+                height="180"
+                alt=""
             />
           ) : (
             <LinkComplex>
-              <Picture
-                src={`/assets/img/podcast/${episode}.jpg`}
-                alt={title + " - " + guest}
-                height={simplest ? 185 : 180}
-                width={simplest ? 185 : 180}
+              <PrismicNextImage
+                field={podcastImage}
+                height={simplest ? "185" : "180"}
+                width={simplest ? "185" : "180"}
+                alt=""
               />
             </LinkComplex>
           )}
@@ -119,7 +122,7 @@ const EpisodePreview = ({
                   </BroadcastRouter>
                 ) : (
                   <ToBeReleased>Disponible el {shortDate}</ToBeReleased>
-                ))}
+              ))}
             </div>
             <div>
               {longFormat && spotify && (
@@ -133,9 +136,9 @@ const EpisodePreview = ({
           </Fade>
           <ButtonSpace>
             {simplest && (
-              <Link href={"/podcast/" + slug + "#cuandoelriosuena"} passHref legacyBehavior>
+              <Link href={`/podcast/${slug}#cuandoelriosuena`} passHref legacyBehavior>
                 <ButtonArrow
-                  text={text ? text : "seguir aprendiendo"}
+                  text={"seguir aprendiendo"}
                   inverse
                   className="leftFix clean"
                 />
@@ -148,7 +151,7 @@ const EpisodePreview = ({
   );
 };
 
-export default EpisodePreview;
+export default PrismicEpisodePreview;
 
 const ToBeReleased = styled.div`
   border: 2px solid orange;

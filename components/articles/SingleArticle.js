@@ -14,7 +14,7 @@ const SingleArticle = ({
   reverse,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/articulos/" + slug} passHref>
+    <Link href={"/articulos/" + slug} passHref legacyBehavior>
       <a>{children}</a>
     </Link>
   );
@@ -47,7 +47,7 @@ const SingleArticle = ({
           <p className="subtitle">{subtitle}</p>
           <div>{featured && <p>{excerpt}</p>}</div>
           <CTA featured={featured}>
-            <Link href={"/articulos/" + slug} passHref>
+            <Link href={"/articulos/" + slug} passHref legacyBehavior>
               <ButtonArrow text="leer más" />
             </Link>
           </CTA>

@@ -54,6 +54,7 @@ function Index({ locale, setTitle, pt }) {
             as={locale === "en" ? "/work" : "/portafolio"}
             locale={locale}
             passHref
+            legacyBehavior
           >
             <ButtonArrow text={t.landing.button} inverse />
           </Link>
@@ -90,6 +91,7 @@ function Index({ locale, setTitle, pt }) {
             as={locale === "en" ? "/work" : "/portafolio"}
             locale={locale}
             passHref
+            legacyBehavior
           >
             <ButtonArrow text={t.clients.cta} inverse />
           </Link>
@@ -98,7 +100,12 @@ function Index({ locale, setTitle, pt }) {
       <FAQSection t={t.faq}/>
       <TitleSection {...t.podcast.intro} borderTop>
         <Fade>
-          <Link href={"/podcast"} passHref locale="es">
+          <Link 
+            href={"/podcast"}
+            passHref
+            locale="es"
+            legacyBehavior
+          >
             <HoverablePicture>
               <Picture
                 // src="/assets/img/layout/podcast_cover.png"

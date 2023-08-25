@@ -12,7 +12,7 @@ const Products = () => {
     <>
       <P className="separator">{t.p}</P>
       <RecursoCont>
-        <Link href="/podcast" locale="es">
+        <Link href="/podcast" locale="es" legacyBehavior>
           <a>
             <Picture
               src="/assets/img/layout/recursopodcast.jpg"
@@ -23,7 +23,7 @@ const Products = () => {
             <span>podcast</span>
           </a>
         </Link>
-        <Link href="/articulos" locale="es">
+        <Link href="/articulos" locale="es" legacyBehavior>
           <a>
             <Picture
               src="/assets/img/layout/recursoarticulo.jpg"

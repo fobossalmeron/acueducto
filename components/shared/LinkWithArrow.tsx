@@ -16,7 +16,7 @@ function LinkWithArrow({
 }) {
   let router = useRouter();
   return (
-    <Link href={link[0]} as={as} passHref locale={router.locale}>
+    <Link href={link[0]} as={as} passHref locale={router.locale} legacyBehavior>
       <LinkContainer>
         <Fade triggerOnce>
           <p>

@@ -40,6 +40,7 @@ export default function Cookies({ locale, setTitle, pt }) {
             as={locale === "en" ? "/privacy" : "/privacidad"}
             locale={locale}
             passHref
+            legacyBehavior
           >
             <a>{b.link0}</a>
           </Link>

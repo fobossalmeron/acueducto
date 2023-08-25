@@ -27,7 +27,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
         <ul>
             <Resource key={"linkentry" + 0}>
                 <img src="/assets/img/layout/linkenbio/giveaway.png" alt="Paticipa por un sitio de $175,000 mxn"/>
-                <Link href={links[0].url} passHref locale={locale}>
+                <Link href={links[0].url} passHref locale={locale} legacyBehavior>
                     <a>
                         <Fade triggerOnce>
                             <span>{links[0].subtitle}</span>

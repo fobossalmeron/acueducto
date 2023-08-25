@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const Header = ({ slug, title }) => (
   <Fade triggerOnce>

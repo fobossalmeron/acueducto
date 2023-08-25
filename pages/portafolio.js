@@ -30,7 +30,7 @@ export default function Work({ locale, setTitle, pt }) {
       />
       <TitleSection {...t.intro} />
       <CaseList limit={4} />
-      <ContactFooter />
+      {/* <ContactFooter /> */}
     </PageClipper>
   );
 }

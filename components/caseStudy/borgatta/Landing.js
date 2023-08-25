@@ -3,7 +3,7 @@ import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
 import { useState } from "react";
 import { useEffect } from "react";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Landing1 from "public/assets/img/casestudies/borgatta/landing1.png";
 import Landing2 from "public/assets/img/casestudies/borgatta/landing2.png";
 import Landing3 from "public/assets/img/casestudies/borgatta/landing3.png";

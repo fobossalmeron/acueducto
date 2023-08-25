@@ -9,7 +9,7 @@ import PageClipper from "components/layout/PageClipper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { H1, H2, H3 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
@@ -19,10 +19,12 @@ import { Persona, Check, BuildStory } from "components/shared/Icons";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
 import { advancedMatching } from "utils/analytics";
+import { createClient } from "../prismicio";
+import PrismicEpisodeFeature from "../components/podcast/PrismicEpisodeFeature";
 
 const iconArray = [Persona, Check, BuildStory];
 
-function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
+function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrismicEpisode }) {
   const { intro, head, banner, favorites, chapters, closing } = pt;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -110,7 +112,11 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
             <h2>{banner.title}</h2>
             <p>{banner.p}</p>
             <div>
-              <Link href={"/podcast/" + lastEpisode.slug} passHref>
+              <Link 
+                href={"/podcast/" + lastPrismicEpisode.uid} 
+                passHref
+                legacyBehavior
+              >
                 <ButtonArrow text={banner.button} />
               </Link>
             </div>
@@ -118,7 +124,10 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
         </div>
         <Limiter>
           <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            <EpisodeFeature {...lastEpisode} blue />
+            {(lastPrismicEpisode?.data.introduction[0].episode >= 105)
+              ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
+              : <EpisodeFeature {...lastEpisode} blue />
+            }
           </Tilt>
         </Limiter>
       </FullSection>
@@ -141,7 +150,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
           </div>
         </FeatureList>
         <Fade>
-          <Link href={"/podcast/episodios"} passHref>
+          <Link href={"/podcast/episodios"} passHref legacyBehavior>
             <ButtonArrow text={favorites.button} inverse={true} />
           </Link>
         </Fade>
@@ -190,7 +199,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt }) {
 
 export default React.memo(PodcastLanding);
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context, previewData) => {
   const sortedEpisodes = getAllEpisodes(["slug", "episode"]).sort((ep1, ep2) =>
     ep1.episode > ep2.episode ? 1 : -1
   );
@@ -245,11 +254,21 @@ export const getStaticProps = async (context) => {
       notFound: true,
     };
   }
+
+  const prismicClient = createClient({ previewData });
+  const prismicEpisodes = await prismicClient.getAllByType("episode");
+  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+
+  const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
+
   return {
     props: {
       episodes: [...episodes],
       lastEpisode: lastEpisode,
       pt,
+
+      prismicEpisodes: [...prismicEpisodes],
+      lastPrismicEpisode: lastPrismicEpisode,
     },
   };
 };

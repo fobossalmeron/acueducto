@@ -25,6 +25,7 @@ const ContactFooter = () => {
             as={context.lang === "en" ? "/contact" : "/contacto"}
             locale={context.lang}
             passHref
+            legacyBehavior
           >
             <ButtonArrow text={button_text} />
           </Link>

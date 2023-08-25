@@ -25,7 +25,7 @@
     "**/*.ts",
     "**/*.tsx",
     "utils/custom.d.ts"
-  ],
+, "pages/api/preview.js"  ],
   "exclude": [
     "node_modules"
   ]

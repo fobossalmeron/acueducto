@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import EpisodePreview from "components/podcast/EpisodePreview";
+import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
@@ -10,8 +11,9 @@ import ResourceFooter from "components/shared/footers/ResourceFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 import { H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
+import { createClient } from "../../prismicio";
 
-function Podcasts({ locale, setTitle, episodes, pt }) {
+function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
   const { intro, head } = pt;
 
   useEffect(() => {
@@ -93,6 +95,24 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
             {episodes.map((episode, index) => (
               <EpisodePreview {...episode} key={"npd" + index} />
             ))}
+            {prismicEpisodes.map((prismicEpisode, index) => (
+              <PrismicEpisodePreview 
+                title={prismicEpisode.data.introduction[0].title[0].text}
+                guest={prismicEpisode.data.introduction[0].guest}
+                business={prismicEpisode.data.introduction[0].business}
+                slug={prismicEpisode.uid}
+                spotify={prismicEpisode.data.introduction[0].spotify}
+                apple={prismicEpisode.data.introduction[0].apple}
+                google={prismicEpisode.data.introduction[0].google}
+                youtube={prismicEpisode.data.introduction[0].youtube}
+                podcastImage={prismicEpisode.data.images[0].episode}
+                episode={prismicEpisode.data.introduction[0].episode}
+                description={prismicEpisode.data.introduction[0].description[0].text}
+                date={prismicEpisode.data.introduction[0].date}
+                category={prismicEpisode.data.introduction[0].category}
+                key={"npd" + index} 
+              />
+            ))}
           </PodcastList>
         </div>
       </PodcastGrid>
@@ -107,7 +127,7 @@ function Podcasts({ locale, setTitle, episodes, pt }) {
 
 export default React.memo(Podcasts);
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context, previewData) => {
   const sortedEpisodes = getAllEpisodes(["slug", "episode"]).sort((ep1, ep2) =>
     ep1.episode > ep2.episode ? 1 : -1
   );
@@ -133,10 +153,18 @@ export const getStaticProps = async (context) => {
       notFound: true,
     };
   }
+
+  //CMS Prismic
+  const client = createClient({ previewData });
+  const prismicEpisodes = await client.getAllByType("episode");
+  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+
   return {
     props: {
       episodes: [...episodes],
       pt,
+
+      prismicEpisodes: [...orderedPrismicEpisodes],
     },
   };
 };
@@ -187,10 +215,9 @@ const PodcastGrid = styled.div`
   background-size: cover;
   background-position: top right;
   grid-template-columns: repeat(12, 1fr);
-  grid-gap: 0.2rem 2.5rem;
   width: 100%;
   display: grid;
-  padding: 10% 4%;
+  padding: 10% 3.5%;
   position: relative;
   margin-bottom: -1px;
   & > div {

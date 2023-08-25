@@ -45,7 +45,7 @@ export default function Privacy({ locale, setTitle, pt }) {
           <li>{b.listItem2}</li>
           <li>
             {b.listItem3}
-            <Link href={"/cookies"} locale={locale}>
+            <Link href={"/cookies"} locale={locale} legacyBehavior>
               <a>{b.listItem3Link}</a>
             </Link>
             )
