@@ -91,7 +91,10 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
               </CatList>
             </CatFilter>
           </Fade>
-          <PodcastList style={{ marginBottom: '-5%' }}>
+          <PodcastList>
+            {episodes.map((episode, index) => (
+              <EpisodePreview {...episode} key={"npd" + index} />
+            ))}
             {prismicEpisodes.map((prismicEpisode, index) => (
               <PrismicEpisodePreview 
                 title={prismicEpisode.data.introduction[0].title[0].text}
@@ -109,11 +112,6 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
                 category={prismicEpisode.data.introduction[0].category}
                 key={"npd" + index} 
               />
-            ))}
-          </PodcastList>
-          <PodcastList>
-            {episodes.map((episode, index) => (
-              <EpisodePreview {...episode} key={"npd" + index} />
             ))}
           </PodcastList>
         </div>
@@ -219,7 +217,7 @@ const PodcastGrid = styled.div`
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   display: grid;
-  padding: 10% 4%;
+  padding: 10% 3.5%;
   position: relative;
   margin-bottom: -1px;
   & > div {
