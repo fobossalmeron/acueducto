@@ -59,13 +59,13 @@ const PictureContainer = styled.div`
   border-radius: 25px;
   overflow: hidden !important;
   display: inline-block !important;
-  height: 142px !important;
+  height: 145px !important;
   img {
     transition: all 0.25s ease-out;
     background-color: #131516;
-    transform: scale(1.01);
+    transform: scale(1);
     width: 100%;
-    height: 100%;
+    height: 104%;
   }
 `;
 
