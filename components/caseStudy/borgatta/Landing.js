@@ -22,29 +22,12 @@ import React from "react";
 import { keyframes } from "@emotion/core";
 import Reveal from "react-awesome-reveal";
 
-const Landing = () => {
-  const [isMobile, setIsMobile] = useState();
-
-  useEffect(() => {
-    if (window.innerWidth <= 600) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    };
-    window.addEventListener("resize", function(){
-      if (window.innerWidth <= 600) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    });
-  }, [isMobile]);
-
+const Landing = (props) => {
   return (
     <LandSection>
       <Fade delay={750} triggerOnce>
         <LogoBorgatta>
-          {!isMobile 
+          {!props.isMobile 
             ? <img
                 src="/assets/img/casestudies/borgatta/brand-md.svg"
                 alt="Web B360"
@@ -56,7 +39,7 @@ const Landing = () => {
           }
         </LogoBorgatta>
       </Fade>
-      {!isMobile ? (
+      {!props.isMobile ? (
         <PicturesContainer>
           <FirstColumn>
             <Reveal keyframes={customAnimation} delay={1300} direction="up" triggerOnce>

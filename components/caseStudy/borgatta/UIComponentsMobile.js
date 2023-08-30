@@ -3,20 +3,11 @@ import Image from "next/legacy/image";
 import { Fade } from "react-awesome-reveal";
 import UIComponent1 from "public/assets/img/casestudies/borgatta/UIComponent1.png";
 import UIComponent2 from "public/assets/img/casestudies/borgatta/UIComponent2.png";
-import UIComponent3 from "public/assets/img/casestudies/borgatta/UIComponent3.png";
-import UIComponent4 from "public/assets/img/casestudies/borgatta/UIComponent4.png";
-import UIComponent6 from "public/assets/img/casestudies/borgatta/UIComponent6.png";
-import UIComponent8 from "public/assets/img/casestudies/borgatta/UIComponent8.png";
 import UIComponent9 from "public/assets/img/casestudies/borgatta/UIComponent9.png";
 import UIComponent10 from "public/assets/img/casestudies/borgatta/UIComponent10.png";
 import UIComponent11 from "public/assets/img/casestudies/borgatta/UIComponent11.png";
 import UIComponent12 from "public/assets/img/casestudies/borgatta/UIComponent12.png";
 import UIComponent14 from "public/assets/img/casestudies/borgatta/UIComponent14.png";
-import UIComponent16 from "public/assets/img/casestudies/borgatta/UIComponent16.png";
-import UIComponent17 from "public/assets/img/casestudies/borgatta/UIComponent17.png";
-import UIComponent18 from "public/assets/img/casestudies/borgatta/UIComponent18.png";
-import UIComponent20 from "public/assets/img/casestudies/borgatta/UIComponent20.png";
-import UIComponent21 from "public/assets/img/casestudies/borgatta/UIComponent21.png";
 
 const UIComponentsMobile= () => {
     return (
