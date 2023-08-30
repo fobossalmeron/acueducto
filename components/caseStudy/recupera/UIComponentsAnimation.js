@@ -19,7 +19,7 @@ import UIComponent16 from "public/assets/img/casestudies/recupera/UIComponent16.
 import UIComponent17 from "public/assets/img/casestudies/recupera/UIComponent17.png";
 import UIComponent18 from "public/assets/img/casestudies/recupera/UIComponent18.png";
 import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const UIComponentsAnimation = (props) => {
 

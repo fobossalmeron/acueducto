@@ -12,22 +12,27 @@ const IPhoneAnimation = () => {
     
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY !== 0) {
+      const scrollY = document.querySelector("#ScrollIphoneAnimation")?.getBoundingClientRect().top;
+      console.log(scrollY, 'scrollY')
+
+      if (scrollY !== 0) {
         setScrollDirection(true);
 
         setTimeout(() => {
           setScrollDirection(false);
         }, 2000);
-        
-        return () => window.removeEventListener('scroll', handleScroll);
       }
     };
     
-    window.addEventListener('scroll', handleScroll);
+    document.querySelector("#Clipper").addEventListener("scroll", handleScroll);
+    
+    return () => {
+      document.querySelector("#Clipper").removeEventListener("scroll", handleScroll);
+    };
   }, []);
   
   return (
-    <MobilePicture>
+    <MobilePicture id="ScrollIphoneAnimation">
       <div className='mobileBackground'>
         <Picture
           src={MobileBackground}
@@ -64,7 +69,7 @@ export default IPhoneAnimation;
 
 const MobilePicture = styled.div`
   width: 100%;
-  height: 100%;
+  // height: 100%;
   position: relative;
 
   .mobileBackground {

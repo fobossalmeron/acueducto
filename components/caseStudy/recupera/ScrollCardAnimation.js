@@ -13,52 +13,68 @@ import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
 
-const ScrollCardAnimation = (props) => {
-  const [isMobile, setIsMobile] = useState();
+const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
 
   const handleScrollAnimation = () => {
-    const scrollY = window.scrollY;
-    const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
-    const moveAmount = progress * 70; // Ajustar este multiplicador según la velocidad de la animación
+    let scrollY = 0;
 
+    if (isMobile){
+      scrollY = window.scrollY;
+    } else {
+      scrollY = document.querySelector('#ScrollAnimation')?.getBoundingClientRect().top;
+    };
+      
+    const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
+    const moveAmount = progress * 70; // Ajustar este multiplicador según la velocidad de la animación mobile
+  
     const card1 = document.getElementById("card1");
     if (card1) {
       card1.style.transform = `translateX(${moveAmount}px)`;
-    }
-
+    };
+  
     const card2 = document.getElementById("card2");
     if (card2) {
       card2.style.transform = `translateX(-${moveAmount}px)`;
-    }
-
+    };
+  
     const card3 = document.getElementById("card3");
     if (card3) {
       card3.style.transform = `translateX(${moveAmount}px)`;
-    }
+    };
   };
 
   useEffect(() => {
-    window.addEventListener("resize", function(){
-      if (window.innerWidth <= 650) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    });
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 650);
+    }
 
-    window.addEventListener("scroll", handleScrollAnimation);
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 650);
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+    
+    if (isMobile) {
+      window.addEventListener("scroll", handleScrollAnimation);
+    } else {
+      document.querySelector("#Clipper").addEventListener("scroll", handleScrollAnimation);
+    }
 
     return () => {
       window.removeEventListener("scroll", handleScrollAnimation);
+      document.querySelector("#Clipper").removeEventListener("scroll", handleScrollAnimation);
+      window.removeEventListener("resize", handleResize);
     };
-  }, []);
+  }, [isMobile]);
   
   return (
     <Fade delay={300} triggerOnce>
       {
         !isMobile ? 
           <PicturesContainer>
-            <Element name="card1" className="scroll-element">
+            <Element name="card1" className="scroll-element" id="ScrollAnimation">
               <FirstRow id="card1">
                 <Picture
                   src={Screenshot1}
@@ -112,7 +128,7 @@ const ScrollCardAnimation = (props) => {
               </SecondRow>
             </Element>
           </PicturesContainer> 
-        : 
+        :
           <PicturesContainerMobile>
             <Element name="card1" className="scroll-element">
               <FirstRowMobile id="card1">

@@ -5,7 +5,7 @@ import Screen3 from "public/assets/img/casestudies/recupera/screen3.png";
 import Lottie from "lottie-react";
 import animationData from "public/assets/img/casestudies/recupera/lottie-recupera.json";
 import { Fade } from "react-awesome-reveal";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 const ScreenAnimation = () => {
   return (

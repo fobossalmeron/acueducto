@@ -33,7 +33,7 @@ const white = "#FFFFFF";
 const Recupera = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
   const [t, setT] = useState(pt);
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     clientLocale({
@@ -45,20 +45,28 @@ const Recupera = ({ locale, setTitle, pt }) => {
       },
     });
 
-    window.addEventListener("resize", function(){
-      if (window.innerWidth <= 650) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 650);
+    }
+
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 650);
       }
-    });
+    };
     
+    window.addEventListener("resize", handleResize);
+
     setloadAssets(true);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
 
   }, [locale, isMobile]);
 
   return (
-    <PageClipperBorgatta>
+    <PageClipperRecupera>
       <Head
         {...t?.head}
         image={{ fileName: "og_image_recupera.png", alt: t?.head.image_alt }}
@@ -105,7 +113,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
             {t.intro_section.p}
           </P>
         </TextColumn>
-        <ScrollCardAnimation />
+        <ScrollCardAnimation isMobile={isMobile} setIsMobile={setIsMobile} />
         <Quote quote={t.intro_section.quote} color={"#F4F4F4"} mark={"#060809"}/>
       </FirstSection>
       <SecondSection>
@@ -114,8 +122,8 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <P>{t.second_section.p}</P>
           <ChallengesContainer>
             {t?.second_section.challenges.map((challenge, i) => (
-              <Fade delay={300} triggerOnce>
-                <Challenge key={`challenge${i}`}>
+              <Fade delay={300} triggerOnce key={`challenge${i}`}>
+                <Challenge>
                   <span>
                     <p>{i + 1}</p>
                   </span>
@@ -189,7 +197,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
       </FourthSection>
       <NextStudy link="borgatta" />
       <ContactFooter />
-    </PageClipperBorgatta>
+    </PageClipperRecupera>
   );
 }
 
@@ -209,7 +217,7 @@ export const getStaticProps = async (context) => {
 
 
 
-const PageClipperBorgatta = styled(PageClipper)`
+const PageClipperRecupera = styled(PageClipper)`
   background: linear-gradient(46deg, #6239D9 0%, #5C50ED 100%);
   @media (max-width: 1300px) {
     padding: 0px;
