@@ -15,6 +15,8 @@ import Picture from "components/caseStudy/shared/Picture";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
 import BroadcastRouter from "components/podcast/BroadcastRouter.tsx";
 import FAQSection from "components/shared/FAQ";
+import ClientsDesktop from "../public/assets/img/layout/clients.png";
+import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 
 function Index({ locale, setTitle, pt }) {
   const [t, setT] = useState(pt);
@@ -69,23 +71,19 @@ function Index({ locale, setTitle, pt }) {
       <LogosSection>
         <Fade triggerOnce>
           <span>{t.clients.span}</span>
-          <>
+          <div style={{maxWidth: !isMobile ? 900 : 650}}>
             {!isMobile ? (
               <Picture
-                src="/assets/img/layout/clients.png"
-                width={895}
-                height={121}
+                src={ClientsDesktop}
                 alt="Clientes"
               />
             ) : (
               <Picture
-                src="/assets/img/layout/clientsMobile.png"
-                width={640}
-                height={154}
+                src={ClientsMobile}
                 alt="Clientes"
               />
             )}
-          </>
+          </div>
           <Link
             href={"/portafolio"}
             as={locale === "en" ? "/work" : "/portafolio"}
