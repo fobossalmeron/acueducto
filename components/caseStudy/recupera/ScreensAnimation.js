@@ -46,7 +46,7 @@ export default ScreenAnimation;
 
 const DesktopAnimation = styled.div`
   display: flex;
-  gap: 48px;
+  gap: 3%;
   position: relative;
   left: 5%;
 
@@ -77,9 +77,17 @@ const DesktopAnimation = styled.div`
 
   @media (max-width: 900px) {
     left: 7%;
-    gap: 29px;
+    .screen1, .screen2 {
+      span {
+        border-radius: 15px;
+      }
+    }
   }
   @media (max-width: 600px) {
-    gap: 12px;
+    .screen1, .screen2 {
+      span {
+        border-radius: 6px;
+      }
+    }
   }
 `;

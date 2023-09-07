@@ -8,18 +8,21 @@ import UIMobile3 from "public/assets/img/casestudies/recupera/UIMobile3.png";
 import { useState } from "react";
 
 const IPhoneAnimation = () => {
-  const [scrollDirection, setScrollDirection] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const [animationInProgress, setAnimationInProgress] = useState(false);
     
   useEffect(() => {
     const handleScroll = () => {
       const scrollY = document.querySelector("#ScrollIphoneAnimation")?.getBoundingClientRect().top;
-      console.log(scrollY, 'scrollY')
+      // console.log(scrollY, 'scrollY')
 
-      if (scrollY !== 0) {
-        setScrollDirection(true);
+      if (!animationInProgress) {
+        setScrollPosition(scrollY);
+        setAnimationInProgress(true);
 
         setTimeout(() => {
-          setScrollDirection(false);
+          setAnimationInProgress(false);
         }, 2000);
       }
     };
@@ -30,6 +33,22 @@ const IPhoneAnimation = () => {
       document.querySelector("#Clipper").removeEventListener("scroll", handleScroll);
     };
   }, []);
+
+  const getAnimationStyle = () => {
+    const translateY = scrollPosition * 0.15; // Ajusta el factor para la velocidad del movimiento
+    return {
+      transform: `translateY(${translateY}px)`,
+      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    };
+  };
+
+  const getAnimationStyle2 = () => {
+    const translateY = scrollPosition * 0.04; // Ajusta el factor para la velocidad del movimiento
+    return {
+      transform: `translateY(${translateY}px)`,
+      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+    };
+  };
   
   return (
     <MobilePicture id="ScrollIphoneAnimation">
@@ -40,26 +59,28 @@ const IPhoneAnimation = () => {
           withWrapper
         />
       </div>
-      <div className={`picture1 ${scrollDirection === true ? 'moveUpDown' : ' '}`}>
-        <Picture
-          src={UIMobile1}
-          alt="Component"
-          withWrapper
-        />
-      </div>
-      <div className={`picture2 ${scrollDirection === true ? 'moveUpDown' : ' '}`}>
-        <Picture
-          src={UIMobile2}
-          alt="Component"
-          withWrapper
-        />
-      </div>
-      <div className={`picture3 ${scrollDirection === true ? 'moveUpDown' : ' '}`}>
-        <Picture
-          src={UIMobile3}
-          alt="Component"
-          withWrapper
-        />
+      <div className={`containerPictures`} style={getAnimationStyle()}>
+        <div className={`picture1`}>
+          <Picture
+            src={UIMobile1}
+            alt="Component"
+            withWrapper
+          />
+        </div>
+        <div className={`picture2`}>
+          <Picture
+            src={UIMobile2}
+            alt="Component"
+            withWrapper
+          />
+        </div>
+        <div className={`picture3`}>
+          <Picture
+            src={UIMobile3}
+            alt="Component"
+            withWrapper
+          />
+        </div>
       </div>
     </MobilePicture>
   );
@@ -77,43 +98,34 @@ const MobilePicture = styled.div`
     position: relative;
     left: 25%;
   }
-  .picture1 {
-    max-width: 280px;
-    top: 8%;
-    left: 8%;
-    width: 42%;
-  }
-  .picture2 {
-    top: 25%;
-    right: 2%;
-    max-width: 320px;
-    width: 47.8%;
-    transition: transform 0.1s ease;
-  }
-  .picture3 {
-    max-width: 250px;
-    bottom: 12.5%;
-    left: 2%;
-    width: 37.4%;
-  }
 
-  .picture1, .picture2 , .picture3 {
+  .containerPictures {
     position: absolute;
-  }
+    height: 100%;
+    width: 100%;
+    top: 0;
 
-  .moveUpDown {
-    animation: moveUpDown 2s ease;
-  }
-
-  @keyframes moveUpDown {
-    0%, 90% {
-      transform: translateY(1%);
+    .picture1 {
+      max-width: 280px;
+      top: 8%;
+      left: 8%;
+      width: 42%;
     }
-    100% {
-      transform: translateY(0%);
+    .picture2 {
+      top: 25%;
+      right: 2%;
+      max-width: 320px;
+      width: 47.8%;
     }
-    50% {
-      transform: translateY(-1%);
+    .picture3 {
+      max-width: 250px;
+      bottom: 12.5%;
+      left: 2%;
+      width: 37.4%;
+    }
+  
+    .picture1, .picture2 , .picture3 {
+      position: absolute;
     }
   }
 `;

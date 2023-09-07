@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import Picture from "components/caseStudy/shared/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
@@ -17,6 +17,7 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
 
   const handleScrollAnimation = () => {
     let scrollY = 0;
+    console.log(isMobile, 'mobile')
 
     if (isMobile){
       scrollY = window.scrollY;
@@ -25,21 +26,22 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
     };
       
     const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
-    const moveAmount = progress * 70; // Ajustar este multiplicador según la velocidad de la animación mobile
+    const moveAmount = progress * 7; // Ajustar este multiplicador según la velocidad de la animación mobile
+    console.log(moveAmount, 'movimiento de la 2da card')
   
     const card1 = document.getElementById("card1");
     if (card1) {
-      card1.style.transform = `translateX(${moveAmount}px)`;
+      card1.style.transform = `translateX(${moveAmount}em)`;
     };
   
     const card2 = document.getElementById("card2");
     if (card2) {
-      card2.style.transform = `translateX(-${moveAmount}px)`;
+      card2.style.transform = `translateX(${-moveAmount}em)`;
     };
   
     const card3 = document.getElementById("card3");
     if (card3) {
-      card3.style.transform = `translateX(${moveAmount}px)`;
+      card3.style.transform = `translateX(${moveAmount}em)`;
     };
   };
 
@@ -219,6 +221,8 @@ const FirstRow = styled.div`
   gap: 14.9px;
   width: 132%;
   align-self: center;
+  position: relative;
+  right: 7%;
 `;
 
 const SecondRow = styled.div`

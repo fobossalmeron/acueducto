@@ -185,7 +185,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
         />
         <Quote 
           quote={t.fourth_section.quote} 
-          color={"#292D34"}
+          color={"rgb(79, 79, 79)"}
         />
         <DesktopAndMobile>     
           <Picture
@@ -268,7 +268,7 @@ const LandSection = styled(CommonSection)`
 const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
-  background-color: #FBFBFD;
+  background-color: rgb(247, 243, 241);
   & > div {
     padding: 0px;
   }
