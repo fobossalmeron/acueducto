@@ -35,18 +35,10 @@ const IPhoneAnimation = () => {
   }, []);
 
   const getAnimationStyle = () => {
-    const translateY = scrollPosition * 0.15; // Ajusta el factor para la velocidad del movimiento
+    const translateY = scrollPosition * 0.05; // Ajustar para la velocidad del movimiento
     return {
       transform: `translateY(${translateY}px)`,
-      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
-    };
-  };
-
-  const getAnimationStyle2 = () => {
-    const translateY = scrollPosition * 0.04; // Ajusta el factor para la velocidad del movimiento
-    return {
-      transform: `translateY(${translateY}px)`,
-      transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+      transition: "transform 4s ease"
     };
   };
   
