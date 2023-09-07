@@ -144,7 +144,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <FirstPoint>
             <H3>{t.third_section.points.first.subtitle}</H3>
             <P>{t.third_section.points.first.p}</P>
-            <IPhoneAnimation />
+            <IPhoneAnimation isMobile={isMobile} />
           </FirstPoint>
         </TextColumn>
         <TextColumn>

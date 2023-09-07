@@ -17,7 +17,6 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
 
   const handleScrollAnimation = () => {
     let scrollY = 0;
-    console.log(isMobile, 'mobile')
 
     if (isMobile){
       scrollY = window.scrollY;
@@ -27,7 +26,6 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
       
     const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
     const moveAmount = progress * 7; // Ajustar este multiplicador según la velocidad de la animación mobile
-    console.log(moveAmount, 'movimiento de la 2da card')
   
     const card1 = document.getElementById("card1");
     if (card1) {
@@ -47,12 +45,12 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
-      setIsMobile(window.innerWidth <= 650);
+      setIsMobile(window.innerWidth <= 600);
     }
 
     const handleResize = () => {
       if (typeof window !== 'undefined') {
-        setIsMobile(window.innerWidth <= 650);
+        setIsMobile(window.innerWidth <= 600);
       }
     };
     
@@ -254,7 +252,7 @@ const FirstRowMobile = styled.div`
   gap: 9.5px;
   width: 120%;
   position: relative;
-  right: 35%;
+  right: 40%;
 `;
 
 const SecondRowMobile = styled.div`
@@ -271,5 +269,5 @@ const ThirdRowMobile = styled.div`
   gap: 9.5px;
   width: 123%;
   position: relative;
-  right: 35%;
+  right: 40%;
 `;
