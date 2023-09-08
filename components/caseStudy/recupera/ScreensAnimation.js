@@ -16,7 +16,7 @@ const ScreenAnimation = () => {
           alt="Recupera"
         />
       </Fade>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '48px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '3%' }}>
         <Fade delay={400} direction="right" triggerOnce className="screen2">
           <>
             <Image

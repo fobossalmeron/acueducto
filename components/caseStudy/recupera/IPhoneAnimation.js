@@ -6,22 +6,23 @@ import UIMobile1 from "public/assets/img/casestudies/recupera/UIMobile1.png";
 import UIMobile2 from "public/assets/img/casestudies/recupera/UIMobile2.png";
 import UIMobile3 from "public/assets/img/casestudies/recupera/UIMobile3.png";
 import { useState } from "react";
+import Image from "next/legacy/image";
 
 const IPhoneAnimation = ({isMobile}) => {
   const [scrollPosition, setScrollPosition] = useState(0);
-
   const [animationInProgress, setAnimationInProgress] = useState(false);
     
   useEffect(() => {
     const handleScroll = () => {
-      let scrollY = 0; 
-      //const scrollY = document.querySelector("#ScrollIphoneAnimation")?.getBoundingClientRect().top;
+      let scrollY = 0;
+
       if (isMobile){
-        scrollY = window.scrollY;
+        scrollY = window.scrollY / 5;
       } else {
         scrollY = document.querySelector('#ScrollIphoneAnimation')?.getBoundingClientRect().top;
       };
-      console.log(scrollY, 'scrollY')
+
+      console.log(scrollY, 'kdfjgn')
 
       if (!animationInProgress) {
         setScrollPosition(scrollY);
@@ -38,8 +39,6 @@ const IPhoneAnimation = ({isMobile}) => {
     } else {
       document.querySelector("#Clipper").addEventListener("scroll", handleScroll);
     }
-
-    console.log(isMobile, 'pasa por aca')
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
@@ -51,16 +50,18 @@ const IPhoneAnimation = ({isMobile}) => {
     const translateY = scrollPosition * 0.05; // Ajustar para la velocidad del movimiento
     return {
       transform: `translateY(${translateY}px)`,
-      transition: "transform 4s ease"
+      transition: "transform 4s ease",
+      bottom: "0px",
     };
   };
 
   const getAnimationStyleMobile = () => {
-    // const translateY = scrollPosition * 0.08; // Ajustar para la velocidad del movimiento
-    const translateY = isMobile ? -scrollPosition * 0.08 : scrollPosition * 0.08;
+    const translateY = isMobile ? -scrollPosition * 0.08 : scrollPosition * 0.08; // Ajustar para la velocidad del movimiento
+    console.log(translateY, 'translateY')
     return {
       transform: `translateY(${translateY}px)`,
-      transition: "transform 4s ease"
+      transition: "transform 1s ease",
+      bottom: "-60px",
     };
   };
   
@@ -73,29 +74,29 @@ const IPhoneAnimation = ({isMobile}) => {
           withWrapper
         />
       </div>
-      <div className={`containerPictures`} style={!isMobile ? getAnimationStyle() : getAnimationStyleMobile()} isMobile>
+      <ContainerPictures style={!isMobile ? getAnimationStyle() : getAnimationStyleMobile()}>
         <div className={`picture1`}>
-          <Picture
+          <Image
             src={UIMobile1}
             alt="Component"
             withWrapper
           />
         </div>
         <div className={`picture2`}>
-          <Picture
+          <Image
             src={UIMobile2}
             alt="Component"
             withWrapper
           />
         </div>
         <div className={`picture3`}>
-          <Picture
+          <Image
             src={UIMobile3}
             alt="Component"
             withWrapper
           />
         </div>
-      </div>
+      </ContainerPictures>
     </MobilePicture>
   );
 };
@@ -111,43 +112,47 @@ const MobilePicture = styled.div`
     position: relative;
     left: 25%;
   }
+`;
 
-  .containerPictures {
+const ContainerPictures = styled.div`
+  position: absolute;
+  height: 100%;
+  width: 100%;
+
+  .picture1 {
+    max-width: 280px;
+    top: 16%;
+    left: 8%;
+    width: 42%;
+  }
+  .picture2 {
+    top: 32%;
+    right: 2%;
+    max-width: 320px;
+    width: 47.8%;
+  }
+  .picture3 {
+    max-width: 250px;
+    bottom: 14%;
+    left: 2%;
+    width: 37.4%;
+  }
+  
+  .picture1, .picture2 , .picture3 {
     position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    bottom: ${(props) => (props.isMobile ? "0px" : "-345px")};
+  }
+  
+  @media (max-width: 630px) {
+    top: auto;
 
     .picture1 {
-      max-width: 280px;
-      top: 8%;
-      left: 8%;
-      width: 42%;
+      left: 10%;
     }
     .picture2 {
-      top: 25%;
-      right: 2%;
-      max-width: 320px;
-      width: 47.8%;
+      right: -2%;
     }
     .picture3 {
-      max-width: 250px;
-      bottom: 12.5%;
-      left: 2%;
-      width: 37.4%;
-    }
-  
-    .picture1, .picture2 , .picture3 {
-      position: absolute;
-    }
-  }
-  @media (max-width: 630px) {
-    .containerPictures {
-      top: auto;
-      .picture3 {
-        bottom: 24%;
-      }
+      left: 4%;
     }
   }
 `;

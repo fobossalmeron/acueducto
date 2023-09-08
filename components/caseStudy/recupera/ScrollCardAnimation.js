@@ -14,7 +14,6 @@ import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
 
 const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
-
   const handleScrollAnimation = () => {
     let scrollY = 0;
 
@@ -252,7 +251,7 @@ const FirstRowMobile = styled.div`
   gap: 9.5px;
   width: 120%;
   position: relative;
-  right: 40%;
+  right: 60%;
 `;
 
 const SecondRowMobile = styled.div`
@@ -269,5 +268,5 @@ const ThirdRowMobile = styled.div`
   gap: 9.5px;
   width: 123%;
   position: relative;
-  right: 40%;
+  right: 60%;
 `;
