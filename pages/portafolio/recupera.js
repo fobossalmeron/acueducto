@@ -245,7 +245,7 @@ const LandSection = styled(CommonSection)`
 
   .logo {
     min-width: 223px;
-    max-width: 600px;
+    max-width: 30em;
     right: -4%;
     position: relative;
   }
