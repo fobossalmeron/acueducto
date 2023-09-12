@@ -9,10 +9,6 @@ import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import Reveal, { Fade, Slide } from "react-awesome-reveal";
 import LogoRecupera from "public/assets/img/casestudies/recupera/logoRecupera.svg";
-import BrandRecupera1Md from "public/assets/img/casestudies/recupera/brand1Md.svg";
-import BrandRecupera2Md from "public/assets/img/casestudies/recupera/brand2Md.svg";
-import BrandRecupera1Sm from "public/assets/img/casestudies/recupera/brand1Sm.svg";
-import BrandRecupera2Sm from "public/assets/img/casestudies/recupera/brand2Sm.svg";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import { H2, H3, P } from "components/shared/Dangerously";
 import Quote from "components/caseStudy/shared/Quote";
@@ -78,25 +74,37 @@ const Recupera = ({ locale, setTitle, pt }) => {
           {!isMobile ? (
             <>
               <Fade delay={300} triggerOnce>
-                <BrandRecupera1Md />
+                <img
+                  src="/assets/img/casestudies/recupera/brand1Md.svg"
+                  alt="Herramientas"
+                />
               </Fade>
               <Fade delay={300} triggerOnce className="logo">
                 <LogoRecupera />
               </Fade>
               <Fade delay={300} triggerOnce>
-                <BrandRecupera2Md />
+                <img
+                  src="/assets/img/casestudies/recupera/brand2Md.svg"
+                  alt="Herramientas"
+                />
               </Fade>
             </>
           ) : (
             <>
               <Fade delay={300} triggerOnce className="brand1">
-                <BrandRecupera1Sm />
+                <img
+                  src="/assets/img/casestudies/recupera/brand1Sm.svg"
+                  alt="Herramientas"
+                />
               </Fade>
               <Fade delay={500} triggerOnce className="logo">
                 <LogoRecupera />
               </Fade>
               <Fade delay={600} triggerOnce className="brand2">
-                <BrandRecupera2Sm />
+                <img
+                  src="/assets/img/casestudies/recupera/brand2Sm.svg"
+                  alt="Herramientas"
+                />
               </Fade>
             </>
           )}
@@ -228,23 +236,18 @@ const LandSection = styled(CommonSection)`
   min-height: 100vh;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  svg {
+  img, svg {
     width: 100%;
   }
 
   .logo {
+    min-width: 223px;
     max-width: 600px;
     right: -4%;
     position: relative;
-  }
-
-  @media (max-width: 1000px) {
-    & > div {
-      max-width: 300px;
-    }
   }
   @media (max-width: 650px) {
     display: flex;
