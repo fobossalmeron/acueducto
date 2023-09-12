@@ -76,16 +76,19 @@ const Recupera = ({ locale, setTitle, pt }) => {
               <Fade delay={300} triggerOnce>
                 <img
                   src="/assets/img/casestudies/recupera/brand1Md.svg"
-                  alt="Herramientas"
+                  alt="Logo"
                 />
               </Fade>
               <Fade delay={300} triggerOnce className="logo">
-                <LogoRecupera />
+                <img
+                  src="/assets/img/casestudies/recupera/logoRecupera.svg"
+                  alt="Recupera"
+                />
               </Fade>
               <Fade delay={300} triggerOnce>
                 <img
                   src="/assets/img/casestudies/recupera/brand2Md.svg"
-                  alt="Herramientas"
+                  alt="Logo"
                 />
               </Fade>
             </>
@@ -94,16 +97,19 @@ const Recupera = ({ locale, setTitle, pt }) => {
               <Fade delay={300} triggerOnce className="brand1">
                 <img
                   src="/assets/img/casestudies/recupera/brand1Sm.svg"
-                  alt="Herramientas"
+                  alt="Logo"
                 />
               </Fade>
               <Fade delay={500} triggerOnce className="logo">
-                <LogoRecupera />
+                <img
+                  src="/assets/img/casestudies/recupera/logoRecupera.svg"
+                  alt="Recupera"
+                />
               </Fade>
               <Fade delay={600} triggerOnce className="brand2">
                 <img
                   src="/assets/img/casestudies/recupera/brand2Sm.svg"
-                  alt="Herramientas"
+                  alt="Logo"
                 />
               </Fade>
             </>
