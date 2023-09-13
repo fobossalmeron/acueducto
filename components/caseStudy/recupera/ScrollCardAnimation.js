@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Picture from "components/caseStudy/shared/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
@@ -12,8 +12,11 @@ import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png"
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
+import { useSpring, animated } from '@react-spring/web';
 
 const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
+  const [moveAmount, setMoveAmount] = useState(0);
+
   const handleScrollAnimation = () => {
     let scrollY = 0;
 
@@ -24,7 +27,7 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
     };
       
     const progress = (scrollY - 0) / (window.innerHeight - 0) || 0;
-    const moveAmount = progress * 7; // Ajustar este multiplicador según la velocidad de la animación mobile
+    const amount = setMoveAmount(progress * 7); // Ajustar este multiplicador según la velocidad de la animación mobile
   
     const card1 = document.getElementById("card1");
     if (card1) {
@@ -41,6 +44,21 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
       card3.style.transform = `translateX(${moveAmount}em)`;
     };
   };
+
+  let card1Animation = useSpring({
+    transform: `translateX(${moveAmount}em)`,
+    config: { mass: 1, tension: 280, friction: 30 },
+  });
+
+  let card2Animation = useSpring({
+    transform: `translateX(${-moveAmount}em)`,
+    config: { mass: 1, tension: 280, friction: 30 },
+  });
+
+  let card3Animation = useSpring({
+    transform: `translateX(${-moveAmount}em)`,
+    config: { mass: 1, tension: 280, friction: 30 },
+  });
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
@@ -74,122 +92,132 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
         !isMobile ? 
           <PicturesContainer>
             <Element name="card1" className="scroll-element" id="ScrollAnimation">
-              <FirstRow id="card1">
-                <Picture
-                  src={Screenshot1}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot2}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot3}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot4}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot5}
-                  alt="Screenshots"
-                  withWrapper
-                />
-              </FirstRow>
+              <animated.div style={card1Animation}>
+                <FirstRow id="card1">
+                  <Picture
+                    src={Screenshot1}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot2}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot3}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot4}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot5}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                </FirstRow>
+              </animated.div>
             </Element>
             <Element name="card2" className="scroll-element">
-              <SecondRow id="card2">
-                <Picture
-                  src={Screenshot6}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot7}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot8}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot9}
-                  alt="Screenshots"
-                  withWrapper
-                />
-              </SecondRow>
+              <animated.div style={card2Animation}>
+                <SecondRow id="card2">
+                  <Picture
+                    src={Screenshot6}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot7}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot8}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot9}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                </SecondRow>
+              </animated.div>
             </Element>
           </PicturesContainer> 
         :
           <PicturesContainerMobile>
             <Element name="card1" className="scroll-element">
-              <FirstRowMobile id="card1">
-                <Picture
-                  src={Screenshot1}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot2}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot3}
-                  alt="Screenshots"
-                  withWrapper
-                />
-              </FirstRowMobile>
+              <animated.div style={card1Animation}>
+                <FirstRowMobile id="card1">
+                  <Picture
+                    src={Screenshot1}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot2}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot3}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                </FirstRowMobile>
+              </animated.div>
             </Element>
             <Element name="card1" className="scroll-element">
-              <SecondRowMobile id="card2">
-                <Picture
-                  src={Screenshot3}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot7}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot8}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot1}
-                  alt="Screenshots"
-                  withWrapper
-                />
-              </SecondRowMobile>
+              <animated.div style={card2Animation}>
+                <SecondRowMobile id="card2">
+                  <Picture
+                    src={Screenshot3}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot7}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot8}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot1}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                </SecondRowMobile>
+              </animated.div>
             </Element>
             <Element name="card3" className="scroll-element">
-              <ThirdRowMobile id="card3">
-                <Picture
-                  src={Screenshot6}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot9}
-                  alt="Screenshots"
-                  withWrapper
-                />
-                <Picture
-                  src={Screenshot5}
-                  alt="Screenshots"
-                  withWrapper
-                />
-              </ThirdRowMobile>
+              <animated.div style={card1Animation}>
+                <ThirdRowMobile id="card3">
+                  <Picture
+                    src={Screenshot6}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot9}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot5}
+                    alt="Screenshots"
+                    withWrapper
+                  />
+                </ThirdRowMobile>
+              </animated.div>
             </Element>
           </PicturesContainerMobile>
       }
@@ -251,7 +279,7 @@ const FirstRowMobile = styled.div`
   gap: 9.5px;
   width: 120%;
   position: relative;
-  right: 60%;
+  right: 80%;
 `;
 
 const SecondRowMobile = styled.div`
@@ -268,5 +296,5 @@ const ThirdRowMobile = styled.div`
   gap: 9.5px;
   width: 123%;
   position: relative;
-  right: 60%;
+  right: 80%;
 `;
