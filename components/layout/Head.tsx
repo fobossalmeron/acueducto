@@ -84,7 +84,7 @@ const NewHead = ({
               property="og:image"
               content={image.fileName.includes('images.prismic.io') ? image.fileName : `https://acueducto.studio/assets/img/og/${image.fileName}`}
             />
-            <meta property="og:image:type" content="gif" />
+            <meta property="og:image:type"/>
             <meta property="og:image:alt" content={image.alt} />
           </>
         ) : (
