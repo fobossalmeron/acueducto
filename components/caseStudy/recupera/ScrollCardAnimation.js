@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import Picture from "components/caseStudy/shared/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
+import Screenshot2c from "public/assets/img/casestudies/recupera/screenshot2c.svg";
 import Screenshot3 from "public/assets/img/casestudies/recupera/screenshot3.png";
 import Screenshot4 from "public/assets/img/casestudies/recupera/screenshot4.png";
 import Screenshot5 from "public/assets/img/casestudies/recupera/screenshot5.png";
@@ -12,6 +13,7 @@ import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png"
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
+import Image from "next/legacy/image";
 import { useSpring, animated } from '@react-spring/web';
 
 const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
@@ -55,11 +57,6 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
     config: { mass: 1, tension: 280, friction: 30 },
   });
 
-  let card3Animation = useSpring({
-    transform: `translateX(${-moveAmount}em)`,
-    config: { mass: 1, tension: 280, friction: 30 },
-  });
-
   useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth <= 600);
@@ -97,27 +94,22 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
                   <Picture
                     src={Screenshot1}
                     alt="Screenshots"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot2}
-                    alt="Screenshots"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot3}
-                    alt="Screenshots"
-                    withWrapper
                   />
                   <Picture
                     src={Screenshot4}
                     alt="Screenshots"
-                    withWrapper
+                  />
+                  <Picture
+                    src={Screenshot2}
+                    alt="Screenshots"
+                  />
+                  <Picture
+                    src={Screenshot3}
+                    alt="Screenshots"
                   />
                   <Picture
                     src={Screenshot5}
                     alt="Screenshots"
-                    withWrapper
                   />
                 </FirstRow>
               </animated.div>
@@ -128,22 +120,18 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
                   <Picture
                     src={Screenshot6}
                     alt="Screenshots"
-                    withWrapper
                   />
                   <Picture
                     src={Screenshot7}
                     alt="Screenshots"
-                    withWrapper
                   />
                   <Picture
                     src={Screenshot8}
                     alt="Screenshots"
-                    withWrapper
                   />
                   <Picture
                     src={Screenshot9}
                     alt="Screenshots"
-                    withWrapper
                   />
                 </SecondRow>
               </animated.div>
@@ -233,10 +221,10 @@ const PicturesContainer = styled.div`
   gap: 14.9px;
   margin-top: 5%;
 
-  .image {
-    span {
-      border-radius: 7.4px;
-    }
+  img {
+    border-radius: 7.4px;
+    image-rendering: auto;
+    object-fit: contain;
   }
 `;
 
@@ -247,7 +235,7 @@ const FirstRow = styled.div`
   width: 132%;
   align-self: center;
   position: relative;
-  right: 7%;
+  right: 18%;
 `;
 
 const SecondRow = styled.div`
