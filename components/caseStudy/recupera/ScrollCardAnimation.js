@@ -2,7 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Picture from "components/caseStudy/shared/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
-import Screenshot2c from "public/assets/img/casestudies/recupera/screenshot2c.svg";
 import Screenshot3 from "public/assets/img/casestudies/recupera/screenshot3.png";
 import Screenshot4 from "public/assets/img/casestudies/recupera/screenshot4.png";
 import Screenshot5 from "public/assets/img/casestudies/recupera/screenshot5.png";
