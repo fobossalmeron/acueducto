@@ -12,7 +12,6 @@ import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png"
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
-import Image from "next/legacy/image";
 import { useSpring, animated } from '@react-spring/web';
 
 const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
@@ -90,7 +89,7 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
             <Element name="card1" className="scroll-element" id="ScrollAnimation">
               <animated.div style={card1Animation}>
                 <FirstRow id="card1">
-                  <Picture
+                  {/* <Picture
                     src={Screenshot1}
                     alt="Screenshots"
                   />
@@ -103,11 +102,31 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
                     alt="Screenshots"
                   />
                   <Picture
-                    src={Screenshot3}
+                    src={Screenshot2a}
                     alt="Screenshots"
                   />
                   <Picture
                     src={Screenshot5}
+                    alt="Screenshots"
+                  /> */}
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot1.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot4.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot2.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot3.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot5.png"
                     alt="Screenshots"
                   />
                 </FirstRow>
@@ -116,7 +135,23 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
             <Element name="card2" className="scroll-element">
               <animated.div style={card2Animation}>
                 <SecondRow id="card2">
-                  <Picture
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot6.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot7.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot8.png"
+                    alt="Screenshots"
+                  />
+                  <img
+                    src="/assets/img/casestudies/recupera/screenshot9.png"
+                    alt="Screenshots"
+                  />
+                  {/* <Picture
                     src={Screenshot6}
                     alt="Screenshots"
                   />
@@ -131,7 +166,7 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
                   <Picture
                     src={Screenshot9}
                     alt="Screenshots"
-                  />
+                  /> */}
                 </SecondRow>
               </animated.div>
             </Element>
@@ -222,8 +257,7 @@ const PicturesContainer = styled.div`
 
   img {
     border-radius: 7.4px;
-    image-rendering: auto;
-    object-fit: contain;
+    width: 25%;
   }
 `;
 
@@ -231,7 +265,7 @@ const FirstRow = styled.div`
   display: flex;
   flex-direction: row;
   gap: 14.9px;
-  width: 132%;
+  // width: 132%;
   align-self: center;
   position: relative;
   right: 18%;
@@ -241,7 +275,7 @@ const SecondRow = styled.div`
   display: flex;
   flex-direction: row;
   gap: 14.9px;
-  width: 106%;
+  // width: 116%;
   align-self: center;
 `;
 
