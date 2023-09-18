@@ -8,6 +8,7 @@ const Quote = ({
   noMargin,
   specialMarginBottom,
   quote,
+  mark,
 }) => (
   <QuoteWrapper
     passedColor={color}
@@ -16,7 +17,7 @@ const Quote = ({
   >
     <Fade triggerOnce>
       <QuoteLimiter>
-        <QuoteMark passedColor={color}>
+        <QuoteMark passedColor={color} passedMark={mark}>
           <Mark />
         </QuoteMark>
         <Blockquote>{quote.quote}</Blockquote>
@@ -47,7 +48,8 @@ const Label = styled.p`
 const QuoteMark = styled.div`
   left: -55px;
   top: -15px;
-  opacity: 0.07;
+  opacity: ${(props) =>
+    props.passedMark ? '0.2' : '0.07' };
   width: 125px;
   height: 115px;
   font-size: 10rem;
@@ -56,7 +58,7 @@ const QuoteMark = styled.div`
     width: 100%;
     * {
       fill: ${(props) =>
-        props.passedColor ? props.passedColor : props.theme.colors.foreground};
+        props.passedMark ? props.passedMark : props.passedColor ? props.passedColor : props.theme.colors.foreground};
     }
   }
 `;

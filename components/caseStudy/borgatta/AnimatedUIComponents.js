@@ -4,27 +4,10 @@ import { useEffect } from "react";
 import UIComponentsDesktop from "./UIComponentsDesktop";
 import UIComponentsMobile from "./UIComponentsMobile";
 
-const AnimatedUIComponents= () => {
-  const [isMobile, setIsMobile] = useState();
-
-  useEffect(() => {
-    if (window.innerWidth <= 600) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    };
-    window.addEventListener("resize", function(){
-      if (window.innerWidth <= 600) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    });
-  }, [isMobile]);
-
+const AnimatedUIComponents= (props) => {
   return (
     <MainContainer>
-      {!isMobile 
+      {!props.isMobile 
         ? <UIComponentsDesktop />
         : <UIComponentsMobile />
       }
