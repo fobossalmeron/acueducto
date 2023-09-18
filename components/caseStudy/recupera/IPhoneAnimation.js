@@ -22,8 +22,6 @@ const IPhoneAnimation = ({isMobile}) => {
         scrollY = document.querySelector('#ScrollIphoneAnimation')?.getBoundingClientRect().top;
       };
 
-      console.log(scrollY, 'kdfjgn')
-
       if (!animationInProgress) {
         setScrollPosition(scrollY);
         setAnimationInProgress(true);
@@ -57,7 +55,7 @@ const IPhoneAnimation = ({isMobile}) => {
 
   const getAnimationStyleMobile = () => {
     const translateY = isMobile ? -scrollPosition * 0.08 : scrollPosition * 0.08; // Ajustar para la velocidad del movimiento
-    console.log(translateY, 'translateY')
+
     return {
       transform: `translateY(${translateY}px)`,
       transition: "transform 1s ease",
