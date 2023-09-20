@@ -68,14 +68,14 @@ const PrismicEpisodePage = ({
               <Center>
                 <VideoContainer>
                   <Video>
-                    {/* <YouTubePlayer
+                    <YouTubePlayer
                       className="react-player"
                       light={youtubeImage}
                       url={embedYoutube}
                       controls={true}
                       width="100%"
                       height="100%"
-                    /> */}
+                    />
                   </Video>
                 </VideoContainer>
               </Center>
