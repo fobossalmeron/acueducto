@@ -97,7 +97,6 @@ async function generateSitemap() {
   try {
     const client = createClient({ previewData });
     const prismicEpisodes = await client.getAllByType("episode");
-    console.log(prismicEpisodes, 'entra')
 
     const dinamicPodcastsPrismic = prismicEpisodes.map((staticPagePath) => {
       return {
