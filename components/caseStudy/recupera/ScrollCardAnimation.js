@@ -89,26 +89,6 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
             <Element name="card1" className="scroll-element" id="ScrollAnimation">
               <animated.div style={card1Animation}>
                 <FirstRow id="card1">
-                  {/* <Picture
-                    src={Screenshot1}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot4}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot2}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot2a}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot5}
-                    alt="Screenshots"
-                  /> */}
                   <img
                     src="/assets/img/casestudies/recupera/screenshot1.png"
                     alt="Screenshots"
@@ -151,22 +131,6 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
                     src="/assets/img/casestudies/recupera/screenshot9.png"
                     alt="Screenshots"
                   />
-                  {/* <Picture
-                    src={Screenshot6}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot7}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot8}
-                    alt="Screenshots"
-                  />
-                  <Picture
-                    src={Screenshot9}
-                    alt="Screenshots"
-                  /> */}
                 </SecondRow>
               </animated.div>
             </Element>
