@@ -56,9 +56,7 @@ const EpisodePage = ({
           <>
             <AllEpisodesHoverable>
               <BackArrowIcon />
-              <Link href={"/podcast/episodios"} passHref legacyBehavior>
-                ver todos los episodios
-              </Link>
+              <p>ver todos los episodios</p>
             </AllEpisodesHoverable>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
@@ -268,14 +266,13 @@ const AllEpisodesHoverable = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 6%;
-
-  a {
-    font-weight: 100;
-    color: #F4F4F4;
-    ${BorderLink({ showLink: false })}
+  font-weight: 100;
+  cursor: pointer;
+  
+  p {
+    ${BorderLink({ showLink: true })}
   }
-
-  background-image: none;
+  background: none;
 `;
 
 const IntroLogo = styled.p`
@@ -285,7 +282,7 @@ const IntroLogo = styled.p`
   margin-bottom: 3px;
   color: ${(props) => props.theme.colors.foreground};
   text-align: center;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
   text-decoration: none;
   padding-top: 120px;
   a {

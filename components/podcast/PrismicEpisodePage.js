@@ -61,12 +61,12 @@ const PrismicEpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           <>
-            <AllEpisodesHoverable>
-              <BackArrowIcon />
-              <Link href={"/podcast/episodios"} passHref legacyBehavior>
-                ver todos los episodios
-              </Link>
-            </AllEpisodesHoverable>
+            <Link href={"/podcast/episodios"} passHref legacyBehavior>
+              <AllEpisodesHoverable>
+                <BackArrowIcon />
+                <p>ver todos los episodios</p>
+              </AllEpisodesHoverable>
+            </Link>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
@@ -228,14 +228,13 @@ const AllEpisodesHoverable = styled.div`
   align-items: center;
   gap: 10px;
   margin-bottom: 6%;
+  font-weight: 100;
+  cursor: pointer;
 
-  a {
-    font-weight: 100;
-    color: #F4F4F4;
-    ${BorderLink({ showLink: false })}
+  p {
+    ${BorderLink({ showLink: true })}
   }
-
-  background-image: none;
+  background: none;
 `;
 
 const CenteredDiv = styled.div`
@@ -243,23 +242,6 @@ const CenteredDiv = styled.div`
   justify-content: center;
   display: flex;
   flex-direction: column;
-`;
-
-const PrismicTranscript = styled(Transcript)`
-  font-size: 1.7rem;
-  line-height: 25px;
-  margin-bottom: 2rem;
-  color: rgb(79, 79, 79);
-
-  heading2 {
-    font-size: 2.6rem;
-    font-weight: 300;
-    color: rgb(24, 32, 36);
-    line-height: 120%;
-    text-align: left;
-    margin-bottom: 1.1rem;
-    margin-top: 4rem;
-  }
 `;
 
 const ContentType = styled.span`
