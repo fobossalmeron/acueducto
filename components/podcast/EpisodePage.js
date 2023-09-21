@@ -14,6 +14,7 @@ import CenteredSection, {
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
+import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 
 const EpisodePage = ({
   title,
@@ -53,6 +54,12 @@ const EpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           <>
+            <AllEpisodesHoverable>
+              <BackArrowIcon />
+              <Link href={"/podcast/episodios"} passHref legacyBehavior>
+                ver todos los episodios
+              </Link>
+            </AllEpisodesHoverable>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
@@ -253,6 +260,22 @@ const EpisodeNumberStyled = styled.div`
   @media (max-width: 800px) {
     transform: scale(0.8);
   }
+`;
+
+const AllEpisodesHoverable = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6%;
+
+  a {
+    font-weight: 100;
+    color: #F4F4F4;
+    ${BorderLink({ showLink: false })}
+  }
+
+  background-image: none;
 `;
 
 const IntroLogo = styled.p`

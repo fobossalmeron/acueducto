@@ -16,6 +16,7 @@ import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
 import { PrismicRichText } from '@prismicio/react'
 import EpisodePreview from "./EpisodePreview";
+import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 
 const PrismicEpisodePage = ({
   uid,
@@ -60,6 +61,12 @@ const PrismicEpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           <>
+            <AllEpisodesHoverable>
+              <BackArrowIcon />
+              <Link href={"/podcast/episodios"} passHref legacyBehavior>
+                ver todos los episodios
+              </Link>
+            </AllEpisodesHoverable>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
@@ -215,6 +222,22 @@ const THoverable = styled.b`
   ${BorderLink({ showLink: false })}
 `;
 
+const AllEpisodesHoverable = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6%;
+
+  a {
+    font-weight: 100;
+    color: #F4F4F4;
+    ${BorderLink({ showLink: false })}
+  }
+
+  background-image: none;
+`;
+
 const CenteredDiv = styled.div`
   align-items: center;
   justify-content: center;
@@ -298,7 +321,7 @@ const IntroLogo = styled.p`
   margin-bottom: 3px;
   color: ${(props) => props.theme.colors.foreground};
   text-align: center;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
   text-decoration: none;
   padding-top: 120px;
   a {
