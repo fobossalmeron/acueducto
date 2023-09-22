@@ -222,7 +222,7 @@ const THoverable = styled.b`
   ${BorderLink({ showLink: false })}
 `;
 
-const AllEpisodesHoverable = styled.div`
+const AllEpisodesHoverable = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -230,6 +230,7 @@ const AllEpisodesHoverable = styled.div`
   margin-bottom: 6%;
   font-weight: 100;
   cursor: pointer;
+  text-decoration: none;
 
   p {
     ${BorderLink({ showLink: true })}
