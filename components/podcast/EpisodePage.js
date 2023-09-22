@@ -54,10 +54,12 @@ const EpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           <>
-            <AllEpisodesHoverable>
-              <BackArrowIcon />
-              <p>ver todos los episodios</p>
-            </AllEpisodesHoverable>
+            <Link href={"/podcast/episodios"} passHref legacyBehavior>
+              <AllEpisodesHoverable>
+                <BackArrowIcon />
+                <p>ver todos los episodios</p>
+              </AllEpisodesHoverable>
+            </Link>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
@@ -260,7 +262,7 @@ const EpisodeNumberStyled = styled.div`
   }
 `;
 
-const AllEpisodesHoverable = styled.div`
+const AllEpisodesHoverable = styled.a`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -268,6 +270,7 @@ const AllEpisodesHoverable = styled.div`
   margin-bottom: 6%;
   font-weight: 100;
   cursor: pointer;
+  text-decoration: none;
   
   p {
     ${BorderLink({ showLink: true })}
