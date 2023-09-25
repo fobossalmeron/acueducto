@@ -1,12 +1,12 @@
 {
   "head": {
-    "title": "How to Validate an App in the Market as Fast and Cheap as Possible | Recupera",
+    "title": "How to validate an app idea as fast and cheap as possible | Recupera",
     "description": "This is how a web service is developed with no-code technology",
     "image_alt": "Recupera, case study by Acueducto",
     "headerTitle": "Recupera"
   },
   "headerTitle": "Recupera",
-  "title": "How to Validate an App in the Market as Fast and Cheap as Possible - Recupera",
+  "title": "How to validate an app idea as fast and cheap as possible - Recupera",
   "tags": "UI Design<br/>Web Development<br/>No-Code Development<br/>Branding<br/>Product Management<br/>Product Strategy",
   "video": "recupera.mp4",
   "logo": "recupera.svg",
@@ -20,7 +20,7 @@
       "Product Management",
       "Product Strategy"
     ],
-    "title": "<b>Act I</b><br/>How to validate an app in the market as fast and cheap as possible",
+    "title": "<b>Act I</b><br/>How to validate an app idea as fast and cheap as possible",
     "p": "Karla is the founder of Recupera, a technological startup that helps salaried workers throughout Mexico meet their tax obligations and reclaim their balance in favor of the SAT with just a few clicks.<br/><br/>This is Karla's second venture, and despite not having technological knowledge or a technical co-founder, she possesses one of the most challenging characteristics to find in the digital entrepreneurial ecosystem: an ambitious and innovative solution to a problem that exists on a societal scale.",
     "quote": {
       "quote": "Thanks to the workshops and sessions we had, I felt an integral part of the development and validation process. I perfectly understand why we made all the decisions we made and why we designed the tool as we did.<br/><br/>Ever since I heard your podcast, I knew I had to work with you, but your way of working and the quality of it surprised me. Everything was always very professional and efficient.",
@@ -44,15 +44,15 @@
     ]
   },
   "third_section": {
-    "title": "<b>Act III</b><br/>And here's how we approached it",
-    "p": "We got to work and, hand in hand with Karla, we designed a project plan that considered the limitations but allowed us to iterate, test with real users, and validate if the market existed.",
+    "title": "<b>Act III</b><br/>Here’s what we did",
+    "p": "We got to work and, hand in hand with Karla, we designed a project plan that considered the project constraints but allowed us to iterate, test with real users, and validate if the market existed.",
     "points": {
       "first": {
         "subtitle": "We conducted a series of design sprints",
         "p": "Where we interviewed experts in the problem we were solving, sketched, prototyped, and tested multiple solutions with real users to validate the business idea in the market."
       },
       "second": {
-        "subtitle": "We built a brand",
+        "subtitle": "We build a compelling brand",
         "p": "A brand with a name, logo, typography, color palette, and UI Kit, as well as a landing page with a clean and minimalist design that aligns with the visual quality of the most successful applications in the world. Although Karla is a solopreneur, her site reflects a reliable company with a whole team behind Recupera's mission and vision."
       },
       "third": {
@@ -62,7 +62,7 @@
     }
   },
   "fourth_section": {
-    "title": "<b>Act IV</b><br/>Some specifics of the project",
+    "title": "<b>Act IV</b><br/>Specifics of the project",
     "p": "Although Recupera's system has few features and some limitations of customization due to its no-code nature, the goal of this project was to go from 0 to 1. In other words, to validate an idea in the market and start gaining traction.<br/><br/>There are few things as exciting as participating in the construction of a product that solves a real need, and this time we had the opportunity to help Karla bring her vision to life. Here are some of the functionalities that were incorporated into the project:",
     "functionalities": [
       {
@@ -84,7 +84,7 @@
         "p": "User and account management"
       },
       {
-        "p": "Calculation of favorable balance"
+        "p": "Tax refund forecast"
       },
       {
         "p": "Sales site"
