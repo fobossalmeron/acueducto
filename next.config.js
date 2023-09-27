@@ -4,23 +4,87 @@
 const path = require("path");
 
 const nextConfig = {
-  async redirects() {
-    return [
-      {
-        source: '/giveaway',
-        destination: 'https://tally.so/r/3xj185',
-        permanent: true,
-      },
-    ]
-  },
   compiler: {
     styledComponents: {
       displayName: true,
       ssr: true,
     },
   },
+  async redirects() {
+    return [
+      {
+        source: "/es/about",
+        destination: "/en/about",
+        locale: false,
+        permanent: true,
+      },
+      {
+        source: "/en/nosotros",
+        destination: "/en/about",
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/es/contact",
+        destination: "/en/contact",
+        locale: false,
+        permanent: true,
+      },
+      {
+        source: "/en/contacto",
+        destination: "/en/contact",
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/es/work",
+        destination: "/en/work",
+        locale: false,
+        permanent: true,
+      },
+      {
+        source: "/en/portafolio",
+        destination: "/en/work",
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/es/work/:slug",
+        destination: "/en/work/:slug",
+        locale: false,
+        permanent: true,
+      },
+      {
+        source: "/en/portafolio/:slug",
+        destination: "/en/work/:slug",
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/pitch",
+        destination: "/nosotros",
+        permanent: false,
+      },
+      {
+        source: "/es/privacy",
+        destination: "/en/privacy",
+        locale: false,
+        permanent: false,
+      },
+      {
+        source: "/en/privacidad",
+        destination: "/en/privacy",
+        locale: false,
+        permanent: false,
+      },
+    ];
+  },
   async rewrites() {
     return [
+      {
+        source: "/about",
+        destination: "/nosotros",
+      },
       {
         source: "/contact",
         destination: "/contacto",
@@ -38,23 +102,13 @@ const nextConfig = {
         destination: "/privacidad",
       },
       {
-        source: "/about",
-        destination: "/nosotros",
-      },
-      {
         source: "/service-worker.js",
         destination: "/_next/static/service-worker.js",
-      },
-      {
-        source:
-          "/podcast/como-es-el-mundo-del-venture-capital-en-latinoamerica",
-        destination:
-          "/podcast/guia-inicial-al-venture-capital-en-latinoamerica",
       },
     ];
   },
   reactStrictMode: true,
-  webpack: (config, options) => {
+  webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/,
       use: [

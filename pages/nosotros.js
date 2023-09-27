@@ -8,16 +8,14 @@ import ContactFooter from "components/shared/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P } from "components/shared/Dangerously";
 import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
 import TitleSectionGrid from "components/shared/TitleSectionGrid.ts";
 import Recursos from "components/shared/Recursos";
 import Picture from "components/caseStudy/shared/Picture";
 import ManifiestoSection from "components/ManifiestoSection";
-import pTeam from '../public/assets/img/layout/team.png'
-import pPaper from '../public/assets/img/layout/paper.png'
+import pTeam from "../public/assets/img/layout/team.png";
+import pPaper from "../public/assets/img/layout/paper.png";
 
-
-function About({ locale, setTitle, pt, hasLoaded, mouse }) {
+function About({ locale, setTitle, pt, hasLoaded }) {
   const [t, setT] = useState(pt);
 
   useEffect(() => {
@@ -41,7 +39,7 @@ function About({ locale, setTitle, pt, hasLoaded, mouse }) {
         <Picture
           src={pTeam}
           alt="Equipo de Acueducto"
-          placeholder="blur" 
+          placeholder="blur"
           priority
         />
       </Team>
@@ -53,7 +51,7 @@ function About({ locale, setTitle, pt, hasLoaded, mouse }) {
           src={pPaper}
           width={600}
           height={400}
-          placeholder="blur" 
+          placeholder="blur"
           alt="Gran lugar para trabajar"
         />
       </PaperPlane>

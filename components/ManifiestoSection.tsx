@@ -8,7 +8,7 @@ const ManifiestoSection = ({ t }) => {
   let { intro, beliefs } = t;
 
   return (
-    <PinnedSection title={intro.title} borderTop>
+    <PinnedSectionPadded title={intro.title} borderTop>
       <P>{intro.p}</P>
       <ol>
         {beliefs.map(function (belief, index) {
@@ -26,7 +26,7 @@ const ManifiestoSection = ({ t }) => {
           );
         })}
       </ol>
-    </PinnedSection>
+    </PinnedSectionPadded>
   );
 };
 
@@ -35,7 +35,8 @@ export default React.memo(ManifiestoSection);
 const Belief = styled.li`
   list-style: none;
   position: relative;
-  margin-bottom: 25%;
+  margin-top: 5%;
+  margin-bottom: 20%;
   span {
     color: ${(props) => props.theme.colors.accent};
     font-weight: 100;
@@ -47,6 +48,9 @@ const Belief = styled.li`
     font-size: 2.5rem;
     margin-bottom: 10px;
     font-weight: 300;
+  }
+  p {
+    margin-bottom: 0px;
   }
   @media (max-width: 1250px) {
     h3 {
@@ -75,6 +79,14 @@ const Belief = styled.li`
     }
     p:first-of-type {
       margin-top: 0;
+    }
+  }
+`;
+
+const PinnedSectionPadded = styled(PinnedSection)`
+  @media (min-width: 600px) {
+    ol div:last-child li {
+      margin-bottom: 0px;
     }
   }
 `;

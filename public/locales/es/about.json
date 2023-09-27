@@ -15,40 +15,20 @@
     },
     "beliefs": [
       {
+        "title": "construimos software de talla mundial",
+        "p": "Nuestro trabajo está a la altura de las aplicaciones que usamos todos los días. Sabemos muy bien cómo se ve el software de primer nivel y buscamos solo hacer trabajo de calidad innegable."
+      },
+      {
+        "title": "somos un equipo de alto rendimiento",
+        "p": "Estamos haciendo el mejor trabajo de nuestras vidas y dedicamos el tiempo e intelecto necesario para construir productos valiosos y relevantes. Cada uno de nosotros sobresale en su trabajo pero es en equipo que logramos resultados excepcionales."
+      },
+      {
         "title": "vamos de menos a más",
-        "p": "Nos concentramos en las funcionalidades que realmente mueven la aguja."
-      },
-      {
-        "title": "nos involucramos contigo",
-        "p": "Confía en nosotros, las relaciones a largo plazo llegan a resultados más significativos."
-      },
-      {
-        "title": "amamos los retos",
-        "p": "Analizarlos juntos nos permite enfrentarlos de la mejor forma."
-      },
-      {
-        "title": "nos obsesiona la calidad",
-        "p": "Nuestro trabajo tiene que ser impecable ¿si no, para qué hacerlo?"
+        "p": "Somos ágiles y nos concentramos en aquello que realmente mueve la aguja. Tanto con el trabajo que hacemos para nuestros clientes como en nuestro día a día, nos concentramos en las acciones que tienen mayor impacto."
       },
       {
         "title": "somos humanos",
-        "p": "Ponemos primero la calidad humana, trabajamos con respeto y con clientes respetuosos."
-      },
-      {
-        "title": "trabajamos para tus usuarios",
-        "p": "Habrá momentos en los que nos pondremos de su lado."
-      },
-      {
-        "title": "somos románticos de la tecnología",
-        "p": "Creemos firmemente que la tecnología nos ayuda a hacer la vida de las personas más fácil"
-      },
-      {
-        "title": "nos encanta aprender",
-        "p": "Aceptamos el cambio, pues muchas veces es parte de la solución."
-      },
-      {
-        "title": "somos accesibles",
-        "p": "Escuchar tu opinión es parte fundamental de nuestro proceso."
+        "p": "Somos eficientes para nuestros clientes y un santuario para nuestros empleados. La empatía es un valor fundamental de nuestra organización y siempre buscamos generar un impacto positivo en cada colaborador que decide acompañarnos."
       }
     ]
   },
