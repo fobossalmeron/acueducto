@@ -12,6 +12,12 @@
   "lang": "es",
   "casestudies": [
     {
+      "title": "cómo construir una web-app de talla mundial",
+      "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto<br/>",
+      "link": "wellmee",
+      "bg_format": "svg"
+    },
+    {
       "title": "cómo validar una app en el mercado lo más rápido y barato posible",
       "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto<br/>",
       "link": "recupera",

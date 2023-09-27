@@ -143,7 +143,10 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
                   tiltEnable={!isMobile}
                 >
                   {!isMobile}
-                  <EpisodeFeature {...episode} />
+                  {episode.uid 
+                    ? <PrismicEpisodeFeature {...episode}/>
+                    : <EpisodeFeature {...episode} />
+                  }
                 </Tilt>
               </div>
             ))}
@@ -221,16 +224,30 @@ export const getStaticProps = async (context, previewData) => {
     "youtube",
   ]);
 
+  const pt = ssrLocale({ locale: context.locale, fileName: "podcast.json" });
+  if (!pt) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const prismicClient = createClient({ previewData });
+  const prismicEpisodes = await prismicClient.getAllByType("episode");
+  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+
+  const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
+
   const featuredSlugs = [
     { slug: "un-capitulo-que-todo-ceo-debe-escuchar" },
-    {
-      slug: "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables",
-    },
+    { slug: "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables"},
     { slug: "construye-identidades-que-cuenten-historias" },
+    // { slug: "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos" },
     { slug: "como-se-disenan-las-apps-mas-exitosas" },
     { slug: "tus-usuarios-son-el-corazon-de-tu-startup" },
     { slug: "como-construyen-equipos-los-unicornios" },
   ];
+
+  //const featuredSlugsPrismic = await prismicClient.getByUID("episode", "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos");
 
   const episodes = featuredSlugs.map((episode) =>
     getEpisodeBySlug(episode.slug, [
@@ -248,22 +265,16 @@ export const getStaticProps = async (context, previewData) => {
       "youtube",
     ])
   );
-  const pt = ssrLocale({ locale: context.locale, fileName: "podcast.json" });
-  if (!pt) {
-    return {
-      notFound: true,
-    };
-  }
 
-  const prismicClient = createClient({ previewData });
-  const prismicEpisodes = await prismicClient.getAllByType("episode");
-  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+  //const newEpisodes = episodes.splice(2, 0, [featuredSlugsPrismic]);
 
-  const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
+  //console.log(newEpisodes,'que es 2')
+  // console.log(newEpisodes.map(e => console.log('hi')), 'episodes');
 
   return {
     props: {
       episodes: [...episodes],
+      
       lastEpisode: lastEpisode,
       pt,
 

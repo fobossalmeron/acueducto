@@ -28,6 +28,11 @@ function LanguageToggler({ hasLoaded, locale }) {
     // console.log(router.asPath + " " + router.locale);
     if (locale == "en") {
       switch (router.asPath) {
+        case "/work/wellmee":
+          Router.push("/portafolio/wellmee", "/portafolio/wellmee", {
+            locale: "es",
+          });
+          break;
         case "/work/recupera":
           Router.push("/portafolio/recupera", "/portafolio/recupera", {
             locale: "es",
@@ -88,6 +93,11 @@ function LanguageToggler({ hasLoaded, locale }) {
       }
     } else {
       switch (router.asPath) {
+        case "/portafolio/wellmee":
+          Router.push("/portafolio/wellmee", "/work/wellmee", {
+            locale: "en",
+          });
+          break;
         case "/portafolio/recupera":
           Router.push("/portafolio/recupera", "/work/recupera", {
             locale: "en",

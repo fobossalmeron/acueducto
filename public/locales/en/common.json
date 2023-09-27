@@ -19,6 +19,12 @@
   "lang": "en",
   "casestudies": [
     {
+      "title": "how to build a world-class web app",
+      "tags": "UI design<br/>Web development<br/>No-code development<br/>Branding<br/>Product management<br/>Product strategy<br/>",
+      "link": "wellmee",
+      "bg_format": "svg"
+    },
+    {
       "title": "how to validate an app in the market as quickly and inexpensively as possible",
       "tags": "UI design<br/>Web development<br/>No-code development<br/>Branding<br/>Product management<br/>Product strategy<br/>",
       "link": "recupera",
