@@ -59,12 +59,12 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           <IntroVideo link={t.link} />
         </EditVideo>
         <TextColumn>
-          <H2>{t.intro_section.title}</H2>
-          <P>{t.intro_section.p}</P>
+          <H2>{t?.intro_section.title}</H2>
+          <P>{t?.intro_section.p}</P>
         </TextColumn>
         <TextColumn>
-          <H3>{t.intro_section.characteristics.first.subtitle}</H3>
-          <P>{t.intro_section.characteristics.first.p}</P>
+          <H3>{t?.intro_section.characteristics.first.subtitle}</H3>
+          <P>{t?.intro_section.characteristics.first.p}</P>
         </TextColumn>
         <AnimatedDataCards/>
         <TextColumn>
