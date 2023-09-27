@@ -16,6 +16,7 @@ import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
 import { PrismicRichText } from '@prismicio/react'
 import EpisodePreview from "./EpisodePreview";
+import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 
 const PrismicEpisodePage = ({
   uid,
@@ -60,6 +61,12 @@ const PrismicEpisodePage = ({
         </Fade>
         <Fade triggerOnce>
           <>
+            <Link href={"/podcast/episodios"} passHref legacyBehavior>
+              <AllEpisodesHoverable>
+                <BackArrowIcon />
+                <p>ver todos los episodios</p>
+              </AllEpisodesHoverable>
+            </Link>
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
@@ -215,28 +222,27 @@ const THoverable = styled.b`
   ${BorderLink({ showLink: false })}
 `;
 
+const AllEpisodesHoverable = styled.a`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6%;
+  font-weight: 100;
+  cursor: pointer;
+  text-decoration: none;
+
+  p {
+    ${BorderLink({ showLink: true })}
+  }
+  background: none;
+`;
+
 const CenteredDiv = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
-`;
-
-const PrismicTranscript = styled(Transcript)`
-  font-size: 1.7rem;
-  line-height: 25px;
-  margin-bottom: 2rem;
-  color: rgb(79, 79, 79);
-
-  heading2 {
-    font-size: 2.6rem;
-    font-weight: 300;
-    color: rgb(24, 32, 36);
-    line-height: 120%;
-    text-align: left;
-    margin-bottom: 1.1rem;
-    margin-top: 4rem;
-  }
 `;
 
 const ContentType = styled.span`
@@ -298,7 +304,7 @@ const IntroLogo = styled.p`
   margin-bottom: 3px;
   color: ${(props) => props.theme.colors.foreground};
   text-align: center;
-  margin-bottom: 15%;
+  margin-bottom: 5%;
   text-decoration: none;
   padding-top: 120px;
   a {

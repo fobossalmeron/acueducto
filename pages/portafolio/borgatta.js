@@ -29,7 +29,7 @@ const mainGradient =
 const Borgatta = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
   const [t, setT] = useState(pt);
-  const [isMobile, setIsMobile] = useState();
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     clientLocale({
@@ -41,15 +41,23 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       },
     });
 
-    window.addEventListener("resize", function () {
-      if (window.innerWidth <= 650) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 650);
+    }
+
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 650);
       }
-    });
+    };
+
+    window.addEventListener("resize", handleResize);
 
     setloadAssets(true);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, [locale, isMobile]);
 
   return (
@@ -159,7 +167,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-        <AnimatedUIComponents />
+        <AnimatedUIComponents isMobile={isMobile} />
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />

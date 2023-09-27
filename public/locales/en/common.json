@@ -19,20 +19,26 @@
   "lang": "en",
   "casestudies": [
     {
-      "title": "An <i>innovative chief marketing officer</i> driving innovation in a corporation with 50 years in the market",
-      "tags": "UX design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy<br/>",
+      "title": "how to validate an app in the market as quickly and inexpensively as possible",
+      "tags": "UI design<br/>Web development<br/>No-code development<br/>Branding<br/>Product management<br/>Product strategy<br/>",
+      "link": "recupera",
+      "bg_format": "svg"
+    },
+    {
+      "title": "an <i>innovative chief marketing officer</i> driving innovation in a corporation with 50 years in the market",
+      "tags": "UX Design<br/>UI design<br/>Web app<br/>Development<br/>Product management<br/>Product strategy<br/>",
       "link": "borgatta",
       "bg_format": "svg"
     },
     {
       "title": "how to educate your customers and investors to become a leader in your industry",
-      "tags": "Strategy<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
+      "tags": "Strategy<br/>Communication<br/>Branding<br/>No-code<br/>Positioning<br/>",
       "link": "blockstem",
       "bg_format": "svg"
     },
     {
       "title": "a unique ecommerce niche in Mexico",
-      "tags": "Strategy<br/>Commmunication<br/>Branding<br/>Ecommerce<br/>Digital Marketing<br/>",
+      "tags": "Strategy<br/>Communication<br/>Branding<br/>Ecommerce<br/>Digital Marketing<br/>",
       "link": "rahid",
       "bg_format": "svg"
     },

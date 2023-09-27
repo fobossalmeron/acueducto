@@ -1,0 +1,105 @@
+{
+    "head": {
+      "title": "Cómo validar una app en el mercado lo más rápido y barato posible | Recupera",
+      "description": "Así se desarrolla un servicio web con tecnología no-code",
+      "image_alt": "Recupera, caso de estudio por Acueducto",
+      "headerTitle": "Recupera"
+    },
+    "headerTitle": "Recupera",
+    "title": "Cómo validar una app en el mercado lo más rápido y barato posible - Recupera",
+    "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto",   
+    "video": "recupera.mp4",
+    "logo": "recupera.svg",
+    "link": "recupera",
+    "intro_section": {
+      "tags": [
+        "Diseño UI",
+        "Desarrollo web",
+        "Desarrollo no-code",
+        "Branding",
+        "Product Management",
+        "Estrategia de producto"
+      ],
+      "title": "<b>Acto I</b><br/>Cómo validar una app en el mercado lo más rápido y barato posible",
+      "p": "Karla es la fundadora de Recupera, una startup tecnológica que ayuda a los asalariados de todo México a cumplir con sus obligaciones fiscales y a recuperar su saldo a favor del SAT con un par de clicks.<br/><br/>Este es el segundo emprendimiento de Karla y, a pesar de no contar con conocimientos tecnológicos o un cofundador técnico, cuenta con una de las características más difíciles de encontrar en el ecosistema de emprendimiento digital: una solución ambiciosa e innovadora a un problema que existe a escala en la sociedad.",
+      "quote": {
+        "quote": "Gracias a los workshops y sesiones que tuvimos me sentí parte integral del proceso de desarrollo y validación. Entiendo perfectamente por qué se tomaron todas las decisiones que tomamos y por qué diseñamos la herramienta como lo hicimos.<br/><br/>Desde que escuché su podcast sabía que tenía que trabajar con ustedes pero su forma de trabajo y la calidad del mismo me sorprendió. Todo siempre fue muy profesional y eficiente.",
+        "name": "Karla Hernández",
+        "label": "CEO, Recupera"
+      }
+    },
+    "second_section": {
+      "title": "<b>Acto II</b><br/>Estos fueron los retos del proyecto",
+      "p": "Karla tenía la convicción de que el problema que está solucionando es uno latente en México. Pero faltaban algunas piezas del rompecabezas:",
+      "challenges": [
+        {
+          "p": "No sabía si la idea iba a gustar en el mercado. Antes de hacer una inversión grande en un producto, comprobar la necesidad es vital, por lo que había que probar el producto con usuarios reales."
+        },
+        {
+          "p": "No tenía conocimiento técnico o un cofundador técnico. Para los fundadores sin trasfondo en desarrollo de software es más difícil construir una solución para probarla, afortunadamente aquí es donde entramos nosotros."
+        },
+        {
+          "p": "No tenía muchos recursos y no quería invertir muchísimo dinero en construir un Minimum Viable Product (MVP) sólo para validar una idea."
+        }
+      ]
+    },
+    "third_section": {
+      "title": "<b>Acto III</b><br/>Y es así como los abordamos",
+      "p": "Nos pusimos manos a la obra y, de la mano de Karla, diseñamos un plan de proyecto que contemplara las limitantes pero nos permitiera iterar, probar con usuarios reales y validar si existía el mercado.",
+      "points": {
+        "first": {
+          "subtitle": "Hicimos una serie de design sprints",
+          "p":"Donde entrevistamos a expertos en el problema que estábamos resolviendo, bocetamos, prototipamos y probamos múltiples soluciones con usuarios reales para validar la idea de negocio en el mercado."
+        },
+        "second": {
+          "subtitle": "Construimos una marca",
+          "p":"Una marca con un nombre, logo, tipografía, paleta de color y UI Kit, así como una landing page con un diseño limpio y minimalista que dialoga con la calidad visual de las aplicaciones más exitosas del mundo. Si bien Karla es una solopreneur, su sitio refleja una compañía confiable con todo un equipo detrás de la misión y visión de Recupera."
+        },
+        "third": {
+          "subtitle": "Desarrollamos una </br>herramienta no-code",
+          "p":"Aunque esta versión del producto presenta limitaciones para el sistema de la herramienta beta, que no tiene la misma experiencia UI que se diseñó durante el design sprint, es lo suficientemente poderosa para servir a cientos de usuarios y comenzar a generar tracción."
+        }
+      }
+    },
+    "fourth_section": {
+      "title": "<b>Acto IV</b><br/>Algunos específicos del proyecto",
+      "p": "A pesar de que el sistema de Recupera es uno con pocas funcionalidades y algunas limitaciones de personalización por su naturaleza no-code, el objetivo de este proyecto era ir de 0 a 1. O mejor dicho: validar una idea en el mercado y comenzar a generar tracción.<br/><br/>Pocas cosas son tan emocionantes como participar en la construcción de un producto que resuelve una necesidad real y en esta ocasión tuvimos la oportunidad de ayudarle a Karla a concretar su visión. Estas son algunas de las funcionalidades que se incorporaron al proyecto:",
+      "functionalities": [
+        {
+          "p": "Pasarela de pagos"
+        },
+        {
+          "p": "Autenticación"
+        },
+        {
+          "p": "Dashboard personalizado"
+        },
+        {
+          "p": "Hasta 1000 usuarios con no-code"
+        },
+        {
+          "p": "Contenido educativo"
+        },
+        {
+          "p": "Gestión de usuarios y cuentas"
+        },
+        {
+          "p": "Cálculo de saldo a favor"
+        },
+        {
+          "p": "Sitio de ventas"
+        },
+        {
+          "p": "Consulta de datos fiscales"
+        },
+        {
+          "p": "Idea de negocio validada"
+        }
+      ],
+      "quote": {
+        "quote": "No hay una sola persona que no me haya dicho que el trabajo que hicimos fue excepcional, que el diseño es uno limpio y sofisticado o que la idea de negocios es una muy valiosa. Ahora lo que necesitamos es distribución para este producto excepcional.",
+        "name": "Karla Hernández",
+        "label": "CEO, Recupera"
+      }
+    }
+  }
