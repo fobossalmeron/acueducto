@@ -1,105 +1,129 @@
 {
-    "head": {
-      "title": "Cómo construir una web-app de talla mundial | Wellmee",
-      "description": "Este fue el proceso que utilizamos para desarrollar una web-app de talla global.",
-      "image_alt": "Wellmee, caso de estudio por Acueducto",
-      "headerTitle": "Wellmee"
-    },
-    "headerTitle": "Wellmee",
-    "title": "Cómo construir una web-app de talla mundial - Wellmee",
-    "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto",   
-    "video": "recupera.mp4",
-    "logo": "wellmee.svg",
-    "link": "wellmee",
-    "intro_section": {
-      "tags": [
-        "Diseño UI",
-        "Desarrollo web",
-        "Desarrollo no-code",
-        "Branding",
-        "Product Management",
-        "Estrategia de producto"
-      ],
-      "title": "<b>Acto I</b><br/>Cómo validar una app en el mercado lo más rápido y barato posible",
-      "p": "Karla es la fundadora de Recupera, una startup tecnológica que ayuda a los asalariados de todo México a cumplir con sus obligaciones fiscales y a recuperar su saldo a favor del SAT con un par de clicks.<br/><br/>Este es el segundo emprendimiento de Karla y, a pesar de no contar con conocimientos tecnológicos o un cofundador técnico, cuenta con una de las características más difíciles de encontrar en el ecosistema de emprendimiento digital: una solución ambiciosa e innovadora a un problema que existe a escala en la sociedad.",
-      "quote": {
-        "quote": "Gracias a los workshops y sesiones que tuvimos me sentí parte integral del proceso de desarrollo y validación. Entiendo perfectamente por qué se tomaron todas las decisiones que tomamos y por qué diseñamos la herramienta como lo hicimos.<br/><br/>Desde que escuché su podcast sabía que tenía que trabajar con ustedes pero su forma de trabajo y la calidad del mismo me sorprendió. Todo siempre fue muy profesional y eficiente.",
-        "name": "Karla Hernández",
-        "label": "CEO, Recupera"
-      }
-    },
-    "second_section": {
-      "title": "<b>Acto II</b><br/>Estos fueron los retos del proyecto",
-      "p": "Karla tenía la convicción de que el problema que está solucionando es uno latente en México. Pero faltaban algunas piezas del rompecabezas:",
-      "challenges": [
-        {
-          "p": "No sabía si la idea iba a gustar en el mercado. Antes de hacer una inversión grande en un producto, comprobar la necesidad es vital, por lo que había que probar el producto con usuarios reales."
-        },
-        {
-          "p": "No tenía conocimiento técnico o un cofundador técnico. Para los fundadores sin trasfondo en desarrollo de software es más difícil construir una solución para probarla, afortunadamente aquí es donde entramos nosotros."
-        },
-        {
-          "p": "No tenía muchos recursos y no quería invertir muchísimo dinero en construir un Minimum Viable Product (MVP) sólo para validar una idea."
-        }
-      ]
-    },
-    "third_section": {
-      "title": "<b>Acto III</b><br/>Y es así como los abordamos",
-      "p": "Nos pusimos manos a la obra y, de la mano de Karla, diseñamos un plan de proyecto que contemplara las limitantes pero nos permitiera iterar, probar con usuarios reales y validar si existía el mercado.",
-      "points": {
-        "first": {
-          "subtitle": "Hicimos una serie de design sprints",
-          "p":"Donde entrevistamos a expertos en el problema que estábamos resolviendo, bocetamos, prototipamos y probamos múltiples soluciones con usuarios reales para validar la idea de negocio en el mercado."
-        },
-        "second": {
-          "subtitle": "Construimos una marca",
-          "p":"Una marca con un nombre, logo, tipografía, paleta de color y UI Kit, así como una landing page con un diseño limpio y minimalista que dialoga con la calidad visual de las aplicaciones más exitosas del mundo. Si bien Karla es una solopreneur, su sitio refleja una compañía confiable con todo un equipo detrás de la misión y visión de Recupera."
-        },
-        "third": {
-          "subtitle": "Desarrollamos una </br>herramienta no-code",
-          "p":"Aunque esta versión del producto presenta limitaciones para el sistema de la herramienta beta, que no tiene la misma experiencia UI que se diseñó durante el design sprint, es lo suficientemente poderosa para servir a cientos de usuarios y comenzar a generar tracción."
-        }
-      }
-    },
-    "fourth_section": {
-      "title": "<b>Acto IV</b><br/>Algunos específicos del proyecto",
-      "p": "A pesar de que el sistema de Recupera es uno con pocas funcionalidades y algunas limitaciones de personalización por su naturaleza no-code, el objetivo de este proyecto era ir de 0 a 1. O mejor dicho: validar una idea en el mercado y comenzar a generar tracción.<br/><br/>Pocas cosas son tan emocionantes como participar en la construcción de un producto que resuelve una necesidad real y en esta ocasión tuvimos la oportunidad de ayudarle a Karla a concretar su visión. Estas son algunas de las funcionalidades que se incorporaron al proyecto:",
-      "functionalities": [
-        {
-          "p": "Pasarela de pagos"
-        },
-        {
-          "p": "Autenticación"
-        },
-        {
-          "p": "Dashboard personalizado"
-        },
-        {
-          "p": "Hasta 1000 usuarios con no-code"
-        },
-        {
-          "p": "Contenido educativo"
-        },
-        {
-          "p": "Gestión de usuarios y cuentas"
-        },
-        {
-          "p": "Cálculo de saldo a favor"
-        },
-        {
-          "p": "Sitio de ventas"
-        },
-        {
-          "p": "Consulta de datos fiscales"
-        },
-        {
-          "p": "Idea de negocio validada"
-        }
-      ],
-      "quote": {
-        "quote": "No hay una sola persona que no me haya dicho que el trabajo que hicimos fue excepcional, que el diseño es uno limpio y sofisticado o que la idea de negocios es una muy valiosa. Ahora lo que necesitamos es distribución para este producto excepcional.",
-        "name": "Karla Hernández",
-        "label": "CEO, Recupera"
+  "head": {
+    "title": "How to build a world-class web app | Wellmee",
+    "description": "This was the process we used to develop a global-scale web app.",
+    "image_alt": "Wellmee, case study by Acueducto",
+    "headerTitle": "Wellmee"
+  },
+  "headerTitle": "Wellmee",
+  "title": "How to build a world-class web app - Wellmee",
+  "tags": "UI Design<br/>Web Development<br/>No-code Development<br/>Branding<br/>Product Management<br/>Product Strategy",
+  "video": "recupera.mp4",
+  "logo": "wellmee.svg",
+  "link": "wellmee",
+  "intro_section": {
+    "tags": [
+      "UI Design",
+      "Web Development",
+      "No-code Development",
+      "Branding",
+      "Product Management",
+      "Product Strategy"
+    ],
+    "title": "<b>Act I</b><br/>How to build a world-class web app",
+    "p": "This is the story of how Sebastián, who is building Wellmee - a startup looking to revolutionize preventive health and the experience we have during medical check-ups - asked us to design and develop the Minimum Viable Product (MVP) of his product. An adventure of validation, connections with third parties, data visualization, and much more.",
+    "characteristics": {
+      "first": {
+        "subtitle": "A dream for customer experience and optimizing internal operations",
+        "p": "Wellmee is a company by Sebastián Patrón, Humberto Herrera, and Eduardo Díaz that seeks to transform the experience around preventive health by facilitating access to comprehensive medical check-ups and following the guidelines of integrative medicine.<br/><br/>This is a startup that aims to reduce the cryptic language in the sheets and sheets of data you get when receiving test results from laboratories; as well as eliminating the need to travel to their facilities and making your health evolution visible as you accumulate more medical records."
+      },
+      "second": {
+        "subtitle": "Aiming to build a world-class product",
+        "p": "When Sebastián came to our sales table, he told us about Wellmee's vision and his desire to test this concept and develop an MVP that would serve to validate his business model. Once the first version of this product was built, he would apply to the Y Combinator acceleration program (where only 1.5% of applicants are accepted)."
+      },
+      "third": {
+        "subtitle": "Specific challenges existed",
+        "challenges": [
+          {
+            "title": "Testing a concept",
+            "p": "Despite Wellmee being a great idea from day 0, it was necessary to test it with real users and gather market feedback to ensure its attractiveness."
+          },
+          {
+            "title": "Developing a relevant experience",
+            "p": "Sebastián is a design-oriented founder, so naturally, he sought to have excellent standards in interface design, interaction, and user experience from day one."
+          },
+          {
+            "title": "Designing the best possible product",
+            "p": "It was essential to find and have feedback from those who would be the first customers of the company."
+          },
+          {
+            "title": "Managing project transition",
+            "p": "Sebastián came to us to validate his idea, but once he secured his first round of investment, he would have enough resources to hire a product team to iterate and experiment. Therefore, from the beginning, an intuitive architecture and exhaustive documentation had to be thought out so that any developer could take control of the project in the future."
+          }
+        ]
       }
     }
+  },
+  "second_section": {
+    "title": "<b>Act II</b><br/>And the solution was to build a beautiful and functional product",
+    "solutions": [
+      {
+        "title": "Intuitive onboarding",
+        "p": "It has an onboarding process to guide new users in its use."
+      },
+      {
+        "title": "Automatic scheduling and reminders",
+        "p": "Schedule check-ups, receive payments, and send automatic reminders for appointments."
+      },
+      {
+        "title": "Integrated medical score",
+        "p": "Displays a medical score designed by a panel of integrative medicine doctors to provide you with an easily understandable report about your health status."
+      },
+      {
+        "title": "Biomarker data and recommendations",
+        "p": "Provides all your biomarker information in your profile in a user-friendly manner with recommendations to improve your health. Additionally, you can view the history of each biomarker and compare it with the result of each new check-up."
+      },
+      {
+        "title": "Export results to PDF",
+        "p": "Capable of exporting PDFs with results to share with your doctor and anyone you want."
+      }
+    ]
+  },
+  "third_section": {
+    "title": "<b>Act III</b><br/>With a proven process",
+    "points": [
+      {
+        "p": "The first thing we did was a facilitation workshop to build a Lean Canvas. The result allowed us to deeply understand the business logic, its resources, strengths, weaknesses, key alliances, and vision."
+      },
+      {
+        "p": "Next, we conducted a series of design sprints where we created prototypes and tested them with real users with various iterations until we reached a robust and validated result."
+      },
+      {
+        "p": "And the time to build arrived. We designed a scalable and maintainable architecture with proper documentation tailored to the needs of Wellmee's new development team led by Eduardo Díaz."
+      },
+      {
+        "p": "Extra note: Notion. The entire project, both its documents and specifications, was managed in our client project dashboard, which is a portal where reports, documentation, calendars, deliveries, feedback, and any type of file produced or required for each project are reviewed and stored."
+      }
+    ],
+    "subtitle": "We managed to be agile and design an incredible experience",
+    "p": "We developed this product to face Wellmee's upcoming challenges, such as the integration of hundreds of phlebotomists (sample takers for check-ups) into their team - thanks to an automated appointment calendar - or the effective formation of their new development team - thanks to extensive documentation supervised by a Meta developer. But we also achieved:",
+    "results": [
+      {
+        "title": "0",
+        "subtitle": "human errors",
+        "p": "in capturing results thanks to direct integration with the laboratory via API."
+      },
+      {
+        "sign": "+",
+        "title": "64",
+        "subtitle": "biomarkers",
+        "p": "grouped into pillars with user- and doctor-friendly results."
+      },
+      {
+        "title": "1",
+        "subtitle": "week",
+        "p": "to validate the original concept."
+      },
+      {
+        "sign": "+",
+        "title": "15",
+        "subtitle": "user tests",
+        "p": "where real people gave us feedback to design the best product."
+      }
+    ]
+  },
+  "fourth_section": {
+    "title": "<b>Act IV</b><br/>But what's next for Wellmee?",
+    "p": "Now is the time for Wellmee, with its own team of developers, to iterate and experiment with its MVP, apply to Y Combinator, continue seeking new clients, and prepare for its next round of investment.<br/><br/>It's always exciting to see a group of people challenging the status quo. The energy that Sebastián and his company have is contagious, and we are grateful to have been part of the story of this growing startup."
+  }
 }

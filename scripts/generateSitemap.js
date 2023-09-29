@@ -39,6 +39,11 @@ const staticRoutes = [
     priority: 0.9,
   },
   {
+    es: "/portafolio/wellmee",
+    en: "/en/work/wellmee",
+    priority: 0.7,
+  },
+  {
     es: "/portafolio/recupera",
     en: "/en/work/recupera",
     priority: 0.7,

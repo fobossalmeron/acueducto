@@ -32,7 +32,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
   }, [locale]);
 
   return (
-    <PageClipperRecupera>
+    <PageClipperWellmee>
       <Head
         {...t?.head}
         image={{ fileName: "og_image_recupera.png", alt: t?.head.image_alt }}
@@ -144,7 +144,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
       </FourthSection> */}
       <NextStudy link="recupera" />
       <ContactFooter />
-    </PageClipperRecupera>
+    </PageClipperWellmee>
   );
 };
 
@@ -162,7 +162,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const PageClipperRecupera = styled(PageClipper)`
+const PageClipperWellmee = styled(PageClipper)`
   background-color: #F3F6F3;
 
   @media (max-width: 1300px) {
