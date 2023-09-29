@@ -15,7 +15,8 @@ import { H2, H3, P } from "components/shared/Dangerously";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import AnimatedDataCards from "../../components/caseStudy/wellmee/AnimationDataCards";
-
+import Picture from "components/caseStudy/shared/Picture";
+import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -45,10 +46,12 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             <img
               src="/assets/img/casestudies/wellmee/brandWellmee.svg"
               alt="Logo"
+              className="logo"
             />
             <img
               src="/assets/img/casestudies/wellmee/logoWellmee.svg"
               alt="Logo"
+              className="marca"
             />
           </div>
         </LandSection>
@@ -70,20 +73,30 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <H3>{t.intro_section.characteristics.second.subtitle}</H3>
           <P>{t.intro_section.characteristics.second.p}</P>
+          <div className="combinator">
+            <Picture
+              src={Combinator}
+              alt="Combinator"
+            />
+          </div>
         </TextColumn>
         <TextColumn>
           <H3>{t.intro_section.characteristics.third.subtitle}</H3>
-          {t?.intro_section.characteristics.third.challenges.map((challenge, i) => (
-            <Fade delay={300} triggerOnce key={`challenge${i}`}>
-              <div>
-                <span>
-                  <p>{i + 1}</p>
-                </span>
-                <p>{challenge.title}</p>
-                <p>{challenge.p}</p>
-              </div>
-            </Fade>
-          ))}
+          <ChallengesContainer>
+            {t?.intro_section.characteristics.third.challenges.map((challenge, i) => (
+              <Fade delay={300} triggerOnce key={`challenge${i}`}>
+                <Challenge>
+                  <span>
+                    <p>{i + 1}</p>
+                  </span>
+                  <div>
+                    <h5>{challenge.title}</h5>
+                    <p>{challenge.p}</p>
+                  </div>
+                </Challenge>
+              </Fade>
+            ))}
+          </ChallengesContainer>
         </TextColumn>
       </FirstSection>
       {/* <SecondSection>
@@ -176,31 +189,44 @@ const LandSection = styled(CommonSection)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-`;
 
-const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: rgb(247, 243, 241);
-  & > div {
-    padding: 0px;
+  div {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0 5%;
+    gap: 2%;
+    img {
+      width: 100%;
+    }
   }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
+
+  .logo {
+    max-width: 142px;
   }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
+  .marca {
+    max-width: 391px;
   }
-  @media (max-width: 500px) {
-    border-radius: 17px;
+
+  @media (max-width: 650px) {
+    div {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
   }
 `;
 
 const FirstSection = styled(CommonSection)`
-  padding-bottom: 10.7%;
   color: #4A4A73;
+  padding-top: 14%;
+  padding-bottom: 10.7%;
+  background-image: url("/assets/img/casestudies/backgroundEllipse1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+
   h2, h3 {
     font-weight: 500;
   }
@@ -224,6 +250,19 @@ const FirstSection = styled(CommonSection)`
     width: 100%;
   }
 
+  .combinator {
+    display: flex;
+    justify-content: center;
+    padding-top: 8%;
+
+    div {
+      max-width: 342px;
+      img {
+        box-shadow: 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
+      }
+    }
+  }
+
   @media (max-width: 1000px) {
     h2 {
       font-size: 5.2rem;
@@ -244,6 +283,79 @@ const FirstSection = styled(CommonSection)`
     }
     h3 {
       font-size: 1.9rem;
+    }
+  }
+`;
+
+const EditVideo = styled.div`
+  padding: 3%;
+  border-radius: 40px;
+  background-color: rgb(247, 243, 241);
+  & > div {
+    padding: 0px;
+  }
+  @media (max-width: 1300px) {
+    margin: 0 30px;
+  }
+  @media (max-width: 700px) {
+    padding: 10px;
+    border-radius: 20px;
+    margin: 0 20px;
+  }
+  @media (max-width: 500px) {
+    border-radius: 17px;
+  }
+`;
+
+const ChallengesContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 52px;
+  padding-top: 2rem;
+  padding-bottom: 10rem;
+  max-width: 670px;
+
+  @media (max-width: 630px) {
+    padding-bottom: 4.8rem;
+  }
+`;
+
+
+const Challenge = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #383955;
+    border-radius: 50%;
+    width: 31px;
+    height: 31px;
+    min-width: 31px;
+    margin-top: 1%;
+    p {
+      color: #FFFFFF;
+    }
+  }
+
+  div {
+    gap: 15px;
+    display: flex;
+    flex-direction: column;
+
+    h5 {
+      font-size: 2.5rem;
+      margin: 0px;
+      font-weight: 500;
+      color: #383955;
+    }
+  
+    p {
+      color: #4A4A73;
+      font-weight: 200;
     }
   }
 `;

@@ -48,30 +48,41 @@ const CasesContainer = styled.div`
   justify-content: center;
   align-items: center;
   position: relative;
-  // background-color: blue;
   width: 100%;
   height: 100%;
-  min-height: 22%;
+  min-height: 18%;
+  margin-top: 6%;
+  gap: 5%;
+
+  .firstCard, .secondCard, .thirdCard, .fourthCard {
+    display: flex;
+    justify-content: center;
+  }
 
   .firstCard {
     position: absolute;
-    top: 5%;
-    j
+    top: 0%;
   }
   .secondCard {
     position: absolute;
-    left: 10%;
+    left: 25%;
   }
   .thirdCard {
     position: absolute;
-    left: -3%;
+    right: 25%;
+    top: 23%;
   }
   .fourthCard {
     position: absolute;
-    top: -1%;
+    bottom: 0%;
   }
 
   .image {
-    width: 58%;
+    width: 100%;
+    max-width: 340px;
+    .img {
+      box-shadow: 1px 1px 11px 0px rgba(64, 64, 64, 0.05), 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
+      border-radius: 10px;
+    }
   }
 `;
