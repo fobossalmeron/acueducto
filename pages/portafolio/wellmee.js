@@ -17,6 +17,7 @@ import ContactFooter from "components/shared/footers/ContactFooter";
 import AnimatedDataCards from "../../components/caseStudy/wellmee/AnimationDataCards";
 import Picture from "components/caseStudy/shared/Picture";
 import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
+import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationUIComponents";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -98,26 +99,33 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             ))}
           </ChallengesContainer>
         </TextColumn>
+        <UIComponentsAnimation />
       </FirstSection>
-      {/* <SecondSection>
+      <SecondSection>
         <TextColumn>
           <H2>{t?.second_section.title}</H2>
-          <div>
             {t?.second_section.solutions.map((solution, i) => (
               <Fade delay={300} triggerOnce key={`solution${i}`}>
-                <div>
-                  <span>
+                <SlideCards>
+                  {/* <span>
                     <p>{i + 1}</p>
+                  </span> */}
+                  <span>
+                    <p>{solution.title}</p>
+                    <p>{solution.p}</p>
                   </span>
-                  <p>{solution.title}</p>
-                 <p>{solution.p}</p>
-                </div>
+                 <Picture
+                  src={"/assets/img/casestudies/wellmee/CardMobile1.png"}
+                  alt="Combinator"
+                  width={161}
+                  height= {349}
+                />
+                </SlideCards>
               </Fade>
             ))}
-          </div>
         </TextColumn>
       </SecondSection>
-      <ThirdSection>
+      {/* <ThirdSection>
         <TextColumn>
           <H2>{t.third_section.title}</H2>
           <div>
@@ -312,7 +320,6 @@ const ChallengesContainer = styled.div`
   flex-direction: column;
   gap: 52px;
   padding-top: 2rem;
-  padding-bottom: 10rem;
   max-width: 670px;
 
   @media (max-width: 630px) {
@@ -400,6 +407,19 @@ const SecondSection = styled(CommonSection)`
       font-size: 1.9rem;
     }
   }
+`;
+
+const SlideCards = styled.div`
+  background-color: #686A97;
+  width: 700px;
+  height: 499px;
+  border-radius: 24px;
+  display: flex;
+  padding: 75px 97px 28px 97px;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 34px;
 `;
 
 const ThirdSection = styled(CommonSection)`
