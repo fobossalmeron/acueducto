@@ -3,11 +3,13 @@ import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import BorderLink from "components/shared/BorderedLink";
 import { PrismicNextImage } from "@prismicio/next";
+import Picture from "components/caseStudy/shared/Picture";
 
 const PrismicEpisodeFeature = ({
   uid,
   data,
   blue,
+  portrait,
 }) => {
   const episode = data.introduction[0].episode;
   const title = data.introduction[0].title[0].text;
@@ -19,12 +21,20 @@ const PrismicEpisodeFeature = ({
     <Link href={"/podcast/" + uid} passHref key={"npd" + episode} legacyBehavior>
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
-          <PrismicNextImage
-            field={image}
-            height="206"
-            width="365"
-            alt=""
-          />
+          {portrait 
+            ? <Picture
+                src={`/assets/img/podcast/solas/${episode}.jpg`}
+                alt={title + " - " + guest}
+                height={142}
+                width={142}
+              />
+            : <PrismicNextImage
+                field={image}
+                height="206"
+                width="365"
+                alt=""
+              />
+          }
         </PictureContainer>
         <Fade triggerOnce>
           <Guest blue={blue}>
@@ -66,6 +76,7 @@ const PictureContainer = styled.div`
     transform: scale(1);
     width: 100%;
     height: 104%;
+    border-radius: 25px;
   }
 `;
 

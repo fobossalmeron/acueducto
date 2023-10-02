@@ -24,7 +24,7 @@ import PrismicEpisodeFeature from "../components/podcast/PrismicEpisodeFeature";
 
 const iconArray = [Persona, Check, BuildStory];
 
-function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrismicEpisode }) {
+function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrismicEpisode, featuredSlugsPrismic }) {
   const { intro, head, banner, favorites, chapters, closing } = pt;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -143,7 +143,10 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
                   tiltEnable={!isMobile}
                 >
                   {!isMobile}
-                  <EpisodeFeature {...episode} />
+                  {episode.uid 
+                    ? <PrismicEpisodeFeature {...episode} portrait />
+                    : <EpisodeFeature {...episode} />
+                  }
                 </Tilt>
               </div>
             ))}
@@ -226,7 +229,7 @@ export const getStaticProps = async (context, previewData) => {
     {
       slug: "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables",
     },
-    { slug: "construye-identidades-que-cuenten-historias" },
+    // { slug: "construye-identidades-que-cuenten-historias" },
     { slug: "como-se-disenan-las-apps-mas-exitosas" },
     { slug: "tus-usuarios-son-el-corazon-de-tu-startup" },
     { slug: "como-construyen-equipos-los-unicornios" },
@@ -260,6 +263,9 @@ export const getStaticProps = async (context, previewData) => {
   const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
 
   const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
+
+  const featuredSlugsPrismic = await prismicClient.getByUID("episode", "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos");
+  episodes.splice(2, 0, featuredSlugsPrismic);
 
   return {
     props: {
