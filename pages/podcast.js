@@ -144,7 +144,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
                 >
                   {!isMobile}
                   {episode.uid 
-                    ? <PrismicEpisodeFeature {...episode}/>
+                    ? <PrismicEpisodeFeature {...episode} portrait />
                     : <EpisodeFeature {...episode} />
                   }
                 </Tilt>
@@ -239,15 +239,13 @@ export const getStaticProps = async (context, previewData) => {
 
   const featuredSlugs = [
     { slug: "un-capitulo-que-todo-ceo-debe-escuchar" },
-    { slug: "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables"},
-    { slug: "construye-identidades-que-cuenten-historias" },
-    // { slug: "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos" },
+    {
+      slug: "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables",
+    },
     { slug: "como-se-disenan-las-apps-mas-exitosas" },
     { slug: "tus-usuarios-son-el-corazon-de-tu-startup" },
     { slug: "como-construyen-equipos-los-unicornios" },
   ];
-
-  //const featuredSlugsPrismic = await prismicClient.getByUID("episode", "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos");
 
   const episodes = featuredSlugs.map((episode) =>
     getEpisodeBySlug(episode.slug, [
@@ -266,10 +264,8 @@ export const getStaticProps = async (context, previewData) => {
     ])
   );
 
-  //const newEpisodes = episodes.splice(2, 0, [featuredSlugsPrismic]);
-
-  //console.log(newEpisodes,'que es 2')
-  // console.log(newEpisodes.map(e => console.log('hi')), 'episodes');
+  const featuredSlugsPrismic = await prismicClient.getByUID("episode", "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos");
+  episodes.splice(2, 0, featuredSlugsPrismic);
 
   return {
     props: {
