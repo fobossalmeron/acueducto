@@ -33,7 +33,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
     if (window.matchMedia("(max-width: 600px)").matches) {
       setIsMobile(true);
     }
-    episode100();
+    // episode100();
   }, [locale]);
 
   const activateSubscribePixels = (data) => {
@@ -66,13 +66,13 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
     activateSubscribePixels(data);
   };
 
-  function episode100() {
-    confetti({
-      particleCount: 500,
-      spread: 75,
-      origin: { y: 0.6 },
-    });
-  }
+  // function episode100() {
+  //   confetti({
+  //     particleCount: 500,
+  //     spread: 75,
+  //     origin: { y: 0.6 },
+  //   });
+  // }
 
   return (
     <PageClipper>
@@ -98,8 +98,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
               <Image
                 width={380}
                 height={380}
-                // src={"/assets/img/layout/podcast_cover.png"}
-                src={"/assets/img/layout/podcast_coverE100.png"}
+                src={"/assets/img/layout/podcast_cover.png"}
                 alt={"Cuando el río suena"}
               />
             </Tilt>

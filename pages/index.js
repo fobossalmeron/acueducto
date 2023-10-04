@@ -106,8 +106,7 @@ function Index({ locale, setTitle, pt }) {
           >
             <HoverablePicture>
               <Picture
-                // src="/assets/img/layout/podcast_cover.png"
-                src="/assets/img/layout/podcast_coverE100.png"
+                src="/assets/img/layout/podcast_cover.png"
                 width={230}
                 height={230}
                 alt="Cuando el río suena"
