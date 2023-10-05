@@ -50,7 +50,7 @@ const CasesContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 18%;
+  min-height: 12%;
   margin-top: 6%;
   gap: 5%;
 
@@ -65,11 +65,11 @@ const CasesContainer = styled.div`
   }
   .secondCard {
     position: absolute;
-    left: 25%;
+    left: 22%;
   }
   .thirdCard {
     position: absolute;
-    right: 25%;
+    right: 22%;
     top: 23%;
   }
   .fourthCard {

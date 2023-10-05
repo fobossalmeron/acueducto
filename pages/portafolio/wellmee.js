@@ -21,6 +21,7 @@ import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationU
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     clientLocale({
@@ -31,7 +32,24 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         setTitle(nT.head.headerTitle);
       },
     });
-  }, [locale]);
+
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth <= 650);
+    }
+
+    const handleResize = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 650);
+      }
+    };
+    
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+
+  }, [locale, isMobile]);
 
   return (
     <PageClipperWellmee>
