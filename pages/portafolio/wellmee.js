@@ -169,7 +169,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   <p>{t?.third_section.points[1].p}</p>
                 </div>
                 <div style={{display: 'flex', flexDirection: 'row'}}>
-                  {t?.third_section.points[1].steps.map((step, i) => (
+                  {/* {t?.third_section.points[1].steps.map((step, i) => (
                     <Step key={`step${i}`}>
                       <div>
                         <Picture
@@ -181,7 +181,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                       </div>
                       <p>{step}</p>
                     </Step>
-                  ))}
+                  ))} */}
                 </div>
               </Point>
             </Fade>
