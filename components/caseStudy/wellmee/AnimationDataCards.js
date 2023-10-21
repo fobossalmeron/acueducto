@@ -65,11 +65,11 @@ const CasesContainer = styled.div`
   }
   .secondCard {
     position: absolute;
-    left: 22%;
+    left: 25%;
   }
   .thirdCard {
     position: absolute;
-    right: 22%;
+    right: 25%;
     top: 23%;
   }
   .fourthCard {

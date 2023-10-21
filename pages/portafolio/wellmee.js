@@ -125,62 +125,135 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             {t?.second_section.solutions.map((solution, i) => (
               <Fade delay={300} triggerOnce key={`solution${i}`}>
                 <SlideCards>
-                  {/* <span>
-                    <p>{i + 1}</p>
-                  </span> */}
                   <span>
-                    <p>{solution.title}</p>
+                    <h4>{solution.title}</h4>
                     <p>{solution.p}</p>
                   </span>
-                 <Picture
-                  src={"/assets/img/casestudies/wellmee/CardMobile1.png"}
-                  alt="Combinator"
-                  width={161}
-                  height= {349}
-                />
+                  <Picture
+                    src={"/assets/img/casestudies/wellmee/CardMobile1.png"}
+                    alt="Combinator"
+                    width={161}
+                    height= {349}
+                  />
                 </SlideCards>
               </Fade>
             ))}
         </TextColumn>
       </SecondSection>
-      {/* <ThirdSection>
+      <ThirdSection>
         <TextColumn>
           <H2>{t.third_section.title}</H2>
-          <div>
-            {t?.third_section.points.map((point, i) => (
-              <Fade delay={300} triggerOnce key={`point${i}`}>
+          <PointContainer>
+            <Fade delay={300} triggerOnce key={'point1'}>
+              <Point>
                 <div>
-                  <span>
-                    <p>{i + 1}</p>
+                  <span className="number">
+                    <p>1</p>
                   </span>
-                 <p>{point.p}</p>
+                  <p>{t?.third_section.points[0].p}</p>
                 </div>
-              </Fade>
-            ))}
-          </div>
+                <Picture
+                  src={"/assets/img/casestudies/wellmee/Point1.png"}
+                  alt="Point 1"
+                  width={420}
+                  height= {263}
+                />
+              </Point>
+            </Fade>
+            <Fade delay={300} triggerOnce key={'point2'}>
+              <Point>
+                <div>
+                  <span className="number">
+                    <p>2</p>
+                  </span>
+                  <p>{t?.third_section.points[1].p}</p>
+                </div>
+                <div style={{display: 'flex', flexDirection: 'row'}}>
+                  {t?.third_section.points[1].steps.map((step, i) => (
+                    <Step key={`step${i}`}>
+                      <div>
+                        <Picture
+                          src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
+                          alt="Step"
+                          width={48}
+                          height= {48}
+                        />
+                      </div>
+                      <p>{step}</p>
+                    </Step>
+                  ))}
+                </div>
+              </Point>
+            </Fade>
+            <Fade delay={300} triggerOnce key={'point3'}>
+              <Point>
+                <div>
+                  <span className="number">
+                    <p>3</p>
+                  </span>
+                  <p>{t?.third_section.points[2].p}</p>
+                </div>
+                <Picture
+                  src={"/assets/img/casestudies/wellmee/Point3.png"}
+                  alt="Point"
+                  width={4200}
+                  height= {263}
+                />
+              </Point>
+            </Fade>
+            <Fade delay={300} triggerOnce key={'point4'}>
+              <Point>
+                <div>
+                  <span className="number">
+                    <p>4</p>
+                  </span>
+                  <p>{t?.third_section.points[3].p}</p>
+                </div>
+                <Picture
+                  src={"/assets/img/casestudies/wellmee/Point4.png"}
+                  alt="Point"
+                  width={562}
+                  height= {966}
+                />
+              </Point>
+            </Fade>
+          </PointContainer>
         </TextColumn>
         <TextColumn>
           <H3>{t.third_section.subtitle}</H3>
           <P>{t.third_section.p}</P>
-          <div>
+          <div style={{display: 'flex', gap: '24px', flexDirection: 'column'}}>
             {t?.third_section.results.map((result, i) => (
               <Fade delay={300} triggerOnce key={`result${i}`}>
-                <span>
+                <ResultCard>
                   {result.sign && <h4>{result.sign}</h4>}
-                  <h2>{result.title}</h2>
-                  <h3>{result.subtitle}</h3>
-                </span>
+                  <h3>{result.title}</h3>
+                  <h4>{result.subtitle}</h4>
+                  <p>{result.p}</p>
+                </ResultCard>
               </Fade>
             ))}
           </div>
         </TextColumn>
+        <Picture
+          src={"/assets/img/casestudies/wellmee/Iphone1.png"}
+          alt="Point"
+          width={902}
+          height= {450}
+        />
       </ThirdSection>
       <FourthSection>
         <TextColumn>
           <H2>{t.fourth_section.title}</H2>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-      </FourthSection> */}
+        <Picture
+          src={"/assets/img/casestudies/wellmee/Iphone2.png"}
+          alt="Wellmee"
+          width={914}
+          height= {836}
+        />
+      </FourthSection>
       <NextStudy link="recupera" />
       <ContactFooter />
     </PageClipperWellmee>
@@ -248,10 +321,10 @@ const FirstSection = styled(CommonSection)`
   color: #4A4A73;
   padding-top: 14%;
   padding-bottom: 10.7%;
-  background-image: url("/assets/img/casestudies/backgroundEllipse1.png");
+  background-image: url("/assets/img/casestudies/wellmee/Background1.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: 0% 28%;
 
   h2, h3 {
     font-weight: 500;
@@ -438,12 +511,27 @@ const SlideCards = styled.div`
   justify-content: center;
   align-items: center;
   gap: 34px;
+
+  h4 {
+    font-weight: 500;
+    font-size: 22px;
+  }
+  p {
+    font-size: 16.5px;
+    width: 280px;
+    padding-top: 24px;
+  }
 `;
 
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
   color: #4A4A73;
+  background-image: url("/assets/img/casestudies/wellmee/Background2.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: 0% 65%;
+
   h2 {
     color: #383955;
     font-weight: 500;
@@ -466,10 +554,6 @@ const ThirdSection = styled(CommonSection)`
 
   div div div p {
     font-size: 1.65rem;
-  }
-
-  .image {
-    padding-top: 7rem;
   }
 
   @media (max-width: 1000px) {
@@ -504,11 +588,73 @@ const ThirdSection = styled(CommonSection)`
   }
 `;
 
+const PointContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 100px;
+  margin-top: 100px;
+`;
+
+const Point = styled.div`
+  div {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    max-width: 648px;
+    justify-content: center;
+
+    span {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: #383955;
+      min-width: 31px;
+      height: 31px;
+      color: #FFFFFF;
+    }
+
+    .number {
+      border-radius: 50%;
+    }
+
+    p {
+      padding-bottom: 48px;
+    }
+
+    .number p {
+      padding-bottom: 0px;
+    }
+  }
+`;
+
+const Step = styled.div`
+  display: flex;
+  flex-direction: column !important;
+
+  div {
+    width: 120px;
+    height: 120px;
+    background-color: #FCFDFC;
+    border-radius: 24px;
+  }
+`;
+
+const ResultCard = styled.span`
+  display: flex;
+  flex-direction: column;
+  background-color: #FFFFFF;
+  border-radius: 32px;
+  max-width: 441px;
+`;
+
 const FourthSection = styled(CommonSection)`
-  background-color: #5A5A8C; 
-  color: #5C5C81;
+  background-color: #5A5A8C;
   padding-top: 10%;
   color: #FFFFFF;
+  background-image: url("/assets/img/casestudies/wellmee/Background3.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: bottom;
 
   h2 {
     font-weight: 500;
@@ -522,12 +668,9 @@ const FourthSection = styled(CommonSection)`
     }
   }
 
-  .image {
-    width: 100%;
-    max-width: 1000px;
-    padding: 7% 0% 0% 0%;
-    display: flex;
-    justify-content: center;
+  img {
+    padding-bottom: 8% !important;
+    padding-top: 17% !important;
   }
 
   @media (max-width: 1000px) {

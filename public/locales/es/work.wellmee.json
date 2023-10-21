@@ -86,7 +86,14 @@
           "p": "Lo primero que hicimos fue un taller de facilitación para construir un Lean Canvas. El resultado nos permitió conocer a profundidad la lógica del negocio, sus recursos, fortalezas, debilidades, alianzas clave y visión"
         },
         {
-          "p": "Después hicimos una serie de design sprints donde creamos prototipos y los probamos con usuarios reales con varias iteraciones hasta llegar a un resultado robusto y validado"
+          "p": "Después hicimos una serie de design sprints donde creamos prototipos y los probamos con usuarios reales con varias iteraciones hasta llegar a un resultado robusto y validado",
+          "steps": [
+            "mapear",
+            "bocetear",
+            "crear un storyboard",
+            "prototipar",
+            "probar con usuarios reales"
+          ]
         },
         {
           "p": "Y llegó el momento de construir. Diseñamos una arquitectura escalable y mantenible con una correcta documentación adecuada a las necesidades del nuevo equipo de desarrollo de Wellmee liderado por Eduardo Díaz"
