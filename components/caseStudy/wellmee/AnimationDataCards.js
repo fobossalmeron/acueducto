@@ -50,9 +50,9 @@ const CasesContainer = styled.div`
   position: relative;
   width: 100%;
   height: 100%;
-  min-height: 12%;
-  margin-top: 6%;
-  gap: 5%;
+  min-height: 637px;
+  max-width: 722px;
+  margin-top: 7%;
 
   .firstCard, .secondCard, .thirdCard, .fourthCard {
     display: flex;
@@ -65,12 +65,11 @@ const CasesContainer = styled.div`
   }
   .secondCard {
     position: absolute;
-    left: 25%;
+    right: 0%;
   }
   .thirdCard {
     position: absolute;
-    right: 25%;
-    top: 23%;
+    left: 0%;
   }
   .fourthCard {
     position: absolute;
@@ -79,10 +78,27 @@ const CasesContainer = styled.div`
 
   .image {
     width: 100%;
-    max-width: 340px;
+    max-width: 355px;
+    padding: 5%;
     .img {
       box-shadow: 1px 1px 11px 0px rgba(64, 64, 64, 0.05), 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
       border-radius: 10px;
+    }
+  }
+
+  @media (max-width: 900px) {
+    min-height: 488px;
+    .image {
+      width: 77%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    max-width: 327px;
+    min-height: 288px;
+    .image {
+      width: 100%;
+      max-width: 151px;
     }
   }
 `;

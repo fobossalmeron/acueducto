@@ -18,6 +18,7 @@ import AnimatedDataCards from "../../components/caseStudy/wellmee/AnimationDataC
 import Picture from "components/caseStudy/shared/Picture";
 import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
 import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationUIComponents";
+import AnimationScrollCards from "../../components/caseStudy/wellmee/AnimationScrollCards";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -117,7 +118,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             ))}
           </ChallengesContainer>
         </TextColumn>
-        <UIComponentsAnimation />
+        <UIComponentsAnimation isMobile={isMobile} />
       </FirstSection>
       <SecondSection>
         <TextColumn>
@@ -154,12 +155,15 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                 </div>
                 <Picture
                   src={"/assets/img/casestudies/wellmee/Point1.png"}
-                  alt="Point 1"
+                  alt="Point"
                   width={420}
                   height= {263}
                 />
               </Point>
             </Fade>
+          </PointContainer>
+        </TextColumn>
+        <TextColumn>
             <Fade delay={300} triggerOnce key={'point2'}>
               <Point>
                 <div>
@@ -185,6 +189,8 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                 </div>
               </Point>
             </Fade>
+          </TextColumn>
+          <TextColumn>
             <Fade delay={300} triggerOnce key={'point3'}>
               <Point>
                 <div>
@@ -193,14 +199,11 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   </span>
                   <p>{t?.third_section.points[2].p}</p>
                 </div>
-                <Picture
-                  src={"/assets/img/casestudies/wellmee/Point3.png"}
-                  alt="Point"
-                  width={4200}
-                  height= {263}
-                />
               </Point>
             </Fade>
+          </TextColumn>
+          <AnimationScrollCards />
+          <TextColumn>
             <Fade delay={300} triggerOnce key={'point4'}>
               <Point>
                 <div>
@@ -217,7 +220,6 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                 />
               </Point>
             </Fade>
-          </PointContainer>
         </TextColumn>
         <TextColumn>
           <H3>{t.third_section.subtitle}</H3>
@@ -293,7 +295,7 @@ const LandSection = styled(CommonSection)`
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 0 5%;
+    padding: 0 18%;
     gap: 2%;
     img {
       width: 100%;
@@ -302,9 +304,20 @@ const LandSection = styled(CommonSection)`
 
   .logo {
     max-width: 142px;
+    width: 100%;
   }
   .marca {
     max-width: 391px;
+    width: 100%;
+  }
+
+  @media (max-width: 900px) {
+    .logo {
+      max-width: 90px;
+    }
+    .marca {
+      max-width: 250px;
+    }
   }
 
   @media (max-width: 650px) {
@@ -313,6 +326,9 @@ const LandSection = styled(CommonSection)`
       justify-content: center;
       align-items: center;
       flex-direction: column;
+    }
+    .logo {
+      padding: 0px 8px 30px 8px;
     }
   }
 `;
@@ -324,7 +340,7 @@ const FirstSection = styled(CommonSection)`
   background-image: url("/assets/img/casestudies/wellmee/Background1.png");
   background-size: contain;
   background-repeat: no-repeat;
-  background-position: 0% 28%;
+  background-position: 0% 30%;
 
   h2, h3 {
     font-weight: 500;
@@ -352,8 +368,8 @@ const FirstSection = styled(CommonSection)`
   .combinator {
     display: flex;
     justify-content: center;
-    padding-top: 8%;
-
+    padding: 8% 7% 0% 7%;
+  
     div {
       max-width: 342px;
       img {
@@ -371,6 +387,7 @@ const FirstSection = styled(CommonSection)`
     }
     h3 {
       font-size: 3rem;
+      margin-top: 80px;
     }
   }
   @media (max-width: 630px) {
@@ -382,6 +399,7 @@ const FirstSection = styled(CommonSection)`
     }
     h3 {
       font-size: 1.9rem;
+      margin-top: 48px;
     }
   }
 `;
@@ -415,6 +433,7 @@ const ChallengesContainer = styled.div`
 
   @media (max-width: 630px) {
     padding-bottom: 4.8rem;
+    gap: 32px;
   }
 `;
 
@@ -435,17 +454,18 @@ const Challenge = styled.div`
     min-width: 31px;
     margin-top: 1%;
     p {
+      font-size: 1.8rem;
       color: #FFFFFF;
     }
   }
 
   div {
-    gap: 15px;
+    gap: 20px;
     display: flex;
     flex-direction: column;
 
     h5 {
-      font-size: 2.5rem;
+      font-size: 2.4rem;
       margin: 0px;
       font-weight: 500;
       color: #383955;
@@ -454,6 +474,31 @@ const Challenge = styled.div`
     p {
       color: #4A4A73;
       font-weight: 200;
+      font-size: 1.8rem;
+    }
+  }
+
+  @media (max-width: 630px) {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+
+    div {
+      display: flex;
+      flex-direction: column;
+  
+      h5 {
+        font-size: 2.4rem;
+        margin: 0px;
+        font-weight: 500;
+        color: #383955;
+      }
+    
+      p {
+        color: #4A4A73;
+        font-weight: 200;
+        font-size: 1.8rem;
+      }
     }
   }
 `;

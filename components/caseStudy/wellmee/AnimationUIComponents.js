@@ -21,133 +21,234 @@ import UIComponent3f from "public/assets/img/casestudies/wellmee/UIComponent3f.p
 import UIComponent3g from "public/assets/img/casestudies/wellmee/UIComponent3g.png";
 import styled from "styled-components";
 
-const UIComponentsAnimation = (props) => {
+const UIComponentsAnimation = ({isMobile}) => {
   return (
     <>
-      <Desktop>
-        <Column style={{ alignItems: 'end', gap: '1.4%', maxWidth: '347px' }}>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent1a">
-            <Image
-              src={UIComponent1a}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent1b">
-            <Image
-              src={UIComponent1b}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent1c">
-            <Image
-              src={UIComponent1c}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent1d">
-            <Image
-              src={UIComponent1d}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent1e">
-            <Image
-              src={UIComponent1e}
-              alt="Wellmee"
-            />
-          </Fade>
-        </Column>
-        <Column style={{ alignItems: 'end', gap: '18px', maxWidth: '304px' }}>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent2a">
-            <Image
-              src={UIComponent2a}
-              alt="Wellmee"
-            />
-          </Fade>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1%' }}>
-            <Fade delay={400} direction="up" triggerOnce className="UIComponent2b">
+      {!isMobile ?
+        <Desktop>
+          <Column style={{ alignItems: 'end', gap: '1.4%', maxWidth: '347px', position: 'relative' , top: '10%'}}>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1a">
               <Image
-                src={UIComponent2b}
+                src={UIComponent1a}
                 alt="Wellmee"
               />
             </Fade>
-            <Fade delay={400} direction="up" triggerOnce className="UIComponent2c">
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1b">
               <Image
-                src={UIComponent2c}
+                src={UIComponent1b}
                 alt="Wellmee"
               />
             </Fade>
-            <Fade delay={400} direction="up" triggerOnce className="UIComponent2d">
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1c">
               <Image
-                src={UIComponent2d}
+                src={UIComponent1c}
                 alt="Wellmee"
               />
             </Fade>
-          </div>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent2e">
-            <Image
-              src={UIComponent2e}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent2f">
-            <Image
-              src={UIComponent2f}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent2g">
-            <Image
-              src={UIComponent2g}
-              alt="Wellmee"
-            />
-          </Fade>
-        </Column>
-        <Column style={{ alignItems: 'start', gap: '1.4%', maxWidth: '312px' }}>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3a">
-            <Image
-              src={UIComponent3a}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3b">
-            <Image
-              src={UIComponent3b}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3c">
-            <Image
-              src={UIComponent3c}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3d">
-            <Image
-              src={UIComponent3d}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3e">
-            <Image
-              src={UIComponent3e}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3f">
-            <Image
-              src={UIComponent3f}
-              alt="Wellmee"
-            />
-          </Fade>
-          <Fade delay={400} direction="up" triggerOnce className="UIComponent3g">
-            <Image
-              src={UIComponent3g}
-              alt="Wellmee"
-            />
-          </Fade>
-        </Column>
-      </Desktop>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1d">
+              <Image
+                src={UIComponent1d}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1e">
+              <Image
+                src={UIComponent1e}
+                alt="Wellmee"
+              />
+            </Fade>
+          </Column>
+          <Column style={{ alignItems: 'end', gap: '18px', maxWidth: '304px' }}>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2a">
+              <Image
+                src={UIComponent2a}
+                alt="Wellmee"
+              />
+            </Fade>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '1%' }}>
+              <Fade delay={400} direction="up" triggerOnce className="UIComponent2b">
+                <Image
+                  src={UIComponent2b}
+                  alt="Wellmee"
+                />
+              </Fade>
+              <Fade delay={400} direction="up" triggerOnce className="UIComponent2c">
+                <Image
+                  src={UIComponent2c}
+                  alt="Wellmee"
+                />
+              </Fade>
+              <Fade delay={400} direction="up" triggerOnce className="UIComponent2d">
+                <Image
+                  src={UIComponent2d}
+                  alt="Wellmee"
+                />
+              </Fade>
+            </div>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2e">
+              <Image
+                src={UIComponent2e}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2f">
+              <Image
+                src={UIComponent2f}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2g">
+              <Image
+                src={UIComponent2g}
+                alt="Wellmee"
+              />
+            </Fade>
+          </Column>
+          <Column style={{ alignItems: 'start', gap: '1.4%', maxWidth: '312px', position: 'relative' , top: '2%' }}>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3a">
+              <Image
+                src={UIComponent3a}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3b">
+              <Image
+                src={UIComponent3b}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3c">
+              <Image
+                src={UIComponent3c}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3d">
+              <Image
+                src={UIComponent3d}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3e">
+              <Image
+                src={UIComponent3e}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3f">
+              <Image
+                src={UIComponent3f}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3g">
+              <Image
+                src={UIComponent3g}
+                alt="Wellmee"
+              />
+            </Fade>
+          </Column>
+        </Desktop>
+      : 
+        <Mobile>
+          <Column style={{ alignItems: 'end', gap: '10px', maxWidth: '135px' }}>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2a">
+              <Image
+                src={UIComponent2a}
+                alt="Wellmee"
+              />
+            </Fade>
+            <div style={{ display: 'flex', flexDirection: 'column' }}>
+              <Fade delay={400} direction="up" triggerOnce className="UIComponent2b">
+                <Image
+                  src={UIComponent2b}
+                  alt="Wellmee"
+                />
+              </Fade>
+              <Fade delay={400} direction="up" triggerOnce className="UIComponent2c">
+                <Image
+                  src={UIComponent2c}
+                  alt="Wellmee"
+                />
+              </Fade>
+            </div>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2e">
+              <Image
+                src={UIComponent2e}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2f">
+              <Image
+                src={UIComponent2f}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3g">
+              <Image
+                src={UIComponent3g}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent2g">
+              <Image
+                src={UIComponent2g}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3a">
+              <Image
+                src={UIComponent3a}
+                alt="Wellmee"
+              />
+            </Fade>
+          </Column>
+          <Column style={{ alignItems: 'end', gap: '10px', maxWidth: '162px', position: 'relative' , top: '10%'}}>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1d">
+              <Image
+                src={UIComponent1d}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1c">
+              <Image
+                src={UIComponent1c}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3f">
+              <Image
+                src={UIComponent3f}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1e">
+              <Image
+                src={UIComponent1e}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1b">
+              <Image
+                src={UIComponent1b}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent3e">
+              <Image
+                src={UIComponent3e}
+                alt="Wellmee"
+              />
+            </Fade>
+            <Fade delay={400} direction="up" triggerOnce className="UIComponent1a">
+              <Image
+                src={UIComponent1a}
+                alt="Wellmee"
+              />
+            </Fade>
+          </Column>
+        </Mobile>
+      }
     </>
   )
 };
@@ -265,6 +366,10 @@ const Desktop = styled.div`
       border-radius: 50px;
     }
   }
+
+  @media (max-width: 900px) {
+    padding: 6% 14%;
+  }
 `;
 
 const Column = styled.div`
@@ -272,4 +377,94 @@ const Column = styled.div`
   flex-direction: column;
   gap: 1%;
   width: 100%;
+`;
+
+const Mobile = styled.div`
+  display: flex;
+  padding: 2% 5%;
+  gap: 10px;
+
+  .UIComponent2a {
+    span {
+      border-radius: 15px;
+    }
+  }
+
+  .UIComponent2b, .UIComponent2c {
+    span {
+      border-radius: 5px;
+    }
+  }
+
+  .UIComponent2e {
+    span {
+      border-radius: 14px;
+    }
+  }
+
+  .UIComponent2f {
+    span {
+      border-radius: 8.5px;
+    }
+  }
+
+  .UIComponent3g {
+    span {
+      border-radius: 28px;
+    }
+  }
+
+  .UIComponent2g {
+    span {
+      border-radius: 13px;
+    }
+  }
+
+  .UIComponent3a {
+    span {
+      border-radius: 9px;
+    }
+  }
+
+  .UIComponent1d {
+    span {
+      border-radius: 7.5px;
+    }
+  }
+
+  .UIComponent1c {
+    span {
+      border-radius: 8.4px;
+    }
+  }
+
+  .UIComponent3f {
+    span {
+      border-radius: 13px;
+    }
+  }
+
+  .UIComponent1e {
+    span {
+      border-radius: 23.5px;
+    }
+  }
+
+  .UIComponent1b {
+    span {
+      border-radius: 8.5px;
+    }
+  }
+
+  .UIComponent3e {
+    span {
+      border-radius: 8.4px;
+    }
+  }
+
+  .UIComponent1a {
+    span {
+      border-radius: 11.3px;
+    }
+  }
 `;
