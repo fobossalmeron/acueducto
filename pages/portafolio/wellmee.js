@@ -146,7 +146,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           <H2>{t.third_section.title}</H2>
           <PointContainer>
             <Fade delay={300} triggerOnce key={'point1'}>
-              <Point>
+              <Point style={{ paddingBottom:'90px' }}>
                 <div>
                   <span className="number">
                     <p>1</p>
@@ -172,24 +172,24 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   </span>
                   <p>{t?.third_section.points[1].p}</p>
                 </div>
-                <div style={{display: 'flex', flexDirection: 'row'}}>
-                  {/* {t?.third_section.points[1].steps.map((step, i) => (
-                    <Step key={`step${i}`}>
-                      <div>
-                        <Picture
-                          src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
-                          alt="Step"
-                          width={48}
-                          height= {48}
-                        />
-                      </div>
-                      <p>{step}</p>
-                    </Step>
-                  ))} */}
-                </div>
               </Point>
             </Fade>
           </TextColumn>
+          <StepContainer>
+            {t?.third_section.points[1].steps.map((step, i) => (
+              <Step key={`step${i}`}>
+                <div>
+                  <Picture
+                    src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
+                    alt="Step"
+                    width={48}
+                    height= {48}
+                  />
+                </div>
+                <p>{step}</p>
+              </Step>
+            ))}
+          </StepContainer>
           <TextColumn>
             <Fade delay={300} triggerOnce key={'point3'}>
               <Point>
@@ -220,26 +220,30 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                 />
               </Point>
             </Fade>
-        </TextColumn>
-        <TextColumn>
-          <H3>{t.third_section.subtitle}</H3>
-          <P>{t.third_section.p}</P>
-          <div style={{display: 'flex', gap: '24px', flexDirection: 'column'}}>
-            {t?.third_section.results.map((result, i) => (
-              <Fade delay={300} triggerOnce key={`result${i}`}>
-                <ResultCard>
-                  {result.sign && <h4>{result.sign}</h4>}
-                  <h3>{result.title}</h3>
-                  <h4>{result.subtitle}</h4>
-                  <p>{result.p}</p>
-                </ResultCard>
-              </Fade>
-            ))}
-          </div>
-        </TextColumn>
+          </TextColumn>
+          <TextColumn>
+            <H3>{t.third_section.subtitle}</H3>
+            <P>{t.third_section.p}</P>
+          </TextColumn>
+          <ContainerResultCard>
+              {t?.third_section.results.map((result, i) => (
+                <div className={`result${i}`}>
+                <Fade delay={300} triggerOnce key={`result${i}`}>
+                    <div>
+                      {result.sign && <h5>{result.sign}</h5>}
+                      <h3>{result.title}</h3>
+                      <h4>{i !== 1 && result.first_subtitle}</h4>
+                    </div>
+                    <h4>{i === 1 && result.first_subtitle}</h4>
+                    <h4>{result.second_subtitle}</h4>
+                    <p>{result.p}</p>
+                </Fade>
+                </div>
+              ))}
+          </ContainerResultCard>
         <Picture
           src={"/assets/img/casestudies/wellmee/Iphone1.png"}
-          alt="Point"
+          alt="Iphone"
           width={902}
           height= {450}
         />
@@ -473,7 +477,6 @@ const Challenge = styled.div`
   
     p {
       color: #4A4A73;
-      font-weight: 200;
       font-size: 1.8rem;
     }
   }
@@ -496,7 +499,6 @@ const Challenge = styled.div`
     
       p {
         color: #4A4A73;
-        font-weight: 200;
         font-size: 1.8rem;
       }
     }
@@ -637,7 +639,7 @@ const PointContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 100px;
-  margin-top: 100px;
+  margin-top: 75px;
 `;
 
 const Point = styled.div`
@@ -654,6 +656,7 @@ const Point = styled.div`
       align-items: center;
       background-color: #383955;
       min-width: 31px;
+      max-width: 31px;
       height: 31px;
       color: #FFFFFF;
     }
@@ -663,6 +666,7 @@ const Point = styled.div`
     }
 
     p {
+      font-size: 1.8rem !important;
       padding-bottom: 48px;
     }
 
@@ -670,17 +674,188 @@ const Point = styled.div`
       padding-bottom: 0px;
     }
   }
+
+  @media (max-width: 630px){
+    div {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+`;
+
+const StepContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  gap: 64px;
+  background-image: url("/assets/img/casestudies/wellmee/Background4.svg");
+  background-size: 80%;
+  background-repeat: no-repeat;
+  background-position: center 18%;
+  padding: 0% 5%;
+  padding-bottom: 100px;
+
+  @media (max-width: 900px) {
+    gap: 46px;
+    background-position: center 15%;
+  }
+
+  @media (max-width: 700px) {
+    background-image: url("/assets/img/casestudies/wellmee/Background5.svg");
+    background-size: 10%;
+    background-position: 21% 5%;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  @media (max-width: 500px) {
+    background-position: 19% 5%;
+  }
 `;
 
 const Step = styled.div`
   display: flex;
   flex-direction: column !important;
+  align-items: center;
+  gap: 24px;
+  max-width: 148px;
 
   div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 120px;
     height: 120px;
     background-color: #FCFDFC;
     border-radius: 24px;
+  }
+
+  p {
+    text-align: center;
+    font-weight: 500;
+    color: #4A4A73;
+  }
+
+  @media (max-width: 900px){
+    div {
+      width: 100px;
+      height: 100px;
+      border-radius: 20px;
+    }
+    p {
+      font-size: 16.5px;
+    }
+  }
+
+  @media (max-width: 700px) {
+    display: flex;
+    flex-direction: row !important;
+    max-width: 252px;
+
+    div {
+      width: 92px;
+      height: 92px;
+    }
+    p {
+      text-align: start;
+    }
+  }
+`;
+
+const ContainerResultCard = styled.div`
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, 1fr);
+  max-width: 795px;
+  padding: 60px 0;
+
+  & > div {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 32px;
+    max-width: 441px;
+    max-height: 305px;
+    color: #383955;
+    padding: 40px;
+    box-shadow: 1.20374px 1.20374px 13.24111px 0px rgba(64, 64, 64, 0.05);
+
+    div {
+      display: flex;
+      flex-direction: row;
+      align-items: end;
+      gap: 5px;
+    }
+
+    h3 {
+      font-size: 8rem;
+      margin: 0px;
+      padding: 0px;
+      line-height: 100%;
+    }
+    h4 {
+      font-size: 4.8rem;
+      line-height: 1;
+      padding-bottom: 4px;
+    }
+    h5 {
+      font-size: 3.4rem;
+      font-weight: 400;
+      margin: 0px;
+    }
+    p {
+      font-size: 1.8rem !important;
+      color: #8A8CB2;
+    }
+  }
+  
+  .result0 {
+    max-width: 329px;
+    max-height: 305px;
+  }
+  .result1 {
+    max-width: 441px;
+    max-height: 257px;
+    align-self: end;
+    position: relative;
+    left: -12px;
+  }
+  .result2 {
+    max-width: 323px;
+    max-height: 209px;
+    justify-self: end;
+  }
+  .result3 {
+    max-width: 394px;
+    max-height: 281px;
+  }
+
+  @media (max-width: 850px){
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+
+    .result0, .result1, .result2, .result3 {
+      max-width: 300px;
+    }
+
+    .result1 {
+      left: 0px;
+    }
+
+    & > div {
+      h3 {
+        font-size: 5.6rem;
+      }
+      h4 {
+        font-size: 3.4rem;
+      }
+      h5 {
+        font-size: 3.4rem;
+      }
+      p {
+        font-size: 1.5rem;
+      }
+    }
   }
 `;
 
@@ -690,6 +865,49 @@ const ResultCard = styled.span`
   background-color: #FFFFFF;
   border-radius: 32px;
   max-width: 441px;
+  padding: 40px;
+  color: #383955;
+
+  div {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    gap: 10px;
+  }
+
+  h3 {
+    font-size: 8rem;
+    margin: 0px;
+    padding: 0px;
+    line-height: 100%;
+  }
+  h4 {
+    font-size: 4.8rem;
+    line-height: 1;
+    padding-bottom: 4px;
+  }
+  h5 {
+    font-size: 3.4rem;
+    font-weight: 400;
+    margin: 0px;
+  }
+  p {
+    font-size: 1.8rem !important;
+    color: #8A8CB2;
+  }
+
+  .result0 {
+    max-width: 299px;
+  }
+  .result1 {
+    max-width: 441px;
+  }
+  .result2 {
+    max-width: 323px;
+  }
+  .result3 {
+    max-width: 394px;
+  }
 `;
 
 const FourthSection = styled(CommonSection)`

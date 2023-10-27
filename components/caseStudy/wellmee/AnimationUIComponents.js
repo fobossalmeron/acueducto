@@ -260,7 +260,6 @@ const Desktop = styled.div`
   flex-direction: row;
   gap: 2%;
   padding: 6% 6%;
-  padding-bottom: 35%;
 
   span {
     box-shadow: 0.88542px 0.88542px 9.73958px 0px rgba(64, 64, 64, 0.05);

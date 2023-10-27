@@ -107,24 +107,26 @@
       "results": [
         {
           "title": "0",
-          "subtitle": "errores humanos",
+          "first_subtitle": "errores",
+          "second_subtitle": "humanos",
           "p": "en la captura de resultados gracias a la integración directa con el laboratorio vía API"
         },
         {
           "sign": "+",
           "title": "64",
-          "subtitle": "biomarcadores",
+          "first_subtitle": "biomarcadores",
           "p": "agrupados en pilares con resultados amigables para usuarios y doctores"
         },
         {
           "title": "1",
-          "subtitle": "semana",
+          "first_subtitle": "semana",
           "p": "en validar el concepto original"
         },
         {
           "sign": "+",
           "title": "15",
-          "subtitle": "pruebas de usuarios",
+          "first_subtitle": "pruebas",
+          "second_subtitle": " de usuarios",
           "p": "donde personas reales nos dieron feedback para diseñar el mejor producto"
         }
       ]
