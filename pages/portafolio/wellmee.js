@@ -19,6 +19,9 @@ import Picture from "components/caseStudy/shared/Picture";
 import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
 import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationUIComponents";
 import AnimationScrollCards from "../../components/caseStudy/wellmee/AnimationScrollCards";
+import AnimationSliceCards from "../../components/caseStudy/wellmee/AnimationSliceCards";
+import Image from "next/legacy/image";
+import Point4 from "public/assets/img/casestudies/wellmee/Point4.png"
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -123,23 +126,8 @@ const Wellmee = ({ locale, setTitle, pt }) => {
       <SecondSection>
         <TextColumn>
           <H2>{t?.second_section.title}</H2>
-            {t?.second_section.solutions.map((solution, i) => (
-              <Fade delay={300} triggerOnce key={`solution${i}`}>
-                <SlideCards>
-                  <span>
-                    <h4>{solution.title}</h4>
-                    <p>{solution.p}</p>
-                  </span>
-                  <Picture
-                    src={"/assets/img/casestudies/wellmee/CardMobile1.png"}
-                    alt="Combinator"
-                    width={161}
-                    height= {349}
-                  />
-                </SlideCards>
-              </Fade>
-            ))}
         </TextColumn>
+        <AnimationSliceCards t={t?.second_section}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -212,11 +200,9 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   </span>
                   <p>{t?.third_section.points[3].p}</p>
                 </div>
-                <Picture
-                  src={"/assets/img/casestudies/wellmee/Point4.png"}
+                <Image
+                  src={Point4}
                   alt="Point"
-                  width={562}
-                  height= {966}
                 />
               </Point>
             </Fade>
@@ -227,8 +213,8 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           </TextColumn>
           <ContainerResultCard>
               {t?.third_section.results.map((result, i) => (
-                <div className={`result${i}`}>
-                <Fade delay={300} triggerOnce key={`result${i}`}>
+                <div className={`result${i}`} key={`result${i}`}>
+                <Fade delay={300} triggerOnce>
                     <div>
                       {result.sign && <h5>{result.sign}</h5>}
                       <h3>{result.title}</h3>
@@ -294,28 +280,38 @@ const LandSection = styled(CommonSection)`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  background-image: url("/assets/img/casestudies/wellmee/BackgroundDesktop.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: top center;
 
   div {
     display: flex;
     justify-content: center;
     width: 100%;
-    padding: 0 18%;
+    padding: 0 30px;
     gap: 2%;
+    padding-top: 7%;
     img {
       width: 100%;
     }
   }
 
   .logo {
-    max-width: 142px;
+    max-width: 140px;
     width: 100%;
   }
   .marca {
-    max-width: 391px;
+    max-width: 388px;
     width: 100%;
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
+    background-image: url("/assets/img/casestudies/wellmee/BackgroundMobile.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+
     .logo {
       max-width: 90px;
     }
@@ -339,7 +335,6 @@ const LandSection = styled(CommonSection)`
 
 const FirstSection = styled(CommonSection)`
   color: #4A4A73;
-  padding-top: 14%;
   padding-bottom: 10.7%;
   background-image: url("/assets/img/casestudies/wellmee/Background1.png");
   background-size: contain;
@@ -383,6 +378,7 @@ const FirstSection = styled(CommonSection)`
   }
 
   @media (max-width: 1000px) {
+    background-position: 0% 33%;
     h2 {
       font-size: 5.2rem;
       b {
@@ -394,7 +390,12 @@ const FirstSection = styled(CommonSection)`
       margin-top: 80px;
     }
   }
+  @media (max-width: 800px) {
+    background-position: 0% 35%;
+    }
+  }
   @media (max-width: 630px) {
+    background-position: 0% 28%;
     h2 {
       font-size: 3.3rem;
       b {
@@ -547,29 +548,6 @@ const SecondSection = styled(CommonSection)`
   }
 `;
 
-const SlideCards = styled.div`
-  background-color: #686A97;
-  width: 700px;
-  height: 499px;
-  border-radius: 24px;
-  display: flex;
-  padding: 75px 97px 28px 97px;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 34px;
-
-  h4 {
-    font-weight: 500;
-    font-size: 22px;
-  }
-  p {
-    font-size: 16.5px;
-    width: 280px;
-    padding-top: 24px;
-  }
-`;
-
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
@@ -577,7 +555,7 @@ const ThirdSection = styled(CommonSection)`
   background-image: url("/assets/img/casestudies/wellmee/Background2.png");
   background-size: 100%;
   background-repeat: no-repeat;
-  background-position: 0% 65%;
+  background-position: 0% 69%;
 
   h2 {
     color: #383955;
@@ -604,6 +582,7 @@ const ThirdSection = styled(CommonSection)`
   }
 
   @media (max-width: 1000px) {
+    background-position: 0% 60%;
     h2 {
       font-size: 5.2rem;
       b {
@@ -640,6 +619,13 @@ const PointContainer = styled.div`
   flex-direction: column;
   gap: 100px;
   margin-top: 75px;
+
+  @media (max-width: 900px) {
+    margin-top: 60px;
+  }
+  @media (max-width: 600px) {
+    margin-top: 20px;
+  }
 `;
 
 const Point = styled.div`
@@ -709,6 +695,7 @@ const StepContainer = styled.div`
 
   @media (max-width: 500px) {
     background-position: 19% 5%;
+    padding-bottom: 50px;
   }
 `;
 
@@ -832,10 +819,10 @@ const ContainerResultCard = styled.div`
   @media (max-width: 850px){
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 60px 20px;
 
     .result0, .result1, .result2, .result3 {
-      max-width: 300px;
+      max-width: 299px;
     }
 
     .result1 {
@@ -853,8 +840,14 @@ const ContainerResultCard = styled.div`
         font-size: 3.4rem;
       }
       p {
-        font-size: 1.5rem;
+        font-size: 1.5rem !important;
       }
+    }
+  }
+  @media (max-width: 600px) {
+    padding: 60px 38px;
+    & > div {
+      padding: 20px;
     }
   }
 `;
@@ -937,6 +930,10 @@ const FourthSection = styled(CommonSection)`
   }
 
   @media (max-width: 1000px) {
+    img {
+      padding-bottom: 0% !important;
+      padding-top: 10% !important;
+    }
     h2 {
       font-size: 5.2rem;
       b {

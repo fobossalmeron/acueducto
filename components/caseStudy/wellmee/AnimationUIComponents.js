@@ -203,7 +203,7 @@ const UIComponentsAnimation = ({isMobile}) => {
               />
             </Fade>
           </Column>
-          <Column style={{ alignItems: 'end', gap: '10px', maxWidth: '162px', position: 'relative' , top: '10%'}}>
+          <Column style={{ alignItems: 'end', gap: '10px', maxWidth: '162px', position: 'relative' , top: '3%', alignItems: 'start'}}>
             <Fade delay={400} direction="up" triggerOnce className="UIComponent1d">
               <Image
                 src={UIComponent1d}
@@ -315,6 +315,7 @@ const Desktop = styled.div`
   .UIComponent2f {
     span {
       border-radius: 18px;
+      border: 2px solid #3BB574 !important;
     }
   }
   .UIComponent2g {
@@ -404,6 +405,7 @@ const Mobile = styled.div`
   .UIComponent2f {
     span {
       border-radius: 8.5px;
+      border: 2px solid #3BB574 !important;
     }
   }
 
@@ -438,6 +440,7 @@ const Mobile = styled.div`
   }
 
   .UIComponent3f {
+    max-width: 143px;
     span {
       border-radius: 13px;
     }
@@ -450,6 +453,7 @@ const Mobile = styled.div`
   }
 
   .UIComponent1b {
+    max-width: 157px;
     span {
       border-radius: 8.5px;
     }
@@ -462,6 +466,7 @@ const Mobile = styled.div`
   }
 
   .UIComponent1a {
+    max-width: 112px;
     span {
       border-radius: 11.3px;
     }
