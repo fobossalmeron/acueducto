@@ -200,10 +200,12 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   </span>
                   <p>{t?.third_section.points[3].p}</p>
                 </div>
-                <Image
-                  src={Point4}
-                  alt="Point"
-                />
+                <div className="point4">
+                  <Image
+                    src={Point4}
+                    alt="Point"
+                  />
+                </div>
               </Point>
             </Fade>
           </TextColumn>
@@ -629,6 +631,10 @@ const PointContainer = styled.div`
 `;
 
 const Point = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
   div {
     display: flex;
     flex-direction: row;
@@ -661,10 +667,28 @@ const Point = styled.div`
     }
   }
 
-  @media (max-width: 630px){
+  .point4 {
+    align-self: center;
+    max-width: 600px;
+    padding: 0% 5%;
+    span span {
+      box-shadow: 1.20374px 1.20374px 13.24111px 0px rgba(64, 64, 64, 0.05);
+    }
+  }
+
+  @media (max-width: 800px){
+    .point4 {
+      max-width: 350px;
+    }
+  }
+
+  @media (max-width: 500px){
     div {
       display: flex;
       flex-direction: column;
+    }
+    .point4 {
+      max-width: 231px;
     }
   }
 `;
