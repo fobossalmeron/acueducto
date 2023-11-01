@@ -65,11 +65,13 @@ const CasesContainer = styled.div`
   }
   .secondCard {
     position: absolute;
-    right: 0%;
+    left: 3%;
+    bottom: 25%;
   }
   .thirdCard {
     position: absolute;
-    left: 0%;
+    top: 23%;
+    right: -3%;
   }
   .fourthCard {
     position: absolute;
@@ -80,7 +82,8 @@ const CasesContainer = styled.div`
     width: 100%;
     max-width: 355px;
     padding: 5%;
-    .img {
+
+    div span {
       box-shadow: 1px 1px 11px 0px rgba(64, 64, 64, 0.05), 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
       border-radius: 10px;
     }
@@ -99,6 +102,14 @@ const CasesContainer = styled.div`
     .image {
       width: 100%;
       max-width: 151px;
+    }
+    .secondCard {
+      left: 4%;
+      bottom: 28%;
+    }
+    .thirdCard {
+      top: 23%;
+      right: 2%;
     }
   }
 `;

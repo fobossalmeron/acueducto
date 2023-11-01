@@ -134,7 +134,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           <H2>{t.third_section.title}</H2>
           <PointContainer>
             <Fade delay={300} triggerOnce key={'point1'}>
-              <Point style={{ paddingBottom:'90px' }}>
+              <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
                 <div>
                   <span className="number">
                     <p>1</p>
@@ -163,21 +163,23 @@ const Wellmee = ({ locale, setTitle, pt }) => {
               </Point>
             </Fade>
           </TextColumn>
-          <StepContainer>
-            {t?.third_section.points[1].steps.map((step, i) => (
-              <Step key={`step${i}`}>
-                <div>
-                  <Picture
-                    src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
-                    alt="Step"
-                    width={48}
-                    height= {48}
-                  />
-                </div>
-                <p>{step}</p>
-              </Step>
-            ))}
-          </StepContainer>
+          <Fade delay={300} triggerOnce>
+            <StepContainer>
+              {t?.third_section.points[1].steps.map((step, i) => (
+                <Step key={`step${i}`}>
+                  <div>
+                    <Picture
+                      src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
+                      alt="Step"
+                      width={isMobile ? 37 : 48}
+                      height= {isMobile ? 37 : 48}
+                    />
+                  </div>
+                  <p>{step}</p>
+                </Step>
+              ))}
+            </StepContainer>
+          </Fade>
           <TextColumn>
             <Fade delay={300} triggerOnce key={'point3'}>
               <Point>
@@ -213,22 +215,22 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             <H3>{t.third_section.subtitle}</H3>
             <P>{t.third_section.p}</P>
           </TextColumn>
-          <ContainerResultCard>
+          <Fade delay={300} triggerOnce>
+            <ContainerResultCard>
               {t?.third_section.results.map((result, i) => (
                 <div className={`result${i}`} key={`result${i}`}>
-                <Fade delay={300} triggerOnce>
-                    <div>
-                      {result.sign && <h5>{result.sign}</h5>}
-                      <h3>{result.title}</h3>
-                      <h4>{i !== 1 && result.first_subtitle}</h4>
-                    </div>
-                    <h4>{i === 1 && result.first_subtitle}</h4>
-                    <h4>{result.second_subtitle}</h4>
-                    <p>{result.p}</p>
-                </Fade>
+                  <div>
+                    {result.sign && <h5>{result.sign}</h5>}
+                    <h3>{result.title}</h3>
+                    <h4>{i !== 1 && result.first_subtitle}</h4>
+                  </div>
+                  <h4>{i === 1 && result.first_subtitle}</h4>
+                  <h4>{result.second_subtitle}</h4>
+                  <p>{result.p}</p>
                 </div>
               ))}
-          </ContainerResultCard>
+            </ContainerResultCard>
+          </Fade>
         <Picture
           src={"/assets/img/casestudies/wellmee/Iphone1.png"}
           alt="Iphone"
@@ -371,9 +373,9 @@ const FirstSection = styled(CommonSection)`
     justify-content: center;
     padding: 8% 7% 0% 7%;
   
-    div {
+    div{
       max-width: 342px;
-      img {
+      span {
         box-shadow: 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
       }
     }
@@ -397,7 +399,7 @@ const FirstSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
-    background-position: 0% 28%;
+    background-position: 0% 31%;
     h2 {
       font-size: 3.3rem;
       b {
@@ -441,6 +443,11 @@ const ChallengesContainer = styled.div`
   @media (max-width: 630px) {
     padding-bottom: 4.8rem;
     gap: 32px;
+    padding-top: 0rem;
+
+    & > div:nth-child(1) {
+      padding-top: 1.5rem;
+    }
   }
 `;
 
@@ -487,14 +494,26 @@ const Challenge = styled.div`
   @media (max-width: 630px) {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 12px;
+
+    span {
+      width: 24px;
+      min-width: 24px;
+      height: 24px;
+      p {
+        font-size: 1.4rem;
+        position: relative;
+        bottom: 1px;
+        right: 0.5px;
+      }
+    }
 
     div {
       display: flex;
       flex-direction: column;
   
       h5 {
-        font-size: 2.4rem;
+        font-size: 1.9rem;
         margin: 0px;
         font-weight: 500;
         color: #383955;
@@ -502,7 +521,7 @@ const Challenge = styled.div`
     
       p {
         color: #4A4A73;
-        font-size: 1.8rem;
+        font-size: 1.5rem;
       }
     }
   }
@@ -580,11 +599,11 @@ const ThirdSection = styled(CommonSection)`
   }
 
   div div div p {
-    font-size: 1.65rem;
+    font-size: 1.8rem;
   }
 
   @media (max-width: 1000px) {
-    background-position: 0% 60%;
+    background-position: 0% 56%;
     h2 {
       font-size: 5.2rem;
       b {
@@ -596,6 +615,7 @@ const ThirdSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
+    background-position: 0% 61%;
     h2 {
       font-size: 3.3rem;
       b {
@@ -605,8 +625,14 @@ const ThirdSection = styled(CommonSection)`
     h3 {
       font-size: 1.9rem;
     }
-    p {
+    div div div p {
       font-size: 1.5rem;
+    }
+    div div span p {
+      font-size: 1.4rem;
+      position: relative;
+      bottom: 1px;
+      right: 0.5px;
     }
     .image {
       padding-top: 4.8rem;
@@ -653,13 +679,12 @@ const Point = styled.div`
       color: #FFFFFF;
     }
 
-    .number {
-      border-radius: 50%;
+    p {
+      padding-bottom: 48px;
     }
 
-    p {
-      font-size: 1.8rem !important;
-      padding-bottom: 48px;
+    .number {
+      border-radius: 50%;
     }
 
     .number p {
@@ -686,6 +711,15 @@ const Point = styled.div`
     div {
       display: flex;
       flex-direction: column;
+      gap: 16px;
+      p {
+        padding-bottom: 40px;
+      }
+      span {
+        width: 24px;
+        min-width: 24px;
+        height: 24px;
+      }
     }
     .point4 {
       max-width: 231px;
@@ -701,7 +735,7 @@ const StepContainer = styled.div`
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center 18%;
-  padding: 0% 5%;
+  padding: 0% 3%;
   padding-bottom: 100px;
 
   @media (max-width: 900px) {
@@ -712,13 +746,9 @@ const StepContainer = styled.div`
   @media (max-width: 700px) {
     background-image: url("/assets/img/casestudies/wellmee/Background5.svg");
     background-size: 10%;
-    background-position: 21% 5%;
+    background-position: 12% -100%;
     flex-direction: column;
     gap: 32px;
-  }
-
-  @media (max-width: 500px) {
-    background-position: 19% 5%;
     padding-bottom: 50px;
   }
 `;
@@ -738,6 +768,7 @@ const Step = styled.div`
     height: 120px;
     background-color: #FCFDFC;
     border-radius: 24px;
+    box-shadow: 1.20374px 1.20374px 13.24111px 0px rgba(64, 64, 64, 0.05);
   }
 
   p {
@@ -760,11 +791,11 @@ const Step = styled.div`
   @media (max-width: 700px) {
     display: flex;
     flex-direction: row !important;
-    max-width: 252px;
+    max-width: 100%;
 
     div {
-      width: 92px;
-      height: 92px;
+      width: 80px;
+      height: 80px;
     }
     p {
       text-align: start;
@@ -869,61 +900,10 @@ const ContainerResultCard = styled.div`
     }
   }
   @media (max-width: 600px) {
-    padding: 60px 38px;
+    padding: 40px 38px 48px 38px;
     & > div {
       padding: 20px;
     }
-  }
-`;
-
-const ResultCard = styled.span`
-  display: flex;
-  flex-direction: column;
-  background-color: #FFFFFF;
-  border-radius: 32px;
-  max-width: 441px;
-  padding: 40px;
-  color: #383955;
-
-  div {
-    display: flex;
-    flex-direction: row;
-    align-items: end;
-    gap: 10px;
-  }
-
-  h3 {
-    font-size: 8rem;
-    margin: 0px;
-    padding: 0px;
-    line-height: 100%;
-  }
-  h4 {
-    font-size: 4.8rem;
-    line-height: 1;
-    padding-bottom: 4px;
-  }
-  h5 {
-    font-size: 3.4rem;
-    font-weight: 400;
-    margin: 0px;
-  }
-  p {
-    font-size: 1.8rem !important;
-    color: #8A8CB2;
-  }
-
-  .result0 {
-    max-width: 299px;
-  }
-  .result1 {
-    max-width: 441px;
-  }
-  .result2 {
-    max-width: 323px;
-  }
-  .result3 {
-    max-width: 394px;
   }
 `;
 
