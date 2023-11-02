@@ -127,7 +127,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <H2>{t?.second_section.title}</H2>
         </TextColumn>
-        <AnimationSliceCards t={t?.second_section}/>
+        <AnimationSliceCards t={t?.second_section} isMobile={isMobile}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
