@@ -15,6 +15,7 @@ import { H2, H3, P } from "components/shared/Dangerously";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import AnimatedDataCards from "../../components/caseStudy/wellmee/AnimationDataCards";
+import LandSectionWellmee from "../../components/caseStudy/wellmee/LandSectionWellmee";
 import Picture from "components/caseStudy/shared/Picture";
 import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
 import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationUIComponents";
@@ -63,21 +64,8 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         es_canonical={"https://acueducto.studio/portafolio/wellmee"}
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
-      <Fade triggerOnce>
-        <LandSection>
-          <div>
-            <img
-              src="/assets/img/casestudies/wellmee/brandWellmee.svg"
-              alt="Logo"
-              className="logo"
-            />
-            <img
-              src="/assets/img/casestudies/wellmee/logoWellmee.svg"
-              alt="Logo"
-              className="marca"
-            />
-          </div>
-        </LandSection>
+      <Fade delay={300} triggerOnce>
+        <LandSectionWellmee isMobile={isMobile}/>
       </Fade>
       <FirstSection>
         <Marquee tags={t.intro_section.tags} />
@@ -275,65 +263,6 @@ const PageClipperWellmee = styled(PageClipper)`
 
   @media (max-width: 1300px) {
     padding: 0px;
-  }
-`;
-
-const LandSection = styled(CommonSection)`
-  min-height: 100vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  background-image: url("/assets/img/casestudies/wellmee/BackgroundDesktop.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: top center;
-
-  div {
-    display: flex;
-    justify-content: center;
-    width: 100%;
-    padding: 0 30px;
-    gap: 2%;
-    padding-top: 7%;
-    img {
-      width: 100%;
-    }
-  }
-
-  .logo {
-    max-width: 140px;
-    width: 100%;
-  }
-  .marca {
-    max-width: 388px;
-    width: 100%;
-  }
-
-  @media (max-width: 1050px) {
-    background-image: url("/assets/img/casestudies/wellmee/BackgroundMobile.png");
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center center;
-
-    .logo {
-      max-width: 90px;
-    }
-    .marca {
-      max-width: 250px;
-    }
-  }
-
-  @media (max-width: 650px) {
-    div {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-    }
-    .logo {
-      padding: 0px 8px 30px 8px;
-    }
   }
 `;
 
