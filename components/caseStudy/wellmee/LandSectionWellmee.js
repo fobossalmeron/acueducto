@@ -235,7 +235,7 @@ const LandSection = styled(CommonSection)`
       border: 11px solid #00CEBA;
       bottom: 49%;
       left: 40%;
-      transition: transform 1s ease-out;
+      transition: transform 0.9s ease-out;
       transform: translate(0%,-50%) rotate(170deg) translateX(${props => props.radius + 30}px);
     }
 
@@ -244,7 +244,7 @@ const LandSection = styled(CommonSection)`
       height: 90px;
       border: 18px solid #00CEBA;
       bottom: 49%;
-      transition: transform 1s ease-out;
+      transition: transform 0.9s ease-out;
       transform: translate(50%, -50%) rotate(180deg) translateX(calc(${props => props.radiusExtra + 50}px));
     }
 

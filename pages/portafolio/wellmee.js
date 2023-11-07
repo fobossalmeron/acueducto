@@ -60,7 +60,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
     <PageClipperWellmee>
       <Head
         {...t?.head}
-        image={{ fileName: "og_image_recupera.png", alt: t?.head.image_alt }}
+        image={{ fileName: "og_image_wellmee.png", alt: t?.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/wellmee"}
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
@@ -180,7 +180,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
               </Point>
             </Fade>
           </TextColumn>
-          <AnimationScrollCards />
+          <AnimationScrollCards isMobile={isMobile} />
           <TextColumn>
             <Fade delay={300} triggerOnce key={'point4'}>
               <Point>

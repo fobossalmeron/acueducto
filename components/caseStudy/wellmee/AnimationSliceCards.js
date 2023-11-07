@@ -189,7 +189,13 @@ const SlideCards = styled.div`
     font-size: 16.5px;
     width: 280px;
     padding-top: 24px;
+    padding-bottom: 31px;
     color: rgba(255, 255, 255, 0.80);
+  }
+
+  div span {
+    border-radius: 12px;
+    min-width: 161px;
   }
 
   @media (max-width: 830px) {
@@ -207,6 +213,7 @@ const SlideCards = styled.div`
       font-size: 1.5rem;
       width: 251px;
       padding-top: 12px;
+      padding-bottom: 0px;
     }
   }
 `;

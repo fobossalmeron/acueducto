@@ -1,20 +1,26 @@
-import { Fade } from "react-awesome-reveal";
 import Picture from "components/caseStudy/shared/Picture";
 import styled from "styled-components";
-import Cards from "public/assets/img/casestudies/wellmee/Point3.png";
+import CardsDesktop from "public/assets/img/casestudies/wellmee/Point3-Desktop.png";
+import CardsMobile from "public/assets/img/casestudies/wellmee/Point3-Mobile.png";
 
-const AnimatedScrollCards = () => {
+const AnimationScrollCards = (props) => {
   return (
     <PicturesContainer>
-      <Picture
-        src={Cards}
-        alt="Cards"
-      />
+      {props.isMobile ?
+        <Picture
+          src={CardsMobile}
+          alt="Cards"
+        />
+        : <Picture
+            src={CardsDesktop}
+            alt="Cards"
+          />
+      }
     </PicturesContainer>
   );
 };
 
-export default AnimatedScrollCards;
+export default AnimationScrollCards;
 
 const PicturesContainer = styled.div`
   display: flex;
