@@ -1,67 +1,104 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { useEffect } from "react";
-import { useState } from "react";
 
 const LandSectionWellmee = (props) => {
-  const [radius, setRadius] = useState(0);
-  const [radiusExtra, setRadiusExtra] = useState(0);
 
   useEffect(() => {
-    // Configuración para el círculo interior
-    const circle = document.querySelector('.progress-ring__circle');
+    // Configuración para el círculo md
+    const circle = document.querySelector('.progress-ring__circle-md');
     const radius = circle.r.baseVal.value;
-    setRadius(radius);
     const circumference = radius * 2 * Math.PI;
-    const offset = circumference + (circumference * (props.isMobile ? 0.65 : 0.5)); // 50% de carga
-    
+    const offset = circumference + (circumference * (props.isMobile ? 0.245 : 0.44)); // Carga
+
     circle.style.strokeDasharray = `${circumference}`;
     circle.style.strokeDashoffset = `${circumference}`;
 
-    // Configuración para el círculo exterior
-    const circleExtra = document.querySelector('.progress-ring__circle-extra');
+    // Configuración para el círculo xl
+    const circleExtra = document.querySelector('.progress-ring__circle-xl');
     const radiusExtra = circleExtra.r.baseVal.value;
-    setRadiusExtra(radiusExtra);
     const circumferenceExtra = radiusExtra * 2 * Math.PI;
-    const offsetExtra = circumferenceExtra + (circumferenceExtra * 0.7); // 70% de carga
+    const offsetExtra = circumferenceExtra + (circumferenceExtra * (props.isMobile ? 0.745 : 0.59)); // Carga
 
     circleExtra.style.strokeDasharray = `${circumferenceExtra}`;
     circleExtra.style.strokeDashoffset = `${circumferenceExtra}`;
 
     setTimeout(() => {
-      // Animar el círculo interior
-      circle.style.transition = 'stroke-dashoffset 1s ease-out';
+      //Animar círculo md
+      circle.style.transition = 'stroke-dashoffset 2s linear';
       circle.style.strokeDashoffset = offset;
 
-      // Animar el círculo exterior
-      circleExtra.style.transition = 'stroke-dashoffset 1s ease-out';
+      // Animar círculo xl
+      circleExtra.style.transition = 'stroke-dashoffset 2s linear';
       circleExtra.style.strokeDashoffset = offsetExtra;
 
-      // Animar el círculo pequeño que acompaña al interior
-      const circleTipBg = document.querySelector('.circle-tip-bg');
-      const angleBg = props.isMobile ? (0.384 * 360) : (0.457 * 360); // 50% de carga
-      circleTipBg.style.transform = props.isMobile ? `translate(-50%, -50%) rotate(-${angleBg - 90}deg) translateX(${radius}px)`: `translate(-50%, 0%) rotate(-${angleBg - 90}deg) translateX(${radius}px)`;
- 
-      // Animar el círculo grande que acompaña al exterior
-      const circleTipEx = document.querySelector('.circle-tip-ex');
-      const angleEx = props.isMobile ? (0.50 * 360) : (0.67 * 360); // 70% de carga
-      circleTipEx.style.transform = props.isMobile ? `translate(-50%, 0%) rotate(-${angleEx - 90}deg) translateX(${radiusExtra}px)` : `translate(0%, -30%) rotate(-${angleEx - 90}deg) translateX(${radiusExtra}px)`;
+      // Animar círculo pequeño/md
+      const circleTipMd = document.querySelector('.circle-tip-md');
+      circleTipMd.style.animation = 'rotateMd 2s linear forwards';
+
+      // // Animar el círculo grande/xl
+      const circleTipXl = document.querySelector('.circle-tip-xl');
+      circleTipXl.style.animation = `rotateXl ${props.isMobile ? "2.54" : "2" }s linear forwards`;
 
     }, 1000);
 
     }, [props.isMobile]);
 
   return (
-    <LandSection radius={radius} radiusExtra={radiusExtra}>
+    <LandSection>
       <div className="circle-container">
-        <svg className="progress-ring" width="100%" height="100vh">
-          <circle className="progress-ring__circle-bg" stroke="#C8D5C8" strokeOpacity="0.3" strokeWidth="4%" fill="transparent" r="36.8%" cx={props.isMobile ? "50%" : "60%"} cy="50%"/>
-          <circle className="progress-ring__circle" stroke="#00CEBA" strokeWidth="4%" fill="transparent" r="36.8%" cx={props.isMobile ? "50%" : "60%"} cy="50%" strokeLinecap="round"/>
-          <circle className="progress-ring__circle-ex" stroke="#C8D5C8" strokeOpacity="0.3" strokeWidth="5.6%" fill="transparent" r="53.2%" cx={props.isMobile ? "50%" : "60%"} cy="50%"/>
-          <circle className="progress-ring__circle-extra" stroke="#00CEBA" strokeWidth="5.6%" fill="transparent" r="53.2%" cx={props.isMobile ? "50%" : "60%"} cy="50%" strokeLinecap="round"/>
+        <svg width="1280" height="1280" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle
+            className="progress-ring__circle-xl-base"
+            stroke="#C8D5C8"
+            strokeWidth="68px"
+            cx="50%"
+            cy="50%"
+            r="606"
+            fill="transparent"
+            opacity="0.3"
+          />
+          <circle
+            className="progress-ring__circle-xl"
+            stroke="#00CEBA"
+            strokeWidth="68px"
+            cx="50%"
+            cy="50%"
+            r="606"
+            fill="transparent"
+            strokeLinecap="round"
+          />
+          <g className="circle-tip-xl">
+            <path className="progress-ring__circle-xl-transparent" d="M0 639.798C-2.83045e-05 993.149 286.447 1279.6 639.798 1279.6C993.149 1279.6 1279.6 993.149 1279.6 639.799C1279.6 286.448 993.149 8.93396e-05 639.799 6.10352e-05C286.448 3.27307e-05 2.83045e-05 286.448 0 639.798ZM1212.13 639.799C1212.13 955.89 955.89 1212.13 639.798 1212.13C323.707 1212.13 67.4642 955.89 67.4642 639.798C67.4643 323.707 323.707 67.4643 639.799 67.4643C955.89 67.4643 1212.13 323.707 1212.13 639.799Z" fill="#C8D5C8" opacity="0"/>
+            <path d="M1068.81 989.958C1111.88 989.958 1146.81 1024.88 1146.81 1067.96C1146.81 1111.04 1111.88 1145.96 1068.81 1145.96C1025.73 1145.96 990.806 1111.04 990.806 1067.96C990.806 1024.88 1025.73 989.958 1068.81 989.958Z" fill="#00CEBA"/>
+            <path d="M1068.81 1017.91C1096.43 1017.91 1118.83 1040.3 1118.83 1067.93C1118.83 1095.56 1096.43 1117.95 1068.81 1117.95C1041.18 1117.95 1018.79 1095.56 1018.79 1067.93C1018.79 1040.3 1041.18 1017.91 1068.81 1017.91Z" fill="#F3F6F3"/>
+          </g>
+          <circle
+            className="progress-ring__circle-md-base"
+            stroke="#C8D5C8"
+            strokeWidth="50px"
+            cx="50%"
+            cy="50%"
+            r="430"
+            fill="transparent"
+            opacity="0.3"
+          />
+          <circle
+            className="progress-ring__circle-md"
+            stroke="#00CEBA"
+            strokeWidth="50px"
+            cx="50%"
+            cy="50%"
+            r="430"
+            fill="transparent"
+            strokeLinecap="round"
+          />
+          <g className="circle-tip-md">
+            <path className="progress-ring__circle-md-transparent" d="M639.5 185C388.487 185 185 388.487 185 639.5C185 890.513 388.487 1094 639.5 1094C890.514 1094 1094 890.513 1094 639.5C1094 388.487 890.514 185 639.5 185ZM639.5 1046.07C414.955 1046.07 232.925 864.045 232.925 639.5C232.925 414.955 414.955 232.925 639.5 232.925C864.045 232.925 1046.07 414.955 1046.07 639.5C1046.07 864.045 864.045 1046.07 639.5 1046.07Z" fill="#C8D5C8" opacity="0"/>
+            <path d="M819.131 975.203C849.732 975.203 874.54 1000.01 874.54 1030.61C874.54 1061.21 849.732 1086.02 819.131 1086.02C788.529 1086.02 763.721 1061.21 763.721 1030.61C763.721 1000.01 788.529 975.203 819.131 975.203Z" fill="#00CEBA"/>
+            <path d="M819.137 995.061C838.761 995.061 854.67 1010.97 854.67 1030.59C854.67 1050.22 838.761 1066.13 819.137 1066.13C799.512 1066.13 783.604 1050.22 783.604 1030.59C783.604 1010.97 799.512 995.061 819.137 995.061Z" fill="#F3F6F3"/>
+          </g>
         </svg>
-        <div className="circle-tip-bg"></div>
-        <div className="circle-tip-ex"></div>
         <span>
           <img
             src="/assets/img/casestudies/wellmee/brandWellmee.svg"
@@ -116,57 +153,44 @@ const LandSection = styled(CommonSection)`
     position: relative;
     width: 100%;
     height: 100vh;
+    padding: 0px 5%;
     overflow: hidden;
-  }
-  
-  .progress-ring__circle-bg,
-  .progress-ring__circle {
-    transition: stroke-dashoffset 1s ease-out;
-    transform-origin: center;
-    transform: rotate(90deg);
-  }
-  
-  .progress-ring__circle {
-    transform: rotate(90deg);
-    transform-origin: center;
+
+    svg {
+      margin-top: 17%;
+    }
   }
 
-  .progress-ring__circle-ex,
-  .progress-ring__circle-extra {
-    transition: stroke-dashoffset 1s ease-out;
-    transform: rotate(90deg);
+  .progress-ring__circle-xl {
     transform-origin: center;
+    transform: rotate(50deg);
   }
 
-  .progress-ring__circle-extra {
-    transform: rotate(90deg);
+  .progress-ring__circle-md {
     transform-origin: center;
-  }
-  
-  .circle-tip-bg {
-    width: 6em;
-    height: 6em;
-    border-radius: 50%;
-    background-color: #F3F6F3;
-    border: 18px solid #00CEBA;
-    position: absolute;
-    bottom: 31%;
-    transition: transform 1s ease-out;
-    transform: translate(0%, -50%) rotate(90deg) translateX(${props => props.radius + 50}px);
-    transform-origin: bottom center;
+    transform: rotate(70deg);
   }
 
-  .circle-tip-ex {
-    border-radius: 50%;
-    width: 8.8em;
-    height: 8.8em;
-    background-color: #F3F6F3;
-    border: 28px solid #00CEBA;
-    position: absolute;
-    bottom: 22%;
-    transition: transform 1s ease-out;
-    transform: translate(-50%, -50%) rotate(90deg) translateX(${props => props.radiusExtra + 50}px);
-    transform-origin: bottom center;
+  @keyframes rotateMd {
+    from {
+      transform-origin: center;
+      transform: rotate(0deg);
+    }
+    to {
+      transform-origin: center;
+      transform: rotate(-155deg);
+    }
+  }
+
+  @keyframes rotateXl {
+    from {
+      transform-origin: center;
+      transform: rotate(0deg);
+    }
+    to {
+      transform-origin: center;
+      transform: rotate(-205deg);
+    }
   }
 
   @media (max-width: 1050px) {
@@ -176,39 +200,16 @@ const LandSection = styled(CommonSection)`
     .marca {
       max-width: 250px;
     }
-    .circle-tip-bg {
-      width: 52px;
-      height: 52px;
-      border: 9px solid #00CEBA;
-      bottom: 25%;
-      transform: translate(-50%, -50%) rotate(90deg) translateX(${props => props.radius}px);
+
+    span {
+      padding: 0px;
     }
 
-    .circle-tip-ex {
-      width: 80px;
-      height: 80px;
-      border: 15px solid #00CEBA;
-      bottom: 25%;
-      transform: translate(-50%, -50%) rotate(90deg) translateX(${props => props.radiusExtra}px);
-    }
-  }
-
-  @media (max-width: 895px) {
-    .circle-tip-bg {
-      width: 52px;
-      height: 52px;
-      border: 9px solid #00CEBA;
-      bottom: 35%;
-      left: 46%;
-      transform: translate(0%, -50%) rotate(90deg) translateX(${props => props.radius + 30}px);
-    }
-
-    .circle-tip-ex {
-      width: 80px;
-      height: 80px;
-      border: 15px solid #00CEBA;
-      bottom: 28%;
-      transform: translate(0%, -50%) rotate(90deg) translateX(${props => props.radiusExtra }px);
+    .circle-container {
+      svg {
+        margin-top: 0%;
+        min-width: 700px;
+      }
     }
   }
 
@@ -218,8 +219,8 @@ const LandSection = styled(CommonSection)`
       justify-content: center;
       align-items: center;
       flex-direction: column;
-      padding: 0px;
     }
+
     .logo {
       max-width: 89px;
       padding: 0px 8px 30px 8px;
@@ -228,42 +229,47 @@ const LandSection = styled(CommonSection)`
     .marca {
       max-width: 217px;
     }
-    
-    .circle-tip-bg {
-      width: 62px;
-      height: 62px;
-      border: 11px solid #00CEBA;
-      bottom: 49%;
-      left: 40%;
-      transition: transform 0.9s ease-out;
-      transform: translate(0%,-50%) rotate(170deg) translateX(${props => props.radius + 30}px);
-    }
 
-    .circle-tip-ex {
-      width: 90px;
-      height: 90px;
-      border: 18px solid #00CEBA;
-      bottom: 49%;
-      transition: transform 0.9s ease-out;
-      transform: translate(50%, -50%) rotate(180deg) translateX(calc(${props => props.radiusExtra + 50}px));
-    }
-
-    .progress-ring__circle-bg,
-    .progress-ring__circle {
-      transform: rotate(170deg);
+    .progress-ring__circle-xl {
+      transform-origin: center;
+      transform: rotate(180deg);
     }
   
-    .progress-ring__circle {
-      transform: rotate(170deg);
+    .progress-ring__circle-md {
+      transform-origin: center;
+      transform: rotate(180deg);
     }
 
-    .progress-ring__circle-ex,
-    .progress-ring__circle-extra {
-      transform: rotate(150deg);
+    .circle-tip-md {
+      transform-origin: center;
+      transform: rotate(115deg);
     }
 
-    .progress-ring__circle-extra {
-      transform: rotate(150deg);
+    .circle-tip-xl {
+      transform-origin: center;
+      transform: rotate(135deg);
+    }
+
+    @keyframes rotateMd {
+      from {
+        transform-origin: center;
+        transform: rotate(115deg);
+      }
+      to {
+        transform-origin: center;
+        transform: rotate(24.5deg);
+      }
+    }
+  
+    @keyframes rotateXl {
+      from {
+        transform-origin: center;
+        transform: rotate(145deg);
+      }
+      to {
+        transform-origin: center;
+        transform: rotate(-134.9deg);
+      }
     }
   }
 `;
