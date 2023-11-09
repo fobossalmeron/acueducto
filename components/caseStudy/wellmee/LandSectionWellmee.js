@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { useEffect } from "react";
+import { useSpring, animated } from '@react-spring/web';
 
 const LandSectionWellmee = (props) => {
 
@@ -23,24 +24,25 @@ const LandSectionWellmee = (props) => {
     circleExtra.style.strokeDasharray = `${circumferenceExtra}`;
     circleExtra.style.strokeDashoffset = `${circumferenceExtra}`;
 
-    setTimeout(() => {
+    const animateCircles = () => {
       //Animar círculo md
-      circle.style.transition = 'stroke-dashoffset 1s linear';
+      circle.style.transition = `stroke-dashoffset 1s linear 1s`;
       circle.style.strokeDashoffset = offset;
-
-      // Animar círculo xl
-      circleExtra.style.transition = 'stroke-dashoffset 1s linear';
-      circleExtra.style.strokeDashoffset = offsetExtra;
 
       // Animar círculo pequeño/md
       const circleTipMd = document.querySelector('.circle-tip-md');
-      circleTipMd.style.animation = 'rotateMd 1s linear forwards';
+      circleTipMd.style.animation = 'rotateMd 1s linear forwards 1s';
+
+      // Animar círculo xl
+      circleExtra.style.transition = `stroke-dashoffset 1s linear 1s`;
+      circleExtra.style.strokeDashoffset = offsetExtra;
 
       // // Animar el círculo grande/xl
       const circleTipXl = document.querySelector('.circle-tip-xl');
-      circleTipXl.style.animation = `rotateXl 1s linear forwards`;
+      circleTipXl.style.animation = `rotateXl 1s linear forwards 1s`;
+    }
 
-    }, 1000);
+    requestAnimationFrame(animateCircles);
 
     }, [props.isMobile]);
 
@@ -69,7 +71,7 @@ const LandSectionWellmee = (props) => {
             strokeLinecap="round"
           />
           <g className="circle-tip-xl">
-            <path className="progress-ring__circle-xl-transparent" d="M0 639.798C-2.83045e-05 993.149 286.447 1279.6 639.798 1279.6C993.149 1279.6 1279.6 993.149 1279.6 639.799C1279.6 286.448 993.149 8.93396e-05 639.799 6.10352e-05C286.448 3.27307e-05 2.83045e-05 286.448 0 639.798ZM1212.13 639.799C1212.13 955.89 955.89 1212.13 639.798 1212.13C323.707 1212.13 67.4642 955.89 67.4642 639.798C67.4643 323.707 323.707 67.4643 639.799 67.4643C955.89 67.4643 1212.13 323.707 1212.13 639.799Z" fill="#C8D5C8" opacity="0"/>
+            <path opacity="0" className="progress-ring__circle-xl-transparent" d="M0 639.798C-2.83045e-05 993.149 286.447 1279.6 639.798 1279.6C993.149 1279.6 1279.6 993.149 1279.6 639.799C1279.6 286.448 993.149 8.93396e-05 639.799 6.10352e-05C286.448 3.27307e-05 2.83045e-05 286.448 0 639.798ZM1212.13 639.799C1212.13 955.89 955.89 1212.13 639.798 1212.13C323.707 1212.13 67.4642 955.89 67.4642 639.798C67.4643 323.707 323.707 67.4643 639.799 67.4643C955.89 67.4643 1212.13 323.707 1212.13 639.799Z" fill="#C8D5C8"/>
             <path d="M1068.81 989.958C1111.88 989.958 1146.81 1024.88 1146.81 1067.96C1146.81 1111.04 1111.88 1145.96 1068.81 1145.96C1025.73 1145.96 990.806 1111.04 990.806 1067.96C990.806 1024.88 1025.73 989.958 1068.81 989.958Z" fill="#00CEBA"/>
             <path d="M1068.81 1017.91C1096.43 1017.91 1118.83 1040.3 1118.83 1067.93C1118.83 1095.56 1096.43 1117.95 1068.81 1117.95C1041.18 1117.95 1018.79 1095.56 1018.79 1067.93C1018.79 1040.3 1041.18 1017.91 1068.81 1017.91Z" fill="#F3F6F3"/>
           </g>
@@ -172,6 +174,13 @@ const LandSection = styled(CommonSection)`
     transform: rotate(70deg);
   }
 
+  .progress-ring__circle-md,
+  .progress-ring__circle-xl,
+  .circle-tip-md,
+  .circle-tip-xl {
+    will-change: transform;
+  }
+
   @keyframes rotateMd {
     from {
       transform-origin: center;
@@ -249,7 +258,7 @@ const LandSection = styled(CommonSection)`
 
     .circle-tip-xl {
       transform-origin: center;
-      transform: rotate(135deg);
+      transform: rotate(136deg);
     }
 
     @keyframes rotateMd {
@@ -270,7 +279,7 @@ const LandSection = styled(CommonSection)`
       }
       to {
         transform-origin: center;
-        transform: rotate(-134.9deg);
+        transform: rotate(-135.4deg);
       }
     }
   }

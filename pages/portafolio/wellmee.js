@@ -23,6 +23,7 @@ import AnimationScrollCards from "../../components/caseStudy/wellmee/AnimationSc
 import AnimationSliceCards from "../../components/caseStudy/wellmee/AnimationSliceCards";
 import Image from "next/legacy/image";
 import Point4 from "public/assets/img/casestudies/wellmee/Point4.png"
+import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png"
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -219,12 +220,12 @@ const Wellmee = ({ locale, setTitle, pt }) => {
               ))}
             </ContainerResultCard>
           </Fade>
-        <Picture
-          src={"/assets/img/casestudies/wellmee/Iphone1.png"}
-          alt="Iphone"
-          width={902}
-          height= {450}
-        />
+        <Fade delay={300} triggerOnce>
+          <Picture
+            src={Iphone}
+            alt="Iphone"
+          />
+        </Fade>
       </ThirdSection>
       <FourthSection>
         <TextColumn>
