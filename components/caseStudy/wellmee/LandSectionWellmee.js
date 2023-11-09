@@ -207,6 +207,7 @@ const LandSection = styled(CommonSection)`
     }
 
     .circle-container {
+      overflow-x: hidden;
       svg {
         margin-top: 0%;
         min-width: 700px;
