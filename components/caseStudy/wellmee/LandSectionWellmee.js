@@ -25,20 +25,20 @@ const LandSectionWellmee = (props) => {
 
     setTimeout(() => {
       //Animar círculo md
-      circle.style.transition = 'stroke-dashoffset 2s linear';
+      circle.style.transition = 'stroke-dashoffset 1s linear';
       circle.style.strokeDashoffset = offset;
 
       // Animar círculo xl
-      circleExtra.style.transition = 'stroke-dashoffset 2s linear';
+      circleExtra.style.transition = 'stroke-dashoffset 1s linear';
       circleExtra.style.strokeDashoffset = offsetExtra;
 
       // Animar círculo pequeño/md
       const circleTipMd = document.querySelector('.circle-tip-md');
-      circleTipMd.style.animation = 'rotateMd 2s linear forwards';
+      circleTipMd.style.animation = 'rotateMd 1s linear forwards';
 
       // // Animar el círculo grande/xl
       const circleTipXl = document.querySelector('.circle-tip-xl');
-      circleTipXl.style.animation = `rotateXl ${props.isMobile ? "2.54" : "2" }s linear forwards`;
+      circleTipXl.style.animation = `rotateXl 1s linear forwards`;
 
     }, 1000);
 
@@ -47,7 +47,7 @@ const LandSectionWellmee = (props) => {
   return (
     <LandSection>
       <div className="circle-container">
-        <svg width="1280" height="1280" viewBox="0 0 1280 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="1315" height="1280" viewBox="0 0 1295 1280" fill="none" xmlns="http://www.w3.org/2000/svg">
           <circle
             className="progress-ring__circle-xl-base"
             stroke="#C8D5C8"
@@ -153,8 +153,9 @@ const LandSection = styled(CommonSection)`
     position: relative;
     width: 100%;
     height: 100vh;
-    padding: 0px 5%;
-    overflow: hidden;
+    overflow-y: hidden;
+    overflow-x: auto;
+    padding: 0 2%;
 
     svg {
       margin-top: 17%;
