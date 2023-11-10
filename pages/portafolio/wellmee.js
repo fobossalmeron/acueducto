@@ -20,7 +20,7 @@ import Picture from "components/caseStudy/shared/Picture";
 import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
 import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationUIComponents";
 import AnimationScrollCards from "../../components/caseStudy/wellmee/AnimationScrollCards";
-import AnimationSliceCards from "../../components/caseStudy/wellmee/AnimationSliceCards";
+import AnimationSlideCards from "../../components/caseStudy/wellmee/AnimationSlideCards";
 import Image from "next/legacy/image";
 import Point4 from "public/assets/img/casestudies/wellmee/Point4.png"
 import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png"
@@ -116,7 +116,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <H2>{t?.second_section.title}</H2>
         </TextColumn>
-        <AnimationSliceCards t={t?.second_section} isMobile={isMobile}/>
+        <AnimationSlideCards t={t?.second_section} isMobile={isMobile}/>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -220,7 +220,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
               ))}
             </ContainerResultCard>
           </Fade>
-        <Fade delay={300} triggerOnce>
+        <Fade delay={300} triggerOnce style={{ maxWidth:"902px" }}>
           <Picture
             src={Iphone}
             alt="Iphone"

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 const LandSectionWellmee = (props) => {
 
