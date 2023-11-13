@@ -6,9 +6,9 @@ import { Fade } from "react-awesome-reveal";
 import BorderLink from "components/shared/BorderedLink";
 
 const socialNav = [
-  { title: "facebook", link: "https://www.facebook.com/acueducto.studio/" },
-  { title: "tiktok", link: "https://www.tiktok.com/@acueducto.studio" },
-  { title: "instagram", link: "https://www.instagram.com/acueducto.studio/" },
+  // { title: "facebook", link: "https://www.facebook.com/acueducto.studio/" },
+  // { title: "tiktok", link: "https://www.tiktok.com/@acueducto.studio" },
+  // { title: "instagram", link: "https://www.instagram.com/acueducto.studio/" },
   {
     title: "youtube",
     link: "https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg",
