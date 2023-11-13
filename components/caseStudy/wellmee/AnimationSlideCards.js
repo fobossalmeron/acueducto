@@ -361,7 +361,7 @@ const SlideCards = styled.div`
 
     .mobileNavigationIndicators {
       position: absolute;
-      left: 34%;
+      left: 32%;
       height: 12px;
       opacity: ${(g) => g.centeredCardIndex === g.i ? "1" : "0"};
       div {

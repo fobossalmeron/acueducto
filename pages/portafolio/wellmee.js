@@ -834,6 +834,20 @@ const ContainerResultCard = styled.div`
     & > div {
       padding: 20px;
     }
+
+    .result0 div, .result2 div {
+      flex-direction: column;
+      align-items: start;
+    }
+    .result0 div {
+      width: 50%;
+    }
+    .result3 div {
+      flex-wrap: wrap;
+      h4 {
+        flex: 1 0 78%;
+      }
+    } 
   }
 `;
 
