@@ -10,7 +10,7 @@ const Picture = ({
   withWrapper,
 }) => {
   let imageFaded = (
-    <Fade fraction={fraction ? fraction : 0.1} triggerOnce>
+    <Fade fraction={fraction ? fraction : 0.1} triggerOnce delay={100}>
       <Image width={width} height={height} src={src} alt={alt} />
     </Fade>
   );
