@@ -396,10 +396,12 @@ const Challenge = styled.div`
     width: 31px;
     height: 31px;
     min-width: 31px;
-    margin-top: 1%;
+    margin-top: 0.5%;
     p {
       font-size: 1.8rem;
       color: #FFFFFF;
+      margin-bottom: 2px;
+      margin-right: 1px;
     }
   }
 
@@ -673,13 +675,16 @@ const StepContainer = styled.div`
     background-position: center 15%;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 740px) {
     background-image: url("/assets/img/casestudies/wellmee/Background5.svg");
-    background-size: 10%;
-    background-position: 12% -100%;
+    background-size: 10% 80%;
+    background-position: 11% 0%;
     flex-direction: column;
     gap: 32px;
     padding-bottom: 50px;
+  }
+  @media (max-width: 630px) {
+    background-size: 12.5% 90%;
   }
 `;
 
@@ -718,7 +723,7 @@ const Step = styled.div`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 740px) {
     display: flex;
     flex-direction: row !important;
     max-width: 100%;

@@ -26,20 +26,20 @@ const LandSectionWellmee = (props) => {
     const animateCircles = () => {
       setTimeout(() => {
       //Animacion circle-md
-      circle.style.transition = `stroke-dashoffset 1s linear 0s`;
+      circle.style.transition = `stroke-dashoffset 1s ease-in-out 0s`;
       circle.style.strokeDashoffset = offset;
 
       // Animacion circle-tip-md
       const circleTipMd = props.isMobile ? document.querySelector('.circle-tip-md-mobile') : document.querySelector('.circle-tip-md');
-      circleTipMd && (circleTipMd.style.animation = `${props.isMobile ? 'rotateMdMobile' : 'rotateMd'} 1s linear forwards 0s`);
+      circleTipMd && (circleTipMd.style.animation = `${props.isMobile ? 'rotateMdMobile' : 'rotateMd'} 1s ease-in-out forwards 0s`);
 
       // Animacion circle-xl
-      circleExtra.style.transition = `stroke-dashoffset 1s linear 0s`;
+      circleExtra.style.transition = `stroke-dashoffset 1s ease-in-out 0s`;
       circleExtra.style.strokeDashoffset = offsetExtra;
 
       // Animacion circle-tip-xl
       const circleTipXl = props.isMobile ? document.querySelector('.circle-tip-xl-mobile') : document.querySelector('.circle-tip-xl');
-      circleTipXl && (circleTipXl.style.animation = `${props.isMobile ? 'rotateXlMobile' : 'rotateXl'} 1s linear forwards 0s`);
+      circleTipXl && (circleTipXl.style.animation = `${props.isMobile ? 'rotateXlMobile' : 'rotateXl'} 1s ease-in-out forwards 0s`);
     }, 1000);
     }
     requestAnimationFrame(animateCircles);
