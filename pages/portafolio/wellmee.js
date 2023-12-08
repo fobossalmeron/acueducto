@@ -22,8 +22,8 @@ import UIComponentsAnimation from "../../components/caseStudy/wellmee/AnimationU
 import AnimationScrollCards from "../../components/caseStudy/wellmee/AnimationScrollCards";
 import AnimationSlideCards from "../../components/caseStudy/wellmee/AnimationSlideCards";
 import Image from "next/legacy/image";
-import Point4 from "public/assets/img/casestudies/wellmee/Point4.png"
-import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png"
+import Point4 from "public/assets/img/casestudies/wellmee/Point4.png";
+import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [t, setT] = useState(pt);
@@ -39,22 +39,21 @@ const Wellmee = ({ locale, setTitle, pt }) => {
       },
     });
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 650);
     }
 
     const handleResize = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         setIsMobile(window.innerWidth <= 650);
       }
     };
-    
+
     window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-
   }, [locale, isMobile]);
 
   return (
@@ -66,7 +65,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
       <Fade delay={300} triggerOnce>
-        <LandSectionWellmee isMobile={isMobile}/>
+        <LandSectionWellmee isMobile={isMobile} />
       </Fade>
       <FirstSection>
         <Marquee tags={t.intro_section.tags} />
@@ -81,33 +80,32 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           <H3>{t?.intro_section.characteristics.first.subtitle}</H3>
           <P>{t?.intro_section.characteristics.first.p}</P>
         </TextColumn>
-        <AnimatedDataCards/>
+        <AnimatedDataCards />
         <TextColumn>
           <H3>{t.intro_section.characteristics.second.subtitle}</H3>
           <P>{t.intro_section.characteristics.second.p}</P>
           <div className="combinator">
-            <Picture
-              src={Combinator}
-              alt="Combinator"
-            />
+            <Picture src={Combinator} alt="Combinator" />
           </div>
         </TextColumn>
         <TextColumn>
           <H3>{t.intro_section.characteristics.third.subtitle}</H3>
           <ChallengesContainer>
-            {t?.intro_section.characteristics.third.challenges.map((challenge, i) => (
-              <Fade delay={300} triggerOnce key={`challenge${i}`}>
-                <Challenge>
-                  <span>
-                    <p>{i + 1}</p>
-                  </span>
-                  <div>
-                    <h5>{challenge.title}</h5>
-                    <p>{challenge.p}</p>
-                  </div>
-                </Challenge>
-              </Fade>
-            ))}
+            {t?.intro_section.characteristics.third.challenges.map(
+              (challenge, i) => (
+                <Fade delay={300} triggerOnce key={`challenge${i}`}>
+                  <Challenge>
+                    <span>
+                      <p>{i + 1}</p>
+                    </span>
+                    <div>
+                      <h5>{challenge.title}</h5>
+                      <p>{challenge.p}</p>
+                    </div>
+                  </Challenge>
+                </Fade>
+              )
+            )}
           </ChallengesContainer>
         </TextColumn>
         <UIComponentsAnimation isMobile={isMobile} />
@@ -116,14 +114,14 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <H2>{t?.second_section.title}</H2>
         </TextColumn>
-        <AnimationSlideCards t={t?.second_section} isMobile={isMobile}/>
+        <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
           <H2>{t.third_section.title}</H2>
           <PointContainer>
-            <Fade delay={300} triggerOnce key={'point1'}>
-              <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
+            <Fade delay={300} triggerOnce key={"point1"}>
+              <Point style={{ paddingBottom: isMobile ? "49px" : "90px" }}>
                 <div>
                   <span className="number">
                     <p>1</p>
@@ -134,97 +132,91 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                   src={"/assets/img/casestudies/wellmee/Point1.png"}
                   alt="Point"
                   width={420}
-                  height= {263}
+                  height={263}
                 />
               </Point>
             </Fade>
           </PointContainer>
         </TextColumn>
         <TextColumn>
-            <Fade delay={300} triggerOnce key={'point2'}>
-              <Point>
-                <div>
-                  <span className="number">
-                    <p>2</p>
-                  </span>
-                  <p>{t?.third_section.points[1].p}</p>
-                </div>
-              </Point>
-            </Fade>
-          </TextColumn>
-          <Fade delay={300} triggerOnce>
-            <StepContainer>
-              {t?.third_section.points[1].steps.map((step, i) => (
-                <Step key={`step${i}`}>
-                  <div>
-                    <Picture
-                      src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
-                      alt="Step"
-                      width={isMobile ? 37 : 48}
-                      height= {isMobile ? 37 : 48}
-                    />
-                  </div>
-                  <p>{step}</p>
-                </Step>
-              ))}
-            </StepContainer>
+          <Fade delay={300} triggerOnce key={"point2"}>
+            <Point>
+              <div>
+                <span className="number">
+                  <p>2</p>
+                </span>
+                <p>{t?.third_section.points[1].p}</p>
+              </div>
+            </Point>
           </Fade>
-          <TextColumn>
-            <Fade delay={300} triggerOnce key={'point3'}>
-              <Point>
+        </TextColumn>
+        <Fade delay={300} triggerOnce>
+          <StepContainer>
+            {t?.third_section.points[1].steps.map((step, i) => (
+              <Step key={`step${i}`}>
                 <div>
-                  <span className="number">
-                    <p>3</p>
-                  </span>
-                  <p>{t?.third_section.points[2].p}</p>
-                </div>
-              </Point>
-            </Fade>
-          </TextColumn>
-          <AnimationScrollCards isMobile={isMobile} />
-          <TextColumn>
-            <Fade delay={300} triggerOnce key={'point4'}>
-              <Point>
-                <div>
-                  <span className="number">
-                    <p>4</p>
-                  </span>
-                  <p>{t?.third_section.points[3].p}</p>
-                </div>
-                <div className="point4">
-                  <Image
-                    src={Point4}
-                    alt="Point"
+                  <Picture
+                    src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
+                    alt="Step"
+                    width={isMobile ? 37 : 48}
+                    height={isMobile ? 37 : 48}
                   />
                 </div>
-              </Point>
-            </Fade>
-          </TextColumn>
-          <TextColumn>
-            <H3>{t.third_section.subtitle}</H3>
-            <P>{t.third_section.p}</P>
-          </TextColumn>
-          <Fade delay={300} triggerOnce>
-            <ContainerResultCard>
-              {t?.third_section.results.map((result, i) => (
-                <div className={`result${i}`} key={`result${i}`}>
-                  <div>
-                    {result.sign && <h5>{result.sign}</h5>}
-                    <h3>{result.title}</h3>
-                    <h4>{i !== 1 && result.first_subtitle}</h4>
-                  </div>
-                  <h4>{i === 1 && result.first_subtitle}</h4>
-                  <h4>{result.second_subtitle}</h4>
-                  <p>{result.p}</p>
-                </div>
-              ))}
-            </ContainerResultCard>
+                <p>{step}</p>
+              </Step>
+            ))}
+          </StepContainer>
+        </Fade>
+        <TextColumn>
+          <Fade delay={300} triggerOnce key={"point3"}>
+            <Point>
+              <div>
+                <span className="number">
+                  <p>3</p>
+                </span>
+                <p>{t?.third_section.points[2].p}</p>
+              </div>
+            </Point>
           </Fade>
-        <Fade delay={300} triggerOnce style={{ maxWidth:"902px" }}>
-          <Picture
-            src={Iphone}
-            alt="Iphone"
-          />
+        </TextColumn>
+        <AnimationScrollCards isMobile={isMobile} />
+        <TextColumn>
+          <Fade delay={300} triggerOnce key={"point4"}>
+            <Point>
+              <div>
+                <span className="number">
+                  <p>4</p>
+                </span>
+                <p>{t?.third_section.points[3].p}</p>
+              </div>
+              <div className="point4">
+                <Image src={Point4} alt="Point" />
+              </div>
+            </Point>
+          </Fade>
+        </TextColumn>
+        <TextColumn>
+          <H3>{t.third_section.subtitle}</H3>
+          <P>{t.third_section.p}</P>
+        </TextColumn>
+        <Fade delay={300} triggerOnce>
+          <ContainerResultCard>
+            {t?.third_section.results.map((result, i) => (
+              <div className={`result${i}`} key={`result${i}`}>
+                <div>
+                  {result.sign && <h5>{result.sign}</h5>}
+                  <h3>{result.title}</h3>
+                  <h4>{i !== 1 && result.first_subtitle}</h4>
+                </div>
+                <h4>{i === 1 && result.first_subtitle}</h4>
+                <h4>{result.second_subtitle}</h4>
+                <p>{result.p}</p>
+              </div>
+            ))}
+          </ContainerResultCard>
+        </Fade>
+        <Fade delay={300} triggerOnce style={{ maxWidth: "902px" }}>
+          <Picture src={Iphone} alt="Iphone" />
         </Fade>
       </ThirdSection>
       <FourthSection>
@@ -236,7 +228,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           src={"/assets/img/casestudies/wellmee/Iphone2.png"}
           alt="Wellmee"
           width={914}
-          height= {836}
+          height={836}
         />
       </FourthSection>
       <NextStudy link="recupera" />
@@ -260,7 +252,7 @@ export const getStaticProps = async (context) => {
 };
 
 const PageClipperWellmee = styled(PageClipper)`
-  background-color: #F3F6F3;
+  background-color: #f3f6f3;
 
   @media (max-width: 1300px) {
     padding: 0px;
@@ -346,7 +338,7 @@ const FirstSection = styled(CommonSection)`
 const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
-  background-color: rgb(247, 243, 241);
+  background-color: #f3f6f3;
   & > div {
     padding: 0px;
   }
@@ -381,7 +373,6 @@ const ChallengesContainer = styled.div`
   }
 `;
 
-
 const Challenge = styled.div`
   display: flex;
   flex-direction: row;
@@ -399,7 +390,7 @@ const Challenge = styled.div`
     margin-top: 0.5%;
     p {
       font-size: 1.8rem;
-      color: #FFFFFF;
+      color: #ffffff;
       margin-bottom: 2px;
       margin-right: 1px;
     }
@@ -416,9 +407,9 @@ const Challenge = styled.div`
       font-weight: 500;
       color: #383955;
     }
-  
+
     p {
-      color: #4A4A73;
+      color: #4a4a73;
       font-size: 1.8rem;
     }
   }
@@ -443,16 +434,16 @@ const Challenge = styled.div`
     div {
       display: flex;
       flex-direction: column;
-  
+
       h5 {
         font-size: 1.9rem;
         margin: 0px;
         font-weight: 500;
         color: #383955;
       }
-    
+
       p {
-        color: #4A4A73;
+        color: #4a4a73;
         font-size: 1.5rem;
       }
     }
@@ -460,11 +451,11 @@ const Challenge = styled.div`
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #5A5A8C;
-  color: #5C5C81;
+  background-color: #5a5a8c;
+  color: #5c5c81;
   padding-bottom: 11.11%;
   padding-top: 11.11%;
-  color: #FFFFFF;
+  color: #ffffff;
 
   h2 {
     font-weight: 500;
@@ -472,7 +463,7 @@ const SecondSection = styled(CommonSection)`
     line-height: 105%;
     padding: 4px 0px 26px 0px;
     b {
-      color: #00CEBA;
+      color: #00ceba;
       font-weight: 200;
       font-size: 4rem;
     }
@@ -504,7 +495,7 @@ const SecondSection = styled(CommonSection)`
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   padding-top: 10%;
-  color: #4A4A73;
+  color: #4a4a73;
   background-image: url("/assets/img/casestudies/wellmee/Background2.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -517,12 +508,12 @@ const ThirdSection = styled(CommonSection)`
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
-      color: #00CEBA;
+      color: #00ceba;
       font-weight: 200;
       font-size: 4rem;
     }
   }
-  h3{
+  h3 {
     color: #383955;
     font-size: 3.6rem;
     font-weight: 400;
@@ -608,7 +599,7 @@ const Point = styled.div`
       min-width: 31px;
       max-width: 31px;
       height: 31px;
-      color: #FFFFFF;
+      color: #ffffff;
     }
 
     p {
@@ -633,13 +624,13 @@ const Point = styled.div`
     }
   }
 
-  @media (max-width: 800px){
+  @media (max-width: 800px) {
     .point4 {
       max-width: 350px;
     }
   }
 
-  @media (max-width: 500px){
+  @media (max-width: 500px) {
     div {
       display: flex;
       flex-direction: column;
@@ -701,7 +692,7 @@ const Step = styled.div`
     align-items: center;
     width: 120px;
     height: 120px;
-    background-color: #FCFDFC;
+    background-color: #fcfdfc;
     border-radius: 24px;
     box-shadow: 1.20374px 1.20374px 13.24111px 0px rgba(64, 64, 64, 0.05);
   }
@@ -709,10 +700,10 @@ const Step = styled.div`
   p {
     text-align: center;
     font-weight: 500;
-    color: #4A4A73;
+    color: #4a4a73;
   }
 
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     div {
       width: 100px;
       height: 100px;
@@ -748,7 +739,7 @@ const ContainerResultCard = styled.div`
   & > div {
     display: flex;
     flex-direction: column;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-radius: 32px;
     max-width: 441px;
     max-height: 305px;
@@ -781,10 +772,10 @@ const ContainerResultCard = styled.div`
     }
     p {
       font-size: 1.8rem !important;
-      color: #8A8CB2;
+      color: #8a8cb2;
     }
   }
-  
+
   .result0 {
     max-width: 329px;
     max-height: 305px;
@@ -806,12 +797,15 @@ const ContainerResultCard = styled.div`
     max-height: 281px;
   }
 
-  @media (max-width: 850px){
+  @media (max-width: 850px) {
     display: flex;
     flex-direction: column;
     padding: 60px 20px;
 
-    .result0, .result1, .result2, .result3 {
+    .result0,
+    .result1,
+    .result2,
+    .result3 {
       max-width: 299px;
     }
 
@@ -840,7 +834,8 @@ const ContainerResultCard = styled.div`
       padding: 20px;
     }
 
-    .result0 div, .result2 div {
+    .result0 div,
+    .result2 div {
       flex-direction: column;
       align-items: start;
     }
@@ -852,14 +847,14 @@ const ContainerResultCard = styled.div`
       h4 {
         flex: 1 0 78%;
       }
-    } 
+    }
   }
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #5A5A8C;
+  background-color: #5a5a8c;
   padding-top: 10%;
-  color: #FFFFFF;
+  color: #ffffff;
   background-image: url("/assets/img/casestudies/wellmee/Background3.png");
   background-size: 100%;
   background-repeat: no-repeat;
@@ -871,7 +866,7 @@ const FourthSection = styled(CommonSection)`
     line-height: 105%;
     padding: 0px 0px 26px 0px;
     b {
-      color: #00CEBA;
+      color: #00ceba;
       font-weight: 200;
       font-size: 4rem;
     }
