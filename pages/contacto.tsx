@@ -32,14 +32,14 @@ export default function Contact({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/contact"}
       ></Head>
       <CustomPinnedSection title={t.intro.title} id="Scroll">
-        <p>
+        {/* <p>
           {t.intro.p1}
           <br />
           <a href="https://api.whatsapp.com/message/JNUILJPF23CSP1">
             <WhatsApp />
             +52 55 2789 5399
           </a>
-        </p>
+        </p> */}
         <p>
           {t.intro.p2} <br />
           <a
@@ -68,18 +68,18 @@ const CustomPinnedSection = styled(PinnedSection)`
   a {
     line-height: 165%;
   }
-  > div > div:nth-of-type(1) a {
-    position: relative;
-    padding-left: 35px;
-    svg {
-      width: 35px;
-      height: 35px;
-      position: absolute;
-      top: 0;
-      background-color: ${(p) => p.theme.colors.background};
-      padding-right: 10px;
-      padding-bottom: 5px;
-      left: 0;
-    }
-  }
+  // > div > div:nth-of-type(1) a {
+  //   position: relative;
+  //   padding-left: 35px;
+  //   svg {
+  //     width: 35px;
+  //     height: 35px;
+  //     position: absolute;
+  //     top: 0;
+  //     background-color: ${(p) => p.theme.colors.background};
+  //     padding-right: 10px;
+  //     padding-bottom: 5px;
+  //     left: 0;
+  //   }
+  // }
 `;
