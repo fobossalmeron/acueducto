@@ -23,8 +23,8 @@ export default function FooterNav() {
   const context = useLocaleContext();
   let { main, policies, resources, navTitles, mailto } =
     context.contact_footer.footer_nav;
-  
-    let year = new Date().getFullYear();
+
+  let year = new Date().getFullYear();
   return (
     <Footer>
       <Navs>
@@ -129,10 +129,10 @@ export default function FooterNav() {
           >
             hola@acueducto.studio
           </a>
-          <a href="https://api.whatsapp.com/message/JNUILJPF23CSP1">
+          {/* <a href="https://api.whatsapp.com/message/JNUILJPF23CSP1">
             <img src="/assets/img/layout/logos/whatsapp.svg" alt="WhatApp" />
             +52 55 2789 5399
-          </a>
+          </a> */}
         </Fade>
       </Colophon>
     </Footer>
@@ -220,7 +220,7 @@ const Colophon = styled.div`
   grid-column: 2 / span 11;
   margin-top: 10%;
   font-size: 1.6rem;
-  
+
   p {
     color: ${(p) => p.theme.colors.accent};
   }
@@ -239,8 +239,8 @@ const Colophon = styled.div`
     padding-bottom: 5px;
     left: 0;
   }
-  &:hover{
-    background-color: #080C0C;
+  &:hover {
+    background-color: #080c0c;
   }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);
