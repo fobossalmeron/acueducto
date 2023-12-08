@@ -12,8 +12,14 @@
   "lang": "es",
   "casestudies": [
     {
+      "title": "una <i>chief marketing officer</i> impulsando la innovación en un corporativo con 50 años en el mercado",
+      "tags": "Diseño UX<br/>Diseño UI<br/>Web app<br/>Desarrollo de software<br/>Product Management<br/>Estrategia de producto<br/>",
+      "link": "borgatta",
+      "bg_format": "svg"
+    },
+    {
       "title": "cómo construir una web-app de talla mundial",
-      "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto<br/>",
+      "tags": "Diseño UI<br/>Diseño UX<br/>Web app<br/>Desarrollo de sofware<br/>Estrategia de producto<br/>Product management<br/>",
       "link": "wellmee",
       "bg_format": "svg"
     },
@@ -21,18 +27,6 @@
       "title": "cómo validar una app en el mercado lo más rápido y barato posible",
       "tags": "Diseño UI<br/>Desarrollo web<br/>Desarrollo no-code<br/>Branding<br/>Product management<br/>Estrategia de producto<br/>",
       "link": "recupera",
-      "bg_format": "svg"
-    },
-    {
-      "title": "una <i>chief marketing officer</i> impulsando la innovación en un corporativo con 50 años en el mercado",
-      "tags": "Diseño UX<br/>Diseño UI<br/>Web app<br/>Desarrollo de software<br/>Product Management<br/>Estrategia de producto<br/>",
-      "link": "borgatta",
-      "bg_format": "svg"
-    },
-    {
-      "title": "cómo educar a tus clientes e inversionistas para posicionarte como líder de tu industria",
-      "tags": "Estrategia<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
-      "link": "blockstem",
       "bg_format": "svg"
     },
     {
@@ -45,6 +39,12 @@
       "title": "estrategia y producción en la industria del cine",
       "tags": "Estrategia<br/>Comunicación<br/>Branding<br/>Animación<br/>Web App<br/>",
       "link": "ladanzadelasfieras",
+      "bg_format": "svg"
+    },
+    {
+      "title": "cómo educar a tus clientes e inversionistas para posicionarte como líder de tu industria",
+      "tags": "Estrategia<br/>Comunicación<br/>Branding<br/>No-code<br/>Posicionamiento<br/>",
+      "link": "blockstem",
       "bg_format": "svg"
     },
     {
