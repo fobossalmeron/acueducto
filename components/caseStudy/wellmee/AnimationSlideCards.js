@@ -2,7 +2,7 @@ import { Fade } from "react-awesome-reveal";
 import Picture from "components/caseStudy/shared/Picture";
 import styled from "styled-components";
 import { useState } from "react";
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated } from "@react-spring/web";
 import { useEffect } from "react";
 
 const AnimatedSlideCards = (props) => {
@@ -18,12 +18,12 @@ const AnimatedSlideCards = (props) => {
   const handleScroll = (direction) => {
     const maxScrollPosition = (numCards - 1) * (cardWidth + gap);
     setMaxScroll(maxScrollPosition);
-    const newPosition = direction === 'right'
-      ? Math.min(scrollPosition + cardWidth + gap, maxScrollPosition)
-      : Math.max(scrollPosition - cardWidth - gap, 0);
+    const newPosition =
+      direction === "right"
+        ? Math.min(scrollPosition + cardWidth + gap, maxScrollPosition)
+        : Math.max(scrollPosition - cardWidth - gap, 0);
 
     setScrollPosition(newPosition);
-    console.log(newPosition, 'posicion')
   };
 
   let animation = useSpring({
@@ -35,16 +35,15 @@ const AnimatedSlideCards = (props) => {
   useEffect(() => {
     const centeredIndex = Math.round(scrollPosition / (cardWidth + gap));
     setCenteredCardIndex(centeredIndex);
-
   }, [scrollPosition, cardWidth, gap]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsTablet(window.innerWidth <= 830 && window.innerWidth >= 650);
     }
 
     const handleResize = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         setIsTablet(window.innerWidth <= 830 && window.innerWidth >= 650);
       }
     };
@@ -58,12 +57,16 @@ const AnimatedSlideCards = (props) => {
   return (
     <Fade delay={300} triggerOnce>
       <SlideContainer className="slider">
-        <i 
-          id="right" 
-          onClick={() => handleScroll('right')}
+        <i
+          id="right"
+          onClick={() => handleScroll("right")}
           style={{
-            cursor: (scrollPosition !== 0 && scrollPosition === maxScroll) && "auto",
-            backgroundColor: (scrollPosition !== 0 && scrollPosition === maxScroll) ? "#7273A2" : "#FCFDFC",
+            cursor:
+              scrollPosition !== 0 && scrollPosition === maxScroll && "auto",
+            backgroundColor:
+              scrollPosition !== 0 && scrollPosition === maxScroll
+                ? "#7273A2"
+                : "#FCFDFC",
           }}
         >
           <Pin />
@@ -71,7 +74,11 @@ const AnimatedSlideCards = (props) => {
         <PicturesContainer className="carrousel">
           <animated.div style={animation}>
             {props?.t.solutions.map((solution, i) => (
-              <SlideCards key={`solution${i}`} i={i} centeredCardIndex={centeredCardIndex}>
+              <SlideCards
+                key={`solution${i}`}
+                i={i}
+                centeredCardIndex={centeredCardIndex}
+              >
                 <span>
                   <h4>{solution.title}</h4>
                   <p>{solution.p}</p>
@@ -80,17 +87,17 @@ const AnimatedSlideCards = (props) => {
                   src={`/assets/img/casestudies/wellmee/CardMobile${i + 1}.png`}
                   alt="Combinator"
                   width={161}
-                  height= {349}
+                  height={349}
                 />
                 <span className="mobileNavigationIndicators">
                   {props.t.solutions.map((solution, i) => (
                     <div
                       key={`guia${i}`}
                       style={{
-                        backgroundColor: centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
+                        backgroundColor:
+                          centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
                       }}
-                    >
-                    </div>
+                    ></div>
                   ))}
                 </span>
               </SlideCards>
@@ -101,16 +108,16 @@ const AnimatedSlideCards = (props) => {
               <div
                 key={`guia${i}`}
                 style={{
-                  backgroundColor: centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
+                  backgroundColor:
+                    centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
                 }}
-              >
-              </div>
+              ></div>
             ))}
           </div>
         </PicturesContainer>
-        <i 
-          id="left" 
-          onClick={() => scrollPosition !== 0 && handleScroll('left')}
+        <i
+          id="left"
+          onClick={() => scrollPosition !== 0 && handleScroll("left")}
           style={{
             cursor: scrollPosition === 0 && "auto",
             backgroundColor: scrollPosition === 0 ? "#7273A2" : "#FCFDFC",
@@ -158,9 +165,11 @@ const SlideContainer = styled.div`
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
-    box-shadow: 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05), 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05), 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05);
+    box-shadow: 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
+      0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
+      0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05);
   }
-  
+
   i:first-child {
     right: 39.5%;
     z-index: 1;
@@ -184,7 +193,7 @@ const SlideContainer = styled.div`
     i:first-child {
       right: -1%;
     }
-  
+
     i:last-child {
       left: -1%;
     }
@@ -193,7 +202,7 @@ const SlideContainer = styled.div`
   @media (max-width: 650px) {
     padding: 0px 20px;
 
-    i{
+    i {
       top: 41%;
     }
 
@@ -206,7 +215,7 @@ const SlideContainer = styled.div`
         }
       }
     }
-  
+
     i:last-child {
       left: 0%;
     }
@@ -276,7 +285,7 @@ const PicturesContainer = styled.div`
 `;
 
 const SlideCards = styled.div`
-  background-color: #686A97;
+  background-color: #686a97;
   width: 700px;
   border-radius: 24px;
   display: flex;
@@ -297,7 +306,7 @@ const SlideCards = styled.div`
     width: 280px;
     padding-top: 24px;
     padding-bottom: 31px;
-    color: rgba(255, 255, 255, 0.80);
+    color: rgba(255, 255, 255, 0.8);
   }
 
   div span {
@@ -363,7 +372,7 @@ const SlideCards = styled.div`
       position: absolute;
       left: 32%;
       height: 12px;
-      opacity: ${(g) => g.centeredCardIndex === g.i ? "1" : "0"};
+      opacity: ${(g) => (g.centeredCardIndex === g.i ? "1" : "0")};
       div {
         max-height: 12px !important;
       }
