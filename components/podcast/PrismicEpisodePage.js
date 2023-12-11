@@ -14,7 +14,7 @@ import CenteredSection, {
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
-import { PrismicRichText } from '@prismicio/react'
+import { PrismicRichText } from "@prismicio/react";
 import EpisodePreview from "./EpisodePreview";
 import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 
@@ -117,15 +117,17 @@ const PrismicEpisodePage = ({
                 operadores, inversionistas y fundadores de {business} es lo
                 siguiente:
               </p>
-              <PrismicRichText field={insights.map(e => e)}/>
+              <PrismicRichText field={insights.map((e) => e)} />
             </Content>
           )}
         </Fade>
         <Fade>
           {spotify && (
             <Content>
-              {content && <ContentType>Transcript</ContentType>}
-                <PrismicRichText field={content}/> 
+              {content && content.lenght && (
+                <ContentType>Transcript</ContentType>
+              )}
+              <PrismicRichText field={content} />
             </Content>
           )}
         </Fade>
@@ -146,7 +148,7 @@ const PrismicEpisodePage = ({
         </Fade>
         <NextEp>
           <p>Escucha otro episodio</p>
-          {findNextPrismic ?
+          {findNextPrismic ? (
             <PrismicEpisodePreview
               hideImageMobile
               title={nextEpisodePrismic.data.introduction[0].title[0].text}
@@ -159,13 +161,16 @@ const PrismicEpisodePage = ({
               youtube={nextEpisodePrismic.data.introduction[0].youtube}
               podcastImage={nextEpisodePrismic.data.images[0].episode}
               episode={nextEpisodePrismic.data.introduction[0].episode}
-              description={nextEpisodePrismic.data.introduction[0].description[0].text}
+              description={
+                nextEpisodePrismic.data.introduction[0].description[0].text
+              }
               date={nextEpisodePrismic.data.introduction[0].date}
               category={nextEpisodePrismic.data.introduction[0].category}
-              simplest 
+              simplest
             />
-          : <EpisodePreview {...nextEpisodePrismic} simplest />
-        }
+          ) : (
+            <EpisodePreview {...nextEpisodePrismic} simplest />
+          )}
         </NextEp>
       </CenteredSection>
     </>
