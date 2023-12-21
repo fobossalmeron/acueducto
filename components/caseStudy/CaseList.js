@@ -31,20 +31,23 @@ const SingleCase = (props) => {
           <Fade triggerOnce>
             <VidContainer>
               {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              {props.link === 'borgatta' || props.link === 'recupera' || props.link === 'wellmee'
-                ? <Logo
-                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                    alt={`logo_${props.link}`}
-                    style={{ width: '55%' }}
-                  />
-                : <Logo
-                    src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                    alt={`logo_${props.link}`}
-                  />
-              }
+              {props.link === "borgatta" ||
+              props.link === "recupera" ||
+              props.link === "wellmee" ? (
+                <Logo
+                  src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                  alt={`logo_${props.link}`}
+                  style={{ width: "55%" }}
+                />
+              ) : (
+                <Logo
+                  src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
+                  alt={`logo_${props.link}`}
+                />
+              )}
               <VidReplacer
                 style={{
-                  backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format}`,
+                  backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format})`,
                 }}
               />
             </VidContainer>
@@ -55,10 +58,11 @@ const SingleCase = (props) => {
         <Fade triggerOnce>
           <LinkComplex>
             <a>
-              {props.link === "borgatta" 
-                ? <HoverableItalic>{props.title}</HoverableItalic>
-                : <Hoverable>{props.title}</Hoverable>
-              }
+              {props.link === "borgatta" ? (
+                <HoverableItalic>{props.title}</HoverableItalic>
+              ) : (
+                <Hoverable>{props.title}</Hoverable>
+              )}
             </a>
           </LinkComplex>
         </Fade>
@@ -108,7 +112,7 @@ const HoverableItalic = styled(H4)`
 const VidReplacer = styled.div`
   background-size: cover;
   background-position: center center;
-  z-index: -1;
+  z-index: 0;
 `;
 
 const Logo = styled.img`
