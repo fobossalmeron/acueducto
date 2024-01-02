@@ -108,8 +108,9 @@ const PrismicEpisodePage = ({
             longFormat
           />
         </Fade>
-        <Fade triggerOnce>
-          {spotify && insights && (
+        {console.log(insights, "insights")}
+        {spotify && insights.length > 0 && (
+          <Fade triggerOnce>
             <Content as={Insights}>
               <ContentType insights>Insights</ContentType>
               <p>
@@ -119,8 +120,8 @@ const PrismicEpisodePage = ({
               </p>
               <PrismicRichText field={insights.map((e) => e)} />
             </Content>
-          )}
-        </Fade>
+          </Fade>
+        )}
         <Fade>
           {spotify && (
             <Content>
