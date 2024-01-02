@@ -108,7 +108,6 @@ const PrismicEpisodePage = ({
             longFormat
           />
         </Fade>
-        {console.log(insights, "insights")}
         {spotify && insights.length > 0 && (
           <Fade triggerOnce>
             <Content as={Insights}>
