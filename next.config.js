@@ -4,6 +4,7 @@
 const path = require("path");
 
 const nextConfig = {
+  transpilePackages: ["three"],
   compiler: {
     styledComponents: {
       displayName: true,
@@ -120,7 +121,7 @@ const nextConfig = {
         },
       ],
     });
-    config.resolve.alias["three$"] = path.resolve("./utils/three-exports.js");
+    //config.resolve.alias["three$"] = path.resolve("./utils/three-exports.js");
     return config;
   },
   //env config
