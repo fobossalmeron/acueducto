@@ -14,7 +14,7 @@ import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
-import Tilt from "react-parallax-tilt";
+// import Tilt from "react-parallax-tilt";
 import { Persona, Check, BuildStory } from "components/shared/Icons";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
@@ -24,7 +24,14 @@ import PrismicEpisodeFeature from "../components/podcast/PrismicEpisodeFeature";
 
 const iconArray = [Persona, Check, BuildStory];
 
-function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrismicEpisode }) {
+function PodcastLanding({
+  locale,
+  setTitle,
+  episodes,
+  lastEpisode,
+  pt,
+  lastPrismicEpisode,
+}) {
   const { intro, head, banner, favorites, chapters, closing } = pt;
   const [isMobile, setIsMobile] = useState(false);
 
@@ -94,14 +101,14 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
             />
           </div>
           <div>
-            <Tilt trackOnWindow={true}>
-              <Image
-                width={380}
-                height={380}
-                src={"/assets/img/layout/podcast_cover.png"}
-                alt={"Cuando el río suena"}
-              />
-            </Tilt>
+            {/* <Tilt trackOnWindow={true}> */}
+            <Image
+              width={380}
+              height={380}
+              src={"/assets/img/layout/podcast_cover.png"}
+              alt={"Cuando el río suena"}
+            />
+            {/* </Tilt> */}
           </div>
         </Fade>
       </PodcastGrid>
@@ -111,8 +118,8 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
             <h2>{banner.title}</h2>
             <p>{banner.p}</p>
             <div>
-              <Link 
-                href={"/podcast/" + lastPrismicEpisode.uid} 
+              <Link
+                href={"/podcast/" + lastPrismicEpisode.uid}
                 passHref
                 legacyBehavior
               >
@@ -122,12 +129,13 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
           </Fade>
         </div>
         <Limiter>
-          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
-            {(lastPrismicEpisode?.data.introduction[0].episode >= 105)
-              ? <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
-              : <EpisodeFeature {...lastEpisode} blue />
-            }
-          </Tilt>
+          {/* <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}> */}
+          {lastPrismicEpisode?.data.introduction[0].episode >= 105 ? (
+            <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
+          ) : (
+            <EpisodeFeature {...lastEpisode} blue />
+          )}
+          {/* </Tilt> */}
         </Limiter>
       </FullSection>
       <EpisodesSection>
@@ -136,7 +144,7 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
           <div>
             {episodes.map((episode, index) => (
               <div key={"npd" + index}>
-                <Tilt
+                {/* <Tilt
                   tiltMaxAngleX={10}
                   tiltMaxAngleY={10}
                   tiltEnable={!isMobile}
@@ -146,7 +154,12 @@ function PodcastLanding({ locale, setTitle, episodes, lastEpisode, pt, lastPrism
                     ? <PrismicEpisodeFeature {...episode} portrait />
                     : <EpisodeFeature {...episode} />
                   }
-                </Tilt>
+                </Tilt> */}
+                {episode.uid ? (
+                  <PrismicEpisodeFeature {...episode} portrait />
+                ) : (
+                  <EpisodeFeature {...episode} />
+                )}
               </div>
             ))}
           </div>
@@ -232,9 +245,13 @@ export const getStaticProps = async (context, previewData) => {
 
   const prismicClient = createClient({ previewData });
   const prismicEpisodes = await prismicClient.getAllByType("episode");
-  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+  const orderedPrismicEpisodes = prismicEpisodes.sort(
+    (ep, nextEp) =>
+      ep.data.introduction[0].episode - nextEp.data.introduction[0].episode
+  );
 
-  const lastPrismicEpisode = orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
+  const lastPrismicEpisode =
+    orderedPrismicEpisodes[orderedPrismicEpisodes.length - 1];
 
   const featuredSlugs = [
     { slug: "un-capitulo-que-todo-ceo-debe-escuchar" },
@@ -263,13 +280,16 @@ export const getStaticProps = async (context, previewData) => {
     ])
   );
 
-  const featuredSlugsPrismic = await prismicClient.getByUID("episode", "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos");
+  const featuredSlugsPrismic = await prismicClient.getByUID(
+    "episode",
+    "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos"
+  );
   episodes.splice(2, 0, featuredSlugsPrismic);
 
   return {
     props: {
       episodes: [...episodes],
-      
+
       lastEpisode: lastEpisode,
       pt,
 
