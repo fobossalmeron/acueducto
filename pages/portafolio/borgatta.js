@@ -61,7 +61,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   }, [locale, isMobile]);
 
   return (
-    <PageClipperBorgatta>
+    <FondoBorgatta>
       <Head
         {...t?.head}
         image={{ fileName: "og_image_borgatta.png", alt: t?.head.image_alt }}
@@ -171,7 +171,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </FourthSection>
       <NextStudy link="blockstem" />
       <ContactFooter />
-    </PageClipperBorgatta>
+    </FondoBorgatta>
   );
 };
 
@@ -196,7 +196,7 @@ const ResultsOnThePage = styled.div`
   }
 `;
 
-const PageClipperBorgatta = styled(PageClipper)`
+const FondoBorgatta = styled.div`
   background: ${mainGradient};
   background-blend-mode: normal, overlay, normal;
   @media (max-width: 630px) {

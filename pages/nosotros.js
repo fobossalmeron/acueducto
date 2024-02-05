@@ -29,7 +29,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
     });
   }, [locale]);
   return (
-    <PageClipper>
+    <>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/nosotros"}
@@ -60,7 +60,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
         <Recursos />
       </TitleSection>
       <ContactFooter />
-    </PageClipper>
+    </>
   );
 }
 

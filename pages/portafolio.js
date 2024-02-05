@@ -22,7 +22,7 @@ export default function Work({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/portafolio"}
@@ -30,8 +30,8 @@ export default function Work({ locale, setTitle, pt }) {
       />
       <TitleSection {...t.intro} />
       <CaseList limit={6} />
-      {/* <ContactFooter /> */}
-    </PageClipper>
+      <ContactFooter />
+    </>
   );
 }
 export const getStaticProps = async (context) => {

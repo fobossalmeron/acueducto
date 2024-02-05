@@ -91,7 +91,6 @@ const styles = `
   }
 
   #Wrapper{
-    overflow:hidden;
     height:100%;
   }
 
@@ -171,7 +170,6 @@ const styles = `
 
   html {
     font-size: 62.5%;
-    height: 100vh;
     box-sizing: border-box;
     font-family: "Wide", sans-serif;
     font-weight: 100;
@@ -195,7 +193,7 @@ const styles = `
     min-height: 100vh;
     height: 100%;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     letter-spacing: 0.02px;
   }
   @media (max-width: 600px), (max-height: 450px) {
@@ -207,9 +205,6 @@ const styles = `
   #__next {
     height: 100%;
     width: 100%;
-  }
-  main {
-    z-index: 0;
   }
   h1 {
     margin: 0;

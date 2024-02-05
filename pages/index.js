@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import TitleSection from "components/shared/TitleSection";
-import PageClipper from "components/layout/PageClipper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { H1, H2 } from "components/shared/Dangerously";
 import Services from "components/shared/Services";
@@ -18,7 +18,11 @@ import FAQSection from "components/shared/FAQ";
 import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 
-function Index({ locale, setTitle, pt }) {
+const HomeSketch = dynamic(import("../components/homeSketch/HomeSketch"), {
+  ssr: false,
+});
+
+function Index({ locale, setTitle, pt, hasLoaded }) {
   const [t, setT] = useState(pt);
   const [isMobile, setIsMobile] = useState();
 
@@ -41,12 +45,13 @@ function Index({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper unPadded>
+    <>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio"}
         en_canonical={"https://acueducto.studio/en"}
       />
+      <div style={{zIndex:1}}>
       <Land id="land">
         <LandContainer>
           <H1>{t.landing.heading}</H1>
@@ -130,7 +135,9 @@ function Index({ locale, setTitle, pt }) {
         </Fade>
       </TitleSection>
       <ContactFooter />
-    </PageClipper>
+      </div>
+      {hasLoaded && <HomeSketch/>}
+    </>
   );
 }
 

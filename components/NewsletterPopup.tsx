@@ -52,7 +52,7 @@ const NewsletterPopup = () => {
 
   return (
     <>
-      <Wrapper clickable={showPopup} id="NewsletterPopup">
+      <NewsWrapper clickable={showPopup} id="NewsletterPopup">
         <Border>
           <H4>{newsletter.title}</H4>
           <p>{newsletter.p}</p>
@@ -67,7 +67,7 @@ const NewsletterPopup = () => {
             <Cross onClick={unlockScreen} />
           </CrossContainer>
         </Border>
-      </Wrapper>
+      </NewsWrapper>
       <Background visible={showPopup} onClick={unlockScreen} />
     </>
   );
@@ -121,7 +121,7 @@ const CrossContainer = styled.div`
   }
 `;
 
-const Wrapper = styled.div<{ clickable: boolean }>`
+const NewsWrapper = styled.div<{ clickable: boolean }>`
   pointer-events: ${(props) => (props.clickable ? "auto" : "none")};
   opacity: ${(props) => (props.clickable ? "1" : "0")};
   max-width: 440px;

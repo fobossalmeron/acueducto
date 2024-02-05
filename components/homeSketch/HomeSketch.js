@@ -2,16 +2,16 @@ import { useRef } from "react";
 import styled from "styled-components";
 import Spline from "@splinetool/react-spline";
 
-const HomeSketch = ({ hide }) => {
+const HomeSketch = () => {
+  function onLoad(spline){
+    //acá deberíamos mostrar el Canvas
+  }
   return (
     <SketchContainer>
-      {hide ? (
-        <Background />
-      ) : (
-        <Spline
-          scene="https://prod.spline.design/2Y15wHRqmU79kFlR/scene.splinecode"
-        />
-      )}
+      <Spline
+        scene="https://prod.spline.design/2Y15wHRqmU79kFlR/scene.splinecode"
+        onLoad={onLoad}
+      />
     </SketchContainer>
   );
 };
@@ -22,57 +22,4 @@ const SketchContainer = styled.div`
   width: 100%;
   height: 120vh;
   position: fixed;
-  z-index: 0;
-  /* pointer-events: none; */
-  &:before {
-    content: " ";
-    height: 100vh;
-    width: 18px;
-    right: 0;
-    top: 0;
-    bottom: 0;
-    background-color: ${(props) => props.theme.colors.background};
-    position: fixed;
-    z-index: 100;
-    opacity: 0;
-  }
-  &:after {
-    content: " ";
-    height: 100vh;
-    width: 18px;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    background-color: ${(props) => props.theme.colors.background};
-    position: fixed;
-    z-index: 100;
-    opacity: 0;
-  }
-  canvas {
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: -20px;
-    bottom: -30px;
-    /* pointer-events: none; */
-    overflow: hidden;
-  }
-  @media (max-width: 600px) {
-    overflow: hidden;
-    &:before,
-    &:after {
-      opacity: 1;
-    }
-  }
-`;
-
-const Background = styled.div`
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  top: 0;
-  height: 100%;
-  background-image: url("/assets/img/layout/fond.jpg");
-  background-size: cover;
 `;

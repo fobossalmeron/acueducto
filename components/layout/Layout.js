@@ -14,10 +14,6 @@ import NewsletterPopup from "components/NewsletterPopup";
 import TagManager from "react-gtm-module";
 import LinkedInTag from "react-linkedin-insight";
 
-const HomeSketch = dynamic(import("../homeSketch/HomeSketch"), {
-  ssr: false,
-});
-
 const Layout = ({ t, hasLoaded, children }) => {
   const [isOpen, setOpen] = useState(false);
   const [showSketch, setShowSketch] = useState(true);
@@ -25,23 +21,6 @@ const Layout = ({ t, hasLoaded, children }) => {
   const [showArrow, setShowArrow] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
-  const mouse = useRef([1200, 1]);
-
-  const onMouseMove = useCallback(
-    ({ clientX: x, clientY: y }) =>
-      (mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2]),
-    [mouse.current]
-  );
-
-  const onTouchMove = useCallback(
-    (e) => {
-      const touch = e.changedTouches[0];
-      var x = touch.clientX;
-      var y = touch.clientY;
-      mouse.current = [x - window.innerWidth / 2, y - window.innerHeight / 2];
-    },
-    [mouse.current]
-  );
 
   const initializePixels = () => {
     TagManager.initialize({
@@ -61,7 +40,6 @@ const Layout = ({ t, hasLoaded, children }) => {
   }, [hasLoaded]);
 
   useEffect(() => {
-    mouse.current[0] = window.innerWidth > 600 ? 1200 : 300;
     if (router.route === "/") {
       setShowSketch(true);
       setShowArrow(true);
@@ -83,21 +61,23 @@ const Layout = ({ t, hasLoaded, children }) => {
       document.body.onscroll = function () {
         checkScroll();
       };
-      let clipper = document.querySelector("#Clipper");
-      clipper.onscroll = function () {
-        checkScroll();
-      };
+      // let clipper = document.querySelector("#Clipper");
+      // clipper.onscroll = function () {
+      //   checkScroll();
+      // };
+      // Se lo quitamos ahora que no hay PageClipper
     }
   }, [showArrow]);
 
   const checkScroll = () => {
+    //Cambiamos también acá decía Clipper
     if (
-      document.getElementById("Clipper").scrollTop > 100 ||
+      document.getElementById("Wrapper").scrollTop > 100 ||
       window.scrollY > 100
     ) {
       document.body.onscroll = null;
 
-      let clipper = document.querySelector("#Clipper");
+      let clipper = document.querySelector("#Wrapper");
       clipper.onscroll = null;
       setShowArrow(false);
     }
@@ -121,13 +101,9 @@ const Layout = ({ t, hasLoaded, children }) => {
   };
   return (
     <>
-      <PageWrapper
-        id="Wrapper"
-        onMouseMove={showSketch ? onMouseMove : null}
-        onTouchMove={showSketch ? onTouchMove : null}
-      >
-        {hasLoaded && showSketch && <HomeSketch hide={false} mouse={mouse}/>}
+      <PageWrapper id="Wrapper">
         <Border />
+        <BlackBorder />
         <NavTrigger
           toggleNav={toggleNav}
           isOpen={isOpen}
@@ -152,8 +128,8 @@ const Layout = ({ t, hasLoaded, children }) => {
         {React.cloneElement(children, {
           setTitle: setTitle,
           hasLoaded: hasLoaded,
+          showSketch: showSketch,
           locale: router.locale,
-          mouse: mouse,
         })}
         <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
         <ScrollIncentive hasLoaded={hasLoaded} showArrow={showArrow} />
@@ -183,14 +159,34 @@ const BodyOverflow = createGlobalStyle`
 `;
 
 const PageWrapper = styled.div`
-  top: -3px;
+  /* top: -3px; */
   position: relative;
   width: 100%;
   flex-direction: column;
   display: flex;
   justify-content: flex-start;
   color: ${(props) => props.theme.colors.foreground};
-  background-color: ${(props) => props.theme.colors.background};
+  /* background-color: ${(props) => props.theme.colors.background}; */
+`;
+
+const BlackBorder = styled.div`
+  opacity: 1;
+  pointer-events: none;
+  z-index: 99;
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
+  background-color: none;
+  position: fixed;
+  &:after {
+    content: " ";
+    position: absolute;
+    top: 18px;
+    right: -18px;
+    left: 18px;
+    bottom: -18px;
+    border-radius: 40px;
+    outline: ${(p) => `45px solid ${p.theme.colors.background}`};
+  }
 `;
 
 const Border = styled.div`
@@ -208,10 +204,13 @@ const Border = styled.div`
   margin: 0 auto;
   max-width: 1504px;
   mix-blend-mode: exclusion;
-  transition: opacity 0.3s ease-in, border 0.3s ease-in;
+  transition:
+    opacity 0.3s ease-in,
+    border 0.3s ease-in;
   border: ${(props) =>
     `${props.theme.stroke} solid ${props.theme.colors.foreground}`};
   border-radius: 60px;
+
   @media (max-width: 1530px) {
     border-radius: 40px;
   }
