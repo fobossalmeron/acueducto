@@ -27,6 +27,7 @@ const Layout = ({ t, hasLoaded, children }) => {
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   const mouse = useRef([1200, 1]);
+  const wrapperRef = useRef(null);
 
   const onMouseMove = useCallback(
     ({ clientX: x, clientY: y }) =>
@@ -132,10 +133,11 @@ const Layout = ({ t, hasLoaded, children }) => {
     <>
       <PageWrapper
         id="Wrapper"
+        ref={wrapperRef}
         onMouseMove={showSketch || isAbout ? onMouseMove : undefined}
         onTouchMove={showSketch || isAbout ? onTouchMove : undefined}
       >
-        {hasLoaded && showSketch && <HomeSketch hide={false} mouse={mouse} />}
+        {hasLoaded && showSketch && <HomeSketch hide={false} mouse={mouse} outerRef={wrapperRef}/>}
         <Border />
         <NavTrigger
           toggleNav={toggleNav}

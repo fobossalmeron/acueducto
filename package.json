@@ -20,6 +20,8 @@
     "@prismicio/next": "^1.3.4",
     "@prismicio/react": "^2.7.1",
     "@react-spring/web": "^9.7.3",
+    "@splinetool/react-spline": "^2.2.6",
+    "@splinetool/runtime": "^1.0.47",
     "@svgr/webpack": "^6.2.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "eslint-config-next": "^13.4.13",

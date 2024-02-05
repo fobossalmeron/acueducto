@@ -1,59 +1,46 @@
-/* eslint-disable react/display-name */
+import { useRef, useEffect } from "react";
 import styled from "styled-components";
-import React, { useRef } from "react";
-import { Canvas, useThree, useFrame, extend } from "react-three-fiber";
-import { EffectComposer } from "three";
-import { ShaderPass } from "three";
-import ShapeShiftShader from "./ShapeShiftShader";
+import Spline from "@splinetool/react-spline";
 
-extend({ EffectComposer, ShaderPass });
+const HomeSketch = ({ hide, mouse, outerRef }) => {
+  const splineRef = useRef(null);
+  const camera = useRef(null);
 
-const Effects = React.memo(({ mouse }) => {
-  const { gl, size } = useThree();
-  const composer = useRef();
-  const background = useRef();
-  const easing = 0.05;
-  const actualMouse = useRef([0, 0]);
+  function onLoad(spline) {
+    // splineRef.current = spline.canvas;
+    console.log(splineRef);
 
-  useFrame(() => {
-    composer.current.render();
-    background.current.uniforms.iTime.value += 0.01;
-    background.current.uniforms.iMouse.value = roundValues(
-      mouse.current[0],
-      mouse.current[1]
+    const camerab = spline.findObjectById(
+      "ad104382-25cf-4345-8be0-7ac277f0fdbb"
     );
-  }, 1);
+    camera.current = camerab;
+    console.log(camera.current)
 
-  const roundValues = (targetX, targetY) => {
-    var dx = targetX - actualMouse.current[0];
-    var dy = targetY - actualMouse.current[1];
-    actualMouse.current[0] += dx * easing;
-    actualMouse.current[1] += dy * easing;
-    return [actualMouse.current[0], actualMouse.current[1]];
-  };
-  let resolutionValue = window.innerWidth > 1690 ? 1.1 : 2;
-  return (
-    <effectComposer ref={composer} args={[gl]}>
-      <shaderPass
-        attachArray="passes"
-        args={[ShapeShiftShader]}
-        ref={background}
-        uniforms-iResolution-value={[size.width / resolutionValue, size.height / resolutionValue]}
-        uniforms-noctaves-value={window.innerWidth > 600 ? 5.4 : 4}
-      />
-    </effectComposer>
-  );
-});
+    splineRef.current.addEventListener("mouseover", (event) =>{
+      console.log("ESTAMOS DENTRO");
+    })
 
-const HomeSketch = ({ hide, mouse }) => {
+    outerRef.current.addEventListener("mousemove", (event) => {
+      // camera.current.position.x = 266.975 + event.clientX / 120;
+      // camera.current.position.y = 483.55833333333334 + event.clientY / 120;
+      // camera.current.position.z = 477.68 + event.clientX / 50 + event.clientY / 50;
+
+      const mouseEvent = new MouseEvent("mouseover", event);
+      console.log(mouseEvent);
+      splineRef.current.dispatchEvent(mouseEvent);
+    });
+  }
+
   return (
     <SketchContainer>
       {hide ? (
         <Background />
       ) : (
-        <Canvas>
-          <Effects mouse={mouse} />
-        </Canvas>
+        <Spline
+          ref={splineRef}
+          scene="https://prod.spline.design/2Y15wHRqmU79kFlR/scene.splinecode"
+          onLoad={onLoad}
+        />
       )}
     </SketchContainer>
   );
@@ -66,7 +53,7 @@ const SketchContainer = styled.div`
   height: 120vh;
   position: fixed;
   z-index: 0;
-  pointer-events: none;
+  /* pointer-events: none; */
   &:before {
     content: " ";
     height: 100vh;
@@ -74,7 +61,7 @@ const SketchContainer = styled.div`
     right: 0;
     top: 0;
     bottom: 0;
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background};
     position: fixed;
     z-index: 100;
     opacity: 0;
@@ -86,7 +73,7 @@ const SketchContainer = styled.div`
     left: 0;
     top: 0;
     bottom: 0;
-    background-color: ${props => props.theme.colors.background};
+    background-color: ${(props) => props.theme.colors.background};
     position: fixed;
     z-index: 100;
     opacity: 0;
@@ -97,7 +84,7 @@ const SketchContainer = styled.div`
     position: absolute;
     top: -20px;
     bottom: -30px;
-    pointer-events: none;
+    /* pointer-events: none; */
     overflow: hidden;
   }
   @media (max-width: 600px) {
