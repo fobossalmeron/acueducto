@@ -21,13 +21,11 @@ const HomeSketch = dynamic(import("../homeSketch/HomeSketch"), {
 const Layout = ({ t, hasLoaded, children }) => {
   const [isOpen, setOpen] = useState(false);
   const [showSketch, setShowSketch] = useState(true);
-  const [isAbout, setIsAbout] = useState(false);
   const [headerTitle, setTitle] = useState("");
   const [showArrow, setShowArrow] = useState(false);
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
   const mouse = useRef([1200, 1]);
-  const wrapperRef = useRef(null);
 
   const onMouseMove = useCallback(
     ({ clientX: x, clientY: y }) =>
@@ -67,22 +65,14 @@ const Layout = ({ t, hasLoaded, children }) => {
     if (router.route === "/") {
       setShowSketch(true);
       setShowArrow(true);
-      setIsAbout(false);
-      setShowPopup(false);
-    } else if (router.route === "/nosotros") {
-      setIsAbout(true);
-      setShowSketch(false);
-      setShowArrow(false);
       setShowPopup(false);
     } else if (router.route === "/podcast") {
-      setIsAbout(false);
       setShowSketch(false);
       setShowArrow(false);
       setShowPopup(true);
     } else {
       setShowSketch(false);
       setShowArrow(false);
-      setIsAbout(false);
       setShowPopup(false);
     }
     hasLoaded && ReactPixel.pageView();
@@ -100,15 +90,6 @@ const Layout = ({ t, hasLoaded, children }) => {
     }
   }, [showArrow]);
 
-  useEffect(() => {
-    let targetElement = document.querySelector("#Nav");
-    if (isOpen) {
-      disableBodyScroll(targetElement);
-    } else {
-      enableBodyScroll(targetElement);
-    }
-  }, [isOpen]);
-
   const checkScroll = () => {
     if (
       document.getElementById("Clipper").scrollTop > 100 ||
@@ -122,6 +103,15 @@ const Layout = ({ t, hasLoaded, children }) => {
     }
   };
 
+  useEffect(() => {
+    let targetElement = document.querySelector("#Nav");
+    if (isOpen) {
+      disableBodyScroll(targetElement);
+    } else {
+      enableBodyScroll(targetElement);
+    }
+  }, [isOpen]);
+
   const toggleNav = () => {
     setOpen(!isOpen);
   };
@@ -133,11 +123,10 @@ const Layout = ({ t, hasLoaded, children }) => {
     <>
       <PageWrapper
         id="Wrapper"
-        ref={wrapperRef}
-        onMouseMove={showSketch || isAbout ? onMouseMove : undefined}
-        onTouchMove={showSketch || isAbout ? onTouchMove : undefined}
+        onMouseMove={showSketch ? onMouseMove : null}
+        onTouchMove={showSketch ? onTouchMove : null}
       >
-        {hasLoaded && showSketch && <HomeSketch hide={false} mouse={mouse} outerRef={wrapperRef}/>}
+        {hasLoaded && showSketch && <HomeSketch hide={false} mouse={mouse}/>}
         <Border />
         <NavTrigger
           toggleNav={toggleNav}

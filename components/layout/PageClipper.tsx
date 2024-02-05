@@ -8,14 +8,14 @@ type ClipProps = {
 };
 
 const PageClipper = ({ children, className, unPadded, style }: ClipProps) => (
-  <Wrapper id="Clipper" className={className} unPadded={unPadded} style={style}>
+  <Clipper id="Clipper" className={className} unPadded={unPadded} style={style}>
     {children}
-  </Wrapper>
+  </Clipper>
 );
 
 export default PageClipper;
 
-const Wrapper = styled.main<{ unPadded: boolean }>`
+const Clipper = styled.main<{ unPadded: boolean }>`
   display: flex;
   width: calc(100% - 41px);
   height: calc(100% - 40px);
@@ -31,26 +31,6 @@ const Wrapper = styled.main<{ unPadded: boolean }>`
   overflow: overlay;
   overflow-x: hidden;
 
-  /* length */
-  ::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: transparent;
-    margin: 50px 0 50px 0;
-  }
-
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #1744c9;
-    border-radius: 50px;
-  }
-  ::-webkit-scrollbar-thumb:hover {
-    background: #1744c9;
-    border-radius: 50px;
-  }
   @media (max-width: 1530px) {
     border-radius: 38px;
   }

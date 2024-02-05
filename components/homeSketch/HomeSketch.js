@@ -1,45 +1,15 @@
-import { useRef, useEffect } from "react";
+import { useRef } from "react";
 import styled from "styled-components";
 import Spline from "@splinetool/react-spline";
 
-const HomeSketch = ({ hide, mouse, outerRef }) => {
-  const splineRef = useRef(null);
-  const camera = useRef(null);
-
-  function onLoad(spline) {
-    // splineRef.current = spline.canvas;
-    console.log(splineRef);
-
-    const camerab = spline.findObjectById(
-      "ad104382-25cf-4345-8be0-7ac277f0fdbb"
-    );
-    camera.current = camerab;
-    console.log(camera.current)
-
-    splineRef.current.addEventListener("mouseover", (event) =>{
-      console.log("ESTAMOS DENTRO");
-    })
-
-    outerRef.current.addEventListener("mousemove", (event) => {
-      // camera.current.position.x = 266.975 + event.clientX / 120;
-      // camera.current.position.y = 483.55833333333334 + event.clientY / 120;
-      // camera.current.position.z = 477.68 + event.clientX / 50 + event.clientY / 50;
-
-      const mouseEvent = new MouseEvent("mouseover", event);
-      console.log(mouseEvent);
-      splineRef.current.dispatchEvent(mouseEvent);
-    });
-  }
-
+const HomeSketch = ({ hide }) => {
   return (
     <SketchContainer>
       {hide ? (
         <Background />
       ) : (
         <Spline
-          ref={splineRef}
           scene="https://prod.spline.design/2Y15wHRqmU79kFlR/scene.splinecode"
-          onLoad={onLoad}
         />
       )}
     </SketchContainer>
