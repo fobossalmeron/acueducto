@@ -260,21 +260,22 @@ const PageClipperWellmee = styled(PageWrapper)`
 `;
 
 const FirstSection = styled(CommonSection)`
-  color: #4A4A73;
+  color: #4a4a73;
   padding-bottom: 10.7%;
   background-image: url("/assets/img/casestudies/wellmee/Background1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0% 30%;
 
-  h2, h3 {
+  h2,
+  h3 {
     font-weight: 500;
   }
   h2 {
     font-size: 5.8rem;
     padding-bottom: 26px;
     b {
-      color: #00CEBA;
+      color: #00ceba;
       font-weight: 200;
       font-size: 4rem;
     }
@@ -294,8 +295,8 @@ const FirstSection = styled(CommonSection)`
     display: flex;
     justify-content: center;
     padding: 8% 7% 0% 7%;
-  
-    div{
+
+    div {
       max-width: 342px;
       span {
         box-shadow: 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
@@ -318,8 +319,8 @@ const FirstSection = styled(CommonSection)`
   }
   @media (max-width: 800px) {
     background-position: 0% 35%;
-    }
   }
+
   @media (max-width: 630px) {
     background-position: 0% 31%;
     h2 {
