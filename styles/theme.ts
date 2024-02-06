@@ -2,7 +2,7 @@ import { DefaultTheme } from 'styled-components'
 //#0D1111 es el demasiado claro
 const Theme: DefaultTheme = {
   colors: {
-    background: "#080C0C",
+    background: "#0D1111",
     foreground: "#F4F4F4",
     foreground_low: "#D6D6D6",
     over_black: "#C8C8C8",

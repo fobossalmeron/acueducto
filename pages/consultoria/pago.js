@@ -5,7 +5,7 @@ import { Fade } from "react-awesome-reveal";
 import { createContact, updateContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import LinkWithArrow from "components/shared/LinkWithArrow";
 import TitleSection from "components/shared/TitleSection";
 import DefaultForm from "components/shared/DefaultForm";
@@ -65,7 +65,7 @@ const Pago = ({ locale, setTitle, pt }) => {
     setAuthorized(true);
   };
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         image={{ fileName: "og_image_consultoria.jpg", alt: head.image_alt }}
@@ -114,7 +114,7 @@ const Pago = ({ locale, setTitle, pt }) => {
           </Step>
         </TitleSection>
       )}
-    </PageClipper>
+    </PageWrapper>
   );
 };
 

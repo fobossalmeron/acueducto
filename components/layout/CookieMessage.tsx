@@ -16,7 +16,7 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
         document.body.onscroll = () => {
           checkScroll();
         };
-        let clipper: HTMLDivElement = document.querySelector("#Wrapper");
+        let clipper: HTMLDivElement = document.querySelector("#LayoutWrapper");
         clipper.onscroll = () => {
           checkScroll();
         };
@@ -26,11 +26,11 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
 
   const checkScroll = () => {
     if (
-      document.querySelector("#Wrapper").scrollTop > 100 ||
+      document.querySelector("#LayoutWrapper").scrollTop > 100 ||
       window.scrollY > 100
     ) {
       document.body.onscroll = null;
-      let clipper: HTMLDivElement = document.querySelector("#Wrapper");
+      let clipper: HTMLDivElement = document.querySelector("#LayoutWrapper");
       clipper.onscroll = null;
       checkForConsent();
       setShowConsentMessage(false);
@@ -78,7 +78,7 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
 
 export default CookieMessage;
 
-//Aqui
+
 const Hoverable = styled.span`
   ${BorderLink({ showLink: true })}
 `;

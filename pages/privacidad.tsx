@@ -4,7 +4,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import Link from "next/link";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { P, Ul, Li } from "components/shared/Dangerously";
@@ -25,7 +25,7 @@ export default function Privacy({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/privacidad"}
@@ -62,7 +62,7 @@ export default function Privacy({ locale, setTitle, pt }) {
         <p>{b.p7}</p>
       </SimplePinnedSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

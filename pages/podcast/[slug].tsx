@@ -9,7 +9,7 @@ import {
 import Head from "components/layout/Head";
 import EpisodePage from "components/podcast/EpisodePage";
 import PrismicEpisodePage from "components/podcast/PrismicEpisodePage";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 import type { GetStaticPropsContext } from 'next';
 import { createClient } from '../../prismicio';
@@ -27,7 +27,7 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpi
   const gif = slugMatchesPrismic?.data.images[0].gif.url;
 
   return (
-    <PageClipper>
+    <PageWrapper>
       {(!slugMatchesPrismic && !findNextPrismic) &&
         <>
           <Head
@@ -76,7 +76,7 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpi
           /> 
         </>
       }
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

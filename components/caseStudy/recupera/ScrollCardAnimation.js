@@ -71,12 +71,12 @@ const ScrollCardAnimation = ({isMobile, setIsMobile}) => {
     if (isMobile) {
       window.addEventListener("scroll", handleScrollAnimation);
     } else {
-      document.querySelector("#Clipper").addEventListener("scroll", handleScrollAnimation);
+      document.querySelector("#Main").addEventListener("scroll", handleScrollAnimation);
     }
 
     return () => {
       window.removeEventListener("scroll", handleScrollAnimation);
-      document.querySelector("#Clipper").removeEventListener("scroll", handleScrollAnimation);
+      document.querySelector("#Main").removeEventListener("scroll", handleScrollAnimation);
       window.removeEventListener("resize", handleResize);
     };
   }, [isMobile]);

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import TitleSection from "components/shared/TitleSection";
 import ContactFooter from "components/shared/footers/ContactFooter";
 
@@ -22,7 +22,7 @@ export default function Error({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         title="Acueducto | 404"
         description={t.description}
@@ -32,7 +32,7 @@ export default function Error({ locale, setTitle, pt }) {
       />
       <TitleSection {...t.intro} />
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 export const getStaticProps: GetStaticProps = async (context) => {

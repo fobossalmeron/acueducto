@@ -55,7 +55,7 @@ const DesktopAnimation = styled.div`
       border-radius: 24px;
       box-shadow: 0px 20px 60px 0px rgba(40, 3, 109, 0.12), 0px 40px 60px 0px rgba(40, 3, 109, 0.06);
     }
-  }
+  
 
   .screen2 span {
     border-radius: 28px;

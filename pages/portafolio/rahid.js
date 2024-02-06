@@ -3,7 +3,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -38,7 +38,7 @@ function Rahid({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper unPadded>
+    <PageWrapper unPadded>
       <Head
         {...t.head}
         image={{ fileName: "og_image_rahid.png", alt: t.head.image_alt }}
@@ -204,7 +204,7 @@ function Rahid({ locale, setTitle, pt }) {
       </SixthSection>
       <NextStudy link="ladanzadelasfieras" />
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

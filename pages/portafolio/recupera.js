@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import clientLocale from "utils/clientLocale";
 import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import Head from "components/layout/Head";
 import Marquee from "components/caseStudy/shared/Marquee";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
@@ -208,7 +208,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
           />
         </DesktopAndMobile>
       </FourthSection>
-      <NextStudy link="borgatta" />
+      <NextStudy link="rahid" />
       <ContactFooter />
     </PageClipperRecupera>
   );
@@ -230,7 +230,7 @@ export const getStaticProps = async (context) => {
 
 
 
-const PageClipperRecupera = styled(PageClipper)`
+const PageClipperRecupera = styled(PageWrapper)`
   background: linear-gradient(46deg, #6239D9 0%, #5C50ED 100%);
   @media (max-width: 1300px) {
     padding: 0px;
@@ -520,7 +520,6 @@ const ThirdPoint = styled.div`
     position: relative;
     display: flex;
     justify-content: center;
-  }
   }
   @media (max-width: 630px) {
     .image {

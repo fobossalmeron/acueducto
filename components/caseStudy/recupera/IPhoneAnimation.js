@@ -35,12 +35,12 @@ const IPhoneAnimation = ({isMobile}) => {
     if (isMobile) {
       window.addEventListener("scroll", handleScroll);
     } else {
-      document.querySelector("#Clipper").addEventListener("scroll", handleScroll);
+      document.querySelector("#Main").addEventListener("scroll", handleScroll);
     }
     
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      document.querySelector("#Clipper").removeEventListener("scroll", handleScroll);
+      document.querySelector("#Main").removeEventListener("scroll", handleScroll);
     };
   }, [isMobile]);
 

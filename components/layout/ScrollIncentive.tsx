@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import Arrow from "components/shared/Arrow";
 
@@ -6,20 +7,52 @@ const scrollToNext = (e) => {
   document.getElementById("removeArrow").scrollIntoView({ behavior: "smooth" });
 };
 
-const ScrollIncentive = ({ hasLoaded, showArrow }) => (
-  <Container reveal={hasLoaded} showArrow={showArrow}>
-    <Jumper onClick={scrollToNext} showArrow={showArrow}>
-      <Arrow />
-    </Jumper>
-  </Container>
-);
+const ScrollIncentive = () => {
+  const [show, setShow] = useState(false);
+
+  // Showing and hiding of the arrow depending on scroll positing 
+  // (for the event listener)
+  const handleScroll = () => {
+    if (window.scrollY > 200) {
+      setShow(false);
+      console.log("Ya pasó los 200");
+      window.removeEventListener("scroll", handleScroll);
+    } else {
+      setShow(true);
+    }
+  };
+
+  //Adding and removing the event listener for the scroll
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [show]);
+
+  //Delay before showing arrow
+  useEffect(() => {
+    setTimeout(() => {
+      if (window.scrollY < 200) {
+        setShow(true);
+      }
+    }, 2000);
+  }, []);
+
+  return (
+    <Container reveal={show}>
+      <Jumper onClick={scrollToNext} reveal={show}>
+        <Arrow />
+      </Jumper>
+    </Container>
+  );
+};
 
 export default ScrollIncentive;
 
 const jumping = keyframes`
   0%{
     transform: translateY(0)rotate(90deg);
-    opacity:1;
   }
   20%{
     transform: translateY(0)rotate(90deg);
@@ -38,24 +71,23 @@ const jumping = keyframes`
   }
   100%{
     transform: translateY(0)rotate(90deg);
-    opacity:1;
   }
 `;
-const Jumper = styled.div<{reveal?:boolean, showArrow:boolean}>`
-  animation-name: ${p=>p.reveal ? jumping : "none"};
+
+const Jumper = styled.div<{ reveal?: boolean }>`
+  animation-name: ${(p) => (p.reveal ? jumping : "none")};
   transform: translateY(0) rotate(90deg);
-  opacity: 0;
   animation-duration: 1.5s;
+  animation-play-state: running;
   animation-timing-function: ease;
-  animation-delay: 5s;
   animation-iteration-count: infinite;
   animation-direction: normal;
-  pointer-events: ${(props) =>
-    props.reveal && props.showArrow ? "auto" : "none"};
+  animation-play-state: running;
+  pointer-events: ${(props) => (props.reveal ? "auto" : "none")};
   cursor: pointer;
 `;
 
-const Container = styled.div<{reveal?:boolean, showArrow:boolean}>`
+const Container = styled.div<{ reveal?: boolean }>`
   bottom: 50%;
   display: flex;
   z-index: 7;
@@ -73,7 +105,7 @@ const Container = styled.div<{reveal?:boolean, showArrow:boolean}>`
   padding-bottom: 65px;
   margin: 0px auto;
   max-width: 1500px;
-  opacity: ${(props) => (props.reveal && props.showArrow ? 1 : 0)};
+  opacity: ${(props) => (props.reveal ? 1 : 0)};
   transition: opacity 0.3s ease 1s;
   @media (max-width: 600px) {
     padding-left: 25px;

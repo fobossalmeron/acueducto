@@ -4,7 +4,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import Link from "next/link";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
 import { P, H3 } from "components/shared/Dangerously";
 import ContactFooter from "components/shared/footers/ContactFooter";
@@ -25,7 +25,7 @@ export default function Cookies({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/cookies"}
@@ -72,7 +72,7 @@ export default function Cookies({ locale, setTitle, pt }) {
         <P>{b.p13}</P>
       </SimplePinnedSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

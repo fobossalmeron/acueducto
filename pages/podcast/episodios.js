@@ -6,7 +6,7 @@ import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 import { H1 } from "components/shared/Dangerously";
@@ -51,7 +51,7 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
   };
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         image={{ fileName: "og_image_podcast.png", alt: head.image_alt }}
@@ -121,7 +121,7 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
         identify="podcast"
         podcastEpisodes={Object.keys(episodes).length}
       />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

@@ -17,8 +17,9 @@ import BroadcastRouter from "components/podcast/BroadcastRouter.tsx";
 import FAQSection from "components/shared/FAQ";
 import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
+import PageWrapper from "components/layout/PageWrapper";
 
-const HomeSketch = dynamic(import("../components/homeSketch/HomeSketch"), {
+const HomeSpline = dynamic(import("../components/homeSpline/HomeSpline.tsx"), {
   ssr: false,
 });
 
@@ -45,7 +46,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
   }, [locale]);
 
   return (
-    <>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio"}
@@ -136,8 +137,8 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
       </TitleSection>
       <ContactFooter />
       </div>
-      {hasLoaded && <HomeSketch/>}
-    </>
+      {hasLoaded && <HomeSpline/>}
+    </PageWrapper>
   );
 }
 
@@ -163,14 +164,14 @@ const Land = styled.section`
   h2 {
     font-size: 2.1rem;
     margin-top: 15px;
-    max-width: 520px;
+    max-width: 424px;
     color: ${(props) => props.theme.colors.white};
   }
   h1 {
     color: ${(props) => props.theme.colors.white};
     line-height: 100%;
     font-size: 7rem;
-    max-width: 830px;
+    max-width: 860px;
   }
   @media (max-width: 1115px) {
     h1 {

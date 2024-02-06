@@ -4,7 +4,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import dynamic from "next/dynamic";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -51,7 +51,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper unPadded>
+    <PageWrapper unPadded>
       <Head
         {...t.head}
         image={{ fileName: "og_image_lddlf.png", alt: t.head.image_alt }}
@@ -312,9 +312,9 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
           </a>
         </Fade>
       </Sixth>
-      <NextStudy link="salvajenada" />
+      <NextStudy link="blockstem" />
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

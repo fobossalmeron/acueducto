@@ -131,6 +131,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     }
     h1 {
       margin-bottom: 0;
+      font-size: 3.4rem;
     }
   }
 `;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ssrLocale from "utils/ssrLocale";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import Diagnostico from "components/diagnosticoDigital/Diagnostico";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import TitleSection from "components/shared/TitleSection";
@@ -13,7 +13,7 @@ function DiagnosticoDigital({ locale, setTitle, pt }) {
     setTitle(head.headerTitle);
   }, [locale]);
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         image={{ fileName: "og_image_diagnostico.png", alt: head.image_alt }}
@@ -25,7 +25,7 @@ function DiagnosticoDigital({ locale, setTitle, pt }) {
         results_section={results_section}
       />
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 export default React.memo(DiagnosticoDigital);

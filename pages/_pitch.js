@@ -10,7 +10,7 @@ import Products from "components/shared/Products";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P, H2, H3 } from "components/shared/Dangerously";
 import createMarkup from "utils/createMarkup";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 
@@ -44,7 +44,7 @@ export default function Pitch({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/pitch"}
@@ -116,7 +116,7 @@ export default function Pitch({ locale, setTitle, pt }) {
         borderTop
       />
       <ContactFooter/>
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

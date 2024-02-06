@@ -124,47 +124,6 @@ const ContactForm = ({ text }) => {
               />
               {errors.message && <span>{text.message.errorMissing}</span>}
             </InputField>
-            <CheckMark>
-              <label htmlFor={`cp_phoneCheckbox`}>
-                {text.phonecheckbox.label}
-              </label>
-              <input
-                name="phoneCheckbox"
-                id={`cp_phoneCheckbox`}
-                type="checkbox"
-                placeholder={text.message.placeholder}
-                {...register("phoneCheckbox")}
-                onChange={phoneFieldChange}
-              />
-              <span className="checkmark"></span>
-            </CheckMark>
-            {requirePhone && (
-              <Fade triggerOnce>
-                <InputField>
-                  <label htmlFor={`cp_phone`}>{text.phone.label}</label>
-                  <input
-                    name="phone"
-                    id={`cp_phone`}
-                    type="phone"
-                    placeholder={"+52 55 8778 8778"}
-                    {...register("phone", {
-                      required: text.phone.errorMissing,
-                      pattern: {
-                        value: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/i,
-                        message: text.phone.errorInvalid,
-                      },
-                      minLength: {
-                        value: 10,
-                        message: text.phone.errorInvalid,
-                      },
-                    })}
-                  />
-                  <span>
-                    <>{errors?.phone?.message}</>
-                  </span>
-                </InputField>
-              </Fade>
-            )}
             <ButtonArrow text={text.submit} submitButton inverse />
           </Form>
         </>

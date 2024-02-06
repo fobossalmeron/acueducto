@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import Head from "components/layout/Head";
 import clientLocale from "utils/clientLocale";
 import ssrLocale from "utils/ssrLocale";
@@ -169,7 +169,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         </TextColumn>
         <AnimatedUIComponents isMobile={isMobile} />
       </FourthSection>
-      <NextStudy link="blockstem" />
+      <NextStudy link="wellmee" />
       <ContactFooter />
     </FondoBorgatta>
   );

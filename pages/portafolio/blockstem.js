@@ -3,7 +3,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -243,7 +243,7 @@ function Blockstem({ locale, setTitle, pt }) {
           </a>
         </Fade>
       </SeventhSection>
-      <NextStudy link="rahid" />
+      <NextStudy link="salvajenada" />
       <ContactFooter />
     </PageClipperBlockstem>
   );
@@ -263,7 +263,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const PageClipperBlockstem = styled(PageClipper)`
+const PageClipperBlockstem = styled(PageWrapper)`
   background: ${mainGradient};
   @media (max-width: 600px) {
     background: linear-gradient(97.9deg, #060809 0.06%, #3a3a3a 42.48%);

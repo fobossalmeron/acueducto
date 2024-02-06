@@ -7,7 +7,7 @@ import { getAllEpisodes } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import SingleArticle from "components/articles/SingleArticle";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 
 export default function Articles({ locale, setTitle, posts, pt, numberOfE }) {
@@ -18,7 +18,7 @@ export default function Articles({ locale, setTitle, posts, pt, numberOfE }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         es_canonical={`https://acueducto.studio/articulos`}
@@ -33,7 +33,7 @@ export default function Articles({ locale, setTitle, posts, pt, numberOfE }) {
         />
       ))}
       <ResourceFooter identify="articulos" podcastEpisodes={numberOfE} />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

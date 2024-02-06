@@ -4,11 +4,10 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import MetalFooter from "components/shared/footers/MetalFooter";
 import ContactForm from "components/ContactForm";
-import WhatsApp from "public/assets/img/layout/logos/whatsapp.svg";
 
 export default function Contact({ locale, setTitle, pt }) {
   const [t, setT] = useState(pt);
@@ -25,21 +24,13 @@ export default function Contact({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/contacto"}
         en_canonical={"https://acueducto.studio/en/contact"}
       ></Head>
       <CustomPinnedSection title={t.intro.title} id="Scroll">
-        {/* <p>
-          {t.intro.p1}
-          <br />
-          <a href="https://api.whatsapp.com/message/JNUILJPF23CSP1">
-            <WhatsApp />
-            +52 55 2789 5399
-          </a>
-        </p> */}
         <p>
           {t.intro.p2} <br />
           <a
@@ -51,7 +42,7 @@ export default function Contact({ locale, setTitle, pt }) {
         <ContactForm text={t.form} />
       </CustomPinnedSection>
       <MetalFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

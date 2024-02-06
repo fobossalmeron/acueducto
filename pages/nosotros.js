@@ -3,7 +3,7 @@ import ssrLocale from "utils/ssrLocale";
 import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P } from "components/shared/Dangerously";
@@ -29,7 +29,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
     });
   }, [locale]);
   return (
-    <>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/nosotros"}
@@ -60,7 +60,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
         <Recursos />
       </TitleSection>
       <ContactFooter />
-    </>
+    </PageWrapper>
   );
 }
 

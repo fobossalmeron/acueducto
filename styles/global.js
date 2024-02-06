@@ -90,7 +90,7 @@ const styles = `
     }
   }
 
-  #Wrapper{
+  #LayoutWrapper{
     height:100%;
   }
 
@@ -194,6 +194,7 @@ const styles = `
     height: 100%;
     width: 100%;
     overflow-x: hidden;
+    overflow-y: hidden;
     letter-spacing: 0.02px;
   }
   @media (max-width: 600px), (max-height: 450px) {

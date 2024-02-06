@@ -13,7 +13,14 @@ export default function Nav(props) {
     const router = useRouter();
     const child = React.Children.only(children);
     return (
-      <Link {...props} href={href} as={as} passHref locale={locale} legacyBehavior>
+      <Link
+        {...props}
+        href={href}
+        as={as}
+        passHref
+        locale={locale}
+        legacyBehavior
+      >
         {React.cloneElement(child, { active: router.pathname === href })}
       </Link>
     );
@@ -91,54 +98,17 @@ export default function Nav(props) {
                 href="https://www.linkedin.com/company/acueductostudio/"
               >
                 linkedin
-                <span>ln</span>
+                <span>linkedin</span>
               </Hoverable>
               <Hoverable
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.instagram.com/acueducto.studio/"
+                href="https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg"
               >
-                instagram
-                <span>ig</span>
-              </Hoverable>
-              <Hoverable
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.tiktok.com/@acueducto.studio"
-              >
-                tiktok
-                <span>tk</span>
-              </Hoverable>
-              <Hoverable
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.facebook.com/acueducto.studio/"
-              >
-                facebook
-                <span>fb</span>
+                youtube
+                <span>youtube</span>
               </Hoverable>
             </Social>
-            <Policies onClick={props.closeNav}>
-              <Link
-                href={l.cookies.link}
-                as={l.cookies.as ? l.cookies.as : l.cookies.link}
-                locale={props.locale}
-                passHref
-                legacyBehavior
-              >
-                <Hoverable>{l.cookies.title}</Hoverable>
-              </Link>
-              <span> | </span>
-              <Link
-                href={l.privacy.link}
-                as={l.privacy.as ? l.privacy.as : l.privacy.link}
-                locale={props.locale}
-                passHref
-                legacyBehavior
-              >
-                <Hoverable>{l.privacy.title}</Hoverable>
-              </Link>
-            </Policies>
           </BottomNav>
         </>
       )}
@@ -151,7 +121,7 @@ const Hoverable = styled.a`
 `;
 
 const NavLink = styled.a`
-  font-weight: 300;
+  font-weight: 200;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   background-image: ${(props) =>
@@ -182,22 +152,16 @@ const Policies = styled.div`
 
 const Social = styled.div`
   grid-column: 5 / span 3;
+  display: flex;
+  gap: 2rem;
   span {
     display: none;
-  }
-  a {
-    margin-right: 10%;
-    &:last-of-type {
-      margin-right: 0;
-    }
   }
 `;
 
 const BottomNav = styled.div`
-  grid-template-columns: repeat(12, 1fr);
-  grid-template-rows: 1fr;
-  grid-gap: 2.2rem;
-  display: grid;
+  display: flex;
+  justify-content: space-between;
   border-top: ${(props) =>
     props.theme.stroke + " solid " + props.theme.colors.foreground_lowest};
   position: absolute;
@@ -243,14 +207,12 @@ const BottomNav = styled.div`
         font-size: 1.5rem;
         display: flex;
         border: 2px solid ${(props) => props.theme.colors.foreground_low};
-        border-radius: 50%;
-        width: 35px;
-        height: 35px;
+        border-radius: 24px;
+        padding: 6px 16px 9px 16px;
         align-items: center;
         justify-content: center;
-        padding-bottom: 2px;
-        padding-left: 1px;
         transition: 0.3s ease-in border-color;
+        gap: 2rem;
         &:focus,
         &:active {
           border-color: ${(p) => p.theme.colors.accent};
@@ -295,7 +257,7 @@ const NavList = styled.nav`
   ul {
     list-style: none;
     li {
-      font-size: 5rem;
+      font-size: 4rem;
       position: relative;
       padding-bottom: 4%;
       span {
@@ -303,7 +265,7 @@ const NavList = styled.nav`
         font-size: 1.5rem;
         position: absolute;
         left: -40px;
-        top: 38px;
+        top: 27px;
         pointer-events: none;
       }
     }
@@ -312,30 +274,20 @@ const NavList = styled.nav`
     grid-column-start: 4;
   }
   @media (max-width: 600px), (max-height: 700px) {
-    width: 100%;
-    position: relative;
-    flex: 0 0 auto;
-    ul {
-      display: flex;
-      flex-direction: column;
-      li {
-        font-size: 4.5rem;
-        display: inline-block;
-        flex-direction: column;
-        span {
-          position: absolute;
-          left: 0;
-          top: 0px;
-        }
-      }
+    align-items: center;
+    ul li {
+      padding-bottom:15%;
+      span {
+      top: 27px;
+      left: -38px;
+    }
     }
   }
   @media (max-width: 400px) {
     ul li {
-      font-size: 4rem;
+      font-size: 3.5rem;
       span {
-        top: 0;
-        font-size: 1.2rem;
+        top: 22px;
       }
     }
   }
@@ -396,7 +348,8 @@ const NavWrapper = styled.div`
     -webkit-overflow-scrolling: touch;
   }
   @media (max-width: 600px) {
-    padding: 20% 4% 20px 4%;
+    padding: 35% 4% 20px 4%;
+    align-items: center;
   }
   @media (max-height: 439px) {
     padding-top: 13%;

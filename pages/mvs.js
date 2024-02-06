@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { getEpisodeBySlug } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import EpisodePreview from "components/podcast/EpisodePreview";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
@@ -18,7 +18,7 @@ function Mvs({ locale, setTitle, pt, episodes }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head {...head} es_canonical="https://acueducto.studio/consultoria" />
       <PinnedSection disableFade title={intro.title}>
         <>
@@ -50,7 +50,7 @@ function Mvs({ locale, setTitle, pt, episodes }) {
         </>
       </PinnedSection>
       <ResourceFooter identify="mvs" />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

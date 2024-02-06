@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import styled from "styled-components";
@@ -11,7 +11,7 @@ function Webinars({ locale, setTitle }) {
     setTitle("webinars");
   }, [locale]);
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         title="Nuestros Webinars - Acueducto"
         description="Inscríbete a nuestros próximos webinars"
@@ -33,7 +33,7 @@ function Webinars({ locale, setTitle }) {
         </Fade>
       </PinnedSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

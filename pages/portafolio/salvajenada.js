@@ -4,7 +4,7 @@ import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import { Fade } from "react-awesome-reveal";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import dynamic from "next/dynamic";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -114,7 +114,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper unPadded>
+    <PageWrapper unPadded>
       <Head
         {...t.head}
         image={{ fileName: "og_image_salvajenada.png", alt: t.head.image_alt }}
@@ -333,9 +333,9 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           </a>
         </Fade>
       </Fifth>
-      <NextStudy link="rahid" margined />
+      <NextStudy link="borgatta" margined />
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

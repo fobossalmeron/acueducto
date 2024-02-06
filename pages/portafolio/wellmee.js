@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import clientLocale from "utils/clientLocale";
 import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import Head from "components/layout/Head";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
@@ -251,7 +251,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const PageClipperWellmee = styled(PageClipper)`
+const PageClipperWellmee = styled(PageWrapper)`
   background-color: #f3f6f3;
 
   @media (max-width: 1300px) {

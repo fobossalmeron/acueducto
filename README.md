@@ -1,5 +1,14 @@
-- Traducción home y about
-- Página de podcast snippet en negro
+Things that might be broken from the recent changes on layout:
+- CookieMessage se quedó sin jalar
+- La página del podcast perdió contraste
+- Páginas de artículos su fader no tiene el color (hay que ponérselo)
+- Consultoría (texto: evalúa la estrategia digital de tu negocio) tiene el problema del hover con la línea azul
+- iPhoneAnimation hay que revisar
+- ScrollCard Animation hay que revisar
+- Recupera: hay que revisar
+- Portafolio de Borgatta tiene un mismatch de estilos 
+- Las páginas del podcast están rotas (yo creo que es de Rocío esto)
+
 
 <p align="left">
   <a href="https://acueducto.studio/" target='_blank'>

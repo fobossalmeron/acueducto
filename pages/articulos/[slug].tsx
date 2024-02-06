@@ -6,7 +6,7 @@ import { getAllPosts, getPostBySlug } from "utils/blogApi";
 import { getAllEpisodes } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import ArticlePage from "components/articles/ArticlePage";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 
 export default function Article({ locale, setTitle, article, numberOfE }) {
@@ -15,7 +15,7 @@ export default function Article({ locale, setTitle, article, numberOfE }) {
   }, [locale]);
 
   return (
-    <PageClipper unPadded>
+    <PageWrapper unPadded>
       <Head
         title={article.title}
         description={article.subtitle}
@@ -25,7 +25,7 @@ export default function Article({ locale, setTitle, article, numberOfE }) {
       ></Head>
       <ArticlePage {...article} slug={article.slug} />
       <ResourceFooter identify={article.slug} podcastEpisodes={numberOfE} />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

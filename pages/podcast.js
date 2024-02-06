@@ -5,7 +5,7 @@ import EpisodeFeature from "components/podcast/EpisodeFeature";
 import ssrLocale from "utils/ssrLocale";
 import { getEpisodeBySlug, getAllEpisodes } from "utils/podcastApi";
 import Head from "components/layout/Head";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { H1, H2, H3 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
@@ -82,7 +82,7 @@ function PodcastLanding({
   // }
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         image={{ fileName: "og_image_podcast.png", alt: head.image_alt }}
@@ -208,7 +208,7 @@ function PodcastLanding({
         </Fade>
       </FullLastSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

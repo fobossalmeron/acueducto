@@ -4,7 +4,7 @@ import styled from "styled-components";
 import useInterval from "utils/useInterval";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
@@ -62,7 +62,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         image={{ fileName: "og_image_consultoria.jpg", alt: head.image_alt }}
@@ -113,7 +113,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
         <ConsultoriaCTA cta={cta} id="second" diagnostico_cta />
       </TitleSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 

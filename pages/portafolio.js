@@ -4,7 +4,7 @@ import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import CaseList from "components/caseStudy/CaseList";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 
 export default function Work({ locale, setTitle, pt }) {
@@ -22,7 +22,7 @@ export default function Work({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <>
+    <PageWrapper>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/portafolio"}
@@ -31,7 +31,7 @@ export default function Work({ locale, setTitle, pt }) {
       <TitleSection {...t.intro} />
       <CaseList limit={6} />
       <ContactFooter />
-    </>
+    </PageWrapper>
   );
 }
 export const getStaticProps = async (context) => {

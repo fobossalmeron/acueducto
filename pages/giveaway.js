@@ -3,7 +3,7 @@ import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import Link from "next/link";
-import PageClipper from "components/layout/PageClipper";
+import PageWrapper from "components/layout/PageWrapper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
 import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
@@ -18,7 +18,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
   }, [locale]);
 
   return (
-    <PageClipper>
+    <PageWrapper>
       <Head
         {...head}
         es_canonical={"https://acueducto.studio/giveaway"}
@@ -39,7 +39,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
         </ul>
       </MetalPinnedSection>
       <ContactFooter />
-    </PageClipper>
+    </PageWrapper>
   );
 }
 
