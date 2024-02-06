@@ -39,7 +39,10 @@ const Recupera = ({ locale, setTitle, pt }) => {
         setTitle(nT.head.headerTitle);
       },
     });
+    setloadAssets(true);
+  }, [locale]);
 
+  useEffect(() => {
     if (typeof window !== 'undefined') {
       setIsMobile(window.innerWidth <= 650);
     }
@@ -49,16 +52,14 @@ const Recupera = ({ locale, setTitle, pt }) => {
         setIsMobile(window.innerWidth <= 650);
       }
     };
-    
-    window.addEventListener("resize", handleResize);
 
-    setloadAssets(true);
+    window.addEventListener("resize", handleResize);
 
     return () => {
       window.removeEventListener("resize", handleResize);
     };
 
-  }, [locale, isMobile]);
+  }, [isMobile]);
 
   return (
     <PageClipperRecupera>

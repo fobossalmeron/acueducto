@@ -45,9 +45,6 @@ const Fader = styled.div`
   display: block;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(
-    0deg,
-    rgba(8, 12, 12, 1) 30%,
-    rgba(8, 12, 12, 0) 100%
-  );
+  background: ${(p) =>
+    `linear-gradient( 0deg, ${p.theme.colors.background} 55%, ${p.theme.colors.background}00 100%)`};
 `;

@@ -203,9 +203,11 @@ const Fader = styled.div`
   display: block;
   position: absolute;
   bottom: 0;
-  background: linear-gradient(
+  background: ${(p) =>
+    `linear-gradient( 0deg, ${p.theme.colors.background} 30%, ${p.theme.colors.background}00 100%)`};
+  /* background: linear-gradient(
     0deg,
     rgba(8, 12, 12, 1) 30%,
     rgba(8, 12, 12, 0) 100%
-  );
-`;
+  ); */
+`; 

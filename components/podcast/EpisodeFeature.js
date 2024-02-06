@@ -94,7 +94,7 @@ const NewPod = styled.a`
       : 'url("/assets/img/layout/backCard.svg")'};
   background-size: cover;
   background-position: bottom;
-  background-color: ${(p) => (p.blue ? "#305EE3" : "#131516")};
+  background-color: ${(p) => (p.blue ? "#305EE3" : "#181a1b")};
   border-radius: 50px;
   padding: 3.5rem 3.5rem 2.5rem 3.5rem;
   text-decoration: none;
@@ -135,11 +135,11 @@ const NewPod = styled.a`
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: ${(p) => (p.blue ? "#3A65E4" : "#171a1c")};
+      background-color: ${(p) => (p.blue ? "#3A65E4" : "#1e2224")};
     }
   }
   &:active {
-    background-color: ${(p) => (p.blue ? "#3A65E4" : "#171a1c")};
+    background-color: ${(p) => (p.blue ? "#3A65E4" : "#1e2224")};
   }
 
   @media (max-width: 970px) {

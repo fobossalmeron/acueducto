@@ -306,7 +306,7 @@ const Limiter = styled.div`
 const Feature = styled.article`
   display: flex;
   flex-direction: column;
-  background-color: #101213;
+  background-color: #151819; //ya contrasta
   border-radius: 50px;
   padding: 3.5rem 3.5rem 3.5rem 3.5rem;
   h3 {
@@ -321,7 +321,7 @@ const Feature = styled.article`
   }
   div {
     padding: 20px;
-    background-color: #1e2224;
+    background-color: #252a2c; //ya contrasta
     border-radius: 40px;
     display: flex;
     align-self: flex-start;

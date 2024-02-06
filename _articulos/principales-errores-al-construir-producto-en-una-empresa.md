@@ -1,6 +1,6 @@
 ---
 title: "Principales errores al construir producto en una empresa"
-subtitle: "Es posible crear un producto exitoso dentro de una empresa sin drenar los recursos de la misma con el equipo indicado y la correcta forma de trabajar."
+subtitle: "Es posible crear un producto exitoso dentro de una empresa sin drenar sus recursos con el equipo indicado y la correcta forma de trabajar."
 excerpt: "Este escrito es el resultado de 10 años construyendo experiencias digitales y tres creando productos para startups, pymes y corporativos con un equipo de profesionales en Acueducto."
 author: "Artemio Pedraza"
 date: "2022-09-26"

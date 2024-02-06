@@ -3,39 +3,10 @@ import Link from "next/link";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import { Span } from "components/shared/Dangerously";
-import { createContact } from "utils/sendinBlue";
-import ReactPixel from "react-facebook-pixel";
-import DefaultForm from "components/shared/DefaultForm";
-import Cookies from "js-cookie";
-import { useRouter } from "next/router";
 import BorderLink from "components/shared/BorderedLink";
-import delayForLoading from "utils/delayForLoading";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
-import { advancedMatching } from "utils/analytics";
 
-const ConsultoriaCTA = ({ cta, id, diagnostico_cta, price }) => {
-  // const router = useRouter();
-  // solo es necesario para las consultorías
-
-  const onSubmit = (data) => {
-    // Create contact and add to list 3 (Consulting funnel) w/ test results
-    createContact({
-      firstName: data.firstName,
-      lastName: data.lastName,
-      email: data.email,
-      listIds: [7],
-      updateEnabled: true,
-    });
-
-    Cookies.set("ue", data.email);
-
-    ReactPixel.init("506854653278097", advancedMatching(data.email));
-    // Pidió consultoría
-    ReactPixel.track("SubmitApplication", { email: data.email });
-    // delayForLoading(1500).then(() => router.push("/consultoria/pago"));
-    // estamos usando el agendador de hubspot para reuniones, no consultorías
-  };
-
+const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
   return (
     <Container>
       <h3>{cta.title}</h3>
@@ -49,26 +20,6 @@ const ConsultoriaCTA = ({ cta, id, diagnostico_cta, price }) => {
           <ButtonArrow text={cta.submit} inverse className="clean" />
         </Link>
       </SpecialA>
-
-      {/* <DefaultForm
-        onSubmit={onSubmit}
-        id={id}
-        text={cta}
-        infinite
-        buttonArrowInverse
-        formMarkup={
-          <>
-            <h3>{cta.title}</h3>
-            {price ? (
-              <Span>{`${cta.price} <em>${cta.sessions}</em>`}</Span>
-            ) : (
-              <span className="noPrice">
-                elevemos tu negocio <em>{cta.sessions}</em>
-              </span>
-            )}
-          </>
-        }
-      /> */}
       {diagnostico_cta && (
         <Diagnostico>
           <Fade triggerOnce>
@@ -175,6 +126,9 @@ const Container = styled.div`
 `;
 
 const Diagnostico = styled.div`
+  &:hover {
+    background-image: none !important;
+  }
   p {
     margin-top: 20px;
   }

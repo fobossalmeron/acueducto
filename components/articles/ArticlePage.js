@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import Header from "./Header";
+import Header from "./Header.tsx";
 import ShareRouter from "components/podcast/ShareRouter";
 import CenteredSection, {
   Content,

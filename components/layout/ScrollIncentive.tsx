@@ -15,7 +15,6 @@ const ScrollIncentive = () => {
   const handleScroll = () => {
     if (window.scrollY > 200) {
       setShow(false);
-      console.log("Ya pasó los 200");
       window.removeEventListener("scroll", handleScroll);
     } else {
       setShow(true);
