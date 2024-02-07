@@ -11,6 +11,7 @@ spotify: https://open.spotify.com/episode/1vHpwazvhoG4585S9hRNIU?si=TQ6-uUJjR7Gx
 apple: https://podcasts.apple.com/mx/podcast/el-coo-de-una-fintech-nos-habla/id1500473556?i=1000532454369
 youtube: https://www.youtube.com/watch?v=TqZ7nopYCOM
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC05MDQ2Mzc4
+index: true
 ---
 **Rodrigo:** En esta ocasión platicamos con Manuel Jimenez, COO de Aflore, una fintech colombiana que busca reducir la inequidad en Latinoamérica con productos de inclusión financiera. Tocamos temas como organización estratégica, experiencias digitales y la importancia de acercarte a tus usuarios.
 

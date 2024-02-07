@@ -240,7 +240,7 @@ const Colophon = styled.div`
     left: 0;
   }
   &:hover {
-    background-color: #080c0c;
+    background-color: ${(p) => p.theme.colors.background};
   }
   @media (max-width: 1200px) {
     grid-template-columns: repeat(3, 1fr);

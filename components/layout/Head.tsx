@@ -3,9 +3,9 @@ import { useRouter } from "next/router";
 import LD from "components/layout/Head/returnLd";
 
 const es_default_keywords =
-  "diseño, estudio, studio, acueducto, cdmx, innovación, diseño estratégico, diseño de experiencia, diseño de producto, diseño de servicio, impacto social, diseño de estrategia, tecnología";
+  "diseño, estudio, studio, acueducto, cdmx, innovación, diseño estratégico, diseño de experiencia, diseño de producto, diseño de servicio, diseño de estrategia, tecnología";
 const en_default_keywords =
-  "design, studio, acueducto, cdmx, innovation, strategic design, experience design, product design, brand design, social impact, design strategy, technology";
+  "design, studio, acueducto, cdmx, innovation, strategic design, experience design, product design, brand design, design strategy, technology";
 
 type HeadProps = {
   title: string;
@@ -15,6 +15,7 @@ type HeadProps = {
   en_canonical?: string;
   es_canonical?: string;
   image?: { fileName: string; alt: string };
+  noIndex?: boolean;
 };
 
 const NewHead = ({
@@ -25,6 +26,7 @@ const NewHead = ({
   en_canonical,
   es_canonical,
   image,
+  noIndex
 }: HeadProps) => {
   let router = useRouter();
   let { locale } = router;
@@ -48,6 +50,10 @@ const NewHead = ({
       <meta name="og:title" property="og:title" content={title} />
       <meta property="og:type" content="website" />
       <meta property="og:site_name" content="Acueducto" />
+      {
+        //Tag for SE Indexation
+       noIndex && <meta name="robots" content="noindex, follow" />
+      }
       {
         //Locale for Open Graph
         locale === "es" ? (

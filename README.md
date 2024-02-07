@@ -1,8 +1,3 @@
-Things that might be broken from the recent changes on layout:
-- Portafolio de Borgatta tiene un mismatch de estilos 
-- Las páginas del podcast están rotas
-
-
 <p align="left">
   <a href="https://acueducto.studio/" target='_blank'>
     <img alt="Acueducto" src="https://acueducto.studio/signatures/logostroke.svg" width="220">

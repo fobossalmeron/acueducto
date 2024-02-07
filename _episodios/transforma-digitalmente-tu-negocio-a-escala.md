@@ -11,6 +11,7 @@ spotify: https://open.spotify.com/episode/1uIGMGR7NSjqgmCdf5XrRK?si=mDsIrgKxQvG0
 apple: https://podcasts.apple.com/mx/podcast/e05-educaci%C3%B3n-y-transformaci%C3%B3n-digital-noem%C3%AD-valencia/id1500473556?i=1000490910930
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC01Mzc3NTY3
 youtube: https://www.youtube.com/watch?v=yCV9wJE2jHg
+index: true
 ---
 **Artemio:** ¿Qué tal? Bienvenidos a todos a una edición más de Cuando el río suena, un podcast traído a ustedes por Acueducto en el que invitamos a expertos y profesionales del mundo de la tecnología, la innovación y el emprendimiento para ahondar un poco en sus cabezas y en sus mejores prácticas y que puedan compartir un poco de sus conocimientos con nuestra comunidad. Me encuentro el día de hoy con mi socio, Rodrigo Salmerón.
 

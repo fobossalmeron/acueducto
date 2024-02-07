@@ -29,6 +29,7 @@ export default function Contact({ locale, setTitle, pt }) {
         {...t.head}
         es_canonical={"https://acueducto.studio/contacto"}
         en_canonical={"https://acueducto.studio/en/contact"}
+        noIndex
       ></Head>
       <CustomPinnedSection title={t.intro.title} id="Scroll">
         <p>

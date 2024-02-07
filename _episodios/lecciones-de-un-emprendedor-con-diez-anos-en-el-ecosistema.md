@@ -11,6 +11,7 @@ spotify: https://open.spotify.com/episode/4T1DU7IP6ewBlogBOAPfH4
 youtube: https://www.youtube.com/watch?v=6hN7bABFPEg
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC05OTcxNDY0
 apple: https://podcasts.apple.com/mx/podcast/lecciones-de-un-emprendedor-con-diez-a%C3%B1os-en/id1500473556?i=1000549490206
+index: true
 ---
 
 **Artemio:** ¿Qué tal? Bienvenidos a todos a una edición más de Cuando el Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y la innovación para que compartan con nosotros sus mejores consejos e _insights_ en esta travesía en la que nos encontramos todos los emprendedores de construir negocios saludables de internet o con tecnología en el núcleo. El día de hoy me acompaña, como ya es costumbre, mi socio Rodrigo Salmerón, ¿cómo estás, Ro?

@@ -11,6 +11,7 @@ spotify: https://open.spotify.com/episode/1aYPu763hSEOMwdm5QitWc
 apple: https://podcasts.apple.com/mx/podcast/e07-experiencia-usuario-y-fintech-mar%C3%ADa-fernanda-herrera/id1500473556?i=1000507484722
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC03NTY3NjQ4
 youtube: https://www.youtube.com/watch?v=BE5Xo8Uj3uQ
+index: true
 ---
 
 **Artemio:** Bienvenidos en una ocasión más a Cuando el río suena, el podcast traído a ustedes por Acueducto en el que platicamos con expertos y emprendedores del mundo de la innovación y la tecnología para escarbar en sus cabezas y compartir con ustedes las mejores prácticas que ellos pueden ofrecer. El día de hoy, nos encontramos con María Fernanda Herrera, que es la directora de Diseño de Producto en RappiPay, la cuenta digital gratuita de Rappi.

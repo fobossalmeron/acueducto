@@ -47,9 +47,9 @@ const EpisodePreview = ({
         className={`${
           category == "Growth/marketing"
             ? "growth-marketing"
-            : category 
+            : category
               ? category.toLowerCase()
-              : ''
+              : ""
         } npd`}
       >
         <PictureContainer
@@ -133,7 +133,7 @@ const EpisodePreview = ({
           </Fade>
           <ButtonSpace>
             {simplest && (
-              <Link href={"/podcast/" + slug + "#cuandoelriosuena"} passHref legacyBehavior>
+              <Link href={"/podcast/" + slug + "#"} passHref legacyBehavior>
                 <ButtonArrow
                   text={text ? text : "seguir aprendiendo"}
                   inverse

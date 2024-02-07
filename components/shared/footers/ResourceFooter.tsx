@@ -11,16 +11,16 @@ import { createContact } from "utils/sendinBlue";
 import { advancedMatching } from "utils/analytics";
 import ReactPixel from "react-facebook-pixel";
 import Link from "next/link";
+import { usePathname } from 'next/navigation'
 
 const ResourceFooter = ({
   shadow,
   identify,
-  podcastEpisodes,
 }: {
   shadow?: boolean;
   identify?: string;
-  podcastEpisodes?: number;
 }) => {
+  const pathname = usePathname();
   let resource = es.resource_footer;
 
   const onSubmit = (data) => {
@@ -32,7 +32,7 @@ const ResourceFooter = ({
       listIds: [2],
       updateEnabled: true,
       attributes: {
-        SUBSCRIBED_FROM: identify ? identify : "sin identificar",
+        SUBSCRIBED_FROM: pathname,
       },
     });
     ReactPixel.init("506854653278097", advancedMatching(data.email));
@@ -53,7 +53,7 @@ const ResourceFooter = ({
           <Fade triggerOnce>
             <p>
               {resource.p2}
-              {podcastEpisodes ? podcastEpisodes : "decenas de"}
+              {"+100"}
               {resource.p3}
               <Link href={"/mvs"} passHref legacyBehavior>
                 <a>Minimum Viable Startup</a>

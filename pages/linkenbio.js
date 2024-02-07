@@ -22,6 +22,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
       <Head
         {...head}
         es_canonical={"https://acueducto.studio/linkenbio"}
+        noIndex
       ></Head>
       <MetalPinnedSection title={title}>
         <ul>

@@ -10,6 +10,7 @@ spotify: https://open.spotify.com/episode/5dynDrfVAzANRjewiCiHmq
 youtube: https://www.youtube.com/watch?v=J5Zd-KlFnZ0
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMDM5OTIyOA
 apple: https://podcasts.apple.com/mx/podcast/no-te-enamores-de-tu-producto-iv%C3%A1n-carmona-100-ladrillos/id1500473556?i=1000556946820
+index: true
 ---
 
 **Artemio:** Hola, ¿qué tal? bienvenidos a una edición más de Cuando el Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y la innovación para que compartan con nosotros sus mejores _insights_ y consejos en lo que todos estamos buscando: construir un negocio saludable de internet. Literalmente, estamos invitando a este espacio a todas las personas que ya recorrieron el camino que tú estás buscando recorrer o que lo están recorriendo pero en una etapa más avanzada, así que, si este es el primer capítulo que estás escuchando, te invitamos a ver todo el acervo de capítulos que tenemos, ya van más de 35, es una locura, pero bueno, me emociona muchísimo darles la bienvenida a una edición más. ¿Cómo estás, Ro?

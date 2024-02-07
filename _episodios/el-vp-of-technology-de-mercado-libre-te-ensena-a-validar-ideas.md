@@ -16,6 +16,7 @@ spotify: https://open.spotify.com/episode/10FCSqNMLI6sySwP2L09zb
 apple: https://podcasts.apple.com/us/podcast/el-vp-of-technology-de-mercado-libre-te/id1500473556?i=1000596007205
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjA4Njg0NA
 youtube: https://www.youtube.com/watch?v=yH_rb8F5fQo
+index: true
 ---
 
 **Artemio:** Hola, ¿qué tal? Bienvenidos a todos a una edición más de Cuando El Río Suena, este podcast en el que ya llevamos decenas de charlas con los líderes, fundadores y la gente que está detrás de las startups y compañías de tecnología más emocionantes de aquí de Latinoamérica.

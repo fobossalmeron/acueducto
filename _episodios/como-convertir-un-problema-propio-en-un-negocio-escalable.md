@@ -15,6 +15,7 @@ spotify: https://open.spotify.com/episode/4vG0Cjb5p7S3JkENnlgnfI
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjAzOTMzNw
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-convertir-un-problema-propio-en-un/id1500473556?i=1000594572252
 youtube: https://www.youtube.com/watch?v=m5YjOzYdDts
+index: true
 ---
 
 **Artemio:** Hola, ¿qué tal? Bienvenidos a todos a un capítulo más de Cuando El Río Suena. Me acompaña, como ya es costumbre, mi socio Rodrigo Salmerón, ¿cómo estás, Ro?

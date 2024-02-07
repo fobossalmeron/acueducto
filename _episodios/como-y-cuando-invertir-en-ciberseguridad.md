@@ -10,6 +10,7 @@ youtube: https://www.youtube.com/watch?v=Bt8lMNlSz8c
 spotify: https://open.spotify.com/episode/3bs4Vhni2VeVJtR5LVqO6l
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-y-cu%C3%A1ndo-invertir-en-ciberseguridad-adriel-araujo/id1500473556?i=1000576086762
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMTEyNDEyNw
+index: true
 ---
 
 **Artemio:** ¡Hola! ¿Qué tal? Bienvenido a todos a una edición más de Cuando El Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y de la innovación para que compartan con nosotros sus mejores _insights_ y consejos en este camino tan turbulento que es construir negocios saludables de internet. Es un placer estar el día de hoy con ustedes, estoy muy feliz, lleno de mucha energía, en esta velada de entrevistas, ¿cómo estás, Ro?

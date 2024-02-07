@@ -10,6 +10,7 @@ spotify: https://open.spotify.com/episode/4tAfXZcoLOjlNaJBMXTw7L
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMDgxMTI4Nw
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-evolucion%C3%B3-una-fintech-de-lo-tradicional-al/id1500473556?i=1000567091041
 youtube: https://www.youtube.com/watch?v=VEkvZp8XI-U
+index: true
 ---
 
 **Artemio:** Muy buenos días, muy buenas tardes, muy buenas noches donde sea que te encuentres, bienvenido a una edición más de Cuando el Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y de la innovación para que compartan con nosotros sus mejores *insights* y consejos para construir negocios saludables de internet.

@@ -18,6 +18,7 @@ function DiagnosticoDigital({ locale, setTitle, pt }) {
         {...head}
         image={{ fileName: "og_image_diagnostico.png", alt: head.image_alt }}
         es_canonical="https://acueducto.studio/diagnostico"
+        noIndex
       />
       <TitleSection {...intro} />
       <Diagnostico

@@ -10,6 +10,7 @@ apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-crece-un-ecommerce-b2b-en
 spotify: https://open.spotify.com/episode/1DaFjRUpbwxuOyLMrV6jN4
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMTM3OTE0NQ
 youtube: https://www.youtube.com/watch?v=GWRgYSnT_AI
+index: true
 ---
 
 **Artemio:** Hola, ¿qué tal? Bienvenidos a todos a una edición más de Cuando El Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y la innovación para que compartan con nosotros sus mejores _insights_ y consejos en este camino tan turbulento que es construir un negocio saludable de internet. Bienvenidos sean todos, me acompaña el día de hoy, como ya es costumbre, mi socio Rodrigo Salmerón, ¿cómo estás, Ro?

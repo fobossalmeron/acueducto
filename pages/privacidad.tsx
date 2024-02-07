@@ -30,7 +30,8 @@ export default function Privacy({ locale, setTitle, pt }) {
         {...t.head}
         es_canonical={"https://acueducto.studio/privacidad"}
         en_canonical={"https://acueducto.studio/en/privacy"}
-      ></Head>
+        noIndex
+      />
       <SimplePinnedSection title={t.intro.title}>
         <P>{t.intro.p}</P>
         <h2>{b.subtitle1}</h2>

@@ -136,7 +136,7 @@ const PrismicEpisodePreview = ({
           </Fade>
           <ButtonSpace>
             {simplest && (
-              <Link href={`/podcast/${slug}#cuandoelriosuena`} passHref legacyBehavior>
+              <Link href={`/podcast/${slug}#`} passHref legacyBehavior>
                 <ButtonArrow
                   text={"seguir aprendiendo"}
                   inverse

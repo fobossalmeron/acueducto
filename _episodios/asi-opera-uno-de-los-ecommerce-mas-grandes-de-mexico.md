@@ -11,8 +11,9 @@ youtube: https://www.youtube.com/watch?v=KqVqHTnihuc
 spotify: https://open.spotify.com/episode/3vSXClAA37R9SJuQZCAphw
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC05MDYyODI2
 apple: https://podcasts.apple.com/mx/podcast/as%C3%AD-opera-uno-de-los-ecommerce-m%C3%A1s-grandes-de/id1500473556?i=1000536290989
-
+index: true
 ---
+
 **Rodrigo:** En este capítulo hablamos con Rafaello Starace, COO y cofundador de GAIA, el ecommerce que está revolucionando el ecosistema del hogar en México. Comentamos las complejidades de operar un ecommerce en LATAM, KPI's vitales para una tienda en línea y el talento que requiere el ecosistema.
 
 ## ¿Quién es Raffaello Starace? COO y cofundador de GAIA. ¿Qué es lo que hace todos los días?

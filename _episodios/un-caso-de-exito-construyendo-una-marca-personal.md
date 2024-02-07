@@ -14,6 +14,7 @@ apple: https://podcasts.apple.com/us/podcast/e96-un-caso-de-%C3%A9xito-construye
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjkyODQwNw?sa=X&ved=0CAUQkfYCahcKEwjo4dLm-5r_AhUAAAAAHQAAAAAQAQ
 spotify: https://open.spotify.com/episode/3pFDtCsNgH5i0QFWjy2pWM
 youtube: https://www.youtube.com/watch?v=ZV8KoYH2jw8
+index: true
 ---
 **Artemio:** ¿Hola, qué tal? Bienvenidos a todos a una edición más de Cuando el Río Suena, un podcast que está hecho para todas las personas que están construyendo algo donde antes no había nada y para todos aquellos que se encuentran en esta carrera tan emocionante que es construir un negocio saludable de Internet, es un placer volverlos a saludar con mi socio Rodrigo Salmerón, ¿Cómo está Ro? 
 

@@ -15,6 +15,7 @@ apple: https://podcasts.apple.com/us/podcast/e97-como-servir-a-miles-de-empresas
 spotify: https://open.spotify.com/episode/3bClJFWSjOXN6PJOi6WbB1
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjk2ODQwNA?sa=X&ved=0CAUQkfYCahcKEwjQtsPExqz_AhUAAAAAHQAAAAAQAQ
 youtube: https://www.youtube.com/watch?v=7PxukJmJ-Tc
+index: true
 ---
 
 **Artemio:** ¿Qué tal? Bienvenidos a todos, a una edición más de Cuando el Río Suena, un podcast que está hecho para todas las personas que están allá afuera construyendo algo donde antes no había nada y para todos aquellos líderes y operadores que se encuentran en una *startup* de tecnología. Al final del día lo que estamos haciendo aquí es tratar de juntar los mayores recursos posibles para construir un negocio saludable de Internet y estamos llegando ya casi a nuestro capítulo número 100, si mal no estoy haciendo las cuentas, este ya es el número 97. Tenemos grandes sorpresas para en el capítulo número 100, así que quédense por lo menos hasta el intermedio del programa para irles contando un poquito sobre lo que tenemos preparado para toda la comunidad de Cuando el Río Suena.

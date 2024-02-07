@@ -19,7 +19,11 @@ function Mvs({ locale, setTitle, pt, episodes }) {
 
   return (
     <PageWrapper>
-      <Head {...head} es_canonical="https://acueducto.studio/consultoria" />
+      <Head
+        {...head}
+        es_canonical="https://acueducto.studio/consultoria"
+        noIndex
+      />
       <PinnedSection disableFade title={intro.title}>
         <>
           <Fade>
@@ -41,9 +45,7 @@ function Mvs({ locale, setTitle, pt, episodes }) {
                     text="escuchar episodio"
                   />
                 </ColumnedPreview>
-                {index == 0 && (
-                    <GatedPopup content={gate_component} />
-                )}
+                {index == 0 && <GatedPopup content={gate_component} />}
               </React.Fragment>
             ))}
           </FitSection>

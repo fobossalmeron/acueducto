@@ -15,6 +15,7 @@ spotify: https://open.spotify.com/episode/6IWMSDD80VZTzP1DKHH5mL
 apple: https://podcasts.apple.com/us/podcast/tu-startup-tiene-que-ser-rentable-alejandro-gu%C3%ADzar/id1500473556?i=1000597184653
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMjEzMjY2Nw
 youtube: https://www.youtube.com/watch?v=-5zzeXFG1q4
+index: true
 ---
 
 **Artemio:** ¡Hola! ¿Qué tal? Bienvenido a todos a una edición más de Cuando El Río Suena. ¿Cómo estás, Ro?

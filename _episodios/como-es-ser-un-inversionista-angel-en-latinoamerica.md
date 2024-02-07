@@ -10,6 +10,7 @@ google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS8
 spotify: https://open.spotify.com/episode/4mtrSwdQqfKQytljQKKeyk
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-es-ser-un-inversionista-%C3%A1ngel-en-latinoam%C3%A9rica/id1500473556?i=1000566190350
 youtube: https://www.youtube.com/watch?v=MdiuenntOZA
+index: true
 ---
 
 **Artemio:** ¿Qué tal a todos? Bienvenidos a una edición más de Cuando el Río Suena, el podcast en el que invitamos a expertos y profesionales del mundo de la tecnología y de la innovación para que compartan con nosotros sus mejores *insights* y consejos para emprender y para construir negocios saludable de internet y todo lo que tiene que ver con el ecosistema de emprendimiento digital aquí en Latinoamérica.

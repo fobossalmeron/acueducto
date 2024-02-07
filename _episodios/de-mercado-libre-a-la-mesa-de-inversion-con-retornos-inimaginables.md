@@ -11,6 +11,7 @@ spotify: https://open.spotify.com/episode/4hf4NC4fDxENu5zR0QNxAr
 apple: https://podcasts.apple.com/mx/podcast/mercado-libre-la-mesa-inversi%C3%B3n-con-retornos-inimaginables/id1500473556?i=1000531265921
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC04NzYwNzEz
 youtube: https://www.youtube.com/watch?v=yQoLo7c-1ao
+index: true
 ---
 **Artemio:** En este capítulo hablamos con Hernán Kazah, cofundador de Mercado Libre y Kaszek, el fondo de *venture capital* detrás de Kavak, Nubank y 9 unicornios latinoamericanos. Platicamos sobre *Venture Capital* en Latinoamérica, consejos para emprendedores y mucho más.
 

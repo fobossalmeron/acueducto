@@ -11,27 +11,36 @@ import EpisodePage from "components/podcast/EpisodePage";
 import PrismicEpisodePage from "components/podcast/PrismicEpisodePage";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
-import type { GetStaticPropsContext } from 'next';
-import { createClient } from '../../prismicio';
+import type { GetStaticPropsContext } from "next";
+import { createClient } from "../../prismicio";
 
-export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpisodePrismic, slugMatchesPrismic, findNextPrismic }) {
+export default function Episodio({
+  locale,
+  setTitle,
+  episode,
+  nextEpisodePrismic,
+  slugMatchesPrismic,
+  findNextPrismic,
+}) {
   useEffect(() => {
     setTitle("Podcast");
   }, [locale]);
 
-  const episodeNumber = slugMatchesPrismic?.data.introduction[0].episode;
   const title = slugMatchesPrismic?.data.introduction[0].title[0].text;
   const guest = slugMatchesPrismic?.data.introduction[0].guest;
   const business = slugMatchesPrismic?.data.introduction[0].business;
-  const description = slugMatchesPrismic?.data.introduction[0].description[0].text;
+  const description =
+    slugMatchesPrismic?.data.introduction[0].description[0].text;
   const gif = slugMatchesPrismic?.data.images[0].gif.url;
 
   return (
     <PageWrapper>
-      {(!slugMatchesPrismic && !findNextPrismic) &&
+      {!slugMatchesPrismic && !findNextPrismic && (
         <>
           <Head
-            title={episode.title + " | " + episode.guest + ", " + episode.business}
+            title={
+              episode.title + " | " + episode.guest + ", " + episode.business
+            }
             description={episode.description}
             headerTitle="Episodio"
             es_canonical={`https://acueducto.studio/podcast/${episode.slug}`}
@@ -40,21 +49,18 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpi
                 episode.episode >= 63
                   ? `og_image_e${episode.episode}.gif`
                   : `og_image_e${episode.episode}.png`,
-                alt: episode.title + " | " + episode.guest + ", " + episode.business,
+              alt:
+                episode.title + " | " + episode.guest + ", " + episode.business,
             }}
+            noIndex={!episode.index}
           ></Head>
           <EpisodePage {...episode} slug={episode.slug} />
-          <ResourceFooter
-            shadow
-            identify={episode.slug}
-            podcastEpisodes={numberOfE}
-          />
         </>
-      }
-      {(slugMatchesPrismic) && 
+      )}
+      {slugMatchesPrismic && (
         <>
           <Head
-            title={ title + " | " + guest + ", " + business}
+            title={title + " | " + guest + ", " + business}
             description={description}
             headerTitle="Episodio"
             es_canonical={`https://acueducto.studio/podcast/${slugMatchesPrismic.uid}`}
@@ -62,36 +68,85 @@ export default function Episodio({ locale, setTitle, episode, numberOfE, nextEpi
               fileName: gif,
               alt: title + " | " + guest + ", " + business,
             }}
+            // Los siguientes URLs hay que rescatarlos y si indexarlos:
+            noIndex={
+              slugMatchesPrismic.uid !==
+                "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos" &&
+              slugMatchesPrismic.uid !== "como-se-ve-la-educacion-online" &&
+              slugMatchesPrismic.uid !== "como-captar-3m-de-usuarios"
+            }
           ></Head>
-          <PrismicEpisodePage 
-            {...slugMatchesPrismic} 
-            nextEpisodePrismic={...nextEpisodePrismic} 
-            slug={slugMatchesPrismic.uid} 
+          <PrismicEpisodePage
+            {...slugMatchesPrismic}
+            nextEpisodePrismic={nextEpisodePrismic}
+            slug={slugMatchesPrismic.uid}
             findNextPrismic={findNextPrismic}
           />
-          <ResourceFooter
-            shadow
-            identify={slugMatchesPrismic.uid}
-            podcastEpisodes={episodeNumber}
-          /> 
         </>
-      }
+      )}
+      <ResourceFooter shadow />
     </PageWrapper>
   );
 }
 
 export async function getStaticProps({
   params,
-  previewData
+  previewData,
 }: GetStaticPropsContext) {
-    //CMS Prismic
-    const client = createClient({ previewData });
-    const prismicEpisode = await client.getAllByType("episode");
+  //CMS Prismic
+  const client = createClient({ previewData });
+  const prismicEpisode = await client.getAllByType("episode");
 
-    const slugMatchesPrismic = prismicEpisode.find(ep => ep.uid === params.slug);
+  const slugMatchesPrismic = prismicEpisode.find(
+    (ep) => ep.uid === params.slug
+  );
 
-    const nextToMd: EpisodeProps = getEpisodeBySlug(
-      getNextEpisodeSlug(105),
+  const nextToMd: EpisodeProps = getEpisodeBySlug(getNextEpisodeSlug(105), [
+    "title",
+    "guest",
+    "date",
+    "business",
+    "category",
+    "description",
+    "episode",
+    "slug",
+    "spotify",
+    "apple",
+    "google",
+    "youtube",
+    "index", //Esto podría ser de Prismic
+  ]);
+
+  const findNextPrismic =
+    slugMatchesPrismic &&
+    prismicEpisode.find(
+      (ep) =>
+        ep.data.introduction[0].episode ===
+        slugMatchesPrismic.data.introduction[0].episode - 1
+    );
+
+  const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
+
+  if (!slugMatchesPrismic) {
+    const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
+      "title",
+      "guest",
+      "date",
+      "insights",
+      "business",
+      "category",
+      "description",
+      "episode",
+      "slug",
+      "spotify",
+      "apple",
+      "google",
+      "youtube",
+      "content",
+      "index",
+    ]);
+    const next: EpisodeProps = getEpisodeBySlug(
+      getNextEpisodeSlug(episode.episode),
       [
         "title",
         "guest",
@@ -105,88 +160,43 @@ export async function getStaticProps({
         "apple",
         "google",
         "youtube",
+        "index",
       ]
     );
 
-    const findNextPrismic = slugMatchesPrismic && prismicEpisode.find((ep) => 
-      ep.data.introduction[0].episode === (slugMatchesPrismic.data.introduction[0].episode - 1)
-    );
+    const content = await markdownToHtml(episode.content.toString() || "");
 
-    const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
-
-    if(!slugMatchesPrismic) {
-      const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
-        "title",
-        "guest",
-        "date",
-        "insights",
-        "business",
-        "category",
-        "description",
-        "episode",
-        "slug",
-        "spotify",
-        "apple",
-        "google",
-        "youtube",
-        "content",
-      ]);
-      const next: EpisodeProps = getEpisodeBySlug(
-        getNextEpisodeSlug(episode.episode),
-        [
-          "title",
-          "guest",
-          "date",
-          "business",
-          "category",
-          "description",
-          "episode",
-          "slug",
-          "spotify",
-          "apple",
-          "google",
-          "youtube",
-        ]
-      );
-    
-      const content = await markdownToHtml( episode.content.toString() || "");
-    
-      //For podcast episode number in footer
-      const episodes = getAllEpisodes(["slug"]);
-      const numberOfE = Object.keys(episodes).length + 1;
-      
-      if (!episode) {
-        return {
-          notFound: true,
-        };
-      }
-
+    if (!episode) {
       return {
-        props: {
-          numberOfE: numberOfE,
-          episode: {
-            ...episode,
-            content,
-            next,
-          },
-          nextEpisode: {
-            ...next,
-          },
-          slugMatchesPrismic: slugMatchesPrismic || null,
-        },
-      };
-    } else {
-      return {
-        props: {
-          slugMatchesPrismic: slugMatchesPrismic || null,
-          nextEpisodePrismic: {
-            ...nextPrismic,
-          },
-          findNextPrismic: findNextPrismic || null,
-        },
+        notFound: true,
       };
     }
-};
+
+    return {
+      props: {
+        episode: {
+          ...episode,
+          content,
+          next,
+        },
+        nextEpisode: {
+          ...next,
+        },
+        slugMatchesPrismic: slugMatchesPrismic || null,
+      },
+    };
+  } else {
+    return {
+      props: {
+        slugMatchesPrismic: slugMatchesPrismic || null,
+        nextEpisodePrismic: {
+          ...nextPrismic,
+        },
+        findNextPrismic: findNextPrismic || null,
+      },
+    };
+  }
+}
 
 export async function getStaticPaths() {
   const episodes = getAllEpisodes(["slug"]);
@@ -195,7 +205,10 @@ export async function getStaticPaths() {
   const prismicEpisodes = await client.getAllByType("episode");
   const prismicSlugs = prismicEpisodes.map((result) => result.uid);
 
-  const allSlugs = [...episodes.map((episode) => episode.slug), ...prismicSlugs];
+  const allSlugs = [
+    ...episodes.map((episode) => episode.slug),
+    ...prismicSlugs,
+  ];
 
   return {
     paths: allSlugs.map((slug) => ({

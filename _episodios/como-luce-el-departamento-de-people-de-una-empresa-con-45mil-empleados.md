@@ -15,6 +15,7 @@ spotify: https://open.spotify.com/episode/3yp7yJ2IO6S2Y4zt86IA88
 apple: https://podcasts.apple.com/us/podcast/e104-c%C3%B3mo-luce-el-departamento-de-people-de/id1500473556?i=1000622105873
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMzI2MTg4Ng?sa=X&ved=0CAUQkfYCahcKEwj4yJya16eAAxUAAAAAHQAAAAAQAQ
 youtube: https://www.youtube.com/watch?v=bEmM1dnwA7Y
+index: true
 ---
 
 **Artemio**: Hola ¿Qué tal? Bienvenidos a todos a una edición más de Cuando El Río Suena, un podcast que está hecho para todas las personas que están construyendo algo donde antes no había nada. Lo saludamos hoy 15 de junio, parece que es el día más caluroso que ha tenido la Ciudad de México este 2023. ¿Cómo estás, Ro? Además de en shorts.

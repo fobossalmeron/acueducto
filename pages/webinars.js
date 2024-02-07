@@ -17,6 +17,7 @@ function Webinars({ locale, setTitle }) {
         description="Inscríbete a nuestros próximos webinars"
         headerTitle="Webinars"
         es_canonical={"https://acueducto.studio/webinars"}
+        noIndex
       />
       <PinnedSection title="próximos webinars">
         <Fade triggerOnce>

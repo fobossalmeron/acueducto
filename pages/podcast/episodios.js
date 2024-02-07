@@ -56,6 +56,7 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
         {...head}
         image={{ fileName: "og_image_podcast.png", alt: head.image_alt }}
         es_canonical={`https://acueducto.studio/podcast`}
+        noIndex
       ></Head>
       <PodcastGrid>
         <div>
