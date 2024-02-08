@@ -80,13 +80,13 @@ const nextConfig = {
       {
         source: "/podcast/cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup",
         destination: "/podcast/cual-es-el-trabajo-de-una-directora-de-operaciones-en-una-startup",
-        locale: true,
+        locale: false,
         permanent: true,
       },
       {
         source: "/podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano",
         destination: "/podcast/como-captar-3m-de-usuarios",
-        locale: true,
+        locale: false,
         permanent: true,
       },
     ];
