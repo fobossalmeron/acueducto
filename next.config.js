@@ -84,7 +84,7 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano",
+        source: "/podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano",
         destination: "/podcast/como-captar-3m-de-usuarios",
         locale: true,
         permanent: true,
