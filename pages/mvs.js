@@ -73,7 +73,7 @@ export const getStaticProps = async (context) => {
       slug: "escala-tu-tecnologia-consolidando-bases-firmes-en-software-y-cultura",
     },
     {
-      slug: "cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup",
+      slug: "cual-es-el-trabajo-de-una-directora-de-operaciones-en-una-startup",
     },
   ];
   const episodes = selectedEpisodes.map((episode) =>

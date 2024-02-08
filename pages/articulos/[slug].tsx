@@ -3,7 +3,6 @@ import { GetStaticProps } from "next";
 import ArticleProps from "utils/types/ArticleProps";
 import markdownToHtml from "utils/markdownToHtml";
 import { getAllPosts, getPostBySlug } from "utils/blogApi";
-import { getAllEpisodes } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import ArticlePage from "components/articles/ArticlePage";
 import PageWrapper from "components/layout/PageWrapper";
@@ -24,7 +23,7 @@ export default function Article({ locale, setTitle, article, numberOfE }) {
         image={{ fileName: `${article.slug}.png`, alt: article.title }}
       ></Head>
       <ArticlePage {...article} slug={article.slug} />
-      <ResourceFooter identify={article.slug} podcastEpisodes={numberOfE} />
+      <ResourceFooter identify={article.slug} />
     </PageWrapper>
   );
 }
@@ -40,10 +39,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   ]);
   const content = await markdownToHtml(article.content || "");
 
-  //For podcast episode number in footer
-  const episodes = getAllEpisodes(["slug"]);
-  const numberOfE = Object.keys(episodes).length;
-
   if (!article) {
     return {
       notFound: true,
@@ -51,7 +46,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
   return {
     props: {
-      numberOfE: numberOfE,
       article: {
         ...article,
         content,
