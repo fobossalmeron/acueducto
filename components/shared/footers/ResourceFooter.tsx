@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H2 } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
 import FooterNav from "./FooterNav";
 import { Fade } from "react-awesome-reveal";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
@@ -44,7 +44,7 @@ const ResourceFooter = ({
     <>
       <Grid shadow={shadow}>
         <Fade triggerOnce>
-          <p className="h1">{resource.title}</p>
+          <P className="h1">{resource.title}</P>
         </Fade>
         <Fade triggerOnce>
           <p>{resource.p}</p>

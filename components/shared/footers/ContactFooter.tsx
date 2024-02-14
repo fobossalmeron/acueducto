@@ -16,7 +16,7 @@ const ContactFooter = () => {
     <footer>
       <Grid>
         <Fade triggerOnce>
-          <p className="h1">{title}</p>
+          <P className="h1">{title}</P>
         </Fade>
         <Fade triggerOnce>
           <p>{p}</p>
