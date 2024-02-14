@@ -44,7 +44,7 @@ const ResourceFooter = ({
     <>
       <Grid shadow={shadow}>
         <Fade triggerOnce>
-          <H2 className="h1">{resource.title}</H2>
+          <p className="h1">{resource.title}</p>
         </Fade>
         <Fade triggerOnce>
           <p>{resource.p}</p>

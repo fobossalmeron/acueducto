@@ -79,7 +79,7 @@ const EpisodePreview = ({
             <HoverableContainer>
               {!longFormat && !simplest && (
                 <LinkComplex legacyBehavior>
-                  <H2overable>{title}</H2overable>
+                  <TitleHoverable>{title}</TitleHoverable>
                 </LinkComplex>
               )}
             </HoverableContainer>
@@ -87,14 +87,14 @@ const EpisodePreview = ({
               {!longFormat ? (
                 <LinkComplex>
                   <EpisodeNumber episode={episode} />
-                  <h3>
+                  <p className="guest">
                     {guest} <span>{business}</span>
-                  </h3>
+                  </p>
                 </LinkComplex>
               ) : (
-                <h3>
+                <h2 className="guest">
                   {guest} <span>{business}</span>
-                </h3>
+                </h2>
               )}
             </Guest>
             <DateCat>
@@ -176,8 +176,19 @@ const HoverableContainer = styled.div`
   margin-bottom: 8px;
 `;
 
-const H2overable = styled.h2`
+const TitleHoverable = styled.p`
   ${BorderLink({ showLink: false })}
+  font-size: 2.5rem;
+  font-weight: 200;
+  line-height: 125%;
+  margin-top: 0;
+  margin-bottom: 12px;
+  @media (max-width: 970px) {
+    font-size: 2.2rem;
+  }
+  @media (max-width: 620px) {
+    font-size: 2rem;
+  }
 `;
 
 const PictureContainer = styled.div`
@@ -210,6 +221,7 @@ const PictureContainer = styled.div`
 `;
 
 const Guest = styled.div`
+padding-top:4px;
   display: flex;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -274,11 +286,13 @@ const NewPod = styled.article`
     margin-bottom: 12px;
     transition: 0.3s ease all;
   }
-  h3 {
+  .guest {
     font-size: 2.2rem;
     color: ${(p) => p.theme.colors.foreground};
-    margin-top: -4px;
+    margin-top: -2px;
     text-align: left;
+    padding-top:0;
+    line-height: 120%;
     span {
       display: block;
       font-size: 1.4rem;

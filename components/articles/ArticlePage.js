@@ -42,7 +42,7 @@ const ArticlePage = ({
             <Transcript>{content}</Transcript>
           </Content>
           <RouterSpace>
-            Si crees que a alguien le seria útil este contenido, compártelo con
+            Si crees que a alguien le sería útil este contenido, compártelo con
             esa persona.
           </RouterSpace>
           <ShareRouter shareUrl={`https://acueducto.studio/podcast/${slug}`} />

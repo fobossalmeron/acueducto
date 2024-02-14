@@ -2,7 +2,7 @@ import React from "react";
 import { useLocaleContext } from "utils/LangContext";
 import styled from "styled-components";
 import Link from "next/link";
-import { H2 } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
 import FooterNav from "./FooterNav";
 import { Fade } from "react-awesome-reveal";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
@@ -16,7 +16,7 @@ const ContactFooter = () => {
     <footer>
       <Grid>
         <Fade triggerOnce>
-          <H2 className="h1">{title}</H2>
+          <p className="h1">{title}</p>
         </Fade>
         <Fade triggerOnce>
           <p>{p}</p>

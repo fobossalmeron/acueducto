@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { H1, Li } from "components/shared/Dangerously";
+import { H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
@@ -143,7 +143,7 @@ const PrismicEpisodePage = ({
             {content && spotify && (
               <>
                 <RouterSpace>
-                  Si crees que a alguien le seria útil este contenido,
+                  Si crees que a alguien le sería útil este contenido,
                   compártelo con esa persona.
                 </RouterSpace>
                 <ShareRouter

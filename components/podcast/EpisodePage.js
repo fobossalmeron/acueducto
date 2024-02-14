@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import { H1, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
@@ -34,6 +34,11 @@ const EpisodePage = ({
   next,
 }) => {
   const embedYoutube = youtube && youtube.replace("watch?v=", "embed/");
+  const [domLoaded, setDomLoaded] = useState(false);
+
+  useEffect(() => {
+    setDomLoaded(true);
+  }, []);
   return (
     <>
       <CenteredSection
@@ -64,7 +69,7 @@ const EpisodePage = ({
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
             <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
-            {youtube && (
+            {youtube && domLoaded && (
               <Center>
                 <VideoContainer>
                   <Video>
@@ -271,7 +276,7 @@ const AllEpisodesHoverable = styled.a`
   font-weight: 100;
   cursor: pointer;
   text-decoration: none;
-  
+
   p {
     ${BorderLink({ showLink: true })}
   }

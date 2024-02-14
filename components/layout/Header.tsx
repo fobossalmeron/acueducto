@@ -14,7 +14,7 @@ function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
     <TopHeader reveal={hasLoaded} route={route}>
       <Link href="/" passHref locale={locale} legacyBehavior>
         <LogoLink onClick={backUp}>
-          <h1>acueducto</h1>
+          <span>acueducto</span>
           <Logo />
         </LogoLink>
       </Link>
@@ -97,7 +97,7 @@ const LogoLink = styled.div`
   color: inherit;
   text-decoration: none;
   pointer-events: auto;
-  h1 {
+  span {
     font-size: 0;
   }
   svg {
