@@ -8,7 +8,8 @@ import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import LogoRahid from "public/assets/img/casestudies/rahid/logoRahid.svg";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
@@ -49,16 +50,16 @@ function Rahid({ locale, setTitle, pt }) {
         <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoRahid />
+            <SeoH1>{t.head.title}</SeoH1>
           </Fade>
         </LandSection>
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
-
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <IntroVideo link={t.link} />
-
+        <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
-          <H2>{t.intro_section.title}</H2>
+          <P className="h2">{t.intro_section.title}</P>
           <P>{t.intro_section.p}</P>
           <OldBrand>
             {loadAssets && (
@@ -74,14 +75,14 @@ function Rahid({ locale, setTitle, pt }) {
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <H3>{"– " + t.second_section.subtitle}</H3>
+          <P className="h3">{"– " + t.second_section.subtitle}</P>
           <P>{t.second_section.p}</P>
         </TextColumn>
         <Quote quote={t.second_section.quote} color={rahidBackground} />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
+          <P className="h2">{t.third_section.title}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <Branding>
@@ -122,7 +123,7 @@ function Rahid({ locale, setTitle, pt }) {
       </ThirdSection>
       <FourthSection>
         <TextColumn>
-          <H3>{"– " + t.fourth_section.subtitle}</H3>
+          <P className="h3">{"– " + t.fourth_section.subtitle}</P>
           <P>{t.fourth_section.p}</P>
           <Picture
             src="/assets/img/casestudies/rahid/home.jpg"
@@ -148,7 +149,7 @@ function Rahid({ locale, setTitle, pt }) {
       </FourthSection>
       <FifthSection>
         <TextColumn>
-          <H2>{t.fifth_section.title}</H2>
+          <P className="h2">{t.fifth_section.title}</P>
           <P>{t.fifth_section.p}</P>
         </TextColumn>
         <LaunchGrid>
@@ -477,7 +478,7 @@ const FifthSection = styled(CommonSection)`
   background-color: ${rahidBackground};
   color: ${rahidForeground};
   padding-bottom: 10%;
-  h2 b {
+  .h2 b {
     color: ${rahidAccentDarker};
   }
   blockquote,
@@ -516,7 +517,7 @@ const FourthSection = styled(CommonSection)`
   figure img {
     width: 100%;
   }
-  h3 {
+  .h3 {
     color: ${(props) => props.theme.colors.foreground};
   }
 `;
@@ -524,7 +525,7 @@ const FourthSection = styled(CommonSection)`
 const ThirdSection = styled(CommonSection)`
   color: ${(props) => props.theme.colors.background};
   background-color: ${(props) => props.theme.colors.foreground};
-  h2 {
+  .h2 {
     color: ${rahidForeground};
     b {
       color: ${rahidAccentDarker};
@@ -539,7 +540,7 @@ const SecondSection = styled(CommonSection)`
   background-color: ${rahidForeground};
   color: ${rahidBackground};
   padding-bottom: 8%;
-  h2 {
+  .h2 {
     color: ${rahidBackground};
   }
 `;
@@ -570,7 +571,7 @@ const FirstSection = styled(CommonSection)`
   background-color: ${rahidBackground};
   color: ${(props) => props.theme.colors.background};
   padding-bottom: 10%;
-  h2 {
+  .h2 {
     color: ${rahidForeground};
     b {
       color: ${rahidAccentDarker};
@@ -589,6 +590,7 @@ const LandSection = styled(CommonSection)`
   background-position: left center;
   background-size: cover;
   align-items: flex-end;
+  color: ${rahidForeground};
   & > div {
     max-width: 500px;
     width: 70%;

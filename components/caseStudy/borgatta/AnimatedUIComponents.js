@@ -20,7 +20,7 @@ export default AnimatedUIComponents;
 const MainContainer = styled.div`
   display: flex;
   gap: 1.3%;
-  padding: 0 2% 25% 2%;
+  padding: 5% 2% 10% 2%;
   width: 100%;
   justify-content: center;
 `;

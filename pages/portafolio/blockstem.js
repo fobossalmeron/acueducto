@@ -9,12 +9,13 @@ import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import LogoBlockstem from "public/assets/img/casestudies/blockstem/logoBlockstem.svg";
 import Brand1 from "public/assets/img/casestudies/blockstem/Brand1.svg";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
+import CommonSection from "components/caseStudy/shared/CommonSection";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
 import TextColumn from "components/caseStudy/shared/TextColumn";
-import CommonSection from "components/caseStudy/shared/CommonSection";
 import Picture from "components/caseStudy/shared/Picture";
 
 const rahidForeground = "#31302E";
@@ -51,16 +52,18 @@ function Blockstem({ locale, setTitle, pt }) {
         <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoBlockstem />
+            <SeoH1>{t.head.title}</SeoH1>
           </Fade>
         </LandSection>
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo>
+        <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
-          <H2>{t.intro_section.title}</H2>
+          <P className="h2">{t.intro_section.title}</P>
           <P>{t.intro_section.p}</P>
           <LessonContainer>
             {t.intro_section.lessons.map((lesson, i) => (
@@ -94,7 +97,7 @@ function Blockstem({ locale, setTitle, pt }) {
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
+          <P className="h2">{t.third_section.title}</P>
           <P>{t.third_section.p}</P>
           {t.third_section.aspects.map((aspect, i) => (
             <Aspect key={`aspect${i}`}>
@@ -138,7 +141,7 @@ function Blockstem({ locale, setTitle, pt }) {
           />
         </WhitepaperGrid>
         <TextColumn>
-          <H3>{"– " + t.third_section.subtitle}</H3>
+          <P className="h3">{"– " + t.third_section.subtitle}</P>
           <P>{t.third_section.p3}</P>
         </TextColumn>
       </ThirdSection>
@@ -207,7 +210,7 @@ function Blockstem({ locale, setTitle, pt }) {
       </FifthSection>
       <SixthSection>
         <TextColumn>
-          <H2>{t.sixth_section.title}</H2>
+          <P className="h2">{t.sixth_section.title}</P>
           <P>{t.sixth_section.p}</P>
           <StatGrid>
             <Stat>
@@ -525,7 +528,7 @@ const Aspect = styled.div`
     font-weight: 300;
     color: ${(p) => p.theme.colors.background};
     margin-top: 2px;
-    padding-bottom:3px;
+    padding-bottom: 3px;
   }
   p {
     max-width: 630px;
@@ -696,7 +699,7 @@ const SixthSection = styled(CommonSection)`
   .lastP {
     margin-top: 10%;
   }
-  h2 {
+  .h2 {
     color: ${(props) => props.theme.colors.background};
     b {
       color: ${bAccent2};
@@ -728,8 +731,8 @@ const ThirdSection = styled(CommonSection)`
   padding-bottom: 8%;
   color: ${(props) => props.theme.colors.over_black};
   background: ${mainGradient};
-  h2,
-  h3 {
+  .h2,
+  .h3 {
     color: ${(props) => props.theme.colors.foreground};
     b {
       color: ${bAccent2};
@@ -747,7 +750,7 @@ const SecondSection = styled(CommonSection)`
 const FirstSection = styled(CommonSection)`
   color: ${(props) => props.theme.colors.foreground};
   padding-bottom: 10%;
-  h2 {
+  .h2 {
     color: ${(props) => props.theme.colors.foreground};
     b {
       color: ${bAccent2};

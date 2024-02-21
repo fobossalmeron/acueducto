@@ -10,7 +10,8 @@ import ContactFooter from "components/shared/footers/ContactFooter";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import Quote from "components/caseStudy/shared/Quote";
 import Stat from "components/caseStudy/salvajenada/Stat";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import Picture from "components/caseStudy/shared/Picture";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
@@ -125,14 +126,16 @@ export default function Salvajenada({ locale, setTitle, pt }) {
         <Land>
           <Fade delay={250} triggerOnce>
             <LogoSalvaje />
+            <SeoH1>{t.head.title}</SeoH1>
           </Fade>
         </Land>
       </Fade>
       <Intro>
-        <Marquee tags={t.intro_section.tags} />
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <IntroVideo link={t.link} />
+        <SeoH2>{t.head.description}</SeoH2>
         <Column>
-          <H2>{t.intro_section.title}</H2>
+          <P className="h2">{t.intro_section.title}</P>
           <P>{t.intro_section.p}</P>
           <WolfDays>
             <LogoWolf>
@@ -171,7 +174,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           </Sticky>
         </StickyContainer>
         <Column>
-          <H2 className="topUnPadded">{t.second_section.title}</H2>
+          <P className="h2 topUnPadded">{t.second_section.title}</P>
           <P>{t.second_section.p}</P>
         </Column>
         <TableStrengths>
@@ -218,7 +221,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <ThirdBackImg />
         </ThirdBack>
         <Column>
-          <H3>{"– " + t.third_section.subtitle}</H3>
+          <P className="h2">{"– " + t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </Column>
         <Insight insight={t.third_section.insights.periodicity} number={1}>
@@ -298,7 +301,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <FourthBackImg />
         </FourthBack>
         <Column>
-          <H2>{t.fourth_section.title}</H2>
+          <P className="h2">{t.fourth_section.title}</P>
           <P>{t.fourth_section.p}</P>
         </Column>
         <StatGrid>
@@ -319,7 +322,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <FifthBackImg />
         </FifthBack>
         <Column>
-          <H3>{t.fifth_section.title}</H3>
+          <P className="h3">{t.fifth_section.title}</P>
         </Column>
         {loadAssets && <FramesEmbed />}
         <Fade triggerOnce>
@@ -756,7 +759,7 @@ const Fifth = styled(CommonSection)`
   background-color: ${salvajeBlue};
   color: ${(props) => props.theme.colors.background};
   padding-bottom: 10%;
-  h3 {
+  .h3 {
     padding: 0;
     font-weight: 200;
     line-height: 1;
@@ -806,7 +809,7 @@ const Fourth = styled(CommonSection)`
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.foreground_low};
   margin-bottom: 10%;
-  h2 {
+  .h2 {
     color: ${(props) => props.theme.colors.foreground};
     b {
       color: ${salvajeBlue};
@@ -821,7 +824,7 @@ const Third = styled(CommonSection)`
   blockquote {
     color: ${(props) => props.theme.colors.background};
   }
-  h3 {
+  .h3 {
     font-weight: 300;
   }
 `;
@@ -858,10 +861,10 @@ const InterBack = styled.div`
 const Second = styled(CommonSection)`
   color: ${(props) => props.theme.colors.foreground_low};
   margin-bottom: 15%;
-  h1 {
+  .h1 {
     padding-top: 0;
   }
-  h2 {
+  .h2 {
     color: ${(props) => props.theme.colors.foreground};
     padding-top: 0;
     b {
@@ -894,7 +897,7 @@ const SecondBack = styled(CommonTransition)`
 `;
 
 const Column = styled(TextColumn)`
-  h3 {
+  .h3 {
     padding-top: 0;
   }
 `;
@@ -943,7 +946,7 @@ const Intro = styled(CommonSection)`
   color: ${(props) => props.theme.colors.background};
   padding-bottom: 8%;
   margin-top: -1px;
-  h2 b {
+  .h2 b {
     color: ${(props) => props.theme.colors.background};
   }
 `;
@@ -954,6 +957,9 @@ const Land = styled(CommonSection)`
   background-image: url("/assets/img/casestudies/salvajenada/landBack2.svg");
   background-position: center bottom;
   background-size: cover;
+  h1{
+    margin-top:10px;
+  }
   & > div {
     max-width: 800px;
     width: 70%;

@@ -1,6 +1,4 @@
-import React from "react";
-import { useState } from "react";
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import clientLocale from "utils/clientLocale";
 import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
@@ -11,7 +9,8 @@ import { Fade } from "react-awesome-reveal";
 import Marquee from "components/caseStudy/shared/Marquee";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import TextColumn from "components/caseStudy/shared/TextColumn";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import AnimatedDataCards from "../../components/caseStudy/wellmee/AnimationDataCards";
@@ -26,6 +25,7 @@ import Point4 from "public/assets/img/casestudies/wellmee/Point4.png";
 import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
+  const [loadAssets, setloadAssets] = useState(false);
   const [t, setT] = useState(pt);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -42,19 +42,19 @@ const Wellmee = ({ locale, setTitle, pt }) => {
     if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 650);
     }
-
-    const handleResize = () => {
-      if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 650);
-      }
-    };
-
     window.addEventListener("resize", handleResize);
 
+    setloadAssets(true);
     return () => {
       window.removeEventListener("resize", handleResize);
     };
   }, [locale, isMobile]);
+
+  const handleResize = () => {
+    if (typeof window !== "undefined") {
+      setIsMobile(window.innerWidth <= 650);
+    }
+  };
 
   return (
     <PageClipperWellmee>
@@ -65,31 +65,34 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
       <Fade delay={300} triggerOnce>
-        <LandSectionWellmee isMobile={isMobile} />
+        <LandSectionWellmee isMobile={isMobile} title={t.head.title}/>
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
-        <EditVideo>
-          <IntroVideo link={t.link} />
-        </EditVideo>
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
+        <IntroVideo link={t.link} />
+        <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
-          <H2>{t?.intro_section.title}</H2>
+          <P className="h2">{t?.intro_section.title}</P>
           <P>{t?.intro_section.p}</P>
         </TextColumn>
         <TextColumn>
-          <H3>{t?.intro_section.characteristics.first.subtitle}</H3>
+          <P className="h3">
+            {t?.intro_section.characteristics.first.subtitle}
+          </P>
           <P>{t?.intro_section.characteristics.first.p}</P>
         </TextColumn>
         <AnimatedDataCards />
         <TextColumn>
-          <H3>{t.intro_section.characteristics.second.subtitle}</H3>
+          <P className="h3">
+            {t.intro_section.characteristics.second.subtitle}
+          </P>
           <P>{t.intro_section.characteristics.second.p}</P>
           <div className="combinator">
             <Picture src={Combinator} alt="Combinator" />
           </div>
         </TextColumn>
         <TextColumn>
-          <H3>{t.intro_section.characteristics.third.subtitle}</H3>
+          <P className="h3">{t.intro_section.characteristics.third.subtitle}</P>
           <ChallengesContainer>
             {t?.intro_section.characteristics.third.challenges.map(
               (challenge, i) => (
@@ -99,7 +102,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
                       <p>{i + 1}</p>
                     </span>
                     <div>
-                      <h5>{challenge.title}</h5>
+                      <p className="h5">{challenge.title}</p>
                       <p>{challenge.p}</p>
                     </div>
                   </Challenge>
@@ -112,13 +115,13 @@ const Wellmee = ({ locale, setTitle, pt }) => {
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <H2>{t?.second_section.title}</H2>
+          <P className="h2">{t?.second_section.title}</P>
         </TextColumn>
-        <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
+        {loadAssets && <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />}
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
+          <P className="h2">{t.third_section.title}</P>
           <PointContainer>
             <Fade delay={300} triggerOnce key={"point1"}>
               <Point style={{ paddingBottom: isMobile ? "49px" : "90px" }}>
@@ -196,7 +199,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
           </Fade>
         </TextColumn>
         <TextColumn>
-          <H3>{t.third_section.subtitle}</H3>
+          <P className="h3">{t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <Fade delay={300} triggerOnce>
@@ -204,12 +207,12 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             {t?.third_section.results.map((result, i) => (
               <div className={`result${i}`} key={`result${i}`}>
                 <div>
-                  {result.sign && <h5>{result.sign}</h5>}
-                  <h3>{result.title}</h3>
-                  <h4>{i !== 1 && result.first_subtitle}</h4>
+                  {result.sign && <p className="h5">{result.sign}</p>}
+                  <p className="h3">{result.title}</p>
+                  <p className="h4">{i !== 1 && " " + result.first_subtitle}</p>
                 </div>
-                <h4>{i === 1 && result.first_subtitle}</h4>
-                <h4>{result.second_subtitle}</h4>
+                <p className="h4">{i === 1 && result.first_subtitle}</p>
+                <p className="h4">{result.second_subtitle}</p>
                 <p>{result.p}</p>
               </div>
             ))}
@@ -221,7 +224,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
       </ThirdSection>
       <FourthSection>
         <TextColumn>
-          <H2>{t.fourth_section.title}</H2>
+          <P className="h2">{t.fourth_section.title}</P>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
         <Picture
@@ -262,33 +265,35 @@ const PageClipperWellmee = styled(PageWrapper)`
 const FirstSection = styled(CommonSection)`
   color: #4a4a73;
   padding-bottom: 10.7%;
+  //Este PNG ha de ser pesadísimo Rocío comparado con un SVG,
+  //no entiendo esta decisión
   background-image: url("/assets/img/casestudies/wellmee/Background1.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0% 30%;
 
-  h2,
-  h3 {
+  /* .h2,
+  .h3 {
     font-weight: 500;
-  }
-  h2 {
-    font-size: 5.8rem;
-    padding-bottom: 26px;
+  } */
+  .h2 {
+    /* font-size: 5.8rem;
+    padding-bottom: 26px; */
     b {
       color: #00ceba;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
-  h3 {
-    color: #383955;
-    padding: 0px;
-    padding-bottom: 4%;
+  .h3 {
     font-size: 3.6rem;
-    line-height: 131%;
-    margin-top: 100px;
-    margin-bottom: 0px;
-    width: 100%;
+    /* color: #383955; */
+    /* padding: 0px; */
+    /* padding-bottom: 4%; */
+    /* line-height: 131%; */
+    /* margin-top: 100px; */
+    /* margin-bottom: 0px; */
+    /* width: 100%; */
   }
 
   .combinator {
@@ -306,15 +311,15 @@ const FirstSection = styled(CommonSection)`
 
   @media (max-width: 1000px) {
     background-position: 0% 33%;
-    h2 {
+    /* .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 3rem;
-      margin-top: 80px;
+      /* margin-top: 80px; */
     }
   }
   @media (max-width: 800px) {
@@ -323,36 +328,16 @@ const FirstSection = styled(CommonSection)`
 
   @media (max-width: 630px) {
     background-position: 0% 31%;
-    h2 {
+    /* .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 1.9rem;
-      margin-top: 48px;
+      /* margin-top: 48px; */
     }
-  }
-`;
-
-const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: #f3f6f3;
-  & > div {
-    padding: 0px;
-  }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
-  }
-  @media (max-width: 500px) {
-    border-radius: 17px;
   }
 `;
 
@@ -433,18 +418,18 @@ const Challenge = styled.div`
     }
 
     div {
-      display: flex;
-      flex-direction: column;
+      /* display: flex;
+      flex-direction: column; */
 
       h5 {
         font-size: 1.9rem;
-        margin: 0px;
+        /* margin: 0px;
         font-weight: 500;
-        color: #383955;
+        color: #383955; */
       }
 
       p {
-        color: #4a4a73;
+        /* color: #4a4a73; */
         font-size: 1.5rem;
       }
     }
@@ -455,39 +440,39 @@ const SecondSection = styled(CommonSection)`
   background-color: #5a5a8c;
   color: #5c5c81;
   padding-bottom: 11.11%;
-  padding-top: 11.11%;
+  /* padding-top: 11.11%;  */
   color: #ffffff;
 
-  h2 {
-    font-weight: 500;
+  .h2 {
+    /* font-weight: 500;
     font-size: 5.8rem;
     line-height: 105%;
-    padding: 4px 0px 26px 0px;
+    padding: 4px 0px 26px 0px; */
     b {
       color: #00ceba;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
   @media (max-width: 1000px) {
-    h2 {
+    /* .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
-    h2 {
+    /* .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 1.9rem;
     }
   }
@@ -495,26 +480,26 @@ const SecondSection = styled(CommonSection)`
 
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
-  padding-top: 10%;
+  /* padding-top: 10%; */
   color: #4a4a73;
   background-image: url("/assets/img/casestudies/wellmee/Background2.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0% 69%;
 
-  h2 {
+  .h2 {
     color: #383955;
-    font-weight: 500;
+    /* font-weight: 500;
     font-size: 5.8rem;
     line-height: 105%;
-    padding: 0px 0px 26px 0px;
+    padding: 0px 0px 26px 0px; */
     b {
       color: #00ceba;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
-  h3 {
+  .h3 {
     color: #383955;
     font-size: 3.6rem;
     font-weight: 400;
@@ -522,36 +507,36 @@ const ThirdSection = styled(CommonSection)`
     margin-bottom: 12px;
   }
 
-  div div div p {
+  /* div div div p {
     font-size: 1.8rem;
-  }
+  } */
 
   @media (max-width: 1000px) {
     background-position: 0% 56%;
-    h2 {
+    /* .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
-    }
+    } */
     h3 {
       font-size: 30px;
     }
   }
   @media (max-width: 630px) {
     background-position: 0% 61%;
-    h2 {
+    /* .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 1.9rem;
     }
-    div div div p {
+    /* div div div p {
       font-size: 1.5rem;
-    }
+    } */
     div div span p {
       font-size: 1.4rem;
       position: relative;
@@ -755,24 +740,25 @@ const ContainerResultCard = styled.div`
       gap: 5px;
     }
 
-    h3 {
+    .h3 {
       font-size: 8rem;
       margin: 0px;
       padding: 0px;
       line-height: 100%;
     }
-    h4 {
+    .h4 {
       font-size: 4.8rem;
       line-height: 1;
       padding-bottom: 4px;
+      color:#383955;
     }
-    h5 {
+    .h5 {
       font-size: 3.4rem;
       font-weight: 400;
       margin: 0px;
     }
     p {
-      font-size: 1.8rem !important;
+      font-size: 1.8rem;
       color: #8a8cb2;
     }
   }
@@ -815,17 +801,17 @@ const ContainerResultCard = styled.div`
     }
 
     & > div {
-      h3 {
+      .h3 {
         font-size: 5.6rem;
       }
-      h4 {
+      .h4 {
         font-size: 3.4rem;
       }
-      h5 {
+      .h5 {
         font-size: 3.4rem;
       }
       p {
-        font-size: 1.5rem !important;
+        font-size: 1.5rem;
       }
     }
   }
@@ -854,22 +840,22 @@ const ContainerResultCard = styled.div`
 
 const FourthSection = styled(CommonSection)`
   background-color: #5a5a8c;
-  padding-top: 10%;
+  /* padding-top: 10%; */
   color: #ffffff;
   background-image: url("/assets/img/casestudies/wellmee/Background3.png");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
 
-  h2 {
-    font-weight: 500;
+  .h2 {
+    /* font-weight: 500;
     font-size: 5.6rem;
     line-height: 105%;
-    padding: 0px 0px 26px 0px;
+    padding: 0px 0px 26px 0px; */
     b {
       color: #00ceba;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
 
@@ -883,28 +869,28 @@ const FourthSection = styled(CommonSection)`
       padding-bottom: 0% !important;
       padding-top: 10% !important;
     }
-    h2 {
+    /* .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
-    h2 {
+    /* .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
-    }
-    h3 {
+    } */
+    .h3 {
       font-size: 1.9rem;
     }
-    p {
+    /* p {
       font-size: 1.5rem;
-    }
+    } */
   }
 `;

@@ -1,8 +1,7 @@
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
-import { useState } from "react";
-import { useEffect } from "react";
+import { SeoH1 } from "components/caseStudy/shared/SEOHeadings";
 import Image from "next/legacy/image";
 import Landing1 from "public/assets/img/casestudies/borgatta/landing1.png";
 import Landing2 from "public/assets/img/casestudies/borgatta/landing2.png";
@@ -18,7 +17,6 @@ import LandingMobile3 from "public/assets/img/casestudies/borgatta/landingMobile
 import LandingMobile4 from "public/assets/img/casestudies/borgatta/landingMobile4.png";
 import LandingMobile5 from "public/assets/img/casestudies/borgatta/landingMobile5.png";
 import LandingMobile6 from "public/assets/img/casestudies/borgatta/landingMobile6.png";
-import React from "react";
 import { keyframes } from "@emotion/core";
 import Reveal from "react-awesome-reveal";
 
@@ -27,126 +25,158 @@ const Landing = (props) => {
     <LandSection>
       <Fade delay={750} triggerOnce>
         <LogoBorgatta>
-          {!props.isMobile 
-            ? <img
-                src="/assets/img/casestudies/borgatta/brand-md.svg"
-                alt="Web B360"
-              />
-            : <img
-                src="/assets/img/casestudies/borgatta/brand-sm.svg"
-                alt="Web B360"
-              />
-          }
+          {!props.isMobile ? (
+            <img
+              src="/assets/img/casestudies/borgatta/brand-md.svg"
+              alt="Web B360"
+            />
+          ) : (
+            <img
+              src="/assets/img/casestudies/borgatta/brand-sm.svg"
+              alt="Web B360"
+            />
+          )}
+          <SeoH1>{props.title}</SeoH1>
         </LogoBorgatta>
       </Fade>
       {!props.isMobile ? (
         <PicturesContainer>
           <FirstColumn>
-            <Reveal keyframes={customAnimation} delay={1300} direction="up" triggerOnce>
-              <Image
-                src={Landing1}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1300}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={Landing1} alt="Web B360" />
             </Reveal>
-            <Reveal keyframes={customAnimation} delay={1550} direction="up" triggerOnce className="landing2">
-              <Image
-                src={Landing2}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1550}
+              direction="up"
+              triggerOnce
+              className="landing2"
+            >
+              <Image src={Landing2} alt="Web B360" />
             </Reveal>
           </FirstColumn>
           <SecondColumn>
-            <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
-              <Image
-                src={Landing3}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1500}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={Landing3} alt="Web B360" />
             </Reveal>
           </SecondColumn>
           <ThirdColumn>
-            <Reveal keyframes={customAnimation} delay={1400} direction="up" triggerOnce>
-              <Image
-                src={Landing4}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1400}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={Landing4} alt="Web B360" />
             </Reveal>
           </ThirdColumn>
           <FourthColumn>
-            <Reveal keyframes={customAnimation} delay={1150} direction="up" triggerOnce>
-              <Image
-                src={Landing5}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1150}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={Landing5} alt="Web B360" />
             </Reveal>
-            <Reveal keyframes={customAnimation} delay={1250} direction="up" triggerOnce className="landing6">
-              <Image
-                src={Landing6}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1250}
+              direction="up"
+              triggerOnce
+              className="landing6"
+            >
+              <Image src={Landing6} alt="Web B360" />
             </Reveal>
           </FourthColumn>
           <FifthColumn>
-            <Reveal keyframes={customAnimation} delay={1600} direction="up" triggerOnce>
-              <Image
-                src={Landing7}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1600}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={Landing7} alt="Web B360" />
             </Reveal>
-            <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce className="landing8">
-              <Image
-                src={Landing8}
-                alt="Web B360"
-              />
+            <Reveal
+              keyframes={customAnimation}
+              delay={1500}
+              direction="up"
+              triggerOnce
+              className="landing8"
+            >
+              <Image src={Landing8} alt="Web B360" />
             </Reveal>
           </FifthColumn>
         </PicturesContainer>
-        ) : (
-          <PicturesContainerMobile>
-            <FirstRowMobile>
-              <Reveal keyframes={customAnimation} delay={1300} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile1}
-                  alt="Web B360"
-                />
-              </Reveal>
-              <Reveal keyframes={customAnimation} delay={1100} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile2}
-                  alt="Web B360"
-                />
-              </Reveal>
-              <Reveal keyframes={customAnimation} delay={1100} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile4}
-                  alt="Web B360"
-                />
-              </Reveal>
-            </FirstRowMobile>
-            <SecondRowMobile>
-              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile3}
-                  alt="Web B360"
-                />
-              </Reveal>
-              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile5}
-                  alt="Web B360"
-                />
-              </Reveal>
-              <Reveal keyframes={customAnimation} delay={1500} direction="up" triggerOnce>
-                <Image
-                  src={LandingMobile6}
-                  alt="Web B360"
-                />
-              </Reveal>
-            </SecondRowMobile>
-          </PicturesContainerMobile>
-        )
-      }
+      ) : (
+        <PicturesContainerMobile>
+          <FirstRowMobile>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1300}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile1} alt="Web B360" />
+            </Reveal>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1100}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile2} alt="Web B360" />
+            </Reveal>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1100}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile4} alt="Web B360" />
+            </Reveal>
+          </FirstRowMobile>
+          <SecondRowMobile>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1500}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile3} alt="Web B360" />
+            </Reveal>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1500}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile5} alt="Web B360" />
+            </Reveal>
+            <Reveal
+              keyframes={customAnimation}
+              delay={1500}
+              direction="up"
+              triggerOnce
+            >
+              <Image src={LandingMobile6} alt="Web B360" />
+            </Reveal>
+          </SecondRowMobile>
+        </PicturesContainerMobile>
+      )}
     </LandSection>
-  )
+  );
 };
 
 export default Landing;
@@ -159,24 +189,6 @@ const customAnimation = keyframes`
   to {
     opacity: 1;
     transform: translate3d(0, 0, 0);
-  }
-`;
-
-const LogoBorgatta = styled.div`
-  width: 100%; 
-  display: flex;
-  justify-content: center;
-
-  img {
-    max-height: 96px;
-    min-width: 400px;
-    width: 100%;
-  }
-
-  @media (max-width: 600px) {
-    img {
-      min-height: 124px;
-    }
   }
 `;
 
@@ -196,7 +208,7 @@ const FirstColumn = styled.div`
     max-width: 120px;
   }
   @media (max-width: 1000px) {
-    .landing2{
+    .landing2 {
       max-width: 74.3px;
       max-height: 54.5px;
     }
@@ -221,7 +233,7 @@ const FourthColumn = styled.span`
     max-width: 174px;
   }
   @media (max-width: 1000px) {
-    .landing6{
+    .landing6 {
       max-width: 107.9px;
       max-height: 70px;
     }
@@ -232,11 +244,11 @@ const FifthColumn = styled.span`
   display: flex;
   flex-direction: column;
   gap: 4%;
-  .landing8{
+  .landing8 {
     max-width: 93px;
   }
   @media (max-width: 1000px) {
-    .landing8{
+    .landing8 {
       max-width: 57.6px;
       max-height: 57.6px;
     }
@@ -263,50 +275,40 @@ const SecondRowMobile = styled.span`
   gap: 2%;
 `;
 
+const LogoBorgatta = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  max-width: 670px;
+  h1 {
+    margin-top: 4%;
+  }
+  img {
+    max-height: 96px;
+    min-width: 400px;
+    width: 100%;
+  }
+  @media (max-width: 1300px) {
+    max-width: 500px;
+    padding-bottom: 10%;
+  }
+  @media (max-width: 1000px) {
+    max-width: 423px;
+  }
+  @media (max-width: 650px) {
+    max-width: 300px;
+    padding: 18px 18px 20% 18px;
+    img {
+      min-width: unset;
+    }
+  }
+`;
+
 const LandSection = styled(CommonSection)`
   min-height: 100vh;
   width: 100%;
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  & > div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-bottom: 2%;
-    width: 100%;
-  }
-  & > span {
-    width: 100%;
-    .span{
-      width: 100%;
-    }
-  }
-  @media (max-width: 1300px) {
-    min-height: 94vh;
-    & > div {
-      max-width: 500px;
-      padding-bottom: 4%;
-    }
-  }
-  @media (max-width: 1000px) {
-    & > div {
-      max-width: 423px;
-      padding-bottom: 4%;
-    }
-  }
-  @media (max-width: 810px) {
-    & > div {
-      max-width: 189.41px;
-      padding-bottom: 4%;
-    }
-  }
-  @media (max-width: 490px) {
-    min-height: 95vh;
-    bottom: 0%;
-    & > div {
-      max-width: 189.41px;
-      padding: 0% 0% 20% 0%;
-    }
-  }
 `;

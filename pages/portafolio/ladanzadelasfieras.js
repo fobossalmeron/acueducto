@@ -15,7 +15,8 @@ import Type_1 from "public/assets/img/casestudies/ladanzadelasfieras/type_1.svg"
 import Type_2 from "public/assets/img/casestudies/ladanzadelasfieras/type_2.svg";
 import Type_3 from "public/assets/img/casestudies/ladanzadelasfieras/type_3.svg";
 import AppSvg from "public/assets/img/casestudies/ladanzadelasfieras/app.svg";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
@@ -62,14 +63,16 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
         <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoDanza />
+            <SeoH1>{t.head.title}</SeoH1>
           </Fade>
         </LandSection>
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <IntroVideo link={t.link} />
+        <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
-          <H2>{t.intro_section.title}</H2>
+          <P className="h2">{t.intro_section.title}</P>
           <P>{t.intro_section.p}</P>
           <LaurelNumbers>
             <Laurel />
@@ -88,7 +91,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <H2>{t.second_section.title}</H2>
+          <P className="h2">{t.second_section.title}</P>
           <P>{t.second_section.p}</P>
         </TextColumn>
         <PosterGrid>
@@ -164,7 +167,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
           />
         </TransitionWrapper>
         <TextColumn>
-          <H3>{"– " + t.second_section.subtitle}</H3>
+          <P className="h3">{"– " + t.second_section.subtitle}</P>
           <P>{t.second_section.p2}</P>
         </TextColumn>
         <SequenceContainer>
@@ -183,7 +186,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
       </Section_Sub>
       <Third>
         <TextColumn>
-          <H3>{"– " + t.third_section.subtitle}</H3>
+          <P className="h3">{"– " + t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <Insight
@@ -239,7 +242,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
           </MacContact>
         </Insight>
         <TextColumn>
-          <H3>{"– " + t.third_section.subtitle2}</H3>
+          <P className="h3">{"– " + t.third_section.subtitle2}</P>
           <P>{t.third_section.p2}</P>
           <AppGrid>
             <Picture
@@ -255,7 +258,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
       </Third>
       <Fourth>
         <TextColumn>
-          <H3>{"– " + t.fourth_section.subtitle}</H3>
+          <P className="h3">{"– " + t.fourth_section.subtitle}</P>
           <P>{t.fourth_section.p}</P>
           <Stat>
             <span>
@@ -283,7 +286,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
       </Fourth>
       <Fifth>
         <TextColumn>
-          <H2>{t.fifth_section.title}</H2>
+          <P className="h2">{t.fifth_section.title}</P>
           <P>{t.fifth_section.p}</P>
         </TextColumn>
         <Quote
@@ -698,7 +701,7 @@ const Fifth = styled(CommonSection)`
   background-color: ${(props) => props.theme.colors.foreground};
   color: ${(props) => props.theme.colors.background};
   padding-bottom: 10%;
-  h2 b {
+  .h2 b {
     color: ${fierasRed};
   }
   .image {
@@ -716,7 +719,7 @@ const Fourth = styled(CommonSection)`
     max-width: 670px;
     margin-top: 12%;
   }
-  h3 {
+  .h3 {
     color: ${(props) => props.theme.colors.foreground};
   }
 `;
@@ -744,7 +747,7 @@ const Section_Sub = styled(CommonSection)`
 const SecondSection = styled(CommonSection)`
   background-color: ${(props) => props.theme.colors.foreground};
   color: ${(props) => props.theme.colors.background};
-  h2 {
+  .h2 {
     color: ${(props) => props.theme.colors.background};
     b {
       color: ${fierasRed};
@@ -842,10 +845,8 @@ const FirstSection = styled(CommonSection)`
   background-color: ${(props) => props.theme.colors.background};
   color: ${(props) => props.theme.colors.foreground};
   padding-bottom: 10%;
-  h2 {
-    b {
-      color: ${fierasRed};
-    }
+  .h2 b {
+    color: ${fierasRed};
   }
 `;
 

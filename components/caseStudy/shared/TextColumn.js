@@ -11,9 +11,10 @@ const TextColumn = ({ children, padding }) => (
 
 const Column = styled.div`
   padding: ${(props) => props.passedPadding ? props.passedPadding : '0 5%' };
-  h2 {
+  h2, .h2 {
+    font-size: 5.8rem;
     padding: 15% 0 5% 0;
-    font-weight: 300;
+    font-weight: 300; 
     max-width: 670px;
     line-height: 110%;
     &.topUnPadded {
@@ -23,7 +24,7 @@ const Column = styled.div`
       font-size: 4rem;
     }
   }
-  h3 {
+  h3, .h3 {
     font-size: 4.5rem;
     margin-bottom: 25px;
     max-width: 670px;
@@ -43,19 +44,19 @@ const Column = styled.div`
     width: 100%;
   }
   @media (max-width: 1000px) {
-    h2 {
+    h2, .h2 {
       font-size: 4.8rem;
       b {
         font-size: 3rem;
       }
     }
-    h3 {
+    h3, .h3 {
       font-size: 3.5rem;
       margin-bottom: 0;
     }
   }
   @media (max-width: 700px) {
-    h2 {
+    h2, .h2 {
       font-size: 4rem;
       b {
         font-size: 2rem;
@@ -63,12 +64,12 @@ const Column = styled.div`
     }
   }
   @media (max-width: 600px) {
-    h3 {
+    h3, .h3 {
       font-size: 2.5rem;
     }
   }
   @media (max-width: 450px) {
-    h2 {
+    h2, .h2 {
       font-size: 3.3rem;
     }
   }

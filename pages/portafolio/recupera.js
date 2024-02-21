@@ -9,7 +9,8 @@ import IntroVideo from "components/caseStudy/shared/IntroVideo";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import { Fade } from "react-awesome-reveal";
 import TextColumn from "components/caseStudy/shared/TextColumn";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import Quote from "components/caseStudy/shared/Quote";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import Picture from "components/caseStudy/shared/Picture";
@@ -43,12 +44,12 @@ const Recupera = ({ locale, setTitle, pt }) => {
   }, [locale]);
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 650);
     }
 
     const handleResize = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         setIsMobile(window.innerWidth <= 650);
       }
     };
@@ -58,7 +59,6 @@ const Recupera = ({ locale, setTitle, pt }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-
   }, [isMobile]);
 
   return (
@@ -79,11 +79,14 @@ const Recupera = ({ locale, setTitle, pt }) => {
                   alt="Logo"
                 />
               </Fade>
-              <Fade delay={300} triggerOnce className="logo">
-                <img
-                  src="/assets/img/casestudies/recupera/logoRecupera.svg"
-                  alt="Recupera"
-                />
+              <Fade delay={300} triggerOnce>
+                <div className="logo">
+                  <img
+                    src="/assets/img/casestudies/recupera/logoRecupera.svg"
+                    alt="Recupera"
+                  />
+                  <SeoH1>{t.head.title}</SeoH1>
+                </div>
               </Fade>
               <Fade delay={300} triggerOnce>
                 <img
@@ -100,11 +103,14 @@ const Recupera = ({ locale, setTitle, pt }) => {
                   alt="Logo"
                 />
               </Fade>
-              <Fade delay={500} triggerOnce className="logo">
-                <img
-                  src="/assets/img/casestudies/recupera/logoRecupera.svg"
-                  alt="Recupera"
-                />
+              <Fade delay={500} triggerOnce>
+                <div className="logo">
+                  <img
+                    src="/assets/img/casestudies/recupera/logoRecupera.svg"
+                    alt="Recupera"
+                  />
+                  <SeoH1>{t.head.title}</SeoH1>
+                </div>
               </Fade>
               <Fade delay={600} triggerOnce className="brand2">
                 <img
@@ -117,22 +123,25 @@ const Recupera = ({ locale, setTitle, pt }) => {
         </LandSection>
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <EditVideo>
           <IntroVideo link={t.link} />
         </EditVideo>
+        <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
-          <H2>{t.intro_section.title}</H2>
-          <P>
-            {t.intro_section.p}
-          </P>
+          <P className="h2">{t.intro_section.title}</P>
+          <P>{t.intro_section.p}</P>
         </TextColumn>
         <ScrollCardAnimation isMobile={isMobile} setIsMobile={setIsMobile} />
-        <Quote quote={t.intro_section.quote} color={"#F4F4F4"} mark={"#060809"}/>
+        <Quote
+          quote={t.intro_section.quote}
+          color={"#F4F4F4"}
+          mark={"#060809"}
+        />
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <H2>{t?.second_section.title}</H2>
+          <P className="h2">{t?.second_section.title}</P>
           <P>{t.second_section.p}</P>
           <ChallengesContainer>
             {t?.second_section.challenges.map((challenge, i) => (
@@ -151,69 +160,51 @@ const Recupera = ({ locale, setTitle, pt }) => {
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
+          <P className="h2">{t.third_section.title}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <TextColumn>
           <FirstPoint>
-            <H3>{t.third_section.points.first.subtitle}</H3>
+            <P className="h3">{t.third_section.points.first.subtitle}</P>
             <P>{t.third_section.points.first.p}</P>
             <IPhoneAnimation isMobile={isMobile} />
           </FirstPoint>
         </TextColumn>
         <TextColumn>
           <SecondPoint>
-            <H3>{t.third_section.points.second.subtitle}</H3>
+            <P className="h3">{t.third_section.points.second.subtitle}</P>
             <P>{t.third_section.points.second.p}</P>
           </SecondPoint>
         </TextColumn>
-          <UIComponentsAnimation isMobile={isMobile}/>
+        <UIComponentsAnimation isMobile={isMobile} />
         <TextColumn>
           <ThirdPoint>
-            <H3>{t.third_section.points.third.subtitle}</H3>
+            <P className="h3">{t.third_section.points.third.subtitle}</P>
             <P>{t.third_section.points.third.p}</P>
             {!isMobile ? (
-              <Picture
-                src={ToolsMd}
-                alt="Herramientas"
-                withWrapper
-              />
-              ) : (
-                <Picture
-                  src={ToolsSm}
-                  alt="Herramientas"
-                  withWrapper
-                />
+              <Picture src={ToolsMd} alt="Herramientas" withWrapper />
+            ) : (
+              <Picture src={ToolsSm} alt="Herramientas" withWrapper />
             )}
           </ThirdPoint>
         </TextColumn>
       </ThirdSection>
       <FourthSection>
         <TextColumn>
-          <H2>{t.fourth_section.title}</H2>
+          <P className="h2">{t.fourth_section.title}</P>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
-        <Functionalities 
-          isMobile={isMobile}
-          t={t.fourth_section}
-        />
-        <Quote 
-          quote={t.fourth_section.quote} 
-          color={"rgb(79, 79, 79)"}
-        />
-        <DesktopAndMobile>     
-          <Picture
-            src={DesktopMobile}
-            alt="Devices"
-            withWrapper
-          />
+        <Functionalities isMobile={isMobile} t={t.fourth_section} />
+        <Quote quote={t.fourth_section.quote} color={"rgb(79, 79, 79)"} />
+        <DesktopAndMobile>
+          <Picture src={DesktopMobile} alt="Devices" withWrapper />
         </DesktopAndMobile>
       </FourthSection>
       <NextStudy link="rahid" />
       <ContactFooter />
     </PageClipperRecupera>
   );
-}
+};
 
 export default React.memo(Recupera);
 
@@ -229,10 +220,8 @@ export const getStaticProps = async (context) => {
   };
 };
 
-
-
 const PageClipperRecupera = styled(PageWrapper)`
-  background: linear-gradient(46deg, #6239D9 0%, #5C50ED 100%);
+  background: linear-gradient(46deg, #6239d9 0%, #5c50ed 100%);
   @media (max-width: 1300px) {
     padding: 0px;
   }
@@ -245,25 +234,34 @@ const LandSection = styled(CommonSection)`
   justify-content: space-between;
   align-items: center;
 
-  img, svg {
+  img,
+  svg {
     width: 100%;
   }
 
   .logo {
     min-width: 223px;
     max-width: 30em;
-    right: -4%;
+    right: -10%;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    img {
+      margin-bottom: 5%;
+    }
+    h1 {
+      font-weight: 100;
+    }
   }
   @media (max-width: 650px) {
-    display: flex;
+    /* display: flex; */
     flex-direction: column;
     justify-content: space-evenly;
 
     .logo {
-      max-width: 223px;
+      /* max-width: 223px; */
       right: 0%;
-      position: relative;
+      /* position: relative; */
     }
     .brand1 {
       align-self: flex-start;
@@ -274,6 +272,8 @@ const LandSection = styled(CommonSection)`
   }
 `;
 
+//Todo este componente está duplicado de otro caso de estudio Rocío
+//Podrías haberlo sacado en su propio archivo y solo cambiar el color
 const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
@@ -297,71 +297,71 @@ const EditVideo = styled.div`
 const FirstSection = styled(CommonSection)`
   color: ${white};
   padding-bottom: 10.7%;
-  h2, h3 {
-    font-weight: 500;
-  }
-  h2 {
-    font-size: 5.8rem;
+  .h2 {
+    /* font-size: 5.8rem;
     padding-bottom: 26px;
+    font-weight: 500; */
+
     b {
-      color: #FAD166;
+      color: #fad166;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
-  h3 {
+  /* .h3 {
     padding: 0px;
     padding-bottom: 4%;
     font-size: 3.2rem;
     line-height: 131%;
     margin-bottom: 0px;
     width: 100%;
-  }
+    font-weight: 500;
+  } */
 
-  @media (max-width: 1000px) {
-    h2 {
+  /* @media (max-width: 1000px) {
+    .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
-    }
-    h3 {
+    } 
+     .h3 {
       font-size: 3rem;
     }
-  }
-  @media (max-width: 630px) {
-    h2 {
+  } */
+  /* @media (max-width: 630px) {
+    .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
     }
-  }
+  } */
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #FEFAF5;
-  color: #5C5C81;
-  padding-bottom: 11.11%;
-  padding-top: 11.11%;
+  background-color: #fefaf5;
+  color: #5c5c81;
+  /* padding-bottom: 11.11%;
+  padding-top: 11.11%; */
 
-  h2 {
-    color: #292D34;
-    font-weight: 500;
+  .h2 {
+    color: #292d34;
+    /* font-weight: 500;
     font-size: 5.8rem;
     line-height: 105%;
-    padding: 4px 0px 26px 0px;
+    padding: 4px 0px 26px 0px; */
     b {
-      color: #7368F8;
+      color: #7368f8;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
-  @media (max-width: 1000px) {
-    h2 {
+  /* @media (max-width: 1000px) {
+    .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
@@ -372,16 +372,16 @@ const SecondSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
-    h2 {
+    .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
     }
-  }
+  } */
 `;
 
 const ChallengesContainer = styled.div`
@@ -400,17 +400,17 @@ const Challenge = styled.div`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  
+
   p {
     max-width: 640px;
   }
   span {
-    background-color: #7368F8;
+    background-color: #7368f8;
     width: 31.1px;
     height: 31.1px;
     min-width: 31px;
     display: flex;
-    color: #FEFAF5;
+    color: #fefaf5;
     border-radius: 50%;
     align-items: center;
     justify-content: center;
@@ -434,66 +434,66 @@ const Challenge = styled.div`
 `;
 
 const ThirdSection = styled(CommonSection)`
-  padding-bottom: 10%;
-  padding-top: 10%;
-  background-color: #6239D9;
-  color: #FFFFFF;
-  h2 {
+  /* padding-bottom: 10%;
+  padding-top: 10%; */
+  background-color: #6239d9;
+  color: #ffffff;
+  .h2 {
     color: #f3f4f5;
-    font-weight: 500;
+    /* font-weight: 500;
     font-size: 5.8rem;
     line-height: 105%;
-    padding: 0px 0px 26px 0px;
+    padding: 0px 0px 26px 0px; */
     b {
-      color: #FAD166;
+      color: #fad166;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
-  h3{
+  .h3 {
     font-size: 3.6rem;
-    font-weight: 400;
+    /* font-weight: 400; */
     padding: 7.5% 0 0 0;
     margin-bottom: 12px;
   }
 
-  div div div p {
+  /* div div div p {
     font-size: 1.65rem;
-  }
+  } */
 
-  .image {
+  /* .image {
     padding-top: 7rem;
-  }
+  } */
 
-  @media (max-width: 1000px) {
-    h2 {
+  /* @media (max-width: 1000px) {
+    .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 30px;
     }
-  }
+  } */
   @media (max-width: 630px) {
-    h2 {
+    /* .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
+    } */
+    .h3 {
+      font-size: 2.1rem;
     }
-    h3 {
-      font-size: 1.9rem;
-    }
-    p {
+    /* p {
       font-size: 1.5rem;
-    }
-    .image {
+    } */
+    /* .image {
       padding-top: 4.8rem;
       position: relative;
       left: 3%;
-    }
+    } */
   }
 `;
 
@@ -510,7 +510,7 @@ const SecondPoint = styled.div`
 `;
 
 const ThirdPoint = styled.div`
-  h3{
+  .h3 {
     padding-top: 0%;
   }
   .image {
@@ -530,20 +530,20 @@ const ThirdPoint = styled.div`
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #FEFAF5;
-  color: #5C5C81;
-  padding-top: 10%;
+  background-color: #fefaf5;
+  color: #5c5c81;
+  /* padding-top: 10%; */
 
-  h2 {
-    color: #292D34;
-    font-weight: 500;
+  .h2 {
+    color: #292d34;
+    /* font-weight: 500;
     font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px;
+    line-height: 105%; */
+    /* padding: 0px 0px 26px 0px; */
     b {
-      color: #7368F8;
+      color: #7368f8;
       font-weight: 200;
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
   }
 
@@ -555,8 +555,8 @@ const FourthSection = styled(CommonSection)`
     justify-content: center;
   }
 
-  @media (max-width: 1000px) {
-    h2 {
+  /* @media (max-width: 1000px) {
+    .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
@@ -567,19 +567,19 @@ const FourthSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
-    h2 {
+    .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
     }
     p {
       font-size: 1.5rem;
     }
-  }
+  } */
 `;
 
 const DesktopAndMobile = styled.div`
@@ -593,7 +593,7 @@ const DesktopAndMobile = styled.div`
   justify-content: flex-end;
   align-items: center;
 
-  .image{
+  .image {
     position: relative;
     right: -18%;
     width: 100%;

@@ -10,7 +10,8 @@ import LandSection from "components/caseStudy/borgatta/Landing";
 import AnimatedUIComponents from "components/caseStudy/borgatta/AnimatedUIComponents";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
-import { H2, H3, P } from "components/shared/Dangerously";
+import { P } from "components/shared/Dangerously";
+import { SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import Quote from "components/caseStudy/shared/Quote";
 import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
@@ -41,12 +42,12 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       },
     });
 
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 650);
     }
 
     const handleResize = () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         setIsMobile(window.innerWidth <= 650);
       }
     };
@@ -61,7 +62,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
   }, [locale, isMobile]);
 
   return (
-    <FondoBorgatta>
+    <PageWrapperBorgatta>
       <Head
         {...t?.head}
         image={{ fileName: "og_image_borgatta.png", alt: t?.head.image_alt }}
@@ -69,17 +70,18 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
       <Fade triggerOnce>
-        <LandSection isMobile={isMobile} />
+        <LandSection isMobile={isMobile} title={t.head.title} />
       </Fade>
       <FirstSection>
-        <Marquee tags={t.intro_section.tags} />
+        {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <EditVideo>
           <IntroVideo desktopLayout link={t.link} />
         </EditVideo>
+        <SeoH2>{t.head.description}</SeoH2>
         <Fade delay={300} triggerOnce>
           <TextColumn>
-            <H2>{t.intro_section.title}</H2>
-            <H3>{t.intro_section.subtitle}</H3>
+            <P className="h2">{t.intro_section.title}</P>
+            <P className="h3">{t.intro_section.subtitle}</P>
             <P>{t.intro_section.p}</P>
             <Fade delay={300} triggerOnce>
               <LessonContainer>
@@ -93,15 +95,11 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             </Fade>
           </TextColumn>
         </Fade>
-        <Picture
-          src={Page}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Page} alt="Page" withWrapper />
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <H2>{t?.second_section.title}</H2>
+          <P className="h2">{t?.second_section.title}</P>
           <P>{t.second_section.p}</P>
         </TextColumn>
         <AspectContainer>
@@ -111,10 +109,10 @@ const Borgatta = ({ locale, setTitle, pt }) => {
                 <Picture
                   src={`/assets/img/casestudies/borgatta/Icon${i + 1}.svg`}
                   width={"50"}
-                  height={"50"} 
+                  height={"50"}
                   alt="Aspecto"
                 />
-                <h4>{aspect.title}</h4>
+                <p className="h4">{aspect.title}</p>
                 <p>{aspect.p}</p>
               </Aspect>
             ))}
@@ -125,7 +123,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </SecondSection>
       <ThirdSection>
         <TextColumn>
-          <H2>{t.third_section.title}</H2>
+          <P className="h2">{t.third_section.title}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <ResultContainer>
@@ -137,14 +135,14 @@ const Borgatta = ({ locale, setTitle, pt }) => {
                     {result.sign && <h4>{result.sign}</h4>}
                     {result.title.length > 4 ? (
                       <div>
-                        <h2>{result.title.split(" ")[0]}</h2>
-                        <H3>{result.title.split(" ")[1]}</H3>
+                        <p className="h2">{result.title.split(" ")[0]}</p>
+                        <p className="h3">{result.title.split(" ")[1]}</p>
                       </div>
                     ) : (
-                      <h2>{result.title}</h2>
+                      <p className="h2">{result.title}</p>
                     )}
                   </span>
-                  {result.subtitle && <H3>{result.subtitle}</H3>}
+                  {result.subtitle && <P className="h3">{result.subtitle}</P>}
                 </div>
                 <P>{result.p}</P>
               </Results>
@@ -164,14 +162,14 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </ThirdSection>
       <FourthSection>
         <TextColumn>
-          <H2>{t.fourth_section.title}</H2>
+          <P className="h2">{t.fourth_section.title}</P>
           <P>{t.fourth_section.p}</P>
         </TextColumn>
         <AnimatedUIComponents isMobile={isMobile} />
       </FourthSection>
       <NextStudy link="wellmee" />
       <ContactFooter />
-    </FondoBorgatta>
+    </PageWrapperBorgatta>
   );
 };
 
@@ -189,6 +187,11 @@ export const getStaticProps = async (context) => {
   };
 };
 
+const PageWrapperBorgatta = styled(PageWrapper)`
+  background: ${mainGradient};
+  background-blend-mode: normal, overlay, normal;
+`;
+
 const ResultsOnThePage = styled.div`
   width: 100%;
   img {
@@ -196,22 +199,14 @@ const ResultsOnThePage = styled.div`
   }
 `;
 
-const FondoBorgatta = styled.div`
-  background: ${mainGradient};
-  background-blend-mode: normal, overlay, normal;
-  @media (max-width: 630px) {
-    padding: 0px;
-  }
-`;
-
 const FirstSection = styled(CommonSection)`
   color: ${white};
   padding-bottom: 10.7%;
-  h2,
-  h3 {
+  .h2,
+  .h3 {
     font-weight: 500;
   }
-  h2 {
+  .h2 {
     font-size: 5.6rem;
     padding-bottom: 4px;
     b {
@@ -220,7 +215,7 @@ const FirstSection = styled(CommonSection)`
       font-size: 4rem;
     }
   }
-  h3 {
+  .h3 {
     padding: 0px;
     padding-bottom: 4%;
     font-size: 3.2rem;
@@ -233,13 +228,13 @@ const FirstSection = styled(CommonSection)`
     max-width: 982px;
   }
   @media (max-width: 1000px) {
-    h2 {
+    .h2 {
       font-size: 5.2rem;
       b {
         font-size: 3.2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 3rem;
     }
     .image {
@@ -247,13 +242,13 @@ const FirstSection = styled(CommonSection)`
     }
   }
   @media (max-width: 630px) {
-    h2 {
+    .h2 {
       font-size: 3.3rem;
       b {
         font-size: 2rem;
       }
     }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
     }
     .image {
@@ -334,39 +329,21 @@ const SecondSection = styled(CommonSection)`
   background-color: #fbfbfd;
   color: #626262;
   padding-bottom: 11.11%;
-  padding-top: 11.11%;
 
-  h2 {
+  .h2 {
     color: #d76e32;
-    font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 4px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 4rem;
     }
   }
   @media (max-width: 1000px) {
-    h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    h3 {
+    .h3 {
       font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
-    h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
     }
   }
@@ -399,8 +376,10 @@ const Aspect = styled.div`
   flex-direction: column;
   width: 100%;
   background: #ffffff;
-  box-shadow: 0px 2px 0px rgba(162, 162, 162, 0.1),
-    0px 1px 3px rgba(162, 162, 162, 0.1), 0px 0px 8px rgba(162, 162, 162, 0.1);
+  box-shadow:
+    0px 2px 0px rgba(162, 162, 162, 0.1),
+    0px 1px 3px rgba(162, 162, 162, 0.1),
+    0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
   line-height: 131%;
@@ -412,7 +391,7 @@ const Aspect = styled.div`
     position: relative;
     margin-bottom: 20px;
   }
-  h4 {
+  .h4 {
     color: #060809;
     font-weight: 500;
     margin-bottom: 12px;
@@ -429,44 +408,23 @@ const Aspect = styled.div`
 
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
-  padding-top: 10%;
   color: #ffffff;
   background-blend-mode: normal, overlay, normal;
-  h2 {
+  .h2 {
     color: #f3f4f5;
-    font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px;
     b {
       color: rgba(255, 255, 255, 0.7);
       font-weight: 400;
-      font-size: 4rem;
     }
   }
   @media (max-width: 1000px) {
-    h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
     h3 {
       font-size: 30px;
     }
   }
   @media (max-width: 630px) {
-    h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    h3 {
+    .h3 {
       font-size: 1.9rem;
-    }
-    p {
-      font-size: 1.5rem;
     }
   }
 `;
@@ -516,18 +474,21 @@ const Results = styled.div`
   border-radius: 32px;
   max-width: 488px;
 
-  h2 {
+  .h2 {
     font-size: 7rem;
     line-height: 6.5rem;
     padding: 0px;
+    font-weight: 500;
   }
-  h3 {
+  .h3 {
     font-size: 4.5rem;
     line-height: 131%;
+    font-weight: 500;
   }
-  h4 {
+  .h4 {
     font-size: 3.4rem;
     padding: 0px;
+    font-weight: 500;
   }
   p {
     font-size: 1.8rem;
@@ -543,7 +504,7 @@ const Results = styled.div`
       display: flex;
       flex-direction: row;
       align-items: baseline;
-      h3 {
+      .h3 {
         font-size: 4.8rem;
         padding-bottom: 0;
         padding-left: 12px;
@@ -552,29 +513,29 @@ const Results = styled.div`
   }
 
   @media (max-width: 1000px) {
-    h2 {
+    .h2 {
       font-size: 6.8rem;
     }
-    h3 {
+    .h3 {
       font-size: 4.2rem;
     }
-    div span div h3 {
+    div span div .h3 {
       font-size: 4.2rem;
     }
   }
   @media (max-width: 630px) {
     padding: 20px;
-    h2 {
+    .h2 {
       font-size: 5.6rem;
     }
-    h3 {
+    .h3 {
       font-size: 3.6rem;
       padding-bottom: 1.6rem;
     }
     p {
       font-size: 1.5rem;
     }
-    div span div h3 {
+    div span div .h3 {
       font-size: 3.6rem;
     }
   }
@@ -596,62 +557,22 @@ const Screens = styled.div`
 const FourthSection = styled(CommonSection)`
   background-color: #f4f4f4;
   color: #626262;
-  padding-top: 10%;
-
-  h2 {
+  .h2 {
     color: #d76e32;
-    font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px;
     b {
       color: rgba(215, 110, 50, 0.7);
       font-weight: 400;
-      font-size: 4rem;
     }
-  }
-  p {
-    font-size: 1.8rem;
-    line-height: 131%;
   }
   img {
     width: 100%;
     padding: 7% 1%;
   }
-  @media (max-width: 1000px) {
-    h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    h3 {
-      font-size: 3rem;
-    }
-  }
   @media (max-width: 630px) {
-    h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    h3 {
-      font-size: 1.9rem;
-    }
-    p {
-      font-size: 1.5rem;
-    }
     img {
       width: 100%;
       padding: 16% 6%;
     }
-  }
-`;
-
-const FourthTextColumn = styled(TextColumn)`
-  @media (max-width: 630px) {
-    padding: 0 6%;
   }
 `;
 
