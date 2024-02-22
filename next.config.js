@@ -13,6 +13,12 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        source: "/articulos",
+        destination: "/blog",
+        locale: false,
+        permanent: true,
+      },
+      {
         source: "/es/about",
         destination: "/en/about",
         locale: false,
@@ -132,7 +138,7 @@ const nextConfig = {
         },
       ],
     });
-    config.resolve.alias["three$"] = path.resolve("./utils/three-exports.js");
+//    config.resolve.alias["three$"] = path.resolve("./utils/three-exports.js");
     return config;
   },
   //env config

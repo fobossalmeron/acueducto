@@ -69,7 +69,7 @@ const staticRoutes = [
     priority: 0.7,
   },
   {
-    es: "/articulos",
+    es: "/blog",
     priority: 0.7,
   },
   {
@@ -91,9 +91,9 @@ const dinamicPodcasts = fs.readdirSync("_episodios").map((staticPagePath) => {
   };
 });
 
-const dinamicArticles = fs.readdirSync("_articulos").map((staticPagePath) => {
+const dinamicArticles = fs.readdirSync("_blog").map((staticPagePath) => {
   return {
-    es: `/articulos/${staticPagePath.replace(".md", "")}`,
+    es: `/blog/${staticPagePath.replace(".md", "")}`,
     priority: 0.7,
   };
 });

@@ -9,7 +9,7 @@ const oneLangPages = [
   "mvs",
   "diagnostico",
   "linkenbio",
-  "articulo",
+  "blog",
 ];
 
 function LanguageToggler({ hasLoaded, locale }) {

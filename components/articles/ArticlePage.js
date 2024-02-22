@@ -35,7 +35,7 @@ const ArticlePage = ({
             {` | `}
             <time dateTime={date.toString()}>{formatDate}</time>
           </Credits>
-          <ShareRouter shareUrl={`https://acueducto.studio/articulos/${slug}`}>
+          <ShareRouter shareUrl={`https://acueducto.studio/blog/${slug}`}>
             Comparte
           </ShareRouter>
           <Content>

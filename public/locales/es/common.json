@@ -74,7 +74,7 @@
       ],
       "resources": [
         { "title": "podcast", "link": "/podcast" },
-        { "title": "artículos", "link": "/articulos" },
+        { "title": "blog", "link": "/blog" },
         { "title": "diagnóstico", "link": "/diagnostico" },
         { "title": "webinars", "link": "/webinars" }
       ],
@@ -99,6 +99,6 @@
   },
   "resources": {
     "p": "Conoce nuestros recursos:",
-    "articles": "artículos"
+    "articles": "blog"
   }
 }

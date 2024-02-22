@@ -83,11 +83,11 @@ const returnLd = (locale: string, asPath: string, description: string, title: st
                         name: locale === "en" ? "Work" : "Portafolio",
                         item: "https://acueducto.studio" + (locale === "en" ? "/en/work" : "/portafolio"),
                     }) : "",
-                    asPath.includes("/articulos") ? ({
+                    asPath.includes("/blog") ? ({
                         "@type": "ListItem",
                         position: 2,
-                        name: "Artículos",
-                        item: "https://acueducto.studio/articulos",
+                        name: "Blog",
+                        item: "https://acueducto.studio/blog",
                     }) : "",
                     asPath.includes("/podcast") ? ({
                         "@type": "ListItem",
@@ -95,10 +95,10 @@ const returnLd = (locale: string, asPath: string, description: string, title: st
                         name: "Podcast",
                         item: "https://acueducto.studio/podcast",
                     }) : "",
-                    asPath !== "/" && asPath !== "/articulos" && asPath !== "/portafolio" && asPath !== "/work" && asPath !== "/podcast" ? ({
+                    asPath !== "/" && asPath !== "/blog" && asPath !== "/portafolio" && asPath !== "/work" && asPath !== "/podcast" ? ({
                         "@type": "ListItem",
                         position: asPath.includes("/portafolio") || asPath.includes("/work") || asPath.includes("/articles") || asPath.includes("/podcast") ? 3 : 2,
-                        name: asPath.includes("/articulos") || asPath.includes("/podcast") ? title : headerTitle,
+                        name: asPath.includes("/blog") || asPath.includes("/podcast") ? title : headerTitle,
                         item: "https://acueducto.studio" + (locale === "en" ? "/en" : "") + asPath,
                     }) : ""
                 ],
