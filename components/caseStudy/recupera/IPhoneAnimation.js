@@ -14,7 +14,7 @@ const IPhoneAnimation = ({ isMobile }) => {
   // Rocío: getElementById o el querySelector funcionan por fuera de React, a veces fallarán porque
   // react actualiza el DOM y no hay control. Hay que usar el hook de useRef que está debajo (a menos
   // que esté en otro componente lejísimos, como que quisieramos cambiarle el color al logo, ahí pues
-  // si es considerablemente menos pedo hacerlo con js pelón). 
+  // si es considerablemente menos pedo hacerlo con js pelón).
   const animationContainer = useRef();
   let scrollY = 0;
 
@@ -37,15 +37,15 @@ const IPhoneAnimation = ({ isMobile }) => {
       setScrollPosition(scrollY);
       setAnimationInProgress(true);
 
-      //Rocío: El animation in progress de arriba no está haciendo nada y estamos observando el scroll 
-      //durante toda la página. Esto puede traer problemas de performance. Hay que usar algo 
+      //Rocío: El animation in progress de arriba no está haciendo nada y estamos observando el scroll
+      //durante toda la página. Esto puede traer problemas de performance. Hay que usar algo
       //como el Intersection Observer para que solo se active el EventListener cuando esté en el viewport
       //este elemento. Está bien quitarlo al desmontar el componente pero igual está activo toda la página
       //Me parece que ya importamos un par de librerías para usar el Intersection Observer fácilmente
 
-      //Rocío: Me di cuenta que también estás añadiendo más EventListeners en el componente de 
+      //Rocío: Me di cuenta que también estás añadiendo más EventListeners en el componente de
       //ScrollCardAnimation.js, esto añade al problema. Con mi solución no habría problema de que lo hagas
-      //en dos componentes separados si solo se activa cuando pasas por ahí. 
+      //en dos componentes separados si solo se activa cuando pasas por ahí.
 
       setTimeout(() => {
         setAnimationInProgress(false);
@@ -78,8 +78,8 @@ const IPhoneAnimation = ({ isMobile }) => {
       bottom: "-20px",
     };
   };
- //Rocio: Igual acá abajo puse alt's para todas las imágenes. Siempre hay que poner cosas contextuales
- //porque nos ayuda en SEO y para lectores de pantalla. Poner "Imagen 1" no es útil. 
+  //Rocio: Igual acá abajo puse alt's para todas las imágenes. Siempre hay que poner cosas contextuales
+  //porque nos ayuda en SEO y para lectores de pantalla. Poner "Imagen 1" no es útil.
   return (
     <MobilePicture id="ScrollIphoneAnimation" ref={animationContainer}>
       <div className="mobileBackground">
@@ -90,7 +90,6 @@ const IPhoneAnimation = ({ isMobile }) => {
       >
         <div className={`picture1`}>
           <Image src={UIMobile1} alt="Saldo a favor" withWrapper />
-          
         </div>
         <div className={`picture2`}>
           <Image src={UIMobile2} alt="Factura deducible" withWrapper />
@@ -113,6 +112,7 @@ const MobilePicture = styled.div`
     max-width: 649px;
     position: relative;
     left: 25%;
+    padding-top: 10%;
   }
 `;
 

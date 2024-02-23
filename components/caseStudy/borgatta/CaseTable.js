@@ -12,46 +12,22 @@ const CaseTable = () => {
   return (
     <CasesContainer>
       <Fade delay={300} triggerOnce className="case_one">
-        <Picture
-          src={Case1}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case1} alt="Page" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="case_two">
-        <Picture
-          src={Case2}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case2} alt="Page" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="case_three">
-        <Picture
-          src={Case3}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case3} alt="Page" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="case_four">
-        <Picture
-          src={Case4}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case4} alt="Page" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="case_five">
-        <Picture
-          src={Case5}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case5} alt="Page" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="case_six">
-        <Picture
-          src={Case6}
-          alt="Page"
-          withWrapper
-        />
+        <Picture src={Case6} alt="Page" withWrapper />
       </Fade>
     </CasesContainer>
   );
@@ -72,32 +48,32 @@ const CasesContainer = styled.div`
   img {
     border-radius: 24.3px;
   }
-  
-  .case_one{
+
+  .case_one {
     grid-column: 1 / 4;
     grid-row: 1 / 2;
     max-width: 163px;
   }
-  .case_two{
+  .case_two {
     grid-column: 2 / 4;
     grid-row: 1 / 2;
     max-width: 163px;
   }
-  .case_three{
+  .case_three {
     grid-column: 3 / 4;
     grid-row: 1 / 2;
     max-width: 163px;
   }
-  .case_four{
+  .case_four {
     grid-column: 4 / 4;
     grid-row: 1 / 2;
     max-width: 163px;
   }
-  .case_five{
+  .case_five {
     grid-column: 1 / 4;
     grid-row: 2 / 2;
   }
-  .case_six{
+  .case_six {
     grid-column: 4 / 4;
     grid-row: 2 / 2;
     max-width: 163px;
@@ -106,10 +82,10 @@ const CasesContainer = styled.div`
   @media (max-width: 1000px) {
     padding: 9% 5% 2% 5%;
 
-    .case_one{
+    .case_one {
       max-width: 31.5%;
     }
-    .case_two{
+    .case_two {
       max-width: 48%;
     }
   }

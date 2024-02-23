@@ -23,8 +23,15 @@ import UIComponentsAnimation from "../../components/caseStudy/recupera/UICompone
 import ScrollCardAnimation from "../../components/caseStudy/recupera/ScrollCardAnimation";
 import Functionalities from "../../components/caseStudy/recupera/Functionalities";
 import IPhoneAnimation from "../../components/caseStudy/recupera/IPhoneAnimation";
+import { EditVideo } from "./blockstem";
 
-const white = "#FFFFFF";
+const h2Title = "#292D34";
+const bodyText1 = "#FFFFFF";
+const bodyText2 = "#5C5C81";
+const bAccent1 = "#FAD166";
+const bAccent2 = "#7368F8";
+const backgroundColorSection = "#FEFAF5";
+const mainGradient = "linear-gradient(46deg, #6239d9 0%, #5c50ed 100%)";
 
 const Recupera = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
@@ -124,7 +131,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <EditVideo>
+        <EditVideo backgroundColor={"#F7F3F1"}>
           <IntroVideo link={t.link} />
         </EditVideo>
         <SeoH2>{t.head.description}</SeoH2>
@@ -164,17 +171,17 @@ const Recupera = ({ locale, setTitle, pt }) => {
           <P>{t.third_section.p}</P>
         </TextColumn>
         <TextColumn>
-          <FirstPoint>
+          <div>
             <P className="h3">{t.third_section.points.first.subtitle}</P>
             <P>{t.third_section.points.first.p}</P>
             <IPhoneAnimation isMobile={isMobile} />
-          </FirstPoint>
+          </div>
         </TextColumn>
         <TextColumn>
-          <SecondPoint>
+          <div>
             <P className="h3">{t.third_section.points.second.subtitle}</P>
             <P>{t.third_section.points.second.p}</P>
-          </SecondPoint>
+          </div>
         </TextColumn>
         <UIComponentsAnimation isMobile={isMobile} />
         <TextColumn>
@@ -221,7 +228,7 @@ export const getStaticProps = async (context) => {
 };
 
 const PageClipperRecupera = styled(PageWrapper)`
-  background: linear-gradient(46deg, #6239d9 0%, #5c50ed 100%);
+  background: ${mainGradient};
   @media (max-width: 1300px) {
     padding: 0px;
   }
@@ -253,15 +260,12 @@ const LandSection = styled(CommonSection)`
       font-weight: 100;
     }
   }
+
   @media (max-width: 650px) {
-    /* display: flex; */
     flex-direction: column;
     justify-content: space-evenly;
-
     .logo {
-      /* max-width: 223px; */
       right: 0%;
-      /* position: relative; */
     }
     .brand1 {
       align-self: flex-start;
@@ -272,116 +276,30 @@ const LandSection = styled(CommonSection)`
   }
 `;
 
-//Todo este componente está duplicado de otro caso de estudio Rocío
-//Podrías haberlo sacado en su propio archivo y solo cambiar el color
-const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: rgb(247, 243, 241);
-  & > div {
-    padding: 0px;
-  }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
-  }
-  @media (max-width: 500px) {
-    border-radius: 17px;
-  }
-`;
-
 const FirstSection = styled(CommonSection)`
-  color: ${white};
+  color: ${bodyText1};
   padding-bottom: 10.7%;
-  .h2 {
-    /* font-size: 5.8rem;
-    padding-bottom: 26px;
-    font-weight: 500; */
 
+  .h2 {
     b {
-      color: #fad166;
+      color: ${bAccent1};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
-  /* .h3 {
-    padding: 0px;
-    padding-bottom: 4%;
-    font-size: 3.2rem;
-    line-height: 131%;
-    margin-bottom: 0px;
-    width: 100%;
-    font-weight: 500;
-  } */
-
-  /* @media (max-width: 1000px) {
-    .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    } 
-     .h3 {
-      font-size: 3rem;
-    }
-  } */
-  /* @media (max-width: 630px) {
-    .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    .h3 {
-      font-size: 1.9rem;
-    }
-  } */
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #fefaf5;
-  color: #5c5c81;
-  /* padding-bottom: 11.11%;
-  padding-top: 11.11%; */
+  background-color: ${backgroundColorSection};
+  color: ${bodyText2};
+  padding-bottom: 11.11%;
 
   .h2 {
-    color: #292d34;
-    /* font-weight: 500;
-    font-size: 5.8rem;
-    line-height: 105%;
-    padding: 4px 0px 26px 0px; */
+    color: ${h2Title};
     b {
-      color: #7368f8;
+      color: ${bAccent2};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
-  /* @media (max-width: 1000px) {
-    .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    h3 {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 630px) {
-    .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    .h3 {
-      font-size: 1.9rem;
-    }
-  } */
 `;
 
 const ChallengesContainer = styled.div`
@@ -405,15 +323,15 @@ const Challenge = styled.div`
     max-width: 640px;
   }
   span {
-    background-color: #7368f8;
     width: 31.1px;
     height: 31.1px;
     min-width: 31px;
-    display: flex;
-    color: #fefaf5;
     border-radius: 50%;
+    display: flex;
     align-items: center;
     justify-content: center;
+    color: ${backgroundColorSection};
+    background-color: ${bAccent2};
     p {
       font-weight: 500;
       line-height: 18px;
@@ -434,79 +352,26 @@ const Challenge = styled.div`
 `;
 
 const ThirdSection = styled(CommonSection)`
-  /* padding-bottom: 10%;
-  padding-top: 10%; */
   background-color: #6239d9;
-  color: #ffffff;
+  color: ${bodyText1};
   .h2 {
     color: #f3f4f5;
-    /* font-weight: 500;
-    font-size: 5.8rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px; */
     b {
-      color: #fad166;
+      color: ${bAccent1};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
   .h3 {
     font-size: 3.6rem;
-    /* font-weight: 400; */
     padding: 7.5% 0 0 0;
     margin-bottom: 12px;
   }
 
-  /* div div div p {
-    font-size: 1.65rem;
-  } */
-
-  /* .image {
-    padding-top: 7rem;
-  } */
-
-  /* @media (max-width: 1000px) {
-    .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    .h3 {
-      font-size: 30px;
-    }
-  } */
   @media (max-width: 630px) {
-    /* .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    } */
     .h3 {
       font-size: 2.1rem;
     }
-    /* p {
-      font-size: 1.5rem;
-    } */
-    /* .image {
-      padding-top: 4.8rem;
-      position: relative;
-      left: 3%;
-    } */
   }
-`;
-
-const FirstPoint = styled.div`
-  @media (max-width: 630px) {
-    .image {
-      padding-top: 10%;
-    }
-  }
-`;
-
-const SecondPoint = styled.div`
-  width: 100%;
 `;
 
 const ThirdPoint = styled.div`
@@ -514,13 +379,8 @@ const ThirdPoint = styled.div`
     padding-top: 0%;
   }
   .image {
-    width: 100%;
     max-width: 630px;
-    padding-top: 6.7rem;
-    padding-bottom: 6.7rem;
-    position: relative;
-    display: flex;
-    justify-content: center;
+    padding: 6.7rem 0 9rem 0;
   }
   @media (max-width: 630px) {
     .image {
@@ -530,56 +390,16 @@ const ThirdPoint = styled.div`
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #fefaf5;
-  color: #5c5c81;
-  /* padding-top: 10%; */
+  color: ${bodyText2};
+  background-color: ${backgroundColorSection};
 
   .h2 {
-    color: #292d34;
-    /* font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%; */
-    /* padding: 0px 0px 26px 0px; */
+    color: ${h2Title};
     b {
-      color: #7368f8;
+      color: ${bAccent2};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
-
-  .image {
-    width: 100%;
-    max-width: 1000px;
-    padding: 7% 0% 0% 0%;
-    display: flex;
-    justify-content: center;
-  }
-
-  /* @media (max-width: 1000px) {
-    .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
-    h3 {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 630px) {
-    .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
-    .h3 {
-      font-size: 1.9rem;
-    }
-    p {
-      font-size: 1.5rem;
-    }
-  } */
 `;
 
 const DesktopAndMobile = styled.div`
@@ -587,16 +407,15 @@ const DesktopAndMobile = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 100%;
-  margin-top: 3rem;
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+  width: 100%;
+  margin-top: 3rem;
 
   .image {
+    max-width: 1458px;
     position: relative;
     right: -18%;
-    width: 100%;
-    max-width: 1458px;
+    padding: 7% 0% 0% 0%;
   }
 `;

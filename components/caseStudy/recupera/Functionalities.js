@@ -2,7 +2,6 @@ import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 
 const Functionalities = (props) => {
-
   return (
     <FunctionalitiesBackground>
       {!props.isMobile ? (
@@ -127,12 +126,12 @@ const Functionalities = (props) => {
         </FunctionalitiesContainer>
       )}
     </FunctionalitiesBackground>
-    );
-  };
-  
-  export default Functionalities;
+  );
+};
 
-  const FunctionalitiesBackground = styled.div`
+export default Functionalities;
+
+const FunctionalitiesBackground = styled.div`
   background-image: url("/assets/img/casestudies/recupera/backgroundFunctionality.svg");
   background-repeat: no-repeat;
   background-size: contain;
@@ -144,23 +143,23 @@ const FunctionalitiesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 35px;
-  color: #4F4F4F;
+  color: #4f4f4f;
   font-size: 2.8rem;
-  padding: 60px;    
+  padding: 60px;
   align-items: center;
   @media (max-width: 1110px) {
     gap: 28px;
-    padding: 40px;  
+    padding: 40px;
   }
   @media (max-width: 600px) {
     gap: 10px;
-    padding: 10px;  
+    padding: 10px;
   }
 `;
 
 const FunctionalitiesRow = styled.div`
   display: flex;
-  flexDirection: row;
+  flexdirection: row;
   gap: 35px;
   justify-content: center;
   @media (max-width: 1110px) {
@@ -173,12 +172,13 @@ const FunctionalitiesRow = styled.div`
 
 const Functionality = styled.div`
   display: flex;
-  width: fit-content;
   justify-content: center;
+  width: fit-content;
   border-radius: 21.2px;
-  background-color: #FFFFFF;
   padding: 21.17px;
-  box-shadow: 0px 33.351463317871094px 50.027191162109375px 0px rgba(40, 3, 109, 0.12);
+  background-color: #ffffff;
+  box-shadow: 0px 33.351463317871094px 50.027191162109375px 0px
+    rgba(40, 3, 109, 0.12);
   text-align: center;
 
   @media (max-width: 1110px) {

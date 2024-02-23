@@ -58,7 +58,7 @@ function Blockstem({ locale, setTitle, pt }) {
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <EditVideo>
+        <EditVideo backgroundColor={"#ffffff"}>
           <IntroVideo link={t.link} />
         </EditVideo>
         <SeoH2>{t.head.description}</SeoH2>
@@ -273,10 +273,11 @@ const PageClipperBlockstem = styled(PageWrapper)`
   }
 `;
 
-const EditVideo = styled.div`
+export const EditVideo = styled.div`
   padding: 3%;
   border-radius: 40px;
-  background-color: #ffffff;
+  background-color: ${(p) =>
+    p.backgroundColor ? p.backgroundColor : "#ffffff"};
   & > div {
     padding: 0px;
   }

@@ -22,6 +22,7 @@ import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md
 import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
 import CaseTable from "../../components/caseStudy/borgatta/CaseTable";
 import Page from "public/assets/img/casestudies/borgatta/page.png";
+import { EditVideo } from "./blockstem";
 
 const white = "#FFFFFF";
 const mainGradient =
@@ -74,7 +75,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <EditVideo>
+        <EditVideo backgroundColor={"#f7f6f7"}>
           <IntroVideo desktopLayout link={t.link} />
         </EditVideo>
         <SeoH2>{t.head.description}</SeoH2>
@@ -573,25 +574,5 @@ const FourthSection = styled(CommonSection)`
       width: 100%;
       padding: 16% 6%;
     }
-  }
-`;
-
-const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: #f7f6f7;
-  & > div {
-    padding: 0px;
-  }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
-  }
-  @media (max-width: 500px) {
-    border-radius: 17px;
   }
 `;
