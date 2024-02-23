@@ -39,7 +39,13 @@ export default function Episodio({
         <>
           <Head
             title={
-              episode.title + " | " + episode.guest + ", " + episode.business
+              episode.seo_title
+                ? episode.seo_title
+                : episode.title +
+                  " | " +
+                  episode.guest +
+                  ", " +
+                  episode.business
             }
             description={episode.description}
             headerTitle="Episodio"
@@ -103,6 +109,8 @@ export async function getStaticProps({
 
   const nextToMd: EpisodeProps = getEpisodeBySlug(getNextEpisodeSlug(105), [
     "title",
+    "seo_title",
+    "seo_h1",
     "guest",
     "date",
     "business",
@@ -130,6 +138,8 @@ export async function getStaticProps({
   if (!slugMatchesPrismic) {
     const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
       "title",
+      "seo_title",
+      "seo_h1",
       "guest",
       "date",
       "insights",

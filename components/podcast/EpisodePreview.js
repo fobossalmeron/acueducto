@@ -93,7 +93,7 @@ const EpisodePreview = ({
                 </LinkComplex>
               ) : (
                 <h2 className="guest">
-                  {guest} <span>{business}</span>
+                  {guest} <span>{business}</span> <strong>{title}</strong>
                 </h2>
               )}
             </Guest>
@@ -177,10 +177,9 @@ const HoverableContainer = styled.div`
 `;
 
 const TitleHoverable = styled.p`
-  ${BorderLink({ showLink: false })}
   font-size: 2.5rem;
   font-weight: 200;
-  line-height: 125%;
+  line-height: 115%;
   margin-top: 0;
   margin-bottom: 12px;
   @media (max-width: 970px) {
@@ -189,6 +188,7 @@ const TitleHoverable = styled.p`
   @media (max-width: 620px) {
     font-size: 2rem;
   }
+  ${BorderLink({ showLink: false })}
 `;
 
 const PictureContainer = styled.div`
@@ -221,7 +221,7 @@ const PictureContainer = styled.div`
 `;
 
 const Guest = styled.div`
-padding-top:4px;
+  padding-top: 4px;
   display: flex;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
@@ -291,7 +291,7 @@ const NewPod = styled.article`
     color: ${(p) => p.theme.colors.foreground};
     margin-top: -2px;
     text-align: left;
-    padding-top:0;
+    padding-top: 0;
     line-height: 120%;
     span {
       display: block;
@@ -300,6 +300,10 @@ const NewPod = styled.article`
       letter-spacing: 0.2rem;
       font-weight: 200;
       color: ${(p) => p.theme.colors.foreground_low};
+    }
+    strong {
+      font-size:1.8rem;
+      display: block;
     }
   }
   div p {

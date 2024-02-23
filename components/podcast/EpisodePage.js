@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { H1, Li } from "components/shared/Dangerously";
+import { H1, P, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 import EpisodePreview from "components/podcast/EpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
@@ -18,6 +18,7 @@ import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 
 const EpisodePage = ({
   title,
+  seo_h1,
   date,
   guest,
   insights,
@@ -68,7 +69,16 @@ const EpisodePage = ({
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
-            <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+            {seo_h1 ? (
+              <>
+                <h1 className="seo_h1">{seo_h1}</h1>
+                <P className="h1">
+                  {title.charAt(0).toLowerCase() + title.slice(1)}
+                </P>
+              </>
+            ) : (
+              <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+            )}
             {youtube && domLoaded && (
               <Center>
                 <VideoContainer>
@@ -259,11 +269,16 @@ const EpisodeNumberStyled = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-bottom: 20px;
   @media (max-width: 1000px) {
     transform: scale(0.9);
   }
   @media (max-width: 800px) {
     transform: scale(0.8);
+    margin-top: 10px;
+  }
+  @media (max-width: 650px) {
+    margin-top: 0px;
   }
 `;
 

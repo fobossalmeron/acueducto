@@ -96,7 +96,7 @@ const PrismicEpisodePreview = ({
                 </LinkComplex>
               ) : (
                 <h2 className="guest">
-                  {guest} <span>{business}</span>
+                  {guest} <span>{business}</span> <strong>{title}</strong>
                 </h2>
               )}
             </Guest>
@@ -180,10 +180,9 @@ const HoverableContainer = styled.div`
 `;
 
 const TitleHoverable = styled.p`
-  ${BorderLink({ showLink: false })}
   font-size: 2.5rem;
   font-weight: 200;
-  line-height: 125%;
+  line-height: 115%;
   margin-top: 0;
   margin-bottom: 12px;
   @media (max-width: 970px) {
@@ -192,6 +191,7 @@ const TitleHoverable = styled.p`
   @media (max-width: 620px) {
     font-size: 2rem;
   }
+  ${BorderLink({ showLink: false })}
 `;
 
 const PictureContainer = styled.div`

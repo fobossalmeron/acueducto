@@ -135,7 +135,6 @@ const nextConfig = {
         },
       ],
     });
-//    config.resolve.alias["three$"] = path.resolve("./utils/three-exports.js");
     return config;
   },
   //env config
