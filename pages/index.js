@@ -18,6 +18,7 @@ import FAQSection from "components/shared/FAQ";
 import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PageWrapper from "components/layout/PageWrapper";
+import Quotes from "components/Quotes";
 
 const HomeSpline = dynamic(import("../components/homeSpline/HomeSpline.tsx"), {
   ssr: false,
@@ -36,7 +37,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
         setTitle(nT.head.headerTitle);
       },
     });
-    window.addEventListener("resize", function(){
+    window.addEventListener("resize", function () {
       if (window.innerWidth <= 760) {
         setIsMobile(true);
       } else {
@@ -52,92 +53,85 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
         es_canonical={"https://acueducto.studio"}
         en_canonical={"https://acueducto.studio/en"}
       />
-      <div style={{zIndex:1}}>
-      <Land id="land">
-        <LandContainer>
-          <H1>{t.landing.heading}</H1>
-          <H2>{t.landing.tagline}</H2>
-          <Link
-            href={"/portafolio"}
-            as={locale === "en" ? "/work" : "/portafolio"}
-            locale={locale}
-            passHref
-            legacyBehavior
-          >
-            <ButtonArrow text={t.landing.button} inverse />
-          </Link>
-        </LandContainer>
-      </Land>
-      <Intro id="removeArrow">
-        <TitleSection {...t.intro} borderTop />
-      </Intro>
-      <Carousel items={t.carousel} />
-      <Services services={t.services} />
-      <TitleSection {...t.clients.intro} borderTop />
-      <LogosSection>
-        <Fade triggerOnce>
-          <span>{t.clients.span}</span>
-          <div style={{maxWidth: !isMobile ? 900 : 650}}>
-            {!isMobile ? (
-              <Picture
-                src={ClientsDesktop}
-                alt="Clientes"
-              />
-            ) : (
-              <Picture
-                src={ClientsMobile}
-                alt="Clientes"
-              />
-            )}
-          </div>
-          <Link
-            href={"/portafolio"}
-            as={locale === "en" ? "/work" : "/portafolio"}
-            locale={locale}
-            passHref
-            legacyBehavior
-          >
-            <ButtonArrow text={t.clients.cta} inverse />
-          </Link>
-        </Fade>
-      </LogosSection>
-      <FAQSection t={t.faq}/>
-      <TitleSection {...t.podcast.intro} borderTop>
-        <Fade>
-          <Link 
-            href={"/podcast"}
-            passHref
-            locale="es"
-            legacyBehavior
-          >
-            <HoverablePicture>
-              <Picture
-                src="/assets/img/layout/podcast_cover.png"
-                width={230}
-                height={230}
-                alt="Cuando el río suena"
-              />
-            </HoverablePicture>
-          </Link>
-          <BroadcastRouter
-            trackClicks
-            episode={3}
-            spotify={"https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"}
-            apple={
-              "https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
-            }
-            google={
-              "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz"
-            }
-            youtube={
-              "https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
-            }
-          />
-        </Fade>
-      </TitleSection>
-      <ContactFooter />
+      <div style={{ zIndex: 1 }}>
+        <Land id="land">
+          <LandContainer>
+            <H1>{t.landing.heading}</H1>
+            <H2>{t.landing.tagline}</H2>
+            <Link
+              href={"/portafolio"}
+              as={locale === "en" ? "/work" : "/portafolio"}
+              locale={locale}
+              passHref
+              legacyBehavior
+            >
+              <ButtonArrow text={t.landing.button} inverse />
+            </Link>
+          </LandContainer>
+        </Land>
+        <Intro id="removeArrow">
+          <TitleSection {...t.intro} borderTop />
+        </Intro>
+        <Carousel items={t.carousel} />
+        <Services services={t.services} />
+        <TitleSection {...t.clients.intro} borderTop />
+        <LogosSection>
+          <Fade triggerOnce>
+            <span className="text">{t.clients.span}</span>
+            <div style={{ maxWidth: !isMobile ? 900 : 650 }}>
+              {!isMobile ? (
+                <Picture src={ClientsDesktop} alt="Clientes" />
+              ) : (
+                <Picture src={ClientsMobile} alt="Clientes" />
+              )}
+            </div>
+          </Fade>
+          <Fade triggerOnce>
+            <span className="text">Lo que nuestros clientes dicen de nosotros</span>
+            <Quotes />
+            <Link
+              href={"/portafolio"}
+              as={locale === "en" ? "/work" : "/portafolio"}
+              locale={locale}
+              passHref
+              legacyBehavior
+            >
+              <ButtonArrow text={t.clients.cta} inverse />
+            </Link>
+          </Fade>
+        </LogosSection>
+        <FAQSection t={t.faq} />
+        <TitleSection {...t.podcast.intro} borderTop>
+          <Fade>
+            <Link href={"/podcast"} passHref locale="es" legacyBehavior>
+              <HoverablePicture>
+                <Picture
+                  src="/assets/img/layout/podcast_cover.png"
+                  width={230}
+                  height={230}
+                  alt="Cuando el río suena"
+                />
+              </HoverablePicture>
+            </Link>
+            <BroadcastRouter
+              trackClicks
+              episode={3}
+              spotify={"https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"}
+              apple={
+                "https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
+              }
+              google={
+                "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz"
+              }
+              youtube={
+                "https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
+              }
+            />
+          </Fade>
+        </TitleSection>
+        <ContactFooter />
       </div>
-      {hasLoaded && <HomeSpline/>}
+      {hasLoaded && <HomeSpline />}
     </PageWrapper>
   );
 }
@@ -260,9 +254,16 @@ const LogosSection = styled.div`
   flex-direction: column;
   align-items: center;
   padding-bottom: calc(70px + 5%);
+  .text {
+    color: ${(props) => props.theme.colors.foreground_lower};
+    margin-bottom: 3.5rem;
+  }
   & > :nth-child(1) {
     color: ${(props) => props.theme.colors.foreground_lower};
     margin-bottom: 3.5rem;
+  }
+  & > :nth-child(3) {
+    margin-top: 6%;
   }
   & > :nth-last-child(1) {
     margin-top: 5.5rem;
