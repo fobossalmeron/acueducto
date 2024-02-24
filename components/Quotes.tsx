@@ -58,7 +58,7 @@ function Deck() {
       api.start((i) => {
         if (index !== i) return; // We're only interested in changing spring-data for the current spring
         const isGone = gone.has(index);
-        const x = isGone ? (200 + window.innerWidth) * dir : down ? mx : 0; // When a card is gone it flys out left or right, otherwise goes back to zero
+        const x = isGone ? (1500 + window.innerWidth) * dir : down ? mx : 0; // When a card is gone it flys out left or right, otherwise goes back to zero
         const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0); // How much the card tilts, flicking it harder makes it rotate faster
         const scale = down ? 1.1 : 1; // Active cards lift up a bit
         return {
@@ -73,7 +73,7 @@ function Deck() {
         setTimeout(() => {
           gone.clear();
           api.start((i) => to(i));
-        }, 600);
+        }, 200);
     }
   );
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
