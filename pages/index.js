@@ -6,7 +6,7 @@ import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import TitleSection from "components/shared/TitleSection";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import { H1, H2 } from "components/shared/Dangerously";
+import { H1, H2, P } from "components/shared/Dangerously";
 import Services from "components/shared/Services";
 import Head from "components/layout/Head";
 import Carousel from "components/Carousel";
@@ -56,8 +56,9 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
       <div style={{ zIndex: 1 }}>
         <Land id="land">
           <LandContainer>
-            <H1>{t.landing.heading}</H1>
-            <H2>{t.landing.tagline}</H2>
+            <H1>{t.landing.seo_h1}</H1>
+            <P className="h1">{t.landing.heading}</P>
+            <H2 className="h2">{t.landing.tagline}</H2>
             <Link
               href={"/portafolio"}
               as={locale === "en" ? "/work" : "/portafolio"}
@@ -70,11 +71,11 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           </LandContainer>
         </Land>
         <Intro id="removeArrow">
-          <TitleSection {...t.intro} borderTop />
+          <TitleSection {...t.intro} borderTop heading={2}/>
         </Intro>
         <Carousel items={t.carousel} />
         <Services services={t.services} />
-        <TitleSection {...t.clients.intro} borderTop />
+        <TitleSection {...t.clients.intro} borderTop heading={2} />
         <LogosSection>
           <Fade triggerOnce>
             <span className="text">{t.clients.span}</span>
@@ -87,8 +88,10 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
             </div>
           </Fade>
           <Fade triggerOnce>
-            <span className="text">Lo que nuestros clientes dicen de nosotros</span>
-            <Quotes />
+            {/* <span className="text">
+              Lo que nuestros clientes dicen de nosotros
+            </span>
+            <Quotes /> */}
             <Link
               href={"/portafolio"}
               as={locale === "en" ? "/work" : "/portafolio"}
@@ -101,7 +104,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           </Fade>
         </LogosSection>
         <FAQSection t={t.faq} />
-        <TitleSection {...t.podcast.intro} borderTop>
+        <TitleSection {...t.podcast.intro} borderTop heading={2}>
           <Fade>
             <Link href={"/podcast"} passHref locale="es" legacyBehavior>
               <HoverablePicture>
@@ -155,65 +158,80 @@ const Land = styled.section`
   padding: 0 4%;
   grid-gap: 2.2rem;
   align-items: center;
-  h2 {
+  h1 {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    line-height: 140%;
+    font-weight:100;
+  }
+  .h2 {
     font-size: 2.1rem;
     margin-top: 15px;
     max-width: 424px;
     color: ${(props) => props.theme.colors.white};
+    margin-bottom: 2rem;
   }
-  h1 {
+  .h1 {
     color: ${(props) => props.theme.colors.white};
     line-height: 100%;
     font-size: 7rem;
     max-width: 860px;
+    font-weight:500;
   }
   @media (max-width: 1115px) {
-    h1 {
+    .h1 {
       font-size: 6.7rem;
     }
   }
   @media (max-width: 1070px) {
-    h1 {
+    .h1 {
       font-size: 6.4rem;
     }
   }
   @media (max-width: 1025px) {
-    h1 {
+    .h1 {
       font-size: 6.2rem;
     }
   }
   @media (max-width: 1000px) {
     h1 {
+      font-size: 1.3rem;
+    }
+    .h1 {
       font-size: 5.9rem;
     }
   }
   @media (max-width: 900px) {
-    h1 {
+    .h1 {
       font-size: 5rem;
       max-width: 360px;
     }
-    h2 {
+    .h2 {
       font-size: 1.8rem;
       max-width: 420px;
     }
   }
   @media (max-width: 700px) {
     h1 {
+      font-size: 1.1rem;
+    }
+    .h1 {
       font-size: 4rem;
       max-width: 450px;
     }
   }
   @media (max-width: 520px) {
-    h1 {
+    .h1 {
       max-width: 280px;
     }
   }
   @media (max-width: 420px) {
-    h1 {
+    .h1 {
       font-size: 3.35rem;
       max-width: 250px;
     }
-    h2 {
+    .h2 {
       font-size: 1.6rem;
       max-width: 280px;
     }
@@ -224,9 +242,6 @@ const LandContainer = styled.div`
   display: flex;
   flex-direction: column;
   grid-column: 2 / span 10;
-  h2 {
-    margin-bottom: 2rem;
-  }
   @media (max-width: 570px) {
     grid-column: 1 / span 11;
   }

@@ -31,7 +31,7 @@ export default function Contact({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/contact"}
         noIndex
       ></Head>
-      <CustomPinnedSection title={t.intro.title} id="Scroll">
+      <CustomPinnedSection title={t.intro.title} id="Scroll" heading={1}>
         <p>
           {t.intro.p2} <br />
           <a

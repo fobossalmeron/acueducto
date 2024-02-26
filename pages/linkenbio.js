@@ -24,7 +24,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
         es_canonical={"https://acueducto.studio/linkenbio"}
         noIndex
       ></Head>
-      <MetalPinnedSection title={title}>
+      <MetalPinnedSection title={title} heading={1}>
         <ul>
           {links.map((link, index) => (
             <Resource key={"linkentry" + index}>

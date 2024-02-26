@@ -31,7 +31,7 @@ export default function Error({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/404"}
         noIndex
       />
-      <TitleSection {...t.intro} />
+      <TitleSection {...t.intro} heading={1}/>
       <ContactFooter />
     </PageWrapper>
   );

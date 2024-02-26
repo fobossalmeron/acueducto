@@ -28,11 +28,7 @@ const stepIconArray = [
   Culture,
 ];
 
-const SpinPinnedSection = ({
-  hasLoaded,
-  children,
-  intro,
-}) => {
+const SpinPinnedSection = ({ hasLoaded, children, intro }) => {
   const [spinWord, setSpinWord] = useState(0);
   useInterval(
     () => {
@@ -43,7 +39,11 @@ const SpinPinnedSection = ({
   );
   let spinTitle = intro.pre_title + intro.words[spinWord] + intro.post_title;
 
-  return <PinnedSection title={spinTitle}>{children}</PinnedSection>;
+  return (
+    <PinnedSection title={spinTitle} seo_h1={intro.seo_h1}>
+      {children}
+    </PinnedSection>
+  );
 };
 
 function Consultoria({ locale, setTitle, pt, hasLoaded }) {
@@ -73,7 +73,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
           <P>{intro.p}</P>
           <ConsultoriaCTA cta={cta} id="first" />
           <FitSection>
-            <h3>{fit_section.title}</h3>
+            <h2>{fit_section.title}</h2>
             <P>{fit_section.p}</P>
             <ul>
               {fit_section.ul.map((li, i) => (
@@ -84,7 +84,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
         </>
       </SpinPinnedSection>
 
-      <TitleSection {...areas_section.intro} borderTop />
+      <TitleSection {...areas_section.intro} borderTop heading={2} />
       <Steps steps={areas_section.areas} iconArray={stepIconArray}>
         <LastStep>
           <Fade triggerOnce>
@@ -97,19 +97,19 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
           </Fade>
         </LastStep>
       </Steps>
-      <TitleSection {...process_section.intro} borderTop />
+      <TitleSection {...process_section.intro} borderTop heading={2} />
       <StepGrid>
         {process_section.process.map((step, index) => (
           <Fade key={`consultingStep${index}`} triggerOnce>
             <div>
               <span>0{index + 1}</span>
-              <h4>{step.title}</h4>
+              <h3>{step.title}</h3>
               <p>{step.p}</p>
             </div>
           </Fade>
         ))}
       </StepGrid>
-      <TitleSection {...last_section.intro} borderTop>
+      <TitleSection {...last_section.intro} borderTop heading={2}>
         <ConsultoriaCTA cta={cta} id="second" diagnostico_cta />
       </TitleSection>
       <ContactFooter />
@@ -147,7 +147,7 @@ const StepGrid = styled.div`
     color: ${(p) => p.theme.colors.accent_smalltext};
     font-size: 1.6rem;
   }
-  h4 {
+  h3 {
     font-size: 2.8rem;
     line-height: 125%;
     font-weight: 100;
@@ -170,7 +170,7 @@ const StepGrid = styled.div`
     }
   }
   @media (max-width: 1250px) {
-    h4 {
+    h3 {
       font-size: 2.2rem;
       font-weight: 200;
     }
@@ -198,7 +198,7 @@ const StepGrid = styled.div`
     div:not(:last-of-type) {
       margin-bottom: 10%;
     }
-    h4 {
+    h3 {
       margin-bottom: 5px;
     }
   }
@@ -260,7 +260,7 @@ const FitSection = styled.div`
       }
     }
   }
-  h3 {
+  h2 {
     font-size: 3.2rem;
     line-height: 130%;
     font-weight: 100;
@@ -270,17 +270,17 @@ const FitSection = styled.div`
     margin-bottom: 5px;
   }
   @media (max-width: 1250px) {
-    h3 {
+    h2 {
       font-size: 2.9rem;
     }
   }
   @media (max-width: 1000px) {
-    h3 {
+    h2 {
       font-size: 2.4rem;
     }
   }
   @media (max-width: 800px) {
-    h3 {
+    h2 {
       font-size: 2.2rem;
     }
   }

@@ -23,6 +23,7 @@
     "@splinetool/react-spline": "^2.2.6",
     "@splinetool/runtime": "^1.0.48",
     "@svgr/webpack": "^6.2.0",
+    "@use-gesture/react": "^10.3.0",
     "body-scroll-lock": "^4.0.0-beta.0",
     "eslint-config-next": "^13.4.13",
     "gray-matter": "^4.0.3",

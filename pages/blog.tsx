@@ -22,7 +22,7 @@ export default function Articles({ locale, setTitle, posts, pt }) {
         {...head}
         es_canonical={`https://acueducto.studio/blog`}
       ></Head>
-      <TitleSection {...intro} />
+      <TitleSection {...intro} heading={1}/>
       {posts.map((post, i) => (
         <SingleArticle
           {...post}

@@ -16,6 +16,8 @@ import Quote from "components/caseStudy/shared/Quote";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import Picture from "components/caseStudy/shared/Picture";
+import BoxesImage from "public/assets/img/casestudies/rahid/boxes.png";
+import Image from "next/image";
 
 const rahidBackground = "#F9F5F0";
 const rahidForeground = "#31302E";
@@ -135,12 +137,20 @@ function Rahid({ locale, setTitle, pt }) {
           <P>{t.fourth_section.p2}</P>
         </TextColumn>
         <InsertBlock>
-          <Picture
+          {/* <Picture
             src="/assets/img/casestudies/rahid/boxes.png"
             alt="Home Rahid.co"
             width={960}
             height={754}
-          />
+          /> */}
+          <Fade triggerOnce>
+          <Image
+            src={BoxesImage}
+            alt="Home Rahid.co"
+            width={960}
+            height={754}
+            placeholder="blur"
+          /></Fade>
           <P>{t.fourth_section.graphicp}</P>
         </InsertBlock>
         <TextColumn>

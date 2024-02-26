@@ -63,6 +63,7 @@ const FAQ = ({ t }) => {
       notSticky
       borderTop
       disableFade
+      heading={2}
     >
       <>
         <ol>

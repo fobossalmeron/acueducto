@@ -29,7 +29,7 @@ const TitleSection = ({
 }: TitleProps) => {
   return (
     <Grid borderTop={borderTop}>
-      {(!heading || heading === 1) && (
+      {heading === 1 && (
         <Fade triggerOnce>
           <H1 className="h1">{title}</H1>
         </Fade>
@@ -37,6 +37,11 @@ const TitleSection = ({
       {heading === 2 && (
         <Fade triggerOnce>
           <H2 className="h1">{title}</H2>
+        </Fade>
+      )}
+      {!heading && (
+        <Fade triggerOnce>
+          <P className="h1">{title}</P>
         </Fade>
       )}
       {p && (

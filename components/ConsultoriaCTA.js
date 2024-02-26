@@ -9,7 +9,7 @@ import ButtonArrow from "components/shared/footers/ButtonArrow";
 const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
   return (
     <Container>
-      <h3>{cta.title}</h3>
+      <h2>{cta.title}</h2>
       {price ? (
         <Span>{`${cta.price} <em>${cta.sessions}</em>`}</Span>
       ) : (
@@ -23,7 +23,7 @@ const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
       {diagnostico_cta && (
         <Diagnostico>
           <Fade triggerOnce>
-            <h3>{cta.title2}</h3>
+            <h2>{cta.title2}</h2>
             <p>
               <span>{cta.linktext}</span>
               <Link href={cta.link[0]} legacyBehavior>
@@ -78,14 +78,14 @@ const Container = styled.div`
   form {
     margin-bottom: 15%;
   }
-  h3 {
+  h2 {
     font-size: 3.2rem;
     line-height: 125%;
     font-weight: 100;
     margin: 4% 0 0;
   }
   @media (max-width: 1250px) {
-    h3 {
+    h2 {
       font-size: 2.9rem;
     }
   }
@@ -96,12 +96,12 @@ const Container = styled.div`
         margin-top: 5px;
       }
     }
-    h3 {
+    h2 {
       font-size: 2.4rem;
     }
   }
   @media (max-width: 800px) {
-    h3 {
+    h2 {
       font-size: 2.2rem;
     }
     & > span {

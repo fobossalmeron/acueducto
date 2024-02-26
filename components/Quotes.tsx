@@ -34,14 +34,14 @@ const to = (i: number) => ({
   x: -20,
   y: i * -4,
   scale: 1,
-//   rot: -10 + Math.random() * 20,
+  //   rot: -10 + Math.random() * 20,
   rot: i,
   delay: i * 100,
 });
 const from = (_i: number) => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 // This is being used down there in the view, it interpolates rotation and scale into a css transform
-const trans = (r: number, s: number, i:number) =>
-  `perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(${(i - 3)/2}deg) scale(${1 - -r*.005}) translateX(${r*15}px)`;
+const trans = (r: number, s: number, i: number) =>
+  `perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(${(i - 3) / 2}deg) scale(${1 - -r * 0.005}) translateX(${r * 15}px)`;
 
 function Deck() {
   const [gone] = useState(() => new Set()); // The set flags all the cards that are flicked out
@@ -73,12 +73,13 @@ function Deck() {
         setTimeout(() => {
           gone.clear();
           api.start((i) => to(i));
-        }, 200);
+        }, 400);
     }
   );
   // Now we're just mapping the animated values to our view, that's it. Btw, this component only renders once. :-)
   return (
     <QuotesSection>
+      <ArrowLeft>←</ArrowLeft>
       {props.map(({ x, y, rot, scale }, i) => (
         <animated.div className={"deck"} key={i} style={{ x, y }}>
           {/* This is the card itself, we're binding our gesture to it (and inject its index so we know which is which) */}
@@ -110,8 +111,15 @@ function Deck() {
 
 export default Deck;
 
+const ArrowLeft = styled.div`
+  content: "←";
+  position: absolute;
+  left: 40px;
+  font-size: 4rem;
+`;
+
 const QuotesSection = styled.div`
-margin-top:2.3rem;
+  margin-top: 2.3rem;
   height: 350px;
   display: flex;
   align-items: center;
@@ -133,6 +141,7 @@ margin-top:2.3rem;
     border-radius: 30px;
     cursor: grab;
     padding: 10%;
+    touch-action: none;
     .text {
       user-select: none;
       font-size: 2rem;

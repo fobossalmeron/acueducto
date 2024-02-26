@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import { P, H4 } from "components/shared/Dangerously";
+import { P, H2 } from "components/shared/Dangerously";
 import BorderLink from "components/shared/BorderedLink";
 import { Fade } from "react-awesome-reveal";
 import Arrow from "components/shared/Arrow";
@@ -58,11 +58,7 @@ const SingleCase = (props) => {
         <Fade triggerOnce>
           <LinkComplex>
             <a>
-              {props.link === "borgatta" ? (
-                <HoverableItalic>{props.title}</HoverableItalic>
-              ) : (
-                <Hoverable>{props.title}</Hoverable>
-              )}
+              <Hoverable>{props.title}</Hoverable>
             </a>
           </LinkComplex>
         </Fade>
@@ -101,11 +97,7 @@ const CaseList = ({ limit }) => {
 
 export default React.memo(CaseList);
 
-const Hoverable = styled.h4`
-  ${BorderLink({ showLink: false })}
-`;
-
-const HoverableItalic = styled(H4)`
+const Hoverable = styled(H2)`
   ${BorderLink({ showLink: false })}
 `;
 
@@ -150,7 +142,7 @@ const Info = styled.div`
   a {
     text-decoration: none;
   }
-  h4 {
+  h2 {
     font-size: 4.5rem;
     font-weight: 300;
     line-height: 115%;
@@ -183,19 +175,19 @@ const Info = styled.div`
     }
   }
   @media (max-width: 1160px) {
-    h4 {
+    h2 {
       font-size: 4rem;
       background-position: 0 5.1rem;
     }
   }
   @media (max-width: 950px) {
-    h4 {
+    h2 {
       font-size: 3.5rem;
       background-position: 0 4.4rem;
     }
   }
   @media (max-width: 780px) {
-    h4 {
+    h2 {
       font-size: 3rem;
       background-position: 0 3.8rem;
     }
@@ -207,7 +199,7 @@ const Info = styled.div`
     div:nth-of-type(2) {
       margin-top: 5px;
     }
-    h4 {
+    h2 {
       margin-bottom: 20px;
     }
   }
@@ -228,7 +220,7 @@ const Info = styled.div`
     }
   }
   @media (max-width: 500px), (max-height: 450px) {
-    h4 {
+    h2 {
       font-size: 2.4rem;
       background-position: 0 3.1rem;
     }
@@ -291,7 +283,9 @@ const VidContainer = styled.div`
     right: 0;
     width: 100%;
     will-change: transform, opacity;
-    transition: transform 0.3s ease-out, opacity 0.5s ease;
+    transition:
+      transform 0.3s ease-out,
+      opacity 0.5s ease;
   }
   @media (max-width: 700px) {
     margin: 5% 5% 10px 5%;

@@ -8,7 +8,7 @@ const Services = ({ services }) => {
   let heights = [127, 153, 173, 137];
   return (
     <ServicesSection>
-      <PinnedSection title={services.title} borderTop>
+      <PinnedSection title={services.title} borderTop heading={2}>
         {services.areas.map((area, index) => (
           <Service key={"area" + index}>
             <Fade triggerOnce>
