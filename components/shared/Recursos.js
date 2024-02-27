@@ -23,13 +23,13 @@ const Products = () => {
             <span>podcast</span>
           </a>
         </Link>
-        <Link href="/articulos" locale="es" legacyBehavior>
+        <Link href="/blog" locale="es" legacyBehavior>
           <a>
             <Picture
               src="/assets/img/layout/recursoarticulo.jpg"
               width={120}
               height={120}
-              alt="artículos"
+              alt="blog posts"
             />
             <span>{t.articles}</span>
           </a>

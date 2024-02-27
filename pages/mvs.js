@@ -24,7 +24,7 @@ function Mvs({ locale, setTitle, pt, episodes }) {
         es_canonical="https://acueducto.studio/consultoria"
         noIndex
       />
-      <PinnedSection disableFade title={intro.title}>
+      <PinnedSection disableFade title={intro.title} heading={1}>
         <>
           <Fade>
             <P>{intro.p}</P>

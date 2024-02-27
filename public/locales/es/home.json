@@ -1,12 +1,13 @@
 {
   "head": {
-    "title": "Acueducto | Construimos interfaces y productos digitales",
-    "description": "En Acueducto ayudamos a fundadores, CEOs, CTOs y CMOs a diseñar y construir web apps y móviles que solucionan problemas reales.",
+    "title": "Empresa de desarrollo de apps y software: Acueducto",
+    "description": "Acueducto es una empresa de desarrollo de software y web apps o móviles que ayuda a fundadores, CEOs, CTOs y CMOs a solucionar problemas reales.",
     "header_title": ""
   },
   "landing": {
+    "seo_h1": "Empresa de desarrollo de software y apps: Acueducto",
     "heading": "apalanca tu negocio con tecnología",
-    "tagline": "Somos un estudio de productos digitales en CDMX.",
+    "tagline": "Somos un estudio de productos digitales en Ciudad de México.",
     "button": "casos de estudio"
   },
   "intro": {

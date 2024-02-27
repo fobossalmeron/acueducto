@@ -34,7 +34,7 @@ Estamos viviendo un crecimiento exponencial en las startups tecnológicas latino
 
 Y esto no es casualidad. También en los últimos años se ha inyectado una cantidad gigantesca de capital de riesgo al sector tecnológico latinoamericano. La inversión de Venture Capital [superó los 19 mil millones de dólares el último año y en tan sólo dos semanas de 2022 esta ha sido de 450 millones](https://news.crunchbase.com/news/latin-america-venture-growth-startups-2021-monthly-recap/).
 
-Esto significa que año con año cientos de empresas están recibiendo millones de dólares en inversión para probar sus soluciones y penetrar mercados. Y al mismo tiempo, jamás había sido tan barato desarrollar y [_testear_ un MVP](https://acueducto.studio/articulos/piensa-tu-producto-escalable-desde-el-inicio) con usuarios reales en internet.
+Esto significa que año con año cientos de empresas están recibiendo millones de dólares en inversión para probar sus soluciones y penetrar mercados. Y al mismo tiempo, jamás había sido tan barato desarrollar y [_testear_ un MVP](https://acueducto.studio/blog/piensa-tu-producto-escalable-desde-el-inicio) con usuarios reales en internet.
 
 Latinoamérica está plagada de problemas y desde el sector tecnológico se están poniendo nuevas soluciones sobre la mesa como [comida a base de plantas](https://notco.com/), nuevos [servicios financieros](https://www.nu.com.mx/), [supermercados en línea](https://justo.mx/) y muchas, muchísimas, más. Además, [la penetración de internet en todo el continente](https://www.statista.com/topics/2432/internet-usage-in-latin-america/#dossierKeyfigures) es de más del 70%, llegando en algunos países a superar el 85%.
 

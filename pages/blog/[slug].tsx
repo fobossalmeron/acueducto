@@ -10,7 +10,7 @@ import ResourceFooter from "components/shared/footers/ResourceFooter";
 
 export default function Article({ locale, setTitle, article, numberOfE }) {
   useEffect(() => {
-    setTitle("Artículo");
+    setTitle("Blog");
   }, [locale]);
 
   return (
@@ -18,8 +18,8 @@ export default function Article({ locale, setTitle, article, numberOfE }) {
       <Head
         title={article.title}
         description={article.subtitle}
-        headerTitle="Artículo"
-        es_canonical={`https://acueducto.studio/articulos/${article.slug}`}
+        headerTitle="Blog"
+        es_canonical={`https://acueducto.studio/blog/${article.slug}`}
         image={{ fileName: `${article.slug}.png`, alt: article.title }}
       ></Head>
       <ArticlePage {...article} slug={article.slug} />

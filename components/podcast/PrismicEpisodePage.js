@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { H1 } from "components/shared/Dangerously";
+import { P, H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
@@ -40,12 +40,31 @@ const PrismicEpisodePage = ({
   const insights = data.introduction[0].insights;
   const content = data.body;
 
+  //esta función es para poder alterar la propiedad seo_h1 de los capítulos de prismic
+  //habrá que integrarla con los .md que tienen otro funcionamiento.
+  //solo es para esos 3 capítulos
+  //PD se que es horrible se te ocurre otra cosa?
+  const seo_h1 = () => {
+    let seo;
+    if (uid == "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos") {
+      seo = undefined;
+    } else if (uid == "como-se-ve-la-educacion-online") {
+      seo = "Nahuel Lema y Coderhouse ¿Qué es, de dónde es y es bueno?";
+    } else if (uid == "como-captar-3m-de-usuarios") {
+      seo = undefined;
+    } else {
+      seo = undefined;
+    }
+    return seo;
+  };
+
   const embedYoutube = youtube && youtube.replace("watch?v=", "embed/");
 
   const [domLoaded, setDomLoaded] = useState(false);
 
   useEffect(() => {
     setDomLoaded(true);
+    console.log(seo_h1());
   }, []);
 
   return (
@@ -77,7 +96,19 @@ const PrismicEpisodePage = ({
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
-            <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+            {
+              //Te acabo de introducir una complejidad, ver la función seo_h1 arriba
+              seo_h1() ? (
+                <>
+                  <h1 className="seo_h1">{seo_h1()}</h1>
+                  <P className="h1">
+                    {title.charAt(0).toLowerCase() + title.slice(1)}
+                  </P>
+                </>
+              ) : (
+                <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+              )
+            }
             {youtube && domLoaded && (
               <Center>
                 <VideoContainer>
@@ -301,11 +332,16 @@ const EpisodeNumberStyled = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
+  margin-bottom: 20px;
   @media (max-width: 1000px) {
     transform: scale(0.9);
   }
   @media (max-width: 800px) {
     transform: scale(0.8);
+    margin-top: 10px;
+  }
+  @media (max-width: 650px) {
+    margin-top: 0px;
   }
 `;
 

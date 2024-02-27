@@ -53,7 +53,7 @@ const ResourceFooter = ({
           <Fade triggerOnce>
             <p>
               {resource.p2}
-              {"+100"}
+              {"+130"}
               {resource.p3}
               <Link href={"/mvs"} passHref legacyBehavior>
                 <a>Minimum Viable Startup</a>
@@ -159,7 +159,7 @@ const Grid = styled(TitleSectionGrid)<{ shadow?: boolean }>`
   }
   @media (max-width: 600px) {
     > div:nth-of-type(3) {
-      margin-bottom: 20%;
+      /* margin-bottom: 20%; */
     }
     p {
       max-width: 360px;

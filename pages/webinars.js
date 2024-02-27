@@ -19,7 +19,7 @@ function Webinars({ locale, setTitle }) {
         es_canonical={"https://acueducto.studio/webinars"}
         noIndex
       />
-      <PinnedSection title="próximos webinars">
+      <PinnedSection title="próximos webinars" heading={1}>
         <Fade triggerOnce>
           <Webinar>
             <iframe

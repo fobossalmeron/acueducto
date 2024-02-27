@@ -32,7 +32,7 @@ export default function Cookies({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/cookies"}
         noIndex
       />
-      <SimplePinnedSection title={t.intro.title}>
+      <SimplePinnedSection title={t.intro.title} heading={1}>
         <P>{t.intro.p}</P>
         <p>
           {b.p0}

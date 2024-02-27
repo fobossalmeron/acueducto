@@ -43,7 +43,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
           priority
         />
       </Team>
-      <ControlledPadding as={PinnedSection} title={t.intro.title} notSticky>
+      <ControlledPadding as={PinnedSection} title={t.intro.title} notSticky heading={1}>
         <P>{t.intro.p}</P>
       </ControlledPadding>
       <PaperPlane>
@@ -56,7 +56,7 @@ function About({ locale, setTitle, pt, hasLoaded }) {
         />
       </PaperPlane>
       <ManifiestoSection t={t.manifesto} />
-      <TitleSection {...t.values} borderTop>
+      <TitleSection {...t.values} borderTop heading={2}>
         <Recursos />
       </TitleSection>
       <ContactFooter />

@@ -13,16 +13,16 @@ export default function Articles({ locale, setTitle, posts, pt }) {
   const { intro, head } = pt;
 
   useEffect(() => {
-    setTitle("Artículos");
+    setTitle("Blog");
   }, [locale]);
 
   return (
     <PageWrapper>
       <Head
         {...head}
-        es_canonical={`https://acueducto.studio/articulos`}
+        es_canonical={`https://acueducto.studio/blog`}
       ></Head>
-      <TitleSection {...intro} />
+      <TitleSection {...intro} heading={1}/>
       {posts.map((post, i) => (
         <SingleArticle
           {...post}
@@ -31,7 +31,7 @@ export default function Articles({ locale, setTitle, posts, pt }) {
           key={`article${i}`}
         />
       ))}
-      <ResourceFooter identify="articulos" />
+      <ResourceFooter identify="blog" />
     </PageWrapper>
   );
 }
@@ -49,7 +49,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     ])
   ).sort((a,b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
-  const pt = ssrLocale({ locale: context.locale, fileName: "articulos.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: "blog.json" });
 
   if (!pt) {
     return {

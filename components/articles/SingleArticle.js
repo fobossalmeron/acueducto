@@ -14,7 +14,7 @@ const SingleArticle = ({
   reverse,
 }) => {
   const LinkComplex = ({ children }) => (
-    <Link href={"/articulos/" + slug} passHref legacyBehavior>
+    <Link href={"/blog/" + slug} passHref legacyBehavior>
       <a>{children}</a>
     </Link>
   );
@@ -34,20 +34,14 @@ const SingleArticle = ({
         <Fade triggerOnce>
           <div>{featured && <span>Artículo destacado</span>}</div>
           <LinkComplex>
-            {featured ? (
-              <H2overable>
-                {title.charAt(0).toLowerCase() + title.slice(1)}
-              </H2overable>
-            ) : (
-              <H4overable>
-                {title.charAt(0).toLowerCase() + title.slice(1)}
-              </H4overable>
-            )}
+            <H2overable>
+              {title.charAt(0).toLowerCase() + title.slice(1)}
+            </H2overable>
           </LinkComplex>
           <p className="subtitle">{subtitle}</p>
           <div>{featured && <p>{excerpt}</p>}</div>
           <CTA featured={featured}>
-            <Link href={"/articulos/" + slug} passHref legacyBehavior>
+            <Link href={"/blog/" + slug} passHref legacyBehavior>
               <ButtonArrow text="leer más" />
             </Link>
           </CTA>
@@ -210,4 +204,4 @@ const Fader = styled.div`
     rgba(8, 12, 12, 1) 30%,
     rgba(8, 12, 12, 0) 100%
   ); */
-`; 
+`;

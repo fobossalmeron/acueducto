@@ -91,7 +91,7 @@ function PodcastLanding({
       <PodcastGrid>
         <Fade triggerOnce>
           <div>
-            <h1>{intro.subtitle}</h1>
+            <H1>{intro.subtitle}</H1>
             <H2 className="h1">{intro.title}</H2>
             <p>{intro.p}</p>
             <MetalForm
@@ -538,6 +538,7 @@ const PodcastGrid = styled(TitleSectionGrid)`
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-weight: 200;
+    max-width: 490px;
     color: ${(props) => props.theme.colors.foreground_lower};
   }
   .h1 {

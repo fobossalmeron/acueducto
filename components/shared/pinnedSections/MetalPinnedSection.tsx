@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H1 } from "components/shared/Dangerously";
+import { H1, H2, P } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 
 type PinnedProps = {
@@ -12,6 +12,8 @@ type PinnedProps = {
   id?: string;
   children: React.ReactNode;
   disableFade?: boolean;
+  heading?: number;
+  seo_h1?: string;
 };
 
 const MetalPinnedSection = ({
@@ -22,6 +24,8 @@ const MetalPinnedSection = ({
   id,
   disableFade,
   notSticky,
+  heading,
+  seo_h1,
 }: PinnedProps) => (
   <Pinned
     className={className}
@@ -29,9 +33,35 @@ const MetalPinnedSection = ({
     id={id}
     notSticky={notSticky}
   >
-    <Fade triggerOnce>
-      <H1>{title}</H1>
-    </Fade>
+    {
+      // Si viene un h1 de SEO, renderearlo junto con el título
+      seo_h1 && (
+        <Fade triggerOnce>
+          <div>
+            <H1>{seo_h1}</H1>
+            <P className="h1">{title}</P>
+          </div>
+        </Fade>
+      )
+    }
+    {heading === 1 && (
+      <Fade triggerOnce>
+        <H1 className="h1">{title}</H1>
+      </Fade>
+    )}
+    {heading === 2 && (
+      <Fade triggerOnce>
+        <H2 className="h1">{title}</H2>
+      </Fade>
+    )}
+    {
+      // Si no hay heading el default es usar un P, revisamos que tampoco exista un título de SEO
+      !heading && !seo_h1 && (
+        <Fade triggerOnce>
+          <P className="h1">{title}</P>
+        </Fade>
+      )
+    }
     <ScrollDown>
       {disableFade ? children : <Fade triggerOnce>{children}</Fade>}
     </ScrollDown>
@@ -64,7 +94,14 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     grid-column: 2 / span 5;
     z-index: 1;
   }
-  h1,
+  h1:not(.h1) {
+    text-transform: uppercase;
+    font-size: 1.4rem;
+    letter-spacing: 4px;
+    line-height: 140%;
+    font-weight: 100;
+    position: ${(p) => (p.notSticky ? "relative" : "sticky")};
+  }
   .h1 {
     position: ${(p) => (p.notSticky ? "relative" : "sticky")};
     max-height: 300px;
@@ -73,6 +110,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     line-height: 100%;
     font-size: 7rem;
     color: ${(props) => props.theme.colors.accent};
+    font-weight: 500;
   }
   a {
     text-decoration: none;
@@ -82,7 +120,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
   }
   @media (max-width: 1300px) {
     padding-top: 100px;
-    h1 {
+    .h1 {
       top: 100px;
     }
     ${ScrollDown} {
@@ -90,12 +128,15 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     }
   }
   @media (max-width: 1250px) {
-    h1 {
+    .h1 {
       font-size: 6rem;
     }
   }
   @media (max-width: 1100px) {
     h1 {
+      font-size: 1.3rem;
+    }
+    .h1 {
       position: relative;
       top: 0;
       margin-bottom: 5%;
@@ -109,7 +150,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     }
   }
   @media (max-width: 950px) {
-    h1 {
+    .h1 {
       font-size: 5rem;
     }
   }
@@ -119,7 +160,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     ${ScrollDown} {
       grid-column: 3 / span 8;
     }
-    h1 {
+    .h1 {
       font-size: 4rem;
     }
   }
@@ -130,6 +171,9 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
       grid-column: 1 / span 12;
     }
     h1 {
+      font-size: 1.1rem;
+    }
+    .h1 {
       margin-bottom: 0;
       font-size: 3.4rem;
     }

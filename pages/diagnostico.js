@@ -20,7 +20,7 @@ function DiagnosticoDigital({ locale, setTitle, pt }) {
         es_canonical="https://acueducto.studio/diagnostico"
         noIndex
       />
-      <TitleSection {...intro} />
+      <TitleSection {...intro} heading={1}/>
       <Diagnostico
         diagnose_section={diagnose_section}
         results_section={results_section}
