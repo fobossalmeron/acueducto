@@ -41,7 +41,7 @@ const IPhoneAnimation = ({ isMobile }) => {
   };
 
   const getAnimationStyle = () => {
-    const translateY = limitEffect(0.9); // Ajustar para la velocidad del movimiento
+    const translateY = limitEffect(0.9); // Movement speed
     return {
       transform: `translateY(${translateY}px)`,
       transition: "transform 4s ease",
@@ -50,7 +50,7 @@ const IPhoneAnimation = ({ isMobile }) => {
   };
 
   const getAnimationStyleMobile = () => {
-    const translateY = limitEffect(0.9); // Ajustar para la velocidad del movimiento
+    const translateY = limitEffect(0.9); // Movement speed
     return {
       transform: `translateY(${translateY}px)`,
       transition: "transform 1.5s ease",
@@ -60,8 +60,8 @@ const IPhoneAnimation = ({ isMobile }) => {
   return (
     <InView
       as="div"
-      onChange={() => {
-        setAnimation(!animation);
+      onChange={(inView) => {
+        setAnimation(inView);
       }}
     >
       <MobilePicture id="ScrollIphoneAnimation" ref={animationContainer}>

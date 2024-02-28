@@ -26,9 +26,8 @@ const ScrollCardAnimation = ({ isMobile }) => {
     } else {
       scrollY = -window.scrollY;
     }
-
     const progress = scrollY / window.innerHeight || 0;
-    setMoveAmount(progress * 7); // Ajustar este multiplicador según la velocidad de la animación mobile
+    setMoveAmount(progress * 7); // Adjust this multiplier according to the speed of the mobile animation
   };
 
   let card1Animation = useSpring({
@@ -52,7 +51,7 @@ const ScrollCardAnimation = ({ isMobile }) => {
 
   return (
     <Fade delay={300} triggerOnce>
-      <InView as="div" onChange={() => setAnimation(!animation)}>
+      <InView as="div" onChange={(inView) => setAnimation(inView)}>
         {!isMobile ? (
           <PicturesContainerDesktop>
             <Element className="scroll-element">
