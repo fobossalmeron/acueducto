@@ -61,8 +61,6 @@ const Recupera = ({ locale, setTitle, pt }) => {
       }
     };
 
-    console.log(isMobile, "ismobile");
-
     window.addEventListener("resize", handleResize);
 
     return () => {
