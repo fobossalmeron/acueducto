@@ -58,57 +58,21 @@ const ScrollCardAnimation = ({ isMobile }) => {
             <Element className="scroll-element">
               <animated.div style={card1Animation}>
                 <RowDesktop>
-                  <Picture
-                    src={Screenshot1}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot4}
-                    alt="Presentación de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot2}
-                    alt="Homepage de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot3}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot5}
-                    alt="Mensaje de error 404 de la web de Recupera"
-                    withWrapper
-                  />
+                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot4} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot2} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot5} alt="Screenshots" withWrapper />
                 </RowDesktop>
               </animated.div>
             </Element>
             <Element className="scroll-element">
               <animated.div style={card2Animation}>
                 <RowDesktop>
-                  <Picture
-                    src={Screenshot6}
-                    alt="Footer de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot7}
-                    alt="Presentación de la versión beta de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot8}
-                    alt="Función de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot9}
-                    alt="Mensaje de éxito de la web de Recupera"
-                    withWrapper
-                  />
+                  <Picture src={Screenshot6} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot7} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot8} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot9} alt="Screenshots" withWrapper />
                 </RowDesktop>
               </animated.div>
             </Element>
@@ -118,68 +82,28 @@ const ScrollCardAnimation = ({ isMobile }) => {
             <Element className="scroll-element">
               <animated.div style={card1Animation}>
                 <FirstRowMobile>
-                  <Picture
-                    src={Screenshot1}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot2}
-                    alt="Homepage de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot3}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
+                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot2} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
                 </FirstRowMobile>
               </animated.div>
             </Element>
             <Element className="scroll-element">
               <animated.div style={card2Animation}>
                 <SecondRowMobile>
-                  <Picture
-                    src={Screenshot3}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot7}
-                    alt="Presentación de la versión beta de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot8}
-                    alt="Función de la app de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot1}
-                    alt="Opciones de la app de Recupera"
-                    withWrapper
-                  />
+                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot7} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot8} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
                 </SecondRowMobile>
               </animated.div>
             </Element>
             <Element className="scroll-element">
               <animated.div style={card1Animation}>
                 <FirstRowMobile>
-                  <Picture
-                    src={Screenshot6}
-                    alt="Footer de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot9}
-                    alt="Mensaje de éxito de la web de Recupera"
-                    withWrapper
-                  />
-                  <Picture
-                    src={Screenshot5}
-                    alt="Mensaje de error 404 de la web de Recupera"
-                    withWrapper
-                  />
+                  <Picture src={Screenshot6} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot9} alt="Screenshots" withWrapper />
+                  <Picture src={Screenshot5} alt="Screenshots" withWrapper />
                 </FirstRowMobile>
               </animated.div>
             </Element>
@@ -202,6 +126,11 @@ const PicturesContainerDesktop = styled.div`
     width: 367px;
     img {
       border-radius: 7.4px;
+    }
+  }
+  @media (max-width: 890px) {
+    .image {
+      width: 222px;
     }
   }
 `;

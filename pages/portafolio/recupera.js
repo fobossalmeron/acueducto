@@ -61,6 +61,8 @@ const Recupera = ({ locale, setTitle, pt }) => {
       }
     };
 
+    console.log(isMobile, "ismobile");
+
     window.addEventListener("resize", handleResize);
 
     return () => {
@@ -265,6 +267,7 @@ const LandSection = styled(CommonSection)`
     flex-direction: column;
     justify-content: space-evenly;
     .logo {
+      width: 223px;
       right: 0%;
     }
     .brand1 {
