@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { P, H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "./EpisodeNumber";
 import Link from "next/link";
@@ -10,7 +9,6 @@ import BorderLink from "components/shared/BorderedLink";
 import CenteredSection, {
   Content,
   Insights,
-  Transcript,
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
@@ -128,7 +126,7 @@ const PrismicEpisodePage = ({
           </>
         </Fade>
         <Fade triggerOnce>
-          <PrismicEpisodePreview
+          <EpisodePreview
             hideImageMobile
             title={title}
             guest={guest}
@@ -144,6 +142,7 @@ const PrismicEpisodePage = ({
             date={date}
             category={category}
             longFormat
+            prismic
           />
         </Fade>
         {spotify && insights.length > 0 && (
@@ -187,7 +186,7 @@ const PrismicEpisodePage = ({
         <NextEp>
           <p>Escucha otro episodio</p>
           {findNextPrismic ? (
-            <PrismicEpisodePreview
+            <EpisodePreview
               hideImageMobile
               title={nextEpisodePrismic.data.introduction[0].title[0].text}
               guest={nextEpisodePrismic.data.introduction[0].guest}
@@ -205,6 +204,7 @@ const PrismicEpisodePage = ({
               date={nextEpisodePrismic.data.introduction[0].date}
               category={nextEpisodePrismic.data.introduction[0].category}
               simplest
+              prismic
             />
           ) : (
             <EpisodePreview {...nextEpisodePrismic} simplest />

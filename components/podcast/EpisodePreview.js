@@ -8,6 +8,7 @@ import EpisodeNumber from "./EpisodeNumber";
 import ShareRouter from "./ShareRouter";
 import BorderLink from "components/shared/BorderedLink";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
+import { PrismicNextImage } from "@prismicio/next";
 
 const EpisodePreview = ({
   title,
@@ -26,6 +27,8 @@ const EpisodePreview = ({
   simplest,
   text,
   hideImageMobile,
+  podcastImage,
+  prismic,
 }) => {
   const LinkComplex = ({ children }) => (
     <Link href={"/podcast/" + slug} passHref legacyBehavior>
@@ -57,20 +60,32 @@ const EpisodePreview = ({
           hideImageMobile={hideImageMobile}
         >
           {longFormat ? (
-            <Picture
-              src={`/assets/img/podcast/${episode}.jpg`}
-              alt={title + " - " + guest}
-              height={180}
-              width={180}
-            />
-          ) : (
-            <LinkComplex>
+            prismic ? (
+              <PrismicNextImage field={podcastImage} width="180" height="180" />
+            ) : (
               <Picture
                 src={`/assets/img/podcast/${episode}.jpg`}
                 alt={title + " - " + guest}
-                height={simplest ? 185 : 180}
-                width={simplest ? 185 : 180}
+                height={180}
+                width={180}
               />
+            )
+          ) : (
+            <LinkComplex>
+              {prismic ? (
+                <PrismicNextImage
+                  field={podcastImage}
+                  height={simplest ? "185" : "180"}
+                  width={simplest ? "185" : "180"}
+                />
+              ) : (
+                <Picture
+                  src={`/assets/img/podcast/${episode}.jpg`}
+                  alt={title + " - " + guest}
+                  height={simplest ? 185 : 180}
+                  width={simplest ? 185 : 180}
+                />
+              )}
             </LinkComplex>
           )}
         </PictureContainer>
@@ -302,7 +317,7 @@ const NewPod = styled.article`
       color: ${(p) => p.theme.colors.foreground_low};
     }
     strong {
-      font-size:1.8rem;
+      font-size: 1.8rem;
       display: block;
     }
   }

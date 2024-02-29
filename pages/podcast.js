@@ -20,7 +20,6 @@ import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
 import { advancedMatching } from "utils/analytics";
 import { createClient } from "../prismicio";
-import PrismicEpisodeFeature from "../components/podcast/PrismicEpisodeFeature";
 
 const iconArray = [Persona, Check, BuildStory];
 
@@ -131,7 +130,7 @@ function PodcastLanding({
         <Limiter>
           {/* <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}> */}
           {lastPrismicEpisode?.data.introduction[0].episode >= 105 ? (
-            <PrismicEpisodeFeature {...lastPrismicEpisode} blue />
+            <EpisodeFeature {...lastPrismicEpisode} blue />
           ) : (
             <EpisodeFeature {...lastEpisode} blue />
           )}
@@ -144,22 +143,7 @@ function PodcastLanding({
           <div>
             {episodes.map((episode, index) => (
               <div key={"npd" + index}>
-                {/* <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  tiltEnable={!isMobile}
-                >
-                  {!isMobile}
-                  {episode.uid 
-                    ? <PrismicEpisodeFeature {...episode} portrait />
-                    : <EpisodeFeature {...episode} />
-                  }
-                </Tilt> */}
-                {episode.uid ? (
-                  <PrismicEpisodeFeature {...episode} portrait />
-                ) : (
-                  <EpisodeFeature {...episode} />
-                )}
+                <EpisodeFeature {...episode} portrait />
               </div>
             ))}
           </div>

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import React, { useEffect } from "react";
 import EpisodePreview from "components/podcast/EpisodePreview";
-import PrismicEpisodePreview from "components/podcast/PrismicEpisodePreview";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
@@ -97,7 +96,7 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
               <EpisodePreview {...episode} key={"npd" + index} />
             ))}
             {prismicEpisodes.map((prismicEpisode, index) => (
-              <PrismicEpisodePreview 
+              <EpisodePreview
                 title={prismicEpisode.data.introduction[0].title[0].text}
                 guest={prismicEpisode.data.introduction[0].guest}
                 business={prismicEpisode.data.introduction[0].business}
@@ -108,10 +107,13 @@ function Podcasts({ locale, setTitle, episodes, pt, prismicEpisodes }) {
                 youtube={prismicEpisode.data.introduction[0].youtube}
                 podcastImage={prismicEpisode.data.images[0].episode}
                 episode={prismicEpisode.data.introduction[0].episode}
-                description={prismicEpisode.data.introduction[0].description[0].text}
+                description={
+                  prismicEpisode.data.introduction[0].description[0].text
+                }
                 date={prismicEpisode.data.introduction[0].date}
                 category={prismicEpisode.data.introduction[0].category}
-                key={"npd" + index} 
+                key={"npd" + index}
+                prismic
               />
             ))}
           </PodcastList>
@@ -158,7 +160,10 @@ export const getStaticProps = async (context, previewData) => {
   //CMS Prismic
   const client = createClient({ previewData });
   const prismicEpisodes = await client.getAllByType("episode");
-  const orderedPrismicEpisodes = prismicEpisodes.sort((ep, nextEp) => ep.data.introduction[0].episode - nextEp.data.introduction[0].episode);
+  const orderedPrismicEpisodes = prismicEpisodes.sort(
+    (ep, nextEp) =>
+      ep.data.introduction[0].episode - nextEp.data.introduction[0].episode
+  );
 
   return {
     props: {
