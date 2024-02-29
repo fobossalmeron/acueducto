@@ -21,7 +21,7 @@ function Mvs({ locale, setTitle, pt, episodes }) {
     <PageWrapper>
       <Head
         {...head}
-        es_canonical="https://acueducto.studio/consultoria"
+        es_canonical="https://acueducto.studio/mvs"
         noIndex
       />
       <PinnedSection disableFade title={intro.title} heading={1}>

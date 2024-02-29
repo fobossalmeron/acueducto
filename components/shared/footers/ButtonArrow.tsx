@@ -28,7 +28,7 @@ ButtonArrow.displayName = 'ButtonArrow';
 
 export default ButtonArrow;
 
-const Pin = styled.span<{ inverse: boolean }>`
+export const Pin = styled.span<{ inverse: boolean }>`
   width: 30px;
   height: 30px;
   pointer-events: none;

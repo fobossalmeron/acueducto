@@ -37,14 +37,20 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
         setTitle(nT.head.headerTitle);
       },
     });
-    window.addEventListener("resize", function () {
-      if (window.innerWidth <= 760) {
-        setIsMobile(true);
-      } else {
-        setIsMobile(false);
-      }
-    });
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => {
+      window.removeEventListener("scroll", checkMobile);
+    };
   }, [locale]);
+
+  const checkMobile = () => {
+    if (window.innerWidth <= 760) {
+      setIsMobile(true);
+    } else {
+      setIsMobile(false);
+    }
+  };
 
   return (
     <PageWrapper>
@@ -71,14 +77,16 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           </LandContainer>
         </Land>
         <Intro id="removeArrow">
-          <TitleSection {...t.intro} borderTop heading={2}/>
+          <TitleSection {...t.intro} borderTop heading={2} />
         </Intro>
         <Carousel items={t.carousel} />
         <Services services={t.services} />
         <TitleSection {...t.clients.intro} borderTop heading={2} />
         <LogosSection>
           <Fade triggerOnce>
-            <span className="text">{t.clients.span}</span>
+            <span className="text">
+              {t.clients.span}
+            </span>
             <div style={{ maxWidth: !isMobile ? 900 : 650 }}>
               {!isMobile ? (
                 <Picture src={ClientsDesktop} alt="Clientes" />
@@ -88,10 +96,10 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
             </div>
           </Fade>
           <Fade triggerOnce>
-            {/* <span className="text">
+            <span className="text">
               Lo que nuestros clientes dicen de nosotros
             </span>
-            <Quotes /> */}
+            <Quotes isMobile={isMobile} />
             <Link
               href={"/portafolio"}
               as={locale === "en" ? "/work" : "/portafolio"}
@@ -163,7 +171,7 @@ const Land = styled.section`
     font-size: 1.4rem;
     letter-spacing: 4px;
     line-height: 140%;
-    font-weight:100;
+    font-weight: 100;
   }
   .h2 {
     font-size: 2.1rem;
@@ -177,7 +185,7 @@ const Land = styled.section`
     line-height: 100%;
     font-size: 7rem;
     max-width: 860px;
-    font-weight:500;
+    font-weight: 500;
   }
   @media (max-width: 1115px) {
     .h1 {
@@ -227,6 +235,9 @@ const Land = styled.section`
     }
   }
   @media (max-width: 420px) {
+    h1 {
+      margin-bottom:5px;
+    }
     .h1 {
       font-size: 3.35rem;
       max-width: 250px;
@@ -272,11 +283,13 @@ const LogosSection = styled.div`
   .text {
     color: ${(props) => props.theme.colors.foreground_lower};
     margin-bottom: 3.5rem;
+    text-align: center;
+    display: block;
   }
-  & > :nth-child(1) {
+  /* & > :nth-child(1) {
     color: ${(props) => props.theme.colors.foreground_lower};
     margin-bottom: 3.5rem;
-  }
+  } */
   & > :nth-child(3) {
     margin-top: 6%;
   }
@@ -292,6 +305,9 @@ const LogosSection = styled.div`
     img {
       max-width: 400px !important;
     }
+  }
+  @media (max-width: 600px) {
+    padding-bottom: 12%;
   }
   @media (max-width: 500px) {
     img {
