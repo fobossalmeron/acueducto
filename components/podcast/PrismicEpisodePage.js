@@ -41,17 +41,17 @@ const PrismicEpisodePage = ({
   const content = data.body;
 
   //esta función es para poder alterar la propiedad seo_h1 de los capítulos de prismic
-  //habrá que integrarla con los .md que tienen otro funcionamiento.
-  //solo es para esos 3 capítulos
+  //habrá que integrarla con EpisodePage que tiene otro funcionamiento
+  //solo es para estos 3 capítulos
   //PD se que es horrible se te ocurre otra cosa?
   const seo_h1 = () => {
     let seo;
     if (uid == "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos") {
-      seo = undefined;
+      seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
     } else if (uid == "como-se-ve-la-educacion-online") {
       seo = "Nahuel Lema y Coderhouse ¿Qué es, de dónde es y es bueno?";
     } else if (uid == "como-captar-3m-de-usuarios") {
-      seo = undefined;
+      seo = "Iván Canales, Nubank Mexico: Como captar 3M de usuarios"
     } else {
       seo = undefined;
     }
