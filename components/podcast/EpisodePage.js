@@ -73,7 +73,6 @@ const EpisodePage = ({
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
-            {console.log(seo_h1, "seo_h1")}
             {seo_h1 ? (
               <>
                 <h1 className="seo_h1">{seo_h1}</h1>

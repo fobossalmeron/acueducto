@@ -130,7 +130,15 @@ function PodcastLanding({
         <Limiter>
           {/* <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}> */}
           {lastPrismicEpisode?.data.introduction[0].episode >= 105 ? (
-            <EpisodeFeature {...lastPrismicEpisode} blue />
+            <EpisodeFeature
+              title={lastPrismicEpisode.data.introduction[0].title[0].text}
+              guest={lastPrismicEpisode.data.introduction[0].guest}
+              business={lastPrismicEpisode.data.introduction[0].business}
+              slug={lastPrismicEpisode.uid}
+              episode={lastPrismicEpisode.data.introduction[0].episode}
+              image={lastPrismicEpisode.data.images[0].solas}
+              blue
+            />
           ) : (
             <EpisodeFeature {...lastEpisode} blue />
           )}

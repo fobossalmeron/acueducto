@@ -3,40 +3,18 @@ import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import Picture from "components/caseStudy/shared/Picture";
 import BorderLink from "components/shared/BorderedLink";
-import { useState } from "react";
-import { useEffect } from "react";
 import { PrismicNextImage } from "@prismicio/next";
 
-const EpisodeFeature = (lastEpisode) => {
-  const [title, setTitle] = useState();
-  const [guest, setGuest] = useState();
-  const [business, setBusiness] = useState();
-  const [slug, setSlug] = useState();
-  const [episode, setEpisode] = useState();
-  const [blue, setBlue] = useState();
-  const [image, setImage] = useState();
-  const [portrait, setPortrait] = useState();
-
-  useEffect(() => {
-    if (lastEpisode.data) {
-      setTitle(lastEpisode.data.introduction[0].title[0].text);
-      setGuest(lastEpisode.data.introduction[0].guest);
-      setBusiness(lastEpisode.data.introduction[0].business);
-      setSlug(lastEpisode.uid);
-      setEpisode(lastEpisode.data.introduction[0].episode);
-      setBlue(lastEpisode.blue);
-      setImage(lastEpisode.data.images[0].solas);
-      setPortrait(lastEpisode.portrait);
-    } else {
-      setTitle(lastEpisode.title);
-      setGuest(lastEpisode.guest);
-      setBusiness(lastEpisode.business);
-      setSlug(lastEpisode.slug);
-      setEpisode(lastEpisode.episode);
-      setBlue(lastEpisode.blue);
-    }
-  }, []);
-
+const EpisodeFeature = ({
+  title,
+  guest,
+  business,
+  slug,
+  episode,
+  blue,
+  portrait,
+  image,
+}) => {
   return (
     <Link
       href={"/podcast/" + slug}
