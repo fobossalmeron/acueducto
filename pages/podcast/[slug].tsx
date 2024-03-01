@@ -8,7 +8,6 @@ import {
 } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import EpisodePage from "components/podcast/EpisodePage";
-import PrismicEpisodePage from "components/podcast/PrismicEpisodePage";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 import type { GetStaticPropsContext } from "next";
@@ -106,10 +105,25 @@ export default function Episodio({
               slugMatchesPrismic.uid !== "como-captar-3m-de-usuarios"
             }
           ></Head>
-          <PrismicEpisodePage
-            {...slugMatchesPrismic}
-            nextEpisodePrismic={nextEpisodePrismic}
+          <EpisodePage
+            title={title}
+            guest={guest}
+            business={business}
+            description={description}
+            seo_h1={seo_title_prismic()}
             slug={slugMatchesPrismic.uid}
+            date={slugMatchesPrismic.data.introduction[0].date}
+            insights={slugMatchesPrismic.data.introduction[0].insights}
+            category={slugMatchesPrismic.data.introduction[0].category}
+            spotify={slugMatchesPrismic.data.introduction[0].spotify}
+            apple={slugMatchesPrismic.data.introduction[0].apple}
+            google={slugMatchesPrismic.data.introduction[0].google}
+            youtube={slugMatchesPrismic.data.introduction[0].youtube}
+            youtubeImage={slugMatchesPrismic.data.images[0].youtube.url}
+            episode={slugMatchesPrismic.data.introduction[0].episode}
+            content={slugMatchesPrismic.data.body}
+            podcastImage={slugMatchesPrismic.data.images[0].episode}
+            next={nextEpisodePrismic}
             findNextPrismic={findNextPrismic}
           />
         </>

@@ -15,6 +15,7 @@ import CenteredSection, {
 import ShareRouter from "./ShareRouter";
 import YouTubePlayer from "react-player/youtube";
 import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
+import { PrismicRichText } from "@prismicio/react";
 
 const EpisodePage = ({
   title,
@@ -33,6 +34,9 @@ const EpisodePage = ({
   episode,
   content,
   next,
+  youtubeImage,
+  podcastImage,
+  findNextPrismic,
 }) => {
   const embedYoutube = youtube && youtube.replace("watch?v=", "embed/");
   const [domLoaded, setDomLoaded] = useState(false);
@@ -69,6 +73,7 @@ const EpisodePage = ({
             <EpisodeNumberStyled>
               <EpisodeNumber episode={episode} />
             </EpisodeNumberStyled>
+            {console.log(seo_h1, "seo_h1")}
             {seo_h1 ? (
               <>
                 <h1 className="seo_h1">{seo_h1}</h1>
@@ -85,7 +90,11 @@ const EpisodePage = ({
                   <Video>
                     <YouTubePlayer
                       className="react-player"
-                      light={`/assets/img/podcast/youtube/${episode}.jpg`}
+                      light={
+                        youtubeImage
+                          ? youtubeImage
+                          : `/assets/img/podcast/youtube/${episode}.jpg`
+                      }
                       url={embedYoutube}
                       controls={true}
                       width="100%"
@@ -112,6 +121,8 @@ const EpisodePage = ({
             description={description}
             date={date}
             category={category}
+            podcastImage={podcastImage}
+            prismic={podcastImage}
             longFormat
           />
         </Fade>
@@ -124,23 +135,38 @@ const EpisodePage = ({
                 operadores, inversionistas y fundadores de {business} es lo
                 siguiente:
               </p>
-              <Transcript as={"div"}>
-                {insights && (
-                  <ul>
-                    {insights.map((insight, i) => (
-                      <Li key={"insight" + i}>{insight}</Li>
-                    ))}
-                  </ul>
-                )}
-              </Transcript>
+              {youtubeImage && insights?.length > 0 ? (
+                <PrismicRichText field={insights.map((e) => e)} />
+              ) : (
+                <Transcript as={"div"}>
+                  {insights && (
+                    <ul>
+                      {insights.map((insight, i) => (
+                        <Li key={"insight" + i}>{insight}</Li>
+                      ))}
+                    </ul>
+                  )}
+                </Transcript>
+              )}
             </Content>
           )}
         </Fade>
         <Fade>
           {spotify && (
             <Content>
-              {content && <ContentType>Transcript</ContentType>}
-              <Transcript>{content}</Transcript>
+              {youtubeImage ? (
+                <>
+                  {content && content?.lenght > 0 && (
+                    <ContentType>Transcript</ContentType>
+                  )}
+                  <PrismicRichText field={content} />
+                </>
+              ) : (
+                <>
+                  <ContentType>Transcript</ContentType>
+                  <Transcript>{content}</Transcript>
+                </>
+              )}
             </Content>
           )}
         </Fade>
@@ -161,7 +187,28 @@ const EpisodePage = ({
         </Fade>
         <NextEp>
           <p>Escucha otro episodio</p>
-          <EpisodePreview {...next} simplest />
+          {!youtubeImage || !findNextPrismic ? (
+            <EpisodePreview {...next} simplest />
+          ) : (
+            <EpisodePreview
+              hideImageMobile
+              title={next.data.introduction[0].title[0].text}
+              guest={next.data.introduction[0].guest}
+              business={next.data.introduction[0].business}
+              slug={next.uid}
+              spotify={next.data.introduction[0].spotify}
+              apple={next.data.introduction[0].apple}
+              google={next.data.introduction[0].google}
+              youtube={next.data.introduction[0].youtube}
+              podcastImage={next.data.images[0].episode}
+              episode={next.data.introduction[0].episode}
+              description={next.data.introduction[0].description[0].text}
+              date={next.data.introduction[0].date}
+              category={next.data.introduction[0].category}
+              simplest
+              prismic
+            />
+          )}
         </NextEp>
       </CenteredSection>
     </>
@@ -170,7 +217,7 @@ const EpisodePage = ({
 
 export default React.memo(EpisodePage);
 
-const Center = styled.div`
+export const Center = styled.div`
   display: flex;
   justify-content: center;
 `;

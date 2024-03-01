@@ -24,7 +24,11 @@ import CaseTable from "../../components/caseStudy/borgatta/CaseTable";
 import Page from "public/assets/img/casestudies/borgatta/page.png";
 import { EditVideo } from "./blockstem";
 
-const white = "#FFFFFF";
+const h2Title = "#d76e32";
+const bodyText1 = "#FFFFFF";
+const bodyText2 = "#626262";
+
+const backgroundColorSection = "#fbfbfd";
 const mainGradient =
   "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);";
 
@@ -133,7 +137,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
               <Results key={`result${i}`} className={`result${i}`}>
                 <div>
                   <span>
-                    {result.sign && <h4>{result.sign}</h4>}
+                    {result.sign && <p className="h4">{result.sign}</p>}
                     {result.title.length > 4 ? (
                       <div>
                         <p className="h2">{result.title.split(" ")[0]}</p>
@@ -150,15 +154,13 @@ const Borgatta = ({ locale, setTitle, pt }) => {
             ))}
           </Fade>
         </ResultContainer>
-        <ResultsOnThePage>
-          <Fade delay={300} triggerOnce>
-            {!isMobile ? (
-              <Image src={ResultMd} alt="Web B360" />
-            ) : (
-              <Image src={ResultSm} alt="Web B360" />
-            )}
-          </Fade>
-        </ResultsOnThePage>
+        <Fade delay={300} triggerOnce>
+          {!isMobile ? (
+            <Image src={ResultMd} alt="Web B360" />
+          ) : (
+            <Image src={ResultSm} alt="Web B360" />
+          )}
+        </Fade>
         <Quote quote={t.third_section.quote} color={"#F4F4F4"} />
       </ThirdSection>
       <FourthSection>
@@ -193,74 +195,44 @@ const PageWrapperBorgatta = styled(PageWrapper)`
   background-blend-mode: normal, overlay, normal;
 `;
 
-const ResultsOnThePage = styled.div`
-  width: 100%;
-  img {
-    width: 100%;
-  }
-`;
-
 const FirstSection = styled(CommonSection)`
-  color: ${white};
+  color: ${bodyText1};
   padding-bottom: 10.7%;
-  .h2,
-  .h3 {
-    font-weight: 500;
-  }
+
   .h2 {
-    font-size: 5.6rem;
     padding-bottom: 4px;
     b {
       opacity: 0.7;
       font-weight: 400;
-      font-size: 4rem;
     }
   }
   .h3 {
-    padding: 0px;
-    padding-bottom: 4%;
+    padding-top: 0px;
     font-size: 3.2rem;
-    line-height: 131%;
-    margin-bottom: 0px;
-    width: 100%;
   }
+
   .image {
-    padding-top: 3.5%;
     max-width: 982px;
   }
+
   @media (max-width: 1000px) {
-    .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    }
     .h3 {
       font-size: 3rem;
     }
     .image {
-      padding: 0px 30px;
+      padding: 0% 3%;
     }
   }
   @media (max-width: 630px) {
-    .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    }
     .h3 {
       font-size: 1.9rem;
-    }
-    .image {
-      padding: 3% 10px;
     }
   }
 `;
 
 const LessonContainer = styled.div`
   padding-top: 9%;
-  padding-bottom: 7.2%;
+  padding-bottom: 14%;
   display: grid;
   grid-template-columns: auto auto;
   grid-template-rows: 159px 181px 159px;
@@ -299,8 +271,7 @@ const Lesson = styled.div`
     display: flex;
     justify-content: center;
     font-size: 1.367rem;
-    position: relative;
-    border: 2px solid #ffffff;
+    border: 2px solid ${bodyText1};
     width: 24px;
     height: 24px;
     border-radius: 50%;
@@ -327,25 +298,15 @@ const Lesson = styled.div`
 `;
 
 const SecondSection = styled(CommonSection)`
-  background-color: #fbfbfd;
-  color: #626262;
+  background-color: ${backgroundColorSection};
+  color: ${bodyText2};
   padding-bottom: 11.11%;
 
   .h2 {
-    color: #d76e32;
+    color: ${h2Title};
     b {
-      color: rgba(215, 110, 50, 0.7);
+      opacity: 0.7;
       font-weight: 400;
-    }
-  }
-  @media (max-width: 1000px) {
-    .h3 {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 630px) {
-    .h3 {
-      font-size: 1.9rem;
     }
   }
 `;
@@ -357,10 +318,7 @@ const AspectContainer = styled.div`
   grid-template-rows: auto auto;
   grid-column-gap: 5%;
   grid-row-gap: 9%;
-  p {
-    font-size: 1.8rem;
-    line-height: 131%;
-  }
+
   @media (max-width: 1000px) {
     padding: 6.7% 3.5%;
   }
@@ -375,7 +333,6 @@ const AspectContainer = styled.div`
 const Aspect = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   background: #ffffff;
   box-shadow:
     0px 2px 0px rgba(162, 162, 162, 0.1),
@@ -383,15 +340,7 @@ const Aspect = styled.div`
     0px 0px 8px rgba(162, 162, 162, 0.1);
   border-radius: 32px;
   padding: 24px;
-  line-height: 131%;
 
-  span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    margin-bottom: 20px;
-  }
   .h4 {
     color: #060809;
     font-weight: 500;
@@ -409,24 +358,11 @@ const Aspect = styled.div`
 
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
-  color: #ffffff;
+  color: ${bodyText1};
   background-blend-mode: normal, overlay, normal;
-  .h2 {
-    color: #f3f4f5;
-    b {
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 400;
-    }
-  }
-  @media (max-width: 1000px) {
-    h3 {
-      font-size: 30px;
-    }
-  }
-  @media (max-width: 630px) {
-    .h3 {
-      font-size: 1.9rem;
-    }
+  .h2 b {
+    opacity: 0.7;
+    font-weight: 400;
   }
 `;
 
@@ -475,25 +411,25 @@ const Results = styled.div`
   border-radius: 32px;
   max-width: 488px;
 
+  .h2,
+  .h3,
+  .h4 {
+    font-weight: 500;
+  }
+
   .h2 {
     font-size: 7rem;
     line-height: 6.5rem;
     padding: 0px;
-    font-weight: 500;
   }
   .h3 {
     font-size: 4.5rem;
-    line-height: 131%;
-    font-weight: 500;
+    padding-top: 0px;
   }
   .h4 {
     font-size: 3.4rem;
-    padding: 0px;
-    font-weight: 500;
   }
   p {
-    font-size: 1.8rem;
-    line-height: 131%;
     padding-top: 1rem;
   }
 
@@ -531,10 +467,6 @@ const Results = styled.div`
     }
     .h3 {
       font-size: 3.6rem;
-      padding-bottom: 1.6rem;
-    }
-    p {
-      font-size: 1.5rem;
     }
     div span div .h3 {
       font-size: 3.6rem;
@@ -542,37 +474,14 @@ const Results = styled.div`
   }
 `;
 
-const Screens = styled.div`
-  min-height: 137em;
-  width: 100%;
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: left top;
-  background-image: url("/assets/img/casestudies/borgatta/resultsOnThePage-md.png");
-  @media (max-width: 630px) {
-    min-height: 111em;
-    background-size: 100%;
-  }
-`;
-
 const FourthSection = styled(CommonSection)`
   background-color: #f4f4f4;
-  color: #626262;
+  color: ${bodyText2};
   .h2 {
-    color: #d76e32;
+    color: ${h2Title};
     b {
-      color: rgba(215, 110, 50, 0.7);
+      opacity: 0.7;
       font-weight: 400;
-    }
-  }
-  img {
-    width: 100%;
-    padding: 7% 1%;
-  }
-  @media (max-width: 630px) {
-    img {
-      width: 100%;
-      padding: 16% 6%;
     }
   }
 `;

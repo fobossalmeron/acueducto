@@ -59,35 +59,42 @@ const EpisodePreview = ({
           hoverable={!longFormat}
           hideImageMobile={hideImageMobile}
         >
-          {longFormat ? (
-            prismic ? (
-              <PrismicNextImage field={podcastImage} width="180" height="180" />
+          {prismic &&
+            (longFormat ? (
+              <PrismicNextImage
+                field={podcastImage}
+                width="180"
+                height="180"
+                alt=""
+              />
             ) : (
+              <LinkComplex>
+                <PrismicNextImage
+                  field={podcastImage}
+                  height={simplest ? "185" : "180"}
+                  width={simplest ? "185" : "180"}
+                  alt=""
+                />
+              </LinkComplex>
+            ))}
+          {!prismic &&
+            (longFormat ? (
               <Picture
                 src={`/assets/img/podcast/${episode}.jpg`}
                 alt={title + " - " + guest}
                 height={180}
                 width={180}
               />
-            )
-          ) : (
-            <LinkComplex>
-              {prismic ? (
-                <PrismicNextImage
-                  field={podcastImage}
-                  height={simplest ? "185" : "180"}
-                  width={simplest ? "185" : "180"}
-                />
-              ) : (
+            ) : (
+              <LinkComplex>
                 <Picture
                   src={`/assets/img/podcast/${episode}.jpg`}
                   alt={title + " - " + guest}
                   height={simplest ? 185 : 180}
                   width={simplest ? 185 : 180}
                 />
-              )}
-            </LinkComplex>
-          )}
+              </LinkComplex>
+            ))}
         </PictureContainer>
         <div>
           <Fade triggerOnce>
