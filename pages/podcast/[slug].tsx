@@ -33,6 +33,26 @@ export default function Episodio({
     slugMatchesPrismic?.data.introduction[0].description[0].text;
   const gif = slugMatchesPrismic?.data.images[0].gif.url;
 
+  //esta función es para poder alterar la propiedad seo_title de los capítulos de prismic
+  //solo es para estos 3 capítulos
+  //PD se que es horrible se te ocurre otra cosa?
+  const seo_title_prismic = () => {
+    let seo;
+    if (
+      slugMatchesPrismic.uid ==
+      "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos"
+    ) {
+      seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
+    } else if (slugMatchesPrismic.uid == "como-se-ve-la-educacion-online") {
+      seo = "Desarrollo de Habilidades Digitales: Explorando Coderhouse";
+    } else if (slugMatchesPrismic.uid == "como-captar-3m-de-usuarios") {
+      seo = "Iván Canales de Nubank México: Cómo captar 3M de usuarios";
+    } else {
+      seo = undefined;
+    }
+    return seo;
+  };
+
   return (
     <PageWrapper>
       {!slugMatchesPrismic && !findNextPrismic && (
@@ -66,7 +86,11 @@ export default function Episodio({
       {slugMatchesPrismic && (
         <>
           <Head
-            title={title + " | " + guest + ", " + business}
+            title={
+              seo_title_prismic()
+                ? seo_title_prismic()
+                : title + " | " + guest + ", " + business
+            }
             description={description}
             headerTitle="Episodio"
             es_canonical={`https://acueducto.studio/podcast/${slugMatchesPrismic.uid}`}

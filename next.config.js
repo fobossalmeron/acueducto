@@ -22,7 +22,7 @@ const nextConfig = {
         source: "/en/nosotros",
         destination: "/en/about",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/es/contact",
@@ -34,7 +34,7 @@ const nextConfig = {
         source: "/en/contacto",
         destination: "/en/contact",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/es/work",
@@ -46,7 +46,7 @@ const nextConfig = {
         source: "/en/portafolio",
         destination: "/en/work",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/es/work/:slug",
@@ -58,7 +58,7 @@ const nextConfig = {
         source: "/en/portafolio/:slug",
         destination: "/en/work/:slug",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/pitch",
@@ -71,16 +71,21 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/articulos/:slug",
+        destination: "/blog/:slug",
+        permanent: true,
+      },
+      {
         source: "/es/privacy",
         destination: "/en/privacy",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/en/privacidad",
         destination: "/en/privacy",
         locale: false,
-        permanent: false,
+        permanent: true,
       },
       {
         source: "/podcast/cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup",
