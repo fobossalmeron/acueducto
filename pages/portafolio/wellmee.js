@@ -24,6 +24,14 @@ import Image from "next/legacy/image";
 import Point4 from "public/assets/img/casestudies/wellmee/Point4.png";
 import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png";
 
+const h2Title = "#383955";
+const bodyText1 = "#4a4a73";
+const bodyText2 = "#FFFFFF";
+const bAccent1 = "#00ceba";
+const bAccent2 = "#7368F8";
+const backgroundColorSection = "#5a5a8c";
+const backgroundColorMain = "#f3f6f3";
+
 const Wellmee = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
   const [t, setT] = useState(pt);
@@ -65,7 +73,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
       <Fade delay={300} triggerOnce>
-        <LandSectionWellmee isMobile={isMobile} title={t.head.title}/>
+        <LandSectionWellmee isMobile={isMobile} title={t.head.title} />
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
@@ -87,9 +95,9 @@ const Wellmee = ({ locale, setTitle, pt }) => {
             {t.intro_section.characteristics.second.subtitle}
           </P>
           <P>{t.intro_section.characteristics.second.p}</P>
-          <div className="combinator">
+          <CombinatorContainer>
             <Picture src={Combinator} alt="Combinator" />
-          </div>
+          </CombinatorContainer>
         </TextColumn>
         <TextColumn>
           <P className="h3">{t.intro_section.characteristics.third.subtitle}</P>
@@ -117,7 +125,9 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <P className="h2">{t?.second_section.title}</P>
         </TextColumn>
-        {loadAssets && <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />}
+        {loadAssets && (
+          <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
+        )}
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -255,88 +265,65 @@ export const getStaticProps = async (context) => {
 };
 
 const PageClipperWellmee = styled(PageWrapper)`
-  background-color: #f3f6f3;
-
+  background-color: ${backgroundColorMain};
   @media (max-width: 1300px) {
     padding: 0px;
   }
 `;
 
 const FirstSection = styled(CommonSection)`
-  color: #4a4a73;
   padding-bottom: 10.7%;
-  //Este PNG ha de ser pesadísimo Rocío comparado con un SVG,
-  //no entiendo esta decisión
-  background-image: url("/assets/img/casestudies/wellmee/Background1.png");
+  background-image: url("/assets/img/casestudies/wellmee/Background1.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0% 30%;
 
-  /* .h2,
-  .h3 {
-    font-weight: 500;
-  } */
   .h2 {
-    /* font-size: 5.8rem;
-    padding-bottom: 26px; */
+    color: ${h2Title};
     b {
-      color: #00ceba;
+      color: ${bAccent1};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
+
+  p {
+    color: ${bodyText1};
+  }
+
   .h3 {
+    color: ${h2Title};
     font-size: 3.6rem;
-    /* color: #383955; */
-    /* padding: 0px; */
-    /* padding-bottom: 4%; */
-    /* line-height: 131%; */
-    /* margin-top: 100px; */
-    /* margin-bottom: 0px; */
-    /* width: 100%; */
-  }
-
-  .combinator {
-    display: flex;
-    justify-content: center;
-    padding: 8% 7% 0% 7%;
-
-    div {
-      max-width: 342px;
-      span {
-        box-shadow: 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
-      }
-    }
+    margin: 0px;
   }
 
   @media (max-width: 1000px) {
     background-position: 0% 33%;
-    /* .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    } */
     .h3 {
       font-size: 3rem;
-      /* margin-top: 80px; */
     }
   }
+
   @media (max-width: 800px) {
     background-position: 0% 35%;
   }
 
   @media (max-width: 630px) {
     background-position: 0% 31%;
-    /* .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    } */
     .h3 {
       font-size: 1.9rem;
-      /* margin-top: 48px; */
+    }
+  }
+`;
+
+const CombinatorContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 8% 7% 0% 7%;
+
+  div {
+    max-width: 342px;
+    span {
+      box-shadow: 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
     }
   }
 `;
@@ -345,7 +332,7 @@ const ChallengesContainer = styled.div`
   display: flex;
   flex-direction: column;
   gap: 52px;
-  padding-top: 2rem;
+  padding-top: 1.8rem;
   max-width: 670px;
 
   @media (max-width: 630px) {
@@ -375,10 +362,10 @@ const Challenge = styled.div`
     min-width: 31px;
     margin-top: 0.5%;
     p {
-      font-size: 1.8rem;
-      color: #ffffff;
-      margin-bottom: 2px;
-      margin-right: 1px;
+      color: ${bodyText2};
+      margin-bottom: 1px;
+      margin-left: 1px;
+      font-weight: 500;
     }
   }
 
@@ -386,17 +373,9 @@ const Challenge = styled.div`
     gap: 20px;
     display: flex;
     flex-direction: column;
-
-    h5 {
+    .h5 {
       font-size: 2.4rem;
-      margin: 0px;
       font-weight: 500;
-      color: #383955;
-    }
-
-    p {
-      color: #4a4a73;
-      font-size: 1.8rem;
     }
   }
 
@@ -417,131 +396,61 @@ const Challenge = styled.div`
       }
     }
 
-    div {
-      /* display: flex;
-      flex-direction: column; */
-
-      h5 {
-        font-size: 1.9rem;
-        /* margin: 0px;
-        font-weight: 500;
-        color: #383955; */
-      }
-
-      p {
-        /* color: #4a4a73; */
-        font-size: 1.5rem;
-      }
-    }
-  }
-`;
-
-const SecondSection = styled(CommonSection)`
-  background-color: #5a5a8c;
-  color: #5c5c81;
-  padding-bottom: 11.11%;
-  /* padding-top: 11.11%;  */
-  color: #ffffff;
-
-  .h2 {
-    /* font-weight: 500;
-    font-size: 5.8rem;
-    line-height: 105%;
-    padding: 4px 0px 26px 0px; */
-    b {
-      color: #00ceba;
-      font-weight: 200;
-      /* font-size: 4rem; */
-    }
-  }
-  @media (max-width: 1000px) {
-    /* .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    } */
-    .h3 {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 630px) {
-    /* .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    } */
-    .h3 {
+    div .h5 {
       font-size: 1.9rem;
     }
   }
 `;
 
+const SecondSection = styled(CommonSection)`
+  background-color: ${backgroundColorSection};
+  padding-bottom: 11%;
+  color: ${bodyText2};
+
+  .h2 b {
+    color: ${bAccent1};
+    font-weight: 200;
+  }
+`;
+
 const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
-  /* padding-top: 10%; */
-  color: #4a4a73;
-  background-image: url("/assets/img/casestudies/wellmee/Background2.png");
+  color: ${bodyText1};
+  background-image: url("/assets/img/casestudies/wellmee/Background2.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0% 69%;
 
   .h2 {
-    color: #383955;
-    /* font-weight: 500;
-    font-size: 5.8rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px; */
+    color: ${h2Title};
     b {
-      color: #00ceba;
+      color: ${bAccent1};
       font-weight: 200;
-      /* font-size: 4rem; */
     }
   }
   .h3 {
-    color: #383955;
+    color: ${h2Title};
     font-size: 3.6rem;
     font-weight: 400;
     padding: 7.5% 0 0 0;
     margin-bottom: 12px;
   }
 
-  /* div div div p {
-    font-size: 1.8rem;
-  } */
-
   @media (max-width: 1000px) {
     background-position: 0% 56%;
-    /* .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    } */
     h3 {
-      font-size: 30px;
+      font-size: 3rem;
     }
   }
   @media (max-width: 630px) {
     background-position: 0% 61%;
-    /* .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    } */
     .h3 {
       font-size: 1.9rem;
     }
-    /* div div div p {
-      font-size: 1.5rem;
-    } */
     div div span p {
       font-size: 1.4rem;
       position: relative;
-      bottom: 1px;
-      right: 0.5px;
+      bottom: 1.5px;
     }
     .image {
       padding-top: 4.8rem;
@@ -552,9 +461,6 @@ const ThirdSection = styled(CommonSection)`
 `;
 
 const PointContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 100px;
   margin-top: 75px;
 
   @media (max-width: 900px) {
@@ -572,12 +478,15 @@ const Point = styled.div`
 
   div {
     display: flex;
-    flex-direction: row;
+    justify-content: center;
     gap: 20px;
     max-width: 648px;
-    justify-content: center;
 
-    span {
+    p {
+      padding-bottom: 48px;
+    }
+
+    .number {
       display: flex;
       justify-content: center;
       align-items: center;
@@ -585,24 +494,16 @@ const Point = styled.div`
       min-width: 31px;
       max-width: 31px;
       height: 31px;
-      color: #ffffff;
-    }
-
-    p {
-      padding-bottom: 48px;
-    }
-
-    .number {
+      color: ${bodyText2};
       border-radius: 50%;
-    }
-
-    .number p {
-      padding-bottom: 0px;
+      border-radius: 50%;
+      p {
+        padding-bottom: 0px;
+      }
     }
   }
 
   .point4 {
-    align-self: center;
     max-width: 600px;
     padding: 0% 5%;
     span span {
@@ -613,6 +514,14 @@ const Point = styled.div`
   @media (max-width: 800px) {
     .point4 {
       max-width: 350px;
+      align-self: center;
+    }
+    div {
+      .number {
+        min-width: 24px;
+        max-width: 24px;
+        height: 24px;
+      }
     }
   }
 
@@ -623,11 +532,6 @@ const Point = styled.div`
       gap: 16px;
       p {
         padding-bottom: 40px;
-      }
-      span {
-        width: 24px;
-        min-width: 24px;
-        height: 24px;
       }
     }
     .point4 {
@@ -686,7 +590,7 @@ const Step = styled.div`
   p {
     text-align: center;
     font-weight: 500;
-    color: #4a4a73;
+    color: ${bodyText1};
   }
 
   @media (max-width: 900px) {
@@ -710,6 +614,7 @@ const Step = styled.div`
       height: 80px;
     }
     p {
+      font-size: 1.5rem;
       text-align: start;
     }
   }
@@ -740,6 +645,12 @@ const ContainerResultCard = styled.div`
       gap: 5px;
     }
 
+    .h3,
+    .h5 {
+      font-weight: 400;
+      color: ${h2Title};
+    }
+
     .h3 {
       font-size: 8rem;
       margin: 0px;
@@ -750,15 +661,13 @@ const ContainerResultCard = styled.div`
       font-size: 4.8rem;
       line-height: 1;
       padding-bottom: 4px;
-      color:#383955;
+      color: ${h2Title};
     }
     .h5 {
       font-size: 3.4rem;
-      font-weight: 400;
       margin: 0px;
     }
     p {
-      font-size: 1.8rem;
       color: #8a8cb2;
     }
   }
@@ -804,9 +713,7 @@ const ContainerResultCard = styled.div`
       .h3 {
         font-size: 5.6rem;
       }
-      .h4 {
-        font-size: 3.4rem;
-      }
+      .h4,
       .h5 {
         font-size: 3.4rem;
       }
@@ -839,24 +746,16 @@ const ContainerResultCard = styled.div`
 `;
 
 const FourthSection = styled(CommonSection)`
-  background-color: #5a5a8c;
-  /* padding-top: 10%; */
-  color: #ffffff;
-  background-image: url("/assets/img/casestudies/wellmee/Background3.png");
+  background-color: ${backgroundColorSection};
+  color: ${bodyText2};
+  background-image: url("/assets/img/casestudies/wellmee/Background3.svg");
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;
 
-  .h2 {
-    /* font-weight: 500;
-    font-size: 5.6rem;
-    line-height: 105%;
-    padding: 0px 0px 26px 0px; */
-    b {
-      color: #00ceba;
-      font-weight: 200;
-      /* font-size: 4rem; */
-    }
+  .h2 b {
+    color: #00ceba;
+    font-weight: 200;
   }
 
   img {
@@ -869,28 +768,5 @@ const FourthSection = styled(CommonSection)`
       padding-bottom: 0% !important;
       padding-top: 10% !important;
     }
-    /* .h2 {
-      font-size: 5.2rem;
-      b {
-        font-size: 3.2rem;
-      }
-    } */
-    .h3 {
-      font-size: 3rem;
-    }
-  }
-  @media (max-width: 630px) {
-    /* .h2 {
-      font-size: 3.3rem;
-      b {
-        font-size: 2rem;
-      }
-    } */
-    .h3 {
-      font-size: 1.9rem;
-    }
-    /* p {
-      font-size: 1.5rem;
-    } */
   }
 `;
