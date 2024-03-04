@@ -65,7 +65,7 @@ const EpisodePreview = ({
                 field={podcastImage}
                 width="180"
                 height="180"
-                alt=""
+                alt={business + " - " + guest}
               />
             ) : (
               <LinkComplex>
@@ -73,7 +73,7 @@ const EpisodePreview = ({
                   field={podcastImage}
                   height={simplest ? "185" : "180"}
                   width={simplest ? "185" : "180"}
-                  alt=""
+                  alt={business + " - " + guest}
                 />
               </LinkComplex>
             ))}

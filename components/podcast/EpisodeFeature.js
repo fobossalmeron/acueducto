@@ -25,7 +25,12 @@ const EpisodeFeature = ({
       <NewPod blue={blue} episode={episode}>
         <PictureContainer hoverable={true} episode={episode}>
           {!portrait && image ? (
-            <PrismicNextImage field={image} height="206" width="365" alt="" />
+            <PrismicNextImage
+              field={image}
+              height="206"
+              width="365"
+              alt={business + " - " + guest}
+            />
           ) : (
             <Picture
               src={`/assets/img/podcast/solas/${episode}.jpg`}
