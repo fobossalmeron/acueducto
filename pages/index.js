@@ -19,6 +19,7 @@ import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PageWrapper from "components/layout/PageWrapper";
 import Quotes from "components/Quotes";
+import CaseList from "components/caseStudy/CaseList";
 
 const HomeSpline = dynamic(import("../components/homeSpline/HomeSpline.tsx"), {
   ssr: false,
@@ -53,7 +54,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
   };
 
   return (
-    <PageWrapper>
+    <PageWrapper unPadded>
       <Head
         {...t.head}
         es_canonical={"https://acueducto.studio"}
@@ -77,6 +78,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           </LandContainer>
         </Land>
         <Intro id="removeArrow">
+          <CaseList limit={6} />
           <TitleSection {...t.intro} borderTop heading={2} />
         </Intro>
         <Carousel items={t.carousel} />
@@ -84,9 +86,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
         <TitleSection {...t.clients.intro} borderTop heading={2} />
         <LogosSection>
           <Fade triggerOnce>
-            <span className="text">
-              {t.clients.span}
-            </span>
+            <span className="text">{t.clients.span}</span>
             <div style={{ maxWidth: !isMobile ? 900 : 650 }}>
               {!isMobile ? (
                 <Picture src={ClientsDesktop} alt="Clientes" />
@@ -166,12 +166,19 @@ const Land = styled.section`
   padding: 0 4%;
   grid-gap: 2.2rem;
   align-items: center;
+  position: relative;
   h1 {
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 6%;
+    z-index: -10;
+    text-align: center;
   }
   .h2 {
     font-size: 2.1rem;
@@ -223,6 +230,9 @@ const Land = styled.section`
   @media (max-width: 700px) {
     h1 {
       font-size: 1.1rem;
+      text-align:left;
+      left:4%;
+      transform: unset ;
     }
     .h1 {
       font-size: 4rem;
@@ -236,7 +246,7 @@ const Land = styled.section`
   }
   @media (max-width: 420px) {
     h1 {
-      margin-bottom:5px;
+      margin-bottom: 5px;
     }
     .h1 {
       font-size: 3.35rem;
