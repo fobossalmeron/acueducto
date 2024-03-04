@@ -151,7 +151,20 @@ function PodcastLanding({
           <div>
             {episodes.map((episode, index) => (
               <div key={"npd" + index}>
-                <EpisodeFeature {...episode} portrait />
+                {episode.data ? (
+                  <EpisodeFeature
+                    title={episode.data.introduction[0].title[0].text}
+                    guest={episode.data.introduction[0].guest}
+                    business={episode.data.introduction[0].business}
+                    slug={episode.uid}
+                    episode={episode.data.introduction[0].episode}
+                    image={episode.data.images[0].solas}
+                    portrait
+                  />
+                ) : (
+                  <EpisodeFeature {...episode} portrait />
+                )}
+                {console.log(episode, "episode")}
               </div>
             ))}
           </div>
