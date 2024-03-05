@@ -28,7 +28,6 @@ const h2Title = "#383955";
 const bodyText1 = "#4a4a73";
 const bodyText2 = "#FFFFFF";
 const bAccent1 = "#00ceba";
-const bAccent2 = "#7368F8";
 const backgroundColorSection = "#5a5a8c";
 const backgroundColorMain = "#f3f6f3";
 
@@ -277,13 +276,10 @@ const FirstSection = styled(CommonSection)`
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0% 30%;
-
-  .h2 {
-    color: ${h2Title};
-    b {
-      color: ${bAccent1};
-      font-weight: 200;
-    }
+  color: ${h2Title};
+  .h2 b {
+    color: ${bAccent1};
+    font-weight: 200;
   }
 
   p {
