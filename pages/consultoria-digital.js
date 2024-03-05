@@ -14,7 +14,6 @@ import Steps from "components/shared/Steps";
 
 import {
   DigitalTransformation,
-  Marketing,
   Strategy,
   Apps,
   Culture,
@@ -24,7 +23,6 @@ const stepIconArray = [
   Strategy,
   DigitalTransformation,
   Apps,
-  Marketing,
   Culture,
 ];
 

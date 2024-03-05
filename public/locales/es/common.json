@@ -69,7 +69,7 @@
         { "title": "home", "link": "/" },
         { "title": "nosotros", "link": "/nosotros" },
         { "title": "portafolio", "link": "/portafolio" },
-        { "title": "consultoría", "link": "/consultoria" },
+        { "title": "consultoría digital", "link": "/consultoria-digital" },
         { "title": "contacto", "link": "/contacto" }
       ],
       "resources": [

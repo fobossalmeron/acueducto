@@ -66,6 +66,11 @@ const nextConfig = {
         permanent: false,
       },
       {
+        source: "/consultoria",
+        destination: "/consultoria-digital",
+        permanent: true,
+      },
+      {
         source: "/articulos",
         destination: "/blog",
         permanent: true,
