@@ -2,10 +2,12 @@
 episode: 23
 date: "2021-11-29"
 title: Tus operaciones definen tu tecnología, no al revés
+seo_title: "Tus operaciones definen tu tecnología, no al revés: Éverton Viana, Cargamos"
+h1_title: "Tus operaciones definen tu tecnología, no al revés: Éverton Viana" 
 guest: Éverton Viana
 business: Cargamos 
 category: Founder
-description: En esta edición platicamos con Éverton Viana, cofundador y COO de Cargamos, uno de los servicios de última milla más grandes de México. Profundizamos en la importancia de anteponer las operaciones a la tecnología, nuevas formas de levantar capital pre-semilla, la distribución de liderazgo como cultura empresarial y sus mejores consejos para emprendedores.
+description: "Tus operaciones definen tu tecnología, no al revés: Éverton Viana, cofundador y COO de Cargamos nos da los mejores consejos para emprendedores."
 youtube: https://www.youtube.com/watch?v=4I5UKKI9x4A
 spotify: https://open.spotify.com/episode/4TISZQjhpaUsAtU9RHBYhl
 apple: https://podcasts.apple.com/mx/podcast/tus-operaciones-definen-tu-tecnolog%C3%ADa-no-al-rev%C3%A9s-%C3%A9verton/id1500473556?i=1000543332164

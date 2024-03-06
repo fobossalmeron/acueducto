@@ -2,10 +2,12 @@
 episode: 56
 date: "2022-08-15"
 title: Cómo y cuándo invertir en ciberseguridad
+seo_title: "Hackmetrix: ¿invertir en ciberseguridad? con Adriel Araujo"
+seo_h1: "Hackmetrix: ¿invertir en ciberseguridad? con Adriel Araujo" 
 guest: Adriel Araujo
 business: Hackmetrix
 category: Founder
-description: En este capítulo charlamos con Adriel Araujo, CEO de Hackmetrix, una solución en ciberseguridad y compliance para PYMEs Latinoamericanas. Platicamos sobre el hacking y las precauciones que deben tomarse para prevenirlo, cuándo y por qué invertir en ciberseguridad y grandes historias al rededor del tema.
+description: Adriel Araujo, CEO de Hackmetrix habla con nosotros como prevenir el hacking y ciberseguridad en Cómo y cuándo invertir en ciberseguridad
 youtube: https://www.youtube.com/watch?v=Bt8lMNlSz8c
 spotify: https://open.spotify.com/episode/3bs4Vhni2VeVJtR5LVqO6l
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-y-cu%C3%A1ndo-invertir-en-ciberseguridad-adriel-araujo/id1500473556?i=1000576086762

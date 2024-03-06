@@ -2,10 +2,12 @@
 episode: 29
 date: "2022-01-31"
 title: Lecciones de un emprendedor con diez años en el ecosistema
+seo_title: "Héctor Cárdenas de Conekta: Lecciones de un emprendedor"
+seo_h1: "Héctor Cárdenas, Conekta: Lecciones de emprendedor con 10 años"
 guest: Héctor Cárdenas
 business: Conekta
 category: Founder
-description: En este capítulo hablamos con Héctor Cárdenas, CEO de Conekta, la primer pasarela de pago de Latinoamérica. Charlamos sobre la evolución del ecosistema de startups en la región, talento, cultura y la importancia de pivotear a tiempo.
+description: "Héctor Cárdenas, CEO de Conekta, la primer pasarela de pago de LATAM: startups y cultura en Lecciones de un emprendedor con diez años en el ecosistema"
 file: https://www.buzzsprout.com/895972/9971464-lecciones-de-un-emprendedor-con-diez-anos-en-el-ecosistema-hector-cardenas-conekta.mp3?download=true
 spotify: https://open.spotify.com/episode/4T1DU7IP6ewBlogBOAPfH4
 youtube: https://www.youtube.com/watch?v=6hN7bABFPEg

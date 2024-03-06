@@ -28,7 +28,7 @@ export default function Work({ locale, setTitle, pt }) {
         es_canonical={"https://acueducto.studio/portafolio"}
         en_canonical={"https://acueducto.studio/en/work"}
       />
-      <TitleSection {...t.intro} heading={1}/>
+      <TitleSection {...t.intro}/>
       <CaseList limit={6} />
       <ContactFooter />
     </PageWrapper>

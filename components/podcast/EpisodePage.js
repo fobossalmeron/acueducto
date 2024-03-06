@@ -13,9 +13,18 @@ import CenteredSection, {
   Transcript,
 } from "components/shared/CenteredSection";
 import ShareRouter from "./ShareRouter";
+import dynamic from "next/dynamic";
 import YouTubePlayer from "react-player/youtube";
 import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 import { PrismicRichText } from "@prismicio/react";
+
+const NoSSRPlayer = dynamic(
+  import("react-player/youtube"),
+  {
+    loading: () => <p>Cargando...</p>,
+    ssr: false,
+  }
+);
 
 const EpisodePage = ({
   title,
@@ -87,7 +96,7 @@ const EpisodePage = ({
               <Center>
                 <VideoContainer>
                   <Video>
-                    <YouTubePlayer
+                    <NoSSRPlayer
                       className="react-player"
                       light={
                         youtubeImage

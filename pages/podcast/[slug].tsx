@@ -43,9 +43,30 @@ export default function Episodio({
     ) {
       seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
     } else if (slugMatchesPrismic.uid == "como-se-ve-la-educacion-online") {
-      seo = "Desarrollo de Habilidades Digitales: Explorando Coderhouse";
+      seo = "Desarrollo de habilidades digitales: Explorando Coderhouse";
     } else if (slugMatchesPrismic.uid == "como-captar-3m-de-usuarios") {
       seo = "Iván Canales de Nubank México: Cómo captar 3M de usuarios";
+    } else {
+      seo = undefined;
+    }
+    return seo;
+  };
+
+  //esta función es para poder alterar la propiedad seo_h1 de los capítulos de prismic
+  //habrá que integrarla con EpisodePage que tiene otro funcionamiento
+  //solo es para estos 3 capítulos
+  //PD se que es horrible se te ocurre otra cosa?
+  const seo_h1_prismic = () => {
+    let seo;
+    if (
+      slugMatchesPrismic.uid ==
+      "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos"
+    ) {
+      seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
+    } else if (slugMatchesPrismic.uid == "como-se-ve-la-educacion-online") {
+      seo = "Nahuel Lema y Coderhouse ¿Qué es y de dónde es?";
+    } else if (slugMatchesPrismic.uid == "como-captar-3m-de-usuarios") {
+      seo = "Iván Canales, Nubank Mexico: Como captar 3M de usuarios";
     } else {
       seo = undefined;
     }
@@ -110,7 +131,7 @@ export default function Episodio({
             guest={guest}
             business={business}
             description={description}
-            seo_h1={seo_title_prismic()}
+            seo_h1={seo_h1_prismic()}
             slug={slugMatchesPrismic.uid}
             date={slugMatchesPrismic.data.introduction[0].date}
             insights={slugMatchesPrismic.data.introduction[0].insights}

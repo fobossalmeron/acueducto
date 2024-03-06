@@ -2,10 +2,12 @@
 episode: 11
 date: "2021-07-12"
 title: El fondo de inversión detrás de Clip, el tercer unicornio mexicano
+seo_title: "Charlie Travers, Angel Ventures: explorando inversiones detrás de Clip"
+seo_h1: "Charlie Travers y el impacto de Angel Ventures en el éxito de Clip"
 guest: Charlie Travers
 business: Angel Ventures
 category: Inversor
-description: En este capítulo hablamos con Charlie Travers, Head of investment de Angel Ventures y también emprendedor, sobre el estado actual de las inversiones en latinoamérica, el éxito de Clip, el tercer unicornio mexicano, y sus mejores consejos para emprendedores directo desde la mesa de un venture capital.
+description: Quién es Charlie Travers de Angel Ventures. Hablemos de inversiones en El fondo de inversión detrás de Clip, el tercer unicornio mexicano
 file: https://www.buzzsprout.com/895972/8760567-el-fondo-de-inversion-detras-de-clip-el-tercer-unicornio-mexicano-charlie-travers-angel-ventures.mp3?download=true
 spotify: https://open.spotify.com/episode/0gzYUot9W5hdae3At5qI8R
 apple: https://podcasts.apple.com/mx/podcast/fondo-inversi%C3%B3n-detr%C3%A1s-clip-tercer-unicornio-mexicano/id1500473556?i=1000528627759

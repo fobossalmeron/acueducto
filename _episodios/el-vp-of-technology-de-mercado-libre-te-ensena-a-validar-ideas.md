@@ -2,10 +2,12 @@
 episode: 78
 date: "2023-01-23"
 title: El VP of Technology de Mercado Libre te enseña a validar ideas
+seo_title: "Conoce a Sebastián Barrios: VP de Technology de Mercado Libre"
+seo_h1: "Conoce a Sebastián Barrios: VP de Technology de Mercado Libre"
 guest: Sebastián Barrios
 business: Mercado Libre
 category: Producto
-description: Acompáñanos con Sebastian Barrios, VP of Tecnology de Mercado Libre, el marketplace más grande de Latinoamérica.
+description: "Sebastian Barrios, VP of Tecnology de Mercado Libre, marketplace de Latinoamérica en El VP of Technology de Mercado Libre te enseña a validar ideas"
 insights:
   - <b>Sal a vender lo más rápido que puedas.</b> Valida tu idea con el mercado aunque sólo tengas una fachada donde no existe aún la tecnología del back-end de tu producto.
   - <b>Los procesos manuales no son tan malos.</b> Sobre todo cuando te permiten entregar una mejor experiencia, y ya que llegue el momento en el que se conviertan en un problema por no escalar, será hora de automatizarlos.

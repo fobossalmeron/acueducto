@@ -96,7 +96,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
   }
   h1:not(.h1) {
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
@@ -133,7 +133,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     }
   }
   @media (max-width: 1100px) {
-    h1 {
+    h1:not(.h1) {
       font-size: 1.3rem;
     }
     .h1 {
@@ -160,8 +160,8 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     ${ScrollDown} {
       grid-column: 3 / span 8;
     }
-    .h1 {
-      font-size: 4rem;
+    h1:not(.h1) {
+      font-size: 1.2rem;
     }
   }
   @media (max-width: 600px) {
@@ -170,7 +170,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     ${ScrollDown} {
       grid-column: 1 / span 12;
     }
-    h1 {
+    h1:not(.h1) {
       font-size: 1.1rem;
     }
     .h1 {

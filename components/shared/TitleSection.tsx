@@ -14,6 +14,7 @@ interface TitleProps {
   ul?: Array<String>;
   children?: React.ReactNode;
   heading?: number;
+  seo_h1?: string;
 }
 
 const TitleSection = ({
@@ -26,9 +27,21 @@ const TitleSection = ({
   children,
   ul,
   heading,
+  seo_h1,
 }: TitleProps) => {
   return (
     <Grid borderTop={borderTop}>
+      {
+        // Si viene un h1 de SEO, renderearlo junto con el título
+        seo_h1 && (
+          <Fade triggerOnce>
+            <div>
+              <H1>{seo_h1}</H1>
+              <P className="h1">{title}</P>
+            </div>
+          </Fade>
+        )
+      }
       {heading === 1 && (
         <Fade triggerOnce>
           <H1 className="h1">{title}</H1>
@@ -39,11 +52,14 @@ const TitleSection = ({
           <H2 className="h1">{title}</H2>
         </Fade>
       )}
-      {!heading && (
-        <Fade triggerOnce>
-          <P className="h1">{title}</P>
-        </Fade>
-      )}
+      {
+        // Si no hay heading el default es usar un P, revisamos que tampoco exista un título de SEO
+        !heading && !seo_h1 && (
+          <Fade triggerOnce>
+            <P className="h1">{title}</P>
+          </Fade>
+        )
+      }
       {p && (
         <Fade triggerOnce>
           <P>{p}</P>

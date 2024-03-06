@@ -65,7 +65,7 @@ const EpisodePreview = ({
                 field={podcastImage}
                 width="180"
                 height="180"
-                alt={business + " - " + guest}
+                alt={`${business} - ${guest}`}
               />
             ) : (
               <LinkComplex>
@@ -73,7 +73,7 @@ const EpisodePreview = ({
                   field={podcastImage}
                   height={simplest ? "185" : "180"}
                   width={simplest ? "185" : "180"}
-                  alt={business + " - " + guest}
+                  alt={`${business} - ${guest}`}
                 />
               </LinkComplex>
             ))}
@@ -81,7 +81,7 @@ const EpisodePreview = ({
             (longFormat ? (
               <Picture
                 src={`/assets/img/podcast/${episode}.jpg`}
-                alt={title + " - " + guest}
+                alt={`${business} - ${guest}`}
                 height={180}
                 width={180}
               />
@@ -89,7 +89,7 @@ const EpisodePreview = ({
               <LinkComplex>
                 <Picture
                   src={`/assets/img/podcast/${episode}.jpg`}
-                  alt={title + " - " + guest}
+                  alt={`${business} - ${guest}`}
                   height={simplest ? 185 : 180}
                   width={simplest ? 185 : 180}
                 />

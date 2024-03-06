@@ -2,12 +2,12 @@
 episode: 77
 date: "2023-01-16"
 title: Como convertir un problema propio en un negocio escalable
-seo_title: "Colektia: Qué es y para que sirve con su CEO Gabriel Monroy"
-seo_h1: "Gabriel Monroy CEO de Colektia explica: Qué es y para que sirve"
+seo_title: "Colektia: Qué es y para qué sirve con su CEO Gabriel Monroy"
+seo_h1: "Colektia: ¿Qué es y para qué sirve?"
 guest: Gabriel Monroy
 business: Colektia
 category: Founder
-description: "Conoce a Gabriel Monroy, CEO de Colektia Cobranza, ¿puede embargar? ¿qué es y para qué sirve? en “Como convertir un problema propio en un negocio escalable”."
+description: Descubre cómo Gabriel Monroy, CEO de Colektia, convierte un problema en un negocio escalable. Explora la utilidad de la IA en los negocios.
 insights:
   - <b>Para iniciar una startup de IA no necesitas tus propios bancos de data.</b> Si no puedes generarlos tu mismo, busca aliados como lo hizo Colektia al arrancar.
   - <b>Una visión única es importante para que la gente te siga.</b> Para atraer y retener al mejor talento de tu industria necesitas resolver un problema real, generar un impacto positivo y tener un norte claro para tu startup.

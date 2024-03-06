@@ -225,7 +225,7 @@ const LandSectionWellmee = (props) => {
               className="marca"
             />
           </div>
-          <SeoH1>{props.title}</SeoH1>
+          <CenteredH1>{props.seo_h1}</CenteredH1>
         </span>
       </div>
     </LandSection>
@@ -233,6 +233,11 @@ const LandSectionWellmee = (props) => {
 };
 
 export default LandSectionWellmee;
+
+const CenteredH1 = styled(SeoH1)`
+  text-align: center;
+  width: 100%;
+`;
 
 const LandSection = styled(CommonSection)`
   min-height: 100vh;

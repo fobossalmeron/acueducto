@@ -4,8 +4,10 @@ date: "2022-06-13"
 title: Cómo es ser un inversionista ángel en Latinoamérica
 guest: Alex Galvez
 business: 99 Startups
+seo_title: "Inversionista ángel: Qué es y cómo ser uno con Alex Galvez"
+seo_h1: "Inversionista ángel: Qué es y cómo ser uno con Alex Galvez"
 category: Inversor
-description: En este capítulo charlamos con Alex Gálvez, inversionista ángel de startups como Clara, Henry, Fintual y muchas más. Platicamos sobre patrones de startups exitosas, inversiones ángel en LATAM y el proceso para hacer un fondo de inversión. 
+description: Conoce qué es un inversionista angel y cómo volverte uno con Alex Gálvez en Cómo es ser un inversionista ángel en Latinoamérica
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMDc2NzQ4OQ
 spotify: https://open.spotify.com/episode/4mtrSwdQqfKQytljQKKeyk
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-es-ser-un-inversionista-%C3%A1ngel-en-latinoam%C3%A9rica/id1500473556?i=1000566190350

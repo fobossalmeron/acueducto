@@ -2,10 +2,12 @@
 episode: 104
 date: "2023-06-24"
 title: Cómo luce el departamento de People de una empresa con 45mil empleados
+seo_title: Explorando el onboarding en Mercado Libre con Fernanda Flynn
+seo_h1: "El onboarding  de mercado libre: ¿Cómo es?"
 guest: Fernanda Flynn
 business: Mercado Libre
 category: People
-description: Bienvenido a un episodio con Fernanda Flynn, Head of People de Chile, Perú y Ecuador para Mercado Libre, la empresa de tecnología más grande de Latinoamérica.
+description: "Cómo luce el departamento de People de una empresa con 45mil empleados: Fernanda Flynn, Head of People de Chile, Perú y Ecuador para Mercado Libre."
 insights:
   - <b>Al atraer talento Mercado Libre no compite con salarios si no con una visión retadora y atractiva, y tienen 45mil empleados.</b>
   - <b>Un despido puede ser insignificante para una empresa pero trascendental para el empleado, tómalo en cuenta</b>

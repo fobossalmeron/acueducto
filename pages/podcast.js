@@ -14,7 +14,7 @@ import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
-// import Tilt from "react-parallax-tilt";
+import Tilt from "react-parallax-tilt";
 import { Persona, Check, BuildStory } from "components/shared/Icons";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
@@ -100,14 +100,14 @@ function PodcastLanding({
             />
           </div>
           <div>
-            {/* <Tilt trackOnWindow={true}> */}
+            <Tilt trackOnWindow={true}>
             <Image
               width={380}
               height={380}
               src={"/assets/img/layout/podcast_cover.png"}
               alt={"Cuando el río suena"}
             />
-            {/* </Tilt> */}
+            </Tilt>
           </div>
         </Fade>
       </PodcastGrid>
@@ -128,7 +128,7 @@ function PodcastLanding({
           </Fade>
         </div>
         <Limiter>
-          {/* <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}> */}
+          <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
           {lastPrismicEpisode?.data.introduction[0].episode >= 105 ? (
             <EpisodeFeature
               title={lastPrismicEpisode.data.introduction[0].title[0].text}
@@ -142,7 +142,7 @@ function PodcastLanding({
           ) : (
             <EpisodeFeature {...lastEpisode} blue />
           )}
-          {/* </Tilt> */}
+          </Tilt>
         </Limiter>
       </FullSection>
       <EpisodesSection>
@@ -164,7 +164,6 @@ function PodcastLanding({
                 ) : (
                   <EpisodeFeature {...episode} portrait />
                 )}
-                {console.log(episode, "episode")}
               </div>
             ))}
           </div>

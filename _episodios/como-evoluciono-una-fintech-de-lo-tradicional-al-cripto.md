@@ -3,9 +3,11 @@ episode: 48
 date: "2022-06-20"
 title: "Cómo evolucionó una fintech: de lo tradicional al cripto" 
 guest: Alejandro Cosentino
+seo_title: "Alejandro Cosentino de Afluenta: Conoce qué es y sus ventajas"
+seo_h1: "Alejandro Cosentino de Afluenta: Conoce qué es y sus ventajas"
 business: Afluenta
 category: Founder
-description: En este episodio recibimos a Alejandro Cosentino, CEO de Afluenta, la fintech de inversión colaborativa más grande de Latinoamérica. Platicamos sobre la evolución de servicios financieros desde bancos tradicionales hasta el mundo cripto, sobre escuchar a tus usuarios sin parar y que nunca hay que dejar de buscar el siguiente paso para tu startup. 
+description: "Alejandro Cosentino, CEO de Afluenta, la plataforma de financiamiento colectivo de LATAM en Cómo evolucionó una fintech: de lo tradicional al cripto"
 spotify: https://open.spotify.com/episode/4tAfXZcoLOjlNaJBMXTw7L
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMDgxMTI4Nw
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-evolucion%C3%B3-una-fintech-de-lo-tradicional-al/id1500473556?i=1000567091041

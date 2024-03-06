@@ -2,10 +2,11 @@
 episode: 7
 date: "2021-01-29"
 title: ¿Cómo se diseñan las apps más exitosas?
+seo_title: "María Herrera (Revolut, Rappi): Cómo diseñar apps exitosas"
 guest: María Fernanda Herrera
 business: Rappi
 category: Producto
-description: "Nuestra primer conversación del año fue con María Fernanda Herrera, directora en diseño de producto en RappiPay, donde acaban de lanzar RappiCard: la tarjeta de crédito de Rappi. En la charla abordamos la experiencia de usuario, mejores prácticas en el tema, consideraciones y aprendizajes del sector Fintech y las recomendaciones para negocios que tiene Mafer para nuestra comunidad."
+description: Fernanda Herrera, Dir. De Diseño de Producto en RappiPay, comparte su visión sobre el diseño de aplicaciones exitosas, centrándose en el enfoque de UX/UI.
 file: https://www.buzzsprout.com/895972/7567648-e07-experiencia-de-usuario-y-fintech-maria-fernanda-herrera.mp3?blob_id=33594316&download=true
 spotify: https://open.spotify.com/episode/1aYPu763hSEOMwdm5QitWc
 apple: https://podcasts.apple.com/mx/podcast/e07-experiencia-usuario-y-fintech-mar%C3%ADa-fernanda-herrera/id1500473556?i=1000507484722

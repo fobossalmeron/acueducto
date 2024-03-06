@@ -3,9 +3,11 @@ episode: 12
 date: "2021-08-06"
 title: De Mercado Libre a la mesa de inversión con retornos inimaginables
 guest: Hernan Kazah
+seo_title: "Hernán Kazah: uno de los fundadores de Mercado Libre"
+seo_h1: "Hernán Kazah: uno de los fundadores de Mercado Libre"
 business: Kaszek | Mercado Libre
 category: Inversor
-description: En este capítulo hablamos con Hernan Kazah, cofundador de Mercado Libre y Kazsek, el fondo de venture capital detrás de Kavak, Nubank y nueve unicornios latinoamericanos. Platicamos sobre venture capital en latinoamérica, sus mejores consejos para emprendedores y más.
+description: Hernan Kazah fundador de Mercado Libre y Kazsek, fondo de venture capital de Kavak, Nubank y más en De Mercado Libre a la mesa de inversión con retornos inimaginables
 file: https://www.buzzsprout.com/895972/8760713-de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables-hernan-kazah-kaszek-mercado-libre.mp3?download=true
 spotify: https://open.spotify.com/episode/4hf4NC4fDxENu5zR0QNxAr
 apple: https://podcasts.apple.com/mx/podcast/mercado-libre-la-mesa-inversi%C3%B3n-con-retornos-inimaginables/id1500473556?i=1000531265921

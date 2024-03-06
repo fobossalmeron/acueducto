@@ -1,9 +1,10 @@
 {
   "head": {
-    "title": "Cómo construir una web-app de talla mundial | Wellmee",
-    "description": "Este fue el proceso que utilizamos para desarrollar una web-app de talla global.",
+    "title": "Ejemplo de web app de área de salud. Conoce Wellmee",
+    "description": "Wellmee: web app de salud. Potencia tu salud a través de la tecnología.",
     "image_alt": "Wellmee, caso de estudio por Acueducto",
-    "headerTitle": "Wellmee"
+    "headerTitle": "Wellmee",
+    "seo_h1": "Wellmee: innovadora web app de salud"
   },
   "headerTitle": "Wellmee",
   "title": "Cómo construir una web-app de talla mundial - Wellmee",

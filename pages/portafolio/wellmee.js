@@ -72,7 +72,7 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
       <Fade delay={300} triggerOnce>
-        <LandSectionWellmee isMobile={isMobile} title={t.head.title} />
+        <LandSectionWellmee isMobile={isMobile} title={t.head.title} seo_h1={t.head.seo_h1}/>
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}

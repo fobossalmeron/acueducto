@@ -1,11 +1,12 @@
 {
   "head": {
-    "title": "Our Work - Let's build amazing things together",
-    "description": "Take a look at how we work and what can we achieve through solid strategies and innovative development.",
+    "title": "App and web developer portfolio | Let's build amazing things together",
+    "description": "Discover our app and web developer portfolio featuring UX website design and product development strategy examples. Let's create something amazing together!",
     "headerTitle": "Work"
   },
   "intro": {
-    "title": "our selected<br/>case studies",
+    "seo_h1": "App and web developer <br/>portfolio: Acueducto",
+    "title": "our selected<br/> case studies",
     "p": "Let the work speak for itself. Read about the selected projects we have launched alongside our clients."
   }
 }

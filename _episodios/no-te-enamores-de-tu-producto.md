@@ -2,12 +2,12 @@
 episode: 38
 date: "2022-04-11"
 title: No te enamores de tu producto 
-seo_title: Qué es 100 ladrillos, la empresa fintech con Ivan Carmona
+seo_title: Qué es 100 ladrillos, la empresa fintech de Ivan Carmona
 seo_h1: "No te enamores de tu producto: Ivan Carmona de 100 Ladrillos"
 guest: Iván Carmona
 business: 100 Ladrillos
 category: Founder
-description: ¿Qué es 100 Ladrillos? Conoce esta startup mexicana y más sobre las empresas fintech con su cofundador Ivan Carmona en "No te enamores de tu producto". 
+description: "¿Qué es 100 Ladrillos? Conoce esta startup mexicana y más sobre las empresas fintech con su cofundador Ivan Carmona en No te enamores de tu producto." 
 spotify: https://open.spotify.com/episode/5dynDrfVAzANRjewiCiHmq
 youtube: https://www.youtube.com/watch?v=J5Zd-KlFnZ0
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMDM5OTIyOA

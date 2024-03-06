@@ -2,10 +2,12 @@
 episode: 60
 date: "2021-09-12"
 title: La ciencia y los datos detrás del growth
+seo_title: "Abdala Pineda, Fondeadora: Ciencia y datos detrás del growth"
+seo_h1: "Abdala Pineda, Fondeadora: Ciencia y datos detrás del growth"
 guest: Abdala Pineda
 business: Fondeadora
 category: Growth
-description: Esta ocasión platicamos con Abdala Pineda, Ex-Chief of Growth de Fondeadora, la plataforma financiera con mayor crecimiento en México. Hablamos sobre event tracking y KPIs de crecimiento, como utilizar un CRM en tu empresa y como enfocarse en la data que tu startup necesita.
+description: Abdala Pineda de Fondeadora, plataforma financiera de más crecimiento en México. Tracking, KPIs y CRM en La ciencia y los datos detrás del growth
 apple: https://podcasts.apple.com/us/podcast/la-ciencia-y-los-datos-detr%C3%A1s-del-growth-abdala-pineda/id1500473556?i=1000579156838
 spotify: https://open.spotify.com/episode/4Yx5oUgq7NpzPsaiUw6Tel
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMTI5MTQwOQ

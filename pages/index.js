@@ -232,7 +232,8 @@ const Land = styled.section`
       font-size: 1.1rem;
       text-align:left;
       left:4%;
-      transform: unset ;
+      transform: unset;
+      max-width: 300px;
     }
     .h1 {
       font-size: 4rem;
@@ -246,7 +247,8 @@ const Land = styled.section`
   }
   @media (max-width: 420px) {
     h1 {
-      margin-bottom: 5px;
+      font-size: 1rem;
+      margin-bottom: 70px;
     }
     .h1 {
       font-size: 3.35rem;

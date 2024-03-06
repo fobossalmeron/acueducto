@@ -4,7 +4,8 @@ export const SeoH1 = styled.h1`
   text-transform: uppercase;
   font-size: 1.4rem;
   letter-spacing: 4px;
-  line-height: 140%;
+  line-height: 130%;
+  font-weight: 200;
   @media (max-width: 1000px) {
     font-size: 1.3rem;
   }

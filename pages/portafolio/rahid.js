@@ -137,20 +137,12 @@ function Rahid({ locale, setTitle, pt }) {
           <P>{t.fourth_section.p2}</P>
         </TextColumn>
         <InsertBlock>
-          {/* <Picture
+          <Picture
             src="/assets/img/casestudies/rahid/boxes.png"
             alt="Home Rahid.co"
             width={960}
             height={754}
-          /> */}
-          <Fade triggerOnce>
-          <Image
-            src={BoxesImage}
-            alt="Home Rahid.co"
-            width={960}
-            height={754}
-            placeholder="blur"
-          /></Fade>
+          />
           <P>{t.fourth_section.graphicp}</P>
         </InsertBlock>
         <TextColumn>

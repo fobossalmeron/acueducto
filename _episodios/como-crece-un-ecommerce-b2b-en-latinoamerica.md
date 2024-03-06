@@ -2,10 +2,12 @@
 episode: 62
 date: "2021-09-26"
 title: Cómo crece un ecommerce B2B en Latinoamérica
+seo_title: "Juan Silva, Chiper: Cómo crecer un B2B ecommerce en Latinoamérica"
+seo_h1: "Juan Silva: ¿Qué es y cómo funciona Chiper?"
 guest: Juan Silva
 business: Chiper
 category: Growth
-description: En este capítulo charlamos con Juan Silva, Chief Growth Officer de Chiper, una de las plataformas ecommerce B2B más grandes de Latinoamérica. Platicamos sobre lo que se busca en un equipo de Growth, nuevas tendencias y la importancia de siempre seguir aprendiendo.
+description: "Cómo crece un ecommerce B2B en Latinoamérica: Juan Silva, Chief Growth Officer de Chiper, una de las plataformas ecommerce B2B más grandes de LATAM."
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-crece-un-ecommerce-b2b-en-latinoam%C3%A9rica-juan/id1500473556?i=1000580617993
 spotify: https://open.spotify.com/episode/1DaFjRUpbwxuOyLMrV6jN4
 google: https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz/episode/QnV6enNwcm91dC0xMTM3OTE0NQ

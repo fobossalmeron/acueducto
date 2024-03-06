@@ -2,10 +2,12 @@
 episode: 15
 date: "2021-09-16"
 title: Así opera uno de los ecommerce más grandes de México
+seo_title: Descubre el funcionamiento de Gaia con Raffaello Staracce
+seo_h1: Así funciona Gaia uno de los ecommerce más grandes de México
 guest: Raffaello Staracce
 business: Gaia
 category: Founder
-description: En este capítulo hablamos con Rafaello Starace, COO y cofundador de GAIA, el ecommerce que está revolucionando el ecosistema del hogar en México. Comentamos las complejidades de operar un ecommerce en LATAM, KPI's vitales para una tienda en línea y el talento que requiere el ecosistema. 
+description: Descubre cómo opera uno de los ecommerce más grandes de México con Raffaello Staracce, COO y cofundador de Gaia México.
 file: https://www.buzzsprout.com/895972/9062826-raffaello-starace-gaia.mp3?download=true
 youtube: https://www.youtube.com/watch?v=KqVqHTnihuc
 spotify: https://open.spotify.com/episode/3vSXClAA37R9SJuQZCAphw
