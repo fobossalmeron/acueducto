@@ -8,7 +8,7 @@ import ArticlePage from "components/articles/ArticlePage";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 
-export default function Article({ locale, setTitle, article, numberOfE }) {
+export default function Article({ locale, setTitle, article }) {
   useEffect(() => {
     setTitle("Blog");
   }, [locale]);
@@ -21,6 +21,7 @@ export default function Article({ locale, setTitle, article, numberOfE }) {
         headerTitle="Blog"
         es_canonical={`https://acueducto.studio/blog/${article.slug}`}
         image={{ fileName: `${article.slug}.png`, alt: article.title }}
+        noIndex={!article.index}
       ></Head>
       <ArticlePage {...article} slug={article.slug} />
       <ResourceFooter identify={article.slug} />
@@ -36,6 +37,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     "slug",
     "author",
     "content",
+    "index",
   ]);
   const content = await markdownToHtml(article.content || "");
 
