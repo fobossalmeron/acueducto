@@ -52,7 +52,7 @@ function Rahid({ locale, setTitle, pt }) {
         <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoRahid />
-            <SeoH1>{t.head.title}</SeoH1>
+            <SeoH1>{t.head.seo_h1}</SeoH1>
           </Fade>
         </LandSection>
       </Fade>

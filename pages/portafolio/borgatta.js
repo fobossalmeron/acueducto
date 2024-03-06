@@ -75,7 +75,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/borgatta"}
       />
       <Fade triggerOnce>
-        <LandSection isMobile={isMobile} title={t.head.title} />
+        <LandSection isMobile={isMobile} title={t.head.seo_h1} />
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}

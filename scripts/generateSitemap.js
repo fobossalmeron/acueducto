@@ -7,7 +7,7 @@ const previewData = {};
 
 const staticRoutes = [
   {
-    es: "",
+    es: "/",
     en: "/en",
     priority: 1,
   },
@@ -32,11 +32,15 @@ const staticRoutes = [
   },
   {
     es: "/diagnostico",
-    priority: 0.5,
+    priority: 0.1,
   },
   {
     es: "/podcast",
     priority: 0.9,
+  },
+  {
+    es: "/podcast/episodios",
+    priority: 0.7,
   },
   {
     es: "/portafolio/wellmee",
@@ -51,6 +55,11 @@ const staticRoutes = [
   {
     es: "/portafolio/borgatta",
     en: "/en/work/borgatta",
+    priority: 0.7,
+  },
+  {
+    es: "/portafolio/blockstem",
+    en: "/en/work/blockstem",
     priority: 0.7,
   },
   {

@@ -1,7 +1,9 @@
 ---
 title: "Piensa tu producto escalable desde el inicio"
 subtitle: "Los productos digitales que no se preparan para su expansión se exponen a pérdidas considerables"
-excerpt: "El alcance de los desarrollos digitales no tiene límite. Esta es su principal promesa: la escalabilidad, por eso los llaman negocios de alto impacto."
+excerpt: "Qué es la escalabilidad de un proyecto e importancia de un modelo de negocio escalable desde la arquitectura en Piensa tu producto escalable desde el inicio"
+seo_h1: "Qué es la escalabilidad de un proyecto:</br> arquitectura y modelo de negocio"
+seo_title: "Qué es escalabilidad de un proyecto: producto mínimo viable"
 author: "Rodrigo Salmerón"
 date: "2021-02-09"
 index: true

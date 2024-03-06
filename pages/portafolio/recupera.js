@@ -116,7 +116,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
                     src="/assets/img/casestudies/recupera/logoRecupera.svg"
                     alt="Recupera"
                   />
-                  <SeoH1>{t.head.title}</SeoH1>
+                  <SeoH1>{t.head.seo_h1}</SeoH1>
                 </div>
               </Fade>
               <Fade delay={600} triggerOnce className="brand2">

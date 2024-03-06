@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { H1 } from "components/shared/Dangerously";
+import { H1, P } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 import Header from "./Header.tsx";
 import ShareRouter from "components/podcast/ShareRouter";
@@ -11,6 +11,7 @@ import CenteredSection, {
 
 const ArticlePage = ({
   title,
+  seo_h1,
   date,
   subtitle,
   author,
@@ -28,7 +29,16 @@ const ArticlePage = ({
       <Header slug={slug} title={title} />
       <CenteredSection>
         <Fade triggerOnce>
-          <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+          {seo_h1 ? (
+            <>
+              <H1 className="seo_h1">{seo_h1}</H1>
+              <P className="h1">
+                {title.charAt(0).toLowerCase() + title.slice(1)}
+              </P>
+            </>
+          ) : (
+            <H1 className="h1">{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+          )}
           <Credits>
             <h2>{subtitle}</h2>
             por <address>{author}</address>

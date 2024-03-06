@@ -31,9 +31,10 @@ const CenteredSection = styled.div<{ customBackground?: string }>`
   }
   .seo_h1 {
     text-transform: uppercase;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     letter-spacing: 4px;
-    line-height: 140%;
+    font-weight:100;
+    line-height: 130%;
     margin-top: 5%;
   }
   //Article h2
@@ -187,7 +188,7 @@ const CenteredSection = styled.div<{ customBackground?: string }>`
       font-size: 2rem;
     }
     .seo_h1 {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
     }
     ${Content} {
       border-radius: 40px;

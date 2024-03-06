@@ -16,8 +16,8 @@ export default function Article({ locale, setTitle, article }) {
   return (
     <PageWrapper unPadded>
       <Head
-        title={article.title}
-        description={article.subtitle}
+        title={article.seo_title ? article.seo_title : article.title}
+        description={article.excerpt}
         headerTitle="Blog"
         es_canonical={`https://acueducto.studio/blog/${article.slug}`}
         image={{ fileName: `${article.slug}.png`, alt: article.title }}
@@ -32,6 +32,9 @@ export default function Article({ locale, setTitle, article }) {
 export const getStaticProps: GetStaticProps = async (context) => {
   const article: ArticleProps = getPostBySlug(context.params.slug, [
     "title",
+    "seo_h1",
+    "seo_title",
+    "excerpt",
     "subtitle",
     "date",
     "slug",
