@@ -27,7 +27,7 @@ const staticRoutes = [
     priority: 0.8,
   },
   {
-    es: "/consultoria",
+    es: "/consultoria-digital",
     priority: 0.5,
   },
   {
