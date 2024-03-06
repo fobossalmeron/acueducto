@@ -121,6 +121,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
         image={{ fileName: "og_image_salvajenada.png", alt: t.head.image_alt }}
         es_canonical={"https://acueducto.studio/portafolio/salvajenada"}
         en_canonical={"https://acueducto.studio/en/work/salvajenada"}
+        noIndex
       />
       <Fade triggerOnce>
         <Land>
