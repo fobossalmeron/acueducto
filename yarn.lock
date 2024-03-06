@@ -6073,10 +6073,10 @@ react-merge-refs@^2.0.1:
   resolved "https://registry.npmjs.org/react-merge-refs/-/react-merge-refs-2.1.1.tgz"
   integrity sha512-jLQXJ/URln51zskhgppGJ2ub7b2WFKGq3cl3NYKtlHoTG+dN2q7EzWrn3hN3EgPsTMvpR9tpq5ijdp7YwFZkag==
 
-react-parallax-tilt@^1.7.34:
-  version "1.7.209"
-  resolved "https://registry.npmjs.org/react-parallax-tilt/-/react-parallax-tilt-1.7.209.tgz"
-  integrity sha512-S1obOJvDp+YCipZjd/iVCbPoQTiQZ3cPrqkFHzoJMDOQT2LSdIQHSYwJNXbZDlgdsK2N1Hr/9VnhKWK5qMNzAA==
+react-parallax-tilt@^1.7.212:
+  version "1.7.212"
+  resolved "https://registry.yarnpkg.com/react-parallax-tilt/-/react-parallax-tilt-1.7.212.tgz#acaa2f5bebb6b81706822e0e0a2016b54531ae96"
+  integrity sha512-UCsJ6GUSaEMbpEr+NhAFD5SNv+iEzIqsEFdVokV348QgRSktFNJoqYvQSnGj+OwZNaby3P2bnD/+Or5263k8UQ==
 
 react-player@^2.13.0:
   version "2.14.1"
