@@ -64,7 +64,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
       <Head
         {...head}
         image={{ fileName: "og_image_consultoria.jpg", alt: head.image_alt }}
-        es_canonical="https://acueducto.studio/consultoria"
+        es_canonical="https://acueducto.studio/consultoria-digital"
       />
       <SpinPinnedSection hasLoaded={hasLoaded} intro={intro}>
         <>
