@@ -1,6 +1,7 @@
 import styled from "styled-components";
+import { H1 } from "components/shared/Dangerously";
 
-export const SeoH1 = styled.h1`
+export const SeoH1 = styled(H1)`
   text-transform: uppercase;
   font-size: 1.4rem;
   letter-spacing: 4px;

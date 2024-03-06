@@ -92,7 +92,7 @@ const Recupera = ({ locale, setTitle, pt }) => {
                     src="/assets/img/casestudies/recupera/logoRecupera.svg"
                     alt="Recupera"
                   />
-                  <SeoH1>{t.head.title}</SeoH1>
+                  <SeoH1>{t.head.seo_h1}</SeoH1>
                 </div>
               </Fade>
               <Fade delay={300} triggerOnce>
@@ -253,11 +253,13 @@ const LandSection = styled(CommonSection)`
     position: relative;
     display: flex;
     flex-direction: column;
+    align-items: center;
     img {
       margin-bottom: 5%;
     }
     h1 {
-      font-weight: 100;
+      text-align: center;
+      max-width: 380px;
     }
   }
 

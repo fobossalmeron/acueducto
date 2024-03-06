@@ -45,7 +45,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1300}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={Landing1} alt="Web B360" />
@@ -53,7 +53,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1550}
-              direction="up"
+              // direction="up"
               triggerOnce
               className="landing2"
             >
@@ -64,7 +64,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1500}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={Landing3} alt="Web B360" />
@@ -74,7 +74,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1400}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={Landing4} alt="Web B360" />
@@ -84,7 +84,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1150}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={Landing5} alt="Web B360" />
@@ -92,7 +92,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1250}
-              direction="up"
+              // direction="up"
               triggerOnce
               className="landing6"
             >
@@ -103,7 +103,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1600}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={Landing7} alt="Web B360" />
@@ -111,7 +111,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1500}
-              direction="up"
+              // direction="up"
               triggerOnce
               className="landing8"
             >
@@ -125,7 +125,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1300}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile1} alt="Web B360" />
@@ -133,7 +133,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1100}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile2} alt="Web B360" />
@@ -141,7 +141,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1100}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile4} alt="Web B360" />
@@ -151,7 +151,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1500}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile3} alt="Web B360" />
@@ -159,7 +159,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1500}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile5} alt="Web B360" />
@@ -167,7 +167,7 @@ const Landing = (props) => {
             <Reveal
               keyframes={customAnimation}
               delay={1500}
-              direction="up"
+              // direction="up"
               triggerOnce
             >
               <Image src={LandingMobile6} alt="Web B360" />
@@ -283,6 +283,7 @@ const LogoBorgatta = styled.div`
   max-width: 670px;
   h1 {
     margin-top: 4%;
+    text-align:center;
   }
   img {
     max-height: 96px;

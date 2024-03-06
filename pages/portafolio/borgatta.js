@@ -6,7 +6,7 @@ import ssrLocale from "utils/ssrLocale";
 import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import LandSection from "components/caseStudy/borgatta/Landing";
+import LandSection from "components/caseStudy/borgatta/LandSection";
 import AnimatedUIComponents from "components/caseStudy/borgatta/AnimatedUIComponents";
 import Marquee from "components/caseStudy/shared/Marquee";
 import TextColumn from "components/caseStudy/shared/TextColumn";
