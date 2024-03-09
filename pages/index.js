@@ -82,7 +82,6 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           <TitleSection {...t.intro} borderTop heading={2} />
         </Intro>
         <Carousel items={t.carousel} />
-        <Services services={t.services} />
         <TitleSection {...t.clients.intro} borderTop heading={2} />
         <LogosSection>
           <Fade triggerOnce>
@@ -111,6 +110,8 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
             </Link>
           </Fade>
         </LogosSection>
+        <Services services={t.services} />
+     
         <FAQSection t={t.faq} />
         <TitleSection {...t.podcast.intro} borderTop heading={2}>
           <Fade>
