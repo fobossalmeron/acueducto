@@ -7,8 +7,27 @@ import Arrow from "components/shared/Arrow";
 import Link from "next/link";
 import LangContext from "utils/LangContext";
 import CaseGrid from "./CaseGrid";
+import Image from "next/image";
+
+import p_cover_borgatta from "public/assets/img/casestudies/borgatta/p_cover.jpg";
+import p_cover_recupera from "public/assets/img/casestudies/recupera/p_cover.jpg";
+import p_cover_wellmee from "public/assets/img/casestudies/wellmee/p_cover.jpg";
+import p_cover_ladanzadelasfieras from "public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg";
+import p_cover_blockstem from "public/assets/img/casestudies/blockstem/p_cover.jpg";
+import p_cover_rahid from "public/assets/img/casestudies/rahid/p_cover.jpg";
+
+const coverArray = [
+  { a: "borgatta", c: p_cover_borgatta },
+  { a: "recupera", c: p_cover_recupera },
+  { a: "wellmee", c: p_cover_wellmee },
+  { a: "ladanzadelasfieras", c: p_cover_ladanzadelasfieras },
+  { a: "blockstem", c: p_cover_blockstem },
+  { a: "rahid", c: p_cover_rahid },
+];
 
 const SingleCase = (props) => {
+  const cover = coverArray.find(({ a }) => a === props.link).c;
+
   const LinkComplex = ({ children }) => (
     <Link
       href={"/portafolio/" + props.link}
@@ -31,25 +50,18 @@ const SingleCase = (props) => {
           <Fade triggerOnce>
             <VidContainer>
               {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              {props.link === "borgatta" ||
-              props.link === "recupera" ||
-              props.link === "wellmee" ? (
-                <Logo
-                  src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                  alt={`logo_${props.link}`}
-                  style={{ width: "55%" }}
+              <VidReplacer>
+                <Image
+                  src={cover}
+                  alt={props.link}
+                  placeholder="blur"
+                  fill
+                  sizes="(min-width: 700px) 50vw, 100vw"
+                  style={{
+                    objectFit: "cover",
+                  }}
                 />
-              ) : (
-                <Logo
-                  src={`/assets/img/casestudies/${props.link}/portfolio_logo.svg`}
-                  alt={`logo_${props.link}`}
-                />
-              )}
-              <VidReplacer
-                style={{
-                  backgroundImage: `url(/assets/img/casestudies/${props.link}/portfolio_poster.${props.bg_format})`,
-                }}
-              />
+              </VidReplacer>
             </VidContainer>
           </Fade>
         </a>
@@ -58,6 +70,10 @@ const SingleCase = (props) => {
         <Fade triggerOnce>
           <LinkComplex>
             <a>
+              <SmallLogo
+                src={`/assets/img/casestudies/${props.link}/p_logo.svg`}
+                alt={`logo_${props.link}`}
+              />
               <Hoverable>{props.title}</Hoverable>
             </a>
           </LinkComplex>
@@ -101,23 +117,13 @@ const Hoverable = styled(H2)`
   ${BorderLink({ showLink: false })}
 `;
 
-const VidReplacer = styled.div`
-  background-size: cover;
-  background-position: center center;
-  z-index: 0;
-`;
+const VidReplacer = styled.div``;
 
-const Logo = styled.img`
-  width: 70%;
-  transform: translateZ(1px) translateX(-50%) translateY(-50%);
-  align-self: center;
-  justify-self: center;
-  display: flex;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  left: 50%;
-  transform-origin: 50% 50%;
+const SmallLogo = styled.img`
+  height: 35px;
+  width: auto;
+  display: block;
+  margin-bottom: 12px;
 `;
 
 const Flexed = styled.div`
@@ -249,9 +255,9 @@ const VidContainer = styled.div`
         transform: scale(0.98);
         opacity: 0.92;
       }
-      img {
+      /* img {
         transform: translateZ(1px) translateY(-50%) translateX(-50%) scale(1.02);
-      }
+      } */
     }
     img {
       transition: transform 0.3s ease-out;
