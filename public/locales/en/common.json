@@ -19,15 +19,15 @@
   "lang": "en",
   "casestudies": [
     {
-      "title": "a chief marketing officer driving innovation in a corporation with 50 years in the market",
-      "tags": "UX design<br/>UI design<br/>Web app<br/>Software development<br/>Product management<br/>Product strategy<br/>",
-      "link": "borgatta",
-      "bg_format": "svg"
-    },
-    {
       "title": "how to build a world-class web app",
       "tags": "UI design<br/>UX design<br/>Web app<br/>Software development<br/>Product strategy<br/>Product management<br/>",
       "link": "wellmee",
+      "bg_format": "svg"
+    },
+    {
+      "title": "a chief marketing officer driving innovation in a corporation with 50 years in the market",
+      "tags": "UX design<br/>UI design<br/>Web app<br/>Software development<br/>Product management<br/>Product strategy<br/>",
+      "link": "borgatta",
       "bg_format": "svg"
     },
     {

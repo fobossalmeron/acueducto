@@ -12,15 +12,15 @@
   "lang": "es",
   "casestudies": [
     {
-      "title": "una <i>chief marketing officer</i> impulsando la innovación en un corporativo con 50 años en el mercado",
-      "tags": "Diseño UX<br/>Diseño UI<br/>Web app<br/>Desarrollo de software<br/>Product Management<br/>Estrategia de producto<br/>",
-      "link": "borgatta",
-      "bg_format": "svg"
-    },
-    {
       "title": "cómo construir una web-app de talla mundial",
       "tags": "Diseño UI<br/>Diseño UX<br/>Web app<br/>Desarrollo de sofware<br/>Estrategia de producto<br/>Product management<br/>",
       "link": "wellmee",
+      "bg_format": "svg"
+    },
+    {
+      "title": "una <i>chief marketing officer</i> impulsando la innovación en un corporativo con 50 años en el mercado",
+      "tags": "Diseño UX<br/>Diseño UI<br/>Web app<br/>Desarrollo de software<br/>Product Management<br/>Estrategia de producto<br/>",
+      "link": "borgatta",
       "bg_format": "svg"
     },
     {

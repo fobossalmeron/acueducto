@@ -28,7 +28,7 @@ const coverArray = [
 const SingleCase = (props) => {
   const cover = coverArray.find(({ a }) => a === props.link).c;
 
-  const LinkComplex = ({ children }) => (
+  const PortfolioLink = ({ children }) => (
     <Link
       href={"/portafolio/" + props.link}
       as={
@@ -38,56 +38,49 @@ const SingleCase = (props) => {
       }
       locale={props.lang}
       passHref
-      legacyBehavior
     >
       {children}
     </Link>
   );
   return (
     <CaseGrid>
-      <LinkComplex>
-        <a>
-          <Fade triggerOnce>
-            <VidContainer>
-              {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              <VidReplacer>
-                <Image
-                  src={cover}
-                  alt={props.link}
-                  placeholder="blur"
-                  fill
-                  sizes="(min-width: 700px) 50vw, 100vw"
-                  style={{
-                    objectFit: "cover",
-                  }}
-                />
-              </VidReplacer>
-            </VidContainer>
-          </Fade>
-        </a>
-      </LinkComplex>
+      <PortfolioLink>
+        <Fade triggerOnce>
+          <VidContainer>
+            {props.lang === "en" ? "go to project" : "visitar proyecto"}
+            <div className="img_container">
+              <Image
+                src={cover}
+                alt={props.link}
+                placeholder="blur"
+                fill
+                sizes="(min-width: 700px) 50vw, 100vw"
+                style={{
+                  objectFit: "cover",
+                }}
+              />
+            </div>
+          </VidContainer>
+        </Fade>
+      </PortfolioLink>
       <Info>
         <Fade triggerOnce>
-          <LinkComplex>
-            <a>
-              <SmallLogo
-                src={`/assets/img/casestudies/${props.link}/p_logo.svg`}
-                alt={`logo_${props.link}`}
-              />
-              <Hoverable>{props.title}</Hoverable>
-            </a>
-          </LinkComplex>
+          <PortfolioLink>
+            <SmallLogo
+              src={`/assets/img/casestudies/${props.link}/p_logo.svg`}
+              alt={`logo_${props.link}`}
+            />
+            <Hoverable>{props.title}</Hoverable>
+          </PortfolioLink>
         </Fade>
         <Flexed>
           <Fade triggerOnce>
             <P>{props.tags}</P>
           </Fade>
-          <LinkComplex>
-            <a>
-              {props.lang === "en" ? "go to project" : "visitar proyecto"}
-              <Arrow />
-            </a>
-          </LinkComplex>
+          <PortfolioLink>
+            {props.lang === "en" ? "go to project" : "visitar proyecto"}
+            <Arrow />
+          </PortfolioLink>
         </Flexed>
       </Info>
     </CaseGrid>
@@ -241,23 +234,16 @@ const VidContainer = styled.div`
   overflow: hidden;
   position: relative;
   display: flex;
-  justify-content: center;
   font-size: 0;
-  background-size: cover;
-  background-position: center center;
-  background-size: 102%;
-  transition: 0.4s ease all;
+  transition: 0.3s ease all;
+  will-change: transform;
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-size: 100%;
+      transform: scale(0.98);
       video,
-      ${VidReplacer} {
-        transform: scale(0.98);
-        opacity: 0.92;
+      .img_container {
+        transform: scale(1.05);
       }
-      /* img {
-        transform: translateZ(1px) translateY(-50%) translateX(-50%) scale(1.02);
-      } */
     }
     img {
       transition: transform 0.3s ease-out;
@@ -266,22 +252,17 @@ const VidContainer = styled.div`
   }
   &:focus,
   &:active {
-    background-size: 100%;
+    transform: scale(0.98);
     video,
-    ${VidReplacer} {
-      transform: scale(0.98);
-      opacity: 0.92;
-    }
-    img {
-      transform: translateZ(1px) translateY(-50%) translateX(-50%) scale(1.02);
+    .img_container {
+      transform: scale(1.05);
     }
   }
   img {
     transition: transform 0.3s ease-out;
     will-change: transform;
   }
-  video,
-  ${VidReplacer} {
+  .img_container {
     position: absolute;
     top: 0;
     left: 0;
