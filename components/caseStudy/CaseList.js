@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
+import Link from "next/link";
+import Image from "next/image";
+import { Fade } from "react-awesome-reveal";
+import LangContext from "utils/LangContext";
 import { P, H2 } from "components/shared/Dangerously";
 import BorderLink from "components/shared/BorderedLink";
-import { Fade } from "react-awesome-reveal";
 import Arrow from "components/shared/Arrow";
-import Link from "next/link";
-import LangContext from "utils/LangContext";
 import CaseGrid from "./CaseGrid";
-import Image from "next/image";
 
 import p_cover_borgatta from "public/assets/img/casestudies/borgatta/p_cover.jpg";
 import p_cover_recupera from "public/assets/img/casestudies/recupera/p_cover.jpg";
@@ -37,7 +37,6 @@ const SingleCase = (props) => {
           : "/portafolio/" + props.link
       }
       locale={props.lang}
-      passHref
     >
       {children}
     </Link>
@@ -110,13 +109,20 @@ const Hoverable = styled(H2)`
   ${BorderLink({ showLink: false })}
 `;
 
-const VidReplacer = styled.div``;
-
 const SmallLogo = styled.img`
   height: 35px;
   width: auto;
   display: block;
   margin-bottom: 12px;
+  @media (max-width: 1000px) {
+   height: 30px;
+  }
+  @media (max-width: 850px) {
+    height: 25px;
+  }
+  @media (max-width: 700px) {
+    margin-top: 10px;
+  }
 `;
 
 const Flexed = styled.div`
@@ -183,6 +189,9 @@ const Info = styled.div`
     h2 {
       font-size: 3.5rem;
       background-position: 0 4.4rem;
+    }
+    p {
+      font-size: 1.4rem;
     }
   }
   @media (max-width: 780px) {
@@ -277,7 +286,7 @@ const VidContainer = styled.div`
   @media (max-width: 700px) {
     margin: 5% 5% 10px 5%;
     width: 90%;
-    padding-bottom: 45%;
+    /* padding-bottom: 45%; */
   }
 `;
 

@@ -240,12 +240,10 @@ const LandSection = styled(CommonSection)`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   img,
   svg {
     width: 100%;
   }
-
   .logo {
     min-width: 223px;
     max-width: 30em;
@@ -260,6 +258,7 @@ const LandSection = styled(CommonSection)`
     h1 {
       text-align: center;
       max-width: 380px;
+      font-weight:100;
     }
   }
 
