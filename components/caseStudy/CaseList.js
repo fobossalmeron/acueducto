@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect, useMemo } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
@@ -17,37 +17,75 @@ import p_cover_blockstem from "public/assets/img/casestudies/blockstem/p_cover.j
 import p_cover_rahid from "public/assets/img/casestudies/rahid/p_cover.jpg";
 
 const coverArray = [
-  { a: "borgatta", c: p_cover_borgatta },
-  { a: "recupera", c: p_cover_recupera },
-  { a: "wellmee", c: p_cover_wellmee },
-  { a: "ladanzadelasfieras", c: p_cover_ladanzadelasfieras },
-  { a: "blockstem", c: p_cover_blockstem },
-  { a: "rahid", c: p_cover_rahid },
+  { a: "borgatta", c: p_cover_borgatta, color: "#f7f6f7" },
+  { a: "recupera", c: p_cover_recupera, color: "#F7F3F1" },
+  { a: "wellmee", c: p_cover_wellmee, color: "#f3f6f3" },
+  { a: "ladanzadelasfieras", c: p_cover_ladanzadelasfieras, color: "#000000" },
+  { a: "blockstem", c: p_cover_blockstem, color: "#ffffff" },
+  { a: "rahid", c: p_cover_rahid, color: "#F9F5F0" },
 ];
 
 const SingleCase = (props) => {
-  const cover = coverArray.find(({ a }) => a === props.link).c;
+  const [loadVideo, doLoadVideo] = useState(false);
+  const [showVideo, doShowVideo] = useState(false);
+  useEffect(() => {
+    loadVideo && doShowVideo(true);
+  }, [loadVideo]);
 
-  const PortfolioLink = ({ children }) => (
-    <Link
-      href={"/portafolio/" + props.link}
-      as={
-        props.lang === "en"
-          ? "/work/" + props.link
-          : "/portafolio/" + props.link
-      }
-      locale={props.lang}
-    >
-      {children}
-    </Link>
+  const showFalse = () => {
+    doShowVideo(false);
+  };
+
+  const showTrue = () => {
+    doLoadVideo(true);
+    loadVideo && doShowVideo(true);
+  };
+
+  const cover = useMemo(
+    () => coverArray.find(({ a }) => a === props.link).c,
+    [props.link]
   );
+
+  const color = useMemo(
+    () => coverArray.find(({ a }) => a === props.link).color,
+    [props.link]
+  );
+
+  const PortfolioLink = ({ children }) => {
+    return (
+      <Link
+        href={"/portafolio/" + props.link}
+        as={
+          props.lang === "en"
+            ? "/work/" + props.link
+            : "/portafolio/" + props.link
+        }
+        locale={props.lang}
+      >
+        {children}
+      </Link>
+    );
+  };
+
   return (
     <CaseGrid>
-      <PortfolioLink>
-        <Fade triggerOnce>
-          <VidContainer>
+      <Link
+        href={"/portafolio/" + props.link}
+        as={
+          props.lang === "en"
+            ? "/work/" + props.link
+            : "/portafolio/" + props.link
+        }
+        locale={props.lang}
+      >
+        <VidContainer
+          visible={!showVideo}
+          onMouseEnter={() => showTrue()}
+          onMouseLeave={() => showFalse()}
+        >
+          <div className="img_container">
             {props.lang === "en" ? "go to project" : "visitar proyecto"}
-            <div className="img_container">
+            <Fade triggerOnce>
               <Image
                 src={cover}
                 alt={props.link}
@@ -58,11 +96,11 @@ const SingleCase = (props) => {
                   objectFit: "cover",
                 }}
               />
-            </div>
-          </VidContainer>
-        </Fade>
-      </PortfolioLink>
-      <Info>
+            </Fade>
+          </div>
+        </VidContainer>
+      </Link>
+      <Info visible={!showVideo}>
         <Fade triggerOnce>
           <PortfolioLink>
             <SmallLogo
@@ -82,6 +120,16 @@ const SingleCase = (props) => {
           </PortfolioLink>
         </Flexed>
       </Info>
+      {loadVideo && (
+        <VideoDiv visible={showVideo} backgroundColor={color}>
+          <video autoPlay playsInline muted loop>
+            <source
+              src={`/assets/video/casestudies/${props.link}/intro.mp4`}
+              type="video/mp4"
+            />
+          </video>
+        </VideoDiv>
+      )}
     </CaseGrid>
   );
 };
@@ -105,6 +153,24 @@ const CaseList = ({ limit }) => {
 
 export default React.memo(CaseList);
 
+const VideoDiv = styled.div`
+  height: 100%;
+  width: 100%;
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  transition: 0.3s ease opacity;
+  background-color: ${(p) => p.backgroundColor};
+  video {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    left: 10%;
+    right: 10%;
+    bottom: 10%;
+    top: 10%;
+    pointer-events: none;
+  }
+`;
+
 const Hoverable = styled(H2)`
   ${BorderLink({ showLink: false })}
 `;
@@ -115,7 +181,7 @@ const SmallLogo = styled.img`
   display: block;
   margin-bottom: 12px;
   @media (max-width: 1000px) {
-   height: 30px;
+    height: 30px;
   }
   @media (max-width: 850px) {
     height: 25px;
@@ -140,6 +206,8 @@ const Flexed = styled.div`
 `;
 
 const Info = styled.div`
+  opacity: ${(p) => (p.visible ? 1 : 0)};
+  transition: 0.3s ease opacity;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -245,28 +313,8 @@ const VidContainer = styled.div`
   display: flex;
   font-size: 0;
   transition: 0.3s ease all;
-  will-change: transform;
-  @media (hover: hover) and (pointer: fine) {
-    &:hover {
-      transform: scale(0.98);
-      video,
-      .img_container {
-        transform: scale(1.05);
-      }
-    }
-    img {
-      transition: transform 0.3s ease-out;
-      will-change: transform;
-    }
-  }
-  &:focus,
-  &:active {
-    transform: scale(0.98);
-    video,
-    .img_container {
-      transform: scale(1.05);
-    }
-  }
+  will-change: transform, opacity;
+  opacity: ${(p) => (p.visible ? 1 : 0)};
   img {
     transition: transform 0.3s ease-out;
     will-change: transform;
@@ -283,14 +331,32 @@ const VidContainer = styled.div`
       transform 0.3s ease-out,
       opacity 0.5s ease;
   }
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      /* transform: scale(0.98); */
+      .img_container {
+        transform: scale(1.05);
+      }
+    }
+    img {
+      transition: transform 0.3s ease-out;
+      will-change: transform;
+    }
+  }
+  &:focus,
+  &:active {
+    transform: scale(0.98);
+    .img_container {
+      transform: scale(1.05);
+    }
+  }
   @media (max-width: 700px) {
     margin: 5% 5% 10px 5%;
     width: 90%;
-    /* padding-bottom: 45%; */
   }
 `;
 
 const CaseStudiesWrapper = styled.section`
-  color: ${(props) => props.theme.colors.foreground};
-  background-color: ${(props) => props.theme.colors.background};
+  color: ${(p) => p.theme.colors.foreground};
+  background-color: ${(p) => p.theme.colors.background};
 `;
