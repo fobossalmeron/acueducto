@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { GoogleTagManager } from '@next/third-parties/google'
+// import { GoogleTagManager } from '@next/third-parties/google'
+import { GoogleAnalytics } from '@next/third-parties/google'
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -108,7 +109,7 @@ const Layout = ({ t, hasLoaded, children }) => {
       <CookieMessage t={t} hasLoaded={hasLoaded} />
       <BodyOverflow hasLoaded={hasLoaded} />
       {showPopup && <NewsletterPopup />}
-      <GoogleTagManager gtmId="GTM-NQHHFWF" />
+      <GoogleAnalytics gaId="G-VEB3KBDN1C" />
     </LayoutWrapper>
   );
 };
