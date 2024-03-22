@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { GoogleTagManager } from '@next/third-parties/google'
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -11,7 +12,7 @@ import ScrollIncentive from "./ScrollIncentive";
 import ReactPixel from "react-facebook-pixel";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import NewsletterPopup from "components/NewsletterPopup";
-import TagManager from "react-gtm-module";
+// import TagManager from "react-gtm-module";
 import LinkedInTag from "react-linkedin-insight";
 
 const Layout = ({ t, hasLoaded, children }) => {
@@ -23,9 +24,9 @@ const Layout = ({ t, hasLoaded, children }) => {
   const router = useRouter();
 
   const initializePixels = () => {
-    TagManager.initialize({
-      gtmId: "GTM-NQHHFWF",
-    });
+    // TagManager.initialize({
+    //   gtmId: "GTM-NQHHFWF",
+    // });
     const fbPptions = {
       autoConfig: true,
       debug: false,
@@ -107,6 +108,7 @@ const Layout = ({ t, hasLoaded, children }) => {
       <CookieMessage t={t} hasLoaded={hasLoaded} />
       <BodyOverflow hasLoaded={hasLoaded} />
       {showPopup && <NewsletterPopup />}
+      <GoogleTagManager gtmId="GTM-NQHHFWF" />
     </LayoutWrapper>
   );
 };
