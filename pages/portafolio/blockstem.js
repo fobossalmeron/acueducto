@@ -246,7 +246,7 @@ function Blockstem({ locale, setTitle, pt }) {
           </a>
         </Fade>
       </SeventhSection>
-      <NextStudy link="salvajenada" />
+      <NextStudy link="borgatta" />
       <ContactFooter />
     </PageClipperBlockstem>
   );

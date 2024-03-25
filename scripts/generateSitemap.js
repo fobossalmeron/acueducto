@@ -24,7 +24,7 @@ const staticRoutes = [
   {
     es: "/portafolio",
     en: "/en/work",
-    priority: 0.8,
+    priority: 0.9,
   },
   {
     es: "/consultoria-digital",
@@ -36,7 +36,7 @@ const staticRoutes = [
   },
   {
     es: "/podcast",
-    priority: 0.9,
+    priority: 0.8,
   },
   {
     es: "/podcast/episodios",
@@ -45,37 +45,32 @@ const staticRoutes = [
   {
     es: "/portafolio/wellmee",
     en: "/en/work/wellmee",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/portafolio/recupera",
     en: "/en/work/recupera",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/portafolio/borgatta",
     en: "/en/work/borgatta",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/portafolio/blockstem",
     en: "/en/work/blockstem",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/portafolio/rahid",
     en: "/en/work/rahid",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/portafolio/ladanzadelasfieras",
     en: "/en/work/ladanzadelasfieras",
-    priority: 0.7,
-  },
-  {
-    es: "/portafolio/salvajenada",
-    en: "/en/work/salvajenada",
-    priority: 0.7,
+    priority: 0.9,
   },
   {
     es: "/blog",
@@ -84,12 +79,12 @@ const staticRoutes = [
   {
     es: "/cookies",
     en: "/en/cookies",
-    priority: 0.5,
+    priority: 0.1,
   },
   {
     es: "/privacidad",
     en: "/en/privacy",
-    priority: 0.5,
+    priority: 0.1,
   },
 ];
 
