@@ -20,19 +20,19 @@
     "areas": [
       {
         "title": "investigación y facilitación",
-        "p": "Analizamos junto a ti tus objetivos de negocios y las necesidades de tus usuarios. Paralelamente, hacemos un análisis de herramientas que ya resuelven el problema que estamos solucionando para entender patrones y expectativas de usuario."
+        "p": "Analizamos junto a ti tus objetivos de negocio y las necesidades de tus usuarios. Paralelamente, hacemos un análisis de herramientas que ya resuelven el problema que estamos solucionando para entender patrones y expectativas de usuario."
       },
       {
         "title": "diseño",
-        "p": "Construimos una experiencia que te hace pensar el mínimo, muestra naturalmente cuál es el siguiente paso y entrega resultados lo más rápido posible"
+        "p": "Construimos una experiencia que te hace pensar el mínimo, muestra naturalmente cuál es el siguiente paso y entrega resultados lo más rápido posible."
       },
       {
         "title": "desarrollo",
-        "p": "Desarrollamos arquitecturas escalables y escribimos código de calidad"
+        "p": "Desarrollamos arquitecturas escalables y escribimos código de calidad."
       },
       {
         "title": "crecimiento",
-        "p": "Una vez vivo, empujamos la evolución de tu producto iterando progresivamente para alcanzar nuevos objetivos"
+        "p": "Una vez vivo, empujamos la evolución de tu producto iterando progresivamente para alcanzar nuevos objetivos."
       }
     ]
   },
