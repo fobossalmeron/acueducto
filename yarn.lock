@@ -2065,18 +2065,6 @@
     "@typescript-eslint/types" "6.20.0"
     eslint-visitor-keys "^3.4.1"
 
-"@use-gesture/core@10.3.0":
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/@use-gesture/core/-/core-10.3.0.tgz#9afd3777a45b2a08990a5dcfcf8d9ddd55b00db9"
-  integrity sha512-rh+6MND31zfHcy9VU3dOZCqGY511lvGcfyJenN4cWZe0u1BH6brBpBddLVXhF2r4BMqWbvxfsbL7D287thJU2A==
-
-"@use-gesture/react@^10.3.0":
-  version "10.3.0"
-  resolved "https://registry.yarnpkg.com/@use-gesture/react/-/react-10.3.0.tgz#180534c821fd635c2853cbcfa813f92c94f27e3f"
-  integrity sha512-3zc+Ve99z4usVP6l9knYVbVnZgfqhKah7sIG+PS2w+vpig2v2OLct05vs+ZXMzwxdNCMka8B+8WlOo0z6Pn6DA==
-  dependencies:
-    "@use-gesture/core" "10.3.0"
-
 "@webassemblyjs/ast@1.11.6", "@webassemblyjs/ast@^1.11.5":
   version "1.11.6"
   resolved "https://registry.npmjs.org/@webassemblyjs/ast/-/ast-1.11.6.tgz"
@@ -6019,11 +6007,6 @@ react-fast-compare@^3.0.1:
   version "3.2.2"
   resolved "https://registry.npmjs.org/react-fast-compare/-/react-fast-compare-3.2.2.tgz"
   integrity sha512-nsO+KSNgo1SbJqJEYRE9ERzo7YtYbou/OqjSQKxV7jcKox7+usiUVZOAC+XnDOABXggQTno0Y1CpVnuWEc1boQ==
-
-react-gtm-module@^2.0.11:
-  version "2.0.11"
-  resolved "https://registry.npmjs.org/react-gtm-module/-/react-gtm-module-2.0.11.tgz"
-  integrity sha512-8gyj4TTxeP7eEyc2QKawEuQoAZdjKvMY4pgWfycGmqGByhs17fR+zEBs0JUDq4US/l+vbTl+6zvUIx27iDo/Vw==
 
 react-hook-form@^7.12.2:
   version "7.50.0"

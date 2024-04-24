@@ -11,20 +11,20 @@ import rodrigo from "public/assets/img/layout/clients/rodrigo.jpg";
 
 const cards = [
   {
-    text: "No hay una sola persona que no me haya dicho que el trabajo que hicimos fue excepcional y el diseño sofisticado",
+    text: "No hay una sola persona que no me haya dicho que el trabajo que hicimos con Acueducto fue verdaderamente excepcional y el diseño sofisticado.",
     person: "Karla Hernández",
     job: "CEO, Recupera",
     picture: karla,
   },
   {
-    text: "Encontramos una nueva oportunidad de crecimiento. Con el trabajo de Acueducto estamos exponenciando nuestra oferta.",
+    text: "Encontramos una nueva oportunidad de crecimiento. Con el trabajo de Acueducto estamos exponenciando nuestra oferta y llegando a nuevos clientes.",
     person: "Rodrigo Maldonado",
     job: "CEO, Rahid",
     picture: rodrigo,
   },
   {
-    text: "Su forma de trabajo y la calidad del mismo nos sorprendió. Todo siempre fue profesional y muy eficiente.",
-    person: "Cindy Borgatta",
+    text: "Estoy sumamente satisfecha, cada vez nos diferenciamos más de la competencia y me encanta el excelente trabajo que podemos hacer con Acueducto.",
+    person: "Cindy Borgatta", 
     job: "CMO, Borgatta",
     picture: cindy,
   },
