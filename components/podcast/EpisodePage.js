@@ -17,14 +17,12 @@ import dynamic from "next/dynamic";
 import YouTubePlayer from "react-player/youtube";
 import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 import { PrismicRichText } from "@prismicio/react";
+import BroadcastRouter from "./BroadcastRouter";
 
-const NoSSRPlayer = dynamic(
-  import("react-player/youtube"),
-  {
-    loading: () => <p>Cargando...</p>,
-    ssr: false,
-  }
-);
+const NoSSRPlayer = dynamic(import("react-player/youtube"), {
+  loading: () => <p>Cargando...</p>,
+  ssr: false,
+});
 
 const EpisodePage = ({
   title,
@@ -92,6 +90,18 @@ const EpisodePage = ({
             ) : (
               <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
             )}
+            <Center style={{ marginTop: "10px" }}>
+              <BroadcastRouter
+                trackClicks
+                episode={episode}
+                spotify={spotify}
+                apple={apple}
+                google={google}
+                youtube={youtube}
+              >
+                Escúchalo en
+              </BroadcastRouter>
+            </Center>
             {youtube && domLoaded && (
               <Center>
                 <VideoContainer>
@@ -324,7 +334,7 @@ const EpisodeNumberStyled = styled.div`
   align-items: center;
   justify-content: center;
   display: flex;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   @media (max-width: 1000px) {
     transform: scale(0.9);
   }
