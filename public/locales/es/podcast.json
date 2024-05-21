@@ -6,9 +6,9 @@
     "headerTitle": "Podcast"
   },
   "intro": {
-    "subtitle": "Cuando el río suena </br> Podcast de negocios & productos digitales",
-    "title": "cómo construir productos digitales increíbles",
-    "p": "Aprende cómo desarrollan producto las empresas de servicios digitales más importantes de Latinoamérica. Este es un podcast para fundadores de negocio, directivos e inversionistas.",
+    "subtitle": "Cuando el río suena </br> <span>Podcast de negocios & productos digitales</span>",
+    "title": "cómo construir productos digitales <i>increíbles</i>",
+    "p": "Aprende cómo desarrollan producto las empresas de servicios digitales más importantes de Latinoamérica como Mercado Libre, Rappi, Nu, Uber y más.",
     "form": {
       "email": {
         "placeholder": "ingresa tu email",
@@ -21,13 +21,17 @@
     }
   },
   "banner": {
-    "title": "aprende desde la experiencia de quienes ya recorrieron el camino que tú buscas recorrer",
-    "p": "Platicamos con fundadores, heads of design y chiefs of growth de startups tecnológicas así como con inversionistas de venture capital",
+    "title": "aprende desde la experiencia de expertos",
+    "p": "Platicamos con los fundadores, operadores e inversionistas de las startups tecnológicas y empresas más exitosas de la región.",
     "button": "ver último episodio"
   },
   "favorites": {
     "title": "episodios</br> más escuchados",
     "button": "ver todos los episodios"
+  },
+  "hosts": {
+    "title": "conoce a tus anfitriones",
+    "p": "Artemio y Rodrigo son fundadores de <a href='/'>Acueducto</a>, un estudio de diseño y desarrollo de software que ayuda a los negocios con sus problemas de experiencia de usuario y operaciones internas."
   },
   "chapters": {
     "title": "en cada capítulo encontrarás",

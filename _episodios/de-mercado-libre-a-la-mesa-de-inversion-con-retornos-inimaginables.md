@@ -5,7 +5,7 @@ title: De Mercado Libre a la mesa de inversión con retornos inimaginables
 guest: Hernan Kazah
 seo_title: "Hernán Kazah: uno de los fundadores de Mercado Libre"
 seo_h1: "Hernán Kazah: uno de los fundadores de Mercado Libre"
-business: Kaszek | Mercado Libre
+business: Kaszek, Mercado Libre
 category: Inversor
 description: Hernan Kazah fundador de Mercado Libre y Kazsek, fondo de venture capital de Kavak, Nubank y más en De Mercado Libre a la mesa de inversión
 file: https://www.buzzsprout.com/895972/8760713-de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables-hernan-kazah-kaszek-mercado-libre.mp3?download=true

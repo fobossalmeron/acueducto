@@ -121,7 +121,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
   @media (max-width: 1300px) {
     padding-top: 100px;
     .h1 {
-      top: 100px;
+      top: ${(p) => (p.notSticky ? "unset" : "100px")};
     }
     ${ScrollDown} {
       grid-column: 7 / span 5;

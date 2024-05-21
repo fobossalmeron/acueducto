@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import Picture from "components/caseStudy/shared/Picture";
+import Image from "next/image";
 import BorderLink from "components/shared/BorderedLink";
 import { PrismicNextImage } from "@prismicio/next";
 
@@ -14,6 +15,7 @@ const EpisodeFeature = ({
   blue,
   portrait,
   image,
+  logos,
 }) => {
   return (
     <Link
@@ -23,21 +25,41 @@ const EpisodeFeature = ({
       legacyBehavior
     >
       <NewPod blue={blue} episode={episode}>
-        <PictureContainer hoverable={true} episode={episode}>
+        <PictureContainer
+          hoverable={true}
+          episode={episode}
+          portrait={portrait}
+        >
           {!portrait && image ? (
             <PrismicNextImage
               field={image}
               height="206"
               width="365"
-              alt={business + " - " + guest}
+              fallbackAlt=""
             />
           ) : (
-            <Picture
-              src={`/assets/img/podcast/solas/${episode}.jpg`}
-              alt={title + " - " + guest}
-              height={episode >= 91 && !portrait ? 206 : 142}
-              width={episode >= 91 && !portrait ? 365 : 142}
-            />
+            <>
+              <Picture
+                src={`/assets/img/podcast/solas/${episode}.jpg`}
+                alt={title + " - " + guest}
+                height={episode >= 91 && !portrait ? 206 : 142}
+                width={episode >= 91 && !portrait ? 365 : 142}
+              />
+              {logos && (
+                <div className="logos">
+                  {logos.map((logo) => (
+                    <Image
+                      key={logo}
+                      className="logoMini"
+                      width={30}
+                      height={30}
+                      src={`/assets/img/podcast/logos/${logo}.png`}
+                      alt={logo}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
           )}
         </PictureContainer>
         <Fade triggerOnce>
@@ -71,18 +93,31 @@ const H2overable = styled.h3`
 const PictureContainer = styled.div`
   margin-bottom: 7%;
   height: 145px;
-  & > div {
+  position: relative;
+  max-width: ${(p) => (p.portrait ? "142px" : "unset")};
+  & > div:not(.logos) {
     border-radius: 25px;
     overflow: hidden;
     display: inline-block;
     height: 100%;
   }
-  img {
+  img:not(.logoMini) {
     transition: all 0.25s ease-out;
     background-color: #131516;
     width: 100%;
     height: 100%;
     border-radius: 25px;
+  }
+  .logos {
+    position: absolute;
+    bottom: -5px;
+    left: 120px;
+    display: flex;
+    gap: 0.7rem;
+    align-items: flex-end;
+  }
+  .logoMini {
+    position: relative;
   }
 `;
 
