@@ -7,14 +7,14 @@
   "title": "¿qué estás buscando?",
   "links": [
     {
+      "url": "/podcast",
+      "subtitle": "Cuando el río suena",
+      "title": "Podcast"
+    },
+    {
       "url": "https://www.latamstartup.club/esenciales-para-startups",
       "subtitle": "Latam Startup 2023",
       "title": "Esenciales para Startups"
-    },
-    {
-      "url": "/podcast",
-      "subtitle": "Podcast",
-      "title": "Cuando el río suena"
     },
     {
       "url": "/podcast/asi-se-ve-un-equipo-de-alto-rendimiento",

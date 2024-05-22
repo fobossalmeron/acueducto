@@ -30,14 +30,14 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
         <ul>
           {links.map((link, index) => (
             <Resource key={"linkentry" + index}>
-              {index === 0 && (
+              {index === 1 && (
                 <img
                   src="/assets/img/layout/linkenbio/kit.png"
                   alt="Kit de inicio para Startups"
                 />
               )}
               {index === 2 && <Articulos />}
-              {index === 1 && (
+              {index === 0 && (
                 <Image
                   width={415}
                   height={135}
