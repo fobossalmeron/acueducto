@@ -7,9 +7,9 @@
   "title": "¿qué estás buscando?",
   "links": [
     {
-      "url": "https://www.latamstartup.club/kit-de-inicio-para-startups",
+      "url": "https://www.latamstartup.club/esenciales-para-startups",
       "subtitle": "Latam Startup 2023",
-      "title": "Kit de inicio para startups"
+      "title": "Esenciales para Startups"
     },
     {
       "url": "/podcast",
@@ -17,9 +17,9 @@
       "title": "Cuando el río suena"
     },
     {
-      "url": "/blog/minimum-viable-startup",
-      "subtitle": "blog",
-      "title": "Minimum viable startup"
+      "url": "/podcast/asi-se-ve-un-equipo-de-alto-rendimiento",
+      "subtitle": "¿Tienes un negocio?",
+      "title": "Tienes que ver esto"
     }
   ],
   "p": "visita también",

@@ -9,6 +9,8 @@ import { Fade } from "react-awesome-reveal";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import Articulos from "public/assets/img/layout/linkenbio/articulos.svg";
 import Podcast from "public/assets/img/layout/linkenbio/podcast.svg";
+import PodcastPng from "public/assets/img/layout/linkenbio/podcast.png";
+import Image from "next/image";
 
 export default function LinkEnBio({ locale, setTitle, pt }) {
   let { head, title, links, secondary_links, p } = pt;
@@ -29,10 +31,20 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
           {links.map((link, index) => (
             <Resource key={"linkentry" + index}>
               {index === 0 && (
-                <img src="/assets/img/layout/linkenbio/kit.png" alt="Kit de inicio para Startups"/>
+                <img
+                  src="/assets/img/layout/linkenbio/kit.png"
+                  alt="Kit de inicio para Startups"
+                />
               )}
               {index === 2 && <Articulos />}
-              {index === 1 && <Podcast />}
+              {index === 1 && (
+                <Image
+                  width={415}
+                  height={135}
+                  src={PodcastPng}
+                  alt={"Cuando el río suena"}
+                />
+              )}
               <Link href={link.url} passHref locale={locale} legacyBehavior>
                 <a>
                   <Fade triggerOnce>
@@ -48,8 +60,11 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
         <ul>
           {secondary_links.map((link, index) => (
             <Resource key={"linkentry2" + index}>
-                            {index === 1 && (
-                <img src="/assets/img/layout/linkenbio/portafolio.png" alt="Casos de estudio"/>
+              {index === 0 && (
+                <img
+                  src="/assets/img/layout/linkenbio/portafolio.png"
+                  alt="Casos de estudio"
+                />
               )}
               <Link href={link.url} passHref legacyBehavior>
                 <a>
@@ -143,8 +158,10 @@ const Resource = styled.li`
     font-weight: 200;
     transition: 0.3s ease-out color;
   }
-  svg, img {
+  svg,
+  img {
     height: 100%;
+    width:auto;
     position: absolute;
     top: 0;
     right: 0;
