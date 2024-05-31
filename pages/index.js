@@ -170,7 +170,7 @@ const Land = styled.section`
   position: relative;
   h1 {
     text-transform: uppercase;
-    font-size: 1.2rem;
+    font-size: 1rem;
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
@@ -184,7 +184,7 @@ const Land = styled.section`
   .h2 {
     font-size: 2.1rem;
     margin-top: 15px;
-    max-width: 424px;
+    max-width: 300px;
     color: ${(props) => props.theme.colors.white};
     margin-bottom: 2rem;
   }
@@ -212,7 +212,7 @@ const Land = styled.section`
   }
   @media (max-width: 1000px) {
     h1 {
-      font-size: 1.3rem;
+      font-size: 0.8;
     }
     .h1 {
       font-size: 5.9rem;
@@ -230,7 +230,7 @@ const Land = styled.section`
   }
   @media (max-width: 700px) {
     h1 {
-      font-size: 1.1rem;
+      font-size: 0.7;
       text-align:left;
       left:4%;
       transform: unset;
@@ -248,7 +248,7 @@ const Land = styled.section`
   }
   @media (max-width: 420px) {
     h1 {
-      font-size: 1rem;
+      font-size: 0.6;
       margin-bottom: 70px;
     }
     .h1 {
