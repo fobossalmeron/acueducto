@@ -225,7 +225,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <P className="h2">{"– " + t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </Column>
-        <Insight insight={t.third_section.insights.periodicity} number={1}>
+        <Insight id="angel" insight={t.third_section.insights.periodicity} number={1}>
           <PlaylistGrid>
             {periodicity_covers.map((cover, i) => (
               <Picture
