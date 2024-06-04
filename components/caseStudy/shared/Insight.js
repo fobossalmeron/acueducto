@@ -3,7 +3,7 @@ import { Fade } from "react-awesome-reveal";
 import { P } from "components/shared/Dangerously";
 
 const Insight = (props) => (
-  <InsightWrapper color={props.color}>
+  <InsightWrapper color={props.color} id={props.id}>
     <Limiter>
       <Fade triggerOnce>
         <h4>
