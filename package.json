@@ -64,6 +64,7 @@
   "engines": {
     "node": "18.x"
   },
+  "packageManager": "yarn@4.3.0",
   "overrides": {
     "react-share": {
       "react": "18.2.0",

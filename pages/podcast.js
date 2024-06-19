@@ -37,7 +37,6 @@ function PodcastLanding({
     if (window.matchMedia("(max-width: 600px)").matches) {
       setIsMobile(true);
     }
-    // episode100();
   }, [locale]);
 
   const activateSubscribePixels = (data) => {
@@ -69,14 +68,6 @@ function PodcastLanding({
     });
     activateSubscribePixels(data);
   };
-
-  // function episode100() {
-  //   confetti({
-  //     particleCount: 500,
-  //     spread: 75,
-  //     origin: { y: 0.6 },
-  //   });
-  // }
 
   return (
     <PageWrapper>
@@ -242,12 +233,12 @@ export const getStaticProps = async (context, previewData) => {
     sortedPrismicEpisodes[sortedPrismicEpisodes.length - 1];
 
   //Featured episodes
-  const Kazah = getEpisodeBySlug(
-    "de-mercado-libre-a-la-mesa-de-inversion-con-retornos-inimaginables",
-    ["title", "guest", "business", "episode", "slug"]
+  const Kazah = await prismicClient.getByUID(
+    "episode",
+    "quieres-emprender-una-startup-tienes-que-ver-esto"
   );
   Kazah.logos = ["kazsek", "mercadolibre"];
-
+  
   const Migliore = await prismicClient.getByUID(
     "episode",
     "asi-se-ve-un-equipo-de-alto-rendimiento"
@@ -272,9 +263,9 @@ export const getStaticProps = async (context, previewData) => {
   );
   Mastronardi.logos = ["habi"];
 
-  const Zavala = getEpisodeBySlug(
-    "que-es-lo-que-hacen-por-las-startups-los-mejores-inversionistas",
-    ["title", "guest", "business", "episode", "slug"]
+  const Zavala = await prismicClient.getByUID(
+    "episode",
+    "como-reinventarse-despues-de-13-anos-operando"
   );
   Zavala.logos = ["500"];
 
@@ -298,8 +289,8 @@ const Parallax = styled.div`
     background-repeat: no-repeat;
     .inner-element {
       transform: translateZ(70px);
-      width:100%;
-      height:100%;
+      width: 100%;
+      height: 100%;
     }
   }
   @media (max-width: 1200px) {
@@ -646,7 +637,7 @@ const PodcastGrid = styled(TitleSectionGrid)`
       font-size: 3.4rem;
       line-height: 110%;
     }
-    h1:not(.h1){
+    h1:not(.h1) {
       max-width: 195px;
     }
   }
