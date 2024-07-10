@@ -1486,6 +1486,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@darkroom.engineering/tempus@npm:^0.0.46":
+  version: 0.0.46
+  resolution: "@darkroom.engineering/tempus@npm:0.0.46"
+  checksum: 10c0/20c48ff5b6a1a0dc1b9af253de3b06ac7d66c6ffefa86a0b2efe06f2a9a96135fd1e7b7ac72e8d347489564521e8ac7aa12e13cb60a1ffd0908cca78b764c584
+  languageName: node
+  linkType: hard
+
 "@emnapi/runtime@npm:^0.45.0":
   version: 0.45.0
   resolution: "@emnapi/runtime@npm:0.45.0"
@@ -3185,6 +3192,7 @@ __metadata:
     fs-extra: "npm:^10.0.0"
     gray-matter: "npm:^4.0.3"
     js-cookie: "npm:^3.0.0"
+    lenis: "npm:^1.1.6"
     lottie-react: "npm:^2.4.0"
     next: "npm:^14.1.0"
     react: "npm:^18.2.0"
@@ -6502,6 +6510,23 @@ __metadata:
   dependencies:
     language-subtag-registry: "npm:^0.3.20"
   checksum: 10c0/9ab911213c4bd8bd583c850201c17794e52cb0660d1ab6e32558aadc8324abebf6844e46f92b80a5d600d0fbba7eface2c207bfaf270a1c7fd539e4c3a880bff
+  languageName: node
+  linkType: hard
+
+"lenis@npm:^1.1.6":
+  version: 1.1.6
+  resolution: "lenis@npm:1.1.6"
+  dependencies:
+    "@darkroom.engineering/tempus": "npm:^0.0.46"
+  peerDependencies:
+    react: ">=17.0.0"
+    react-dom: ">=17.0.0"
+  peerDependenciesMeta:
+    react:
+      optional: true
+    react-dom:
+      optional: true
+  checksum: 10c0/70671dbe8148d48de656e64f970dc42d17d654045b34f4a51c5631b6ecfb94b32a39a7dd7de3277327a1f32b6dd48f15cd1036a98470abc35f41e5b615a6c9ea
   languageName: node
   linkType: hard
 

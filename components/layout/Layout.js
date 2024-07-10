@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Nav from "./Nav";
@@ -13,6 +13,7 @@ import ReactPixel from "react-facebook-pixel";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import NewsletterPopup from "components/NewsletterPopup";
 import LinkedInTag from "react-linkedin-insight";
+import Lenis from "lenis";
 
 const Layout = ({ t, hasLoaded, children }) => {
   const [isOpen, setOpen] = useState(false);
@@ -37,6 +38,15 @@ const Layout = ({ t, hasLoaded, children }) => {
 
   useEffect(() => {
     hasLoaded && initializePixels();
+    //Smooth Scroll
+
+    const lenis = new Lenis();
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
   }, [hasLoaded]);
 
   useEffect(() => {
@@ -74,7 +84,7 @@ const Layout = ({ t, hasLoaded, children }) => {
   };
   return (
     <LayoutWrapper id="LayoutWrapper">
-      <Border isOpen={isOpen} showArrow={showArrow}/>
+      <Border isOpen={isOpen} showArrow={showArrow} />
       <NavTrigger
         toggleNav={toggleNav}
         isOpen={isOpen}
