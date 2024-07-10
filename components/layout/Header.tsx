@@ -6,18 +6,16 @@ import Logo from "public/assets/img/layout/logo.svg";
 function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
   const backUp = (e) => {
     closeNav();
-    route === "/" &&
+    (route === "/" || route === "/eng") &&
       (e.preventDefault(),
       document.getElementById("land").scrollIntoView({ behavior: "smooth" }));
   };
   return (
-    <TopHeader reveal={hasLoaded} route={route}>
-      <Link href="/" passHref locale={locale} legacyBehavior>
-        <LogoLink onClick={backUp}>
-          <span>acueducto</span>
-          <Logo />
-        </LogoLink>
-      </Link>
+    <TopHeader reveal={hasLoaded}>
+      <LogoLink as={Link} href="/" locale={locale} onClick={backUp}>
+        <span>acueducto</span>
+        <Logo />
+      </LogoLink>
       <HeaderTitle hide={isOpen}>{headerTitle}</HeaderTitle>
     </TopHeader>
   );

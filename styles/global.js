@@ -176,6 +176,10 @@ const styles = `
     font-style: normal;
   }
 
+  /* .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  } */
+
   *,
   *:before,
   *:after {

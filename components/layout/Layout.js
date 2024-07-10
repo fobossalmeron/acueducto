@@ -82,6 +82,11 @@ const Layout = ({ t, hasLoaded, children }) => {
   const closeNav = () => {
     setOpen(false);
   };
+
+  const scrollToTop = () => {
+    Lenis.scrollTo('#land');
+  };
+
   return (
     <LayoutWrapper id="LayoutWrapper">
       <Border isOpen={isOpen} showArrow={showArrow} />
@@ -98,6 +103,7 @@ const Layout = ({ t, hasLoaded, children }) => {
         closeNav={closeNav}
         locale={router.locale}
         route={router.route}
+        scrollToTop={scrollToTop}
       />
       <Nav
         locale={router.locale}
