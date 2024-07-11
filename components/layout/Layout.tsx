@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
@@ -13,83 +13,71 @@ import ReactPixel from "react-facebook-pixel";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import NewsletterPopup from "components/NewsletterPopup";
 import LinkedInTag from "react-linkedin-insight";
-import Lenis from "lenis";
 
-const Layout = ({ t, hasLoaded, children }) => {
-  const [isOpen, setOpen] = useState(false);
-  const [showSketch, setShowSketch] = useState(true);
-  const [headerTitle, setTitle] = useState("");
-  const [showArrow, setShowArrow] = useState(true);
-  const [showPopup, setShowPopup] = useState(false);
+interface LayoutProps {
+  t: (key: string) => string;
+  hasLoaded: boolean;
+  children: React.ReactElement;
+}
+
+const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
+  const [isOpen, setOpen] = useState<boolean>(false);
+  const [showSketch, setShowSketch] = useState<boolean>(true);
+  const [headerTitle, setTitle] = useState<string>("");
+  const [showArrow, setShowArrow] = useState<boolean>(true);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
   const router = useRouter();
 
-  const initializePixels = () => {
-    // TagManager.initialize({
-    //   gtmId: "GTM-NQHHFWF",
-    // });
-    const fbPptions = {
+  const initializePixels = useCallback((): void => {
+    const fbOptions = {
       autoConfig: true,
       debug: false,
     };
-    ReactPixel.init("506854653278097", null, fbPptions);
+    ReactPixel.init("506854653278097", null, fbOptions);
     ReactPixel.pageView();
     LinkedInTag.init("1943114", "dc", false);
-  };
+  }, []);
 
   useEffect(() => {
-    hasLoaded && initializePixels();
-    //Smooth Scroll
-
-    const lenis = new Lenis();
-    function raf(time) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+    if (hasLoaded) {
+      initializePixels();
     }
-
-    requestAnimationFrame(raf);
-  }, [hasLoaded]);
+  }, [hasLoaded, initializePixels]);
 
   useEffect(() => {
-    if (router.route === "/") {
-      setShowSketch(true);
-      setShowArrow(true);
-      setShowPopup(false);
-    } else if (router.route === "/podcast") {
-      setShowSketch(false);
-      setShowArrow(false);
-      setShowPopup(true);
-    } else {
+    const isHomePage = router.route === "/";
+    const isPodcastPage = router.route === "/podcast";
+
+    setShowSketch(isHomePage);
+    setShowArrow(isHomePage);
+    setShowPopup(isPodcastPage);
+
+    if (!isHomePage && !isPodcastPage) {
       setShowSketch(false);
       setShowArrow(false);
       setShowPopup(false);
     }
-    hasLoaded && ReactPixel.pageView();
-  }, [router.route]);
+
+    if (hasLoaded) {
+      ReactPixel.pageView();
+    }
+  }, [router.route, hasLoaded]);
 
   useEffect(() => {
-    let targetElement = document.querySelector("#Nav");
-    if (isOpen) {
-      disableBodyScroll(targetElement);
-    } else {
-      enableBodyScroll(targetElement);
+    const targetElement = document.querySelector("#Nav");
+    if (targetElement) {
+      isOpen
+        ? disableBodyScroll(targetElement)
+        : enableBodyScroll(targetElement);
     }
   }, [isOpen]);
 
-  const toggleNav = () => {
-    setOpen(!isOpen);
-  };
-
-  const closeNav = () => {
-    setOpen(false);
-  };
-
-  const scrollToTop = () => {
-    Lenis.scrollTo('#land');
-  };
+  const toggleNav = useCallback((): void => setOpen((prev) => !prev), []);
+  const closeNav = useCallback((): void => setOpen(false), []);
 
   return (
     <LayoutWrapper id="LayoutWrapper">
-      <Border isOpen={isOpen} showArrow={showArrow} />
+      <Border />
       <NavTrigger
         toggleNav={toggleNav}
         isOpen={isOpen}
@@ -103,7 +91,6 @@ const Layout = ({ t, hasLoaded, children }) => {
         closeNav={closeNav}
         locale={router.locale}
         route={router.route}
-        scrollToTop={scrollToTop}
       />
       <Nav
         locale={router.locale}
@@ -113,9 +100,9 @@ const Layout = ({ t, hasLoaded, children }) => {
         isOpen={isOpen}
       />
       {React.cloneElement(children, {
-        setTitle: setTitle,
-        hasLoaded: hasLoaded,
-        showSketch: showSketch,
+        setTitle,
+        hasLoaded,
+        showSketch,
         locale: router.locale,
       })}
       <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
@@ -130,17 +117,17 @@ const Layout = ({ t, hasLoaded, children }) => {
 
 export default Layout;
 
-const BodyOverflow = createGlobalStyle`
-  .TopBar div{
+const BodyOverflow = createGlobalStyle<{ hasLoaded: boolean }>`
+  .TopBar div {
      box-shadow: 1px 1px 4px ${(props) => props.theme.colors.accent} !important;
   }
   body {
     overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
   }  
   @media (max-width: 600px), (max-height:450px) {
-    #LayoutWrapper{
+    #LayoutWrapper {
       overflow: ${(props) => (props.hasLoaded ? "unset" : "hidden")};
-      height:${(props) => (props.hasLoaded ? "unset" : "100%")};
+      height: ${(props) => (props.hasLoaded ? "unset" : "100%")};
     }
   }
 `;
@@ -161,16 +148,15 @@ const LayoutWrapper = styled.div`
   /* Track */
   ::-webkit-scrollbar-track {
     background: transparent;
-    margin: 50px 0 50px 0;
+    margin: 50px 0;
   }
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: #1744c9;
     border-radius: 50px;
   }
-  /*Hover*/
+  /* Hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #1744c9;
-    border-radius: 50px;
   }
 `;

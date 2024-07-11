@@ -2,13 +2,15 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Logo from "public/assets/img/layout/logo.svg";
+import { useLenis } from "utils/LenisContext";
 
 function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
+  const { lenis } = useLenis();
+
   const backUp = (e) => {
     closeNav();
     (route === "/" || route === "/eng") &&
-      (e.preventDefault(),
-      document.getElementById("land").scrollIntoView({ behavior: "smooth" }));
+      (e.preventDefault(), lenis.scrollTo(0, { immediate: false }));
   };
   return (
     <TopHeader reveal={hasLoaded}>

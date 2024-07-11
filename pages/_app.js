@@ -2,15 +2,16 @@ import { useState, useEffect, useRef } from "react";
 import clientLocale from "utils/clientLocale";
 import { ThemeProvider } from "styled-components";
 import LoadingBar from "react-top-loading-bar";
-import Layout from "components/layout/Layout";
+import Layout from "components/layout/Layout.tsx";
 import theme from "styles/theme";
 import delayForLoading from "utils/delayForLoading";
 import en from "public/locales/en/common.json";
 import es from "public/locales/es/common.json";
 import { LangProvider } from "utils/LangContext";
 import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
-import { PrismicPreview } from '@prismicio/next';
-import { repositoryName } from '../prismicio';
+import { PrismicPreview } from "@prismicio/next";
+import { repositoryName } from "../prismicio";
+import { LenisProvider } from "utils/LenisContext";
 
 //can we dynamic import es or en accordingly?
 
@@ -101,17 +102,19 @@ function App({ Component, pageProps, router }) {
   return (
     <ThemeProvider theme={theme}>
       <LangProvider value={sharedT}>
-        <LoadingBar
-          ref={LoadingBarRef}
-          height={3}
-          color={theme.colors.accent}
-          className="TopBar"
-        />
-        <PrismicPreview repositoryName={repositoryName}>
-          <Layout t={sharedT} hasLoaded={hasLoaded}>
-            <Component {...pageProps} lang={router.locale} />
-          </Layout>
-        </PrismicPreview>
+        <LenisProvider>
+          <LoadingBar
+            ref={LoadingBarRef}
+            height={3}
+            color={theme.colors.accent}
+            className="TopBar"
+          />
+          <PrismicPreview repositoryName={repositoryName}>
+            <Layout t={sharedT} hasLoaded={hasLoaded}>
+              <Component {...pageProps} lang={router.locale} />
+            </Layout>
+          </PrismicPreview>
+        </LenisProvider>
       </LangProvider>
     </ThemeProvider>
   );
