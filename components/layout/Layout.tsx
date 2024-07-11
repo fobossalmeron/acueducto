@@ -121,14 +121,12 @@ const BodyOverflow = createGlobalStyle<{ hasLoaded: boolean }>`
   .TopBar div {
      box-shadow: 1px 1px 4px ${(props) => props.theme.colors.accent} !important;
   }
-  body {
+  body  {
     overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
   }  
-  @media (max-width: 600px), (max-height:450px) {
-    #LayoutWrapper {
-      overflow: ${(props) => (props.hasLoaded ? "unset" : "hidden")};
-      height: ${(props) => (props.hasLoaded ? "unset" : "100%")};
-    }
+  #LayoutWrapper  {
+    overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
+    height: ${(props) => (props.hasLoaded ? "auto" : "100vh")};
   }
 `;
 
