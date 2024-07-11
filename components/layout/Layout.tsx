@@ -123,11 +123,19 @@ const BodyOverflow = createGlobalStyle<{ hasLoaded: boolean }>`
   }
   body  {
     overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
+    overflow-x: hidden;
   }  
   #LayoutWrapper  {
     overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
+    overflow-x: hidden;
     height: ${(props) => (props.hasLoaded ? "auto" : "100vh")};
-  }
+  }  
+  /* @media (max-width: 600px), (max-height:450px) {
+    #LayoutWrapper {
+      overflow: ${(props) => (props.hasLoaded ? "unset" : "hidden")};
+      height: ${(props) => (props.hasLoaded ? "unset" : "100%")};
+    }
+  } */
 `;
 
 const LayoutWrapper = styled.div`
