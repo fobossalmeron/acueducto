@@ -58,38 +58,13 @@ export const LenisProvider: React.FC<LenisProviderProps> = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    // const handleRouteChangeStart = () => {
-    //   lenisRef.current?.stop();
-    // };
-
-    const handleRouteChangeStart = () => {
-      if (lenisRef.current) {
-        // Gradual slowdown
-        const slowDownScroll = () => {
-          if (lenisRef.current) {
-            const currentVelocity = lenisRef.current.velocity;
-            if (Math.abs(currentVelocity) > 0.1) {
-              lenisRef.current.velocity = currentVelocity * 0.85; // Reduce velocity by 15% each frame
-              requestAnimationFrame(slowDownScroll);
-            } else {
-              lenisRef.current.stop();
-            }
-          }
-        };
-        slowDownScroll();
-      }
-    };
-
     const handleRouteChangeComplete = () => {
-      lenisRef.current?.start();
       lenisRef.current?.scrollTo(0, { immediate: true });
     };
 
-    router.events.on("routeChangeStart", handleRouteChangeStart);
     router.events.on("routeChangeComplete", handleRouteChangeComplete);
 
     return () => {
-      router.events.off("routeChangeStart", handleRouteChangeStart);
       router.events.off("routeChangeComplete", handleRouteChangeComplete);
     };
   }, [router.events]);
