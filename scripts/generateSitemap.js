@@ -10,11 +10,6 @@ const staticRoutes = [
     priority: 1,
   },
   {
-    es: "/contacto",
-    en: "/en/contact",
-    priority: 0.9,
-  },
-  {
     es: "/nosotros",
     en: "/en/about",
     priority: 0.8,
