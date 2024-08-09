@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import PageWrapper from "components/layout/PageWrapper";
@@ -15,19 +15,14 @@ import ManifiestoSection from "components/ManifiestoSection";
 import pTeam from "../public/assets/img/layout/team.png";
 import pPaper from "../public/assets/img/layout/paper.png";
 
-function About({ locale, setTitle, pt, hasLoaded }) {
-  const [t, setT] = useState(pt);
+function About({ locale, setTitle, pt }) {
+  const t = useLocalizedContent({
+    locale,
+    fileName: "about.json",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "about.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-  }, [locale]);
   return (
     <PageWrapper>
       <Head
@@ -43,7 +38,12 @@ function About({ locale, setTitle, pt, hasLoaded }) {
           priority
         />
       </Team>
-      <ControlledPadding as={PinnedSection} title={t.intro.title} notSticky heading={1}>
+      <ControlledPadding
+        as={PinnedSection}
+        title={t.intro.title}
+        notSticky
+        heading={1}
+      >
         <P>{t.intro.p}</P>
       </ControlledPadding>
       <PaperPlane>

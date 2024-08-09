@@ -1,9 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useCallback } from "react";
+import { GetStaticProps } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import dynamic from "next/dynamic";
-import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
+
+import ssrLocale from "utils/ssrLocale";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import TitleSection from "components/shared/TitleSection";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import { H1, H2, P } from "components/shared/Dangerously";
@@ -11,54 +14,59 @@ import Services from "components/shared/Services";
 import Head from "components/layout/Head";
 import Carousel from "components/Carousel";
 import { Fade } from "react-awesome-reveal";
-import Picture from "components/caseStudy/shared/Picture";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
-import BroadcastRouter from "components/podcast/BroadcastRouter.tsx";
+import BroadcastRouter from "components/podcast/BroadcastRouter";
 import FAQSection from "components/shared/FAQ";
-import ClientsDesktop from "../public/assets/img/layout/clients.png";
-import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PageWrapper from "components/layout/PageWrapper";
 import Quotes from "components/Quotes";
 import CaseList from "components/caseStudy/CaseList";
 
-const HomeSpline = dynamic(import("../components/homeSpline/HomeSpline.tsx"), {
-  ssr: false,
-});
+import ClientsDesktop from "../public/assets/img/layout/clients.png";
+import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
+import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
 
-function Index({ locale, setTitle, pt, hasLoaded }) {
-  const [t, setT] = useState(pt);
-  const [isMobile, setIsMobile] = useState();
+const HomeSpline = dynamic(
+  () => import("../components/homeSpline/HomeSpline"),
+  {
+    ssr: false,
+  }
+);
 
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "home.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
+interface IndexProps {
+  locale: string;
+  setTitle: (title: string) => void;
+  pt: any;
+  hasLoaded: boolean;
+}
+
+const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
+  const t = useLocalizedContent({
+    locale,
+    fileName: "home.json",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
+
+  const [isMobile, setIsMobile] = useState(false);
+
+  const checkMobile = useCallback(() => {
+    setIsMobile(window.innerWidth <= 760);
+  }, []);
+
+  React.useEffect(() => {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => {
-      window.removeEventListener("scroll", checkMobile);
+      window.removeEventListener("resize", checkMobile);
     };
-  }, [locale]);
-
-  const checkMobile = () => {
-    if (window.innerWidth <= 760) {
-      setIsMobile(true);
-    } else {
-      setIsMobile(false);
-    }
-  };
+  }, [checkMobile]);
 
   return (
     <PageWrapper unPadded>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio"}
-        en_canonical={"https://acueducto.studio/en"}
+        es_canonical="https://acueducto.studio"
+        en_canonical="https://acueducto.studio/en"
       />
       <div style={{ zIndex: 1 }}>
         <Land id="land">
@@ -67,8 +75,7 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
             <P className="h1">{t.landing.heading}</P>
             <H2 className="h2">{t.landing.tagline}</H2>
             <Link
-              href={"/portafolio"}
-              as={locale === "en" ? "/work" : "/portafolio"}
+              href={locale === "en" ? "/work" : "/portafolio"}
               locale={locale}
               passHref
               legacyBehavior
@@ -86,22 +93,22 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
         <LogosSection>
           <Fade triggerOnce>
             <span className="text">{t.clients.span}</span>
-            <div style={{ maxWidth: !isMobile ? 900 : 650 }}>
-              {!isMobile ? (
-                <Picture src={ClientsDesktop} alt="Clientes" />
-              ) : (
-                <Picture src={ClientsMobile} alt="Clientes" />
-              )}
-            </div>
+            <Image
+              src={isMobile ? ClientsMobile : ClientsDesktop}
+              width={isMobile ? 550 : 800}
+              height={isMobile ? 171 : 120}
+              alt="Clientes"
+            />
           </Fade>
           <Fade triggerOnce>
             <span className="text">
-              Lo que nuestros clientes dicen de nosotros
+              {locale === "en"
+                ? "From our clients"
+                : "Lo que nuestros clientes dicen de nosotros"}
             </span>
             <Quotes isMobile={isMobile} />
             <Link
-              href={"/portafolio"}
-              as={locale === "en" ? "/work" : "/portafolio"}
+              href={locale === "en" ? "/work" : "/portafolio"}
               locale={locale}
               passHref
               legacyBehavior
@@ -111,14 +118,13 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
           </Fade>
         </LogosSection>
         <Services services={t.services} />
-     
         <FAQSection t={t.faq} />
         <TitleSection {...t.podcast.intro} borderTop heading={2}>
           <Fade>
-            <Link href={"/podcast"} passHref locale="es" legacyBehavior>
+            <Link href="/podcast" passHref locale="es" legacyBehavior>
               <HoverablePicture>
-                <Picture
-                  src="/assets/img/layout/podcast_cover.png"
+                <Image
+                  src={PodcastCover}
                   width={230}
                   height={230}
                   alt="Cuando el río suena"
@@ -128,16 +134,9 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
             <BroadcastRouter
               trackClicks
               episode={3}
-              spotify={"https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"}
-              apple={
-                "https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
-              }
-              google={
-                "https://podcasts.google.com/feed/aHR0cHM6Ly9mZWVkcy5idXp6c3Byb3V0LmNvbS84OTU5NzIucnNz"
-              }
-              youtube={
-                "https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
-              }
+              spotify="https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"
+              apple="https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
+              youtube="https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
             />
           </Fade>
         </TitleSection>
@@ -146,11 +145,9 @@ function Index({ locale, setTitle, pt, hasLoaded }) {
       {hasLoaded && <HomeSpline />}
     </PageWrapper>
   );
-}
+};
 
-export default React.memo(Index);
-
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({ locale: context.locale, fileName: "home.json" });
   return {
     props: {
@@ -158,6 +155,8 @@ export const getStaticProps = async (context) => {
     },
   };
 };
+
+export default React.memo(Index);
 
 const Land = styled.section`
   min-height: 100vh;
@@ -231,8 +230,8 @@ const Land = styled.section`
   @media (max-width: 700px) {
     h1 {
       font-size: 0.7;
-      text-align:left;
-      left:4%;
+      text-align: left;
+      left: 4%;
       transform: unset;
       max-width: 300px;
     }
@@ -298,44 +297,49 @@ const LogosSection = styled.div`
     margin-bottom: 3.5rem;
     text-align: center;
     display: block;
+    padding: 0 15px;
   }
-  /* & > :nth-child(1) {
-    color: ${(props) => props.theme.colors.foreground_lower};
-    margin-bottom: 3.5rem;
-  } */
   & > :nth-child(3) {
     margin-top: 6%;
   }
   & > :nth-last-child(1) {
     margin-top: 5.5rem;
   }
+  img {
+    height: auto;
+  }
   @media (max-width: 1100px) {
     img {
-      max-width: 700px !important;
+      max-width: 700px;
     }
   }
-  @media (max-width: 850px) {
+  @media (max-width: 900px) {
     img {
-      max-width: 400px !important;
+      max-width: 600px;
+    }
+  }
+  @media (max-width: 760px) {
+    img {
+      max-width: 450px;
     }
   }
   @media (max-width: 600px) {
     padding-bottom: 12%;
   }
-  @media (max-width: 500px) {
+  @media (max-width: 550px) {
     img {
-      max-width: 300px !important;
+      max-width: 300px;
     }
   }
   @media (max-width: 400px) {
     img {
-      max-width: 280px !important;
+      max-width: 280px;
     }
   }
 `;
 
 const HoverablePicture = styled.a`
-  & > div span {
+  img {
     border: 2.5px solid transparent !important;
     transition: 0.3s ease-out;
     border-radius: 35px;
