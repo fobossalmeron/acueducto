@@ -135,7 +135,7 @@ const staticRoutes = [
     priority: 0.6,
   },
   {
-    es: "/podcast//como-evoluciono-una-fintech-de-lo-tradicional-al-cripto",
+    es: "/podcast/como-evoluciono-una-fintech-de-lo-tradicional-al-cripto",
     priority: 0.6,
   },
   {
