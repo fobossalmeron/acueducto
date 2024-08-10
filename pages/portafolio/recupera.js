@@ -34,7 +34,7 @@ const backgroundColorSection = "#FEFAF5";
 const mainGradient = "linear-gradient(46deg, #6239d9 0%, #5c50ed 100%)";
 
 const Recupera = ({ locale, setTitle, pt }) => {
-  const [loadAssets, setloadAssets] = useState(false);
+  const [loadAssets, setLoadAssets] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
   const t = useLocalizedContent({
