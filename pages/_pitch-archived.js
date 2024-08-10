@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import styled, { createGlobalStyle } from "styled-components";
 import { Fade } from "react-awesome-reveal";
@@ -29,19 +28,16 @@ const stepsIconArray = [Discover, Envision, BuildStory, Craft, Launch, Review];
 
 export default function Pitch({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "pitch",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "pitch.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
     setloadAssets(true);
-  }, [locale]);
+  }, []);
 
   return (
     <PageWrapper>

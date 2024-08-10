@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import clientLocale from "utils/clientLocale";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
 import PageWrapper from "components/layout/PageWrapper";
@@ -35,38 +35,30 @@ const mainGradient = "linear-gradient(46deg, #6239d9 0%, #5c50ed 100%)";
 
 const Recupera = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.recupera.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-    setloadAssets(true);
-  }, [locale]);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.recupera",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
+
+  const handleResize = useCallback(() => {
+    setIsMobile(window.innerWidth <= 650);
+  }, []);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 650);
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      setLoadAssets(true);
+
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     }
-
-    const handleResize = () => {
-      if (typeof window !== "undefined") {
-        setIsMobile(window.innerWidth <= 650);
-      }
-    };
-
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [isMobile]);
+  }, [handleResize]);
 
   return (
     <PageClipperRecupera>
@@ -258,7 +250,7 @@ const LandSection = styled(CommonSection)`
     h1 {
       text-align: center;
       max-width: 380px;
-      font-weight:100;
+      font-weight: 100;
     }
   }
 

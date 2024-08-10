@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
@@ -10,18 +9,12 @@ import MetalFooter from "components/shared/footers/MetalFooter";
 import ContactForm from "components/ContactForm";
 
 export default function Contact({ locale, setTitle, pt }) {
-  const [t, setT] = useState(pt);
-
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "contact.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-  }, [locale]);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "contact",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   return (
     <PageWrapper>

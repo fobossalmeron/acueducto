@@ -1,4 +1,10 @@
 {
+  "head": {
+    "title": "Error 404",
+    "description": "Esta página no existe.",
+    "pageName": "404",
+    "headerTitle": "Error 404"
+  },
   "description": "Ups! Página no encontrada",
   "intro": {
     "title": "ups!<br/> página no encontrada",

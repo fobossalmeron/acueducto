@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import clientLocale from "utils/clientLocale";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import { ThemeProvider } from "styled-components";
 import LoadingBar from "react-top-loading-bar";
 import Layout from "components/layout/Layout.tsx";
@@ -16,19 +16,14 @@ import { LenisProvider } from "utils/LenisContext";
 //can we dynamic import es or en accordingly?
 
 function App({ Component, pageProps, router }) {
-  const [sharedT, setSharedT] = useState(router.locale === "en" ? en : es);
   const [hasLoaded, setHasLoaded] = useState(false);
   const LoadingBarRef = useRef(null);
 
-  useEffect(() => {
-    clientLocale({
-      locale: router.locale,
-      fileName: "common.json",
-      callBack: (nT) => {
-        setSharedT(nT);
-      },
-    });
-  }, [router.locale]);
+  const sharedT = useLocalizedContent({
+    locale: router.locale,
+    fileName: "common",
+    initialContent: router.locale === "en" ? en : es,
+  });
 
   useEffect(() => {
     // Disable scroll

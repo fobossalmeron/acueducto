@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import { Fade } from "react-awesome-reveal";
@@ -20,7 +20,6 @@ import TextColumn from "components/caseStudy/shared/TextColumn";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 
 import Spotify from "public/assets/img/layout/logos/spotify.svg";
-import AppleMusic from "public/assets/img/layout/logos/applemusic.svg";
 import Ig from "public/assets/img/layout/logos/ig.svg";
 
 import Wolf from "public/assets/img/casestudies/salvajenada/wolf.svg";
@@ -100,19 +99,16 @@ const spreadability_covers = [
 
 export default function Salvajenada({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.salvajenada",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.salvajenada.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
     setloadAssets(true);
-  }, [locale]);
+  }, []);
 
   return (
     <PageWrapper unPadded>

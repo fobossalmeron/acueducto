@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import clientLocale from "utils/clientLocale";
+import React, { useEffect, useState, useCallback } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
 import PageWrapper from "components/layout/PageWrapper";
@@ -32,36 +32,30 @@ const backgroundColorSection = "#5a5a8c";
 const backgroundColorMain = "#f3f6f3";
 
 const Wellmee = ({ locale, setTitle, pt }) => {
-  const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
+  const [loadAssets, setLoadAssets] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.wellmee",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
+
+  const handleResize = useCallback(() => {
+    setIsMobile(window.innerWidth <= 650);
+  }, []);
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.wellmee.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-
     if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 650);
-    }
-    window.addEventListener("resize", handleResize);
+      handleResize();
+      window.addEventListener("resize", handleResize);
+      setLoadAssets(true);
 
-    setloadAssets(true);
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, [locale, isMobile]);
-
-  const handleResize = () => {
-    if (typeof window !== "undefined") {
-      setIsMobile(window.innerWidth <= 650);
+      return () => {
+        window.removeEventListener("resize", handleResize);
+      };
     }
-  };
+  }, [handleResize]);
 
   return (
     <PageClipperWellmee>
@@ -72,7 +66,11 @@ const Wellmee = ({ locale, setTitle, pt }) => {
         en_canonical={"https://acueducto.studio/en/work/wellmee"}
       />
       <Fade delay={300} triggerOnce>
-        <LandSectionWellmee isMobile={isMobile} title={t.head.title} seo_h1={t.head.seo_h1}/>
+        <LandSectionWellmee
+          isMobile={isMobile}
+          title={t.head.title}
+          seo_h1={t.head.seo_h1}
+        />
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}

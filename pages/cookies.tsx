@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import Link from "next/link";
 import PageWrapper from "components/layout/PageWrapper";
@@ -10,19 +9,13 @@ import { P, H3 } from "components/shared/Dangerously";
 import ContactFooter from "components/shared/footers/ContactFooter";
 
 export default function Cookies({ locale, setTitle, pt }) {
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "cookies",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
   let b = t.body;
-
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "cookies.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-  }, [locale]);
 
   return (
     <PageWrapper>

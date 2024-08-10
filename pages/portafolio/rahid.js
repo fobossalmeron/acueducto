@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
@@ -26,19 +26,16 @@ const rahidAccentDarker = "#7A84B9";
 
 function Rahid({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.rahid",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.rahid.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
     setloadAssets(true);
-  }, [locale]);
+  }, []);
 
   return (
     <PageWrapper unPadded>

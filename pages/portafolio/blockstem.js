@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
@@ -18,7 +18,7 @@ import Quote from "components/caseStudy/shared/Quote";
 import TextColumn from "components/caseStudy/shared/TextColumn";
 import Picture from "components/caseStudy/shared/Picture";
 
-const rahidForeground = "#31302E";
+const blockstemForeground = "#31302E";
 const bAccent1 = "#4EA68E";
 const bAccent2 = "#2B67DD";
 const mainGradient =
@@ -26,19 +26,17 @@ const mainGradient =
 
 function Blockstem({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.blockstem.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
     setloadAssets(true);
-  }, [locale]);
+  }, []);
+
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.blockstem",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   return (
     <PageClipperBlockstem unPadded>
@@ -330,7 +328,7 @@ const Stat = styled.div`
   display: flex;
   align-items: flex-end;
   flex-direction: column;
-  color: ${rahidForeground};
+  color: ${blockstemForeground};
   border: 2px solid;
   padding: 5%;
   border-radius: 50px;
@@ -718,7 +716,7 @@ const FifthSection = styled(CommonSection)`
       #81edce 537.74%
     ),
     #3f3f3f;
-  color: ${rahidForeground};
+  color: ${blockstemForeground};
   padding-bottom: 5%;
 `;
 

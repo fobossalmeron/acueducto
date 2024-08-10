@@ -3,12 +3,12 @@ import { H1 } from "components/shared/Dangerously";
 
 export const SeoH1 = styled(H1)`
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   letter-spacing: 4px;
   line-height: 130%;
-  font-weight: 200;
+  font-weight: 100;
   @media (max-width: 1000px) {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   @media (max-width: 630px) {
     font-size: 1.1rem;

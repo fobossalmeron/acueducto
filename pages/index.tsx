@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -42,7 +42,7 @@ interface IndexProps {
 const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
   const t = useLocalizedContent({
     locale,
-    fileName: "home.json",
+    fileName: "home",
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -53,7 +53,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
     setIsMobile(window.innerWidth <= 760);
   }, []);
 
-  React.useEffect(() => {
+  useEffect(() => {
     checkMobile();
     window.addEventListener("resize", checkMobile);
     return () => {

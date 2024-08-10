@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import dynamic from "next/dynamic";
 import PageWrapper from "components/layout/PageWrapper";
@@ -37,19 +37,16 @@ const ThePlayer = dynamic(
 
 function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.lddlf",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.lddlf.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
     setloadAssets(true);
-  }, [locale]);
+  }, []);
 
   return (
     <PageWrapper unPadded>
@@ -63,7 +60,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }) {
         <LandSection>
           <Fade delay={300} triggerOnce>
             <LogoDanza />
-            <SeoH1>{t.head.seo_h1}</SeoH1> 
+            <SeoH1>{t.head.seo_h1}</SeoH1>
           </Fade>
         </LandSection>
       </Fade>

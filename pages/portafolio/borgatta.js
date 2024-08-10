@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
-import PageWrapper from "components/layout/PageWrapper";
-import Head from "components/layout/Head";
-import clientLocale from "utils/clientLocale";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
-import { Fade } from "react-awesome-reveal";
 import styled from "styled-components";
+import Image from "next/legacy/image";
+import Head from "components/layout/Head";
+import PageWrapper from "components/layout/PageWrapper";
+import { Fade } from "react-awesome-reveal";
 import CommonSection from "components/caseStudy/shared/CommonSection";
 import LandSection from "components/caseStudy/borgatta/LandSection";
 import AnimatedUIComponents from "components/caseStudy/borgatta/AnimatedUIComponents";
@@ -17,7 +18,6 @@ import Picture from "components/caseStudy/shared/Picture";
 import NextStudy from "components/caseStudy/shared/NextStudy";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import IntroVideo from "components/caseStudy/shared/IntroVideo";
-import Image from "next/legacy/image";
 import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
 import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
 import CaseTable from "../../components/caseStudy/borgatta/CaseTable";
@@ -34,19 +34,16 @@ const mainGradient =
 
 const Borgatta = ({ locale, setTitle, pt }) => {
   const [loadAssets, setloadAssets] = useState(false);
-  const [t, setT] = useState(pt);
   const [isMobile, setIsMobile] = useState(false);
 
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "work.borgatta.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
+  const t = useLocalizedContent({
+    locale,
+    fileName: "work.borgatta",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
+  useEffect(() => {
     if (typeof window !== "undefined") {
       setIsMobile(window.innerWidth <= 650);
     }
@@ -64,7 +61,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
     return () => {
       window.removeEventListener("resize", handleResize);
     };
-  }, [locale, isMobile]);
+  }, [isMobile]);
 
   return (
     <PageWrapperBorgatta>

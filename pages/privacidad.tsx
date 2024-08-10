@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import Head from "components/layout/Head";
 import Link from "next/link";
 import PageWrapper from "components/layout/PageWrapper";
@@ -10,19 +9,13 @@ import ContactFooter from "components/shared/footers/ContactFooter";
 import { P, Ul, Li } from "components/shared/Dangerously";
 
 export default function Privacy({ locale, setTitle, pt }) {
-  const [t, setT] = useState(pt);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "privacy",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
   let b = t.body;
-
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "privacy.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle(nT.head.headerTitle);
-      },
-    });
-  }, [locale]);
 
   return (
     <PageWrapper>

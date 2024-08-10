@@ -1,25 +1,18 @@
 import Head from "components/layout/Head";
-import { useEffect, useState } from "react";
+import { useLocalizedContent } from "utils/useLocalizedContent";
 import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
-import clientLocale from "utils/clientLocale";
 import PageWrapper from "components/layout/PageWrapper";
 import TitleSection from "components/shared/TitleSection";
 import ContactFooter from "components/shared/footers/ContactFooter";
 
 export default function Error({ locale, setTitle, pt }) {
-  const [t, setT] = useState(pt);
-
-  useEffect(() => {
-    clientLocale({
-      locale: locale,
-      fileName: "404.json",
-      callBack: (nT) => {
-        setT(nT);
-        setTitle("Error 404");
-      },
-    });
-  }, [locale]);
+  const t = useLocalizedContent({
+    locale,
+    fileName: "404",
+    initialContent: pt,
+    onTitleChange: setTitle,
+  });
 
   return (
     <PageWrapper>
@@ -31,7 +24,7 @@ export default function Error({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/404"}
         noIndex
       />
-      <TitleSection {...t.intro} heading={1}/>
+      <TitleSection {...t.intro} heading={1} />
       <ContactFooter />
     </PageWrapper>
   );

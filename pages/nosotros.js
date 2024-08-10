@@ -18,7 +18,7 @@ import pPaper from "../public/assets/img/layout/paper.png";
 function About({ locale, setTitle, pt }) {
   const t = useLocalizedContent({
     locale,
-    fileName: "about.json",
+    fileName: "about",
     initialContent: pt,
     onTitleChange: setTitle,
   });
