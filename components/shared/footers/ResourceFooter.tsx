@@ -53,7 +53,7 @@ const ResourceFooter = ({
           <Fade triggerOnce>
             <p>
               {resource.p2}
-              {"+130"}
+              {"+160"}
               {resource.p3}
               <Link href={"/mvs"} passHref legacyBehavior>
                 <a>Minimum Viable Startup</a>

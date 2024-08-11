@@ -1,14 +1,29 @@
-import styled from "styled-components";
+import React, { useMemo } from "react";
+import styled, { css } from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
+import Image from 'next/image';
 import { P } from "components/shared/Dangerously";
-import Picture from "components/caseStudy/shared/Picture";
 import BroadcastRouter from "./BroadcastRouter";
 import EpisodeNumber from "./EpisodeNumber";
 import ShareRouter from "./ShareRouter";
 import BorderLink from "components/shared/BorderedLink";
 import ButtonArrow from "components/shared/footers/ButtonArrow";
 import { PrismicNextImage } from "@prismicio/next";
+
+const formatDate = (date) => {
+  const fullDate = new Date(`${date}T00:00:00`);
+  return fullDate.toLocaleDateString("es-MX", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+};
+
+const getShortDate = (date) => {
+  const fullDate = new Date(`${date}T00:00:00`);
+  return fullDate.toLocaleDateString("es-MX");
+};
 
 const EpisodePreview = ({
   title,
@@ -23,154 +38,154 @@ const EpisodePreview = ({
   google,
   youtube,
   episode,
-  longFormat,
-  simplest,
-  text,
-  hideImageMobile,
-  podcastImage,
-  prismic,
+  longFormat = false,
+  simplest = false,
+  text = "",
+  hideImageMobile = false,
+  podcastImage = null,
+  prismic = false,
 }) => {
-  const LinkComplex = ({ children }) => (
+  const LinkComplex = useMemo(() => ({ children }) => (
     <Link href={"/podcast/" + slug} passHref legacyBehavior>
       <a className="clean">{children}</a>
     </Link>
-  );
-  let fullDate = new Date(`${date}T00:00:00`);
-  let shortDate = fullDate.toLocaleDateString("es-MX");
-  let formatDate = fullDate.toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
+  ), [slug]);
+
+  const formattedDate = useMemo(() => formatDate(date), [date]);
+  const shortDate = useMemo(() => getShortDate(date), [date]);
+
   return (
-    <>
-      <NewPod
-        key={"npd" + episode}
-        simplest={simplest}
-        className={`${
-          category == "Growth/marketing"
-            ? "growth-marketing"
-            : category
-              ? category.toLowerCase()
-              : ""
-        } npd`}
+    <NewPod
+      key={"npd" + episode}
+      simplest={simplest}
+      className={`${
+        category === "Growth/marketing"
+          ? "growth-marketing"
+          : category
+            ? category.toLowerCase()
+            : ""
+      } npd`}
+    >
+      <PictureContainer
+        hoverable={!longFormat}
+        hideImageMobile={hideImageMobile}
       >
-        <PictureContainer
-          hoverable={!longFormat}
-          hideImageMobile={hideImageMobile}
-        >
-          {prismic &&
-            (longFormat ? (
+        {prismic ? (
+          longFormat ? (
+            <PrismicNextImage
+              field={podcastImage}
+              width="180"
+              height="180"
+              alt={`${business} - ${guest}`}
+            />
+          ) : (
+            <LinkComplex>
               <PrismicNextImage
                 field={podcastImage}
-                width="180"
-                height="180"
+                height={simplest ? "185" : "180"}
+                width={simplest ? "185" : "180"}
                 alt={`${business} - ${guest}`}
               />
-            ) : (
+            </LinkComplex>
+          )
+        ) : (
+          <Image
+            src={`/assets/img/podcast/${episode}.jpg`}
+            alt={`${business} - ${guest}`}
+            width={simplest ? 185 : 180}
+            height={simplest ? 185 : 180}
+            loading="lazy"
+          />
+        )}
+      </PictureContainer>
+      <div>
+        <Fade triggerOnce>
+          <HoverableContainer>
+            {!longFormat && !simplest && (
               <LinkComplex>
-                <PrismicNextImage
-                  field={podcastImage}
-                  height={simplest ? "185" : "180"}
-                  width={simplest ? "185" : "180"}
-                  alt={`${business} - ${guest}`}
-                />
+                <TitleHoverable>{title}</TitleHoverable>
               </LinkComplex>
-            ))}
-          {!prismic &&
-            (longFormat ? (
-              <Picture
-                src={`/assets/img/podcast/${episode}.jpg`}
-                alt={`${business} - ${guest}`}
-                height={180}
-                width={180}
-              />
-            ) : (
-              <LinkComplex>
-                <Picture
-                  src={`/assets/img/podcast/${episode}.jpg`}
-                  alt={`${business} - ${guest}`}
-                  height={simplest ? 185 : 180}
-                  width={simplest ? 185 : 180}
-                />
-              </LinkComplex>
-            ))}
-        </PictureContainer>
-        <div>
-          <Fade triggerOnce>
-            <HoverableContainer>
-              {!longFormat && !simplest && (
-                <LinkComplex legacyBehavior>
-                  <TitleHoverable>{title}</TitleHoverable>
-                </LinkComplex>
-              )}
-            </HoverableContainer>
-            <Guest>
-              {!longFormat ? (
-                <LinkComplex>
-                  <EpisodeNumber episode={episode} />
-                  <p className="guest">
-                    {guest} <span>{business}</span>
-                  </p>
-                </LinkComplex>
-              ) : (
-                <h2 className="guest">
-                  {guest} <span>{business}</span> <strong>{title}</strong>
-                </h2>
-              )}
-            </Guest>
-            <DateCat>
-              {longFormat && spotify && (
-                <time dateTime={date.toString()}>{formatDate}</time>
-              )}
-              <span>{category}</span>
-            </DateCat>
-            <div>{!simplest ? <P>{description}</P> : null}</div>
-            <div>
-              {!simplest &&
-                (spotify ? (
-                  <BroadcastRouter
-                    trackClicks
-                    episode={episode}
-                    spotify={spotify}
-                    apple={apple}
-                    google={google}
-                    youtube={youtube}
-                  >
-                    {longFormat && "Escúchalo en"}
-                  </BroadcastRouter>
-                ) : (
-                  <ToBeReleased>Disponible el {shortDate}</ToBeReleased>
-                ))}
-            </div>
-            <div>
-              {longFormat && spotify && (
-                <ShareRouter
-                  shareUrl={`https://acueducto.studio/podcast/${slug}`}
-                >
-                  Comparte
-                </ShareRouter>
-              )}
-            </div>
-          </Fade>
-          <ButtonSpace>
-            {simplest && (
-              <Link href={"/podcast/" + slug + "#"} passHref legacyBehavior>
-                <ButtonArrow
-                  text={text ? text : "seguir aprendiendo"}
-                  inverse
-                  className="leftFix clean"
-                />
-              </Link>
             )}
-          </ButtonSpace>
-        </div>
-      </NewPod>
-    </>
+          </HoverableContainer>
+          <Guest>
+            {!longFormat ? (
+              <LinkComplex>
+                <EpisodeNumber episode={episode} />
+                <p className="guest">
+                  {guest} <span>{business}</span>
+                </p>
+              </LinkComplex>
+            ) : (
+              <h2 className="guest">
+                {guest} <span>{business}</span> <strong>{title}</strong>
+              </h2>
+            )}
+          </Guest>
+          <DateCat>
+            {longFormat && spotify && (
+              <time dateTime={date.toString()}>{formattedDate}</time>
+            )}
+            <span>{category}</span>
+          </DateCat>
+          <div>{!simplest ? <P>{description}</P> : null}</div>
+          <div>
+            {!simplest &&
+              (spotify ? (
+                <BroadcastRouter
+                  trackClicks
+                  episode={episode}
+                  spotify={spotify}
+                  apple={apple}
+                  youtube={youtube}
+                >
+                  {longFormat && "Escúchalo en"}
+                </BroadcastRouter>
+              ) : (
+                <ToBeReleased>Disponible el {shortDate}</ToBeReleased>
+              ))}
+          </div>
+          <div>
+            {longFormat && spotify && (
+              <ShareRouter
+                shareUrl={`https://acueducto.studio/podcast/${slug}`}
+              >
+                Comparte
+              </ShareRouter>
+            )}
+          </div>
+        </Fade>
+        <ButtonSpace>
+          {simplest && (
+            <Link href={"/podcast/" + slug + "#"} passHref legacyBehavior>
+              <ButtonArrow
+                text={text ? text : "seguir aprendiendo"}
+                inverse
+                className="leftFix clean"
+              />
+            </Link>
+          )}
+        </ButtonSpace>
+      </div>
+    </NewPod>
   );
 };
 
-export default EpisodePreview;
+export default React.memo(EpisodePreview);
+
+const sharedStyles = css`
+  font-size: 2.5rem;
+  font-weight: 200;
+  line-height: 115%;
+  margin-top: 0;
+  margin-bottom: 12px;
+  
+  @media (max-width: 970px) {
+    font-size: 2.2rem;
+  }
+  @media (max-width: 620px) {
+    font-size: 2rem;
+  }
+`;
 
 const ToBeReleased = styled.div`
   border: 2px solid orange;
@@ -199,17 +214,7 @@ const HoverableContainer = styled.div`
 `;
 
 const TitleHoverable = styled.p`
-  font-size: 2.5rem;
-  font-weight: 200;
-  line-height: 115%;
-  margin-top: 0;
-  margin-bottom: 12px;
-  @media (max-width: 970px) {
-    font-size: 2.2rem;
-  }
-  @media (max-width: 620px) {
-    font-size: 2rem;
-  }
+  ${sharedStyles}
   ${BorderLink({ showLink: false })}
 `;
 
@@ -243,6 +248,7 @@ const PictureContainer = styled.div`
 `;
 
 const Guest = styled.div`
+  ${sharedStyles}
   padding-top: 4px;
   display: flex;
   @media (hover: hover) and (pointer: fine) {

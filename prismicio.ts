@@ -4,10 +4,12 @@ import { enableAutoPreviews } from '@prismicio/next';
 export const repositoryName = 'acueductostudio';
 const endpoint = prismic.getRepositoryEndpoint(repositoryName);
 
-export const createClient = ({ previewData }) => {
+export const createClient = (config: { previewData?: any } = {}) => {
   const client = prismic.createClient(endpoint);
 
-  enableAutoPreviews({ client, previewData });
+  if (config.previewData) {
+    enableAutoPreviews({ client, previewData: config.previewData });
+  }
 
   return client;
 }

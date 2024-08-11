@@ -7,7 +7,7 @@ const es_default_keywords =
 const en_default_keywords =
   "design, studio, acueducto, cdmx, innovation, strategic design, experience design, product design, brand design, design strategy, technology";
 
-type HeadProps = {
+export type HeadProps = {
   title: string;
   description: string;
   headerTitle: string;
@@ -15,7 +15,7 @@ type HeadProps = {
   en_canonical?: string;
   es_canonical?: string;
   image?: { fileName: string; alt: string };
-  noIndex?: boolean;
+  noIndex?: boolean; 
 };
 
 const NewHead = ({
