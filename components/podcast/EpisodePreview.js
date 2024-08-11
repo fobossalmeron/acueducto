@@ -2,7 +2,7 @@ import React, { useMemo } from "react";
 import styled, { css } from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
-import Image from 'next/image';
+import Image from "next/image";
 import { P } from "components/shared/Dangerously";
 import BroadcastRouter from "./BroadcastRouter";
 import EpisodeNumber from "./EpisodeNumber";
@@ -45,11 +45,15 @@ const EpisodePreview = ({
   podcastImage = null,
   prismic = false,
 }) => {
-  const LinkComplex = useMemo(() => ({ children }) => (
-    <Link href={"/podcast/" + slug} passHref legacyBehavior>
-      <a className="clean">{children}</a>
-    </Link>
-  ), [slug]);
+  const LinkComplex = useMemo(
+    () =>
+      ({ children }) => (
+        <Link href={"/podcast/" + slug} passHref legacyBehavior>
+          <a className="clean">{children}</a>
+        </Link>
+      ),
+    [slug]
+  );
 
   const formattedDate = useMemo(() => formatDate(date), [date]);
   const shortDate = useMemo(() => getShortDate(date), [date]);
@@ -70,33 +74,35 @@ const EpisodePreview = ({
         hoverable={!longFormat}
         hideImageMobile={hideImageMobile}
       >
-        {prismic ? (
-          longFormat ? (
-            <PrismicNextImage
-              field={podcastImage}
-              width="180"
-              height="180"
-              alt={`${business} - ${guest}`}
-            />
-          ) : (
-            <LinkComplex>
+        <Fade triggerOnce>
+          {prismic ? (
+            longFormat ? (
               <PrismicNextImage
                 field={podcastImage}
-                height={simplest ? "185" : "180"}
-                width={simplest ? "185" : "180"}
+                width="180"
+                height="180"
                 alt={`${business} - ${guest}`}
               />
-            </LinkComplex>
-          )
-        ) : (
-          <Image
-            src={`/assets/img/podcast/${episode}.jpg`}
-            alt={`${business} - ${guest}`}
-            width={simplest ? 185 : 180}
-            height={simplest ? 185 : 180}
-            loading="lazy"
-          />
-        )}
+            ) : (
+              <LinkComplex>
+                <PrismicNextImage
+                  field={podcastImage}
+                  height={simplest ? "185" : "180"}
+                  width={simplest ? "185" : "180"}
+                  alt={`${business} - ${guest}`}
+                />
+              </LinkComplex>
+            )
+          ) : (
+            <Image
+              src={`/assets/img/podcast/${episode}.jpg`}
+              alt={`${business} - ${guest}`}
+              width={simplest ? 185 : 180}
+              height={simplest ? 185 : 180}
+              loading="lazy"
+            />
+          )}
+        </Fade>
       </PictureContainer>
       <div>
         <Fade triggerOnce>
@@ -178,7 +184,7 @@ const sharedStyles = css`
   line-height: 115%;
   margin-top: 0;
   margin-bottom: 12px;
-  
+
   @media (max-width: 970px) {
     font-size: 2.2rem;
   }

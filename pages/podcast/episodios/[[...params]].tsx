@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import useSWR from 'swr';
 import EpisodePreview from "components/podcast/EpisodePreview";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
@@ -32,7 +33,7 @@ import {
 interface EpisodesPageProps {
   locale: string;
   setTitle: (title: string) => void;
-  episodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>;
+  initialEpisodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>;
   pt: {
     intro: {
       title: string;
@@ -47,10 +48,12 @@ interface EpisodesPageProps {
 
 const EPISODES_PER_PAGE = 30;
 
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
+
 const EpisodesPage: React.FC<EpisodesPageProps> = ({
   locale,
   setTitle,
-  episodes,
+  initialEpisodes,
   pt,
   totalPages,
   currentPage,
@@ -58,6 +61,12 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
 }) => {
   const { intro, head } = pt;
   const [isMobile, setIsMobile] = useState(false);
+
+  const { data: { episodes } = { episodes: initialEpisodes }, error } = useSWR(
+    `/api/episodes?category=${currentCategory}&page=${currentPage}`,
+    fetcher,
+    { initialData: { episodes: initialEpisodes }, revalidateOnFocus: false }
+  );
 
   useEffect(() => {
     setTitle(head.headerTitle);
@@ -75,18 +84,21 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     };
   }, [checkMobile]);
 
-  const categories = [
+  const categories = useMemo(() => [
     "todas",
     "founder",
     "producto",
     "inversor",
     "growth",
     "desarrollo",
-  ];
+  ], []);
 
   const isPrismicEpisode = useMemo(() => (episode: MarkdownPodcastEpisode | PrismicPodcastEpisode): episode is PrismicPodcastEpisode => {
     return 'data' in episode;
   }, []);
+
+  if (error) return <div>Failed to load episodes</div>;
+  if (!episodes) return <div>Loading...</div>;
 
   return (
     <PageWrapper>
@@ -128,29 +140,27 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
             </CatFilter>
           </Fade>
           <PodcastList>
-            {episodes.map((episode, index) =>
-              isPrismicEpisode(episode) ? (
-                <EpisodePreview
-                  title={episode.data.introduction[0].title[0].text}
-                  guest={episode.data.introduction[0].guest}
-                  business={episode.data.introduction[0].business}
-                  slug={episode.uid}
-                  spotify={episode.data.introduction[0].spotify}
-                  apple={episode.data.introduction[0].apple}
-                  google={episode.data.introduction[0].google}
-                  youtube={episode.data.introduction[0].youtube}
-                  podcastImage={episode.data.images[0].episode}
-                  episode={episode.data.introduction[0].episode}
-                  description={episode.data.introduction[0].description[0].text}
-                  date={episode.data.introduction[0].date}
-                  category={episode.data.introduction[0].category}
-                  key={`npd${index}`}
-                  prismic
-                />
-              ) : (
-                <EpisodePreview {...episode} key={`npd${index}`} />
-              )
-            )}
+            {episodes.map((episode, index) => (
+              <EpisodePreview
+                key={`npd${index}`}
+                {...(isPrismicEpisode(episode) ? {
+                  title: episode.data.introduction[0].title[0].text,
+                  guest: episode.data.introduction[0].guest,
+                  business: episode.data.introduction[0].business,
+                  slug: episode.uid,
+                  spotify: episode.data.introduction[0].spotify,
+                  apple: episode.data.introduction[0].apple,
+                  google: episode.data.introduction[0].google,
+                  youtube: episode.data.introduction[0].youtube,
+                  podcastImage: episode.data.images[0].episode,
+                  episode: episode.data.introduction[0].episode,
+                  description: episode.data.introduction[0].description[0].text,
+                  date: episode.data.introduction[0].date,
+                  category: episode.data.introduction[0].category,
+                  prismic: true
+                } : episode)}
+              />
+            ))}
           </PodcastList>
           <Pagination>
             {currentPage > 1 && (
@@ -161,14 +171,13 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
             <PageNumbers>
               {Array.from({ length: totalPages }, (_, i) => i + 1).map(
                 (page, index) => (
-                  <React.Fragment key={page}>
-                    <PageNumber
-                      href={`/podcast/episodios/${currentCategory}/${page}`}
-                      $active={page === currentPage}
-                    >
-                      {page}
-                    </PageNumber>
-                  </React.Fragment>
+                  <PageNumber
+                    key={page}
+                    href={`/podcast/episodios/${currentCategory}/${page}`}
+                    $active={page === currentPage}
+                  >
+                    {page}
+                  </PageNumber>
                 )
               )}
             </PageNumbers>
@@ -289,9 +298,8 @@ export const getStaticProps: GetStaticProps<Omit<EpisodesPageProps, 'setTitle'>>
   return {
     props: {
       locale: context.locale || 'es',
-      episodes: paginatedEpisodes,
+      initialEpisodes: paginatedEpisodes,
       pt,
-      prismicEpisodes: allEpisodes.filter(isPrismicEpisode),  // Mantenemos todos los episodios de Prismic ordenados
       totalPages,
       currentPage: page,
       currentCategory: category,

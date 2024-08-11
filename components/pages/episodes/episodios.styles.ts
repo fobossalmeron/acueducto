@@ -5,8 +5,10 @@ import Link from "next/link";
 export const PodcastGrid = styled.div`
   background-color: ${(p) => p.theme.colors.background};
   background-image: url("/assets/img/layout/back.svg");
-  background-size: cover;
-  background-position: top right;
+  background-size: 130%;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: top;
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   display: grid;
@@ -42,21 +44,26 @@ export const PodcastGrid = styled.div`
     max-width: 600px;
   }
   @media (max-width: 1250px) {
+    background-size: 170%;
     h1 {
       font-size: 6rem;
     }
   }
   @media (max-width: 950px) {
+    background-size: 230%;
     h1 {
       font-size: 5rem;
     }
   }
   @media (max-width: 800px) {
+    background-size: 270%;
+    background-position: 65% 20%;
     h1 {
       font-size: 4rem;
     }
   }
   @media (max-width: 600px) {
+    background-position: 65% -50%;
     margin-bottom: 15%;
     & > div {
       grid-column: 1 / span 12;
@@ -70,6 +77,9 @@ export const PodcastGrid = styled.div`
       padding-bottom: 3%;
       grid-column-end: 12;
     }
+  }
+  @media (max-width: 400px) {
+    background-position: 65% 300px;
   }
 `;
 
