@@ -1,3 +1,5 @@
+import { ImageFieldImage } from "@prismicio/client";
+
 export interface MarkdownPodcastEpisode {
   title: string;
   guest: string;
@@ -29,7 +31,8 @@ export interface PrismicPodcastEpisode {
       google: string;
       youtube: string;
     }>;
-    images: Array<{ episode: string }>;
+    images: Array<{ episode: string; solas?: ImageFieldImage }>;
   };
   uid: string;
+  logos?: string[];
 }

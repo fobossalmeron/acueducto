@@ -2,8 +2,8 @@
   "head": {
     "title": "Cuando el río suena: Podcast de negocios y productos digitales",
     "description": "Podcast de emprendimiento, negocios y productos digitales. Aprende cómo se construyen las empresas de servicios digitales más importantes de Latinoamérica.",
-    "image_alt": "Cuando el río suena: un podcast de productos digitales",
-    "headerTitle": "Podcast"
+    "image": { "alt":"Cuando el río suena: un podcast de productos digitales"},
+    "headerTitle": "Podcast" 
   },
   "intro": {
     "subtitle": "Cuando el río suena </br> <span>Podcast de negocios & productos digitales</span>",

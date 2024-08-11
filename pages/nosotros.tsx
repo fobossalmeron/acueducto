@@ -1,21 +1,31 @@
 import React from "react";
+import Image from "next/image";
+import styled from "styled-components";
+import { Fade } from "react-awesome-reveal";
+
 import ssrLocale from "utils/ssrLocale";
 import { useLocalizedContent } from "utils/useLocalizedContent";
-import Head from "components/layout/Head";
+
+import Head, { HeadProps } from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import PageWrapper from "components/layout/PageWrapper";
 import ContactFooter from "components/shared/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P } from "components/shared/Dangerously";
-import styled from "styled-components";
-import TitleSectionGrid from "components/shared/TitleSectionGrid.ts";
+import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import Recursos from "components/shared/Recursos";
-import Picture from "components/caseStudy/shared/Picture";
 import ManifiestoSection from "components/ManifiestoSection";
+
 import pTeam from "../public/assets/img/layout/team.png";
 import pPaper from "../public/assets/img/layout/paper.png";
 
-function About({ locale, setTitle, pt }) {
+interface AboutProps {
+  locale: string;
+  setTitle: (title: string) => void;
+  pt: any; 
+}
+
+const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
   const t = useLocalizedContent({
     locale,
     fileName: "about",
@@ -31,12 +41,16 @@ function About({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/about"}
       />
       <Team as={TitleSectionGrid}>
-        <Picture
-          src={pTeam}
-          alt="Equipo de Acueducto"
-          placeholder="blur"
-          priority
-        />
+        <Fade triggerOnce>
+          <Image
+            src={pTeam}
+            width={1110}
+            height={500}
+            alt="Equipo de Acueducto"
+            placeholder="blur"
+            priority
+          />
+        </Fade>
       </Team>
       <ControlledPadding
         as={PinnedSection}
@@ -47,7 +61,7 @@ function About({ locale, setTitle, pt }) {
         <P>{t.intro.p}</P>
       </ControlledPadding>
       <PaperPlane>
-        <Picture
+        <Image
           src={pPaper}
           width={600}
           height={400}
@@ -62,7 +76,7 @@ function About({ locale, setTitle, pt }) {
       <ContactFooter />
     </PageWrapper>
   );
-}
+};
 
 export default React.memo(About);
 

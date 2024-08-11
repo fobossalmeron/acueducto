@@ -1,96 +1,22 @@
 import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import Link from "next/link";
-import Picture from "components/caseStudy/shared/Picture";
-import Image from "next/image";
 import BorderLink from "components/shared/BorderedLink";
-import { PrismicNextImage } from "@prismicio/next";
 
-const EpisodeFeature = ({
-  title,
-  guest,
-  business,
-  slug,
-  episode,
-  blue,
-  portrait,
-  image,
-  logos,
-}) => {
-  return (
-    <Link
-      href={"/podcast/" + slug}
-      passHref
-      key={"npd" + episode}
-      legacyBehavior
-    >
-      <NewPod blue={blue} episode={episode}>
-        <PictureContainer
-          hoverable={true}
-          episode={episode}
-          portrait={portrait}
-        >
-          {!portrait && image ? (
-            <PrismicNextImage
-              field={image}
-              height="206"
-              width="365"
-              fallbackAlt=""
-            />
-          ) : (
-            <>
-              <Picture
-                src={`/assets/img/podcast/solas/${episode}.jpg`}
-                alt={title + " - " + guest}
-                height={episode >= 91 && !portrait ? 206 : 142}
-                width={episode >= 91 && !portrait ? 365 : 142}
-              />
-              {logos && (
-                <div className="logos">
-                  {logos.map((logo) => (
-                    <Image
-                      key={logo}
-                      className="logoMini"
-                      width={30}
-                      height={30}
-                      src={`/assets/img/podcast/logos/${logo}.png`}
-                      alt={logo}
-                    />
-                  ))}
-                </div>
-              )}
-            </>
-          )}
-        </PictureContainer>
-        <Fade triggerOnce>
-          <Guest blue={blue}>
-            <h3>
-              {guest} <span>{business}</span>
-            </h3>
-          </Guest>
-          <HoverableContainer>
-            <H2overable>{title}</H2overable>
-          </HoverableContainer>
-        </Fade>
-      </NewPod>
-    </Link>
-  );
-};
-
-export default EpisodeFeature;
-
-const HoverableContainer = styled.div`
+export const HoverableContainer = styled.div`
   margin-bottom: 8px;
 `;
 
-const H2overable = styled.h3`
+export const H2overable = styled.h3`
   ${BorderLink({ showLink: false })}
   &:first-letter {
     text-transform: lowercase;
   }
 `;
 
-const PictureContainer = styled.div`
+export const PictureContainer = styled.div<{
+  hoverable: boolean;
+  episode: number;
+  portrait: boolean;
+}>`
   margin-bottom: 7%;
   height: 145px;
   position: relative;
@@ -121,7 +47,7 @@ const PictureContainer = styled.div`
   }
 `;
 
-const Guest = styled.div`
+export const Guest = styled.div<{ blue?: boolean }>`
   display: flex;
   margin-bottom: 10px;
   text-shadow: ${(p) =>
@@ -137,11 +63,12 @@ const Guest = styled.div`
   }
 `;
 
-const NewPod = styled.a`
+export const NewPod = styled.a<{ blue?: boolean; episode: number }>`
   display: flex;
   flex-direction: column;
   text-align: left;
   max-width: 800px;
+  text-decoration: none;
   width: 100%;
   background-image: ${(p) =>
     p.blue
