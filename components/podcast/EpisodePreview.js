@@ -85,7 +85,7 @@ const EpisodePreview = ({
                   field={podcastImage}
                   height={simplest ? "185" : "180"}
                   width={simplest ? "185" : "180"}
-                  alt={`${business} - ${guest}`}
+                  alt=""
                 />
               </LinkComplex>
             )
@@ -302,7 +302,7 @@ const DateCat = styled.div`
 const NewPod = styled.article`
   display: flex;
   max-width: 800px;
-  margin-top: ${(p) => (p.simplest ? "3.5rem" : "10%")};
+  margin-top: ${(p) => (p.simplest ? "3.5rem" : "3.5rem")};
   width: ${(p) => (p.simplest ? "100%" : "inherit")};
   justify-content: ${(p) => (p.simplest ? "center" : "inherit")};
   a {

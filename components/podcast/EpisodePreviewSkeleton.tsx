@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import React from "react";
+import styled, { keyframes } from "styled-components";
 
 const shimmer = keyframes`
   0% {
@@ -12,9 +12,15 @@ const shimmer = keyframes`
 
 const SkeletonWrapper = styled.div`
   background: #2a2a2a;
-  background-image: linear-gradient(to right, #2a2a2a 0%, #3a3a3a 20%, #2a2a2a 40%, #2a2a2a 100%);
+  background-image: linear-gradient(
+    to right,
+    #2a2a2a 0%,
+    #3a3a3a 20%,
+    #2a2a2a 40%,
+    #2a2a2a 100%
+  );
   background-repeat: no-repeat;
-  background-size: 200% 100%; 
+  background-size: 200% 100%;
   display: inline-block;
   position: relative;
   animation-duration: 2s;
@@ -22,14 +28,13 @@ const SkeletonWrapper = styled.div`
   animation-iteration-count: infinite;
   animation-name: ${shimmer};
   animation-timing-function: linear;
-  max-width:800px;
 `;
 
 const SkeletonContainer = styled.div`
   display: flex;
-  margin-top: 10%;
-  padding: 15px;
+  margin-top: 4rem;
   border-radius: 20px;
+  max-width: 800px;
 
   @media (max-width: 900px) {
     flex-direction: column;
@@ -91,8 +96,8 @@ const EpisodePreviewSkeleton: React.FC = () => {
       <ContentSkeleton>
         <TitleSkeleton />
         <DescriptionSkeleton />
-        <DescriptionSkeleton style={{ width: '90%' }} />
-        <DescriptionSkeleton style={{ width: '80%' }} />
+        <DescriptionSkeleton style={{ width: "90%" }} />
+        <DescriptionSkeleton style={{ width: "80%" }} />
         <ButtonSkeleton />
       </ContentSkeleton>
     </SkeletonContainer>
