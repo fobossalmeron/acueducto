@@ -4,7 +4,7 @@ date: "2023-05-15"
 title: Así innova un top retailer en México
 guest: Antonio Annesse
 business: Coppel
-category: Innovación
+category: Innovacion
 description: Bienvenido a un episodio con Antonio Anesse, VP of Innovation and New Ventures en Coppel, el segundo corporativo de retail y financiamiento más grande de México.
 insights:
   - <b>Si no tienes los recursos, pide ayuda. </b> Antonio nos cuenta la importancia de saber reconocer cuando algo puede solucionarse inhouse y cuando se necesita talento o conocimientos externos. 

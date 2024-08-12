@@ -4,7 +4,7 @@ date: "2021-09-19"
 title: Cómo innova un corporativo con más de 20 años en el mercado
 guest: Jenaro Martínez
 business: Axtel
-category: Producto
+category: Innovacion
 description: En este capítulo hablamos con Jenaro Martínez, Director de Innovación y Alianzas Estratégicas de Axtel, el corporativo de infraestructura y servicios de TI más grande de México. Hablamos sobre cultura de innovación, nuevas tecnologías y cómo servir al sector corporativo. 
 spotify: https://open.spotify.com/episode/0OS9sOF2TQZOKf0E0PF3n6
 apple: https://podcasts.apple.com/us/podcast/c%C3%B3mo-innova-un-corporativo-con-m%C3%A1s-de-20-a%C3%B1os/id1500473556?i=1000579887679

@@ -12,7 +12,7 @@ export const PodcastGrid = styled.div`
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   display: grid;
-  padding: 10% 2%;
+  padding: 7% 2%;
   position: relative;
   margin-bottom: -1px;
   & > div {
@@ -21,7 +21,7 @@ export const PodcastGrid = styled.div`
   h1 {
     letter-spacing: 0;
     line-height: 100%;
-    font-size: 7rem;
+    font-size: 5rem;
     margin-bottom: 3px;
     max-width: 810px;
     color: ${(props) => props.theme.colors.foreground};
@@ -46,7 +46,7 @@ export const PodcastGrid = styled.div`
   @media (max-width: 1250px) {
     background-size: 170%;
     h1 {
-      font-size: 6rem;
+      font-size: 5rem;
     }
   }
   @media (max-width: 950px) {
@@ -72,10 +72,13 @@ export const PodcastGrid = styled.div`
       padding-top: 10px;
     }
     h1 {
+      font-size: 2.5rem;
       line-height: 0.9;
       padding-top: 5%;
       padding-bottom: 3%;
       grid-column-end: 12;
+      padding-bottom: 4px;
+      margin-bottom:0;
     }
   }
   @media (max-width: 400px) {
@@ -86,7 +89,6 @@ export const PodcastGrid = styled.div`
 export const PodcastList = styled.div`
   display: flex;
   flex-direction: column;
-  margin-top: 5%;
   max-width: 800px;
 `;
 
@@ -98,7 +100,8 @@ export const CatList = styled.div`
   display: block;
   margin-top: 10px;
   width: 100%;
-  & > :last-child {
+  //la siguiente línea tiene un error de sintaxis, corrígela
+  & > :first-child:not(.active) {
     border-color: ${(p) => p.theme.colors.foreground_low};
   }
 `;
@@ -239,6 +242,18 @@ export const Separator = styled.div`
   height: 40px;
   opacity: 0;
   background-color: ${(p) => p.theme.colors.accent};
+`;
+
+export const SearchInput = styled.input`
+  width: 240px;
+  padding: 10px 17px 14px 17px;
+  font-weight:100;
+  margin-bottom: 20px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  background-color: ${(p) => p.theme.colors.background};
+  color: ${(p) => p.theme.colors.foreground};
+  margin-top:10px;
 `;
 
 export const TextToIcon = styled.div<{ $reverse?: boolean }>`

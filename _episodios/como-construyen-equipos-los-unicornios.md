@@ -4,7 +4,7 @@ date: "2022-03-07"
 title: Cómo construyen equipos los unicornios
 guest: Andreas Waldmann
 business: Clara
-category: Marketing
+category: Growth
 description: En este episodio hablamos con Andreas Waldmann, CMO de Clara, el unicornio mexicano de servicios empresariales. Platicamos sobre conformación de equipos, las diferencias de hacer marketing en una startup contra una corporación y cómo se ve el funnel de un unicornio.
 file: https://www.buzzsprout.com/895972/10205309-como-construyen-equipos-los-unicornios-andreas-waldmann.mp3?download=true
 spotify: https://open.spotify.com/episode/0Pe5GtVBA1ZmkPrWkB0m3k

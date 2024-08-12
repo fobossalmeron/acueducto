@@ -4,7 +4,7 @@ date: "2022-11-14"
 title: Cómo es un corporativo con la innovación en su ADN 
 guest: Luis Pintado
 business: Interprotección
-category: Founder
+category: Innovacion
 description: "Acompáñanos con Luis Pintado, CTO de Interprotección, el broker de seguros más grande de Latinoamérica."
 insights:
 - <b>Acerca a los ingenieros al negocio.</b> En Interprotección, los equipos de desarrollo tienen una relación estrecha con la dirección de negocio para tomar decisiones en conjunto y mantenerse alineados.

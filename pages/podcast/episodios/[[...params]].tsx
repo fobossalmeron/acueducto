@@ -1,6 +1,8 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
-import useSWR from 'swr';
+import { useRouter } from "next/router";
+import useSWR from "swr";
 import EpisodePreview from "components/podcast/EpisodePreview";
+import EpisodePreviewSkeleton from "components/podcast/EpisodePreviewSkeleton";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
@@ -13,6 +15,7 @@ import { Fade } from "react-awesome-reveal";
 import { createClient } from "../../../prismicio";
 import { GetStaticProps, GetStaticPaths } from "next";
 import Link from "next/link";
+import { debounce } from "utils/debounce";
 import {
   PodcastGrid,
   PodcastList,
@@ -24,16 +27,18 @@ import {
   PageNumbers,
   PageNumber,
   TextToIcon,
+  SearchInput,
 } from "../../../components/pages/episodes/episodios.styles";
 import {
   PrismicPodcastEpisode,
-  MarkdownPodcastEpisode
+  MarkdownPodcastEpisode,
 } from "components/podcast/podcast.types";
 
 interface EpisodesPageProps {
   locale: string;
   setTitle: (title: string) => void;
   initialEpisodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>;
+  totalEpisodes: number;
   pt: {
     intro: {
       title: string;
@@ -57,10 +62,19 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
   pt,
   totalPages,
   currentPage,
-  currentCategory
+  currentCategory,
 }) => {
   const { intro, head } = pt;
+  const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
+  const [noResults, setNoResults] = useState(false);
+  const [inputValue, setInputValue] = useState("");
+  const [searchTerm, setSearchTerm] = useState("");
+  const [isSearching, setIsSearching] = useState(false);
+  const [filteredEpisodes, setFilteredEpisodes] = useState<
+    Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>
+  >([]);
+  const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
 
   const { data: { episodes } = { episodes: initialEpisodes }, error } = useSWR(
     `/api/episodes?category=${currentCategory}&page=${currentPage}`,
@@ -68,9 +82,24 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     { initialData: { episodes: initialEpisodes }, revalidateOnFocus: false }
   );
 
+  const { data: allEpisodes, error: allEpisodesError } = useSWR(
+    isSearching ? "/api/all-episodes" : null,
+    fetcher
+  );
+
   useEffect(() => {
     setTitle(head.headerTitle);
   }, [locale, head.headerTitle, setTitle]);
+
+  useEffect(() => {
+    // Limpiar búsqueda cuando cambia la categoría
+    setInputValue("");
+    setSearchTerm("");
+    setIsSearching(false);
+    setFilteredEpisodes([]);
+    setNoResults(false);
+    setCurrentFilteredPage(1);
+  }, [currentCategory]);
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth <= 760);
@@ -84,20 +113,158 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     };
   }, [checkMobile]);
 
-  const categories = useMemo(() => [
-    "todas",
-    "founder",
-    "producto",
-    "inversor",
-    "growth",
-    "desarrollo",
-  ], []);
+  const categories = useMemo(
+    () => [
+      "todas",
+      "founder",
+      "producto",
+      "inversor",
+      "growth",
+      "desarrollo",
+      "innovacion",
+      "operador",
+      "people",
+    ],
+    []
+  );
 
-  const isPrismicEpisode = useMemo(() => (episode: MarkdownPodcastEpisode | PrismicPodcastEpisode): episode is PrismicPodcastEpisode => {
-    return 'data' in episode;
+  const isPrismicEpisode = useMemo(
+    () =>
+      (
+        episode: MarkdownPodcastEpisode | PrismicPodcastEpisode
+      ): episode is PrismicPodcastEpisode => {
+        return "data" in episode;
+      },
+    []
+  );
+
+  const normalizeText = useCallback((text: string): string => {
+    return text
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "")
+      .toLowerCase();
   }, []);
 
-  if (error) return <div>Failed to load episodes</div>;
+  const performSearch = useCallback(
+    (
+      term: string,
+      episodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>
+    ) => {
+      const normalizedTerm = normalizeText(term);
+      const filtered = episodes.filter((episode) => {
+        if (isPrismicEpisode(episode)) {
+          return (
+            normalizeText(episode.data.introduction[0].title[0].text).includes(
+              normalizedTerm
+            ) ||
+            normalizeText(episode.data.introduction[0].guest).includes(
+              normalizedTerm
+            ) ||
+            normalizeText(episode.data.introduction[0].business).includes(
+              normalizedTerm
+            ) ||
+            normalizeText(
+              episode.data.introduction[0].description[0].text
+            ).includes(normalizedTerm) ||
+            normalizeText(episode.data.introduction[0].category).includes(
+              normalizedTerm
+            )
+          );
+        } else {
+          return (
+            normalizeText(episode.title).includes(normalizedTerm) ||
+            normalizeText(episode.guest).includes(normalizedTerm) ||
+            normalizeText(episode.business).includes(normalizedTerm) ||
+            normalizeText(episode.description).includes(normalizedTerm) ||
+            normalizeText(episode.category).includes(normalizedTerm)
+          );
+        }
+      });
+      setFilteredEpisodes(filtered);
+      setNoResults(filtered.length === 0);
+
+      // Navegar a la URL base de episodios
+      if (currentCategory !== "todas") {
+        router.push("/podcast/episodios", undefined, { shallow: true });
+      }
+    },
+    [isPrismicEpisode, currentCategory, router, normalizeText]
+  );
+
+  const debouncedSearch = useMemo(
+    () =>
+      debounce(
+        (
+          term: string,
+          episodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>
+        ) => {
+          setSearchTerm(term);
+          performSearch(term, episodes);
+          setCurrentFilteredPage(1);
+        },
+        300
+      ),
+    [performSearch]
+  );
+
+  const handleSearch = useCallback(
+    (event: React.ChangeEvent<HTMLInputElement>) => {
+      const term = event.target.value;
+      setInputValue(term);
+
+      if (term) {
+        if (!isSearching) {
+          setIsSearching(true);
+        }
+
+        if (allEpisodes) {
+          debouncedSearch(term.toLowerCase(), allEpisodes);
+        }
+      } else {
+        setIsSearching(false);
+        setSearchTerm("");
+        setFilteredEpisodes([]);
+        setNoResults(false);
+        if (currentCategory !== "todas") {
+          router.push(`/podcast/episodios/${currentCategory}`);
+        }
+      }
+    },
+    [debouncedSearch, isSearching, allEpisodes, currentCategory, router]
+  );
+
+  const handleCategoryChange = useCallback(
+    (category: string) => {
+      setIsSearching(false);
+      setInputValue("");
+      setSearchTerm("");
+      setNoResults(false);
+      setFilteredEpisodes([]);
+      setCurrentFilteredPage(1);
+      router.push(`/podcast/episodios/${category}`);
+    },
+    [router]
+  );
+
+  const paginatedEpisodes = useMemo(() => {
+    const startIndex = (currentFilteredPage - 1) * EPISODES_PER_PAGE;
+    const endIndex = startIndex + EPISODES_PER_PAGE;
+    return (searchTerm ? filteredEpisodes : episodes).slice(
+      startIndex,
+      endIndex
+    );
+  }, [searchTerm, filteredEpisodes, episodes, currentFilteredPage]);
+
+  const totalFilteredPages = useMemo(
+    () =>
+      Math.ceil(
+        (searchTerm ? filteredEpisodes.length : episodes.length) /
+          EPISODES_PER_PAGE
+      ),
+    [searchTerm, filteredEpisodes, episodes]
+  );
+
+  if (error || allEpisodesError) return <div>Failed to load episodes</div>;
   if (!episodes) return <div>Loading...</div>;
 
   return (
@@ -128,65 +295,99 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
               <p>¿Buscas una categoría en especial?</p>
               <CatList>
                 {categories.map((cat, i) => (
-                  <Link href={`/podcast/episodios/${cat}`} key={`cat${i}`}>
-                    <Category
-                      className={cat === currentCategory ? "active" : ""}
-                    >
-                      {cat}
-                    </Category>
-                  </Link>
+                  <Category
+                    key={`cat${i}`}
+                    className={
+                      cat === currentCategory && !isSearching ? "active" : ""
+                    }
+                    onClick={() => handleCategoryChange(cat)}
+                  >
+                    {cat === "innovacion" ? "Innovación" : cat}
+                  </Category>
                 ))}
               </CatList>
             </CatFilter>
           </Fade>
-          <PodcastList>
-            {episodes.map((episode, index) => (
-              <EpisodePreview
-                key={`npd${index}`}
-                {...(isPrismicEpisode(episode) ? {
-                  title: episode.data.introduction[0].title[0].text,
-                  guest: episode.data.introduction[0].guest,
-                  business: episode.data.introduction[0].business,
-                  slug: episode.uid,
-                  spotify: episode.data.introduction[0].spotify,
-                  apple: episode.data.introduction[0].apple,
-                  google: episode.data.introduction[0].google,
-                  youtube: episode.data.introduction[0].youtube,
-                  podcastImage: episode.data.images[0].episode,
-                  episode: episode.data.introduction[0].episode,
-                  description: episode.data.introduction[0].description[0].text,
-                  date: episode.data.introduction[0].date,
-                  category: episode.data.introduction[0].category,
-                  prismic: true
-                } : episode)}
-              />
-            ))}
-          </PodcastList>
-          <Pagination>
-            {currentPage > 1 && (
-              <PageLink href={`/podcast/episodios/${currentCategory}/${currentPage - 1}`}>
-                {isMobile ? <TextToIcon reverse /> : "Anterior"}
-              </PageLink>
-            )}
-            <PageNumbers>
-              {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                (page, index) => (
-                  <PageNumber
-                    key={page}
-                    href={`/podcast/episodios/${currentCategory}/${page}`}
-                    $active={page === currentPage}
-                  >
-                    {page}
-                  </PageNumber>
+          <p>¿O alguna, empresa, invitado o tema?</p>
+          <SearchInput
+            type="text"
+            placeholder="Buscar episodios"
+            value={inputValue}
+            onChange={handleSearch}
+          />
+
+          {isSearching && !allEpisodes && (
+            <Fade>
+              <EpisodePreviewSkeleton />
+            </Fade>
+          )}
+
+          {noResults && searchTerm && (
+            <div>
+              No se encontraron coincidencias con tu búsqueda "{searchTerm}"
+            </div>
+          )}
+          {(!isSearching || (isSearching && allEpisodes)) && !noResults && (
+            <PodcastList>
+              {(searchTerm ? filteredEpisodes : paginatedEpisodes).map(
+                (episode, index) => (
+                  <EpisodePreview
+                    key={`npd${index}`}
+                    {...(isPrismicEpisode(episode)
+                      ? {
+                          title: episode.data.introduction[0].title[0].text,
+                          guest: episode.data.introduction[0].guest,
+                          business: episode.data.introduction[0].business,
+                          slug: episode.uid,
+                          spotify: episode.data.introduction[0].spotify,
+                          apple: episode.data.introduction[0].apple,
+                          google: episode.data.introduction[0].google,
+                          youtube: episode.data.introduction[0].youtube,
+                          podcastImage: episode.data.images[0].episode,
+                          episode: episode.data.introduction[0].episode,
+                          description:
+                            episode.data.introduction[0].description[0].text,
+                          date: episode.data.introduction[0].date,
+                          category: episode.data.introduction[0].category,
+                          prismic: true,
+                        }
+                      : episode)}
+                  />
                 )
               )}
-            </PageNumbers>
-            {currentPage < totalPages && (
-              <PageLink href={`/podcast/episodios/${currentCategory}/${currentPage + 1}`}>
-                {isMobile ? <TextToIcon /> : "Siguiente"}
-              </PageLink>
-            )}
-          </Pagination>
+            </PodcastList>
+          )}
+          {!searchTerm && (
+            <Pagination>
+              {currentPage > 1 && (
+                <PageLink
+                  href={`/podcast/episodios/${currentCategory}/${currentPage - 1}`}
+                >
+                  {isMobile ? <TextToIcon reverse /> : "Anterior"}
+                </PageLink>
+              )}
+              <PageNumbers>
+                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
+                  (page, index) => (
+                    <PageNumber
+                      key={page}
+                      href={`/podcast/episodios/${currentCategory}/${page}`}
+                      $active={page === currentPage}
+                    >
+                      {page}
+                    </PageNumber>
+                  )
+                )}
+              </PageNumbers>
+              {currentPage < totalPages && (
+                <PageLink
+                  href={`/podcast/episodios/${currentCategory}/${currentPage + 1}`}
+                >
+                  {isMobile ? <TextToIcon /> : "Siguiente"}
+                </PageLink>
+              )}
+            </Pagination>
+          )}
         </div>
       </PodcastGrid>
       <ResourceFooter shadow identify="podcast" />
@@ -201,28 +402,45 @@ export const getStaticPaths: GetStaticPaths = async () => {
   const episodes = getAllEpisodes(["slug", "category"]);
   const prismicEpisodes = await client.getAllByType("episode");
 
-  const categories = ["founder", "producto", "inversor", "growth", "desarrollo", "todas"];
+  const categories = [
+    "todas",
+    "founder",
+    "producto",
+    "inversor",
+    "growth",
+    "desarrollo",
+    "innovacion",
+    "operador",
+    "people",
+  ];
 
   let paths = [];
 
   // Generate paths for /podcast/episodios
   paths.push({ params: { params: [] } });
 
-  categories.forEach(category => {
+  categories.forEach((category) => {
     // Generate paths for /podcast/episodios/[category]
     paths.push({ params: { params: [category] } });
 
-    const filteredEpisodes = category.toLowerCase() === "todas"
-      ? [...episodes, ...prismicEpisodes]
-      : [
-          ...episodes.filter(ep => ep.category.toLowerCase() === category.toLowerCase()),
-          ...prismicEpisodes.filter(ep => ep.data.introduction[0].category.toLowerCase() === category.toLowerCase())
-        ];
+    const filteredEpisodes =
+      category.toLowerCase() === "todas"
+        ? [...episodes, ...prismicEpisodes]
+        : [
+            ...episodes.filter(
+              (ep) => ep.category.toLowerCase() === category.toLowerCase()
+            ),
+            ...prismicEpisodes.filter(
+              (ep) =>
+                ep.data.introduction[0].category.toLowerCase() ===
+                category.toLowerCase()
+            ),
+          ];
 
     const totalPages = Math.ceil(filteredEpisodes.length / EPISODES_PER_PAGE);
 
     // Generate paths for /podcast/episodios/[category]/[page]
-    Array.from({ length: totalPages }, (_, i) => i + 1).forEach(page => {
+    Array.from({ length: totalPages }, (_, i) => i + 1).forEach((page) => {
       paths.push({ params: { params: [category, page.toString()] } });
     });
   });
@@ -233,60 +451,50 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<Omit<EpisodesPageProps, 'setTitle'>> = async (context) => {
-  const params = context.params?.params as string[] || [];
+export const getStaticProps: GetStaticProps<
+  Omit<EpisodesPageProps, "setTitle">
+> = async (context) => {
+  const params = (context.params?.params as string[]) || [];
   const category = params[0] || "todas";
   const page = Number(params[1]) || 1;
 
-  function isPrismicEpisode(episode: MarkdownPodcastEpisode | PrismicPodcastEpisode): episode is PrismicPodcastEpisode {
-    return 'data' in episode;
-  }
-
-  const sortedEpisodes = getAllEpisodes(["slug", "episode", "category"]).sort(
-    (ep1, ep2) => ep2.episode - ep1.episode
-  );
-
-  const episodes = sortedEpisodes.map((episode) =>
-    getEpisodeBySlug(episode.slug, [
-      "title",
-      "guest",
-      "business",
-      "description",
-      "category",
-      "episode",
-      "date",
-      "slug",
-      "spotify",
-      "apple",
-      "google",
-      "youtube",
-    ])
-  ) as MarkdownPodcastEpisode[];
-
-  const pt = ssrLocale({ locale: context.locale, fileName: "archivo.json" });
-  if (!pt) {
-    return {
-      notFound: true,
-    };
-  }
-
   const client = createClient({ previewData: context.previewData });
-  const prismicEpisodes = await client.getAllByType("episode") as PrismicPodcastEpisode[];
 
-  const allEpisodes = [...episodes, ...prismicEpisodes].sort((a, b) => {
-    const episodeA = isPrismicEpisode(a) ? a.data.introduction[0].episode : a.episode;
-    const episodeB = isPrismicEpisode(b) ? b.data.introduction[0].episode : b.episode;
-    return episodeB - episodeA;  // Ordenar de mayor a menor (más nuevo a más viejo)
+  const markdownEpisodes = getAllEpisodes([
+    "title",
+    "guest",
+    "business",
+    "description",
+    "category",
+    "episode",
+    "date",
+    "slug",
+    "spotify",
+    "apple",
+    "google",
+    "youtube",
+  ]) as MarkdownPodcastEpisode[];
+
+  const prismicEpisodes = (await client.getAllByType(
+    "episode"
+  )) as PrismicPodcastEpisode[];
+
+  const allEpisodes = [...markdownEpisodes, ...prismicEpisodes].sort((a, b) => {
+    const episodeA = "data" in a ? a.data.introduction[0].episode : a.episode;
+    const episodeB = "data" in b ? b.data.introduction[0].episode : b.episode;
+    return episodeB - episodeA; // Ordenar de mayor a menor (más nuevo a más viejo)
   });
-  
-  const filteredEpisodes = category.toLowerCase() === "todas"
-    ? allEpisodes
-    : allEpisodes.filter(episode => {
-        const episodeCategory = isPrismicEpisode(episode)
-          ? episode.data.introduction[0].category
-          : episode.category;
-        return episodeCategory.toLowerCase() === category.toLowerCase();
-      });
+
+  const filteredEpisodes =
+    category.toLowerCase() === "todas"
+      ? allEpisodes
+      : allEpisodes.filter((episode) => {
+          const episodeCategory =
+            "data" in episode
+              ? episode.data.introduction[0].category
+              : episode.category;
+          return episodeCategory.toLowerCase() === category.toLowerCase();
+        });
 
   const totalEpisodes = filteredEpisodes.length;
   const totalPages = Math.ceil(totalEpisodes / EPISODES_PER_PAGE);
@@ -295,14 +503,22 @@ export const getStaticProps: GetStaticProps<Omit<EpisodesPageProps, 'setTitle'>>
   const endIndex = startIndex + EPISODES_PER_PAGE;
   const paginatedEpisodes = filteredEpisodes.slice(startIndex, endIndex);
 
+  const pt = ssrLocale({ locale: context.locale, fileName: "archivo.json" });
+  if (!pt) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      locale: context.locale || 'es',
+      locale: context.locale || "es",
       initialEpisodes: paginatedEpisodes,
       pt,
       totalPages,
       currentPage: page,
       currentCategory: category,
+      totalEpisodes,
     },
   };
 };
