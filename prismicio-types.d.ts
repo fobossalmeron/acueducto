@@ -71,7 +71,7 @@ export interface EpisodeDocumentDataIntroductionItem {
     | "Producto"
     | "Operador"
     | "People"
-    | "Innovación "
+    | "Innovacion"
     | "Desarrollo"
     | "Inversor"
     | "Growth"
@@ -245,11 +245,17 @@ declare module "@prismicio/client" {
   interface CreateClient {
     (
       repositoryNameOrEndpoint: string,
-      options?: prismic.ClientConfig
+      options?: prismic.ClientConfig,
     ): prismic.Client<AllDocumentTypes>;
   }
 
   namespace Content {
-    export type { EpisodeDocument, EpisodeDocumentData, AllDocumentTypes };
+    export type {
+      EpisodeDocument,
+      EpisodeDocumentData,
+      EpisodeDocumentDataIntroductionItem,
+      EpisodeDocumentDataImagesItem,
+      AllDocumentTypes,
+    };
   }
 }

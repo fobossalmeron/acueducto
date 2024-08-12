@@ -29,7 +29,10 @@
             },
             "episode": {
               "type": "Number",
-              "config": { "label": "Número del episodio", "placeholder": "" }
+              "config": {
+                "label": "Número del episodio",
+                "placeholder": ""
+              }
             },
             "date": {
               "type": "Date",
@@ -40,11 +43,17 @@
             },
             "guest": {
               "type": "Text",
-              "config": { "label": "Invitado", "placeholder": "" }
+              "config": {
+                "label": "Invitado",
+                "placeholder": ""
+              }
             },
             "business": {
               "type": "Text",
-              "config": { "label": "Empresa", "placeholder": "" }
+              "config": {
+                "label": "Empresa",
+                "placeholder": ""
+              }
             },
             "category": {
               "type": "Select",

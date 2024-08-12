@@ -12,7 +12,7 @@ export const PodcastGrid = styled.div`
   grid-template-columns: repeat(12, 1fr);
   width: 100%;
   display: grid;
-  padding: 7% 2%;
+  padding: 8% 2%;
   position: relative;
   margin-bottom: -1px;
   & > div {
