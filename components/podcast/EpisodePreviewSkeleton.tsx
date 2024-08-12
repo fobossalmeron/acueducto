@@ -22,6 +22,7 @@ const SkeletonWrapper = styled.div`
   animation-iteration-count: infinite;
   animation-name: ${shimmer};
   animation-timing-function: linear;
+  max-width:800px;
 `;
 
 const SkeletonContainer = styled.div`

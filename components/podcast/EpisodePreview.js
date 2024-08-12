@@ -35,7 +35,6 @@ const EpisodePreview = ({
   date,
   spotify,
   apple,
-  google,
   youtube,
   episode,
   longFormat = false,
@@ -58,18 +57,15 @@ const EpisodePreview = ({
   const formattedDate = useMemo(() => formatDate(date), [date]);
   const shortDate = useMemo(() => getShortDate(date), [date]);
 
+  const imgixParams = useMemo(
+    () => ({
+      alt: `${business} - ${guest}`,
+    }),
+    [business, guest]
+  );
+
   return (
-    <NewPod
-      key={"npd" + episode}
-      simplest={simplest}
-      className={`${
-        category === "Growth/marketing"
-          ? "growth-marketing"
-          : category
-            ? category.toLowerCase()
-            : ""
-      } npd`}
-    >
+    <NewPod key={"npd" + episode} simplest={simplest}>
       <PictureContainer
         hoverable={!longFormat}
         hideImageMobile={hideImageMobile}
@@ -81,7 +77,7 @@ const EpisodePreview = ({
                 field={podcastImage}
                 width="180"
                 height="180"
-                alt={`${business} - ${guest}`}
+                imgixParams={imgixParams}
               />
             ) : (
               <LinkComplex>
