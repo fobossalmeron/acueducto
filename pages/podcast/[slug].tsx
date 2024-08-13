@@ -133,7 +133,6 @@ export default function Episodio({
             category={slugMatchesPrismic.data.introduction[0].category}
             spotify={slugMatchesPrismic.data.introduction[0].spotify}
             apple={slugMatchesPrismic.data.introduction[0].apple}
-            google={slugMatchesPrismic.data.introduction[0].google}
             youtube={slugMatchesPrismic.data.introduction[0].youtube}
             youtubeImage={slugMatchesPrismic.data.images[0].youtube.url}
             episode={slugMatchesPrismic.data.introduction[0].episode}
