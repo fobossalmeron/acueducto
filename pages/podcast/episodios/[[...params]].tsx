@@ -27,7 +27,7 @@ import {
   PageNumber,
   TextToIcon,
   SearchInput,
-} from "../../../components/pages/episodes/episodios.styles";
+} from "components/pages/allEpisodes/allEpisodes.styles";
 import {
   PrismicPodcastEpisode,
   MarkdownPodcastEpisode,

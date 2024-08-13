@@ -1,41 +1,37 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 
-const QuestionWrapper = ({ q, i }) => {
+interface Question {
+  title: string;
+  p: string;
+}
+
+const QuestionWrapper: React.FC<{ q: Question; i: number }> = React.memo(({ q, i }) => {
   const [toggled, setToggled] = useState(false);
   const [height, setHeight] = useState(0);
-  const ref = useRef(null);
+  const ref = useRef<HTMLParagraphElement>(null);
 
   useEffect(() => {
-    const onPageLoad = () => {
-      let style = getComputedStyle(ref.current);
-      let marginTop = parseInt(style.marginTop);
-      let marginBottom = parseInt(style.marginBottom);
-
-      //to add the extra margin on mobile
-      if (window.innerWidth < 760) {
-        setHeight(ref.current.offsetHeight + marginTop + marginBottom + 20);
-
-      } else {
-        setHeight(ref.current.offsetHeight + marginTop + marginBottom);
+    const calculateHeight = () => {
+      if (ref.current) {
+        const style = getComputedStyle(ref.current);
+        const marginTop = parseInt(style.marginTop);
+        const marginBottom = parseInt(style.marginBottom);
+        const extraMargin = window.innerWidth < 760 ? 20 : 0;
+        setHeight(ref.current.offsetHeight + marginTop + marginBottom + extraMargin);
       }
     };
 
-    // Check if the page has already loaded
-    if (document.readyState === "complete") {
-      onPageLoad();
-    } else {
-      window.addEventListener("load", onPageLoad);
-      // Remove the event listener when component unmounts
-      return () => window.removeEventListener("load", onPageLoad);
-    }
+    calculateHeight();
+    window.addEventListener("resize", calculateHeight);
+    return () => window.removeEventListener("resize", calculateHeight);
   }, []);
 
-  const handleToggle = () => {
-    setToggled(!toggled);
-  };
+  const handleToggle = useCallback(() => {
+    setToggled(prev => !prev);
+  }, []);
 
   return (
     <Question hide={!toggled} height={height} onClick={handleToggle}>
@@ -53,9 +49,9 @@ const QuestionWrapper = ({ q, i }) => {
       </Fade>
     </Question>
   );
-};
+});
 
-const FAQ = ({ t }) => {
+const FAQ: React.FC<{ t: { title: string; questions: Question[] } }> = React.memo(({ t }) => {
   return (
     <FAQSection
       as={PinnedSection}
@@ -65,20 +61,18 @@ const FAQ = ({ t }) => {
       disableFade
       heading={2}
     >
-      <>
-        <ol>
-          {t.questions.map(function (q, i) {
-            return <QuestionWrapper key={"question" + i} q={q} i={i} />;
-          })}
-        </ol>
-      </>
+      <ol>
+        {t.questions.map((q, i) => (
+          <QuestionWrapper key={`question${i}`} q={q} i={i} />
+        ))}
+      </ol>
     </FAQSection>
   );
-};
+});
 
-export default React.memo(FAQ);
+export default FAQ;
 
-const Cross = styled.div`
+const Cross = styled.div<{ open: boolean }>`
   transition: 250ms ease all;
   transform-origin: center;
   width: 25px;
@@ -103,7 +97,8 @@ const Cross = styled.div`
     opacity: ${(p) => (p.open ? 0 : 1)};
   }
 `;
-const Question = styled.li`
+
+const Question = styled.li<{ hide: boolean; height: number }>`
   border-bottom: 0.18rem solid
     ${(props) => props.theme.colors.foreground_lowest};
   margin-bottom: 3rem;

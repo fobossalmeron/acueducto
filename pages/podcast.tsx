@@ -35,7 +35,7 @@ import {
   Limiter,
   Parallax,
   FullLastSection,
-} from "components/pages/podcast/podcasts.styles";
+} from "components/pages/podcastLanding/podcastLanding.styles";
 
 // Lazy load ContactFooter
 const ContactFooter = dynamic(() => import("components/shared/footers/ContactFooter"), {

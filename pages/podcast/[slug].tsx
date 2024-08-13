@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import EpisodeProps from "utils/types/EpisodeProps";
 import markdownToHtml from "utils/markdownToHtml";
 import {
@@ -7,11 +7,14 @@ import {
   getNextEpisodeSlug,
 } from "utils/podcastApi";
 import Head from "components/layout/Head";
-import EpisodePage from "components/podcast/EpisodePage";
 import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/shared/footers/ResourceFooter";
 import type { GetStaticPropsContext } from "next";
 import { createClient } from "../../prismicio";
+import { SingleEpisodePage } from "components/pages/singleEpisode/SingleEpisodePage";
+
+const ResourceFooter = lazy(
+  () => import("components/shared/footers/ResourceFooter")
+);
 
 export default function Episodio({
   locale,
@@ -23,7 +26,7 @@ export default function Episodio({
 }) {
   useEffect(() => {
     setTitle("Podcast");
-  }, [locale]);
+  }, [locale, setTitle]);
 
   const title = slugMatchesPrismic?.data.introduction[0].title[0].text;
   const guest = slugMatchesPrismic?.data.introduction[0].guest;
@@ -32,9 +35,6 @@ export default function Episodio({
     slugMatchesPrismic?.data.introduction[0].description[0].text;
   const gif = slugMatchesPrismic?.data.images[0].gif.url;
 
-  //esta función es para poder alterar la propiedad seo_title de los capítulos de prismic
-  //solo es para estos 3 capítulos
-  //PD se que es horrible se te ocurre otra cosa?
   const seo_title_prismic = () => {
     let seo;
     if (
@@ -52,10 +52,6 @@ export default function Episodio({
     return seo;
   };
 
-  //esta función es para poder alterar la propiedad seo_h1 de los capítulos de prismic
-  //habrá que integrarla con EpisodePage que tiene otro funcionamiento
-  //solo es para estos 3 capítulos
-  //PD se que es horrible se te ocurre otra cosa?
   const seo_h1_prismic = () => {
     let seo;
     if (
@@ -99,8 +95,8 @@ export default function Episodio({
                 episode.title + " | " + episode.guest + ", " + episode.business,
             }}
             noIndex={!episode.index}
-          ></Head>
-          <EpisodePage {...episode} slug={episode.slug} />
+          />
+          <SingleEpisodePage {...episode} slug={episode.slug} />
         </>
       )}
       {slugMatchesPrismic && (
@@ -118,15 +114,14 @@ export default function Episodio({
               fileName: gif,
               alt: title + " | " + guest + ", " + business,
             }}
-            // Los siguientes URLs hay que rescatarlos y si indexarlos:
             noIndex={
               slugMatchesPrismic.uid !==
                 "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos" &&
               slugMatchesPrismic.uid !== "como-se-ve-la-educacion-online" &&
               slugMatchesPrismic.uid !== "como-captar-3m-de-usuarios"
             }
-          ></Head>
-          <EpisodePage
+          />
+          <SingleEpisodePage
             title={title}
             guest={guest}
             business={business}
@@ -149,20 +144,46 @@ export default function Episodio({
           />
         </>
       )}
-      <ResourceFooter shadow />
+      <Suspense fallback={<div>Cargando footer...</div>}>
+        <ResourceFooter shadow />
+      </Suspense>
     </PageWrapper>
   );
+}
+
+async function loadMarkdownEpisode(slug) {
+  const episode = getEpisodeBySlug(slug, [
+    "title",
+    "seo_title",
+    "seo_h1",
+    "guest",
+    "date",
+    "insights",
+    "business",
+    "category",
+    "description",
+    "episode",
+    "slug",
+    "spotify",
+    "apple",
+    "google",
+    "youtube",
+    "content",
+    "index",
+  ]);
+
+  const content = await markdownToHtml(episode.content.toString() || "");
+  return { ...episode, content };
 }
 
 export async function getStaticProps({
   params,
   previewData,
 }: GetStaticPropsContext) {
-  //CMS Prismic
   const client = createClient({ previewData });
-  const prismicEpisode = await client.getAllByType("episode");
+  const prismicEpisodes = await client.getAllByType("episode");
 
-  const slugMatchesPrismic = prismicEpisode.find(
+  const slugMatchesPrismic = prismicEpisodes.find(
     (ep) => ep.uid === params.slug
   );
 
@@ -181,12 +202,12 @@ export async function getStaticProps({
     "apple",
     "google",
     "youtube",
-    "index", //Esto podría ser de Prismic
+    "index",
   ]);
 
   const findNextPrismic =
     slugMatchesPrismic &&
-    prismicEpisode.find(
+    prismicEpisodes.find(
       (ep) =>
         ep.data.introduction[0].episode ===
         slugMatchesPrismic.data.introduction[0].episode - 1
@@ -195,45 +216,10 @@ export async function getStaticProps({
   const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
 
   if (!slugMatchesPrismic) {
-    const episode: EpisodeProps = getEpisodeBySlug(params.slug, [
-      "title",
-      "seo_title",
-      "seo_h1",
-      "guest",
-      "date",
-      "insights",
-      "business",
-      "category",
-      "description",
-      "episode",
-      "slug",
-      "spotify",
-      "apple",
-      "google",
-      "youtube",
-      "content",
-      "index",
-    ]);
-    const next: EpisodeProps = getEpisodeBySlug(
-      getNextEpisodeSlug(episode.episode),
-      [
-        "title",
-        "guest",
-        "date",
-        "business",
-        "category",
-        "description",
-        "episode",
-        "slug",
-        "spotify",
-        "apple",
-        "google",
-        "youtube",
-        "index",
-      ]
+    const episode: EpisodeProps = await loadMarkdownEpisode(params.slug);
+    const next: EpisodeProps = await loadMarkdownEpisode(
+      getNextEpisodeSlug(episode.episode)
     );
-
-    const content = await markdownToHtml(episode.content.toString() || "");
 
     if (!episode) {
       return {
@@ -245,7 +231,6 @@ export async function getStaticProps({
       props: {
         episode: {
           ...episode,
-          content,
           next,
         },
         nextEpisode: {
@@ -253,6 +238,7 @@ export async function getStaticProps({
         },
         slugMatchesPrismic: slugMatchesPrismic || null,
       },
+      revalidate: 3600, // Revalidar cada hora
     };
   } else {
     return {
@@ -263,6 +249,7 @@ export async function getStaticProps({
         },
         findNextPrismic: findNextPrismic || null,
       },
+      revalidate: 3600, // Revalidar cada hora
     };
   }
 }
