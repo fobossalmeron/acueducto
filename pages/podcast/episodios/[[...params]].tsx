@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import EpisodePreview from "components/podcast/EpisodePreview";
+import EpisodePreview from "components/podcast/EpisodePreview/EpisodePreview";
 import EpisodePreviewSkeleton from "components/podcast/EpisodePreviewSkeleton";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
@@ -87,7 +87,11 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
-  const { data: { episodes } = { episodes: initialEpisodes }, error, mutate } = useSWR(
+  const {
+    data: { episodes } = { episodes: initialEpisodes },
+    error,
+    mutate,
+  } = useSWR(
     `/api/episodes?category=${currentCategory}&page=${currentPage}`,
     fetcher,
     {
@@ -136,7 +140,9 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
   }, [checkMobile]);
 
   const isPrismicEpisode = useCallback(
-    (episode: MarkdownPodcastEpisode | PrismicPodcastEpisode): episode is PrismicPodcastEpisode => {
+    (
+      episode: MarkdownPodcastEpisode | PrismicPodcastEpisode
+    ): episode is PrismicPodcastEpisode => {
       return "data" in episode;
     },
     []
@@ -310,14 +316,15 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
               </CatList>
             </CatFilter>
           </Fade>
-          <p>¿O alguna, empresa, invitado o tema?</p>
-          <SearchInput
-            type="text"
-            placeholder="Buscar episodios"
-            value={inputValue}
-            onChange={handleSearch}
-          />
-
+          <Fade triggerOnce>
+            <p>¿O alguna, empresa, invitado o tema?</p>
+            <SearchInput
+              type="text"
+              placeholder="Buscar episodios"
+              value={inputValue}
+              onChange={handleSearch}
+            />
+          </Fade>
           {(isLoading || (isSearching && !allEpisodes)) && (
             <Fade>
               <EpisodePreviewSkeleton />

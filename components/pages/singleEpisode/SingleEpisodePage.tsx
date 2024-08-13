@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { H1, P, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import EpisodePreview from "components/podcast/EpisodePreview";
+import EpisodePreview from "components/podcast/EpisodePreview/EpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "components/podcast/EpisodeNumber";
 import Link from "next/link";
@@ -28,6 +28,7 @@ import {
   VideoContainer,
   Video,
 } from "./SingleEpisode.styles";
+import { ImageField, ImageFieldImage } from "@prismicio/client";
 
 const NoSSRPlayer = dynamic(() => import("react-player/youtube"), {
   loading: () => <p>Cargando...</p>,
@@ -51,7 +52,7 @@ interface SingleEpisodePageProps {
   content: string | any; // Replace 'any' with a more specific type if possible
   next: any; // Replace 'any' with a more specific type if possible
   youtubeImage?: string;
-  podcastImage: string;
+  podcastImage: ImageFieldImage;
   findNextPrismic?: boolean;
 }
 

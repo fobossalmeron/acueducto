@@ -24,14 +24,13 @@ export const PictureContainer = styled.div<{
   & > div:not(.logos) {
     border-radius: 25px;
     overflow: hidden;
-    display: inline-block;
     height: 100%;
   }
   img:not(.logoMini) {
     transition: all 0.25s ease-out;
     background-color: #131516;
     width: 100%;
-    height: 100%;
+    height: auto;
     border-radius: 25px;
   }
   .logos {
@@ -133,11 +132,6 @@ export const NewPod = styled.a<{ blue?: boolean; episode: number }>`
     flex-direction: column;
     padding: 3rem 3rem 2rem 3rem;
     border-radius: 40px;
-    ${PictureContainer} {
-      min-width: unset;
-      max-width: ${(p) => (p.episode >= 91 ? "none" : "142px")};
-      margin-bottom: 2rem;
-    }
   }
   @media (max-width: 620px) {
     padding: 2.5rem 2.5rem 1.5rem 2.5rem;

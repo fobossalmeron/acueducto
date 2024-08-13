@@ -3,7 +3,7 @@ import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
 import { getEpisodeBySlug } from "utils/podcastApi";
 import Head from "components/layout/Head";
-import EpisodePreview from "components/podcast/EpisodePreview";
+import EpisodePreview from "components/podcast/EpisodePreview/EpisodePreview";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 import { Fade } from "react-awesome-reveal";
