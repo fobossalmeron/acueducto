@@ -16,6 +16,21 @@ const ResourceFooter = lazy(
   () => import("components/shared/footers/ResourceFooter")
 );
 
+const SEO_OVERRIDES = {
+  "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos": {
+    title: "Jorge Combe DD360: No vivas de usuarios, construye con ellos",
+    h1: "Jorge Combe DD360: No vivas de usuarios, construye con ellos",
+  },
+  "como-se-ve-la-educacion-online": {
+    title: "Desarrollo de habilidades digitales: Explorando Coderhouse",
+    h1: "Nahuel Lema y Coderhouse ¿Qué es y de dónde es?",
+  },
+  "como-captar-3m-de-usuarios": {
+    title: "Iván Canales de Nubank México: Cómo captar 3M de usuarios",
+    h1: "Iván Canales, Nubank Mexico: Como captar 3M de usuarios",
+  },
+};
+
 export default function Episodio({
   locale,
   setTitle,
@@ -34,40 +49,6 @@ export default function Episodio({
   const description =
     slugMatchesPrismic?.data.introduction[0].description[0].text;
   const gif = slugMatchesPrismic?.data.images[0].gif.url;
-
-  const seo_title_prismic = () => {
-    let seo;
-    if (
-      slugMatchesPrismic.uid ==
-      "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos"
-    ) {
-      seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
-    } else if (slugMatchesPrismic.uid == "como-se-ve-la-educacion-online") {
-      seo = "Desarrollo de habilidades digitales: Explorando Coderhouse";
-    } else if (slugMatchesPrismic.uid == "como-captar-3m-de-usuarios") {
-      seo = "Iván Canales de Nubank México: Cómo captar 3M de usuarios";
-    } else {
-      seo = undefined;
-    }
-    return seo;
-  };
-
-  const seo_h1_prismic = () => {
-    let seo;
-    if (
-      slugMatchesPrismic.uid ==
-      "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos"
-    ) {
-      seo = "Jorge Combe DD360: No vivas de usuarios, construye con ellos";
-    } else if (slugMatchesPrismic.uid == "como-se-ve-la-educacion-online") {
-      seo = "Nahuel Lema y Coderhouse ¿Qué es y de dónde es?";
-    } else if (slugMatchesPrismic.uid == "como-captar-3m-de-usuarios") {
-      seo = "Iván Canales, Nubank Mexico: Como captar 3M de usuarios";
-    } else {
-      seo = undefined;
-    }
-    return seo;
-  };
 
   return (
     <PageWrapper>
@@ -103,8 +84,8 @@ export default function Episodio({
         <>
           <Head
             title={
-              seo_title_prismic()
-                ? seo_title_prismic()
+              SEO_OVERRIDES[slugMatchesPrismic.uid]
+                ? SEO_OVERRIDES[slugMatchesPrismic.uid].title
                 : title + " | " + guest + ", " + business
             }
             description={description}
@@ -114,19 +95,17 @@ export default function Episodio({
               fileName: gif,
               alt: title + " | " + guest + ", " + business,
             }}
-            noIndex={
-              slugMatchesPrismic.uid !==
-                "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos" &&
-              slugMatchesPrismic.uid !== "como-se-ve-la-educacion-online" &&
-              slugMatchesPrismic.uid !== "como-captar-3m-de-usuarios"
-            }
+            noIndex={SEO_OVERRIDES[slugMatchesPrismic.uid]}
           />
           <SingleEpisodePage
             title={title}
             guest={guest}
             business={business}
             description={description}
-            seo_h1={seo_h1_prismic()}
+            seo_h1={
+              SEO_OVERRIDES[slugMatchesPrismic.uid] &&
+              SEO_OVERRIDES[slugMatchesPrismic.uid].h1
+            }
             slug={slugMatchesPrismic.uid}
             date={slugMatchesPrismic.data.introduction[0].date}
             insights={slugMatchesPrismic.data.introduction[0].insights}
