@@ -74,25 +74,17 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
   podcastImage = null,
   prismic = false,
 }) => {
-  const LinkComplex: React.FC<{ children: React.ReactNode }> = useMemo(
-    () =>
-      ({ children }) => (
-        <Link href={"/podcast/" + slug} passHref legacyBehavior>
-          <a className="clean">{children}</a>
-        </Link>
-      ),
-    [slug]
-  );
+  const LinkComplex = useMemo(() => {
+    const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+      <Link href={`/podcast/${slug}`} passHref legacyBehavior>
+        <a className="clean">{children}</a>
+      </Link>
+    );
+    return Wrapper;
+  }, [slug]);
 
   const formattedDate = useMemo(() => formatDate(date), [date]);
   const shortDate = useMemo(() => getShortDate(date), [date]);
-
-  const imgixParams = useMemo(
-    () => ({
-      alt: `${business} - ${guest}`,
-    }),
-    [business, guest]
-  );
 
   return (
     <NewPod key={"npd" + episode} simplest={simplest}>
@@ -155,11 +147,11 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
           </Guest>
           <DateCat>
             {longFormat && spotify && (
-              <time dateTime={date.toString()}>{formattedDate}</time>
+              <time dateTime={date}>{formattedDate}</time>
             )}
             <span>{category}</span>
           </DateCat>
-          <div>{!simplest ? <P>{description}</P> : null}</div>
+          <div>{!simplest && <P>{description}</P>}</div>
           <div>
             {!simplest &&
               (spotify ? (
@@ -188,13 +180,13 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
         </Fade>
         <ButtonSpace>
           {simplest && (
-            <Link href={"/podcast/" + slug + "#"} passHref legacyBehavior>
-              <ButtonArrow
-                text={text ? text : "seguir aprendiendo"}
-                inverse
-                className="leftFix clean"
-              />
-            </Link>
+            <Link href={`/podcast/${slug}`} passHref legacyBehavior>
+            <ButtonArrow
+              text={text || "seguir aprendiendo"}
+              inverse
+              className="leftFix clean"
+            />
+          </Link>
           )}
         </ButtonSpace>
       </div>
