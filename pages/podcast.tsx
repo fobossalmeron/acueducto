@@ -235,7 +235,7 @@ function PodcastLanding({
         </FeatureList>
         <Fade triggerOnce>
           <Link href="/podcast/episodios" passHref legacyBehavior>
-            <ButtonArrow text={favorites.button} inverse={true} />
+            <ButtonArrow text={favorites.button} $inverse={true} />
           </Link>
         </Fade>
       </EpisodesSection>

@@ -30,7 +30,7 @@ const TitleSection = ({
   seo_h1,
 }: TitleProps) => {
   return (
-    <Grid borderTop={borderTop}>
+    <Grid $borderTop={borderTop}>  
       {
         // Si viene un h1 de SEO, renderearlo junto con el título
         seo_h1 && (

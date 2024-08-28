@@ -55,7 +55,7 @@ interface EpisodePreviewProps {
   prismic?: boolean;
 }
 
-const EpisodePreview: React.FC<EpisodePreviewProps> = ({
+const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   title,
   guest,
   business,
@@ -87,10 +87,10 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
   const shortDate = useMemo(() => getShortDate(date), [date]);
 
   return (
-    <NewPod key={"npd" + episode} simplest={simplest}>
+    <NewPod key={"npd" + episode} $simplest={simplest}>
       <PictureContainer
-        hoverable={!longFormat}
-        hideImageMobile={hideImageMobile}
+        $hoverable={!longFormat}
+        $hideImageMobile={hideImageMobile}
       >
         <Fade triggerOnce>
           {prismic ? (
@@ -100,6 +100,7 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
                 width={180}
                 height={180}
                 alt=""
+                loading="lazy"
               />
             ) : (
               <LinkComplex>
@@ -108,6 +109,7 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
                   height={simplest ? 185 : 180}
                   width={simplest ? 185 : 180}
                   alt=""
+                  loading="lazy"
                 />
               </LinkComplex>
             )
@@ -183,7 +185,7 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
             <Link href={`/podcast/${slug}`} passHref legacyBehavior>
             <ButtonArrow
               text={text || "seguir aprendiendo"}
-              inverse
+              $inverse
               className="leftFix clean"
             />
           </Link>
@@ -194,4 +196,4 @@ const EpisodePreview: React.FC<EpisodePreviewProps> = ({
   );
 };
 
-export default React.memo(EpisodePreview);
+export const EpisodePreview = React.memo(PreEpisodePreview);

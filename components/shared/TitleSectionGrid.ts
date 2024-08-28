@@ -14,7 +14,7 @@ export const Container = styled.div`
   }
 `;
 
-const TitleSectionGrid = styled.div<{ borderTop?: boolean }>`
+const TitleSectionGrid = styled.div<{ $borderTop?: boolean; $notSticky?: boolean }>`
   width: 100%;
   position: relative;
   display: grid;
@@ -23,7 +23,7 @@ const TitleSectionGrid = styled.div<{ borderTop?: boolean }>`
   padding: 10% 4%;
   background-color: ${(props) => props.theme.colors.background};
   border-top: ${(props) =>
-    props.borderTop
+    props.$borderTop
       ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
       : "none"};
   .h1 {
@@ -41,7 +41,7 @@ const TitleSectionGrid = styled.div<{ borderTop?: boolean }>`
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
-    position: ${(p) => (p.notSticky ? "relative" : "sticky")};
+    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
     margin-top:5%;
     color: ${p => p.theme.colors.foreground_low}
   }

@@ -22,7 +22,7 @@ import pPaper from "../public/assets/img/layout/paper.png";
 interface AboutProps {
   locale: string;
   setTitle: (title: string) => void;
-  pt: any; 
+  pt: any;
 }
 
 const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
@@ -55,19 +55,21 @@ const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
       <ControlledPadding
         as={PinnedSection}
         title={t.intro.title}
-        notSticky
+        $notSticky
         heading={1}
       >
         <P>{t.intro.p}</P>
       </ControlledPadding>
       <PaperPlane>
-        <Image
-          src={pPaper}
-          width={600}
-          height={400}
-          placeholder="blur"
-          alt="Gran lugar para trabajar"
-        />
+        <Fade triggerOnce>
+          <Image
+            src={pPaper}
+            width={600}
+            height={400}
+            placeholder="blur"
+            alt="Gran lugar para trabajar"
+          />
+        </Fade>
       </PaperPlane>
       <ManifiestoSection t={t.manifesto} />
       <TitleSection {...t.values} borderTop heading={2}>
@@ -89,7 +91,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const ControlledPadding = styled.div`
+const ControlledPadding = styled.div<{ $notSticky: boolean }>`
   padding-bottom: 5%;
 `;
 
@@ -98,6 +100,10 @@ const PaperPlane = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  img {
+    width: 100%;
+    height: auto;
+  }
   @media (max-width: 1300px) {
     & > div {
       max-width: 500px;
@@ -120,6 +126,10 @@ const PaperPlane = styled.div`
 const Team = styled.div`
   padding-top: 140px;
   padding-bottom: 0;
+  img {
+    width: 100%;
+    height: auto;
+  }
   @media (max-width: 1300px) {
     padding-top: 6.5%;
   }

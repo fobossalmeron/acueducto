@@ -17,7 +17,7 @@ import LandingMobile3 from "public/assets/img/casestudies/borgatta/landingMobile
 import LandingMobile4 from "public/assets/img/casestudies/borgatta/landingMobile4.png";
 import LandingMobile5 from "public/assets/img/casestudies/borgatta/landingMobile5.png";
 import LandingMobile6 from "public/assets/img/casestudies/borgatta/landingMobile6.png";
-import { keyframes } from "@emotion/core";
+import { keyframes } from "@emotion/react";
 import Reveal from "react-awesome-reveal";
 
 const Landing = (props) => {

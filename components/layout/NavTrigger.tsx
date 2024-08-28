@@ -6,16 +6,14 @@ const NavTrigger = ({
   hasLoaded,
   toggleNav,
   isOpen,
-  route,
 }: {
   hasLoaded: boolean;
   toggleNav: () => void;
   isOpen: boolean;
-  route: string;
 }) => {
   const doToggleNav = () => toggleNav();
   return (
-    <TriggerContainer visible={hasLoaded} route={route}>
+    <TriggerContainer $visible={hasLoaded}>
       <Trigger onClick={doToggleNav} open={isOpen}>
         <Hamburger />
       </Trigger>
@@ -60,8 +58,8 @@ const Trigger = styled.div<{ open: boolean }>`
     `}
 `;
 
-const TriggerContainer = styled.div<{ visible: boolean }>`
-  opacity: ${(props) => (props.visible ? 1 : 0)};
+const TriggerContainer = styled.div<{ $visible: boolean }>`
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
   display: flex;
   justify-content: flex-end;
   position: fixed;

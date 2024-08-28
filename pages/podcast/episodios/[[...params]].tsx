@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { useRouter } from "next/router";
 import useSWR from "swr";
-import EpisodePreview from "components/podcast/EpisodePreview/EpisodePreview";
+import { EpisodePreview } from "components/podcast/EpisodePreview/EpisodePreview";
 import EpisodePreviewSkeleton from "components/podcast/EpisodePreviewSkeleton";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import ssrLocale from "utils/ssrLocale";
@@ -272,6 +272,34 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     );
   }, [searchTerm, filteredEpisodes, episodes, currentFilteredPage]);
 
+  const memoizedEpisodes = useMemo(() => 
+    paginatedEpisodes.map((episode) => (
+      <EpisodePreview
+        key={episode.uid || episode.slug}
+        {...(isPrismicEpisode(episode)
+          ? {
+              title: episode.data.introduction[0].title[0].text,
+              guest: episode.data.introduction[0].guest,
+              business: episode.data.introduction[0].business,
+              slug: episode.uid,
+              spotify: episode.data.introduction[0].spotify,
+              apple: episode.data.introduction[0].apple,
+              google: episode.data.introduction[0].google,
+              youtube: episode.data.introduction[0].youtube,
+              podcastImage: episode.data.images[0].episode,
+              episode: episode.data.introduction[0].episode,
+              description:
+                episode.data.introduction[0].description[0].text,
+              date: episode.data.introduction[0].date,
+              category: episode.data.introduction[0].category,
+              prismic: true,
+            }
+          : episode)}
+      />
+    )),
+    [paginatedEpisodes, isPrismicEpisode]
+  );
+
   if (error || allEpisodesError) return <div>Failed to load episodes</div>;
   if (!episodes) return <div>Loading...</div>;
 
@@ -375,7 +403,7 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
                 <PageLink
                   href={`/podcast/episodios/${currentCategory}/${currentPage - 1}`}
                 >
-                  {isMobile ? <TextToIcon reverse /> : "Anterior"}
+                  {isMobile ? <TextToIcon $reverse /> : "Anterior"}
                 </PageLink>
               )}
               <PageNumbers>

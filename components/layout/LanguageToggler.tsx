@@ -160,7 +160,7 @@ function LanguageToggler({ hasLoaded, locale }) {
   };
 
   return (
-    <A onClick={handleLink} reveal={hasLoaded} available={showToggler}>
+    <A onClick={handleLink} $reveal={hasLoaded} $available={showToggler}>
       <IconWrapper>
         <Arrows />
       </IconWrapper>
@@ -214,8 +214,8 @@ const RevealWrapper = styled.div`
   }
 `;
 
-const A = styled.a<{ available: boolean; reveal: boolean }>`
-  opacity: ${(props) => (props.available && props.reveal ? 1 : 0)};
+const A = styled.a<{ $available: boolean; $reveal: boolean }>`
+  opacity: ${(props) => (props.$available && props.$reveal ? 1 : 0)};
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       ${RevealWrapper} {

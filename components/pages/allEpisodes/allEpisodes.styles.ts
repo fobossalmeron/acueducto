@@ -263,7 +263,7 @@ export const TextToIcon = styled.div<{ $reverse?: boolean }>`
   display: inline-block;
   border-radius: 100%;
   transition: 0.3s ease all;
-  ${(p) => (p.reverse ? "margin-bottom: 10px;" : "margin-top: 12px;")}
+  ${(p) => (p.$reverse ? "margin-bottom: 10px;" : "margin-top: 12px;")}
   font-size: 0;
 
   &::after {
@@ -276,5 +276,5 @@ export const TextToIcon = styled.div<{ $reverse?: boolean }>`
     margin-left: 3px;
     transition: 0.3s ease all;
   }
-  transform: ${(p) => (p.reverse ? "rotate(180deg)" : "rotate(0deg)")};
+  transform: ${(p) => (p.$reverse ? "rotate(180deg)" : "rotate(0deg)")}
 `;

@@ -52,7 +52,7 @@ const NewsletterPopup = () => {
 
   return (
     <>
-      <NewsWrapper clickable={showPopup} id="NewsletterPopup">
+      <NewsWrapper $clickable={showPopup} id="NewsletterPopup">
         <Border>
           <H4>{newsletter.title}</H4>
           <p>{newsletter.p}</p>
@@ -68,18 +68,18 @@ const NewsletterPopup = () => {
           </CrossContainer>
         </Border>
       </NewsWrapper>
-      <Background visible={showPopup} onClick={unlockScreen} />
+      <Background $visible={showPopup} onClick={unlockScreen} />
     </>
   );
 };
 
 export default NewsletterPopup;
 
-const Background = styled.div<{ visible: boolean }>`
+const Background = styled.div<{ $visible: boolean }>`
   background-color: ${(props) => props.theme.colors.background};
-  opacity: ${(props) => (props.visible ? 0.6 : 0)};
+  opacity: ${(props) => (props.$visible ? 0.6 : 0)};
   position: fixed;
-  pointer-events: ${(props) => (props.visible ? "auto" : "none")};
+  pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
   left: 0;
   bottom: 0;
   right: 0;
@@ -121,15 +121,15 @@ const CrossContainer = styled.div`
   }
 `;
 
-const NewsWrapper = styled.div<{ clickable: boolean }>`
-  pointer-events: ${(props) => (props.clickable ? "auto" : "none")};
-  opacity: ${(props) => (props.clickable ? "1" : "0")};
+const NewsWrapper = styled.div<{ $clickable: boolean }>`
+  pointer-events: ${(props) => (props.$clickable ? "auto" : "none")};
+  opacity: ${(props) => (props.$clickable ? "1" : "0")};
   max-width: 440px;
   width: 80%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%)
-    ${(props) => (props.clickable ? "translateY(0%)" : "translateY(5%)")};
+    ${(props) => (props.$clickable ? "translateY(0%)" : "translateY(5%)")};
   font-weight: 100;
   position: fixed;
   transition: opacity 0.4s ease, transform 0.5s ease;

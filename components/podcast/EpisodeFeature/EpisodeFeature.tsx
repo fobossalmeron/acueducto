@@ -4,8 +4,6 @@ import Image from "next/image";
 import { Fade } from "react-awesome-reveal";
 import { PrismicNextImage } from "@prismicio/next";
 import { ImageField } from "@prismicio/client";
-
-import Picture from "components/caseStudy/shared/Picture";
 import {
   H2overable,
   PictureContainer,
@@ -39,11 +37,11 @@ const EpisodeFeature: React.FC<EpisodeFeatureProps> = ({
 }) => {
   return (
     <Link href={`/podcast/${slug}`} passHref legacyBehavior>
-      <NewPod blue={blue} episode={episode}>
+      <NewPod $blue={blue} episode={episode}>
         <PictureContainer
-          hoverable={true}
+          $hoverable={true}
           episode={episode}
-          portrait={portrait}
+          $portrait={portrait}
         >
           {!portrait && image ? (
             <Fade triggerOnce>

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
-import Nav from "./Nav";
+import Nav from "./Nav/Nav";
 import LanguageToggler from "./LanguageToggler";
 import NavTrigger from "./NavTrigger";
 import Border from "./Border";
@@ -15,7 +15,7 @@ import NewsletterPopup from "components/NewsletterPopup";
 import LinkedInTag from "react-linkedin-insight";
 
 interface LayoutProps {
-  t: (key: string) => string;
+  t: any;
   hasLoaded: boolean;
   children: React.ReactElement;
 }
@@ -72,7 +72,10 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
     }
   }, [isOpen]);
 
-  const toggleNav = useCallback((): void => setOpen((prev) => !prev), []);
+  const toggleNav = useCallback((): void => {
+    console.log("La función toggleNav se ha ejecutado");
+    setOpen((prev) => !prev);
+  }, []);
   const closeNav = useCallback((): void => setOpen(false), []);
 
   return (
@@ -82,7 +85,6 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         toggleNav={toggleNav}
         isOpen={isOpen}
         hasLoaded={hasLoaded}
-        route={router.route}
       />
       <Header
         isOpen={isOpen}
@@ -94,8 +96,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
       />
       <Nav
         locale={router.locale}
-        t={t}
-        toggleNav={toggleNav}
+        nav={t.nav}
         closeNav={closeNav}
         isOpen={isOpen}
       />
@@ -108,7 +109,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
       <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
-      <BodyOverflow hasLoaded={hasLoaded} />
+      <BodyOverflow $hasLoaded={hasLoaded} />
       {showPopup && <NewsletterPopup />}
       <GoogleAnalytics gaId="G-VEB3KBDN1C" />
     </LayoutWrapper>
@@ -117,25 +118,19 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
 
 export default Layout;
 
-const BodyOverflow = createGlobalStyle<{ hasLoaded: boolean }>`
+const BodyOverflow = createGlobalStyle<{ $hasLoaded: boolean }>`
   .TopBar div {
      box-shadow: 1px 1px 4px ${(props) => props.theme.colors.accent} !important;
   }
   body  {
-    overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
+    overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
     overflow-x: hidden;
   }  
   #LayoutWrapper  {
-    overflow-y: ${(props) => (props.hasLoaded ? "auto" : "hidden")};
+    overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
     overflow-x: hidden;
-    height: ${(props) => (props.hasLoaded ? "auto" : "100vh")};
+    height: ${(props) => (props.$hasLoaded ? "auto" : "100vh")};
   }  
-  /* @media (max-width: 600px), (max-height:450px) {
-    #LayoutWrapper {
-      overflow: ${(props) => (props.hasLoaded ? "unset" : "hidden")};
-      height: ${(props) => (props.hasLoaded ? "unset" : "100%")};
-    }
-  } */
 `;
 
 const LayoutWrapper = styled.div`

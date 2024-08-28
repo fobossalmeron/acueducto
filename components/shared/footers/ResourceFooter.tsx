@@ -42,7 +42,7 @@ const ResourceFooter = ({
 
   return (
     <>
-      <Grid shadow={shadow}>
+      <Grid $shadow={shadow}>
         <Fade triggerOnce>
           <P className="h1">{resource.title}</P>
         </Fade>
@@ -122,10 +122,10 @@ const Message = styled.div`
   }
 `;
 
-const Grid = styled(TitleSectionGrid)<{ shadow?: boolean }>`
+const Grid = styled(TitleSectionGrid)<{ $shadow?: boolean }>`
   background-color: ${(p) => p.theme.colors.accent};
   box-shadow: ${(p) =>
-    p.shadow ? "0px -3px 10px rgba(0, 0, 0, 0.1);" : "none"};
+    p.$shadow ? "0px -3px 10px rgba(0, 0, 0, 0.1);" : "none"};
   padding: 10% 4% 20% 4%;
   .h1 {
     color: ${(p) => p.theme.colors.foreground};

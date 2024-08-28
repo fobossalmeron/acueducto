@@ -7,10 +7,10 @@ export const Insights = styled.div``;
 
 export const Transcript = styled(Div)``;
 
-const CenteredSection = styled.div<{ customBackground?: string }>`
+const CenteredSection = styled.div<{ $customBackground?: string }>`
   background-color: ${(p) => p.theme.colors.background};
   background-image: ${(p) =>
-    p.customBackground ? `url(${p.customBackground})` : "none"};
+    p.$customBackground ? `url(${p.$customBackground})` : "none"};
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top right;

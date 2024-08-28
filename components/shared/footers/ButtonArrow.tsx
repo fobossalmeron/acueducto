@@ -2,25 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 type ButtonProps = {
-  inverse?: boolean;
+  $inverse?: boolean;
   text: string;
-  submitButton?: boolean;
+  $submitButton?: boolean;
   className?: string;
 };
 export type ButtonRef = any;
 
 export const ButtonArrow = React.forwardRef<ButtonRef, ButtonProps>(
   (props, ref) =>
-    !props.submitButton ? (
-      <Button as="a" ref={ref} {...props} inverse={props.inverse}>
+    !props.$submitButton ? (
+      <Button as="a" ref={ref} {...props} $inverse={props.$inverse}>
         {props.text}
-        <Pin inverse={props.inverse} />
+        <Pin $inverse={props.$inverse} />
       </Button>
     ) : (
-      <Button {...props} inverse={props.inverse} marginTop>
+      <Button {...props} $inverse={props.$inverse} $marginTop>
         <input type="submit" value={props.text} />
         {props.text}
-        <Pin inverse={props.inverse} />
+        <Pin $inverse={props.$inverse} />
       </Button>
     )
 );
@@ -28,20 +28,20 @@ ButtonArrow.displayName = 'ButtonArrow';
 
 export default ButtonArrow;
 
-export const Pin = styled.span<{ inverse: boolean }>`
+export const Pin = styled.span<{ $inverse: boolean }>`
   width: 30px;
   height: 30px;
   pointer-events: none;
   display: inline-block;
   background-color: ${(p) =>
-    !p.inverse ? p.theme.colors.background : p.theme.colors.accent};
+    !p.$inverse ? p.theme.colors.background : p.theme.colors.accent};
   border-radius: 100%;
   margin-left: 15px;
   transition: 0.3s ease all;
   &::after {
     content: " ";
     border: solid
-      ${(p) => (!p.inverse ? p.theme.colors.accent : p.theme.colors.background)};
+      ${(p) => (!p.$inverse ? p.theme.colors.accent : p.theme.colors.background)};
     border-width: 0 2.5px 2.5px 0;
     display: inline-block;
     padding: 6px;
@@ -51,20 +51,20 @@ export const Pin = styled.span<{ inverse: boolean }>`
   }
 `;
 
-const Button = styled.div<{ inverse: boolean; marginTop?: boolean }>`
+const Button = styled.div<{ $inverse: boolean; $marginTop?: boolean }>`
   text-decoration: none;
   padding: 13px 17px 14px 25px;
   border-radius: 50px;
   color: ${(p) => p.theme.colors.foreground};
   background-color: ${(p) =>
-    !p.inverse ? p.theme.colors.background : p.theme.colors.accent};
+    !p.$inverse ? p.theme.colors.background : p.theme.colors.accent};
   position: relative;
   display: inline-block;
   align-self: flex-start;
   text-align:left;
   font-weight: 100;
   -webkit-appearance: button-bevel;
-  margin-top: ${(p) => (p.marginTop ? "10px" : "0px")};
+  margin-top: ${(p) => (p.$marginTop ? "10px" : "0px")};
   cursor: pointer;
   input {
     cursor: pointer;
@@ -87,7 +87,7 @@ const Button = styled.div<{ inverse: boolean; marginTop?: boolean }>`
       }
       ${Pin} {
         background-color: ${(p) =>
-          !p.inverse ? p.theme.colors.accent : p.theme.colors.background};
+          !p.$inverse ? p.theme.colors.accent : p.theme.colors.background};
         margin-left: 25px;
         &:after {
           border-color: ${(p) => p.theme.colors.foreground};
@@ -113,7 +113,7 @@ const Button = styled.div<{ inverse: boolean; marginTop?: boolean }>`
       }
       ${Pin} {
         background-color: ${(p) =>
-          !p.inverse ? p.theme.colors.accent : p.theme.colors.background};
+          !p.$inverse ? p.theme.colors.accent : p.theme.colors.background};
         margin-left: 25px;
         &:after {
           border-color: ${(p) => p.theme.colors.foreground};

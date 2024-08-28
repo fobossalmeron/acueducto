@@ -96,7 +96,7 @@ export default function FooterNav() {
             ))}
           </ul>
         </NavList>
-        <NavList accentColor>
+        <NavList $accentColor>
           <Fade triggerOnce>
             <span>{navTitles.policies}</span>
           </Fade>
@@ -163,7 +163,7 @@ const Navs = styled.div`
   }
 `;
 
-const NavList = styled.div<{ accentColor?: boolean }>`
+const NavList = styled.div<{ $accentColor?: boolean }>`
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -174,7 +174,7 @@ const NavList = styled.div<{ accentColor?: boolean }>`
     list-style: none;
     font-size: 1.8rem;
     color: ${(p) =>
-      p.accentColor
+      p.$accentColor
         ? p.theme.colors.foreground_lowest
         : p.theme.colors.foreground_lower};
     li:not(:last-of-type) {
@@ -187,7 +187,7 @@ const NavList = styled.div<{ accentColor?: boolean }>`
     margin: 0 0 30px;
     display:block;
     color: ${(p) =>
-      p.accentColor ? p.theme.colors.accent : p.theme.colors.foreground_low};
+      p.$accentColor ? p.theme.colors.accent : p.theme.colors.foreground_low};
   }
   @media (max-width: 950px) {
     span {

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { H1, P, Li } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
-import EpisodePreview from "components/podcast/EpisodePreview/EpisodePreview";
+import { EpisodePreview } from "components/podcast/EpisodePreview/EpisodePreview";
 import Logo from "public/assets/img/layout/logo.svg";
 import EpisodeNumber from "components/podcast/EpisodeNumber";
 import Link from "next/link";
@@ -11,7 +11,7 @@ import CenteredSection, {
   Transcript,
 } from "components/shared/CenteredSection";
 import ShareRouter from "components/podcast/ShareRouter";
-import dynamic from "next/dynamic";
+import dynamic from "next/dynamic"; 
 import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
 import { PrismicRichText} from "@prismicio/react";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
@@ -28,7 +28,7 @@ import {
   VideoContainer,
   Video,
 } from "./SingleEpisode.styles";
-import { ImageField, ImageFieldImage } from "@prismicio/client";
+import { ImageFieldImage } from "@prismicio/client";
 
 const NoSSRPlayer = dynamic(() => import("react-player/youtube"), {
   loading: () => <p>Cargando...</p>,
@@ -86,7 +86,7 @@ export const SingleEpisodePage: React.FC<SingleEpisodePageProps> = ({
   return (
     <>
       <CenteredSection
-        customBackground={"/assets/img/layout/backOld.svg"}
+        $customBackground={"/assets/img/layout/backOld.svg"}
         id="cuandoelriosuena"
       >
         <Fade triggerOnce>
@@ -177,7 +177,7 @@ export const SingleEpisodePage: React.FC<SingleEpisodePageProps> = ({
         <Fade triggerOnce>
           {spotify && insights && (
             <Content as={Insights}>
-              <ContentType insights>Insights</ContentType>
+              <ContentType $insights>Insights</ContentType>
               <p>
                 Si solo tienes un minuto, lo más importante que pueden aprender
                 operadores, inversionistas y fundadores de {business} es lo

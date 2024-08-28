@@ -7,15 +7,18 @@ import Document, {
 } from "next/document";
 import { ServerStyleSheet } from "styled-components";
 import GlobalStyles from "../styles/global";
+import { AppType } from 'next/app';
+
 export default class MyDocument extends Document {
-  static async getInitialProps(ctx) {
+  static async getInitialProps(ctx: DocumentContext) {
     const sheet = new ServerStyleSheet();
     const originalRenderPage = ctx.renderPage;
+
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App) => (props) =>
-            sheet.collectStyles(<App {...props} />),
+          enhanceApp: (App: React.ComponentType<React.ComponentProps<AppType>>) => (props) =>
+          sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -32,6 +35,7 @@ export default class MyDocument extends Document {
       sheet.seal();
     }
   }
+
   render() {
     return (
       <Html dir="ltr">
@@ -67,7 +71,7 @@ export default class MyDocument extends Document {
             name="msapplication-config"
             content="/assets/favicon/browserconfig.xml"
           />
-          <meta name="apple-mobile-web-app-capable" content="yes" />
+          <meta name="mobile-web-app-capable" content="yes" />
           <meta name="format-detection" content="telephone=no" />
           <meta name="theme-color" content="#080C0C" />
           <meta name="geo.region" content="CDMX" />

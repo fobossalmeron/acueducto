@@ -47,13 +47,13 @@ export const TitleHoverable = styled.p`
   ${BorderLink({ showLink: false })}
 `;
 
-export const PictureContainer = styled.div`
+export const PictureContainer = styled.div<{ $hoverable?: boolean, $hideImageMobile?: boolean }>`
   min-width: 180px;
   margin-right: 5%;
   img {
     border-radius: 20px;
     transition: all 0.25s ease-out;
-    opacity: ${(p) => (p.hoverable ? 0.9 : 1)};
+    opacity: ${(p) => (p.$hoverable ? 0.9 : 1)};
     background-color: black;
     transform: scale(1);
   }
@@ -61,7 +61,7 @@ export const PictureContainer = styled.div`
     &:hover {
       img {
         opacity: 1;
-        transform: ${(p) => (p.hoverable ? "scale(0.99)" : "scale(1)")};
+        transform: ${(p) => (p.$hoverable ? "scale(0.99)" : "scale(1)")};
       }
     }
   }
@@ -72,7 +72,7 @@ export const PictureContainer = styled.div`
     }
   }
   @media (max-width: 900px) {
-    display: ${(p) => (p.hideImageMobile ? "none" : "inherit")};
+    display: ${(p) => (p.$hideImageMobile ? "none" : "inherit")};
   }
 `;
 
@@ -126,12 +126,12 @@ export const DateCat = styled.div`
   }
 `;
 
-export const NewPod = styled.article`
+export const NewPod = styled.article<{ $simplest?: boolean }>`
   display: flex;
   max-width: 800px;
-  margin-top: ${(p) => (p.simplest ? "3.5rem" : "3.5rem")};
-  width: ${(p) => (p.simplest ? "100%" : "inherit")};
-  justify-content: ${(p) => (p.simplest ? "center" : "inherit")};
+  margin-top: ${(p) => (p.$simplest ? "3.5rem" : "3.5rem")};
+  width: ${(p) => (p.$simplest ? "100%" : "inherit")};
+  justify-content: ${(p) => (p.$simplest ? "center" : "inherit")};
   a {
     text-decoration: none;
   }
@@ -178,7 +178,7 @@ export const NewPod = styled.article`
   }
   @media (max-width: 900px) {
     flex-direction: column;
-    align-items: ${(p) => (p.simplest ? "center" : "inherit")};
+    align-items: ${(p) => (p.$simplest ? "center" : "inherit")};
     ${PictureContainer} {
       min-width: unset;
       max-width: 150px;
@@ -191,7 +191,7 @@ export const NewPod = styled.article`
         font-size: 1.3rem;
       }
     }
-    margin-top: ${(p) => (p.simplest ? "3.5rem" : "20%")};
+    margin-top: ${(p) => (p.$simplest ? "3.5rem" : "20%")}};
     p {
       padding-top: 9px;
     }
@@ -201,5 +201,4 @@ export const NewPod = styled.article`
     h3 {
       font-size: 1.8rem;
     }
-  }
 `;

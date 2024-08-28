@@ -1,71 +1,55 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from "react-hook-inview";
 import styled from "styled-components";
-import useInterval from "utils/useInterval";
+import useInterval from "../utils/useInterval";
 import Holed from "public/assets/img/layout/holed.svg";
 import Picture from "components/caseStudy/shared/Picture";
 
-const Carousel = ({ items }) => {
-  const [activeIndex, setIndex] = useState(0);
+const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
+  const [activeIndex, setIndex] = useState<number>(0);
   const [ref, isVisible] = useInView({
     threshold: 0.2,
     unobserveOnEnter: true,
   });
-  const [start, startTick] = useState(false);
-  const [manualMode, setManualMode] = useState(false);
-  const manualModeRef = useRef(manualMode);
-  manualModeRef.current = manualMode;
+  const [start, setStart] = useState<boolean>(false);
+  const [manualMode, setManualMode] = useState<boolean>(false);
+  const manualModeRef = useRef<boolean>(manualMode);
 
-  useInterval(
-    () => {
-      nextIndex();
-    },
-    2000,
-    start
-  );
+  const nextIndex = useCallback((): void => {
+    setIndex((prevIndex) => (prevIndex + 1) % 3);
+  }, []);
+
+  useInterval(nextIndex, 2000, start);
 
   useEffect(() => {
-    if (isVisible) {
-      startTick(true);
-    }
+    if (isVisible) setStart(true);
+
   }, [isVisible]);
 
   useEffect(() => {
     if (manualMode) {
-      startTick(false);
+      setStart(false);
+      manualModeRef.current = true;
+      const timer = setTimeout(() => {
+        if (manualModeRef.current) {
+          setStart(true);
+          setManualMode(false);
+          manualModeRef.current = false;
+        }
+      }, 2000);
+      return () => clearTimeout(timer);
     }
-    const timer = setTimeout(() => {
-      if (manualModeRef.current) {
-        startTick(true);
-        setManualMode(false);
-      }
-    }, 2000);
-    return () => clearTimeout(timer);
   }, [manualMode]);
 
-  const nextIndex = () => {
-    if (activeIndex + 1 > 2) {
-      setIndex(0);
-    } else {
-      setIndex(activeIndex + 1);
-    }
-  };
-
-  const nextManualIndex = () => {
-    nextIndex();
+  const handleManualChange = useCallback((direction: 'next' | 'prev'): void => {
+    setIndex((prevIndex) => {
+      if (direction === 'next') return (prevIndex + 1) % 3;
+      return prevIndex > 0 ? prevIndex - 1 : 2;
+    });
     setManualMode(true);
-  };
+  }, []);
 
-  const prevManualIndex = () => {
-    if (activeIndex - 1 > -1) {
-      setIndex(activeIndex - 1);
-    } else {
-      setIndex(2);
-    }
-    setManualMode(true);
-  };
-
-  let heights = [123, 113, 126];
+  const heights: number[] = [123, 113, 126];
 
   return (
     <>
@@ -76,8 +60,8 @@ const Carousel = ({ items }) => {
           <CarouselContainer>
             {items.map((word, index) => (
               <Word
-                key={"word" + index}
-                show={index === activeIndex ? true : false}
+                key={`word${index}`}
+                show={index === activeIndex}
               >
                 <Picture
                   src={`/assets/img/layout/home_draw/${index + 5}.png`}
@@ -89,8 +73,8 @@ const Carousel = ({ items }) => {
               </Word>
             ))}
           </CarouselContainer>
-          <ButtonLeft onClick={prevManualIndex} />
-          <ButtonRight onClick={nextManualIndex} />
+          <ButtonLeft onClick={() => handleManualChange('prev')} />
+          <ButtonRight onClick={() => handleManualChange('next')} />
         </HoledSection>
         <RightSection />
       </HalfContainer>
@@ -99,12 +83,13 @@ const Carousel = ({ items }) => {
   );
 };
 
-export default Carousel;
+export default React.memo(Carousel);
 
 const HalfContainer = styled.div`
   width: 100%;
   display: flex;
 `;
+
 const LeftSection = styled.div`
   background-color: ${(p) => p.theme.colors.background};
   width: 53%;
@@ -190,7 +175,7 @@ const ButtonRight = styled(ButtonLeft)`
   cursor: e-resize;
 `;
 
-const Word = styled.div`
+const Word = styled.div<{ show: boolean }>`
   position: absolute;
   text-align: center;
   opacity: ${(p) => (p.show ? 1 : 0)};

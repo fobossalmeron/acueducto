@@ -34,7 +34,7 @@ const QuestionWrapper: React.FC<{ q: Question; i: number }> = React.memo(({ q, i
   }, []);
 
   return (
-    <Question hide={!toggled} height={height} onClick={handleToggle}>
+    <Question $hide={!toggled} $height={height} onClick={handleToggle}>
       <Fade triggerOnce>
         <div>
           <div>
@@ -98,7 +98,7 @@ const Cross = styled.div<{ open: boolean }>`
   }
 `;
 
-const Question = styled.li<{ hide: boolean; height: number }>`
+const Question = styled.li<{ $hide: boolean; $height: number }>`
   border-bottom: 0.18rem solid
     ${(props) => props.theme.colors.foreground_lowest};
   margin-bottom: 3rem;
@@ -106,14 +106,14 @@ const Question = styled.li<{ hide: boolean; height: number }>`
   @media (hover: hover) and (pointer: fine) {
     &:hover {
       ${Cross} {
-        transform: ${(p) => (p.hide ? "rotate(-90deg)" : "rotate(0deg)")};
+        transform: ${(p) => (p.$hide ? "rotate(-90deg)" : "rotate(0deg)")};
       }
     }
   }
   &:focus,
   &:active {
     ${Cross} {
-      transform: ${(p) => (p.hide ? "rotate(-90deg)" : "rotate(0deg)")};
+      transform: ${(p) => (p.$hide ? "rotate(-90deg)" : "rotate(0deg)")};
     }
   }
   ::marker {
@@ -149,14 +149,14 @@ const Question = styled.li<{ hide: boolean; height: number }>`
   & > :nth-last-child(1) {
     div {
       transition: height 250ms ease-out;
-      height: ${(p) => (p.hide ? "0px" : `${p.height}px`)};
+      height: ${(p) => (p.$hide ? "0px" : `${p.$height}px`)};
       overflow: hidden;
     }
     p {
       color: ${(p) => p.theme.colors.foreground_low};
       cursor: auto;
       transition: opacity 250ms ease;
-      opacity: ${(p) => (p.hide ? 0 : 1)};
+      opacity: ${(p) => (p.$hide ? 0 : 1)};
       height: auto;
       margin: 0 0 5% 4.5rem;
     }

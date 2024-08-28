@@ -31,7 +31,7 @@ const NewsletterPopup = ({ content }) => {
 
   return (
     <>
-      <Wrapper clickable={showPopup} id="NewsletterPopup">
+      <Wrapper $clickable={showPopup} id="NewsletterPopup">
         <Fade triggerOnce>
           <Border>
             <H4>{content.title}</H4>
@@ -40,31 +40,31 @@ const NewsletterPopup = ({ content }) => {
           </Border>
         </Fade>
       </Wrapper>
-      <StickyReminder visible={showPopup}>
+      <StickyReminder $visible={showPopup}>
         Deja tus datos para seguir leyendo
       </StickyReminder>
-      <Background visible={showPopup} />
+      <Background $visible={showPopup} />
     </>
   );
 };
 
 export default NewsletterPopup;
 
-const StickyReminder = styled.div<{ visible: boolean }>`
-  opacity: ${(props) => (props.visible ? 1 : 0)};
-  height: ${(props) => (props.visible ? "auto" : 0)};
+const StickyReminder = styled.div<{ $visible: boolean }>`
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
+  height: ${(props) => (props.$visible ? "auto" : 0)};
   position: sticky;
   z-index: 16;
   text-align: center;
   max-width: 440px;
-  padding: ${(props) => (props.visible ? "10% 0 0" : 0)};
+  padding: ${(props) => (props.$visible ? "10% 0 0" : 0)};
   top: 5%;
 `;
 
-const Background = styled.div<{ visible: boolean }>`
-  opacity: ${(props) => (props.visible ? 1 : 0)};
+const Background = styled.div<{ $visible: boolean }>`
+  opacity: ${(props) => (props.$visible ? 1 : 0)};
   position: absolute;
-  pointer-events: ${(props) => (props.visible ? "auto" : "none")};
+  pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
   backdrop-filter: blur(6px);
   bottom: 0;
   right: 0;
@@ -145,10 +145,10 @@ const Border = styled.div`
   }
 `;
 
-const Wrapper = styled.div<{ clickable: boolean }>`
+const Wrapper = styled.div<{ $clickable: boolean }>`
   grid-column: 7 / span 5;
-  pointer-events: ${(props) => (props.clickable ? "auto" : "none")};
-  opacity: ${(props) => (props.clickable ? "1" : "0")};
+  pointer-events: ${(props) => (props.$clickable ? "auto" : "none")};
+  opacity: ${(props) => (props.$clickable ? "1" : "0")};
   max-width: 440px;
   width: 100%;
   left: 0;
@@ -158,7 +158,7 @@ const Wrapper = styled.div<{ clickable: boolean }>`
   position: relative;
   transition: opacity 0.4s ease, transform 0.5s ease;
   z-index: 15 !important;
-  height: ${(props) => (props.clickable ? "auto" : 0)};
+  height: ${(props) => (props.$clickable ? "auto" : 0)};
   p {
     color: ${(props) => props.theme.colors.foreground_low};
     padding-bottom: 20px;

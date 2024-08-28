@@ -20,7 +20,7 @@ const HomeSpline = () => {
 
 export default HomeSpline;
 
-const SketchContainer = styled.div`
+const SketchContainer = styled.div<{ show: boolean }>`
   width: 100%;
   height: 120vh;
   position: fixed;
@@ -35,3 +35,4 @@ const SketchContainer = styled.div`
     opacity: ${(p) => (p.show ? 1 : 0)};
   }
 `;
+  

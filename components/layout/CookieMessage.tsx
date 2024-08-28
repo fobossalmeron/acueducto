@@ -54,7 +54,7 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
 
   let tt = t.cookie_message;
   return (
-    <Wrapper clickable={hasToConsent}>
+    <Wrapper $clickable={hasToConsent}>
       <Border>
         <Divider onClick={consentToCookies}>
           <Button>
@@ -154,15 +154,15 @@ const CrossContainer = styled.div`
   }
 `;
 
-const Wrapper = styled.div<{ clickable: boolean }>`
-  pointer-events: ${(props) => (props.clickable ? "auto" : "none")};
-  opacity: ${(props) => (props.clickable ? "1" : "0")};
+const Wrapper = styled.div<{ $clickable: boolean }>`
+  pointer-events: ${(props) => (props.$clickable ? "auto" : "none")};
+  opacity: ${(props) => (props.$clickable ? "1" : "0")};
   max-width: 590px;
   width: 80%;
   bottom: 5%;
   left: 50%;
   transform: translateX(-50%)
-    ${(props) => (props.clickable ? "translateY(0%)" : "translateY(5%)")};
+    ${(props) => (props.$clickable ? "translateY(0%)" : "translateY(5%)")};
   font-weight: 100;
   position: fixed;
   transition: opacity 0.4s ease, transform 0.5s ease;

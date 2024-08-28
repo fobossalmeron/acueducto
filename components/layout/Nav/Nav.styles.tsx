@@ -1,126 +1,11 @@
-import React from "react";
-import Link from "next/link";
 import styled, { css } from "styled-components";
-import { Fade } from "react-awesome-reveal";
 import BorderLink from "components/shared/BorderedLink";
-import { useRouter } from "next/router";
-
-export default function Nav(props) {
-  let t = props.t.nav;
-  let l = props.t.legal_nav;
-
-  const ActiveLink = ({ children, href, as, locale }) => {
-    const router = useRouter();
-    const child = React.Children.only(children);
-    return (
-      <Link
-        {...props}
-        href={href}
-        as={as}
-        passHref
-        locale={locale}
-        legacyBehavior
-      >
-        {React.cloneElement(child, { active: router.pathname === href })}
-      </Link>
-    );
-  };
-
-  const yearRoman = () => {
-    var year = new Date().getFullYear();
-    var digits = String(+year).split(""),
-      key = [
-        "",
-        "C",
-        "CC",
-        "CCC",
-        "CD",
-        "D",
-        "DC",
-        "DCC",
-        "DCCC",
-        "CM",
-        "",
-        "X",
-        "XX",
-        "XXX",
-        "XL",
-        "L",
-        "LX",
-        "LXX",
-        "LXXX",
-        "XC",
-        "",
-        "I",
-        "II",
-        "III",
-        "IV",
-        "V",
-        "VI",
-        "VII",
-        "VIII",
-        "IX",
-      ],
-      roman = "",
-      i = 3;
-    while (i--) roman = (key[+digits.pop() + i * 10] || "") + roman;
-    return Array(+digits.join("") + 1).join("M") + roman;
-  };
-
-  return (
-    <NavWrapper open={props.isOpen} id="Nav">
-      {props.isOpen && (
-        <>
-          <NavList onClick={props.closeNav}>
-            <ul>
-              {t.map((item, index) => (
-                <li key={"item" + index}>
-                  <Fade delay={200 + index * 50}>
-                    <span>0{index + 1}</span>
-                    <ActiveLink
-                      href={item.link}
-                      as={item.as ? item.as : item.link}
-                      locale={props.locale}
-                    >
-                      <NavLink active={undefined}>{item.title}</NavLink>
-                    </ActiveLink>
-                  </Fade>
-                </li>
-              ))}
-            </ul>
-          </NavList>
-          <BottomNav>
-            <Registered>© {yearRoman()} </Registered>
-            <Social>
-              <Hoverable
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.linkedin.com/company/acueductostudio/"
-              >
-                linkedin
-                <span>linkedin</span>
-              </Hoverable>
-              <Hoverable
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg"
-              >
-                youtube
-                <span>youtube</span>
-              </Hoverable>
-            </Social>
-          </BottomNav>
-        </>
-      )}
-    </NavWrapper>
-  );
-}
 
 const Hoverable = styled.a`
   ${BorderLink({ showLink: false })}
 `;
 
-const NavLink = styled.a`
+const NavLink = styled.a<{ active?: boolean }>`
   font-weight: 200;
   transition: all 0.3s ease 0s;
   cursor: pointer;
@@ -293,7 +178,7 @@ const NavList = styled.nav`
   }
 `;
 
-const NavWrapper = styled.div`
+const NavWrapper = styled.div<{ open: boolean }>`
   opacity: 0;
   pointer-events: none;
   z-index: 9;
@@ -355,3 +240,14 @@ const NavWrapper = styled.div`
     padding-top: 13%;
   }
 `;
+
+export {
+  Hoverable,
+  NavLink,
+  Registered,
+  Policies,
+  Social,
+  BottomNav,
+  NavList,
+  NavWrapper
+};

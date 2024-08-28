@@ -124,7 +124,7 @@ const ContactForm = ({ text }) => {
               />
               {errors.message && <span>{text.message.errorMissing}</span>}
             </InputField>
-            <ButtonArrow text={text.submit} submitButton inverse />
+            <ButtonArrow text={text.submit} $submitButton $inverse />
           </Form>
         </>
       )}

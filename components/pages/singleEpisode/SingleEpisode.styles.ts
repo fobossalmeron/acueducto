@@ -57,13 +57,13 @@ export const CenteredDiv = styled.div`
   flex-direction: column;
 `;
 
-export const ContentType = styled.span`
+export const ContentType = styled.span<{ $insights?: boolean }>`
   font-weight: 300;
-  font-weight: ${(p) => (p.insights ? 600 : 300)};
+  font-weight: ${(p) => (p.$insights ? 600 : 300)};
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 6px;
-  color: ${(p) => (p.insights ? "#4DA465" : p.theme.colors.background)};
+  color: ${(p) => (p.$insights ? "#4DA465" : p.theme.colors.background)};
   margin-bottom: 2rem;
   font-size: 1.5rem;
   width: 100%;

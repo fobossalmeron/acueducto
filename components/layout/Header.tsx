@@ -13,19 +13,19 @@ function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
       (e.preventDefault(), lenis.scrollTo(0, { immediate: false }));
   };
   return (
-    <TopHeader reveal={hasLoaded}>
+    <TopHeader $reveal={hasLoaded}>
       <LogoLink as={Link} href="/" locale={locale} onClick={backUp}>
         <span>acueducto</span>
         <Logo />
       </LogoLink>
-      <HeaderTitle hide={isOpen}>{headerTitle}</HeaderTitle>
+      <HeaderTitle $hide={isOpen}>{headerTitle}</HeaderTitle>
     </TopHeader>
   );
 }
 
 export default React.memo(Header);
 
-const HeaderTitle = styled.div<{ hide: boolean }>`
+const HeaderTitle = styled.div<{ $hide: boolean }>`
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
@@ -35,14 +35,14 @@ const HeaderTitle = styled.div<{ hide: boolean }>`
   z-index: 2;
   top: 61px;
   mix-blend-mode: exclusion;
-  opacity: ${(props) => (props.hide ? 0 : 1)};
+  opacity: ${(props) => (props.$hide ? 0 : 1)};
   transition: opacity 0.2s ease;
   @media (max-height: 450px) and (min-width: 800px) {
     top: 40px;
   }
 `;
 
-const TopHeader = styled.header<{ reveal: boolean }>`
+const TopHeader = styled.header<{ $reveal: boolean }>`
   display: flex;
   justify-content: space-between;
   position: fixed;
@@ -56,7 +56,7 @@ const TopHeader = styled.header<{ reveal: boolean }>`
   max-width: 1500px;
   pointer-events: none;
   mix-blend-mode: exclusion;
-  opacity: ${(props) => (props.reveal ? 1 : 0)};
+  opacity: ${(props) => (props.$reveal ? 1 : 0)};
   transition: opacity 0.3s ease-out 0.15s;
   @media (max-width: 1530px) {
     padding-left: 60px;

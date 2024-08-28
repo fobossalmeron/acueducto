@@ -17,7 +17,7 @@ const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
       )}
       <SpecialA>
         <Link href={"/contacto"} passHref legacyBehavior>
-          <ButtonArrow text={cta.submit} inverse className="clean" />
+          <ButtonArrow text={cta.submit} $inverse className="clean" />
         </Link>
       </SpecialA>
       {diagnostico_cta && (

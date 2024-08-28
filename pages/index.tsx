@@ -80,7 +80,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
               passHref
               legacyBehavior
             >
-              <ButtonArrow text={t.landing.button} inverse />
+              <ButtonArrow text={t.landing.button} $inverse />
             </Link>
           </LandContainer>
         </Land>
@@ -113,7 +113,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
               passHref
               legacyBehavior
             >
-              <ButtonArrow text={t.clients.cta} inverse />
+              <ButtonArrow text={t.clients.cta} $inverse />
             </Link>
           </Fade>
         </LogosSection>

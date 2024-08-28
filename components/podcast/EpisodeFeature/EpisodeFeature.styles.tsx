@@ -13,14 +13,14 @@ export const H2overable = styled.h3`
 `;
 
 export const PictureContainer = styled.div<{
-  hoverable: boolean;
+  $hoverable: boolean;
   episode: number;
-  portrait: boolean;
+  $portrait: boolean;
 }>`
   margin-bottom: 7%;
   height: 145px;
   position: relative;
-  max-width: ${(p) => (p.portrait ? "142px" : "unset")};
+  max-width: ${(p) => (p.$portrait ? "142px" : "unset")};
   & > div:not(.logos) {
     border-radius: 25px;
     overflow: hidden;
@@ -62,7 +62,7 @@ export const Guest = styled.div<{ blue?: boolean }>`
   }
 `;
 
-export const NewPod = styled.a<{ blue?: boolean; episode: number }>`
+export const NewPod = styled.a<{ $blue?: boolean; episode: number }>`
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -70,12 +70,12 @@ export const NewPod = styled.a<{ blue?: boolean; episode: number }>`
   text-decoration: none;
   width: 100%;
   background-image: ${(p) =>
-    p.blue
+    p.$blue
       ? 'url("/assets/img/layout/backCardWhite.svg")'
       : 'url("/assets/img/layout/backCard.svg")'};
   background-size: cover;
   background-position: bottom;
-  background-color: ${(p) => (p.blue ? "#305EE3" : "#181a1b")};
+  background-color: ${(p) => (p.$blue ? "#305EE3" : "#181a1b")};
   border-radius: 50px;
   padding: 3.5rem 3.5rem 2.5rem 3.5rem;
   text-decoration: none;
@@ -116,11 +116,11 @@ export const NewPod = styled.a<{ blue?: boolean; episode: number }>`
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: ${(p) => (p.blue ? "#3A65E4" : "#1e2224")};
+      background-color: ${(p) => (p.$blue ? "#3A65E4" : "#1e2224")};
     }
   }
   &:active {
-    background-color: ${(p) => (p.blue ? "#3A65E4" : "#1e2224")};
+    background-color: ${(p) => (p.$blue ? "#3A65E4" : "#1e2224")};
   }
 
   @media (max-width: 970px) {

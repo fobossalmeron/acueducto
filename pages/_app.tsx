@@ -1,8 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocalizedContent } from "utils/useLocalizedContent";
 import { ThemeProvider } from "styled-components";
-import LoadingBar from "react-top-loading-bar";
-import Layout from "components/layout/Layout.tsx";
+import LoadingBar, { LoadingBarRef } from "react-top-loading-bar";
+import Layout from "components/layout/Layout";
 import theme from "styles/theme";
 import delayForLoading from "utils/delayForLoading";
 import en from "public/locales/en/common.json";
@@ -12,18 +12,23 @@ import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import { LenisProvider } from "utils/LenisContext";
+import { AppProps } from "next/app";
+import { NextRouter } from "next/router";
+import { SharedTProps } from "../utils/LangContext";
 
-//can we dynamic import es or en accordingly?
+interface CustomAppProps extends Omit<AppProps, 'router'> {
+  router: NextRouter;
+}
 
-function App({ Component, pageProps, router }) {
-  const [hasLoaded, setHasLoaded] = useState(false);
-  const LoadingBarRef = useRef(null);
+function App({ Component, pageProps, router }: CustomAppProps) {
+  const [hasLoaded, setHasLoaded] = useState<boolean>(false);
+  const LoadingBarRef = useRef<LoadingBarRef>(null);
 
   const sharedT = useLocalizedContent({
     locale: router.locale,
     fileName: "common",
     initialContent: router.locale === "en" ? en : es,
-  });
+  }) as SharedTProps;
 
   useEffect(() => {
     // Disable scroll
@@ -73,24 +78,24 @@ function App({ Component, pageProps, router }) {
     hasLoaded &&
       (console.log("Page hasLoaded"), enableBodyScroll(targetElement));
   }),
-    [hasLoaded];
+    [hasLoaded]; 
 
-  const handleRouteComplete = (url) => {
+  const handleRouteComplete = (url: string) => {
     setTimeout(function () {
-      LoadingBarRef.current.complete();
+      LoadingBarRef.current?.complete();
     }, 300);
   };
 
-  const handleRouteStart = (url) => {
-    LoadingBarRef.current.continuousStart();
+  const handleRouteStart = (url: string) => {
+    LoadingBarRef.current?.continuousStart();
   };
 
-  const handleRouteError = (err, url) => {
+  const handleRouteError = (err: Error, url: string) => {
     setTimeout(function () {
-      if (err.cancelled) {
+      if ("cancelled" in err && err.cancelled) {
         // console.log(`${err} on route to ${url}`);
       }
-      LoadingBarRef.current.complete();
+      LoadingBarRef.current?.complete();
     }, 300);
   };
 

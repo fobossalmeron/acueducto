@@ -103,14 +103,14 @@ const DefaultForm = ({
                   },
                 })}
               />
-              <span>{errors?.email?.message}</span>
+              <span>{errors?.email?.message as string}</span>
             </InputField>
 
             {buttonArrow || buttonArrowInverse ? (
               <ButtonArrow
                 text={text.submit}
-                inverse={buttonArrowInverse}
-                submitButton
+                $inverse={buttonArrowInverse}
+                $submitButton
               />
             ) : (
               <SubmitField>

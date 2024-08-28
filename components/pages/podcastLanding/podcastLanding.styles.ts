@@ -364,11 +364,10 @@ export const PodcastGrid = styled(TitleSectionGrid)`
   }
 `;
 
-export const FeatureList = styled(TitleSectionGrid)`
+export const FeatureList = styled(TitleSectionGrid)<{ narrow?: boolean }>`
   padding-top: 0;
   padding-bottom: 2%;
   & > div {
-    grid-column: 2 span 9;
     display: flex;
     gap: ${(props) => (props.narrow ? "1rem" : "3.5rem")};
     flex-wrap: wrap;

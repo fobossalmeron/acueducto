@@ -29,9 +29,9 @@ const MetalPinnedSection = ({
 }: PinnedProps) => (
   <Pinned
     className={className}
-    borderTop={borderTop}
+    $borderTop={borderTop}
     id={id}
-    notSticky={notSticky}
+    $notSticky={notSticky}
   >
     {
       // Si viene un h1 de SEO, renderearlo junto con el título
@@ -79,14 +79,14 @@ const ScrollDown = styled.div`
   }
 `;
 
-const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
+const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   grid-template-columns: repeat(12, 1fr);
   grid-gap: 2.2rem;
   width: 100%;
   display: grid;
   padding: 150px 4% calc(70px + 5%) 4%;
   border-top: ${(props) =>
-    props.borderTop
+    props.$borderTop
       ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
       : "none"};
 
@@ -100,12 +100,12 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
-    position: ${(p) => (p.notSticky ? "relative" : "sticky")};
+    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
   }
   .h1 {
-    position: ${(p) => (p.notSticky ? "relative" : "sticky")};
+    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
     max-height: 300px;
-    top: ${(p) => (p.notSticky ? "0px" : "150px")};
+    top: ${(p) => (p.$notSticky ? "0px" : "150px")};
     letter-spacing: 0px;
     line-height: 100%;
     font-size: 7rem;
@@ -121,7 +121,7 @@ const Pinned = styled.div<{ borderTop: boolean; notSticky: boolean }>`
   @media (max-width: 1300px) {
     padding-top: 100px;
     .h1 {
-      top: ${(p) => (p.notSticky ? "unset" : "100px")};
+      top: ${(p) => (p.$notSticky ? "unset" : "100px")};
     }
     ${ScrollDown} {
       grid-column: 7 / span 5;
