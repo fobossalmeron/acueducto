@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import Image from "next/image";
+import { Button } from "components/shared/Button/Button";
 import { P } from "components/shared/Dangerously";
 import BroadcastRouter from "../BroadcastRouter";
 import EpisodeNumber from "../EpisodeNumber";
@@ -18,7 +19,7 @@ import {
   Guest,
   DateCat,
   ButtonSpace,
-  TitleHoverable
+  TitleHoverable,
 } from "./EpisodePreview.styles";
 
 const formatDate = (date: string): string => {
@@ -182,13 +183,9 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
         </Fade>
         <ButtonSpace>
           {simplest && (
-            <Link href={`/podcast/${slug}`} passHref legacyBehavior>
-            <ButtonArrow
-              text={text || "seguir aprendiendo"}
-              $inverse
-              className="leftFix clean"
-            />
-          </Link>
+            <Link href={`/podcast/${slug}`}>
+              <Button text={text || "seguir aprendiendo"} inverse />
+            </Link>
           )}
         </ButtonSpace>
       </div>

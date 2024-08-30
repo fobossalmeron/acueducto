@@ -4,7 +4,7 @@ import { Fade } from "react-awesome-reveal";
 import ArrowSvg from "public/assets/img/layout/arrow.svg";
 
 const Arrow = ({ reverse }: { reverse?: boolean }) => (
-  <ArrowContainer reverse={reverse}>
+  <ArrowContainer $reverse={reverse}>
     <Fade triggerOnce>
       <ArrowSvg />
     </Fade>
@@ -13,7 +13,7 @@ const Arrow = ({ reverse }: { reverse?: boolean }) => (
 
 export default React.memo(Arrow);
 
-const ArrowContainer = styled.span<{ reverse: boolean }>`
+const ArrowContainer = styled.span<{ $reverse: boolean }>`
   width: 50px;
   height: 34px;
   position: relative;
@@ -30,7 +30,7 @@ const ArrowContainer = styled.span<{ reverse: boolean }>`
       transition: stroke 0.2s ease-out;
     }
     ${(p) =>
-      p.reverse &&
+      p.$reverse &&
       `transform: rotate(180deg);
      `}
   }

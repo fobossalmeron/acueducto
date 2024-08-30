@@ -8,13 +8,12 @@ import styled from "styled-components";
 import ssrLocale from "utils/ssrLocale";
 import { useLocalizedContent } from "utils/useLocalizedContent";
 import TitleSection from "components/shared/TitleSection";
+import { Button } from "components/shared/Button/Button";
 import ContactFooter from "components/shared/footers/ContactFooter";
-import { H1, H2, P } from "components/shared/Dangerously";
 import Services from "components/shared/Services";
 import Head from "components/layout/Head";
 import Carousel from "components/Carousel";
 import { Fade } from "react-awesome-reveal";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
 import FAQSection from "components/shared/FAQ";
 import PageWrapper from "components/layout/PageWrapper";
@@ -48,6 +47,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
   });
 
   const [isMobile, setIsMobile] = useState(false);
+  const [showSpline, setShowSpline] = useState(false);
 
   const checkMobile = useCallback(() => {
     setIsMobile(window.innerWidth <= 760);
@@ -61,6 +61,15 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
     };
   }, [checkMobile]);
 
+  useEffect(() => {
+    if (hasLoaded) {
+      const timer = setTimeout(() => {
+        setShowSpline(true);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [hasLoaded]);
+
   return (
     <PageWrapper unPadded>
       <Head
@@ -71,17 +80,23 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
       <div style={{ zIndex: 1 }}>
         <Land id="land">
           <LandContainer>
-            <H1>{t.landing.seo_h1}</H1>
-            <P className="h1">{t.landing.heading}</P>
-            <H2 className="h2">{t.landing.tagline}</H2>
-            <Link
-              href={locale === "en" ? "/work" : "/portafolio"}
-              locale={locale}
-              passHref
-              legacyBehavior
-            >
-              <ButtonArrow text={t.landing.button} $inverse />
-            </Link>
+            <Fade cascade delay={0.4}>
+              <p className="h1">{t.landing.heading}</p>
+              <h2 className="h2">{t.landing.tagline}</h2>
+              <Link
+                href={locale === "en" ? "/work" : "/portafolio"}
+                locale={locale}
+              >
+                <Button
+                  text={t.landing.button}
+                  inverse
+                  parentComponent="Land"
+                />
+              </Link>
+            </Fade>
+            <Fade>
+              <h1>{t.landing.seo_h1}</h1>
+            </Fade>
           </LandContainer>
         </Land>
         <Intro id="removeArrow">
@@ -110,10 +125,12 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
             <Link
               href={locale === "en" ? "/work" : "/portafolio"}
               locale={locale}
-              passHref
-              legacyBehavior
             >
-              <ButtonArrow text={t.clients.cta} $inverse />
+              <Button
+                text={t.clients.cta}
+                inverse
+                parentComponent="LogosSection"
+              />
             </Link>
           </Fade>
         </LogosSection>
@@ -142,7 +159,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         </TitleSection>
         <ContactFooter />
       </div>
-      {hasLoaded && <HomeSpline />}
+      {showSpline && <HomeSpline />}
     </PageWrapper>
   );
 };

@@ -109,8 +109,8 @@ const DefaultForm = ({
             {buttonArrow || buttonArrowInverse ? (
               <ButtonArrow
                 text={text.submit}
-                $inverse={buttonArrowInverse}
-                $submitButton
+                inverse={buttonArrowInverse}
+                submitButton
               />
             ) : (
               <SubmitField>

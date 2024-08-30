@@ -26,24 +26,9 @@ interface ActiveLinkProps {
   locale?: string;
 }
 
-// Mover ActiveLink fuera del componente principal
-const ActiveLink: React.FC<ActiveLinkProps> = ({ children, href, as, locale }) => {
-  const router = useRouter();
-  const child = React.Children.only(children);
-  return (
-    <Link
-      href={href}
-      as={as}
-      passHref
-      locale={locale}
-      legacyBehavior
-    >
-      {React.cloneElement(child, { active: router.pathname === href })}
-    </Link>
-  );
-};
-
 const Nav: React.FC<NavProps> = ({ nav, isOpen, closeNav, locale }) => {
+  const router = useRouter();
+
   // Usar useMemo para yearRoman
   const yearRoman = useMemo(() => {
     const year: number = new Date().getFullYear();
@@ -87,13 +72,15 @@ const Nav: React.FC<NavProps> = ({ nav, isOpen, closeNav, locale }) => {
             <li key={`item${index}`}>
               <Fade delay={200 + index * 50}>
                 <span>0{index + 1}</span>
-                <ActiveLink
+                <Link
                   href={item.link}
                   as={item.as ? item.as : item.link}
                   locale={locale}
                 >
-                  <NavLink>{item.title}</NavLink>
-                </ActiveLink>
+                  <NavLink $active={router.pathname === item.link}>
+                    {item.title}
+                  </NavLink>
+                </Link>
               </Fade>
             </li>
           ))}

@@ -1,21 +1,24 @@
 import styled from "styled-components";
+import React, { memo } from "react";
 
 type ClipProps = {
   className?: string;
   unPadded?: boolean;
-  style?: any;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 };
 
-const PageWrapper = ({ children, className, unPadded, style }: ClipProps) => (
-  <Clipper id="Clipper" className={className} unPadded={unPadded} style={style}>
+const PageWrapper: React.FC<ClipProps> = memo(({ children, className, unPadded, style }) => (
+  <Clipper id="Clipper" className={className} $unPadded={unPadded} style={style}>
     {children}
   </Clipper>
-);
+));
+
+PageWrapper.displayName = 'PageWrapper';
 
 export default PageWrapper;
 
-const Clipper = styled.main<{ unPadded: boolean }>`
+const Clipper = styled.main<{ $unPadded?: boolean }>`
   display: flex;
   width: calc(100% - 41px);
   height: calc(100% - 40px);
@@ -35,23 +38,23 @@ const Clipper = styled.main<{ unPadded: boolean }>`
     border-radius: 38px;
   }
   @media (max-width: 1300px) {
-    padding-top: ${(props) => (props.unPadded ? "0" : "5%")};
+    padding-top: ${props => props.$unPadded ? "0" : "5%"};
   }
   @media (max-width: 700px) {
-    padding-top: ${(props) => (props.unPadded ? "0" : "10%")};
+    padding-top: ${props => props.$unPadded ? "0" : "10%"};
   }
   @media (max-width: 600px), (max-height: 450px) {
     overflow-y: auto;
     position: relative;
-    left: 0px;
+    left: 0;
     padding-bottom: 20px;
     top: 17px;
     border-radius: 0;
   }
   @media (max-width: 500px) {
-    padding-top: ${(props) => (props.unPadded ? "0" : "15%")};
+    padding-top: ${props => props.$unPadded ? "0" : "15%"};
   }
   @media (max-width: 400px) {
-    padding-top: ${(props) => (props.unPadded ? "0" : "20%")};
+    padding-top: ${props => props.$unPadded ? "0" : "20%"};
   }
 `;

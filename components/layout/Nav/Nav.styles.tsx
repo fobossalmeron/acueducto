@@ -1,21 +1,33 @@
 import styled, { css } from "styled-components";
 import BorderLink from "components/shared/BorderedLink";
 
+export {
+  Hoverable,
+  NavLink,
+  Registered,
+  Policies,
+  Social,
+  BottomNav,
+  NavList,
+  NavWrapper,
+};
+
 const Hoverable = styled.a`
   ${BorderLink({ showLink: false })}
 `;
 
-const NavLink = styled.a<{ active?: boolean }>`
+const NavLink = styled.div<{ $active?: boolean }>`
   font-weight: 200;
   transition: all 0.3s ease 0s;
   cursor: pointer;
   background-image: ${(props) =>
-    props.active
+    props.$active
       ? `url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="1" y2="1" stroke="rgba(244, 244, 244, 0.5)" stroke-width="3px" vector-effect="non-scaling-stroke"/></svg>');`
       : `url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="1" y2="1" stroke="rgba(244, 244, 244, 0)" stroke-width="3px" vector-effect="non-scaling-stroke"/></svg>');`};
   background-repeat: repeat-x;
   background-size: 1px 2px;
   background-position: 0 90%;
+  display: inline-block;
   &:hover,
   &:focus {
     background-image: url('data:image/svg+xml;utf8,<svg preserveAspectRatio="none" viewBox="0 0 1 1" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="1" y2="1" stroke="rgb(23, 64, 191)" stroke-width="3px" vector-effect="non-scaling-stroke"/></svg>');
@@ -161,11 +173,11 @@ const NavList = styled.nav`
   @media (max-width: 600px), (max-height: 700px) {
     align-items: center;
     ul li {
-      padding-bottom:15%;
+      padding-bottom: 15%;
       span {
-      top: 27px;
-      left: -38px;
-    }
+        top: 27px;
+        left: -38px;
+      }
     }
   }
   @media (max-width: 400px) {
@@ -240,14 +252,3 @@ const NavWrapper = styled.div<{ open: boolean }>`
     padding-top: 13%;
   }
 `;
-
-export {
-  Hoverable,
-  NavLink,
-  Registered,
-  Policies,
-  Social,
-  BottomNav,
-  NavList,
-  NavWrapper
-};

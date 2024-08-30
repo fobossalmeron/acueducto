@@ -2,7 +2,7 @@
   "head": {
     "title": "Diagnóstico digital para negocios ¿Te estás quedando atrás?",
     "description": "Responde a estas preguntas (5 min) y recibe un diagnóstico gratuito para tu negocio en estrategia digital, cultura innovadora y competencia tecnológica.",
-    "image_alt": "Diagnóstico digital por Acueducto",
+    "image": { "alt": "Diagnóstico digital por Acueducto" },
     "headerTitle": "diagnóstico"
   },
   "intro": {
@@ -29,11 +29,6 @@
         "errorInvalid": "*email inválido"
       },
       "submit": "ver resultados"
-    },
-    "progressLine": {
-      "strategy": "estrategia",
-      "culture": "cultura",
-      "competition": "competencia"
     },
     "questions": [
       {
@@ -126,8 +121,7 @@
         "a2": "Tengo algunos indicadores clave",
         "a3": "Ningún proyecto digital se evalúa"
       }
-    ],
-    "analyzing_results": "analizando resultados"
+    ]
   },
   "results_section": {
     "greeting": {

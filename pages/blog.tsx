@@ -5,7 +5,7 @@ import ssrLocale from "utils/ssrLocale";
 import { getAllPosts, getPostBySlug } from "utils/blogApi";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
-import SingleArticle from "components/articles/SingleArticle";
+import { EntryPreview } from "components/pages/blog/EntryPreview";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 
@@ -24,7 +24,7 @@ export default function Articles({ locale, setTitle, posts, pt }) {
       ></Head>
       <TitleSection {...intro} heading={1}/>
       {posts.map((post, i) => (
-        <SingleArticle
+        <EntryPreview
           {...post}
           featured={i === 0}
           reverse={i % 2}

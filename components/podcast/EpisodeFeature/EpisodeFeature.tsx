@@ -73,7 +73,7 @@ const EpisodeFeature: React.FC<EpisodeFeatureProps> = ({
           )}
         </PictureContainer>
         <Fade triggerOnce>
-          <Guest blue={blue}>
+          <Guest $blue={blue}>
             <h3>
               {guest} <span>{business}</span>
             </h3>

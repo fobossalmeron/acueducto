@@ -27,7 +27,7 @@ import {
   NextEp,
   VideoContainer,
   Video,
-} from "./SingleEpisode.styles";
+} from "./PodcastEpisode.styles";
 import { ImageFieldImage } from "@prismicio/client";
 
 const NoSSRPlayer = dynamic(() => import("react-player/youtube"), {
@@ -56,7 +56,7 @@ interface SingleEpisodePageProps {
   findNextPrismic?: boolean;
 }
 
-export const SingleEpisodePage: React.FC<SingleEpisodePageProps> = ({
+export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
   title,
   seo_h1,
   date,

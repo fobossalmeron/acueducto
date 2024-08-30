@@ -39,8 +39,8 @@ const ScrollIncentive = () => {
   }, []);
 
   return (
-    <Container reveal={show}>
-      <Jumper onClick={scrollToNext} reveal={show}>
+    <Container $reveal={show}>
+      <Jumper onClick={scrollToNext} $reveal={show}>
         <Arrow />
       </Jumper>
     </Container>
@@ -73,8 +73,8 @@ const jumping = keyframes`
   }
 `;
 
-const Jumper = styled.div<{ reveal?: boolean }>`
-  animation-name: ${(p) => (p.reveal ? jumping : "none")};
+const Jumper = styled.div<{ $reveal?: boolean }>`
+  animation-name: ${(p) => (p.$reveal ? jumping : "none")};
   transform: translateY(0) rotate(90deg);
   animation-duration: 1.5s;
   animation-play-state: running;
@@ -82,11 +82,11 @@ const Jumper = styled.div<{ reveal?: boolean }>`
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-play-state: running;
-  pointer-events: ${(props) => (props.reveal ? "auto" : "none")};
+  pointer-events: ${(props) => (props.$reveal ? "auto" : "none")};
   cursor: pointer;
 `;
 
-const Container = styled.div<{ reveal?: boolean }>`
+const Container = styled.div<{ $reveal?: boolean }>`
   bottom: 50%;
   display: flex;
   z-index: 7;
@@ -104,7 +104,7 @@ const Container = styled.div<{ reveal?: boolean }>`
   padding-bottom: 65px;
   margin: 0px auto;
   max-width: 1500px;
-  opacity: ${(props) => (props.reveal ? 1 : 0)};
+  opacity: ${(props) => (props.$reveal ? 1 : 0)};
   transition: opacity 0.3s ease 1s;
   @media (max-width: 600px) {
     padding-left: 25px;

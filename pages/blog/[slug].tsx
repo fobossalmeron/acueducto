@@ -4,11 +4,11 @@ import ArticleProps from "utils/types/ArticleProps";
 import markdownToHtml from "utils/markdownToHtml";
 import { getAllPosts, getPostBySlug } from "utils/blogApi";
 import Head from "components/layout/Head";
-import ArticlePage from "components/articles/ArticlePage";
+import BlogEntryPage from "components/pages/blogEntry/BlogEntryPage";
 import PageWrapper from "components/layout/PageWrapper";
 import ResourceFooter from "components/shared/footers/ResourceFooter";
 
-export default function Article({ locale, setTitle, article }) {
+export default function BlogEntry({ locale, setTitle, article }) {
   useEffect(() => {
     setTitle("Blog");
   }, [locale]);
@@ -23,7 +23,7 @@ export default function Article({ locale, setTitle, article }) {
         image={{ fileName: `${article.slug}.png`, alt: article.title }}
         noIndex={!article.index}
       ></Head>
-      <ArticlePage {...article} slug={article.slug} />
+      <BlogEntryPage {...article} slug={article.slug} />
       <ResourceFooter identify={article.slug} />
     </PageWrapper>
   );

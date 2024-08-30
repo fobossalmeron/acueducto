@@ -4,7 +4,7 @@ date: "2022-11-07"
 title: Así se ve una startup con crecimiento sostenible
 guest: Claudia Shehin y Denis Cantú
 business: Come bien
-category: Founder
+category: Growth
 description: "Acompáñanos con Claudia Shehin y Denis Cantú, Head of Growth y CEO respectivamente de Come Bien, el servicio de suscripción de comida saludable para negocios y particulares."
 insights:
 - <b>Crecimiento sostenible.</b> En Come Bien analizan el Life Time Value de sus usuarios entre el Costo de Adquisición de Cliente para analizar si tienen métricas saludables de growth.

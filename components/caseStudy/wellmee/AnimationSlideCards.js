@@ -76,8 +76,8 @@ const AnimatedSlideCards = (props) => {
             {props?.t.solutions.map((solution, i) => (
               <SlideCards
                 key={`solution${i}`}
-                i={i}
-                centeredCardIndex={centeredCardIndex}
+                $i={i}
+                $centeredCardIndex={centeredCardIndex}
               >
                 <span>
                   <h4>{solution.title}</h4>
@@ -165,6 +165,7 @@ const SlideContainer = styled.div`
     height: 48px;
     border-radius: 50%;
     cursor: pointer;
+    transition: 0.3s ease all;
     box-shadow: 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
       0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
       0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05);
@@ -373,6 +374,7 @@ const SlideCards = styled.div`
       left: 32%;
       height: 12px;
       opacity: ${(g) => (g.centeredCardIndex === g.i ? "1" : "0")};
+      transition: 0.3s ease all;
       div {
         max-height: 12px !important;
       }

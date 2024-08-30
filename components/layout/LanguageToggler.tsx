@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Arrows from "public/assets/img/layout/language2.svg";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
 
-const oneLangPages = [
+const ONE_LANG_PAGES = [
   "consultoria",
   "podcast",
   "mvs",
@@ -12,151 +12,77 @@ const oneLangPages = [
   "blog",
 ];
 
-function LanguageToggler({ hasLoaded, locale }) {
+const ROUTE_MAPPINGS = {
+  en: {
+    "/work/wellmee": "/portafolio/wellmee",
+    "/work/recupera": "/portafolio/recupera",
+    "/work/borgatta": "/portafolio/borgatta",
+    "/work/blockstem": "/portafolio/blockstem",
+    "/work/rahid": "/portafolio/rahid",
+    "/work/ladanzadelasfieras": "/portafolio/ladanzadelasfieras",
+    "/work/salvajenada": "/portafolio/salvajenada",
+    "/work": "/portafolio",
+    "/about": "/nosotros",
+    "/contact": "/contacto",
+    "/pitch": "/pitch",
+    "/cookies": "/cookies",
+    "/privacy": "/privacidad",
+    "/": "/",
+  },
+  es: {
+    "/portafolio/wellmee": "/work/wellmee",
+    "/portafolio/recupera": "/work/recupera",
+    "/portafolio/borgatta": "/work/borgatta",
+    "/portafolio/blockstem": "/work/blockstem",
+    "/portafolio/rahid": "/work/rahid",
+    "/portafolio/ladanzadelasfieras": "/work/ladanzadelasfieras",
+    "/portafolio/salvajenada": "/work/salvajenada",
+    "/portafolio": "/work",
+    "/nosotros": "/about",
+    "/contacto": "/contact",
+    "/pitch": "/pitch",
+    "/cookies": "/cookies",
+    "/privacidad": "/privacy",
+    "/": "/",
+  },
+};
+
+function LanguageToggler({
+  hasLoaded,
+  locale,
+}: {
+  hasLoaded: boolean;
+  locale: string;
+}) {
   const router = useRouter();
   const [showToggler, setShowToggler] = useState(false);
 
   useEffect(() => {
-    if (oneLangPages.some((v) => router.asPath.includes(v))) {
-      setShowToggler(false);
-    } else {
-      setShowToggler(true);
-    }
-  }, [router.route]);
+    setShowToggler(!ONE_LANG_PAGES.some((v) => router.asPath.includes(v)));
+  }, [router.asPath]);
 
   const handleLink = () => {
-    // console.log(router.asPath + " " + router.locale);
-    if (locale == "en") {
-      switch (router.asPath) {
-        case "/work/wellmee":
-          Router.push("/portafolio/wellmee", "/portafolio/wellmee", {
-            locale: "es",
-          });
-          break;
-        case "/work/recupera":
-          Router.push("/portafolio/recupera", "/portafolio/recupera", {
-            locale: "es",
-          });
-          break;
-        case "/work/borgatta":
-          Router.push("/portafolio/borgatta", "/portafolio/borgatta", {
-            locale: "es",
-          });
-          break;
-        case "/work/blockstem":
-          Router.push("/portafolio/blockstem", "/portafolio/blockstem", {
-            locale: "es",
-          });
-          break;
-        case "/work/rahid":
-          Router.push("/portafolio/rahid", "/portafolio/rahid", {
-            locale: "es",
-          });
-          break;
-        case "/work/ladanzadelasfieras":
-          Router.push(
-            "/portafolio/ladanzadelasfieras",
-            "/portafolio/ladanzadelasfieras",
-            {
-              locale: "es",
-            }
-          );
-          break;
-        case "/work/salvajenada":
-          Router.push("/portafolio/salvajenada", "/portafolio/salvajenada", {
-            locale: "es",
-          });
-          break;
-        case "/work":
-          Router.push("/portafolio", "/portafolio", { locale: "es" });
-          break;
-        case "/about":
-          Router.push("/nosotros", "/nosotros", { locale: "es" });
-          break;
-        case "/contact":
-          Router.push("/contacto", "/contacto", { locale: "es" });
-          break;
-        case "/pitch":
-          Router.push("/pitch", "/pitch", { locale: "es" });
-          break;
-        case "/cookies":
-          Router.push("/cookies", "/cookies", { locale: "es" });
-          break;
-        case "/privacy":
-          Router.push("/privacidad", "/privacidad", { locale: "es" });
-          break;
-        case "/":
-          Router.push("/", "/", { locale: "es" });
-          break;
-        default:
-          Router.push(router.route, "/problemas");
+    const targetLocale = locale === "en" ? "es" : "en";
+    const currentPath = router.asPath;
+
+    const getTargetPath = () => {
+      // Manejo de rutas de trabajo/portafolio
+      if (
+        currentPath.startsWith("/work/") ||
+        currentPath.startsWith("/portafolio/")
+      ) {
+        const basePath = locale === "en" ? "/work/" : "/portafolio/";
+        const targetBasePath = locale === "en" ? "/portafolio/" : "/work/";
+        return currentPath.replace(basePath, targetBasePath);
       }
-    } else {
-      switch (router.asPath) {
-        case "/portafolio/wellmee":
-          Router.push("/portafolio/wellmee", "/work/wellmee", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio/recupera":
-          Router.push("/portafolio/recupera", "/work/recupera", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio/borgatta":
-          Router.push("/portafolio/borgatta", "/work/borgatta", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio/blockstem":
-          Router.push("/portafolio/blockstem", "/work/blockstem", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio/rahid":
-          Router.push("/portafolio/rahid", "/work/rahid", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio/ladanzadelasfieras":
-          Router.push(
-            "/portafolio/ladanzadelasfieras",
-            "/work/ladanzadelasfieras",
-            {
-              locale: "en",
-            }
-          );
-          break;
-        case "/portafolio/salvajenada":
-          Router.push("/portafolio/salvajenada", "/work/salvajenada", {
-            locale: "en",
-          });
-          break;
-        case "/portafolio":
-          Router.push("/portafolio", "/work", { locale: "en" });
-          break;
-        case "/nosotros":
-          Router.push("/nosotros", "/about", { locale: "en" });
-          break;
-        case "/contacto":
-          Router.push("/contacto", "/contact", { locale: "en" });
-          break;
-        case "/pitch":
-          Router.push("/pitch", "/pitch", { locale: "en" });
-          break;
-        case "/cookies":
-          Router.push("/cookies", "/cookies", { locale: "en" });
-          break;
-        case "/privacidad":
-          Router.push("/privacidad", "/privacy", { locale: "en" });
-          break;
-        case "/":
-          Router.push("/", "/", { locale: "en" });
-          break;
-        default:
-          Router.push(router.route, "/trouble");
-      }
-    }
+
+      // Manejo de otras rutas mapeadas
+      const mappings = ROUTE_MAPPINGS[locale as keyof typeof ROUTE_MAPPINGS];
+      return mappings[currentPath as keyof typeof mappings] || currentPath;
+    };
+
+    const targetPath = getTargetPath();
+    router.push(targetPath, targetPath, { locale: targetLocale });
   };
 
   return (
@@ -173,6 +99,7 @@ function LanguageToggler({ hasLoaded, locale }) {
     </A>
   );
 }
+
 export default React.memo(LanguageToggler);
 
 const RevealWrapper = styled.div`

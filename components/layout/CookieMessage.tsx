@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Cross from "public/assets/img/layout/cross.svg";
@@ -6,53 +6,50 @@ import BorderLink from "components/shared/BorderedLink";
 import Cookies from "js-cookie";
 import delayForLoading from "utils/delayForLoading";
 
-const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
+const CookieMessage = React.memo(({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
   const [hasToConsent, setHasToConsent] = useState(false);
   const [showConsentMessage, setShowConsentMessage] = useState(true);
 
-  useEffect(() => {
-    delayForLoading(800).then(() => {
-      if (showConsentMessage) {
-        document.body.onscroll = () => {
-          checkScroll();
-        };
-        let clipper: HTMLDivElement = document.querySelector("#LayoutWrapper");
-        clipper.onscroll = () => {
-          checkScroll();
-        };
-      }
-    });
-  }, [hasLoaded]);
-
-  const checkScroll = () => {
+  const checkScroll = useCallback(() => {
+    const layoutWrapper = document.querySelector("#LayoutWrapper") as HTMLElement;
     if (
-      document.querySelector("#LayoutWrapper").scrollTop > 100 ||
+      (layoutWrapper && layoutWrapper.scrollTop > 100) ||
       window.scrollY > 100
     ) {
       document.body.onscroll = null;
-      let clipper: HTMLDivElement = document.querySelector("#LayoutWrapper");
-      clipper.onscroll = null;
+      if (layoutWrapper) layoutWrapper.onscroll = null;
       checkForConsent();
       setShowConsentMessage(false);
     }
-  };
+  }, []);
 
-  const checkForConsent = () => {
-    // Check if cookie message has been closed before
-    var _C = Cookies.get("showCookieMessage");
-    if (_C === undefined) {
-      setHasToConsent(true);
-    } else if (_C === "false") {
-      setHasToConsent(false);
-    }
-  };
+  const checkForConsent = useCallback(() => {
+    const cookieValue = Cookies.get("showCookieMessage");
+    setHasToConsent(cookieValue === undefined);
+  }, []);
 
-  const consentToCookies = () => {
+  const consentToCookies = useCallback(() => {
     Cookies.set("showCookieMessage", "false");
     setHasToConsent(false);
-  };
+  }, []);
 
-  let tt = t.cookie_message;
+  useEffect(() => {
+    if (hasLoaded && showConsentMessage) {
+      delayForLoading(800).then(() => {
+        document.body.onscroll = checkScroll;
+        const layoutWrapper = document.querySelector("#LayoutWrapper") as HTMLElement;
+        if (layoutWrapper) layoutWrapper.onscroll = checkScroll;
+      });
+    }
+    return () => {
+      document.body.onscroll = null;
+      const layoutWrapper = document.querySelector("#LayoutWrapper") as HTMLElement;
+      if (layoutWrapper) layoutWrapper.onscroll = null;
+    };
+  }, [hasLoaded, showConsentMessage, checkScroll]);
+
+  const tt = useMemo(() => t.cookie_message, [t.cookie_message]);
+
   return (
     <Wrapper $clickable={hasToConsent}>
       <Border>
@@ -74,10 +71,11 @@ const CookieMessage = ({ t, hasLoaded }: { t: any; hasLoaded: boolean }) => {
       </Border>
     </Wrapper>
   );
-};
+});
+
+CookieMessage.displayName = 'CookieMessage';
 
 export default CookieMessage;
-
 
 const Hoverable = styled.span`
   ${BorderLink({ showLink: true })}

@@ -10,7 +10,7 @@ import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
 import type { GetStaticPropsContext } from "next";
 import { createClient } from "../../prismicio";
-import { SingleEpisodePage } from "components/pages/singleEpisode/SingleEpisodePage";
+import { PodcastEpisodePage } from "components/pages/podcastEpisode/PodcastEpisodePage";
 
 const ResourceFooter = lazy(
   () => import("components/shared/footers/ResourceFooter")
@@ -77,7 +77,7 @@ export default function Episodio({
             }}
             noIndex={!episode.index}
           />
-          <SingleEpisodePage {...episode} slug={episode.slug} />
+          <PodcastEpisodePage {...episode} slug={episode.slug} />
         </>
       )}
       {slugMatchesPrismic && (
@@ -97,7 +97,7 @@ export default function Episodio({
             }}
             noIndex={SEO_OVERRIDES[slugMatchesPrismic.uid]}
           />
-          <SingleEpisodePage
+          <PodcastEpisodePage
             title={title}
             guest={guest}
             business={business}

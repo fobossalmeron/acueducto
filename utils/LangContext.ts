@@ -1,7 +1,29 @@
 import React, { useContext } from "react";
 
 export type SharedTProps = {
-  casestudies: Array<object>;
+  nav: Array<{
+    title: string;
+    link: string;
+    as?: string;
+  }>;
+  legal_nav: {
+    cookies: {
+      title: string;
+      link: string;
+    };
+    privacy: {
+      title: string;
+      link: string;
+      as?: string;
+    };
+  };
+  lang: string;
+  casestudies: Array<{
+    title: string;
+    tags: string;
+    link: string;
+    bg_format?: string;
+  }>;
   contact_footer: {
     title: string;
     p: string;
@@ -9,22 +31,46 @@ export type SharedTProps = {
     footer_nav: {
       navTitles: {
         main: string;
-        resources?: string;
         community: string;
         policies: string;
       };
-      main: { title: string; link: string; as?: string }[];
-      policies: { title: string; link: string; as?: string }[];
-      resources?: { title: string; link: string; as?: string }[];
-      mailto: { subject: string; body: string };
+      main: Array<{
+        title: string;
+        link: string;
+        as?: string;
+      }>;
+      policies: Array<{
+        title: string;
+        link: string;
+        as?: string;
+      }>;
+      mailto: {
+        subject: string;
+        body: string;
+      };
     };
   };
-  cookie_message: object;
-  lang: string;
-  legal_nav: object;
-  nav: Array<object>;
-  next_study: { p: string };
-  resources: { p: string; articles: string };
+  cookie_message: {
+    title: string;
+    p: string;
+    link: string;
+    p_continued: string;
+  };
+  next_study: {
+    p: string;
+  };
+  error_page: {
+    headerTitle: string;
+    meta_description: string;
+    intro: {
+      title: string;
+      p: string;
+    };
+  };
+  resources: {
+    p: string;
+    articles: string;
+  };
 };
 
 const LangContext = React.createContext<SharedTProps | null>(null);

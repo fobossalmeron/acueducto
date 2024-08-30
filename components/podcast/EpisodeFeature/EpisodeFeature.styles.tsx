@@ -46,11 +46,11 @@ export const PictureContainer = styled.div<{
   }
 `;
 
-export const Guest = styled.div<{ blue?: boolean }>`
+export const Guest = styled.div<{ $blue?: boolean }>`
   display: flex;
   margin-bottom: 10px;
   text-shadow: ${(p) =>
-    p.blue
+    p.$blue
       ? "-1px -1px 0 #305EE3,  1px -1px 0 #305EE3,-1px 1px 0 #305EE3,1px 1px 0 #305EE3;"
       : "-1px -1px 0 #131516,  1px -1px 0 #131516,-1px 1px 0 #131516,1px 1px 0 #131516;"};
   a {

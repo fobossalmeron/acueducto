@@ -7,7 +7,7 @@ import FooterNav from "./FooterNav";
 import { Fade } from "react-awesome-reveal";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import FooterLogoCrop from "./FooterLogoCrop";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
+import { Button } from "components/shared/Button/Button";
 
 const ContactFooter = () => {
   const context = useLocaleContext();
@@ -24,10 +24,8 @@ const ContactFooter = () => {
             href={"/contacto"}
             as={context.lang === "en" ? "/contact" : "/contacto"}
             locale={context.lang}
-            passHref
-            legacyBehavior
           >
-            <ButtonArrow text={button_text} />
+            <Button text={button_text} parentComponent="ContactFooter" />
           </Link>
         </Fade>
         <FooterLogoCrop />

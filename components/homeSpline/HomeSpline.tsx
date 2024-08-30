@@ -1,16 +1,25 @@
-import { useState } from "react";
+import { useState, useCallback } from "react";
 import styled from "styled-components";
-import Spline from "@splinetool/react-spline";
+import dynamic from "next/dynamic";
+import { memo } from "react";
+
+const Spline = dynamic(() => import("@splinetool/react-spline"), {
+  ssr: false,
+  loading: () => <div>Cargando...</div>
+});
+
+const MemoizedSpline = memo(Spline);
 
 const HomeSpline = () => {
   const [show, setShow] = useState(false);
 
-  function onLoad() {
+  const onLoad = useCallback(() => {
     setShow(true);
-  }
+  }, []);
+
   return (
-    <SketchContainer show={show}>
-      <Spline
+    <SketchContainer $show={show}>
+      <MemoizedSpline
         scene="https://prod.spline.design/TkssLUvOfGBXarJ7/scene.splinecode"
         onLoad={onLoad}
       />
@@ -20,19 +29,16 @@ const HomeSpline = () => {
 
 export default HomeSpline;
 
-const SketchContainer = styled.div<{ show: boolean }>`
+const SketchContainer = styled.div<{ $show: boolean }>`
   width: 100%;
   height: 120vh;
   position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
   max-width: 1500px;
   margin: 0 auto;
-  div {
-    transition: 1000ms ease all;
-    opacity: ${(p) => (p.show ? 1 : 0)};
+  
+  > div {
+    transition: opacity 5s ease;
+    opacity: ${({ $show }) => ($show ? 1 : 0)};
   }
 `;
-  

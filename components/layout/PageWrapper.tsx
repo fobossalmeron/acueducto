@@ -1,21 +1,24 @@
+import React, { memo } from "react";
 import styled from "styled-components";
 
 type WrapperProps = {
   className?: string;
   unPadded?: boolean;
-  style?: any;
+  style?: React.CSSProperties;
   children: React.ReactNode;
 };
 
-const PageWrapper = ({ children, className, unPadded, style }: WrapperProps) => (
+const PageWrapper: React.FC<WrapperProps> = memo(({ children, className, unPadded, style }) => (
   <Main id="Main" className={className} $unPadded={unPadded} style={style}>
     {children}
   </Main>
-);
+));
+
+PageWrapper.displayName = 'PageWrapper';
 
 export default PageWrapper;
 
-const Main = styled.main<{ $unPadded: boolean }>`
+const Main = styled.main<{ $unPadded?: boolean }>`
   position: relative;
   width: calc(100% - 40px);
   height: calc(100% - 40px);

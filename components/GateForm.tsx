@@ -91,7 +91,7 @@ const GateForm = ({ text, onSubmit }) => {
               />
               {errors.job && <span>{text.job.errorMissing}</span>}
             </InputField>
-            <ButtonArrow text={text.submit} $submitButton $inverse />
+            <ButtonArrow text={text.submit} submitButton inverse />
           </Form>
         </>
       )}

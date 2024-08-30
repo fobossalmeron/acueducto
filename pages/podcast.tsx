@@ -1,9 +1,10 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
 import { Fade } from "react-awesome-reveal";
+import { Button } from "components/shared/Button/Button";
 import Tilt from "react-parallax-tilt";
 import ReactPixel from "react-facebook-pixel";
 
@@ -38,9 +39,12 @@ import {
 } from "components/pages/podcastLanding/podcastLanding.styles";
 
 // Lazy load ContactFooter
-const ContactFooter = dynamic(() => import("components/shared/footers/ContactFooter"), {
-  loading: () => <p>Loading...</p>
-});
+const ContactFooter = dynamic(
+  () => import("components/shared/footers/ContactFooter"),
+  {
+    loading: () => <p>Loading...</p>,
+  }
+);
 
 interface PodcastLandingProps {
   locale: string;
@@ -109,55 +113,68 @@ function PodcastLanding({
     ReactPixel.track("Subscribe", { email: data.email });
   }, []);
 
-  const onSubmitHeader = useCallback((data: SubmitData) => {
-    createContact({
-      email: data.email,
-      listIds: [2],
-      updateEnabled: true,
-      attributes: {
-        SUBSCRIBED_FROM: "Landing Header",
-      },
-    });
-    activateSubscribePixels(data);
-  }, [activateSubscribePixels]);
+  const onSubmitHeader = useCallback(
+    (data: SubmitData) => {
+      createContact({
+        email: data.email,
+        listIds: [2],
+        updateEnabled: true,
+        attributes: {
+          SUBSCRIBED_FROM: "Landing Header",
+        },
+      });
+      activateSubscribePixels(data);
+    },
+    [activateSubscribePixels]
+  );
 
-  const onSubmitFooter = useCallback((data: SubmitData) => {
-    createContact({
-      email: data.email,
-      listIds: [2],
-      updateEnabled: true,
-      attributes: {
-        SUBSCRIBED_FROM: "Landing Footer",
-      },
-    });
-    activateSubscribePixels(data);
-  }, [activateSubscribePixels]);
+  const onSubmitFooter = useCallback(
+    (data: SubmitData) => {
+      createContact({
+        email: data.email,
+        listIds: [2],
+        updateEnabled: true,
+        attributes: {
+          SUBSCRIBED_FROM: "Landing Footer",
+        },
+      });
+      activateSubscribePixels(data);
+    },
+    [activateSubscribePixels]
+  );
 
-  const memoizedFeaturedEpisodes = useMemo(() => featuredEpisodes.map(
-    (episode, index) => 
-      episode && episode.data && episode.data.introduction && episode.data.introduction[0] && (
-        <div key={"npd" + index}>
-          <Fade triggerOnce>
-            <Tilt
-              tiltMaxAngleX={10}
-              tiltMaxAngleY={10}
-              tiltEnable={!isMobile}
-            >
-              <EpisodeFeature
-                title={episode.data.introduction[0].title[0].text}
-                guest={episode.data.introduction[0].guest}
-                business={episode.data.introduction[0].business}
-                slug={episode.uid}
-                episode={episode.data.introduction[0].episode}
-                image={episode.data.images[0].solas}
-                logos={episode.logos}
-                portrait
-              />
-            </Tilt>
-          </Fade>
-        </div>
-      )
-  ), [featuredEpisodes, isMobile]);
+  const memoizedFeaturedEpisodes = useMemo(
+    () =>
+      featuredEpisodes.map(
+        (episode, index) =>
+          episode &&
+          episode.data &&
+          episode.data.introduction &&
+          episode.data.introduction[0] && (
+            <div key={"npd" + index}>
+              <Fade triggerOnce>
+                <Tilt
+                  tiltMaxAngleX={10}
+                  tiltMaxAngleY={10}
+                  tiltEnable={!isMobile}
+                >
+                  <EpisodeFeature
+                    title={episode.data.introduction[0].title[0].text}
+                    guest={episode.data.introduction[0].guest}
+                    business={episode.data.introduction[0].business}
+                    slug={episode.uid}
+                    episode={episode.data.introduction[0].episode}
+                    image={episode.data.images[0].solas}
+                    logos={episode.logos}
+                    portrait
+                  />
+                </Tilt>
+              </Fade>
+            </div>
+          )
+      ),
+    [featuredEpisodes, isMobile]
+  );
 
   return (
     <PageWrapper>
@@ -234,8 +251,8 @@ function PodcastLanding({
           <div>{memoizedFeaturedEpisodes}</div>
         </FeatureList>
         <Fade triggerOnce>
-          <Link href="/podcast/episodios" passHref legacyBehavior>
-            <ButtonArrow text={favorites.button} $inverse={true} />
+          <Link href="/podcast/episodios">
+            <Button text={favorites.button} inverse />
           </Link>
         </Fade>
       </EpisodesSection>
@@ -297,10 +314,19 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const fetchFeaturedEpisodes = async (prismicClient: any) => {
     const featuredEpisodesData = [
-      { slug: "quieres-emprender-una-startup-tienes-que-ver-esto", logos: ["kazsek", "mercadolibre"] },
+      {
+        slug: "quieres-emprender-una-startup-tienes-que-ver-esto",
+        logos: ["kazsek", "mercadolibre"],
+      },
       { slug: "asi-se-ve-un-equipo-de-alto-rendimiento", logos: ["moova"] },
-      { slug: "por-que-tienes-que-enfocar-tu-empresa-a-un-nicho", logos: ["nxtp"] },
-      { slug: "como-es-un-product-manager-de-uber-rappi-y-mercado", logos: ["rappi", "uber", "mercadopago"] },
+      {
+        slug: "por-que-tienes-que-enfocar-tu-empresa-a-un-nicho",
+        logos: ["nxtp"],
+      },
+      {
+        slug: "como-es-un-product-manager-de-uber-rappi-y-mercado",
+        logos: ["rappi", "uber", "mercadopago"],
+      },
       { slug: "asi-son-los-mejores-ctos", logos: ["habi"] },
       { slug: "como-reinventarse-despues-de-13-anos-operando", logos: ["500"] },
     ];
@@ -308,14 +334,20 @@ export const getStaticProps: GetStaticProps = async (context) => {
     return Promise.all(
       featuredEpisodesData.map(async (episodeData) => {
         try {
-          const episode = await prismicClient.getByUID("episode", episodeData.slug);
+          const episode = await prismicClient.getByUID(
+            "episode",
+            episodeData.slug
+          );
           if (!episode || !episode.data || !episode.data.introduction) {
             console.error(`Invalid episode data for slug: ${episodeData.slug}`);
             return null;
           }
           return { ...episode, logos: episodeData.logos };
         } catch (error) {
-          console.error(`Error fetching episode with slug: ${episodeData.slug}`, error);
+          console.error(
+            `Error fetching episode with slug: ${episodeData.slug}`,
+            error
+          );
           return null;
         }
       })
@@ -324,7 +356,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   try {
     const sortedPrismicEpisodes = await fetchPrismicEpisodes();
-    const lastPrismicEpisode = sortedPrismicEpisodes[sortedPrismicEpisodes.length - 1];
+    const lastPrismicEpisode =
+      sortedPrismicEpisodes[sortedPrismicEpisodes.length - 1];
     const prismicClient = createClient({ previewData: context.previewData });
     const featuredEpisodes = await fetchFeaturedEpisodes(prismicClient);
 

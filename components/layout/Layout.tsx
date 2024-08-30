@@ -1,10 +1,10 @@
-import React, { useEffect, useState, useCallback } from "react";
+import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { GoogleAnalytics } from "@next/third-parties/google";
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Nav from "./Nav/Nav";
 import LanguageToggler from "./LanguageToggler";
-import NavTrigger from "./NavTrigger";
+import Hamburger from "./Hamburger";
 import Border from "./Border";
 import { useRouter } from "next/router";
 import CookieMessage from "./CookieMessage";
@@ -73,19 +73,25 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   }, [isOpen]);
 
   const toggleNav = useCallback((): void => {
-    console.log("La función toggleNav se ha ejecutado");
     setOpen((prev) => !prev);
   }, []);
   const closeNav = useCallback((): void => setOpen(false), []);
 
+  const MemoizedChild = useMemo(
+    () =>
+      React.cloneElement(children, {
+        setTitle,
+        hasLoaded,
+        showSketch,
+        locale: router.locale,
+      }),
+    [children, setTitle, hasLoaded, showSketch, router.locale]
+  );
+
   return (
     <LayoutWrapper id="LayoutWrapper">
       <Border />
-      <NavTrigger
-        toggleNav={toggleNav}
-        isOpen={isOpen}
-        hasLoaded={hasLoaded}
-      />
+      <Hamburger toggleNav={toggleNav} isOpen={isOpen} hasLoaded={hasLoaded} />
       <Header
         isOpen={isOpen}
         headerTitle={headerTitle}
@@ -100,12 +106,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         closeNav={closeNav}
         isOpen={isOpen}
       />
-      {React.cloneElement(children, {
-        setTitle,
-        hasLoaded,
-        showSketch,
-        locale: router.locale,
-      })}
+      {MemoizedChild}
       <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />

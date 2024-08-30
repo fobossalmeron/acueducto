@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Hamburger from "public/assets/img/layout/hamburger.svg";
+import HamburgerIcon from "public/assets/img/layout/hamburger.svg";
 
-const NavTrigger = ({
+const Hamburger = ({
   hasLoaded,
   toggleNav,
   isOpen,
@@ -14,16 +14,16 @@ const NavTrigger = ({
   const doToggleNav = () => toggleNav();
   return (
     <TriggerContainer $visible={hasLoaded}>
-      <Trigger onClick={doToggleNav} open={isOpen}>
-        <Hamburger />
+      <Trigger onClick={doToggleNav} $open={isOpen}>
+        <HamburgerIcon />
       </Trigger>
     </TriggerContainer>
   );
 };
 
-export default React.memo(NavTrigger);
+export default React.memo(Hamburger);
 
-const Trigger = styled.div<{ open: boolean }>`
+const Trigger = styled.div<{ $open: boolean }>`
   pointer-events: auto;
   cursor: pointer;
   width: 30px;
@@ -45,7 +45,7 @@ const Trigger = styled.div<{ open: boolean }>`
     }
   }
   ${(props) =>
-    props.open &&
+    props.$open &&
     css`
       svg {
         #top {

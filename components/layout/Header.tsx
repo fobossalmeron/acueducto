@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Logo from "public/assets/img/layout/logo.svg";
@@ -7,15 +7,18 @@ import { useLenis } from "utils/LenisContext";
 function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
   const { lenis } = useLenis();
 
-  const backUp = (e) => {
+  const backUp = useCallback((e) => {
     closeNav();
-    (route === "/" || route === "/eng") &&
-      (e.preventDefault(), lenis.scrollTo(0, { immediate: false }));
-  };
+    if (route === "/" || route === "/eng") {
+      e.preventDefault();
+      lenis.scrollTo(0, { immediate: false });
+    }
+  }, [closeNav, route, lenis]);
+
   return (
     <TopHeader $reveal={hasLoaded}>
       <LogoLink as={Link} href="/" locale={locale} onClick={backUp}>
-        <span>acueducto</span>
+        <span className="sr-only">acueducto</span>
         <Logo />
       </LogoLink>
       <HeaderTitle $hide={isOpen}>{headerTitle}</HeaderTitle>

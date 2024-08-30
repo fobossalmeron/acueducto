@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 
 const IntroVideo = (props) => (
-  <VideoWrapper desktopLayout>
+  <VideoWrapper $desktopLayout>
     <Fade triggerOnce>
       <Video
         autoPlay

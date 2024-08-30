@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Fade } from "react-awesome-reveal";
 import LangContext from "utils/LangContext";
 import { P, H2 } from "components/shared/Dangerously";
@@ -15,8 +15,9 @@ import p_cover_wellmee from "public/assets/img/casestudies/wellmee/p_cover.jpg";
 import p_cover_ladanzadelasfieras from "public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg";
 import p_cover_blockstem from "public/assets/img/casestudies/blockstem/p_cover.jpg";
 import p_cover_rahid from "public/assets/img/casestudies/rahid/p_cover.jpg";
+import { Dirent } from "fs";
 
-const coverArray = [
+const coverArray: { a: string; c: StaticImageData }[] = [
   { a: "borgatta", c: p_cover_borgatta },
   { a: "recupera", c: p_cover_recupera },
   { a: "wellmee", c: p_cover_wellmee },
@@ -25,10 +26,20 @@ const coverArray = [
   { a: "rahid", c: p_cover_rahid },
 ];
 
-const SingleCase = (props) => {
-  const cover = coverArray.find(({ a }) => a === props.link).c;
+interface StudyProps {
+  link: string;
+  title: string;
+  tags: string;
+}
 
-  const PortfolioLink = ({ children }) => (
+interface SingleCaseProps extends StudyProps {
+  lang: string;
+}
+
+const SingleCase: React.FC<SingleCaseProps> = (props) => {
+  const cover = coverArray.find(({ a }) => a === props.link)?.c;
+
+  const PortfolioLink = ({ children, style }: { children: React.ReactNode, style?: React.CSSProperties }) => (
     <Link
       href={"/portafolio/" + props.link}
       as={
@@ -37,6 +48,7 @@ const SingleCase = (props) => {
           : "/portafolio/" + props.link
       }
       locale={props.lang}
+      style={style}
     >
       {children}
     </Link>
@@ -44,58 +56,66 @@ const SingleCase = (props) => {
   return (
     <CaseGrid>
       <PortfolioLink>
-        <Fade triggerOnce>
-          <VidContainer>
-            {props.lang === "en" ? "go to project" : "visitar proyecto"}
-            <div className="img_container">
-              <Image
-                src={cover}
-                alt={props.link}
-                placeholder="blur"
-                fill
-                sizes="(min-width: 700px) 50vw, 100vw"
-                style={{
-                  objectFit: "cover",
-                }}
-              />
-            </div>
-          </VidContainer>
-        </Fade>
+        <VidContainer>
+          {props.lang === "en" ? "go to project" : "visitar proyecto"}
+          <div className="img_container">
+            <Image
+              src={cover}
+              alt={props.link}
+              placeholder="blur"
+              fill
+              sizes="(min-width: 700px) 50vw, 100vw"
+              style={{
+                objectFit: "cover",
+              }}
+            />
+          </div>
+        </VidContainer>
       </PortfolioLink>
       <Info>
-        <Fade triggerOnce>
-          <PortfolioLink>
+        <PortfolioLink style={{ flexDirection: "column-reverse", display: "flex" }}>
+          <Fade cascade damping={0.2}>
+            <Hoverable>{props.title}</Hoverable>
+
             <SmallLogo
               src={`/assets/img/casestudies/${props.link}/p_logo.svg`}
               alt={`logo_${props.link}`}
             />
-            <Hoverable>{props.title}</Hoverable>
-          </PortfolioLink>
-        </Fade>
+          </Fade>
+        </PortfolioLink>
         <Flexed>
-          <Fade triggerOnce>
+          <Fade>
             <P>{props.tags}</P>
           </Fade>
-          <PortfolioLink>
-            {props.lang === "en" ? "go to project" : "visitar proyecto"}
-            <Arrow />
-          </PortfolioLink>
+          <Fade style={{ alignContent: "flex-end" }}>
+            <PortfolioLink>
+              {props.lang === "en" ? "go to project" : "visitar proyecto"}
+              <Arrow />
+            </PortfolioLink>
+          </Fade>
         </Flexed>
       </Info>
     </CaseGrid>
   );
 };
 
-const CaseList = ({ limit }) => {
+const CaseList: React.FC<{ limit?: number }> = ({ limit }) => {
   const context = useContext(LangContext);
   return (
     <CaseStudiesWrapper>
-      {context.casestudies.map(function (study, index) {
+      {(context.casestudies as StudyProps[]).map(function (study, index) {
         if (limit !== undefined && index + 1 > limit) {
-          return;
+          return null;
         } else {
           return (
-            <SingleCase key={"case" + index} {...study} lang={context.lang} />
+            <SingleCase
+              key={"case" + index}
+              {...study}
+              lang={context.lang}
+              link={study.link}
+              title={study.title}
+              tags={study.tags}
+            />
           );
         }
       })}
@@ -115,7 +135,7 @@ const SmallLogo = styled.img`
   display: block;
   margin-bottom: 12px;
   @media (max-width: 1000px) {
-   height: 30px;
+    height: 30px;
   }
   @media (max-width: 850px) {
     height: 25px;

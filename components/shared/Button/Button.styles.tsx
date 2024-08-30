@@ -1,69 +1,4 @@
-import React, { useEffect } from "react";
 import styled from "styled-components";
-
-/**
- * @deprecated Este componente está obsoleto y será eliminado en futuras versiones.
- * Por favor, utiliza el componente `Button` para botones normales y `ButtonSubmit` para botones de envío.
- * 
- * @example
- * // En lugar de:
- * <ButtonArrow text="Enviar" />
- * 
- * // Usa:
- * <Button text="Enviar" />
- * 
- * // O para botones de envío:
- * <ButtonSubmit text="Enviar" />
- */
-
-// Función para mostrar una alerta de deprecación
-const showDeprecationWarning = () => {
-  console.warn(
-    'ButtonArrow está obsoleto. Por favor, utiliza Button o ButtonSubmit en su lugar.'
-  );
-};
-
-// Hook personalizado para mostrar la alerta al importar el componente
-export const useDeprecationWarning = () => {
-  useEffect(() => {
-    showDeprecationWarning();
-  }, []);
-};
-
-type ButtonProps = {
-  inverse?: boolean;
-  text: string;
-  submitButton?: boolean;
-  className?: string;
-  parentComponent?: string;
-  href?: string;
-};
-export type ButtonRef = any;
-
-export const ButtonArrow = React.forwardRef<ButtonRef, ButtonProps>(
-  (props, ref) => {
-    // Llamamos al hook dentro del componente
-    useDeprecationWarning();
-
-    console.log(`ButtonArrow renderizado con inverse: ${props.inverse}, componente padre: ${props.parentComponent || 'Desconocido'}`);
-    
-    return !props.submitButton ? (
-      <Button as="a" ref={ref} {...props} text={undefined} $inverse={props.inverse} href={props.href}>
-        {props.text}
-        <Pin $inverse={props.inverse} />
-      </Button>
-    ) : (
-      <Button $inverse={props.inverse} $marginTop text={undefined}>
-        <input type="submit" value={props.text} />
-        {props.text}
-        <Pin $inverse={props.inverse} />
-      </Button>
-    );
-  }
-);
-ButtonArrow.displayName = "ButtonArrow";
-
-export default ButtonArrow;
 
 export const Pin = styled.span<{ $inverse: boolean }>`
   width: 30px;
@@ -89,9 +24,10 @@ export const Pin = styled.span<{ $inverse: boolean }>`
   }
 `;
 
-const Button = styled.div<{ $inverse?: boolean; $marginTop?: boolean, text? : string }>`
+export const ButtonElement = styled.div<{ $inverse?: boolean; $marginTop?: boolean; $secondary?: boolean }>`
   text-decoration: none;
   padding: 13px 17px 14px 25px;
+  font-size: 1.8rem;
   border-radius: 50px;
   color: ${(p) => p.theme.colors.foreground};
   background-color: ${(p) =>
@@ -101,9 +37,13 @@ const Button = styled.div<{ $inverse?: boolean; $marginTop?: boolean, text? : st
   align-self: flex-start;
   text-align: left;
   font-weight: 100;
+  appearance: button-bevel; // Añadir esta línea para compatibilidad
   -webkit-appearance: button-bevel;
   margin-top: ${(p) => (p.$marginTop ? "10px" : "0px")};
   cursor: pointer;
+  ${(p) => p.$secondary && `
+    border: 2px solid ${p.theme.colors.accent};
+  `}
   input {
     cursor: pointer;
     font-size: 0;

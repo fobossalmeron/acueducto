@@ -61,7 +61,7 @@ const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
             {items.map((word, index) => (
               <Word
                 key={`word${index}`}
-                show={index === activeIndex}
+                $show={index === activeIndex}
               >
                 <Picture
                   src={`/assets/img/layout/home_draw/${index + 5}.png`}
@@ -175,10 +175,10 @@ const ButtonRight = styled(ButtonLeft)`
   cursor: e-resize;
 `;
 
-const Word = styled.div<{ show: boolean }>`
+const Word = styled.div<{ $show: boolean }>`
   position: absolute;
   text-align: center;
-  opacity: ${(p) => (p.show ? 1 : 0)};
+  opacity: ${(p) => (p.$show ? 1 : 0)};
   font-size: 3.2rem;
   padding: 4%;
   color: ${(p) => p.theme.colors.foreground_low};

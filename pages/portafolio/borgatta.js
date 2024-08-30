@@ -77,7 +77,7 @@ const Borgatta = ({ locale, setTitle, pt }) => {
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
         <EditVideo backgroundColor={"#f7f6f7"}>
-          <IntroVideo desktopLayout link={t.link} />
+          <IntroVideo $desktopLayout link={t.link} />
         </EditVideo>
         <SeoH2>{t.head.description}</SeoH2>
         <Fade delay={300} triggerOnce>

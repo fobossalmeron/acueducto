@@ -62,7 +62,7 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
                 </Fade>
               )}
             </InputField>
-            <ButtonArrow text={text.submit} $inverse={true} $submitButton />
+            <ButtonArrow text={text.submit} inverse={true} submitButton />
           </PillForm>
         </Fade>
       )}

@@ -1,11 +1,21 @@
-import styled from "styled-components";
+import React from "react";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import BorderLink from "components/shared/BorderedLink";
 import CaseGrid from "components/caseStudy/CaseGrid";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
+import styled from "styled-components";
+import { Button } from "components/shared/Button/Button";
 
-const SingleArticle = ({
+interface EntryPreviewProps {
+  title: string;
+  subtitle: string;
+  excerpt: string;
+  slug: string;
+  featured?: boolean;
+  reverse: boolean;
+}
+
+export const EntryPreview: React.FC<EntryPreviewProps> = ({
   title,
   subtitle,
   excerpt,
@@ -13,11 +23,9 @@ const SingleArticle = ({
   featured,
   reverse,
 }) => {
-  const LinkComplex = ({ children }) => (
-    <Link href={"/blog/" + slug} passHref legacyBehavior>
-      <a>{children}</a>
-    </Link>
-  );
+  const LinkComplex: React.FC<{ children: React.ReactNode }> = ({
+    children,
+  }) => <Link href={"/blog/" + slug}>{children}</Link>;
   return (
     <CaseGrid reverse={reverse} early={850}>
       <LinkComplex>
@@ -40,9 +48,9 @@ const SingleArticle = ({
           </LinkComplex>
           <p className="subtitle">{subtitle}</p>
           <div>{featured && <p>{excerpt}</p>}</div>
-          <CTA featured={featured}>
-            <Link href={"/blog/" + slug} passHref legacyBehavior>
-              <ButtonArrow text="leer más" />
+          <CTA $featured={featured}>
+            <Link href={"/blog/" + slug}>
+              <Button text="leer más" secondary />
             </Link>
           </CTA>
         </Fade>
@@ -51,19 +59,8 @@ const SingleArticle = ({
   );
 };
 
-export default SingleArticle;
-
-const CTA = styled.div`
-  a {
-    border-radius: 40px;
-    border: 2px solid ${(p) => p.theme.colors.accent};
-  }
-  display: inline-flex;
-  margin-top: ${(p) => (p.featured ? "20%" : 0)};
-  a {
-    display: flex;
-    flex-direction: row;
-  }
+const CTA = styled.div<{ $featured?: boolean }>`
+  margin-top: ${(p) => (p.$featured ? "20%" : 0)};
 `;
 
 const ImageContainer = styled.div`
@@ -98,10 +95,6 @@ const H2overable = styled.h2`
   ${BorderLink({ showLink: false })}
 `;
 
-const H4overable = styled.h4`
-  ${BorderLink({ showLink: false })}
-`;
-
 const Info = styled.div`
   padding-left: 10%;
   a {
@@ -111,7 +104,6 @@ const Info = styled.div`
     text-transform: uppercase;
     color: ${(props) => props.theme.colors.foreground_low};
     letter-spacing: 0.2rem;
-    font-size: 1.5rem;
   }
   h2,
   h4 {
@@ -199,9 +191,4 @@ const Fader = styled.div`
   bottom: 0;
   background: ${(p) =>
     `linear-gradient( 0deg, ${p.theme.colors.background} 30%, ${p.theme.colors.background}00 100%)`};
-  /* background: linear-gradient(
-    0deg,
-    rgba(8, 12, 12, 1) 30%,
-    rgba(8, 12, 12, 0) 100%
-  ); */
 `;
