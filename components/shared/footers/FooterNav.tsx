@@ -8,7 +8,7 @@ import BorderLink from "components/shared/BorderedLink";
 const socialNav = [
   // { title: "facebook", link: "https://www.facebook.com/acueducto.studio/" },
   // { title: "tiktok", link: "https://www.tiktok.com/@acueducto.studio" },
-  // { title: "instagram", link: "https://www.instagram.com/acueducto.studio/" },
+  { title: "instagram", link: "https://www.instagram.com/acueducto.studio/" },
   {
     title: "youtube",
     link: "https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg",
@@ -18,10 +18,22 @@ const socialNav = [
     link: "https://www.linkedin.com/company/acueductostudio/",
   },
 ];
+interface FooterNavProps {
+  main: Array<{ title: string; link: string; as?: string }>;
+  policies: Array<{ title: string; link: string; as?: string }>;
+  navTitles: {
+    main: string;
+    community: string;
+    policies: string;
+    resources?: string;
+  };
+  mailto: { subject: string; body: string };
+  resources?: Array<{ title: string; link: string; as?: string }>;
+}
 
 export default function FooterNav() {
   const context = useLocaleContext();
-  let { main, policies, resources, navTitles, mailto } =
+  let { main, policies, navTitles, mailto, resources }: FooterNavProps =
     context.contact_footer.footer_nav;
 
   let year = new Date().getFullYear();
@@ -185,7 +197,7 @@ const NavList = styled.div<{ $accentColor?: boolean }>`
     font-size: 2.1rem;
     font-weight: 200;
     margin: 0 0 30px;
-    display:block;
+    display: block;
     color: ${(p) =>
       p.$accentColor ? p.theme.colors.accent : p.theme.colors.foreground_low};
   }

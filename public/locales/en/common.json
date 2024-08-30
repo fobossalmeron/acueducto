@@ -69,7 +69,8 @@
       "navTitles": {
         "main": "studio",
         "community": "community",
-        "policies": "policies"
+        "policies": "policies",
+        "resources": ""
       },
       "main": [
         { "title": "home", "link": "/" },

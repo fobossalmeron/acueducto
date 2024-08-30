@@ -33,6 +33,7 @@ export type SharedTProps = {
         main: string;
         community: string;
         policies: string;
+        resources?: string;
       };
       main: Array<{
         title: string;
