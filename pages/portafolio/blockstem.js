@@ -12,7 +12,7 @@ import Brand1 from "public/assets/img/casestudies/blockstem/Brand1.svg";
 import { P } from "components/shared/Dangerously";
 import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import CommonSection from "components/caseStudy/shared/CommonSection";
-import IntroVideo from "components/caseStudy/shared/IntroVideo";
+import { IntroVideoPadded } from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
 import TextColumn from "components/caseStudy/shared/TextColumn";
@@ -56,9 +56,7 @@ function Blockstem({ locale, setTitle, pt }) {
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <EditVideo backgroundColor={"#ffffff"}>
-          <IntroVideo link={t.link} />
-        </EditVideo>
+        <IntroVideoPadded backgroundColor={"#ffffff"} link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
           <P className="h2">{t.intro_section.title}</P>
@@ -268,27 +266,6 @@ const PageClipperBlockstem = styled(PageWrapper)`
   background: ${mainGradient};
   @media (max-width: 600px) {
     background: linear-gradient(97.9deg, #060809 0.06%, #3a3a3a 42.48%);
-  }
-`;
-
-export const EditVideo = styled.div`
-  padding: 3%;
-  border-radius: 40px;
-  background-color: ${(p) =>
-    p.backgroundColor ? p.backgroundColor : "#ffffff"};
-  & > div {
-    padding: 0px;
-  }
-  @media (max-width: 1300px) {
-    margin: 0 30px;
-  }
-  @media (max-width: 700px) {
-    padding: 10px;
-    border-radius: 20px;
-    margin: 0 20px;
-  }
-  @media (max-width: 500px) {
-    border-radius: 17px;
   }
 `;
 

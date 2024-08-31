@@ -4,7 +4,7 @@ import MarqueeHelper from "react-double-marquee";
 
 const Marquee = ({
   tags,
-  amount,
+  amount = 1,
 }) => {
   const list = (
     <ul>

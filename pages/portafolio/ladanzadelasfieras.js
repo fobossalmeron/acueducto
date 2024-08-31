@@ -17,7 +17,7 @@ import Type_3 from "public/assets/img/casestudies/ladanzadelasfieras/type_3.svg"
 import AppSvg from "public/assets/img/casestudies/ladanzadelasfieras/app.svg";
 import { P } from "components/shared/Dangerously";
 import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import IntroVideo from "components/caseStudy/shared/IntroVideo";
+import { IntroVideo } from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
 import Insight from "components/caseStudy/shared/Insight";

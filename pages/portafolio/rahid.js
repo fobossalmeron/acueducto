@@ -10,7 +10,7 @@ import NextStudy from "components/caseStudy/shared/NextStudy";
 import LogoRahid from "public/assets/img/casestudies/rahid/logoRahid.svg";
 import { P } from "components/shared/Dangerously";
 import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import IntroVideo from "components/caseStudy/shared/IntroVideo";
+import { IntroVideo } from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Quote from "components/caseStudy/shared/Quote";
 import TextColumn from "components/caseStudy/shared/TextColumn";

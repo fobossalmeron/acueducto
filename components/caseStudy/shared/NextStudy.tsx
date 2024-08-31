@@ -1,31 +1,25 @@
 import styled from "styled-components";
-import React, { useContext } from "react";
+import React, { useContext, useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
 import Arrow from "components/shared/Arrow";
 import LangContext from "utils/LangContext";
 import { P } from "components/shared/Dangerously";
 
-const NextStudy = ({
-  link,
-  margined,
-}) => {
+const NextStudy: React.FC<{ link: string; margined?: boolean }> = ({ link, margined = false }) => {
   const context = useContext(LangContext);
-  let n = context.next_study; 
+  const n = useMemo(() => context.next_study, [context]);
+
+  const href = useMemo(() => `/portafolio/${link}`, [link]);
+  const as = useMemo(() => (context.lang === "en" ? `/work/${link}` : `/portafolio/${link}`), [context.lang, link]);
+
   return (
-    <Link
-      href={"/portafolio/" + link}
-      as={(context.lang === "en" ? "/work/" : "/portafolio/") + link}
-      passHref
-      locale={context.lang}
-      legacyBehavior
-    >
-      <Wrapper margined={margined}>
+    <Link href={href} as={as} passHref locale={context.lang} legacyBehavior>
+      <Wrapper $margined={margined}>
         <LogoContainer>
           <Logo
             style={{
-              backgroundImage: 
-                link === 'borgatta' ? `url(/assets/img/casestudies/${link}/nextPortfolio_logo.svg)` : `url(/assets/img/casestudies/${link}/portfolio_logo.svg)`,
+              backgroundImage: `url(/assets/img/casestudies/${link}/portfolio_logo.svg)`,
             }}
           />
         </LogoContainer>
@@ -62,7 +56,11 @@ const Logo = styled.div`
   transform-origin: 50% 0;
 `;
 
-const Wrapper = styled.a`
+interface WrapperProps {
+  $margined: boolean;
+}
+
+const Wrapper = styled.a<WrapperProps>`
   align-items: center;
   display: flex;
   flex-direction: column;
@@ -78,7 +76,7 @@ const Wrapper = styled.a`
   background-color: ${(props) => props.theme.colors.background};
   p {
     margin-bottom: 1%;
-    margin-top: ${(props) => (props.margined ? "1%" : "0")};
+    margin-top: ${(props) => (props.$margined ? "1%" : "0")};
     border-bottom: 2px solid transparent;
   }
   &:hover {

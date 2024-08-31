@@ -13,7 +13,7 @@ import Stat from "components/caseStudy/salvajenada/Stat";
 import { P } from "components/shared/Dangerously";
 import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
 import Picture from "components/caseStudy/shared/Picture";
-import IntroVideo from "components/caseStudy/shared/IntroVideo";
+import { IntroVideo } from "components/caseStudy/shared/IntroVideo";
 import Marquee from "components/caseStudy/shared/Marquee";
 import Insight from "components/caseStudy/shared/Insight";
 import TextColumn from "components/caseStudy/shared/TextColumn";
@@ -954,8 +954,8 @@ const Land = styled(CommonSection)`
   background-image: url("/assets/img/casestudies/salvajenada/landBack2.svg");
   background-position: center bottom;
   background-size: cover;
-  h1{
-    margin-top:10px;
+  h1 {
+    margin-top: 10px;
   }
   & > div {
     max-width: 800px;

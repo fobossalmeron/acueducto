@@ -5,19 +5,19 @@ import { Fade } from "react-awesome-reveal";
 
 const Quote = ({
   color,
-  noMargin,
-  specialMarginBottom,
+  noMargin = false,
+  specialMarginBottom = false,
   quote,
-  mark,
+  mark = "",
 }) => (
   <QuoteWrapper
-    passedColor={color}
-    noMargin={noMargin}
-    specialMarginBottom={specialMarginBottom}
+    $color={color}
+    $noMargin={noMargin}
+    $specialMarginBottom={specialMarginBottom}
   >
     <Fade triggerOnce>
       <QuoteLimiter>
-        <QuoteMark passedColor={color} passedMark={mark}>
+        <QuoteMark $color={color} $mark={mark}>
           <Mark />
         </QuoteMark>
         <Blockquote>{quote.quote}</Blockquote>
@@ -49,7 +49,7 @@ const QuoteMark = styled.div`
   left: -55px;
   top: -15px;
   opacity: ${(props) =>
-    props.passedMark ? '0.2' : '0.07' };
+    props.$mark ? '0.2' : '0.07' };
   width: 125px;
   height: 115px;
   font-size: 10rem;
@@ -58,7 +58,7 @@ const QuoteMark = styled.div`
     width: 100%;
     * {
       fill: ${(props) =>
-        props.passedMark ? props.passedMark : props.passedColor ? props.passedColor : props.theme.colors.foreground};
+        props.$mark ? props.$mark : props.$color ? props.$color : props.theme.colors.foreground};
     }
   }
 `;
@@ -71,14 +71,14 @@ const QuoteLimiter = styled.div`
 const QuoteWrapper = styled.div`
   width: 100%;
   font-size: 3.4rem;
-  margin: ${(props) => (props.noMargin ? "0" : "6% 0 4% 0")};
-  ${(props) => (props.specialMarginBottom ? "margin-bottom: -10%;" : "")}
+  margin: ${(props) => (props.$noMargin ? "0" : "6% 0 4% 0")};
+  ${(props) => (props.$specialMarginBottom ? "margin-bottom: -10%;" : "")}
   padding: 0 5%;
   position: relative;
   display: flex;
   justify-content: center;
   color: ${(props) =>
-    props.passedColor ? props.passedColor : props.theme.colors.foreground};
+    props.$color ? props.$color : props.theme.colors.foreground};
   blockquote {
     margin: 0;
     position: relative;

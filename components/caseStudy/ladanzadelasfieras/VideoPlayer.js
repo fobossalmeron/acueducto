@@ -24,7 +24,7 @@ function VideoPlayer(props) {
 
   return (
     <VideoWrapper ratio={props.ratio}>
-      <Clicker onClick={() => handlePlay()} hideSvg={isPlaying}>
+      <Clicker onClick={() => handlePlay()} $hideSvg={isPlaying}>
         {isPlaying ? (
           <ButtonPause>Pause</ButtonPause>
         ) : (
@@ -142,7 +142,7 @@ const Clicker = styled.div`
     }
   }
   ${(props) =>
-    props.hideSvg &&
+    props.$hideSvg &&
     css`
       div {
         opacity: 0;

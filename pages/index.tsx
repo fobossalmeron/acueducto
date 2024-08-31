@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { GetStaticProps } from "next";
 import Link from "next/link";
 import Image from "next/image";
@@ -19,6 +19,7 @@ import FAQSection from "components/shared/FAQ";
 import PageWrapper from "components/layout/PageWrapper";
 import Quotes from "components/Quotes";
 import CaseList from "components/caseStudy/CaseList";
+import { useIsMobile } from "utils/useIsMobile";
 
 import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
@@ -45,21 +46,8 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
     initialContent: pt,
     onTitleChange: setTitle,
   });
-
-  const [isMobile, setIsMobile] = useState(false);
   const [showSpline, setShowSpline] = useState(false);
-
-  const checkMobile = useCallback(() => {
-    setIsMobile(window.innerWidth <= 760);
-  }, []);
-
-  useEffect(() => {
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => {
-      window.removeEventListener("resize", checkMobile);
-    };
-  }, [checkMobile]);
+  const isMobile = useIsMobile(760);
 
   useEffect(() => {
     if (hasLoaded) {

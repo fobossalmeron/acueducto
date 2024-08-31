@@ -21,6 +21,7 @@ import ButtonArrow from "components/shared/footers/ButtonArrow";
 import ssrLocale from "utils/ssrLocale";
 import { createContact } from "utils/sendinBlue";
 import { advancedMatching } from "utils/analytics";
+import { useIsMobile } from "utils/useIsMobile";
 import { createClient } from "../prismicio";
 import { GetStaticProps } from "next";
 import { PrismicPodcastEpisode } from "components/podcast/podcast.types";
@@ -101,11 +102,10 @@ function PodcastLanding({
   pt,
 }: PodcastLandingProps) {
   const { intro, head, banner, favorites, hosts, closing } = pt;
-  const [isMobile, setIsMobile] = useState(false);
+  const isMobile = useIsMobile(600);
 
   useEffect(() => {
     setTitle(head.headerTitle);
-    setIsMobile(window.matchMedia("(max-width: 600px)").matches);
   }, [locale, head.headerTitle, setTitle]);
 
   const activateSubscribePixels = useCallback((data: SubmitData) => {
@@ -113,29 +113,14 @@ function PodcastLanding({
     ReactPixel.track("Subscribe", { email: data.email });
   }, []);
 
-  const onSubmitHeader = useCallback(
-    (data: SubmitData) => {
+  const onSubmit = useCallback(
+    (data: SubmitData, source: string) => {
       createContact({
         email: data.email,
         listIds: [2],
         updateEnabled: true,
         attributes: {
-          SUBSCRIBED_FROM: "Landing Header",
-        },
-      });
-      activateSubscribePixels(data);
-    },
-    [activateSubscribePixels]
-  );
-
-  const onSubmitFooter = useCallback(
-    (data: SubmitData) => {
-      createContact({
-        email: data.email,
-        listIds: [2],
-        updateEnabled: true,
-        attributes: {
-          SUBSCRIBED_FROM: "Landing Footer",
+          SUBSCRIBED_FROM: source,
         },
       });
       activateSubscribePixels(data);
@@ -190,7 +175,7 @@ function PodcastLanding({
             <H2 className="h1">{intro.title}</H2>
             <p>{intro.p}</p>
             <MetalForm
-              onSubmit={onSubmitHeader}
+              onSubmit={(data: { email: string }) => onSubmit(data, "Landing Header")}
               id={"podcastOL"}
               text={intro.form}
             />
@@ -281,7 +266,7 @@ function PodcastLanding({
           <p>{closing.p}</p>
           <div>
             <MetalForm
-              onSubmit={onSubmitFooter}
+              onSubmit={(data: { email: string }) => onSubmit(data, "Landing Footer")}
               id={"podcastOL"}
               text={intro.form}
             />
