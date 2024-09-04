@@ -45,7 +45,9 @@ export const ButtonArrow = React.forwardRef<ButtonRef, ButtonProps>(
     // Llamamos al hook dentro del componente
     useDeprecationWarning();
 
-    console.log(`ButtonArrow renderizado con inverse: ${props.inverse}, componente padre: ${props.parentComponent || 'Desconocido'}`);
+    if (process.env.NODE_ENV === 'development') {
+      console.log(`ButtonArrow renderizado con inverse: ${props.inverse}, componente padre: ${props.parentComponent || 'Desconocido'}`);
+    }
     
     return !props.submitButton ? (
       <Button as="a" ref={ref} {...props} text={undefined} $inverse={props.inverse} href={props.href}>
