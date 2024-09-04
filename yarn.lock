@@ -1506,6 +1506,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/runtime@npm:^7.5.5, @babel/runtime@npm:^7.8.7":
+  version: 7.25.6
+  resolution: "@babel/runtime@npm:7.25.6"
+  dependencies:
+    regenerator-runtime: "npm:^0.14.0"
+  checksum: 10c0/d6143adf5aa1ce79ed374e33fdfd74fa975055a80bc6e479672ab1eadc4e4bfd7484444e17dd063a1d180e051f3ec62b357c7a2b817e7657687b47313158c3d2
+  languageName: node
+  linkType: hard
+
 "@babel/template@npm:^7.22.15, @babel/template@npm:^7.23.9":
   version: 7.23.9
   resolution: "@babel/template@npm:7.23.9"
@@ -1756,6 +1765,13 @@ __metadata:
   dependencies:
     tslib: "npm:^2.4.0"
   checksum: 10c0/c9ff5d34ca8b6fe59f8f303a3cc31a92d343e095a6987e273e5cc23f0fe99feb557a392a05da95931c7d24106acb6988e588d00ddd05b0934005aafd7fdbafe6
+  languageName: node
+  linkType: hard
+
+"@formkit/auto-animate@npm:^0.8.2":
+  version: 0.8.2
+  resolution: "@formkit/auto-animate@npm:0.8.2"
+  checksum: 10c0/0b24af241c229f37643cd62ea78fd7fddf621c06516cf62452035ea0bf489b6b53068eea47abb40b6bb3653bb91c1efad8b7257014a3559d26ad77b47b5337cb
   languageName: node
   linkType: hard
 
@@ -3022,6 +3038,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-transition-group@npm:^4.4.11":
+  version: 4.4.11
+  resolution: "@types/react-transition-group@npm:4.4.11"
+  dependencies:
+    "@types/react": "npm:*"
+  checksum: 10c0/8fbf0dcc1b81985cdcebe3c59d769fe2ea3f4525f12c3a10a7429a59f93e303c82b2abb744d21cb762879f4514969d70a7ab11b9bf486f92213e8fe70e04098d
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*, @types/react@npm:^18.3.4":
   version: 18.3.4
   resolution: "@types/react@npm:18.3.4"
@@ -3341,6 +3366,7 @@ __metadata:
   resolution: "acueducto@workspace:."
   dependencies:
     "@emotion/react": "npm:^11.13.3"
+    "@formkit/auto-animate": "npm:^0.8.2"
     "@next/bundle-analyzer": "npm:^11.0.1"
     "@next/third-parties": "npm:^14.1.4"
     "@prismicio/client": "npm:^7.1.0"
@@ -3355,6 +3381,7 @@ __metadata:
     "@types/node": "npm:^18.7.19"
     "@types/react": "npm:^18.3.4"
     "@types/react-dom": "npm:^18.3.0"
+    "@types/react-transition-group": "npm:^4.4.11"
     eslint-config-next: "npm:^14.2.7"
     fs-extra: "npm:^10.0.0"
     gray-matter: "npm:^4.0.3"
@@ -3376,6 +3403,7 @@ __metadata:
     react-scroll: "npm:^1.8.9"
     react-share: "npm:^5.1.0"
     react-top-loading-bar: "npm:^2.3.1"
+    react-transition-group: "npm:^4.4.5"
     react-use-gesture: "npm:^9.1.3"
     remark: "npm:^13.0.0"
     remark-html: "npm:^13.0.2"
@@ -4629,6 +4657,16 @@ __metadata:
   dependencies:
     esutils: "npm:^2.0.2"
   checksum: 10c0/b6416aaff1f380bf56c3b552f31fdf7a69b45689368deca72d28636f41c16bb28ec3ebc40ace97db4c1afc0ceeb8120e8492fe0046841c94c2933b2e30a7d5ac
+  languageName: node
+  linkType: hard
+
+"dom-helpers@npm:^5.0.1":
+  version: 5.2.1
+  resolution: "dom-helpers@npm:5.2.1"
+  dependencies:
+    "@babel/runtime": "npm:^7.8.7"
+    csstype: "npm:^3.0.2"
+  checksum: 10c0/f735074d66dd759b36b158fa26e9d00c9388ee0e8c9b16af941c38f014a37fc80782de83afefd621681b19ac0501034b4f1c4a3bff5caa1b8667f0212b5e124c
   languageName: node
   linkType: hard
 
@@ -8814,6 +8852,21 @@ __metadata:
   peerDependencies:
     react: ^16 || ^17 || ^18
   checksum: 10c0/f3190a16edc2dc4b169cd28a23d9032828cd3b7f516767b74548ee87efdf6df502e6e14a7eca475db8cd78a1a480cac4352ac7df7f683a07bf3e857fb78e3388
+  languageName: node
+  linkType: hard
+
+"react-transition-group@npm:^4.4.5":
+  version: 4.4.5
+  resolution: "react-transition-group@npm:4.4.5"
+  dependencies:
+    "@babel/runtime": "npm:^7.5.5"
+    dom-helpers: "npm:^5.0.1"
+    loose-envify: "npm:^1.4.0"
+    prop-types: "npm:^15.6.2"
+  peerDependencies:
+    react: ">=16.6.0"
+    react-dom: ">=16.6.0"
+  checksum: 10c0/2ba754ba748faefa15f87c96dfa700d5525054a0141de8c75763aae6734af0740e77e11261a1e8f4ffc08fd9ab78510122e05c21c2d79066c38bb6861a886c82
   languageName: node
   linkType: hard
 

@@ -25,7 +25,7 @@ export default function Contact({ locale, setTitle, pt }) {
         noIndex
       ></Head>
       <CustomPinnedSection title={t.intro.title} heading={1}>
-        <ContactForm text={t.form} intro={t.intro} />
+        <ContactForm text={t.form} intro={t.intro}/>
       </CustomPinnedSection>
       <MetalFooter />
     </PageWrapper>

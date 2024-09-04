@@ -2,19 +2,21 @@ import React from "react";
 import { ButtonElement, Pin } from "./Button.styles";
 import { ButtonProps } from "./Button.types";
 
-export type ButtonSubmitRef = any;
+export type ButtonSubmitRef = HTMLInputElement;
 
 export const ButtonSubmit = React.forwardRef<ButtonSubmitRef, ButtonProps>(
-  (props, ref) => {
-    console.log(
-      `ButtonSubmit renderizado con inverse: ${props.inverse}, componente padre: ${props.parentComponent || "Desconocido"}`
-    );
+  ({ inverse = false, text, parentComponent = "Desconocido", ...rest }, ref) => {
+    if (process.env.NODE_ENV === 'development') {
+      console.log(
+        `ButtonSubmit renderizado con inverse: ${inverse}, componente padre: ${parentComponent}`
+      );
+    }
 
     return (
-      <ButtonElement $inverse={props.inverse} $marginTop>
-        <input type="submit" value={props.text} />
-        {props.text}
-        <Pin $inverse={props.inverse} />
+      <ButtonElement $inverse={inverse} $marginTop>
+        <input type="submit" value={text} ref={ref} {...rest} />
+        {text}
+        <Pin $inverse={inverse} />
       </ButtonElement>
     );
   }

@@ -15,7 +15,6 @@ import p_cover_wellmee from "public/assets/img/casestudies/wellmee/p_cover.jpg";
 import p_cover_ladanzadelasfieras from "public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg";
 import p_cover_blockstem from "public/assets/img/casestudies/blockstem/p_cover.jpg";
 import p_cover_rahid from "public/assets/img/casestudies/rahid/p_cover.jpg";
-import { Dirent } from "fs";
 
 const coverArray: { a: string; c: StaticImageData }[] = [
   { a: "borgatta", c: p_cover_borgatta },
