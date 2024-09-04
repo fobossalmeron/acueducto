@@ -5,7 +5,7 @@ import Head from "components/layout/Head";
 import Link from "next/link";
 import PageWrapper from "components/layout/PageWrapper";
 import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import { P, Ul, Li } from "components/shared/Dangerously";
 
 export default function Privacy({ locale, setTitle, pt }) {

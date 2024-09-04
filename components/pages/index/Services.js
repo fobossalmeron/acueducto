@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import Picture from "components/caseStudy/shared/Picture";
+import Picture from "components/work/Picture";
 
 const Services = ({ services }) => {
   let heights = [127, 153, 173, 137];

@@ -4,7 +4,7 @@ import { GetStaticProps } from "next";
 import ssrLocale from "utils/ssrLocale";
 import PageWrapper from "components/layout/PageWrapper";
 import TitleSection from "components/shared/TitleSection";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 
 export default function Error({ locale, setTitle, pt }) {
   const t = useLocalizedContent({

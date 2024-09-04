@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components'
-//#0D1111 es el demasiado claro
+
 const Theme: DefaultTheme = {
   colors: {
     background: "#0D1111",
@@ -15,6 +15,7 @@ const Theme: DefaultTheme = {
     warning: "#F2C53A",
     error: "#CC2E44",
     success: "#27AE60",
+    success_background: "#27ae6012",
   },
   stroke: "2px",
 };

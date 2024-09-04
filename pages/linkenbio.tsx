@@ -1,23 +1,57 @@
-import { useEffect } from "react";
-import ssrLocale from "utils/ssrLocale";
-import styled from "styled-components";
-import Head from "components/layout/Head";
+import React, { useEffect } from "react";
+import { GetStaticProps } from "next";
+import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
+import styled from "styled-components";
+import { Fade } from "react-awesome-reveal";
+
+import ssrLocale from "utils/ssrLocale";
+import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
-import { Fade } from "react-awesome-reveal";
-import ContactFooter from "components/shared/footers/ContactFooter";
-import Articulos from "public/assets/img/layout/linkenbio/articulos.svg";
-import Podcast from "public/assets/img/layout/linkenbio/podcast.svg";
-import PodcastPng from "public/assets/img/layout/linkenbio/podcast.png";
-import Image from "next/image";
+import ContactFooter from "components/layout/footers/ContactFooter";
 
-export default function LinkEnBio({ locale, setTitle, pt }) {
-  let { head, title, links, secondary_links, p } = pt;
+import Articulos from "public/assets/img/layout/linkenbio/articulos.svg";
+import PodcastPng from "public/assets/img/layout/linkenbio/podcast.png";
+import Kit from "public/assets/img/layout/linkenbio/kit.png";
+import Portafolio from "public/assets/img/layout/linkenbio/portafolio.png";
+
+interface LinkEnBioProps {
+  locale: string;
+  setTitle: (title: string) => void;
+  pt: any;
+}
+
+export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
+  let { head, title, p } = pt;
 
   useEffect(() => {
     setTitle(head.headerTitle);
   }, [locale]);
+
+  interface BioLinkProps {
+    url: string;
+    title: string;
+    subtitle: string;
+    image?: StaticImageData | React.ReactNode;
+  }
+
+  const BioLink = ({ url, title, subtitle, image }: BioLinkProps) => (
+    <Resource>
+      {typeof image === 'object' && 'src' in image ? (
+        <Image width={415} height={135} src={image} alt={title} />
+      ) : (
+        image
+      )}
+
+      <Link href={url}>
+        <Fade triggerOnce>
+          <span>{subtitle}</span>
+          <h2>{title}</h2>
+        </Fade>
+      </Link>
+    </Resource>
+  );
 
   return (
     <PageWrapper>
@@ -28,54 +62,38 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
       ></Head>
       <MetalPinnedSection title={title} heading={1}>
         <ul>
-          {links.map((link, index) => (
-            <Resource key={"linkentry" + index}>
-              {index === 1 && (
-                <img
-                  src="/assets/img/layout/linkenbio/kit.png"
-                  alt="Kit de inicio para Startups"
-                />
-              )}
-              {index === 2 && <Articulos />}
-              {index === 0 && (
-                <Image
-                  width={415}
-                  height={135}
-                  src={PodcastPng}
-                  alt={"Cuando el río suena"}
-                />
-              )}
-              <Link href={link.url} passHref locale={locale} legacyBehavior>
-                <a>
-                  <Fade triggerOnce>
-                    <span>{link.subtitle}</span>
-                    <h2>{link.title}</h2>
-                  </Fade>
-                </a>
-              </Link>
-            </Resource>
-          ))}
+          <BioLink
+            url="/podcast"
+            title="Podcast"
+            subtitle="Cuando el río suena"
+            image={PodcastPng}
+          />
+          <BioLink
+            url="https://www.latamstartup.club/esenciales-para-startups"
+            title="Esenciales para Startups"
+            subtitle="Latam Startup 2023"
+            image={Kit}
+          />
+          <BioLink
+            url="/podcast/asi-se-ve-un-equipo-de-alto-rendimiento"
+            title="Tienes que ver esto"
+            subtitle="¿Tienes un negocio?"
+            image={<Articulos />}
+          />
         </ul>
         <Subtitle>{p}</Subtitle>
         <ul>
-          {secondary_links.map((link, index) => (
-            <Resource key={"linkentry2" + index}>
-              {index === 0 && (
-                <img
-                  src="/assets/img/layout/linkenbio/portafolio.png"
-                  alt="Casos de estudio"
-                />
-              )}
-              <Link href={link.url} passHref legacyBehavior>
-                <a>
-                  <Fade triggerOnce>
-                    <span>{link.subtitle}</span>
-                    <h2>{link.title}</h2>
-                  </Fade>
-                </a>
-              </Link>
-            </Resource>
-          ))}
+          <BioLink
+            url="/portafolio"
+            title="casos de estudio"
+            subtitle="Nuestro trabajo"
+            image={Portafolio}
+          />
+          <BioLink
+            url="https://acueducto.notion.site/Vacantes-223b939ba9a14051bca07f8546e8ad26"
+            title="Conoce nuestras vacantes"
+            subtitle="¿Quieres trabajar con nosotros?"
+          />
         </ul>
       </MetalPinnedSection>
       <ContactFooter />
@@ -83,7 +101,7 @@ export default function LinkEnBio({ locale, setTitle, pt }) {
   );
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({ locale: context.locale, fileName: "linkenbio.json" });
   if (!pt) {
     return {
@@ -103,15 +121,6 @@ const Subtitle = styled.p`
   margin: 25px 0 20px;
   @media (max-width: 1250px) {
     font-size: 2rem;
-  }
-`;
-
-const SecondaryUl = styled.ul`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 2.2rem;
-  a {
-    padding: 17% 12% 11% 15% !important;
   }
 `;
 
@@ -161,7 +170,7 @@ const Resource = styled.li`
   svg,
   img {
     height: 100%;
-    width:auto;
+    width: auto;
     position: absolute;
     top: 0;
     right: 0;

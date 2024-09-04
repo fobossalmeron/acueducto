@@ -5,7 +5,7 @@ import { getEpisodeBySlug } from "utils/podcastApi";
 import Head from "components/layout/Head";
 import { EpisodePreview } from "components/podcast/EpisodePreview/EpisodePreview";
 import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/shared/footers/ResourceFooter";
+import ResourceFooter from "components/layout/footers/ResourceFooter";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P, H3 } from "components/shared/Dangerously";

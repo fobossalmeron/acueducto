@@ -1,10 +1,10 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import Picture from "components/caseStudy/shared/Picture";
-import FirstCard from "../../../public/assets/img/casestudies/wellmee/FirstCard.png";
-import SecondCard from "../../../public/assets/img/casestudies/wellmee/SecondCard.png";
-import ThirdCard from "../../../public/assets/img/casestudies/wellmee/ThirdCard.png";
-import FourthCard from "../../../public/assets/img/casestudies/wellmee/FourthCard.png";
+import Picture from "components/work/Picture";
+import FirstCard from "public/assets/img/casestudies/wellmee/FirstCard.png";
+import SecondCard from "public/assets/img/casestudies/wellmee/SecondCard.png";
+import ThirdCard from "public/assets/img/casestudies/wellmee/ThirdCard.png";
+import FourthCard from "public/assets/img/casestudies/wellmee/FourthCard.png";
 
 const AnimatedDataCards = () => {
   return (

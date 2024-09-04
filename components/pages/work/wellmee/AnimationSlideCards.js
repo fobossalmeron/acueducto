@@ -1,5 +1,5 @@
 import { Fade } from "react-awesome-reveal";
-import Picture from "components/caseStudy/shared/Picture";
+import Picture from "components/work/Picture";
 import styled from "styled-components";
 import { useState } from "react";
 import { useSpring, animated } from "@react-spring/web";

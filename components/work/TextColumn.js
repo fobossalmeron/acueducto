@@ -26,7 +26,7 @@ const Column = styled.div`
   h3,
   .h3 {
     font-size: 4.5rem;
-    margin-bottom: 25px;
+    /* margin-bottom: 25px; */
     max-width: 670px;
     font-weight: 300;
     padding: 18% 0 5% 0;
@@ -42,6 +42,7 @@ const Column = styled.div`
   }
   img {
     width: 100%;
+    height:auto;
   }
   @media (max-width: 1000px) {
     h2,

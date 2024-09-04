@@ -12,9 +12,12 @@ export const Button = memo<ButtonProps & React.HTMLAttributes<HTMLDivElement>>((
   parentComponent = "Desconocido",
   ...rest
 }) => {
-  console.log(
-    `Button renderizado con inverse: ${inverse}, componente padre: ${parentComponent} y es ${secondary}`
-  );
+  // Solo mostramos el log en desarrollo
+  if (process.env.NODE_ENV === 'development') {
+    console.log(
+      `Button renderizado con inverse: ${inverse}, componente padre: ${parentComponent} y es ${secondary}`
+    );
+  }
 
   return (
     <ButtonElement

@@ -2,9 +2,9 @@ import { useLocalizedContent } from "utils/useLocalizedContent";
 import ssrLocale from "utils/ssrLocale";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
-import CaseList from "components/caseStudy/CaseList";
+import CaseList from "components/work/CaseList";
 import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 
 export default function Work({ locale, setTitle, pt }) {
   const t = useLocalizedContent({

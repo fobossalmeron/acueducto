@@ -6,18 +6,18 @@ import Head from "components/layout/Head";
 import { Fade } from "react-awesome-reveal";
 import PageWrapper from "components/layout/PageWrapper";
 import dynamic from "next/dynamic";
-import ContactFooter from "components/shared/footers/ContactFooter";
-import NextStudy from "components/caseStudy/shared/NextStudy";
-import Quote from "components/caseStudy/shared/Quote";
-import Stat from "components/caseStudy/salvajenada/Stat";
+import ContactFooter from "components/layout/footers/ContactFooter";
+import NextStudy from "components/work/NextStudy";
+import Quote from "components/work/Quote";
+import Stat from "components/pages/work/salvajenada/Stat";
 import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import Picture from "components/caseStudy/shared/Picture";
-import { IntroVideo } from "components/caseStudy/shared/IntroVideo";
-import Marquee from "components/caseStudy/shared/Marquee";
-import Insight from "components/caseStudy/shared/Insight";
-import TextColumn from "components/caseStudy/shared/TextColumn";
-import CommonSection from "components/caseStudy/shared/CommonSection";
+import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
+import Picture from "components/work/Picture";
+import { IntroVideo } from "components/work/IntroVideo";
+import Marquee from "components/work/Marquee";
+import Insight from "components/work/Insight";
+import TextColumn from "components/work/TextColumn";
+import CommonSection from "components/work/CommonSection";
 
 import Spotify from "public/assets/img/layout/logos/spotify.svg";
 import Ig from "public/assets/img/layout/logos/ig.svg";
@@ -61,7 +61,7 @@ const FifthBackImg = dynamic(
 );
 
 const FramesEmbed = dynamic(
-  import("components/caseStudy/salvajenada/FramesEmbed"),
+  import("components/pages/work/salvajenada/FramesEmbed"),
   {
     loading: () => <span style={{ height: "500px" }}>Loading frames...</span>,
   }

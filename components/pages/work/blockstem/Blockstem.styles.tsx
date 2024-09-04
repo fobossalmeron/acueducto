@@ -1,22 +1,6 @@
-import React, { useEffect, useState } from "react";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
 import styled from "styled-components";
-import Head from "components/layout/Head";
+import CommonSection from "components/work/CommonSection";
 import PageWrapper from "components/layout/PageWrapper";
-import { Fade } from "react-awesome-reveal";
-import ContactFooter from "components/shared/footers/ContactFooter";
-import NextStudy from "components/caseStudy/shared/NextStudy";
-import LogoBlockstem from "public/assets/img/casestudies/blockstem/logoBlockstem.svg";
-import Brand1 from "public/assets/img/casestudies/blockstem/Brand1.svg";
-import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import CommonSection from "components/caseStudy/shared/CommonSection";
-import { IntroVideoPadded } from "components/caseStudy/shared/IntroVideo";
-import Marquee from "components/caseStudy/shared/Marquee";
-import Quote from "components/caseStudy/shared/Quote";
-import TextColumn from "components/caseStudy/shared/TextColumn";
-import Picture from "components/caseStudy/shared/Picture";
 
 const blockstemForeground = "#31302E";
 const bAccent1 = "#4EA68E";
@@ -24,252 +8,14 @@ const bAccent2 = "#2B67DD";
 const mainGradient =
   "linear-gradient(96.9deg, #060809 12.06%, #3A3A3A 113.48%);";
 
-function Blockstem({ locale, setTitle, pt }) {
-  const [loadAssets, setloadAssets] = useState(false);
-
-  useEffect(() => {
-    setloadAssets(true);
-  }, []);
-
-  const t = useLocalizedContent({
-    locale,
-    fileName: "work.blockstem",
-    initialContent: pt,
-    onTitleChange: setTitle,
-  });
-
-  return (
-    <PageClipperBlockstem unPadded>
-      <Head
-        {...t.head}
-        image={{ fileName: "og_image_blockstem.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/blockstem"}
-        en_canonical={"https://acueducto.studio/en/work/blockstem"}
-      />
-      <Fade triggerOnce>
-        <LandSection>
-          <Fade delay={300} triggerOnce>
-            <LogoBlockstem />
-            <SeoH1>{t.head.seo_h1}</SeoH1>
-          </Fade>
-        </LandSection>
-      </Fade>
-      <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <IntroVideoPadded backgroundColor={"#ffffff"} link={t.link} />
-        <SeoH2>{t.head.description}</SeoH2>
-        <TextColumn>
-          <P className="h2">{t.intro_section.title}</P>
-          <P>{t.intro_section.p}</P>
-          <LessonContainer>
-            {t.intro_section.lessons.map((lesson, i) => (
-              <Lesson key={`lessn${i}`}>
-                <span>{lesson.title}</span>
-                <p>{lesson.p}</p>
-              </Lesson>
-            ))}
-          </LessonContainer>
-        </TextColumn>
-      </FirstSection>
-      <SecondSection>
-        <Quote quote={t.second_section.quote} color={"#1F2A2D"} />
-        <TextColumn>
-          <>
-            {loadAssets && (
-              <LogosContainer>
-                <img
-                  src="/assets/img/casestudies/blockstem/tec.svg"
-                  alt="Tecnológico de Monterrey"
-                />
-                <img
-                  src="/assets/img/casestudies/blockstem/global.svg"
-                  alt="Global Shapers Community"
-                />
-              </LogosContainer>
-            )}
-          </>
-          <P>{t.second_section.p}</P>
-        </TextColumn>
-      </SecondSection>
-      <ThirdSection>
-        <TextColumn>
-          <P className="h2">{t.third_section.title}</P>
-          <P>{t.third_section.p}</P>
-          {t.third_section.aspects.map((aspect, i) => (
-            <Aspect key={`aspect${i}`}>
-              <span>{i + 1}</span>
-              <p>{aspect.p}</p>
-            </Aspect>
-          ))}
-          <P>{t.third_section.p2}</P>
-        </TextColumn>
-        <WhitepaperGrid>
-          <Picture
-            src="/assets/img/casestudies/blockstem/cover.jpg"
-            alt="Whitepaper cover"
-            width={544}
-            height={395}
-          />
-
-          <Picture
-            src="/assets/img/casestudies/blockstem/small1.jpg"
-            alt="Whitepaper page"
-            width={306}
-            height={223}
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/small2.jpg"
-            alt="Whitepaper page"
-            width={306}
-            height={223}
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/small3.jpg"
-            alt="Whitepaper page"
-            width={306}
-            height={223}
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/small4.jpg"
-            alt="Whitepaper page"
-            width={306}
-            height={223}
-          />
-        </WhitepaperGrid>
-        <TextColumn>
-          <P className="h3">{"– " + t.third_section.subtitle}</P>
-          <P>{t.third_section.p3}</P>
-        </TextColumn>
-      </ThirdSection>
-      <FourthSection>
-        <TextColumn>
-          <P>{t.fourth_section.p}</P>
-          <SpanContainer>
-            <span>{t.fourth_section.body}</span>
-            <span>{t.fourth_section.titles}</span>
-          </SpanContainer>
-          <Brand1 />
-        </TextColumn>
-        <KeyShotGrid>
-          <Picture
-            src="/assets/img/casestudies/blockstem/conversation.png"
-            alt="Conversation"
-            width={270}
-            height={270}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/ballot.png"
-            alt="Ballot"
-            width={270}
-            height={270}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/latam.png"
-            alt="LATAM"
-            width={270}
-            height={270}
-            withWrapper
-          />
-        </KeyShotGrid>
-      </FourthSection>
-      <FifthSection>
-        <TransitionWrapper>
-          <Picture
-            src="/assets/img/casestudies/blockstem/transition.jpg"
-            alt="Ballot cover"
-            width={1150}
-            height={612}
-          />
-        </TransitionWrapper>
-        <ScreenGrid>
-          <Picture
-            src="/assets/img/casestudies/blockstem/leftphone.png"
-            alt="Blockstem homepage mobile"
-            width={300}
-            height={628}
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/rightphone.png"
-            alt="Blockstem page mobile"
-            width={300}
-            height={628}
-          />
-          <Picture
-            src="/assets/img/casestudies/blockstem/mac.png"
-            alt="Blockstem homepage desktop"
-            width={1010}
-            height={650}
-          />
-        </ScreenGrid>
-      </FifthSection>
-      <SixthSection>
-        <TextColumn>
-          <P className="h2">{t.sixth_section.title}</P>
-          <P>{t.sixth_section.p}</P>
-          <StatGrid>
-            <Stat>
-              <span>
-                <b>+</b>950
-              </span>{" "}
-              <P>{t.sixth_section.stat1}</P>
-            </Stat>
-            <Stat>
-              <span>7</span> <P>{t.sixth_section.stat2}</P>
-            </Stat>
-          </StatGrid>
-          <Quote quote={t.sixth_section.quote} color={"#1F2A2D"} />
-          <div className="lastP">
-            <P>{t.sixth_section.p2}</P>
-          </div>
-        </TextColumn>
-      </SixthSection>
-      <SeventhSection>
-        <Picture
-          src="/assets/img/casestudies/blockstem/main-bg.png"
-          alt="Blockstem ballots"
-          width={979}
-          height={853}
-        />
-        <Fade triggerOnce>
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://blockstem.org"
-          >
-            {t.seventh_section.linkp} blockstem.org
-          </a>
-        </Fade>
-      </SeventhSection>
-      <NextStudy link="borgatta" />
-      <ContactFooter />
-    </PageClipperBlockstem>
-  );
-}
-
-export default React.memo(Blockstem);
-
-export const getStaticProps = async (context) => {
-  const pt = ssrLocale({
-    locale: context.locale,
-    fileName: "work.blockstem.json",
-  });
-  return {
-    props: {
-      pt,
-    },
-  };
-};
-
-const PageClipperBlockstem = styled(PageWrapper)`
+export const PageClipperBlockstem = styled(PageWrapper)`
   background: ${mainGradient};
   @media (max-width: 600px) {
     background: linear-gradient(97.9deg, #060809 0.06%, #3a3a3a 42.48%);
   }
 `;
 
-const WhitepaperGrid = styled.div`
+export const WhitepaperGrid = styled.div`
   display: grid;
   grid-template-columns: 1.8fr 1fr 1fr;
   grid-gap: 2rem;
@@ -299,7 +45,7 @@ const WhitepaperGrid = styled.div`
   }
 `;
 
-const Stat = styled.div`
+export const Stat = styled.div`
   position: relative;
   max-width: 310px;
   display: flex;
@@ -350,7 +96,7 @@ const Stat = styled.div`
   }
 `;
 
-const StatGrid = styled.div`
+export const StatGrid = styled.div`
   padding: 10% 0;
   display: flex;
   max-width: 670px;
@@ -362,7 +108,7 @@ const StatGrid = styled.div`
   }
 `;
 
-const ScreenGrid = styled.div`
+export const ScreenGrid = styled.div`
   display: grid;
   grid-template: 1fr 1fr;
   padding: 12% 5% 2%;
@@ -419,7 +165,7 @@ const ScreenGrid = styled.div`
   }
 `;
 
-const TransitionWrapper = styled.div`
+export const TransitionWrapper = styled.div`
   position: relative;
   width: 100%;
   display: flex;
@@ -456,7 +202,7 @@ const TransitionWrapper = styled.div`
   }
 `;
 
-const KeyShotGrid = styled.div`
+export const KeyShotGrid = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
@@ -473,7 +219,7 @@ const KeyShotGrid = styled.div`
   }
 `;
 
-const SpanContainer = styled.div`
+export const SpanContainer = styled.div`
   flex-direction: row;
   span {
     margin-top: 10%;
@@ -485,7 +231,7 @@ const SpanContainer = styled.div`
   }
 `;
 
-const Aspect = styled.div`
+export const Aspect = styled.div`
   display: flex;
   width: 100%;
   margin: 5% 0;
@@ -521,7 +267,7 @@ const Aspect = styled.div`
   }
 `;
 
-const LogosContainer = styled.div`
+export const LogosContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
@@ -540,7 +286,7 @@ const LogosContainer = styled.div`
   }
 `;
 
-const Lesson = styled.div`
+export const Lesson = styled.div`
   max-width: 500px;
   &:not(:last-of-type) {
     margin-bottom: 10%;
@@ -598,14 +344,14 @@ const Lesson = styled.div`
   }
 `;
 
-const LessonContainer = styled.div`
+export const LessonContainer = styled.div`
   margin-top: 10%;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const SeventhSection = styled(CommonSection)`
+export const SeventhSection = styled(CommonSection)`
   min-height: 100vh;
   background: ${mainGradient};
   align-items: center;
@@ -668,7 +414,7 @@ const SeventhSection = styled(CommonSection)`
   }
 `;
 
-const SixthSection = styled(CommonSection)`
+export const SixthSection = styled(CommonSection)`
   background-color: #f3f4f5;
   color: ${(props) => props.theme.colors.over_white};
   padding-bottom: 8%;
@@ -683,7 +429,7 @@ const SixthSection = styled(CommonSection)`
   }
 `;
 
-const FifthSection = styled(CommonSection)`
+export const FifthSection = styled(CommonSection)`
   background: linear-gradient(
       90.27deg,
       #1a4ce0 -6.41%,
@@ -697,13 +443,13 @@ const FifthSection = styled(CommonSection)`
   padding-bottom: 5%;
 `;
 
-const FourthSection = styled(CommonSection)`
+export const FourthSection = styled(CommonSection)`
   background-color: #f3f4f5;
   color: ${(props) => props.theme.colors.over_white};
   padding: 10% 0;
 `;
 
-const ThirdSection = styled(CommonSection)`
+export const ThirdSection = styled(CommonSection)`
   padding-bottom: 8%;
   color: ${(props) => props.theme.colors.over_black};
   background: ${mainGradient};
@@ -716,14 +462,14 @@ const ThirdSection = styled(CommonSection)`
   }
 `;
 
-const SecondSection = styled(CommonSection)`
+export const SecondSection = styled(CommonSection)`
   background-color: #f3f4f5;
   color: ${(props) => props.theme.colors.over_white};
   padding-bottom: 8%;
   padding-top: 3%;
 `;
 
-const FirstSection = styled(CommonSection)`
+export const FirstSection = styled(CommonSection)`
   color: ${(props) => props.theme.colors.foreground};
   padding-bottom: 10%;
   .h2 {
@@ -738,7 +484,7 @@ const FirstSection = styled(CommonSection)`
   }
 `;
 
-const LandSection = styled(CommonSection)`
+export const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-image: url("/assets/img/casestudies/blockstem/main-bg.png");
   background-position: left center;

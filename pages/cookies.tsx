@@ -6,7 +6,7 @@ import Link from "next/link";
 import PageWrapper from "components/layout/PageWrapper";
 import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
 import { P, H3 } from "components/shared/Dangerously";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 
 export default function Cookies({ locale, setTitle, pt }) {
   const t = useLocalizedContent({

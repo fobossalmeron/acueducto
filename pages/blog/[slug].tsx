@@ -6,7 +6,7 @@ import { getAllPosts, getPostBySlug } from "utils/blogApi";
 import Head from "components/layout/Head";
 import BlogEntryPage from "components/pages/blogEntry/BlogEntryPage";
 import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/shared/footers/ResourceFooter";
+import ResourceFooter from "components/layout/footers/ResourceFooter";
 
 export default function BlogEntry({ locale, setTitle, article }) {
   useEffect(() => {

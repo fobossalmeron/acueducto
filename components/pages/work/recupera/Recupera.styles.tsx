@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PageWrapper from "components/layout/PageWrapper";
-import CommonSection from "components/caseStudy/shared/CommonSection";
+import CommonSection from "components/work/CommonSection";
 
 const h2Title = "#292D34";
 const bodyText1 = "#FFFFFF";
@@ -174,10 +174,6 @@ const ThirdSection = styled(CommonSection)`
 `;
 
 const ThirdPoint = styled.div`
-  img {
-    width: 100%;
-    height: auto;
-  }
   .h3 {
     padding-top: 0%;
   }

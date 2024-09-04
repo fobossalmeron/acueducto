@@ -7,7 +7,7 @@ import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import { EntryPreview } from "components/pages/blog/EntryPreview";
 import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/shared/footers/ResourceFooter";
+import ResourceFooter from "components/layout/footers/ResourceFooter";
 
 export default function Articles({ locale, setTitle, posts, pt }) {
   const { intro, head } = pt;

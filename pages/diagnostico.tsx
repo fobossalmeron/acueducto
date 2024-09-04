@@ -4,7 +4,7 @@ import ssrLocale from "utils/ssrLocale";
 import Head, { HeadProps } from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
 import DiagnosticoDigitalPage from "components/pages/diagnosticoDigital/DiagnosticoDigitalPage";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import TitleSection from "components/shared/TitleSection";
 
 interface DiagnosticoDigitalProps {

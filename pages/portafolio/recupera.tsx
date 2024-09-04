@@ -7,14 +7,14 @@ import ssrLocale from "utils/ssrLocale";
 import { useIsMobile } from "utils/useIsMobile";
 
 import Head from "components/layout/Head";
-import Marquee from "components/caseStudy/shared/Marquee";
-import { IntroVideoPadded } from "components/caseStudy/shared/IntroVideo";
-import TextColumn from "components/caseStudy/shared/TextColumn";
+import Marquee from "components/work/Marquee";
+import { IntroVideoPadded } from "components/work/IntroVideo";
+import TextColumn from "components/work/TextColumn";
 import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import Quote from "components/caseStudy/shared/Quote";
-import NextStudy from "components/caseStudy/shared/NextStudy";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
+import Quote from "components/work/Quote";
+import NextStudy from "components/work/NextStudy";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import ScreensAnimation from "components/pages/work/recupera/ScreensAnimation";
 import UIComponentsAnimation from "components/pages/work/recupera/UIComponentsAnimation";
 import ScrollCardAnimation from "components/pages/work/recupera/ScrollCardAnimation";
@@ -48,7 +48,14 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
   const [loadAssets, setLoadAssets] = useState(false);
   const isMobile = useIsMobile();
 
-  const { head, intro_section, second_section, third_section, fourth_section, link } = useLocalizedContent({
+  const {
+    head,
+    intro_section,
+    second_section,
+    third_section,
+    fourth_section,
+    link,
+  } = useLocalizedContent({
     locale,
     fileName: "work.recupera",
     initialContent: pt,
@@ -186,12 +193,21 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             <P className="h3">{third_section.points.third.subtitle}</P>
             <P>{third_section.points.third.p}</P>
             <div className="image">
-              <Image
-                width={isMobile ? 360 : 630}
-                height={isMobile ? 405 : 447}
-                src={isMobile ? ToolsSm : ToolsMd}
-                alt="Herramientas"
-              />
+              {!isMobile ? (
+                <Image
+                  width={630}
+                  height={447}
+                  src={ToolsMd}
+                  alt="Herramientas"
+                />
+              ) : (
+                <Image
+                  width={360}
+                  height={405}
+                  src={ToolsSm}
+                  alt="Herramientas"
+                />
+              )}
             </div>
           </ThirdPoint>
         </TextColumn>

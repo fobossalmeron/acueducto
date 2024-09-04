@@ -8,7 +8,6 @@ import delayForLoading from "utils/delayForLoading";
 import en from "public/locales/en/common.json";
 import es from "public/locales/es/common.json";
 import { LangProvider } from "utils/LangContext";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import { PrismicPreview } from "@prismicio/next";
 import { repositoryName } from "../prismicio";
 import { LenisProvider } from "utils/LenisContext";
@@ -56,8 +55,8 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
   useEffect(() => {
     // Deshabilitar el scroll
-    const targetElement = document.querySelector("#dum"); //dummy
-    disableBodyScroll(targetElement);
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.height = '100vh';
 
     // Animación de carga
     delayForLoading(800).then(() => {
@@ -99,10 +98,10 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
   // Habilitar el scroll cuando la página ha cargado
   useEffect(() => {
-    const targetElement = document.querySelector("#dum");
     if (hasLoaded) {
       console.log("Page hasLoaded");
-      enableBodyScroll(targetElement);
+      document.documentElement.style.overflow = '';
+      document.documentElement.style.height = '';
     }
   }, [hasLoaded]);
 

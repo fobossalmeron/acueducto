@@ -17,6 +17,7 @@ declare module "styled-components" {
       warning: string;
       error: string;
       success: string;
+      success_background: string;
     };
   }
 }

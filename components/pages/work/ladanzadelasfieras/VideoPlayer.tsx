@@ -4,11 +4,17 @@ import styled, { css, keyframes } from "styled-components";
 
 const fierasRed = "rgb(201,32,26)";
 
-function VideoPlayer(props) {
+interface VideoPlayerProps {
+  ratio?: string;
+  still: string;
+  url: string;
+}
+
+function VideoPlayer({ ratio, still, url }: VideoPlayerProps) {
   const [isPlaying, setPlaying] = useState(false);
   const [isInitial, setInitial] = useState(true);
 
-  function handlePlay(bool = !isPlaying) {
+  function handlePlay(bool: boolean = !isPlaying) {
     setPlaying(bool);
     setInitial(false);
   }
@@ -23,7 +29,7 @@ function VideoPlayer(props) {
   }
 
   return (
-    <VideoWrapper ratio={props.ratio}>
+    <VideoWrapper $ratio={ratio}>
       <Clicker onClick={() => handlePlay()} $hideSvg={isPlaying}>
         {isPlaying ? (
           <ButtonPause>Pause</ButtonPause>
@@ -31,27 +37,22 @@ function VideoPlayer(props) {
           <ButtonPlay>Play</ButtonPlay>
         )}
       </Clicker>
-      <Fader hide={isPlaying} />
+      <Fader $hide={isPlaying} />
       <OverStill
-        style={{ backgroundImage: `url(${props.still})` }}
-        hide={isPlaying}
+        style={{ backgroundImage: `url(${still})` }}
+        $hide={isPlaying}
         onClick={() => handlePlay(true)}
       />
-      <PlayerWrapper hide={!isPlaying}>
+      <PlayerWrapper $hide={!isPlaying}>
         <YouTubePlayer
           playing={isPlaying}
-          url={props.url}
+          url={url}
           controls={false}
           height="auto"
           width="100%"
           onEnded={restoreVideo}
           onPause={pauseVideo}
           onPlay={() => handlePlay(true)}
-          config={{
-            vimeo: {
-              preload: true,
-            },
-          }}
         />
       </PlayerWrapper>
     </VideoWrapper>
@@ -60,15 +61,15 @@ function VideoPlayer(props) {
 
 export default VideoPlayer;
 
-const PlayerWrapper = styled.div`
+const PlayerWrapper = styled.div<{ $hide: boolean }>`
   z-index: 0;
-  opacity: ${(props) => (props.hide ? 0 : 1)};
+  opacity: ${(props) => (props.$hide ? 0 : 1)};
   transition: opacity
-    ${(props) => (props.hide ? "0s linear 0s" : "0.3s ease .8s")};
+    ${(props) => (props.$hide ? "0s linear 0s" : "0.3s ease .8s")};
 `;
 
-const VideoWrapper = styled.div`
-  padding-bottom: ${(props) => props.ratio || "50.6%"};
+const VideoWrapper = styled.div<{ $ratio?: string }>`
+  padding-bottom: ${(props) => props.$ratio || "50.6%"};
   display: block;
   width: 90%;
   margin: 5%;
@@ -97,8 +98,8 @@ const hidePause = keyframes`
   }
 `;
 
-const Button = styled.div`
-  opacity: ${(props) => (props.hide ? "0" : "1")};
+const Button = styled.div<{ $hide?: boolean }>`
+  opacity: ${(props) => (props.$hide ? "0" : "1")};
   font-size: 4.5rem;
   border-bottom: 2px solid transparent;
   @media (max-width: 1000px) {
@@ -122,7 +123,7 @@ const ButtonPause = styled(Button)`
   transition: opacity 0.3s ease 0.3;
 `;
 
-const Clicker = styled.div`
+const Clicker = styled.div<{ $hideSvg?: boolean }>`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -159,7 +160,7 @@ const Clicker = styled.div`
     `}
 `;
 
-const Fader = styled.div`
+const Fader = styled.div<{ $hide: boolean }>`
   width: 100%;
   height: 100%;
   position: absolute;
@@ -167,22 +168,22 @@ const Fader = styled.div`
   transition: 0.4s ease opacity;
   margin-bottom: 50px;
   pointer-events: none;
-  opacity: ${(props) => (props.hide ? 0 : 1)};
+  opacity: ${(props) => (props.$hide ? 0 : 1)};
 `;
 
-const OverStill = styled.div`
+const OverStill = styled.div<{ $hide: boolean }>`
   width: 100%;
   height: 100%;
   position: absolute;
   z-index: 1;
   cursor: pointer;
   transition: 0.3s ease opacity 0s;
-  opacity: ${(props) => (props.hide ? "0" : "1")};
-  pointer-events: ${(props) => (props.hide ? "none" : "auto")};
+  opacity: ${(props) => (props.$hide ? "0" : "1")};
+  pointer-events: ${(props) => (props.$hide ? "none" : "auto")};
   background-size: cover;
   background-position: center;
   ${(props) =>
-    props.hide &&
+    props.$hide &&
     css`
       transition: opacity 0.3s ease 0.3s;
     `}

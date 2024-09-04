@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
-import Picture from "components/caseStudy/shared/Picture";
+import Picture from "components/work/Picture";
 import Link from "next/link";
 import LangContext from "utils/LangContext";
 import { P } from "components/shared/Dangerously";

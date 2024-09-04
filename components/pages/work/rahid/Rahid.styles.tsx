@@ -1,225 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
-import styled from "styled-components";
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import { Fade } from "react-awesome-reveal";
-import ContactFooter from "components/shared/footers/ContactFooter";
-import NextStudy from "components/caseStudy/shared/NextStudy";
-import LogoRahid from "public/assets/img/casestudies/rahid/logoRahid.svg";
-import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/caseStudy/shared/SEOHeadings";
-import { IntroVideo } from "components/caseStudy/shared/IntroVideo";
-import Marquee from "components/caseStudy/shared/Marquee";
-import Quote from "components/caseStudy/shared/Quote";
-import TextColumn from "components/caseStudy/shared/TextColumn";
-import CommonSection from "components/caseStudy/shared/CommonSection";
-import Picture from "components/caseStudy/shared/Picture";
-import BoxesImage from "public/assets/img/casestudies/rahid/boxes.png";
-import Image from "next/image";
 
-const rahidBackground = "#F9F5F0";
+import styled from "styled-components";
+import CommonSection from "components/work/CommonSection";
+
+export const rahidBackground = "#F9F5F0";
 const rahidForeground = "#31302E";
 const rahidAccent = "#8893CE";
 const rahidAccentDarker = "#7A84B9";
 
-function Rahid({ locale, setTitle, pt }) {
-  const [loadAssets, setloadAssets] = useState(false);
-  const t = useLocalizedContent({
-    locale,
-    fileName: "work.rahid",
-    initialContent: pt,
-    onTitleChange: setTitle,
-  });
-
-  useEffect(() => {
-    setloadAssets(true);
-  }, []);
-
-  return (
-    <PageWrapper unPadded>
-      <Head
-        {...t.head}
-        image={{ fileName: "og_image_rahid.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/rahid"}
-        en_canonical={"https://acueducto.studio/en/work/rahid"}
-      />
-      <Fade triggerOnce>
-        <LandSection>
-          <Fade delay={300} triggerOnce>
-            <LogoRahid />
-            <SeoH1>{t.head.seo_h1}</SeoH1>
-          </Fade>
-        </LandSection>
-      </Fade>
-      <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <IntroVideo link={t.link} />
-        <SeoH2>{t.head.description}</SeoH2>
-        <TextColumn>
-          <P className="h2">{t.intro_section.title}</P>
-          <P>{t.intro_section.p}</P>
-          <OldBrand>
-            {loadAssets && (
-              <img
-                src="/assets/img/casestudies/rahid/oldLogo.svg"
-                alt="El Rahid"
-              />
-            )}
-            <p>{t.intro_section.graphicp}</p>
-          </OldBrand>
-          <P>{t.intro_section.p2}</P>
-        </TextColumn>
-      </FirstSection>
-      <SecondSection>
-        <TextColumn>
-          <P className="h3">{"– " + t.second_section.subtitle}</P>
-          <P>{t.second_section.p}</P>
-        </TextColumn>
-        <Quote quote={t.second_section.quote} color={rahidBackground} />
-      </SecondSection>
-      <ThirdSection>
-        <TextColumn>
-          <P className="h2">{t.third_section.title}</P>
-          <P>{t.third_section.p}</P>
-        </TextColumn>
-        <Branding>
-          <Fade triggerOnce>
-            <div>
-              {t.third_section.spans.map((span, index) => (
-                <span key={index + "span"}>{span}</span>
-              ))}
-              {loadAssets && (
-                <img
-                  src="/assets/img/casestudies/rahid/brandGroup.svg"
-                  alt="Branding"
-                />
-              )}
-            </div>
-          </Fade>
-        </Branding>
-        <Applications>
-          <Picture
-            src="/assets/img/casestudies/rahid/box.png"
-            alt="Packaging: Rahid"
-            width={279}
-            height={261}
-          />
-          <Picture
-            src="/assets/img/casestudies/rahid/fb.jpg"
-            alt="Facebook Post: Rahid"
-            width={372}
-            height={579}
-          />
-          <Picture
-            src="/assets/img/casestudies/rahid/ig.jpg"
-            alt="Instagram Post: Rahid"
-            width={465}
-            height={298}
-          />
-        </Applications>
-      </ThirdSection>
-      <FourthSection>
-        <TextColumn>
-          <P className="h3">{"– " + t.fourth_section.subtitle}</P>
-          <P>{t.fourth_section.p}</P>
-          <Picture
-            src="/assets/img/casestudies/rahid/home.jpg"
-            alt="Home Rahid.co"
-            width={800}
-            height={412}
-            withWrapper
-          />
-          <P>{t.fourth_section.p2}</P>
-        </TextColumn>
-        <InsertBlock>
-          <Picture
-            src="/assets/img/casestudies/rahid/boxes.png"
-            alt="Home Rahid.co"
-            width={960}
-            height={754}
-          />
-          <P>{t.fourth_section.graphicp}</P>
-        </InsertBlock>
-        <TextColumn>
-          <P>{t.fourth_section.p3}</P>
-        </TextColumn>
-      </FourthSection>
-      <FifthSection>
-        <TextColumn>
-          <P className="h2">{t.fifth_section.title}</P>
-          <P>{t.fifth_section.p}</P>
-        </TextColumn>
-        <LaunchGrid>
-          <Picture
-            src="/assets/img/casestudies/rahid/desktop.png"
-            alt="Festival awards"
-            width={558}
-            height={340}
-            withWrapper
-          />
-          <Picture
-            src="/assets/img/casestudies/rahid/mobile.png"
-            alt="Festival awards"
-            width={162}
-            height={339}
-            withWrapper
-          />
-        </LaunchGrid>
-        <TextColumn>
-          <P>{t.fifth_section.p2}</P>
-          <Stat>
-            <span>
-              77<b>%</b>
-            </span>
-            <P>{t.fifth_section.stat}</P>
-          </Stat>
-          <P>{t.fifth_section.p3}</P>
-        </TextColumn>
-        <Picture
-          src="/assets/img/casestudies/rahid/referral.jpg"
-          alt="Email Marketing"
-          width={800}
-          height={450}
-        />
-
-        <TextColumn>
-          <P>{t.fifth_section.p4}</P>
-        </TextColumn>
-        <Quote
-          quote={t.fifth_section.quote}
-          color={(props) => props.theme.colors.background}
-        />
-        <TextColumn>
-          <P>{t.fifth_section.p5}</P>
-        </TextColumn>
-      </FifthSection>
-      <SixthSection>
-        <Fade triggerOnce>
-          <a target="_blank" rel="noopener noreferrer" href="https://rahid.co">
-            {t.sixth_section.linkp} rahid.co
-          </a>
-        </Fade>
-      </SixthSection>
-      <NextStudy link="ladanzadelasfieras" />
-      <ContactFooter />
-    </PageWrapper>
-  );
-}
-
-export default React.memo(Rahid);
-
-export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "work.rahid.json" });
-  return {
-    props: {
-      pt,
-    },
-  };
-};
-
-const LaunchGrid = styled.div`
+export const LaunchGrid = styled.div`
   max-width: 800px;
   width: 100%;
   display: grid;
@@ -239,7 +27,7 @@ const LaunchGrid = styled.div`
   }
 `;
 
-const InsertBlock = styled.figure`
+export const InsertBlock = styled.figure`
   width: 90%;
   background-color: ${rahidBackground};
   margin: 8% 0;
@@ -279,7 +67,7 @@ const InsertBlock = styled.figure`
   }
 `;
 
-const Applications = styled.div`
+export const Applications = styled.div`
   background-color: ${rahidAccent};
   width: 90%;
   max-width: 1200px;
@@ -312,7 +100,7 @@ const Applications = styled.div`
   }
 `;
 
-const Branding = styled.div`
+export const Branding = styled.div`
   width: 80%;
   max-width: 800px;
   margin-top: 6%;
@@ -369,7 +157,7 @@ const Branding = styled.div`
   }
 `;
 
-const Stat = styled.div`
+export const Stat = styled.div`
   position: relative;
   margin: 12% auto;
   max-width: 310px;
@@ -420,7 +208,7 @@ const Stat = styled.div`
   }
 `;
 
-const SixthSection = styled(CommonSection)`
+export const SixthSection = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${rahidAccent};
   background-image: url("/assets/img/casestudies/rahid/landBack.svg");
@@ -473,7 +261,7 @@ const SixthSection = styled(CommonSection)`
   }
 `;
 
-const FifthSection = styled(CommonSection)`
+export const FifthSection = styled(CommonSection)`
   background-color: ${rahidBackground};
   color: ${rahidForeground};
   padding-bottom: 10%;
@@ -499,7 +287,7 @@ const FifthSection = styled(CommonSection)`
   }
 `;
 
-const FourthSection = styled(CommonSection)`
+export const FourthSection = styled(CommonSection)`
   background-color: ${rahidForeground};
   color: ${(props) => props.theme.colors.foreground_low};
   padding-bottom: 10%;
@@ -521,7 +309,7 @@ const FourthSection = styled(CommonSection)`
   }
 `;
 
-const ThirdSection = styled(CommonSection)`
+export const ThirdSection = styled(CommonSection)`
   color: ${(props) => props.theme.colors.background};
   background-color: ${(props) => props.theme.colors.foreground};
   .h2 {
@@ -535,7 +323,7 @@ const ThirdSection = styled(CommonSection)`
   }
 `;
 
-const SecondSection = styled(CommonSection)`
+export const SecondSection = styled(CommonSection)`
   background-color: ${rahidForeground};
   color: ${rahidBackground};
   padding-bottom: 8%;
@@ -544,7 +332,7 @@ const SecondSection = styled(CommonSection)`
   }
 `;
 
-const OldBrand = styled.div`
+export const OldBrand = styled.div`
   display: flex;
   width: 100%;
   margin: 10% auto;
@@ -566,7 +354,7 @@ const OldBrand = styled.div`
   }
 `;
 
-const FirstSection = styled(CommonSection)`
+export const FirstSection = styled(CommonSection)`
   background-color: ${rahidBackground};
   color: ${(props) => props.theme.colors.background};
   padding-bottom: 10%;
@@ -582,7 +370,7 @@ const FirstSection = styled(CommonSection)`
   }
 `;
 
-const LandSection = styled(CommonSection)`
+export const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${rahidBackground};
   background-image: url("/assets/img/casestudies/rahid/landBack.svg");

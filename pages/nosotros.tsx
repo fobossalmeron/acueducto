@@ -6,18 +6,18 @@ import { Fade } from "react-awesome-reveal";
 import ssrLocale from "utils/ssrLocale";
 import { useLocalizedContent } from "utils/useLocalizedContent";
 
-import Head, { HeadProps } from "components/layout/Head";
+import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P } from "components/shared/Dangerously";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
-import Recursos from "components/shared/Recursos";
-import ManifiestoSection from "components/ManifiestoSection";
+import Recursos from "components/pages/nosotros/Recursos";
+import ManifiestoSection from "components/pages/nosotros/ManifiestoSection";
 
-import pTeam from "../public/assets/img/layout/team.png";
-import pPaper from "../public/assets/img/layout/paper.png";
+import pTeam from "public/assets/img/layout/team.png";
+import pPaper from "public/assets/img/layout/paper.png";
 
 interface AboutProps {
   locale: string;
@@ -55,7 +55,7 @@ const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
       <ControlledPadding
         as={PinnedSection}
         title={t.intro.title}
-        $notSticky
+        notSticky
         heading={1}
       >
         <P>{t.intro.p}</P>
@@ -91,7 +91,7 @@ export const getStaticProps = async (context) => {
   };
 };
 
-const ControlledPadding = styled.div<{ $notSticky: boolean }>`
+const ControlledPadding = styled.div`
   padding-bottom: 5%;
 `;
 

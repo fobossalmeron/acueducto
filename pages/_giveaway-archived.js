@@ -6,7 +6,7 @@ import Link from "next/link";
 import PageWrapper from "components/layout/PageWrapper";
 import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
 import { Fade } from "react-awesome-reveal";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import { useRouter } from "next/router";
 
 export default function LinkEnBio({ locale, setTitle, pt }) {

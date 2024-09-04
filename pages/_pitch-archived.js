@@ -10,7 +10,7 @@ import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P, H2, H3 } from "components/shared/Dangerously";
 import createMarkup from "utils/createMarkup";
 import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 
 import {

@@ -4,7 +4,7 @@ import styled, { keyframes } from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import delayForLoading from "utils/delayForLoading";
 import InputField, { SubmitField } from "components/shared/ContactInputField";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
+import ButtonArrow from "components/layout/footers/ButtonArrow";
 
 type FormProps = {
   text: {

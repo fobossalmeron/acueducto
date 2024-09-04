@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import PageWrapper from "components/layout/PageWrapper";
-import CommonSection from "components/caseStudy/shared/CommonSection";
+import CommonSection from "components/work/CommonSection";
 
 const h2Title = "#383955";
 const bodyText1 = "#4a4a73";

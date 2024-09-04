@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import TitleSection from "components/shared/TitleSection";
-import Recursos from "components/shared/Recursos";
+import Recursos from "components/pages/nosotros/Recursos";
 
 const Products = ({ intro }: { intro: any }) => {
   return (

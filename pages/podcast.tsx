@@ -16,7 +16,6 @@ import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
 
 import ssrLocale from "utils/ssrLocale";
 import { createContact } from "utils/sendinBlue";
@@ -41,7 +40,7 @@ import {
 
 // Lazy load ContactFooter
 const ContactFooter = dynamic(
-  () => import("components/shared/footers/ContactFooter"),
+  () => import("components/layout/footers/ContactFooter"),
   {
     loading: () => <p>Loading...</p>,
   }
@@ -175,7 +174,9 @@ function PodcastLanding({
             <H2 className="h1">{intro.title}</H2>
             <p>{intro.p}</p>
             <MetalForm
-              onSubmit={(data: { email: string }) => onSubmit(data, "Landing Header")}
+              onSubmit={(data: { email: string }) =>
+                onSubmit(data, "Landing Header")
+              }
               id={"podcastOL"}
               text={intro.form}
             />
@@ -204,12 +205,8 @@ function PodcastLanding({
             <p>{banner.p}</p>
             <div>
               {lastPrismicEpisode.uid && (
-                <Link
-                  href={"/podcast/" + lastPrismicEpisode.uid}
-                  passHref
-                  legacyBehavior
-                >
-                  <ButtonArrow text={banner.button} />
+                <Link href={"/podcast/" + lastPrismicEpisode.uid}>
+                  <Button text={banner.button} />
                 </Link>
               )}
             </div>
@@ -266,7 +263,9 @@ function PodcastLanding({
           <p>{closing.p}</p>
           <div>
             <MetalForm
-              onSubmit={(data: { email: string }) => onSubmit(data, "Landing Footer")}
+              onSubmit={(data: { email: string }) =>
+                onSubmit(data, "Landing Footer")
+              }
               id={"podcastOL"}
               text={intro.form}
             />

@@ -4,9 +4,19 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import { Span } from "components/shared/Dangerously";
 import BorderLink from "components/shared/BorderedLink";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
+import { Button } from "components/shared/Button/Button";
 
-const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
+interface ConsultoriaCTAProps {
+  cta: any;
+  diagnostico_cta?: boolean;
+  price?: boolean;
+}
+
+const ConsultoriaCTA: React.FC<ConsultoriaCTAProps> = React.memo(({
+  cta,
+  diagnostico_cta,
+  price,
+}) => {
   return (
     <Container>
       <h2>{cta.title}</h2>
@@ -16,8 +26,13 @@ const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
         <span className="noPrice">elevemos tu negocio</span>
       )}
       <SpecialA>
-        <Link href={"/contacto"} passHref legacyBehavior>
-          <ButtonArrow text={cta.submit} $inverse className="clean" />
+        <Link href={"/contacto"}>
+          <Button
+            text={cta.submit}
+            inverse
+            className="clean"
+            parentComponent="ConsultoriaCTA"
+          />
         </Link>
       </SpecialA>
       {diagnostico_cta && (
@@ -26,9 +41,7 @@ const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
             <h2>{cta.title2}</h2>
             <p>
               <span>{cta.linktext}</span>
-              <Link href={cta.link[0]} legacyBehavior>
-                <a>{cta.link[1]}</a>
-              </Link>
+              <Link href={cta.link[0]}>{cta.link[1]}</Link>
               <span>{cta.linktext2}</span>
             </p>
           </Fade>
@@ -36,9 +49,9 @@ const ConsultoriaCTA = ({ cta, diagnostico_cta, price }) => {
       )}
     </Container>
   );
-};
+}, () => true);
 
-export default React.memo(ConsultoriaCTA);
+export default ConsultoriaCTA;
 
 const SpecialA = styled.div`
   margin-bottom: 30px;

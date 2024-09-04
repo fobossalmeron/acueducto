@@ -9,16 +9,16 @@ import ssrLocale from "utils/ssrLocale";
 import { useLocalizedContent } from "utils/useLocalizedContent";
 import TitleSection from "components/shared/TitleSection";
 import { Button } from "components/shared/Button/Button";
-import ContactFooter from "components/shared/footers/ContactFooter";
-import Services from "components/shared/Services";
+import ContactFooter from "components/layout/footers/ContactFooter";
+import Services from "components/pages/index/Services";
 import Head from "components/layout/Head";
-import Carousel from "components/Carousel";
+import Carousel from "components/pages/index/Carousel";
 import { Fade } from "react-awesome-reveal";
 import BroadcastRouter from "components/podcast/BroadcastRouter";
-import FAQSection from "components/shared/FAQ";
+import FAQSection from "components/pages/index/FAQ";
 import PageWrapper from "components/layout/PageWrapper";
-import Quotes from "components/Quotes";
-import CaseList from "components/caseStudy/CaseList";
+import Quotes from "components/pages/index/Quotes";
+import CaseList from "components/work/CaseList";
 import { useIsMobile } from "utils/useIsMobile";
 
 import ClientsDesktop from "../public/assets/img/layout/clients.png";
@@ -26,7 +26,7 @@ import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
 
 const HomeSpline = dynamic(
-  () => import("../components/homeSpline/HomeSpline"),
+  () => import("../components/pages/index/HomeSpline"),
   {
     ssr: false,
   }

@@ -23,7 +23,7 @@ import UIComponent19 from "public/assets/img/casestudies/borgatta/UIComponent19.
 import UIComponent20 from "public/assets/img/casestudies/borgatta/UIComponent20.png";
 import UIComponent21 from "public/assets/img/casestudies/borgatta/UIComponent21.png";
 
-const UIComponentsDesktop= () => {
+const UIComponentsDesktop: React.FC = () => {
   return (
     <>
       <FirstComponentsContainer>
@@ -56,7 +56,7 @@ const UIComponentsDesktop= () => {
               />
             </Fade>
           </>
-          <ColumnDesktop gap='10px' style={{ alignItems: "flex-end" }}>
+          <ColumnDesktop $gap='10px' style={{ alignItems: "flex-end" }}>
             <Fade delay={450} direction="up" triggerOnce>
               <Image
                 src={UIComponent4}
@@ -77,8 +77,8 @@ const UIComponentsDesktop= () => {
         </SecondRow>
       </FirstComponentsContainer>
       <SecondComponentsContainer>
-        <RowDesktop gap='2%'>
-          <ColumnDesktop gap='1rem'>
+        <RowDesktop $gap='2%'>
+          <ColumnDesktop $gap='1rem'>
             <Fade delay={370} direction="up" triggerOnce>
               <Image
                 src={UIComponent6}
@@ -104,7 +104,7 @@ const UIComponentsDesktop= () => {
               />
             </Fade>
           </ColumnDesktop>
-          <ColumnDesktop gap='2%' style={{ alignItems: "flex-start", justifyContent: "center" }}>
+          <ColumnDesktop $gap='2%' style={{ alignItems: "flex-start", justifyContent: "center" }}>
             <Fade delay={410} direction="up" triggerOnce>
               <Image
                 src={UIComponent9}
@@ -113,7 +113,7 @@ const UIComponentsDesktop= () => {
                 height={47}
               />
             </Fade>
-            <RowDesktop gap='5%'>
+            <RowDesktop $gap='5%'>
               <Fade delay={210} direction="up" triggerOnce>
                 <Image
                   src={UIComponent10}
@@ -157,7 +157,7 @@ const UIComponentsDesktop= () => {
             </Fade>
           </ColumnDesktop>
         </RowDesktop>
-        <RowDesktop gap='2%'>
+        <RowDesktop $gap='2%'>
           <Fade delay={450} direction="up" triggerOnce>
             <Image
               src={UIComponent15}
@@ -224,16 +224,16 @@ const UIComponentsDesktop= () => {
   
 export default UIComponentsDesktop;
 
-const RowDesktop = styled.div`
+const RowDesktop = styled.div<{ $gap?: string }>`
   display: flex;
   flex-direction: row;
-  gap: ${(props) => props.gap ? props.gap : '0px'};
+  gap: ${(props) => props.$gap || '0px'};
 `;
 
-const ColumnDesktop = styled.div`
+const ColumnDesktop = styled.div<{ $gap?: string }>`
   display: flex;
   flex-direction: column;
-  gap: ${(props) => props.gap ? props.gap : '0px'};
+  gap: ${({ $gap }) => $gap || '0'};
 `;
 
 const SecondRow = styled.div`

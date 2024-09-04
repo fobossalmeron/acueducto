@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Picture from "components/caseStudy/shared/Picture";
+import Picture from "components/work/Picture";
 import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
 import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
 import Screenshot3 from "public/assets/img/casestudies/recupera/screenshot3.png";

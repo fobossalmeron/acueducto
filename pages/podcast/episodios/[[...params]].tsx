@@ -8,7 +8,7 @@ import ssrLocale from "utils/ssrLocale";
 import { getAllEpisodes } from "utils/podcastApi";
 import Head, { HeadProps } from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/shared/footers/ResourceFooter";
+import ResourceFooter from "components/layout/footers/ResourceFooter";
 import Logo from "public/assets/img/layout/logo.svg";
 import { H1 } from "components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";

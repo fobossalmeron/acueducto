@@ -5,11 +5,11 @@ import useInterval from "utils/useInterval";
 import Head from "components/layout/Head";
 import TitleSection from "components/shared/TitleSection";
 import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import { Fade } from "react-awesome-reveal";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import { P } from "components/shared/Dangerously";
-import ConsultoriaCTA from "components/ConsultoriaCTA";
+import ConsultoriaCTA from "components/pages/consultoria/ConsultoriaCTA";
 import Steps from "components/shared/Steps";
 
 import {
@@ -26,8 +26,26 @@ const stepIconArray = [
   Culture,
 ];
 
-const SpinPinnedSection = ({ hasLoaded, children, intro }) => {
-  const [spinWord, setSpinWord] = useState(0);
+interface SpinPinnedSectionProps {
+  hasLoaded: boolean;
+  children: React.ReactNode;
+  intro: {
+    pre_title: string;
+    words: string[];
+    post_title: string;
+    seo_h1: string;
+  };
+}
+
+interface ConsultoriaProps {
+  locale: string;
+  setTitle: (title: string) => void;
+  hasLoaded: boolean;
+  pt: any;
+}
+
+const SpinPinnedSection: React.FC<SpinPinnedSectionProps> = ({ hasLoaded, children, intro }) => {
+  const [spinWord, setSpinWord] = useState<number>(0);
   useInterval(
     () => {
       setSpinWord(spinWord === 2 ? 0 : spinWord + 1);
@@ -44,7 +62,7 @@ const SpinPinnedSection = ({ hasLoaded, children, intro }) => {
   );
 };
 
-function Consultoria({ locale, setTitle, pt, hasLoaded }) {
+const Consultoria: React.FC<ConsultoriaProps> = ({ locale, setTitle, pt, hasLoaded }) => {
   let {
     head,
     intro,
@@ -69,7 +87,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
       <SpinPinnedSection hasLoaded={hasLoaded} intro={intro}>
         <>
           <P>{intro.p}</P>
-          <ConsultoriaCTA cta={cta} id="first" />
+          <ConsultoriaCTA cta={cta}/>
           <FitSection>
             <h2>{fit_section.title}</h2>
             <P>{fit_section.p}</P>
@@ -108,7 +126,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
         ))}
       </StepGrid>
       <TitleSection {...last_section.intro} borderTop heading={2}>
-        <ConsultoriaCTA cta={cta} id="second" diagnostico_cta />
+        <ConsultoriaCTA cta={cta} diagnostico_cta />
       </TitleSection>
       <ContactFooter />
     </PageWrapper>
@@ -117,7 +135,7 @@ function Consultoria({ locale, setTitle, pt, hasLoaded }) {
 
 export default Consultoria;
 
-export const getStaticProps = async (context) => {
+export const getStaticProps = async (context: { locale: string }) => {
   const pt = ssrLocale({
     locale: context.locale,
     fileName: "consultoria.json",

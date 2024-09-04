@@ -7,7 +7,6 @@ import { P } from "components/shared/Dangerously";
 import BroadcastRouter from "../BroadcastRouter";
 import EpisodeNumber from "../EpisodeNumber";
 import ShareRouter from "../ShareRouter";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
 import { PrismicNextImage } from "@prismicio/next";
 import { ImageFieldImage } from "@prismicio/client";
 

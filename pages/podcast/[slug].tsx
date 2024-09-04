@@ -13,7 +13,7 @@ import { createClient } from "../../prismicio";
 import { PodcastEpisodePage } from "components/pages/podcastEpisode/PodcastEpisodePage";
 
 const ResourceFooter = lazy(
-  () => import("components/shared/footers/ResourceFooter")
+  () => import("components/layout/footers/ResourceFooter")
 );
 
 const SEO_OVERRIDES = {

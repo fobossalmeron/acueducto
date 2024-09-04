@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 import { useInView } from "react-hook-inview";
 import styled from "styled-components";
-import useInterval from "../utils/useInterval";
+import useInterval from "../../../utils/useInterval";
 import Holed from "public/assets/img/layout/holed.svg";
-import Picture from "components/caseStudy/shared/Picture";
+import Picture from "components/work/Picture";
 
 const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
   const [activeIndex, setIndex] = useState<number>(0);

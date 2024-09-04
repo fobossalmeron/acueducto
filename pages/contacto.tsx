@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import MetalFooter from "components/shared/footers/MetalFooter";
-import ContactForm from "components/ContactForm";
+import MetalFooter from "components/layout/footers/MetalFooter";
+import ContactForm from "components/pages/contacto/ContactForm";
 
 export default function Contact({ locale, setTitle, pt }) {
   const t = useLocalizedContent({
@@ -24,16 +24,8 @@ export default function Contact({ locale, setTitle, pt }) {
         en_canonical={"https://acueducto.studio/en/contact"}
         noIndex
       ></Head>
-      <CustomPinnedSection title={t.intro.title} id="Scroll" heading={1}>
-        <p>
-          {t.intro.p2} <br />
-          <a
-            href={`mailto:hola@acueducto.studio?subject=${t.intro.mailto.subject}&body=${t.intro.mailto.body}`}
-          >
-            hola@acueducto.studio
-          </a>
-        </p>
-        <ContactForm text={t.form} />
+      <CustomPinnedSection title={t.intro.title} heading={1}>
+        <ContactForm text={t.form} intro={t.intro} />
       </CustomPinnedSection>
       <MetalFooter />
     </PageWrapper>
@@ -50,21 +42,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 const CustomPinnedSection = styled(PinnedSection)`
+  .scroll-down {
+    justify-content: center;
+  }
+  padding-bottom: 0;
   a {
     line-height: 165%;
   }
-  // > div > div:nth-of-type(1) a {
-  //   position: relative;
-  //   padding-left: 35px;
-  //   svg {
-  //     width: 35px;
-  //     height: 35px;
-  //     position: absolute;
-  //     top: 0;
-  //     background-color: ${(p) => p.theme.colors.background};
-  //     padding-right: 10px;
-  //     padding-bottom: 5px;
-  //     left: 0;
-  //   }
-  // }
 `;

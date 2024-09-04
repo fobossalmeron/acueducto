@@ -2,16 +2,17 @@ import styled from "styled-components";
 import { useState, useEffect } from "react";
 import { H4 } from "components/shared/Dangerously";
 import Cross from "public/assets/img/layout/cross.svg";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import es from "public/locales/es/newsletter.json";
 import DefaultForm from "components/shared/DefaultForm";
 import { createContact } from "utils/sendinBlue";
 import ReactPixel from "react-facebook-pixel";
 import { advancedMatching } from "utils/analytics";
+import { useLenis } from "utils/LenisContext";
 
 const NewsletterPopup = () => {
   let newsletter = es.newsletter_component;
   const [showPopup, setShowPopup] = useState(false);
+  const { stopScroll, startScroll } = useLenis();
 
   useEffect(() => {
     let timer1 = setTimeout(() => popupShow(), 13000);
@@ -38,15 +39,14 @@ const NewsletterPopup = () => {
   };
 
   const popupShow = () => {
-    // Disable scroll
-    const targetElement = document.querySelector("#NewsletterPopup"); //dummy
-    disableBodyScroll(targetElement);
+    // Usar el método stopScroll del contexto Lenis
+    stopScroll();
     setShowPopup(true);
   };
 
   const unlockScreen = () => {
-    const targetElement = document.querySelector("#NewsletterPopup"); //dummy
-    enableBodyScroll(targetElement);
+    // Usar el método startScroll del contexto Lenis
+    startScroll();
     setShowPopup(false);
   };
 

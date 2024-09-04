@@ -33,43 +33,45 @@ const MetalPinnedSection = ({
     id={id}
     $notSticky={notSticky}
   >
-    {
-      // Si viene un h1 de SEO, renderearlo junto con el título
-      seo_h1 && (
+    <div className="sticky">
+      {
+        // Si viene un h1 de SEO, renderearlo junto con el título
+        seo_h1 && (
+          <Fade triggerOnce>
+            <div>
+              <H1>{seo_h1}</H1>
+              <P className="h1">{title}</P>
+            </div>
+          </Fade>
+        )
+      }
+      {heading === 1 && (
         <Fade triggerOnce>
-          <div>
-            <H1>{seo_h1}</H1>
+          <H1 className="h1">{title}</H1>
+        </Fade>
+      )}
+      {heading === 2 && (
+        <Fade triggerOnce>
+          <H2 className="h1">{title}</H2>
+        </Fade>
+      )}
+      {
+        // Si no hay heading el default es usar un P, revisamos que tampoco exista un título de SEO
+        !heading && !seo_h1 && (
+          <Fade triggerOnce>
             <P className="h1">{title}</P>
-          </div>
-        </Fade>
-      )
-    }
-    {heading === 1 && (
-      <Fade triggerOnce>
-        <H1 className="h1">{title}</H1>
-      </Fade>
-    )}
-    {heading === 2 && (
-      <Fade triggerOnce>
-        <H2 className="h1">{title}</H2>
-      </Fade>
-    )}
-    {
-      // Si no hay heading el default es usar un P, revisamos que tampoco exista un título de SEO
-      !heading && !seo_h1 && (
-        <Fade triggerOnce>
-          <P className="h1">{title}</P>
-        </Fade>
-      )
-    }
-    <ScrollDown>
+          </Fade>
+        )
+      }
+    </div>
+    <div className="scroll-down">
       {disableFade ? children : <Fade triggerOnce>{children}</Fade>}
-    </ScrollDown>
+    </div>
   </Pinned>
 );
 export default React.memo(MetalPinnedSection);
 
-const ScrollDown = styled.div`
+export const ScrollDown = styled.div`
   grid-column: 7 / span 5;
   display: flex;
   flex-direction: column;
@@ -90,9 +92,21 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
       ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
       : "none"};
 
-  div:first-of-type {
+  .sticky {
     grid-column: 2 / span 5;
     z-index: 1;
+    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
+    top: ${(p) => (p.$notSticky ? "0px" : "150px")};
+    max-height: 300px;
+  }
+  .scroll-down {
+    grid-column: 7 / span 5;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    ol {
+      list-style: none;
+    }
   }
   h1:not(.h1) {
     text-transform: uppercase;
@@ -100,12 +114,11 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;
-    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
+    position: relative;
   }
   .h1 {
-    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
+    position: relative;
     max-height: 300px;
-    top: ${(p) => (p.$notSticky ? "0px" : "150px")};
     letter-spacing: 0px;
     line-height: 100%;
     font-size: 7rem;
@@ -120,10 +133,10 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   }
   @media (max-width: 1300px) {
     padding-top: 100px;
-    .h1 {
+    .sticky {
       top: ${(p) => (p.$notSticky ? "unset" : "100px")};
     }
-    ${ScrollDown} {
+    .scroll-down {
       grid-column: 7 / span 5;
     }
   }
@@ -136,16 +149,18 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
     h1:not(.h1) {
       font-size: 1.3rem;
     }
-    .h1 {
+    .sticky{
       position: relative;
       top: 0;
+    }
+    .h1 {
       margin-bottom: 5%;
       max-width: 670px;
     }
     div:first-of-type {
       grid-column: 2 / span 10;
     }
-    ${ScrollDown} {
+    .scroll-down {
       grid-column: 5 / span 7;
     }
   }
@@ -157,7 +172,7 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   @media (max-width: 800px) {
     padding-top: 15%;
     div:first-of-type,
-    ${ScrollDown} {
+    .scroll-down {
       grid-column: 3 / span 8;
     }
     h1:not(.h1) {
@@ -167,7 +182,7 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   @media (max-width: 600px) {
     padding-bottom: 5%;
     div:first-of-type,
-    ${ScrollDown} {
+    .scroll-down {
       grid-column: 1 / span 12;
     }
     h1:not(.h1) {

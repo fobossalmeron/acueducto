@@ -21,5 +21,3 @@ export const ButtonSubmit = React.forwardRef<ButtonSubmitRef, ButtonProps>(
 );
 
 ButtonSubmit.displayName = "ButtonSubmit";
-
-export default ButtonSubmit;

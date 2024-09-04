@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import Head from "components/layout/Head";
 import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/shared/footers/ContactFooter";
+import ContactFooter from "components/layout/footers/ContactFooter";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";

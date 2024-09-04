@@ -1,18 +1,20 @@
 import React, { useEffect, useState, useCallback, useMemo } from "react";
+import { useRouter } from "next/router";
 import { GoogleAnalytics } from "@next/third-parties/google";
+
 import styled, { createGlobalStyle } from "styled-components";
 import Header from "./Header";
 import Nav from "./Nav/Nav";
 import LanguageToggler from "./LanguageToggler";
 import Hamburger from "./Hamburger";
 import Border from "./Border";
-import { useRouter } from "next/router";
 import CookieMessage from "./CookieMessage";
 import ScrollIncentive from "./ScrollIncentive";
-import ReactPixel from "react-facebook-pixel";
-import { disableBodyScroll, enableBodyScroll } from "body-scroll-lock";
 import NewsletterPopup from "components/NewsletterPopup";
+
+import ReactPixel from "react-facebook-pixel";
 import LinkedInTag from "react-linkedin-insight";
+import { useLenis } from "utils/LenisContext";
 
 interface LayoutProps {
   t: any;
@@ -22,11 +24,11 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [showSketch, setShowSketch] = useState<boolean>(true);
   const [headerTitle, setTitle] = useState<string>("");
   const [showArrow, setShowArrow] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const router = useRouter();
+  const { stopScroll, startScroll } = useLenis(); 
 
   const initializePixels = useCallback((): void => {
     const fbOptions = {
@@ -48,15 +50,8 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
     const isHomePage = router.route === "/";
     const isPodcastPage = router.route === "/podcast";
 
-    setShowSketch(isHomePage);
     setShowArrow(isHomePage);
     setShowPopup(isPodcastPage);
-
-    if (!isHomePage && !isPodcastPage) {
-      setShowSketch(false);
-      setShowArrow(false);
-      setShowPopup(false);
-    }
 
     if (hasLoaded) {
       ReactPixel.pageView();
@@ -64,13 +59,12 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   }, [router.route, hasLoaded]);
 
   useEffect(() => {
-    const targetElement = document.querySelector("#Nav");
-    if (targetElement) {
-      isOpen
-        ? disableBodyScroll(targetElement)
-        : enableBodyScroll(targetElement);
+    if (isOpen) {
+      stopScroll();
+    } else {
+      startScroll();
     }
-  }, [isOpen]);
+  }, [isOpen, stopScroll, startScroll]);
 
   const toggleNav = useCallback((): void => {
     setOpen((prev) => !prev);
@@ -82,10 +76,9 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
       React.cloneElement(children, {
         setTitle,
         hasLoaded,
-        showSketch,
         locale: router.locale,
       }),
-    [children, setTitle, hasLoaded, showSketch, router.locale]
+    [children, setTitle, hasLoaded, router.locale]
   );
 
   return (
@@ -128,9 +121,9 @@ const BodyOverflow = createGlobalStyle<{ $hasLoaded: boolean }>`
     overflow-x: hidden;
   }  
   #LayoutWrapper  {
-    overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
-    overflow-x: hidden;
-    height: ${(props) => (props.$hasLoaded ? "auto" : "100vh")};
+    /* overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
+    overflow-x: hidden; */
+    /* height: ${(props) => (props.$hasLoaded ? "auto" : "100vh")}; */
   }  
 `;
 

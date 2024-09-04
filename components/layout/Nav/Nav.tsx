@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useMemo, useEffect } from "react";
 import Link from "next/link";
 import { Fade } from "react-awesome-reveal";
 import { useRouter } from "next/router";
@@ -28,6 +28,26 @@ interface ActiveLinkProps {
 
 const Nav: React.FC<NavProps> = ({ nav, isOpen, closeNav, locale }) => {
   const router = useRouter();
+
+  useEffect(() => {
+    if (isOpen) {
+      nav.forEach((item) => {
+        router.prefetch(item.link);
+      });
+    }
+  }, [isOpen, router]);
+
+  useEffect(() => {
+    const handleRouteChangeComplete = () => {
+      closeNav();
+    };
+
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+  }, [router, closeNav]);
 
   // Usar useMemo para yearRoman
   const yearRoman = useMemo(() => {
@@ -66,7 +86,7 @@ const Nav: React.FC<NavProps> = ({ nav, isOpen, closeNav, locale }) => {
 
   return (
     <NavWrapper open={isOpen} id="Nav">
-      <NavList onClick={closeNav}>
+      <NavList>
         <ul>
           {nav.map((item, index) => (
             <li key={`item${index}`}>

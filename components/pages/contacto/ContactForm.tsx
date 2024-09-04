@@ -1,50 +1,109 @@
-import { useState, useRef } from "react";
-import { useForm } from "react-hook-form";
+import React, { useRef, useState } from "react";
+import { SubmitHandler, useForm } from "react-hook-form";
 import styled, { keyframes } from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import delayForLoading from "utils/delayForLoading";
-import { sendToHola, createContact } from "utils/sendinBlue";
-import InputField, { CheckMark } from "components/shared/ContactInputField";
-import ButtonArrow from "components/shared/footers/ButtonArrow";
+import Lottie from "lottie-react";
 
-const ContactForm = ({ text }) => {
-  const [formStatus, setFormStatus] = useState("");
-  const [requirePhone, setRequirePhone] = useState(false);
-  const formRef = useRef(null);
+import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
+import InputField from "components/shared/ContactInputField";
+import AmongUs from "public/assets/lottie/amongus5.json";
+import delayForLoading from "utils/delayForLoading";
+import { useLenis } from "utils/LenisContext";
+import { createContact, MailForHola, sendToHola } from "utils/sendinBlue";
+
+interface ContactFormProps {
+  intro: {
+    p2: string;
+    mailto: { subject: string; body: string };
+  };
+  text: {
+    p3: string;
+    email: {
+      label: string;
+      placeholder: string;
+      errorMissing: string;
+      errorInvalid: string;
+    };
+    firstName: { label: string; placeholder: string; errorMissing: string };
+    lastName: { label: string; placeholder: string; errorMissing: string };
+    company: { label: string; placeholder: string; errorMissing: string };
+    job: { label: string; placeholder: string; errorMissing: string };
+    message: { label: string; placeholder: string; errorMissing: string };
+    submit: string;
+    loading: string;
+    success: { p: string };
+  };
+  testing?: boolean;
+}
+
+type FormStatus = "IDLE" | "LOADING" | "SUCCESS";
+
+const ContactForm: React.FC<ContactFormProps> = ({
+  text,
+  intro,
+  testing = false,
+}) => {
+
+  //Para evitar publicar el formulario sin que funcione
+  if (process.env.NODE_ENV === 'production' && testing) {
+    throw new Error('No se puede usar el prop "testing" en producción');
+  }
+
+  const [formStatus, setFormStatus] = useState<FormStatus>("IDLE");
+  const formRef = useRef<HTMLFormElement>(null);
+  const { lenis } = useLenis();
 
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm<MailForHola>();
 
-  const onSubmitInside = (data) => {
-    let listData = {
+  const onSubmitInside: SubmitHandler<MailForHola> = async (data) => {
+    const listData = {
       listIds: [10], //PidioExploracion
       updateEnabled: true,
       attributes: {
         SUBSCRIBED_FROM: "Contact Form",
         COMPANY: data.company,
         POSITION: data.job,
-        CONTACT_BY_PHONE: data.phoneCheckbox,
-        PHONE: data.phone ? data.phone : " ",
         JOB: data.job,
       },
     };
-    let completeData = { ...data, ...listData };
-    document.getElementById("Scroll").scrollIntoView({ behavior: "smooth" });
-    delayForLoading(300).then(() => setFormStatus("loading"));
-    sendToHola(data);
-    createContact(completeData);
-    delayForLoading(1800).then(() => setFormStatus("done"));
-  };
+    const completeData = { ...data, ...listData };
+    lenis.scrollTo(0, { immediate: false });
+    await delayForLoading(300);
+    setFormStatus("LOADING");
 
-  const phoneFieldChange = () => setRequirePhone(!requirePhone);
+    if (testing) {
+      console.log(
+        "Modo de prueba: Simulando envío exitoso del formulario",
+        completeData
+      );
+      await delayForLoading(1800); // Simular el tiempo de espera
+    } else {
+      await Promise.all([
+        sendToHola(data),
+        createContact(completeData),
+        delayForLoading(1800),
+      ]);
+    }
+
+    setFormStatus("SUCCESS");
+  };
 
   return (
     <>
-      {formStatus === "" && (
+      {formStatus === "IDLE" && (
         <>
+          <p>
+            {intro.p2} <br />
+            <a
+              href={`mailto:hola@acueducto.studio?subject=${intro.mailto.subject}&body=${intro.mailto.body}`}
+            >
+              hola@acueducto.studio
+            </a>
+          </p>
           <p>{text.p3}</p>
           <Form onSubmit={handleSubmit(onSubmitInside)} ref={formRef}>
             <InputField>
@@ -124,18 +183,24 @@ const ContactForm = ({ text }) => {
               />
               {errors.message && <span>{text.message.errorMissing}</span>}
             </InputField>
-            <ButtonArrow text={text.submit} submitButton inverse />
+            <ButtonSubmit text={text.submit} inverse />
           </Form>
         </>
       )}
-      {formStatus === "loading" && (
+      {formStatus === "LOADING" && (
         <Fade triggerOnce>
           <Loading>
-            <p>{text.loading}</p>
+            <Lottie animationData={AmongUs} loop={true} className="lottie" />
           </Loading>
         </Fade>
       )}
-      {formStatus === "done" && <Message>{text.success.p}</Message>}
+      {formStatus === "SUCCESS" && (
+        <Fade triggerOnce>
+          <Message>
+            <p>{text.success.p}</p>
+          </Message>
+        </Fade>
+      )}
     </>
   );
 };
@@ -153,12 +218,30 @@ const OneLine = styled.div`
 
 const Message = styled.div`
   color: ${(p) => p.theme.colors.success};
+  border: 2px solid ${(p) => p.theme.colors.success};
+  background-color: ${(p) => p.theme.colors.success_background};
+  border-radius: 30px;
   font-size: 1.8rem;
-  padding-bottom: 5px;
-  max-width: 250px;
+  padding: 30px 35px;
+  text-align: center;
+  text-align: center;
+  display: flex;
+  width: 100%;
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p,
+  p:first-of-type {
+    max-width: 30ch;
+    color: inherit;
+    padding: 0;
+    margin: 0;
+  }
   @media (max-width: 600px), (max-height: 450px) {
-    font-size: 1.5rem;
-    max-width: 200px;
+    font-size: 1.6rem;
+    margin-top: 20px;
   }
 `;
 
@@ -173,16 +256,30 @@ const fadeIn = keyframes`
 
 const Loading = styled.div`
   width: 100%;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   display: flex;
   padding-bottom: 10%;
-  padding-top: 5%;
-  flex-direction: column;
+  padding-top: 10%;
+  flex-direction: row;
   p {
     margin-bottom: 5px;
+    margin-left: 20px;
+    width: 100%;
+    font-weight: 200;
+    font-size: 2.2rem;
   }
-  &:after {
+  .lottie {
+      width: 100px;
+      height: 100px;
+    }
+  @media (max-width: 600px), (max-height: 450px) {
+    .lottie {
+      width: 70px;
+      height: 70px;
+    }
+  }
+  /* &:after {
     display: flex;
     height: 2px;
     background-color: ${(p) => p.theme.colors.accent};
@@ -192,13 +289,13 @@ const Loading = styled.div`
   &:before {
     content: " ";
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: ${(p) => `${p.theme.colors.accent}80`};
     height: 4px;
-    margin-top: 35px;
+    margin-top: 37px;
     width: 10%;
     animation: 3s ${fadeIn} ease-out infinite;
     animation-iteration-count: infinite;
-  }
+  } */
 `;
 
 const Form = styled.form`
