@@ -2,18 +2,28 @@ import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import { P } from "components/shared/Dangerously";
 
-const Insight = (props) => (
-  <InsightWrapper color={props.color}>
+interface InsightProps {
+  color?: string;
+  number: number;
+  insight: {
+    title: string;
+    p: string;
+  };
+  children?: React.ReactNode;
+}
+
+const Insight: React.FC<InsightProps> = ({ color, number, insight, children }) => (
+  <InsightWrapper color={color}>
     <Limiter>
       <Fade triggerOnce>
         <h4>
-          <span>0{props.number}</span>
-          {props.insight.title}
+          <span>0{number}</span>
+          {insight.title}
         </h4>
-        <P>{props.insight.p}</P>
+        <P>{insight.p}</P>
       </Fade>
     </Limiter>
-    {props.children}
+    {children}
   </InsightWrapper>
 );
 
@@ -24,21 +34,23 @@ const Limiter = styled.div`
   width: 100%;
 `;
 
-const InsightWrapper = styled.div`
+const InsightWrapper = styled.div<{ $color?: string }>`
   margin: 10% 0 4% 0;
   padding: 0 5%;
   width: 100%;
   align-items: center;
   display: flex;
   flex-direction: column;
+
   h4 {
     font-weight: 300;
     margin-bottom: 10px;
     font-size: 3rem;
     position: relative;
+
     span {
       font-size: 1.5rem;
-      color: ${(props) => (props.color ? props.color : "#008dc9")};
+      color: ${({ $color }) => $color || "#008dc9"};
       display: block;
       position: absolute;
       bottom: 0;
@@ -46,11 +58,13 @@ const InsightWrapper = styled.div`
       line-height: 190%;
     }
   }
+
   @media (max-width: 1000px) {
     h4 {
       font-size: 2.4rem;
     }
   }
+
   @media (max-width: 850px) {
     h4 {
       span {
@@ -60,6 +74,7 @@ const InsightWrapper = styled.div`
         margin-right: 15px;
         font-size: 5rem;
       }
+
       &:after {
         content: "–";
         font-size: 3rem;
@@ -67,7 +82,7 @@ const InsightWrapper = styled.div`
         width: 100%;
         min-height: 25px;
         line-height: 60%;
-        color: ${(props) => (props.color ? props.color : "#019ee3")};
+        color: ${({ $color }) => $color || "#019ee3"};
       }
     }
   }
