@@ -1,7 +1,6 @@
 // const withBundleAnalyzer = require("@next/bundle-analyzer")({
 //   enabled: process.env.ANALYZE === "true",
 // });
-const path = require("path");
 
 const nextConfig = {
   compiler: {
@@ -149,7 +148,7 @@ const nextConfig = {
   },
   //env config
   env: {
-    SENDINBLUE_API: process.env.SENDINBLUE_API,
+    BREVO_API: process.env.BREVO_API,
   },
   i18n: {
     locales: ["es", "en"],

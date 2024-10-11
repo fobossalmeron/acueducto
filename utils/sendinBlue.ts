@@ -26,7 +26,7 @@ export const createContact = async (submittedData: NewContact) => {
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.SENDINBLUE_API,
+      "api-key": process.env.BREVO_API,
     },
     body: JSON.stringify({
       updateEnabled: updateEnabled,
@@ -59,7 +59,7 @@ export const updateContact = async (submittedData: UpdatedContact) => {
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.SENDINBLUE_API,
+      "api-key": process.env.BREVO_API,
     },
     body: JSON.stringify({
       listIds: listIds,
@@ -111,7 +111,7 @@ export const sendToHola = async (formData: MailForHola) => {
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.SENDINBLUE_API,
+      "api-key": process.env.BREVO_API,
     },
     body: JSON.stringify({
       sender: {
