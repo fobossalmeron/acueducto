@@ -126,7 +126,7 @@ export const sendToHola = async (formData: MailForHola) => {
   };
 
   const response = await fetch(
-    "https://api.sendinblue.com/v3/smtp/email",
+    "https://api.brevo.com/v3/smtp/email",
     requestOptions
   );
 
