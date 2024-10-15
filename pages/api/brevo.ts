@@ -57,6 +57,7 @@ async function handleCreateContact(data: any, res: NextApiResponse) {
     const response = await fetch("https://api.sendinblue.com/v3/contacts", requestOptions);
     
     const responseText = await response.text();
+    console.log('full response:', response);
     console.log('Respuesta de la API de Brevo:', responseText); // Log de la respuesta completa
     
     let responseData;
