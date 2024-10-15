@@ -1,5 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { capitalize, capitalizeAll } from 'utils/capitalize';
+import { NewContact, MailContact } from 'utils/types/BrevoProps';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -8,24 +9,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
   const { action, data } = req.body;
 
-  // Registro seguro de la clave API
+  // Safe logging of the API key
   const apiKey = process.env.BREVO_API || '';
   const lastThreeDigits = apiKey.slice(-3);
-  console.log(`BREVO_API configurada: ${apiKey ? 'Sí' : 'No'}, Últimos 3 dígitos: ${lastThreeDigits}`);
+  console.log(`BREVO_API configured: ${apiKey ? 'Yes' : 'No'}, Last 3 digits: ${lastThreeDigits}`);
 
   switch (action) {
     case 'createContact':
       return handleCreateContact(data, res);
-    case 'updateContact':
-      return handleUpdateContact(data, res);
-    case 'sendToHola':
-      return handleSendToHola(data, res);
+    case 'sendEmail':
+      return handleSendEmail(data, res);
     default:
       return res.status(400).json({ message: 'Acción no válida' });
   }
 }
 
-async function handleCreateContact(data: any, res: NextApiResponse) {
+async function handleCreateContact(data: NewContact, res: NextApiResponse) {
   const { firstName, lastName, email, listIds, updateEnabled, attributes } = data;
   let capitalizedName = firstName ? capitalize(firstName) : " ";
   let capitalizedLastName = lastName ? capitalize(lastName) : " ";
@@ -50,78 +49,47 @@ async function handleCreateContact(data: any, res: NextApiResponse) {
 
   try {
     if (!process.env.BREVO_API) {
-      console.error('BREVO_API no está configurada');
+      console.error('BREVO_API is not configured');
       return res.status(500).json({ message: 'Error de configuración del servidor' });
     }
-    
+
     const response = await fetch("https://api.brevo.com/v3/contacts", requestOptions);
     
-    console.log('full response:', response);
-    console.log('Respuesta de la API de Brevo:', response.status, response.statusText);
+    console.log('Complete response from Brevo API:', response.status, response.statusText, response.body, response);
 
     if (response.status === 204) {
-      // La operación fue exitosa, pero no hay contenido para devolver
-      return res.status(200).json({ message: 'Contacto creado exitosamente' });
+      // 204 indicates that an existing contact was successfully updated
+      return res.status(200).json({ message: 'Contacto actualizado exitosamente' });
     }
 
-    if (!response.ok) {
-      const errorText = await response.text();
-      console.error('Error en la API de Brevo:', response.status, errorText);
-      return res.status(response.status).json({ message: 'Error al crear el contacto', error: errorText });
+    if (response.status === 201) {
+      // 201 indicates that a new contact was created
+      const responseData = await response.json();
+      return res.status(201).json({ message: 'Contacto creado exitosamente', data: responseData });
     }
-    
-    const responseText = await response.text();
-    let responseData;
-    try {
-      responseData = JSON.parse(responseText);
-    } catch (parseError) {
-      console.warn('La respuesta no es un JSON válido:', responseText);
-      responseData = { message: 'Contacto creado, pero la respuesta no es JSON' };
-    }
-    
-    return res.status(200).json(responseData);
-  } catch (error) {
-    console.error('Error detallado:', error);
-    return res.status(500).json({ message: 'Error al crear el contacto', error: error.message });
-  }
-}
 
-async function handleUpdateContact(data: any, res: NextApiResponse) {
-  const { email, listIds, unlinkListIds } = data;
-  let requestOptions = {
-    method: "PUT",
-    headers: {
-      accept: "application/json",
-      "content-type": "application/json",
-      "api-key": process.env.BREVO_API,
-    },
-    body: JSON.stringify({
-      listIds: listIds,
-      unlinkListIds: unlinkListIds,
-    }),
-  };
-
-  try {
-    if (!process.env.BREVO_API) {
-      console.error('BREVO_API no está configurada');
-      return res.status(500).json({ message: 'Error de configuración del servidor' });
-    }
-    
-    const response = await fetch(`https://api.brevo.com/v3/contacts/${email}`, requestOptions);
     if (!response.ok) {
       const errorData = await response.json();
-      console.error('Error en la API de Brevo:', errorData);
-      return res.status(response.status).json(errorData);
+      console.error('Error in Brevo API:', response.status, errorData);
+
+      switch (response.status) {
+        case 400:
+          return res.status(400).json({ message: 'Datos de contacto inválidos', error: errorData.message });
+        case 401:
+          return res.status(401).json({ message: 'Error de autenticación' });
+        case 429:
+          return res.status(429).json({ message: 'Límite de tasa excedido' });
+        default:
+          return res.status(response.status).json({ message: 'Error al procesar el contacto', error: errorData.message });
+      }
     }
-    const data = await response.json();
-    return res.status(response.status).json(data);
   } catch (error) {
-    console.error('Error detallado:', error);
-    return res.status(500).json({ message: 'Error al actualizar el contacto', error: error.message });
+    console.error('Detailed error:', error);
+    return res.status(500).json({ message: 'Error interno del servidor', error: error.message });
   }
 }
 
-async function handleSendToHola(data: any, res: NextApiResponse) {
+async function handleSendEmail(data: MailContact, res: NextApiResponse) {
   const { firstName, lastName, email, company, job, message } = data;
 
   let completeName = capitalize(firstName) + " " + capitalizeAll(lastName);
@@ -156,20 +124,20 @@ async function handleSendToHola(data: any, res: NextApiResponse) {
 
   try {
     if (!process.env.BREVO_API) {
-      console.error('BREVO_API no está configurada');
+      console.error('BREVO_API is not configured');
       return res.status(500).json({ message: 'Error de configuración del servidor' });
     }
-    
+
     const response = await fetch("https://api.brevo.com/v3/smtp/email", requestOptions);
     if (!response.ok) {
       const errorData = await response.json();
-      console.error('Error en la API de Brevo:', errorData);
+      console.error('Error in Brevo API:', errorData);
       return res.status(response.status).json(errorData);
     }
     const data = await response.json();
     return res.status(response.status).json(data);
   } catch (error) {
-    console.error('Error detallado:', error);
+    console.error('Detailed error:', error);
     return res.status(500).json({ message: 'Error al enviar el correo', error: error.message });
   }
 }

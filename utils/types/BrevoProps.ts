@@ -7,12 +7,6 @@ export interface NewContact {
     attributes?: object;
 }
 
-export interface UpdatedContact {
-    email: string;
-    listIds: number[];
-    unlinkListIds: number[];
-}
-
 export interface MailContact {
     firstName: string;
     lastName: string;

@@ -9,7 +9,7 @@ import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
 import InputField from "components/shared/ContactInputField";
 import delayForLoading from "utils/delayForLoading";
 import { useLenis } from "utils/LenisContext";
-import { createContact, sendToHola } from "utils/brevo";
+import { createContact, sendEmail } from "utils/brevo";
 import { MailContact } from "utils/types/BrevoProps";
 
 const DynamicAmongUs = dynamic(() => import("./AmongUs"), {
@@ -87,7 +87,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         await delayForLoading(2300);
       } else {
         await Promise.all([
-          sendToHola(data),
+          sendEmail(data),
           createContact(completeData).catch(() => {
             setFormStatus("IDLE");
             console.error("Error al crear el contacto en Brevo");

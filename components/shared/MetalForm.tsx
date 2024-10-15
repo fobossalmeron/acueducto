@@ -22,7 +22,7 @@ type MetalFormProps = {
 };
 
 const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
-  const [formStatus, setFormStatus] = useState("");
+  const [formStatus, setFormStatus] = useState("done");
   const {
     register,
     handleSubmit,
@@ -186,13 +186,12 @@ const Loading = styled.div`
 const Success = styled.div`
   border: ${(p) => p.theme.colors.success} solid 1px;
   background-color: #c1f1d5;
-  border-radius: 50px;
+  border-radius: 18px;
   width: auto;
   display: inline-flex;
-  padding: 6px 22px 10px;
+  padding: 12px 22px 14px;
   align-self: flex-start;
   margin-top: 6%;
-  height: 57px;
   justify-self: flex-start;
   p {
     padding-top: 0;
