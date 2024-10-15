@@ -55,13 +55,24 @@ async function handleCreateContact(data: any, res: NextApiResponse) {
     }
     
     const response = await fetch("https://api.sendinblue.com/v3/contacts", requestOptions);
-    if (!response.ok) {
-      const errorData = await response.json();
-      console.error('Error en la API de Brevo:', errorData);
-      return res.status(response.status).json(errorData);
+    
+    const responseText = await response.text();
+    console.log('Respuesta de la API de Brevo:', responseText); // Log de la respuesta completa
+    
+    let responseData;
+    try {
+      responseData = JSON.parse(responseText);
+    } catch (parseError) {
+      console.error('Error al parsear la respuesta JSON:', parseError);
+      return res.status(500).json({ message: 'Error al procesar la respuesta del servidor' });
     }
-    const data = await response.json();
-    return res.status(response.status).json(data);
+
+    if (!response.ok) {
+      console.error('Error en la API de Brevo:', response.status, responseData);
+      return res.status(response.status).json({ message: 'Error al crear el contacto', error: responseData });
+    }
+    
+    return res.status(response.status).json(responseData);
   } catch (error) {
     console.error('Error detallado:', error);
     return res.status(500).json({ message: 'Error al crear el contacto', error: error.message });
