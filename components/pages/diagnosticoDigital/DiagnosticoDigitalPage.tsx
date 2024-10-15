@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { Fade } from "react-awesome-reveal";
 import Arrow from "components/shared/Arrow";
-import { createContact } from "utils/sendinBlue";
+import { createContact } from "utils/brevo";
 import { advancedMatching } from "utils/analytics";
 import delayForLoading from "utils/delayForLoading";
 import Results from "./Results";

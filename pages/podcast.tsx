@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, { useEffect, useMemo, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import dynamic from "next/dynamic";
@@ -18,7 +18,7 @@ import TitleSection from "components/shared/TitleSection";
 import MetalForm from "components/shared/MetalForm";
 
 import ssrLocale from "utils/ssrLocale";
-import { createContact } from "utils/sendinBlue";
+import { createContact } from "utils/brevo";
 import { advancedMatching } from "utils/analytics";
 import { useIsMobile } from "utils/useIsMobile";
 import { createClient } from "../prismicio";

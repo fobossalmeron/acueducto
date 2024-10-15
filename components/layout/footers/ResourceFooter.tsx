@@ -7,7 +7,7 @@ import TitleSectionGrid from "components/shared/TitleSectionGrid";
 import FooterLogoCrop from "./FooterLogoCrop";
 import DefaultForm from "components/shared/DefaultForm";
 import es from "public/locales/es/resourcefooter.json";
-import { createContact } from "utils/sendinBlue";
+import { createContact } from "utils/brevo";
 import { advancedMatching } from "utils/analytics";
 import ReactPixel from "react-facebook-pixel";
 import Link from "next/link";

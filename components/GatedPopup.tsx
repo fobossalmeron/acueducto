@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { H4 } from "components/shared/Dangerously";
-import { createContact } from "utils/sendinBlue";
+import { createContact } from "utils/brevo";
 import ReactPixel from "react-facebook-pixel";
 import { advancedMatching } from "utils/analytics";
 import GateForm from "components/GateForm";

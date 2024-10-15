@@ -4,7 +4,7 @@ import { H4 } from "components/shared/Dangerously";
 import Cross from "public/assets/img/layout/cross.svg";
 import es from "public/locales/es/newsletter.json";
 import DefaultForm from "components/shared/DefaultForm";
-import { createContact } from "utils/sendinBlue";
+import { createContact } from "utils/brevo";
 import ReactPixel from "react-facebook-pixel";
 import { advancedMatching } from "utils/analytics";
 import { useLenis } from "utils/LenisContext";

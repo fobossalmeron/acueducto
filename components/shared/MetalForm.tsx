@@ -198,6 +198,6 @@ const Success = styled.div`
     padding-top: 0;
     max-width: unset;
     align-self: center;
-    color: #1c7d45;
+    color: #1c7d45 !important;
   }
 `;
