@@ -22,7 +22,7 @@ type MetalFormProps = {
 };
 
 const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
-  const [formStatus, setFormStatus] = useState("done");
+  const [formStatus, setFormStatus] = useState("");
   const {
     register,
     handleSubmit,
