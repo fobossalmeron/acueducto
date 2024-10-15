@@ -54,26 +54,32 @@ async function handleCreateContact(data: any, res: NextApiResponse) {
       return res.status(500).json({ message: 'Error de configuración del servidor' });
     }
     
-    const response = await fetch("https://api.sendinblue.com/v3/contacts", requestOptions);
+    const response = await fetch("https://api.brevo.com/v3/contacts", requestOptions);
+    
+    console.log('full response:', response);
+    console.log('Respuesta de la API de Brevo:', response.status, response.statusText);
+
+    if (response.status === 204) {
+      // La operación fue exitosa, pero no hay contenido para devolver
+      return res.status(200).json({ message: 'Contacto creado exitosamente' });
+    }
+
+    if (!response.ok) {
+      const errorText = await response.text();
+      console.error('Error en la API de Brevo:', response.status, errorText);
+      return res.status(response.status).json({ message: 'Error al crear el contacto', error: errorText });
+    }
     
     const responseText = await response.text();
-    console.log('full response:', response);
-    console.log('Respuesta de la API de Brevo:', responseText); // Log de la respuesta completa
-    
     let responseData;
     try {
       responseData = JSON.parse(responseText);
     } catch (parseError) {
-      console.error('Error al parsear la respuesta JSON:', parseError);
-      return res.status(500).json({ message: 'Error al procesar la respuesta del servidor' });
-    }
-
-    if (!response.ok) {
-      console.error('Error en la API de Brevo:', response.status, responseData);
-      return res.status(response.status).json({ message: 'Error al crear el contacto', error: responseData });
+      console.warn('La respuesta no es un JSON válido:', responseText);
+      responseData = { message: 'Contacto creado, pero la respuesta no es JSON' };
     }
     
-    return res.status(response.status).json(responseData);
+    return res.status(200).json(responseData);
   } catch (error) {
     console.error('Error detallado:', error);
     return res.status(500).json({ message: 'Error al crear el contacto', error: error.message });
@@ -101,7 +107,7 @@ async function handleUpdateContact(data: any, res: NextApiResponse) {
       return res.status(500).json({ message: 'Error de configuración del servidor' });
     }
     
-    const response = await fetch(`https://api.sendinblue.com/v3/contacts/${email}`, requestOptions);
+    const response = await fetch(`https://api.brevo.com/v3/contacts/${email}`, requestOptions);
     if (!response.ok) {
       const errorData = await response.json();
       console.error('Error en la API de Brevo:', errorData);
