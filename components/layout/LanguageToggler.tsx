@@ -4,6 +4,7 @@ import Arrows from "public/assets/img/layout/language2.svg";
 import { useRouter } from "next/router";
 
 const ONE_LANG_PAGES = [
+  "user-feedback-masterclass",
   "consultoria",
   "podcast",
   "mvs",
