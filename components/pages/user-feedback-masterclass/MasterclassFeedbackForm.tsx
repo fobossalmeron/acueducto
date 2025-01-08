@@ -50,7 +50,7 @@ const MasterclassFeedbackForm = () => {
           <p>¡Hola ${data.firstName}!</p>
           <p>Gracias por registrarte a la Masterclass + Sesión de Networking de Acueducto "Itera con el feedback de tus usuarios".</p>
           <p>Te enviaremos la información del venue pronto.</p>
-          <p>¡Nos vemos!<br/>Equipo Acueducto</p>
+          <p>¡Nos vemos!<br/>Artemio, CEO de Acueducto</p>
         `,
         subject: "Registro exitoso - Itera con el feedback de tus usuarios, Masterclass",
       };
