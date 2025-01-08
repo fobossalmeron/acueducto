@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { capitalize, capitalizeAll } from 'utils/capitalize';
-import { NewContact, MailContact } from 'utils/types/BrevoProps';
+import { NewContact, MailContact, EmailToContact } from 'utils/types/BrevoProps';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -19,6 +19,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       return handleCreateContact(data, res);
     case 'sendEmail':
       return handleSendEmail(data, res);
+    case 'SendEmailToContact':
+      return handleSendEmailToContact(data, res);
     default:
       return res.status(400).json({ message: 'Acción no válida' });
   }
@@ -119,6 +121,48 @@ async function handleSendEmail(data: MailContact, res: NextApiResponse) {
       subject: "Nuevo proyecto - desde /contacto",
       replyTo: { email: email, name: completeName },
       textContent: htmlContent,
+    }),
+  };
+
+  try {
+    if (!process.env.BREVO_API) {
+      console.error('BREVO_API is not configured');
+      return res.status(500).json({ message: 'Error de configuración del servidor' });
+    }
+
+    const response = await fetch("https://api.brevo.com/v3/smtp/email", requestOptions);
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error('Error in Brevo API:', errorData);
+      return res.status(response.status).json(errorData);
+    }
+    const data = await response.json();
+    return res.status(response.status).json(data);
+  } catch (error) {
+    console.error('Detailed error:', error);
+    return res.status(500).json({ message: 'Error al enviar el correo', error: error.message });
+  }
+}
+
+async function handleSendEmailToContact(data: EmailToContact, res: NextApiResponse) {
+  const { email, message, subject } = data;
+
+  let requestOptions = {
+    method: "POST",
+    headers: {
+      accept: "application/json",
+      "content-type": "application/json",
+      "api-key": process.env.BREVO_API,
+    },
+    body: JSON.stringify({
+      sender: {
+        email: "hola@acueducto.studio",
+        name: "Acueducto",
+      },
+      to: [{ email: email }],
+      subject: subject,
+      replyTo: { email: "hola@acueducto.studio", name: "Acueducto" },
+      htmlContent: message,
     }),
   };
 

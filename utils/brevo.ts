@@ -1,4 +1,4 @@
-import { NewContact, MailContact } from './types/BrevoProps';
+import { NewContact, MailContact, EmailToContact } from './types/BrevoProps';
 
 // Función para crear un contacto
 export const createContact = async (submittedData: NewContact) => {
@@ -24,6 +24,21 @@ export const sendEmail = async (formData: MailContact) => {
     },
     body: JSON.stringify({
       action: 'sendEmail',
+      data: formData,
+    }),
+  });
+  return response;
+};
+
+// Función para enviar un correo a un contacto específico
+export const sendEmailToContact = async (formData: EmailToContact) => {
+  const response = await fetch('/api/brevo', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      action: 'SendEmailToContact',
       data: formData,
     }),
   });

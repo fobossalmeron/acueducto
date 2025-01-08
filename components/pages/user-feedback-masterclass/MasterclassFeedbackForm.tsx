@@ -8,7 +8,7 @@ import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
 import InputField from "components/shared/ContactInputField";
 import delayForLoading from "utils/delayForLoading";
 import { useLenis } from "utils/LenisContext";
-import { createContact, sendEmail } from "utils/brevo";
+import { createContact, sendEmailToContact } from "utils/brevo";
 import { MailContact } from "utils/types/BrevoProps";
 
 interface FeedbackFormData extends MailContact {
@@ -46,15 +46,13 @@ const MasterclassFeedbackForm = () => {
 
       const emailData = {
         ...data,
-        message: `¡Hola ${data.firstName}!
-
-Gracias por registrarte a la Masterclass + Sesión de Networking de Acueducto "Itera con el feedback de tus usuarios".
-
-Te enviaremos la información del venue pronto.
-
-¡Nos vemos!
-Equipo Acueducto`,
-        subject: "Registro exitoso - Masterclass Acueducto",
+        message: `
+          <p>¡Hola ${data.firstName}!</p>
+          <p>Gracias por registrarte a la Masterclass + Sesión de Networking de Acueducto "Itera con el feedback de tus usuarios".</p>
+          <p>Te enviaremos la información del venue pronto.</p>
+          <p>¡Nos vemos!<br/>Equipo Acueducto</p>
+        `,
+        subject: "Registro exitoso - Itera con el feedback de tus usuarios, Masterclass",
       };
 
       const completeData = { ...data, ...listData };
@@ -64,7 +62,7 @@ Equipo Acueducto`,
       
       try {
         await Promise.all([
-          sendEmail(emailData),
+          sendEmailToContact(emailData),
           createContact(completeData),
           delayForLoading(2300),
         ]);
@@ -91,7 +89,7 @@ Equipo Acueducto`,
           <h1>Itera con el feedback de tus usuarios</h1>
           <ul>
             <li>Roma Sur, Ciudad de México (venue por confirmar)</li>
-            <li>29 de enero del 2025</li>
+            <li>Martes 28 de enero del 2025</li>
           </ul>
           <p>Llena el formulario y ven a nuestra masterclass.</p>
         </FormInfo>

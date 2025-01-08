@@ -15,3 +15,9 @@ export interface MailContact {
     job: string;
     message: string;
 }
+
+export interface EmailToContact {
+    email: string;
+    message: string;
+    subject: string;
+}

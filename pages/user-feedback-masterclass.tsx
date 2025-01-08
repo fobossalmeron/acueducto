@@ -7,7 +7,7 @@ import PinnedSection from "components/shared/pinnedSections/PinnedSection";
 const t = {
   head: {
     title: "Ven a nuestra masterclass + sesión de networking",
-    description: 'Ven a nuestra masterclass "Itera con el feedback de tus usuarios" + sesión de networking el próximo 29 de enero del 2025 en la colonia Roma Sur, Ciudad de México (ubicación a confirmar)',
+    description: 'Ven a nuestra masterclass "Itera con el feedback de tus usuarios" + sesión de networking el próximo martes 28 de enero del 2025 en la colonia Roma Sur, Ciudad de México (ubicación a confirmar)',
     headerTitle: "Masterclass",
   },
 };
