@@ -2,10 +2,12 @@ import styled from "styled-components";
 import Screen1 from "public/assets/img/casestudies/recupera/screen1.png";
 import Screen2 from "public/assets/img/casestudies/recupera/screen2.png";
 import Screen3 from "public/assets/img/casestudies/recupera/screen3.png";
-import Lottie from "lottie-react";
+import dynamic from 'next/dynamic';
 import animationData from "public/assets/img/casestudies/recupera/lottie-recupera.json";
 import { Fade } from "react-awesome-reveal";
 import Image from "next/legacy/image";
+
+const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const ScreenAnimation = () => {
   return (

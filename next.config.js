@@ -133,6 +133,8 @@ const nextConfig = {
   },
   reactStrictMode: true,
   webpack: (config) => {
+    config.cache = false;
+    
     config.module.rules.push({
       test: /\.svg$/,
       use: [
