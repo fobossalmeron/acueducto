@@ -86,10 +86,10 @@ const MasterclassFeedbackForm = () => {
       <FadeWrapper>
         <FormInfo>
           <span>masterclass + sesión de networking</span>
-          <h1>Itera con el feedback de tus usuarios</h1>
+          <h1>itera con el feedback de tus usuarios</h1>
           <ul>
             <li>Roma Sur, Ciudad de México (venue por confirmar)</li>
-            <li>Martes 28 de enero del 2025</li>
+            <li>Jueves 30 de enero del 2025</li>
           </ul>
           <p>Llena el formulario y ven a nuestra masterclass.</p>
         </FormInfo>
