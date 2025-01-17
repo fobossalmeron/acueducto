@@ -6,7 +6,7 @@ import Image from "next/image";
 import cindy from "public/assets/img/layout/clients/cindy.jpg";
 import karla from "public/assets/img/layout/clients/karla.jpg";
 import rodrigo from "public/assets/img/layout/clients/rodrigo.jpg";
-
+import david from "public/assets/img/layout/clients/david.jpg";
 const cards = [
   {
     text: "No hay una sola persona que no me haya dicho que el trabajo que hicimos con Acueducto fue verdaderamente excepcional y el diseño sofisticado.",
@@ -25,6 +25,12 @@ const cards = [
     person: "Cindy Borgatta", 
     job: "CMO, Borgatta",
     picture: cindy,
+  },
+  {
+    text: "Nunca nos había entendido una agencia como nos entiende Acueducto. Son el mejor estudio con el que he trabajado.",
+    person: "David Elizondo", 
+    job: "Product Manager, DeAcero",
+    picture: david,
   },
 ];
 
