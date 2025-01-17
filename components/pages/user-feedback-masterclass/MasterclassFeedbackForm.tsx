@@ -37,7 +37,7 @@ const MasterclassFeedbackForm = () => {
         listIds: [17],
         updateEnabled: true,
         attributes: {
-          SUBSCRIBED_FROM: "User Feedback Masterclass Form",
+          SUBSCRIBED_FROM: "Meetup #1",
           COMPANY: data.company,
           POSITION: data.position,
           JOB: data.position,
@@ -48,11 +48,11 @@ const MasterclassFeedbackForm = () => {
         ...data,
         message: `
           <p>¡Hola ${data.firstName}!</p>
-          <p>Gracias por registrarte a la Masterclass + Sesión de Networking de Acueducto "Itera con el feedback de tus usuarios".</p>
-          <p>Te enviaremos la información del venue pronto.</p>
+          <p>Gracias por registrarte a nuestro Tech Leaders Meetup.</p>
+          <p>La dirección del evento es <a href="https://g.co/kgs/g55m26C">Iglesia 270, San Ángel, Ciudad de México</a>.</p>
           <p>¡Nos vemos!<br/>Artemio, CEO de Acueducto</p>
         `,
-        subject: "Registro exitoso - Itera con el feedback de tus usuarios, Masterclass",
+        subject: "Registro exitoso - Tech Leaders Meetup",
       };
 
       const completeData = { ...data, ...listData };
@@ -86,12 +86,12 @@ const MasterclassFeedbackForm = () => {
       <FadeWrapper>
         <FormInfo>
           <span>masterclass + sesión de networking</span>
-          <h1>itera con el feedback de tus usuarios</h1>
+          <h1>minimiza el riesgo al desarrollar software </h1>
           <ul>
-            <li>Roma Sur, Ciudad de México (venue por confirmar)</li>
+            <li>San Ángel, Ciudad de México</li>
             <li>Jueves 30 de enero del 2025</li>
           </ul>
-          <p>Llena el formulario y ven a nuestra masterclass.</p>
+          <p>Llena el formulario y ven a nuestro meetup.</p>
         </FormInfo>
         <Form onSubmit={handleSubmit(onSubmitInside)} ref={formRef}>
           <OneLine>

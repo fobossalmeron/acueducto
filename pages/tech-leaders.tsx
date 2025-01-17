@@ -17,10 +17,10 @@ const UserFeedbackMasterclass = () => {
     <PageWrapper>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio/user-feedback-masterclass"}
+        es_canonical={"https://acueducto.studio/tech-leaders"}
         noIndex
       ></Head>
-      <CustomPinnedSection title={"ven a nuestra masterclass"}>
+      <CustomPinnedSection title={"meetup para líderes de innovación"}>
         <MasterclassFeedbackForm />
       </CustomPinnedSection>
     </PageWrapper>
