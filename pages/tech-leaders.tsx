@@ -3,6 +3,7 @@ import MasterclassFeedbackForm from "components/pages/user-feedback-masterclass/
 import styled from "styled-components";
 import Head from "components/layout/Head";
 import PinnedSection from "components/shared/pinnedSections/PinnedSection";
+import MetalFooter from "components/layout/footers/MetalFooter";
 
 const t = {
   head: {
@@ -15,15 +16,16 @@ const t = {
 const UserFeedbackMasterclass = () => {
   return (
     <PageWrapper>
-      <Head
+      <Head 
         {...t.head}
         es_canonical={"https://acueducto.studio/tech-leaders"}
         noIndex
       ></Head>
       <CustomPinnedSection title={"meetup para líderes de innovación"}>
         <MasterclassFeedbackForm />
-      </CustomPinnedSection>
-    </PageWrapper>
+      </CustomPinnedSection>      <MetalFooter />
+
+    </PageWrapper> 
   );
 };
 
