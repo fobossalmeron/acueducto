@@ -3,6 +3,7 @@ import { SubmitHandler, useForm } from "react-hook-form";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
 import { CSSTransition } from "react-transition-group";
+import { useRouter } from 'next/router';
 
 import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
 import InputField from "components/shared/ContactInputField";
@@ -24,6 +25,7 @@ const MasterclassFeedbackForm = () => {
   const [formStatus, setFormStatus] = useState<FormStatus>("IDLE");
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
+  const router = useRouter();
 
   const {
     register,
@@ -67,13 +69,15 @@ const MasterclassFeedbackForm = () => {
           delayForLoading(2300),
         ]);
         
-        setFormStatus("SUCCESS");
+        setTimeout(() => {
+          router.push('/tech-leaders/confirmation');
+        }, 1000);
       } catch (error) {
         console.error("Error al enviar el formulario:", error);
         setFormStatus("IDLE");
       }
     },
-    [lenis]
+    [lenis, router]
   );
 
   const renderForm = () => (
@@ -181,19 +185,10 @@ const MasterclassFeedbackForm = () => {
     </Fade>
   );
 
-  const renderSuccess = () => (
-    <Fade triggerOnce>
-      <Message>
-        <p>¡Gracias por registrarte! Te enviaremos un correo con los detalles del evento.</p>
-      </Message>
-    </Fade>
-  );
-
   return (
     <>
       {renderForm()}
       {formStatus === "LOADING" && renderLoading()}
-      {formStatus === "SUCCESS" && renderSuccess()}
     </>
   );
 };
