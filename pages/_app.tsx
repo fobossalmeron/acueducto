@@ -14,9 +14,13 @@ import { LenisProvider } from "utils/LenisContext";
 import { AppProps } from "next/app";
 import { NextRouter } from "next/router";
 import { SharedTProps } from "../utils/LangContext";
+import type { NextPage } from 'next';
 
 interface CustomAppProps extends Omit<AppProps, 'router'> {
   router: NextRouter;
+  Component: NextPage & {
+    getLayout?: (page: React.ReactElement) => React.ReactNode;
+  };
 }
 
 function App({ Component, pageProps, router }: CustomAppProps) {
@@ -105,6 +109,14 @@ function App({ Component, pageProps, router }: CustomAppProps) {
     }
   }, [hasLoaded]);
 
+  // Si la página tiene un getLayout personalizado, úsalo
+  if (Component.getLayout) {
+    return Component.getLayout(
+      <Component {...pageProps} lang={router.locale} />
+    );
+  }
+
+  // Si no, usa el layout por defecto
   return (
     <ThemeProvider theme={theme}>
       <LangProvider value={sharedT}>
