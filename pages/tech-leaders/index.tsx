@@ -8,7 +8,8 @@ import MetalFooter from "components/layout/footers/MetalFooter";
 const t = {
   head: {
     title: "Ven a nuestra masterclass + sesión de networking",
-    description: 'Ven a nuestra masterclass "Itera con el feedback de tus usuarios" + sesión de networking el próximo jueves 30 de enero del 2025 en la colonia Roma Sur, Ciudad de México (ubicación a confirmar)',
+    description:
+      'Ven a nuestra masterclass "Itera con el feedback de tus usuarios" + sesión de networking el próximo jueves 30 de enero del 2025 en la colonia Roma Sur, Ciudad de México (ubicación a confirmar)',
     headerTitle: "Masterclass",
   },
 };
@@ -16,16 +17,16 @@ const t = {
 const UserFeedbackMasterclass = () => {
   return (
     <PageWrapper>
-      <Head 
+      <Head
         {...t.head}
         es_canonical={"https://acueducto.studio/tech-leaders"}
         noIndex
       ></Head>
       <CustomPinnedSection title={"meetup para líderes de innovación"}>
         <MasterclassFeedbackForm />
-      </CustomPinnedSection>      <MetalFooter />
-
-    </PageWrapper> 
+      </CustomPinnedSection>
+      <MetalFooter />
+    </PageWrapper>
   );
 };
 

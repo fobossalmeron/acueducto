@@ -8,20 +8,22 @@ export default function Screen() {
   return (
     <>
       <Head>
-        <title>Screen</title>
+        <title>Screen Saver</title>
       </Head>
-      <div style={{
-        width: '100vw',
-        height: '100vh',
-        display: 'flex',
-        zIndex: 1000,
-        position: 'relative',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
-        <Logo style={{ width: '400px' }} />
+      <div
+        style={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          zIndex: 1000,
+          position: "relative",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Logo style={{ width: "400px" }} />
       </div>
       <HomeSpline />
     </>
   );
-} 
+}

@@ -26,7 +26,7 @@ import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
 
 const HomeSpline = dynamic(
-  () => import("../components/pages/index/HomeSpline"),
+  () => import("../components/pages/index/HomeVideo"),
   {
     ssr: false,
   }
