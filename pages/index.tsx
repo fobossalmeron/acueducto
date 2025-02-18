@@ -25,12 +25,9 @@ import ClientsDesktop from "../public/assets/img/layout/clients.png";
 import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
 import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
 
-const HomeSpline = dynamic(
-  () => import("../components/pages/index/HomeVideo"),
-  {
-    ssr: false,
-  }
-);
+const HomeVideo = dynamic(() => import("../components/pages/index/HomeVideo"), {
+  ssr: false,
+});
 
 interface IndexProps {
   locale: string;
@@ -51,10 +48,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
 
   useEffect(() => {
     if (hasLoaded) {
-      const timer = setTimeout(() => {
-        setShowSpline(true);
-      }, 1000);
-      return () => clearTimeout(timer);
+      setShowSpline(true);
     }
   }, [hasLoaded]);
 
@@ -147,7 +141,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         </TitleSection>
         <ContactFooter />
       </div>
-      {showSpline && <HomeSpline />}
+      {showSpline && <HomeVideo />}
     </PageWrapper>
   );
 };
