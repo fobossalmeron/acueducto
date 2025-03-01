@@ -15,6 +15,7 @@ import { AppProps } from "next/app";
 import { NextRouter } from "next/router";
 import { SharedTProps } from "../utils/LangContext";
 import type { NextPage } from 'next';
+import '../styles/globals.css'
 
 interface CustomAppProps extends Omit<AppProps, 'router'> {
   router: NextRouter;

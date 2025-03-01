@@ -21,7 +21,7 @@ interface FeedbackFormData extends MailContact {
 
 type FormStatus = "IDLE" | "LOADING" | "SUCCESS";
 
-const MasterclassFeedbackForm = () => {
+export const MeetupForm = () => {
   const [formStatus, setFormStatus] = useState<FormStatus>("IDLE");
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
@@ -88,15 +88,6 @@ const MasterclassFeedbackForm = () => {
       unmountOnExit
     >
       <FadeWrapper>
-        <FormInfo>
-          <span>masterclass + sesión de networking</span>
-          <h1>minimiza el riesgo al desarrollar software </h1>
-          <ul>
-            <li>San Ángel, Ciudad de México</li>
-            <li>Jueves 30 de enero del 2025</li>
-          </ul>
-          <p>Llena el formulario y ven a nuestro meetup.</p>
-        </FormInfo>
         <Form onSubmit={handleSubmit(onSubmitInside)} ref={formRef}>
           <OneLine>
             <InputField>
@@ -193,8 +184,6 @@ const MasterclassFeedbackForm = () => {
   );
 };
 
-export default MasterclassFeedbackForm;
-
 // Reutilizamos los mismos estilos del ContactForm
 const OneLine = styled.div`
   flex-direction: row;
@@ -272,52 +261,5 @@ const FadeWrapper = styled.div`
   &.fade-exit-active {
     opacity: 0;
     transition: opacity 300ms ease-in;
-  }
-`;
-
-const FormInfo = styled.div`
-  span {
-    font-size: 1.4rem;
-    text-transform: uppercase;
-    letter-spacing: 4px;
-    line-height: 140%;
-    font-weight: 100;
-    position: relative;
-    display: block;
-  }
-  h1 {
-    all: unset;
-    font-size: 3.5rem !important;
-    line-height: 110% !important;
-    text-transform: none !important;
-    letter-spacing: 0 !important;
-    padding-bottom: 2rem !important;
-    display: block;
-    max-width: 17ch;
-    font-weight: 300 !important;
-  }
-  ul {
-    margin-bottom: 2rem;
-    li {
-      text-decoration: none;
-      list-style: none;
-      position: relative;
-      padding-left: 1.5rem;
-      
-      &:before {
-        content: "";
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translateY(-50%);
-        width: 8px;
-        height: 8px;
-        background-color: ${p => p.theme.colors.accent};
-        border-radius: 50%;
-      }
-    }
-  }
-  p {
-    margin-bottom: 2rem;
   }
 `;

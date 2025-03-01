@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+@theme {
+  /* Espaciado base */
+  --spacing: 0.25rem;
+  
+  /* Tamaños de fuente personalizados - CORREGIDOS */
+  --text-xs: 1.2rem;        /* 12px con base 62.5% */
+  --text-sm: 1.4rem;        /* 14px */
+  --text-base: 1.8rem;      /* 18px - tu tamaño base actual */
+  --text-lg: 2rem;          /* 20px */
+  --text-xl: 2.4rem;        /* 24px */
+  --text-2xl: 3rem;         /* 30px */
+  --text-3xl: 3.6rem;       /* 36px */
+  --text-4xl: 4.5rem;       /* 45px */
+  --text-5xl: 5rem;         /* 50px - coincide con tu h1 */
+  --text-6xl: 5.8rem;       /* 58px - coincide con tu h2/h3 */
+  --text-7xl: 7.2rem;       /* 72px */
+  --text-8xl: 9.6rem;       /* 96px */
+  --text-9xl: 12.8rem;      /* 128px */
+  --font-weight-normal: 100;
+  --font-weight-medium: 200;
+  --font-weight-bold: 300;
+  --font-family-primary: "Wide", sans-serif;
+  
+  /* Alturas de línea personalizadas */
+  --line-height-tight: 1;
+  --line-height-normal: 1.31;
+  --line-height-relaxed: 1.6;
+  --line-height-loose: 2;
+  
+  /* Tus colores personalizados */
+  --color-primary: #1a4ce0;
+
+  --color-background: #0d1111;
+  --color-foreground: #f4f4f4;
+  --color-foreground-low: #d6d6d6;
+  --color-over-black: #c8c8c8;
+  --color-over-white: #454545;
+  --color-foreground-lower: #8d8d8d;
+  --color-foreground-lowest: #4f4f4f;
+  --color-accent: #1a4ce0;
+  --color-accent-smalltext: #4871ea;
+  --color-white: #f4f4f4;
+  --color-warning: #f2c53a;
+  --color-error: #cc2e44;
+  --color-success: #27ae60;
+  --color-success-background: #27ae6012;
+}

@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import { H1, H2, P } from "components/shared/Dangerously";
-import { Fade } from "react-awesome-reveal";
+import React from 'react';
+import styled from 'styled-components';
+import { H1, H2, P } from 'components/shared/Dangerously';
+import { Fade } from 'react-awesome-reveal';
 
 type PinnedProps = {
   title: string;
@@ -14,6 +14,7 @@ type PinnedProps = {
   disableFade?: boolean;
   heading?: number;
   seo_h1?: string;
+  absoluteElement?: React.ReactNode;
 };
 
 const MetalPinnedSection = ({
@@ -26,6 +27,7 @@ const MetalPinnedSection = ({
   notSticky,
   heading,
   seo_h1,
+  absoluteElement,
 }: PinnedProps) => (
   <Pinned
     className={className}
@@ -67,6 +69,7 @@ const MetalPinnedSection = ({
     <div className="scroll-down">
       {disableFade ? children : <Fade triggerOnce>{children}</Fade>}
     </div>
+    {absoluteElement && absoluteElement}
   </Pinned>
 );
 export default React.memo(MetalPinnedSection);
@@ -90,13 +93,13 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   border-top: ${(props) =>
     props.$borderTop
       ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
-      : "none"};
+      : 'none'};
 
   .sticky {
     grid-column: 2 / span 5;
     z-index: 1;
-    position: ${(p) => (p.$notSticky ? "relative" : "sticky")};
-    top: ${(p) => (p.$notSticky ? "0px" : "150px")};
+    position: ${(p) => (p.$notSticky ? 'relative' : 'sticky')};
+    top: ${(p) => (p.$notSticky ? '0px' : '150px')};
     max-height: 300px;
   }
   .scroll-down {
@@ -134,7 +137,7 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   @media (max-width: 1300px) {
     padding-top: 100px;
     .sticky {
-      top: ${(p) => (p.$notSticky ? "unset" : "100px")};
+      top: ${(p) => (p.$notSticky ? 'unset' : '100px')};
     }
     .scroll-down {
       grid-column: 7 / span 5;
@@ -149,7 +152,7 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
     h1:not(.h1) {
       font-size: 1.3rem;
     }
-    .sticky{
+    .sticky {
       position: relative;
       top: 0;
     }
