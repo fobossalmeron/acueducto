@@ -1,31 +1,31 @@
-import React, { useEffect, useMemo, useCallback } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import dynamic from "next/dynamic";
+import React, { useEffect, useMemo, useCallback } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
-import { Fade } from "react-awesome-reveal";
-import { Button } from "components/shared/Button/Button";
-import Tilt from "react-parallax-tilt";
-import ReactPixel from "react-facebook-pixel";
+import { Fade } from 'react-awesome-reveal';
+import { Button } from 'components/ui/Button/Button';
+import Tilt from 'react-parallax-tilt';
+import ReactPixel from 'react-facebook-pixel';
 
-import EpisodeFeature from "components/podcast/EpisodeFeature/EpisodeFeature";
-import Head, { HeadProps } from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import { H1, H2, P } from "components/shared/Dangerously";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import TitleSectionGrid from "components/shared/TitleSectionGrid";
-import TitleSection from "components/shared/TitleSection";
-import MetalForm from "components/shared/MetalForm";
+import EpisodeFeature from 'components/pages/podcast/EpisodeFeature/EpisodeFeature';
+import Head, { HeadProps } from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import { H1, H2, P } from 'components/shared/Dangerously';
+import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
+import TitleSectionGrid from 'components/shared/TitleSectionGrid';
+import TitleSection from 'components/shared/TitleSection';
+import MetalForm from 'components/shared/MetalForm';
 
-import ssrLocale from "utils/ssrLocale";
-import { createContact } from "utils/brevo";
-import { advancedMatching } from "utils/analytics";
-import { useIsMobile } from "utils/useIsMobile";
-import { createClient } from "../prismicio";
-import { GetStaticProps } from "next";
-import { PrismicPodcastEpisode } from "components/podcast/podcast.types";
+import ssrLocale from 'utils/ssrLocale';
+import { createContact } from 'utils/brevo';
+import { advancedMatching } from 'utils/analytics';
+import { useIsMobile } from 'utils/useIsMobile';
+import { createClient } from '../prismicio';
+import { GetStaticProps } from 'next';
+import { PrismicPodcastEpisode } from 'components/pages/podcast/podcast.types';
 
-import pHosts from "../public/assets/img/layout/hosts.jpg";
+import pHosts from '../public/assets/img/layout/hosts.jpg';
 
 import {
   PodcastGrid,
@@ -36,14 +36,14 @@ import {
   Limiter,
   Parallax,
   FullLastSection,
-} from "components/pages/podcastLanding/podcastLanding.styles";
+} from 'components/pages/podcast/podcast-landing/podcastLanding.styles';
 
 // Lazy load ContactFooter
 const ContactFooter = dynamic(
-  () => import("components/layout/footers/ContactFooter"),
+  () => import('components/layout/footers/ContactFooter'),
   {
     loading: () => <p>Loading...</p>,
-  }
+  },
 );
 
 interface PodcastLandingProps {
@@ -108,8 +108,8 @@ function PodcastLanding({
   }, [locale, head.headerTitle, setTitle]);
 
   const activateSubscribePixels = useCallback((data: SubmitData) => {
-    ReactPixel.init("506854653278097", advancedMatching(data.email));
-    ReactPixel.track("Subscribe", { email: data.email });
+    ReactPixel.init('506854653278097', advancedMatching(data.email));
+    ReactPixel.track('Subscribe', { email: data.email });
   }, []);
 
   const onSubmit = useCallback(
@@ -124,7 +124,7 @@ function PodcastLanding({
       });
       activateSubscribePixels(data);
     },
-    [activateSubscribePixels]
+    [activateSubscribePixels],
   );
 
   const memoizedFeaturedEpisodes = useMemo(
@@ -135,7 +135,7 @@ function PodcastLanding({
           episode.data &&
           episode.data.introduction &&
           episode.data.introduction[0] && (
-            <div key={"npd" + index}>
+            <div key={'npd' + index}>
               <Fade triggerOnce>
                 <Tilt
                   tiltMaxAngleX={10}
@@ -155,16 +155,16 @@ function PodcastLanding({
                 </Tilt>
               </Fade>
             </div>
-          )
+          ),
       ),
-    [featuredEpisodes, isMobile]
+    [featuredEpisodes, isMobile],
   );
 
   return (
     <PageWrapper>
       <Head
         {...head}
-        image={{ fileName: "og_image_podcast.png", alt: head.image.alt }}
+        image={{ fileName: 'og_image_podcast.png', alt: head.image.alt }}
         es_canonical={`https://acueducto.studio/podcast`}
       />
       <PodcastGrid>
@@ -175,9 +175,9 @@ function PodcastLanding({
             <p>{intro.p}</p>
             <MetalForm
               onSubmit={(data: { email: string }) =>
-                onSubmit(data, "Landing Header")
+                onSubmit(data, 'Landing Header')
               }
-              id={"podcastOL"}
+              id={'podcastOL'}
               text={intro.form}
             />
           </div>
@@ -205,7 +205,7 @@ function PodcastLanding({
             <p>{banner.p}</p>
             <div>
               {lastPrismicEpisode.uid && (
-                <Link href={"/podcast/" + lastPrismicEpisode.uid}>
+                <Link href={'/podcast/' + lastPrismicEpisode.uid}>
                   <Button text={banner.button} />
                 </Link>
               )}
@@ -264,9 +264,9 @@ function PodcastLanding({
           <div>
             <MetalForm
               onSubmit={(data: { email: string }) =>
-                onSubmit(data, "Landing Footer")
+                onSubmit(data, 'Landing Footer')
               }
-              id={"podcastOL"}
+              id={'podcastOL'}
               text={intro.form}
             />
           </div>
@@ -280,7 +280,7 @@ function PodcastLanding({
 export default React.memo(PodcastLanding);
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "podcast.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'podcast.json' });
   if (!pt) {
     return {
       notFound: true,
@@ -289,38 +289,38 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
   const fetchPrismicEpisodes = async () => {
     const prismicClient = createClient({ previewData: context.previewData });
-    const unsortedPrismicEpisodes = await prismicClient.getAllByType("episode");
+    const unsortedPrismicEpisodes = await prismicClient.getAllByType('episode');
     return unsortedPrismicEpisodes.sort(
       (ep, nextEp) =>
-        ep.data.introduction[0].episode - nextEp.data.introduction[0].episode
+        ep.data.introduction[0].episode - nextEp.data.introduction[0].episode,
     );
   };
 
   const fetchFeaturedEpisodes = async (prismicClient: any) => {
     const featuredEpisodesData = [
       {
-        slug: "quieres-emprender-una-startup-tienes-que-ver-esto",
-        logos: ["kazsek", "mercadolibre"],
+        slug: 'quieres-emprender-una-startup-tienes-que-ver-esto',
+        logos: ['kazsek', 'mercadolibre'],
       },
-      { slug: "asi-se-ve-un-equipo-de-alto-rendimiento", logos: ["moova"] },
+      { slug: 'asi-se-ve-un-equipo-de-alto-rendimiento', logos: ['moova'] },
       {
-        slug: "por-que-tienes-que-enfocar-tu-empresa-a-un-nicho",
-        logos: ["nxtp"],
+        slug: 'por-que-tienes-que-enfocar-tu-empresa-a-un-nicho',
+        logos: ['nxtp'],
       },
       {
-        slug: "como-es-un-product-manager-de-uber-rappi-y-mercado",
-        logos: ["rappi", "uber", "mercadopago"],
+        slug: 'como-es-un-product-manager-de-uber-rappi-y-mercado',
+        logos: ['rappi', 'uber', 'mercadopago'],
       },
-      { slug: "asi-son-los-mejores-ctos", logos: ["habi"] },
-      { slug: "como-reinventarse-despues-de-13-anos-operando", logos: ["500"] },
+      { slug: 'asi-son-los-mejores-ctos', logos: ['habi'] },
+      { slug: 'como-reinventarse-despues-de-13-anos-operando', logos: ['500'] },
     ];
 
     return Promise.all(
       featuredEpisodesData.map(async (episodeData) => {
         try {
           const episode = await prismicClient.getByUID(
-            "episode",
-            episodeData.slug
+            'episode',
+            episodeData.slug,
           );
           if (!episode || !episode.data || !episode.data.introduction) {
             console.error(`Invalid episode data for slug: ${episodeData.slug}`);
@@ -330,11 +330,11 @@ export const getStaticProps: GetStaticProps = async (context) => {
         } catch (error) {
           console.error(
             `Error fetching episode with slug: ${episodeData.slug}`,
-            error
+            error,
           );
           return null;
         }
-      })
+      }),
     );
   };
 
@@ -353,7 +353,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
       },
     };
   } catch (error) {
-    console.error("Error in getStaticProps:", error);
+    console.error('Error in getStaticProps:', error);
     return {
       notFound: true,
     };

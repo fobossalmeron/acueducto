@@ -1,4 +1,4 @@
-import { Button } from 'components/shared/Button/Button';
+import { Button } from 'components/ui/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
 
 interface BottomBarProps {

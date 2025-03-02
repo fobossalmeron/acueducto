@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { GetStaticProps } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import dynamic from "next/dynamic";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import styled from 'styled-components';
 
-import ssrLocale from "utils/ssrLocale";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import TitleSection from "components/shared/TitleSection";
-import { Button } from "components/shared/Button/Button";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import Services from "components/pages/index/Services";
-import Head from "components/layout/Head";
-import Carousel from "components/pages/index/Carousel";
-import { Fade } from "react-awesome-reveal";
-import BroadcastRouter from "components/podcast/BroadcastRouter";
-import FAQSection from "components/pages/index/FAQ";
-import PageWrapper from "components/layout/PageWrapper";
-import Quotes from "components/pages/index/Quotes";
-import CaseList from "components/work/CaseList";
-import { useIsMobile } from "utils/useIsMobile";
+import ssrLocale from 'utils/ssrLocale';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import TitleSection from 'components/shared/TitleSection';
+import { Button } from 'components/ui/Button/Button';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import Services from 'components/pages/index/Services';
+import Head from 'components/layout/Head/Head';
+import Carousel from 'components/pages/index/Carousel';
+import { Fade } from 'react-awesome-reveal';
+import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
+import FAQSection from 'components/pages/index/FAQ';
+import PageWrapper from 'components/layout/PageWrapper';
+import Quotes from 'components/pages/index/Quotes';
+import CaseList from 'components/pages/work/CaseList';
+import { useIsMobile } from 'utils/useIsMobile';
 
-import ClientsDesktop from "../public/assets/img/layout/clients.png";
-import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
-import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
+import ClientsDesktop from '../public/assets/img/layout/clients.png';
+import ClientsMobile from '../public/assets/img/layout/clientsMobile.png';
+import PodcastCover from '../public/assets/img/layout/podcast_cover.png';
 
-const HomeVideo = dynamic(() => import("../components/pages/index/HomeVideo"), {
+const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
   ssr: false,
 });
 
@@ -39,7 +39,7 @@ interface IndexProps {
 const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
   const t = useLocalizedContent({
     locale,
-    fileName: "home",
+    fileName: 'home',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -66,7 +66,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
               <p className="h1">{t.landing.heading}</p>
               <h2 className="h2">{t.landing.tagline}</h2>
               <Link
-                href={locale === "en" ? "/work" : "/portafolio"}
+                href={locale === 'en' ? '/work' : '/portafolio'}
                 locale={locale}
               >
                 <Button
@@ -99,13 +99,13 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
           </Fade>
           <Fade triggerOnce>
             <span className="text">
-              {locale === "en"
-                ? "From our clients"
-                : "Lo que nuestros clientes dicen de nosotros"}
+              {locale === 'en'
+                ? 'From our clients'
+                : 'Lo que nuestros clientes dicen de nosotros'}
             </span>
             <Quotes isMobile={isMobile} />
             <Link
-              href={locale === "en" ? "/work" : "/portafolio"}
+              href={locale === 'en' ? '/work' : '/portafolio'}
               locale={locale}
             >
               <Button
@@ -147,7 +147,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "home.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'home.json' });
   return {
     props: {
       pt,

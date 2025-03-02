@@ -1,14 +1,14 @@
-import React, { useMemo } from "react";
-import { Fade } from "react-awesome-reveal";
-import Link from "next/link";
-import Image from "next/image";
-import { Button } from "components/shared/Button/Button";
-import { P } from "components/shared/Dangerously";
-import BroadcastRouter from "../BroadcastRouter";
-import EpisodeNumber from "../EpisodeNumber";
-import ShareRouter from "../ShareRouter";
-import { PrismicNextImage } from "@prismicio/next";
-import { ImageFieldImage } from "@prismicio/client";
+import React, { useMemo } from 'react';
+import { Fade } from 'react-awesome-reveal';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Button } from 'components/ui/Button/Button';
+import { P } from 'components/shared/Dangerously';
+import BroadcastRouter from '../BroadcastRouter';
+import EpisodeNumber from '../EpisodeNumber';
+import ShareRouter from '../ShareRouter';
+import { PrismicNextImage } from '@prismicio/next';
+import { ImageFieldImage } from '@prismicio/client';
 
 import {
   ToBeReleased,
@@ -19,20 +19,20 @@ import {
   DateCat,
   ButtonSpace,
   TitleHoverable,
-} from "./EpisodePreview.styles";
+} from './EpisodePreview.styles';
 
 const formatDate = (date: string): string => {
   const fullDate = new Date(`${date}T00:00:00`);
-  return fullDate.toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  return fullDate.toLocaleDateString('es-MX', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
 };
 
 const getShortDate = (date: string): string => {
   const fullDate = new Date(`${date}T00:00:00`);
-  return fullDate.toLocaleDateString("es-MX");
+  return fullDate.toLocaleDateString('es-MX');
 };
 
 interface EpisodePreviewProps {
@@ -69,7 +69,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   episode,
   longFormat = false,
   simplest = false,
-  text = "",
+  text = '',
   hideImageMobile = false,
   podcastImage = null,
   prismic = false,
@@ -87,7 +87,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   const shortDate = useMemo(() => getShortDate(date), [date]);
 
   return (
-    <NewPod key={"npd" + episode} $simplest={simplest}>
+    <NewPod key={'npd' + episode} $simplest={simplest}>
       <PictureContainer
         $hoverable={!longFormat}
         $hideImageMobile={hideImageMobile}
@@ -164,7 +164,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
                   apple={apple}
                   youtube={youtube}
                 >
-                  {longFormat && "Escúchalo en"}
+                  {longFormat && 'Escúchalo en'}
                 </BroadcastRouter>
               ) : (
                 <ToBeReleased>Disponible el {shortDate}</ToBeReleased>
@@ -183,7 +183,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
         <ButtonSpace>
           {simplest && (
             <Link href={`/podcast/${slug}`}>
-              <Button text={text || "seguir aprendiendo"} inverse />
+              <Button text={text || 'seguir aprendiendo'} inverse />
             </Link>
           )}
         </ButtonSpace>

@@ -1,23 +1,23 @@
-import React, { useEffect, useState } from "react";
-import { Fade } from "react-awesome-reveal";
+import React, { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
 
-import Head from "components/layout/Head";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import { P } from "components/shared/Dangerously";
+import Head from 'components/layout/Head/Head';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import { P } from 'components/shared/Dangerously';
 
-import NextStudy from "components/work/NextStudy";
-import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
-import { IntroVideoPadded } from "components/work/IntroVideo";
-import Marquee from "components/work/Marquee";
-import Quote from "components/work/Quote";
-import TextColumn from "components/work/TextColumn";
-import Picture from "components/work/Picture";
+import NextStudy from 'components/pages/work/NextStudy';
+import { SeoH1, SeoH2 } from 'components/pages/work/SEOHeadings';
+import { IntroVideoPadded } from 'components/pages/work/IntroVideo';
+import Marquee from 'components/pages/work/Marquee';
+import Quote from 'components/pages/work/Quote';
+import TextColumn from 'components/pages/work/TextColumn';
+import Picture from 'components/pages/work/Picture';
 
-import LogoBlockstem from "public/assets/img/casestudies/blockstem/logoBlockstem.svg";
-import Brand1 from "public/assets/img/casestudies/blockstem/Brand1.svg";
+import LogoBlockstem from 'public/assets/img/casestudies/blockstem/logoBlockstem.svg';
+import Brand1 from 'public/assets/img/casestudies/blockstem/Brand1.svg';
 
 import {
   PageClipperBlockstem,
@@ -40,7 +40,7 @@ import {
   LogosContainer,
   Lesson,
   LessonContainer,
-} from "components/pages/work/blockstem/Blockstem.styles";
+} from 'components/pages/work/blockstem/Blockstem.styles';
 
 interface BlockstemProps {
   locale: string;
@@ -57,7 +57,7 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
 
   const t = useLocalizedContent({
     locale,
-    fileName: "work.blockstem",
+    fileName: 'work.blockstem',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -66,9 +66,9 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
     <PageClipperBlockstem unPadded>
       <Head
         {...t.head}
-        image={{ fileName: "og_image_blockstem.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/blockstem"}
-        en_canonical={"https://acueducto.studio/en/work/blockstem"}
+        image={{ fileName: 'og_image_blockstem.png', alt: t.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/blockstem'}
+        en_canonical={'https://acueducto.studio/en/work/blockstem'}
       />
       <Fade triggerOnce>
         <LandSection>
@@ -80,7 +80,7 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <IntroVideoPadded backgroundColor={"#ffffff"} link={t.link} />
+        <IntroVideoPadded backgroundColor={'#ffffff'} link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>
           <P className="h2">{t.intro_section.title}</P>
@@ -96,7 +96,7 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
         </TextColumn>
       </FirstSection>
       <SecondSection>
-        <Quote quote={t.second_section.quote} color={"#1F2A2D"} />
+        <Quote quote={t.second_section.quote} color={'#1F2A2D'} />
         <TextColumn>
           {loadAssets && (
             <LogosContainer>
@@ -160,7 +160,7 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
           />
         </WhitepaperGrid>
         <TextColumn>
-          <P className="h3">{"– " + t.third_section.subtitle}</P>
+          <P className="h3">{'– ' + t.third_section.subtitle}</P>
           <P>{t.third_section.p3}</P>
         </TextColumn>
       </ThirdSection>
@@ -235,14 +235,14 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
             <Stat>
               <span>
                 <b>+</b>950
-              </span>{" "}
+              </span>{' '}
               <P>{t.sixth_section.stat1}</P>
             </Stat>
             <Stat>
               <span>7</span> <P>{t.sixth_section.stat2}</P>
             </Stat>
           </StatGrid>
-          <Quote quote={t.sixth_section.quote} color={"#1F2A2D"} />
+          <Quote quote={t.sixth_section.quote} color={'#1F2A2D'} />
           <div className="lastP">
             <P>{t.sixth_section.p2}</P>
           </div>
@@ -276,7 +276,7 @@ export default React.memo(Blockstem);
 export const getStaticProps = async (context: { locale: string }) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: "work.blockstem.json",
+    fileName: 'work.blockstem.json',
   });
   return {
     props: {

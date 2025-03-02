@@ -1,107 +1,107 @@
-import React, { useEffect, useState } from "react";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
-import styled from "styled-components";
-import Head from "components/layout/Head";
-import { Fade } from "react-awesome-reveal";
-import PageWrapper from "components/layout/PageWrapper";
-import dynamic from "next/dynamic";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import NextStudy from "components/work/NextStudy";
-import Quote from "components/work/Quote";
-import Stat from "components/pages/work/salvajenada/Stat";
-import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
-import Picture from "components/work/Picture";
-import { IntroVideo } from "components/work/IntroVideo";
-import Marquee from "components/work/Marquee";
-import Insight from "components/work/Insight";
-import TextColumn from "components/work/TextColumn";
-import CommonSection from "components/work/CommonSection";
+import React, { useEffect, useState } from 'react';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
+import styled from 'styled-components';
+import Head from 'components/layout/Head/Head';
+import { Fade } from 'react-awesome-reveal';
+import PageWrapper from 'components/layout/PageWrapper';
+import dynamic from 'next/dynamic';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import NextStudy from 'components/work/NextStudy';
+import Quote from 'components/pages/work/Quote';
+import Stat from 'components/pages/work/salvajenada/Stat';
+import { P } from 'components/shared/Dangerously';
+import { SeoH1, SeoH2 } from 'components/work/SEOHeadings';
+import Picture from 'components/pages/work/Picture';
+import { IntroVideo } from 'components/pages/work/IntroVideo';
+import Marquee from 'components/pages/work/Marquee';
+import Insight from 'components/work/Insight';
+import TextColumn from 'components/pages/work/TextColumn';
+import CommonSection from 'components/work/CommonSection';
 
-import Spotify from "public/assets/img/layout/logos/spotify.svg";
-import Ig from "public/assets/img/layout/logos/ig.svg";
+import Spotify from 'public/assets/img/layout/logos/spotify.svg';
+import Ig from 'public/assets/img/layout/logos/ig.svg';
 
-import Wolf from "public/assets/img/casestudies/salvajenada/wolf.svg";
-import LogoSalvaje from "public/assets/img/casestudies/salvajenada/logoSalvaje.svg";
+import Wolf from 'public/assets/img/casestudies/salvajenada/wolf.svg';
+import LogoSalvaje from 'public/assets/img/casestudies/salvajenada/logoSalvaje.svg';
 
 const InterBackImg = dynamic(
-  import("public/assets/img/casestudies/salvajenada/interBack2.svg"),
+  import('public/assets/img/casestudies/salvajenada/interBack2.svg'),
   {
     ssr: false,
-  }
+  },
 );
 
 const SecondBackImg = dynamic(
-  import("public/assets/img/casestudies/salvajenada/secondBack2.svg"),
+  import('public/assets/img/casestudies/salvajenada/secondBack2.svg'),
   {
     ssr: false,
-  }
+  },
 );
 
 const ThirdBackImg = dynamic(
-  import("public/assets/img/casestudies/salvajenada/thirdBack2.svg"),
+  import('public/assets/img/casestudies/salvajenada/thirdBack2.svg'),
   {
     ssr: false,
-  }
+  },
 );
 
 const FourthBackImg = dynamic(
-  import("public/assets/img/casestudies/salvajenada/fourthBack2.svg"),
+  import('public/assets/img/casestudies/salvajenada/fourthBack2.svg'),
   {
     ssr: false,
-  }
+  },
 );
 
 const FifthBackImg = dynamic(
-  import("public/assets/img/casestudies/salvajenada/fifthBack2.svg"),
+  import('public/assets/img/casestudies/salvajenada/fifthBack2.svg'),
   {
     ssr: false,
-  }
+  },
 );
 
 const FramesEmbed = dynamic(
-  import("components/pages/work/salvajenada/FramesEmbed"),
+  import('components/pages/work/salvajenada/FramesEmbed'),
   {
-    loading: () => <span style={{ height: "500px" }}>Loading frames...</span>,
-  }
+    loading: () => <span style={{ height: '500px' }}>Loading frames...</span>,
+  },
 );
 
-const salvajeBlue = "rgb(60, 179, 224)";
+const salvajeBlue = 'rgb(60, 179, 224)';
 
 const periodicity_covers = [
-  { alt: "Salvajenada - Canásta Básica #27 - Solange" },
-  { alt: "Salvajenada - Canásta Básica #29 - Michelle Blades" },
-  { alt: "Salvajenada - Canásta Básica #30 - Solange" },
-  { alt: "Salvajenada - Canásta Básica #28 - Kevin Abstract" },
-  { alt: "Salvajenada - Canásta Básica #34 - Noa Sainz" },
+  { alt: 'Salvajenada - Canásta Básica #27 - Solange' },
+  { alt: 'Salvajenada - Canásta Básica #29 - Michelle Blades' },
+  { alt: 'Salvajenada - Canásta Básica #30 - Solange' },
+  { alt: 'Salvajenada - Canásta Básica #28 - Kevin Abstract' },
+  { alt: 'Salvajenada - Canásta Básica #34 - Noa Sainz' },
   {
-    alt: "Salvajenada - Canásta Básica #33 - Tyler, The Creator",
+    alt: 'Salvajenada - Canásta Básica #33 - Tyler, The Creator',
   },
 ];
 
 const meaningfulness_covers = [
-  { alt: "Salvajenada - Canásta Básica - Balmy Evening" },
-  { alt: "Salvajenada - Canásta Básica - Claustro" },
-  { alt: "Salvajenada - Canásta Básica - The Experimenter" },
-  { alt: "Salvajenada - Canásta Básica - Miel" },
-  { alt: "Salvajenada - Canásta Básica - One Eye Open" },
+  { alt: 'Salvajenada - Canásta Básica - Balmy Evening' },
+  { alt: 'Salvajenada - Canásta Básica - Claustro' },
+  { alt: 'Salvajenada - Canásta Básica - The Experimenter' },
+  { alt: 'Salvajenada - Canásta Básica - Miel' },
+  { alt: 'Salvajenada - Canásta Básica - One Eye Open' },
   {
-    alt: "Salvajenada - Canásta Básica - Un Arpa Descansa Dentro de un Piano de Cola",
+    alt: 'Salvajenada - Canásta Básica - Un Arpa Descansa Dentro de un Piano de Cola',
   },
 ];
 
 const spreadability_covers = [
-  { alt: "Salvajenada - Canásta Básica - Shout out - WetBaes" },
-  { alt: "Salvajenada - Canásta Básica - Shout out - Valgur" },
-  { alt: "Salvajenada - Canásta Básica - Shout out - Yecto" },
+  { alt: 'Salvajenada - Canásta Básica - Shout out - WetBaes' },
+  { alt: 'Salvajenada - Canásta Básica - Shout out - Valgur' },
+  { alt: 'Salvajenada - Canásta Básica - Shout out - Yecto' },
 ];
 
 export default function Salvajenada({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
   const t = useLocalizedContent({
     locale,
-    fileName: "work.salvajenada",
+    fileName: 'work.salvajenada',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -114,9 +114,9 @@ export default function Salvajenada({ locale, setTitle, pt }) {
     <PageWrapper unPadded>
       <Head
         {...t.head}
-        image={{ fileName: "og_image_salvajenada.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/salvajenada"}
-        en_canonical={"https://acueducto.studio/en/work/salvajenada"}
+        image={{ fileName: 'og_image_salvajenada.png', alt: t.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/salvajenada'}
+        en_canonical={'https://acueducto.studio/en/work/salvajenada'}
         noIndex
       />
       <Fade triggerOnce>
@@ -218,14 +218,14 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <ThirdBackImg />
         </ThirdBack>
         <Column>
-          <P className="h2">{"– " + t.third_section.subtitle}</P>
+          <P className="h2">{'– ' + t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </Column>
         <Insight insight={t.third_section.insights.periodicity} number={1}>
           <PlaylistGrid>
             {periodicity_covers.map((cover, i) => (
               <Picture
-                key={"c_" + i}
+                key={'c_' + i}
                 alt={cover.alt}
                 src={`/assets/img/casestudies/salvajenada/c_${i}.jpg`}
                 width={362}
@@ -239,7 +239,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
           <PlaylistGrid>
             {meaningfulness_covers.map((cover, i) => (
               <Picture
-                key={"d_" + i}
+                key={'d_' + i}
                 alt={cover.alt}
                 src={`/assets/img/casestudies/salvajenada/d_${i}.png`}
                 width={362}
@@ -264,7 +264,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
             </Fade>
             {spreadability_covers.map((cover, i) => (
               <Picture
-                key={"p_" + i}
+                key={'p_' + i}
                 alt={cover.alt}
                 src={`/assets/img/casestudies/salvajenada/p_${i}.jpg`}
                 width={320}
@@ -342,7 +342,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
 export const getStaticProps = async (context) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: "work.salvajenada.json",
+    fileName: 'work.salvajenada.json',
   });
   return {
     props: {
@@ -359,7 +359,7 @@ const Sticky = styled.div`
   span {
     padding: 13px 21px;
     border: ${(props) =>
-      props.theme.stroke + " solid " + props.theme.colors.foreground_low};
+      props.theme.stroke + ' solid ' + props.theme.colors.foreground_low};
     text-align: center;
   }
   & > div {
@@ -367,7 +367,7 @@ const Sticky = styled.div`
     & > div {
       padding: 13px 21px 11px 21px;
       border: ${(props) =>
-        props.theme.stroke + " solid " + props.theme.colors.foreground_low};
+        props.theme.stroke + ' solid ' + props.theme.colors.foreground_low};
       border-top: 0;
       display: flex;
       a {
@@ -951,7 +951,7 @@ const Intro = styled(CommonSection)`
 const Land = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${(props) => props.theme.colors.background};
-  background-image: url("/assets/img/casestudies/salvajenada/landBack2.svg");
+  background-image: url('/assets/img/casestudies/salvajenada/landBack2.svg');
   background-position: center bottom;
   background-size: cover;
   h1 {

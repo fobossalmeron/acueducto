@@ -1,17 +1,17 @@
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import { GetStaticProps } from "next";
-import ssrLocale from "utils/ssrLocale";
-import Head from "components/layout/Head";
-import Link from "next/link";
-import PageWrapper from "components/layout/PageWrapper";
-import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import { P, Ul, Li } from "components/shared/Dangerously";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import { GetStaticProps } from 'next';
+import ssrLocale from 'utils/ssrLocale';
+import Head from 'components/layout/Head/Head';
+import Link from 'next/link';
+import PageWrapper from 'components/layout/PageWrapper';
+import SimplePinnedSection from 'components/shared/pinnedSections/SimplePinnedSection';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import { P, Ul, Li } from 'components/shared/Dangerously';
 
 export default function Privacy({ locale, setTitle, pt }) {
   const t = useLocalizedContent({
     locale,
-    fileName: "privacy",
+    fileName: 'privacy',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -21,8 +21,8 @@ export default function Privacy({ locale, setTitle, pt }) {
     <PageWrapper>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio/privacidad"}
-        en_canonical={"https://acueducto.studio/en/privacy"}
+        es_canonical={'https://acueducto.studio/privacidad'}
+        en_canonical={'https://acueducto.studio/en/privacy'}
         noIndex
       />
       <SimplePinnedSection title={t.intro.title} heading={1}>
@@ -39,7 +39,7 @@ export default function Privacy({ locale, setTitle, pt }) {
           <li>{b.listItem2}</li>
           <li>
             {b.listItem3}
-            <Link href={"/cookies"} locale={locale} legacyBehavior>
+            <Link href={'/cookies'} locale={locale} legacyBehavior>
               <a>{b.listItem3Link}</a>
             </Link>
             )
@@ -61,7 +61,7 @@ export default function Privacy({ locale, setTitle, pt }) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "privacy.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'privacy.json' });
   return {
     props: {
       pt,

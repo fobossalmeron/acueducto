@@ -1,16 +1,16 @@
-import React, { useRef, useState, useCallback } from "react";
-import { SubmitHandler, useForm } from "react-hook-form";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import { CSSTransition } from "react-transition-group";
+import React, { useRef, useState, useCallback } from 'react';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import { CSSTransition } from 'react-transition-group';
 import { useRouter } from 'next/router';
 
-import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
-import InputField from "components/shared/ContactInputField";
-import delayForLoading from "utils/delayForLoading";
-import { useLenis } from "utils/LenisContext";
-import { createContact, sendEmailToContact } from "utils/brevo";
-import { MailContact } from "utils/types/BrevoProps";
+import { ButtonSubmit } from 'components/ui/Button';
+import InputField from 'components/shared/ContactInputField';
+import delayForLoading from 'utils/delayForLoading';
+import { useLenis } from 'utils/LenisContext';
+import { createContact, sendEmailToContact } from 'utils/brevo';
+import { MailContact } from 'utils/types/BrevoProps';
 
 interface FeedbackFormData extends MailContact {
   firstName: string;
@@ -19,10 +19,10 @@ interface FeedbackFormData extends MailContact {
   position: string;
 }
 
-type FormStatus = "IDLE" | "LOADING" | "SUCCESS";
+type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
 
 export const MeetupForm = () => {
-  const [formStatus, setFormStatus] = useState<FormStatus>("IDLE");
+  const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
   const router = useRouter();
@@ -39,7 +39,7 @@ export const MeetupForm = () => {
         listIds: [17],
         updateEnabled: true,
         attributes: {
-          SUBSCRIBED_FROM: "Meetup #1",
+          SUBSCRIBED_FROM: 'Meetup #1',
           COMPANY: data.company,
           POSITION: data.position,
           JOB: data.position,
@@ -54,35 +54,35 @@ export const MeetupForm = () => {
           <p>La dirección del evento es <a href="https://g.co/kgs/g55m26C">Iglesia 270, San Ángel, Ciudad de México</a>.</p>
           <p>¡Nos vemos!<br/>Artemio, CEO de Acueducto</p>
         `,
-        subject: "Registro exitoso - Tech Leaders Meetup",
+        subject: 'Registro exitoso - Tech Leaders Meetup',
       };
 
       const completeData = { ...data, ...listData };
-      
+
       lenis.scrollTo(0, { immediate: false });
-      setFormStatus("LOADING");
-      
+      setFormStatus('LOADING');
+
       try {
         await Promise.all([
           sendEmailToContact(emailData),
           createContact(completeData),
           delayForLoading(2300),
         ]);
-        
+
         setTimeout(() => {
           router.push('/tech-leaders/confirmation');
         }, 1000);
       } catch (error) {
-        console.error("Error al enviar el formulario:", error);
-        setFormStatus("IDLE");
+        console.error('Error al enviar el formulario:', error);
+        setFormStatus('IDLE');
       }
     },
-    [lenis, router]
+    [lenis, router],
   );
 
   const renderForm = () => (
     <CSSTransition
-      in={formStatus === "IDLE"}
+      in={formStatus === 'IDLE'}
       timeout={300}
       classNames="fade"
       unmountOnExit
@@ -97,7 +97,7 @@ export const MeetupForm = () => {
                 id={`cp_firstName`}
                 type="text"
                 placeholder="tu nombre"
-                {...register("firstName", { required: true })}
+                {...register('firstName', { required: true })}
               />
               {errors.firstName && <span>Por favor ingresa tu nombre</span>}
             </InputField>
@@ -108,7 +108,7 @@ export const MeetupForm = () => {
                 id={`cp_lastName`}
                 type="text"
                 placeholder="tu apellido"
-                {...register("lastName", { required: true })}
+                {...register('lastName', { required: true })}
               />
               {errors.lastName && <span>Por favor ingresa tu apellido</span>}
             </InputField>
@@ -121,11 +121,11 @@ export const MeetupForm = () => {
               id={`cp_email`}
               type="email"
               placeholder="tu@email.com"
-              {...register("email", {
-                required: "Por favor ingresa tu correo electrónico",
+              {...register('email', {
+                required: 'Por favor ingresa tu correo electrónico',
                 pattern: {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: "Por favor ingresa un correo electrónico válido",
+                  message: 'Por favor ingresa un correo electrónico válido',
                 },
               })}
             />
@@ -139,7 +139,7 @@ export const MeetupForm = () => {
               id={`cp_company`}
               type="text"
               placeholder="nombre de tu empresa"
-              {...register("company", { required: true })}
+              {...register('company', { required: true })}
             />
             {errors.company && (
               <span>Por favor ingresa el nombre de tu empresa</span>
@@ -153,7 +153,7 @@ export const MeetupForm = () => {
               id={`cp_position`}
               type="text"
               placeholder="tu puesto actual"
-              {...register("position", { required: true })}
+              {...register('position', { required: true })}
             />
             {errors.position && <span>Por favor ingresa tu cargo</span>}
           </InputField>
@@ -179,7 +179,7 @@ export const MeetupForm = () => {
   return (
     <>
       {renderForm()}
-      {formStatus === "LOADING" && renderLoading()}
+      {formStatus === 'LOADING' && renderLoading()}
     </>
   );
 };
@@ -244,7 +244,6 @@ const Form = styled.form`
   margin-top: -10px;
   display: flex;
   flex-direction: column;
-  margin-bottom: 20%;
 `;
 
 const FadeWrapper = styled.div`

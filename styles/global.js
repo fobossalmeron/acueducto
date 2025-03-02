@@ -212,9 +212,6 @@ const styles = `
     width: 100%;
   }
   
-  p {
-    line-height: 135%;
-  }
   a {
     color: inherit;
   }

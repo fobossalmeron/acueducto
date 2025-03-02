@@ -1,9 +1,9 @@
-import { Fade } from "react-awesome-reveal";
-import Picture from "components/work/Picture";
-import styled from "styled-components";
-import { useState } from "react";
-import { useSpring, animated } from "@react-spring/web";
-import { useEffect } from "react";
+import { Fade } from 'react-awesome-reveal';
+import Picture from 'components/pages/work/Picture';
+import styled from 'styled-components';
+import { useState } from 'react';
+import { useSpring, animated } from '@react-spring/web';
+import { useEffect } from 'react';
 
 const AnimatedSlideCards = (props) => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -19,7 +19,7 @@ const AnimatedSlideCards = (props) => {
     const maxScrollPosition = (numCards - 1) * (cardWidth + gap);
     setMaxScroll(maxScrollPosition);
     const newPosition =
-      direction === "right"
+      direction === 'right'
         ? Math.min(scrollPosition + cardWidth + gap, maxScrollPosition)
         : Math.max(scrollPosition - cardWidth - gap, 0);
 
@@ -38,19 +38,19 @@ const AnimatedSlideCards = (props) => {
   }, [scrollPosition, cardWidth, gap]);
 
   useEffect(() => {
-    if (typeof window !== "undefined") {
+    if (typeof window !== 'undefined') {
       setIsTablet(window.innerWidth <= 830 && window.innerWidth >= 650);
     }
 
     const handleResize = () => {
-      if (typeof window !== "undefined") {
+      if (typeof window !== 'undefined') {
         setIsTablet(window.innerWidth <= 830 && window.innerWidth >= 650);
       }
     };
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
     return () => {
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, [isTablet, props.isMobile]);
 
@@ -59,14 +59,14 @@ const AnimatedSlideCards = (props) => {
       <SlideContainer className="slider">
         <i
           id="right"
-          onClick={() => handleScroll("right")}
+          onClick={() => handleScroll('right')}
           style={{
             cursor:
-              scrollPosition !== 0 && scrollPosition === maxScroll && "auto",
+              scrollPosition !== 0 && scrollPosition === maxScroll && 'auto',
             backgroundColor:
               scrollPosition !== 0 && scrollPosition === maxScroll
-                ? "#7273A2"
-                : "#FCFDFC",
+                ? '#7273A2'
+                : '#FCFDFC',
           }}
         >
           <Pin />
@@ -95,7 +95,7 @@ const AnimatedSlideCards = (props) => {
                       key={`guia${i}`}
                       style={{
                         backgroundColor:
-                          centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
+                          centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
                       }}
                     ></div>
                   ))}
@@ -109,7 +109,7 @@ const AnimatedSlideCards = (props) => {
                 key={`guia${i}`}
                 style={{
                   backgroundColor:
-                    centeredCardIndex === i ? "#FFFFFF" : "#7273A2",
+                    centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
                 }}
               ></div>
             ))}
@@ -117,10 +117,10 @@ const AnimatedSlideCards = (props) => {
         </PicturesContainer>
         <i
           id="left"
-          onClick={() => scrollPosition !== 0 && handleScroll("left")}
+          onClick={() => scrollPosition !== 0 && handleScroll('left')}
           style={{
-            cursor: scrollPosition === 0 && "auto",
-            backgroundColor: scrollPosition === 0 ? "#7273A2" : "#FCFDFC",
+            cursor: scrollPosition === 0 && 'auto',
+            backgroundColor: scrollPosition === 0 ? '#7273A2' : '#FCFDFC',
           }}
         >
           <Pin />
@@ -140,7 +140,7 @@ const Pin = styled.span`
   border-radius: 100%;
   transition: 0.3s ease all;
   &::after {
-    content: " ";
+    content: ' ';
     border: solid #383955;
     border-width: 0 2.5px 2.5px 0;
     display: inline-block;
@@ -166,7 +166,8 @@ const SlideContainer = styled.div`
     border-radius: 50%;
     cursor: pointer;
     transition: 0.3s ease all;
-    box-shadow: 0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
+    box-shadow:
+      0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
       0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05),
       0.9028px 0.9028px 9.93084px 0px rgba(64, 64, 64, 0.05);
   }
@@ -373,7 +374,7 @@ const SlideCards = styled.div`
       position: absolute;
       left: 32%;
       height: 12px;
-      opacity: ${(g) => (g.centeredCardIndex === g.i ? "1" : "0")};
+      opacity: ${(g) => (g.centeredCardIndex === g.i ? '1' : '0')};
       transition: 0.3s ease all;
       div {
         max-height: 12px !important;

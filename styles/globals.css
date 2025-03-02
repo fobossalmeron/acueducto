@@ -2,7 +2,7 @@
 
 @theme {
   /* Espaciado base */
-  --spacing: 0.25rem;
+  --spacing: 0.4rem;
 
   /* Tamaños de fuente personalizados - CORREGIDOS */
   --text-xs: 1.2rem; /* 12px con base 62.5% */
@@ -33,6 +33,7 @@
   --color-primary: #1a4ce0;
 
   --color-background: #0d1111;
+  --color-background-light: #22242b;
   --color-foreground: #f4f4f4;
   --color-foreground-low: #d6d6d6;
   --color-over-black: #c8c8c8;
@@ -46,4 +47,14 @@
   --color-error: #cc2e44;
   --color-success: #27ae60;
   --color-success-background: #27ae6012;
+
+  /* Bordes redondeados ajustados */
+  --rounded-sm: 0.2rem; /* 2px */
+  --rounded: 0.4rem; /* 4px */
+  --rounded-md: 0.6rem; /* 6px */
+  --rounded-lg: 0.8rem; /* 8px */
+  --rounded-xl: 1.2rem; /* 12px */
+  --rounded-2xl: 1.6rem; /* 16px */
+  --rounded-3xl: 2.4rem; /* 24px */
+  --rounded-full: 9999px;
 }

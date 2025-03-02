@@ -1,20 +1,20 @@
-import React, { useState, useEffect } from "react";
-import { H1, P, Li } from "components/shared/Dangerously";
-import { Fade } from "react-awesome-reveal";
-import { EpisodePreview } from "components/podcast/EpisodePreview/EpisodePreview";
-import Logo from "public/assets/img/layout/logo.svg";
-import EpisodeNumber from "components/podcast/EpisodeNumber";
-import Link from "next/link";
+import React, { useState, useEffect } from 'react';
+import { H1, P, Li } from 'components/shared/Dangerously';
+import { Fade } from 'react-awesome-reveal';
+import { EpisodePreview } from 'components/pages/podcast/EpisodePreview/EpisodePreview';
+import Logo from 'public/assets/img/layout/logo.svg';
+import EpisodeNumber from 'components/pages/podcast/EpisodeNumber';
+import Link from 'next/link';
 import CenteredSection, {
   Content,
   Insights,
   Transcript,
-} from "components/shared/CenteredSection";
-import ShareRouter from "components/podcast/ShareRouter";
-import dynamic from "next/dynamic"; 
-import BackArrowIcon from "public/assets/img/layout/backarrow.svg";
-import { PrismicRichText} from "@prismicio/react";
-import BroadcastRouter from "components/podcast/BroadcastRouter";
+} from 'components/shared/CenteredSection';
+import ShareRouter from 'components/pages/podcast/ShareRouter';
+import dynamic from 'next/dynamic';
+import BackArrowIcon from 'public/assets/img/layout/backarrow.svg';
+import { PrismicRichText } from '@prismicio/react';
+import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
 import {
   IntroLogo,
   THoverable,
@@ -27,10 +27,10 @@ import {
   NextEp,
   VideoContainer,
   Video,
-} from "./PodcastEpisode.styles";
-import { ImageFieldImage } from "@prismicio/client";
+} from './PodcastEpisode.styles';
+import { ImageFieldImage } from '@prismicio/client';
 
-const NoSSRPlayer = dynamic(() => import("react-player/youtube"), {
+const NoSSRPlayer = dynamic(() => import('react-player/youtube'), {
   loading: () => <p>Cargando...</p>,
   ssr: false,
 });
@@ -76,7 +76,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
   podcastImage,
   findNextPrismic,
 }) => {
-  const embedYoutube = youtube && youtube.replace("watch?v=", "embed/");
+  const embedYoutube = youtube && youtube.replace('watch?v=', 'embed/');
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
 
   useEffect(() => {
@@ -86,7 +86,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
   return (
     <>
       <CenteredSection
-        $customBackground={"/assets/img/layout/backOld.svg"}
+        $customBackground={'/assets/img/layout/backOld.svg'}
         id="cuandoelriosuena"
       >
         <Fade triggerOnce>
@@ -103,7 +103,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
         </Fade>
         <Fade triggerOnce>
           <>
-            <Link href={"/podcast/episodios"} passHref legacyBehavior>
+            <Link href={'/podcast/episodios'} passHref legacyBehavior>
               <AllEpisodesHoverable>
                 <BackArrowIcon />
                 <p>ver todos los episodios</p>
@@ -122,7 +122,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
             ) : (
               <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
             )}
-            <Center style={{ marginTop: "10px" }}>
+            <Center style={{ marginTop: '10px' }}>
               <BroadcastRouter
                 trackClicks
                 episode={episode}
@@ -186,11 +186,11 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
               {youtubeImage && insights?.length > 0 ? (
                 <PrismicRichText field={insights.map((e) => e)} />
               ) : (
-                <Transcript as={"div"}>
+                <Transcript as={'div'}>
                   {insights && (
                     <ul>
                       {insights.map((insight, i) => (
-                        <Li key={"insight" + i}>{insight}</Li>
+                        <Li key={'insight' + i}>{insight}</Li>
                       ))}
                     </ul>
                   )}

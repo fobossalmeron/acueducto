@@ -1,19 +1,19 @@
-import React, { useEffect, useState } from "react";
-import Picture from "components/work/Picture";
-import Screenshot1 from "public/assets/img/casestudies/recupera/screenshot1.png";
-import Screenshot2 from "public/assets/img/casestudies/recupera/screenshot2.png";
-import Screenshot3 from "public/assets/img/casestudies/recupera/screenshot3.png";
-import Screenshot4 from "public/assets/img/casestudies/recupera/screenshot4.png";
-import Screenshot5 from "public/assets/img/casestudies/recupera/screenshot5.png";
-import Screenshot6 from "public/assets/img/casestudies/recupera/screenshot6.png";
-import Screenshot7 from "public/assets/img/casestudies/recupera/screenshot7.png";
-import Screenshot8 from "public/assets/img/casestudies/recupera/screenshot8.png";
-import Screenshot9 from "public/assets/img/casestudies/recupera/screenshot9.png";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import { Element } from "react-scroll";
-import { useSpring, animated } from "@react-spring/web";
-import { InView } from "react-intersection-observer";
+import React, { useEffect, useState } from 'react';
+import Picture from 'components/pages/work/Picture';
+import Screenshot1 from 'public/assets/img/casestudies/recupera/screenshot1.png';
+import Screenshot2 from 'public/assets/img/casestudies/recupera/screenshot2.png';
+import Screenshot3 from 'public/assets/img/casestudies/recupera/screenshot3.png';
+import Screenshot4 from 'public/assets/img/casestudies/recupera/screenshot4.png';
+import Screenshot5 from 'public/assets/img/casestudies/recupera/screenshot5.png';
+import Screenshot6 from 'public/assets/img/casestudies/recupera/screenshot6.png';
+import Screenshot7 from 'public/assets/img/casestudies/recupera/screenshot7.png';
+import Screenshot8 from 'public/assets/img/casestudies/recupera/screenshot8.png';
+import Screenshot9 from 'public/assets/img/casestudies/recupera/screenshot9.png';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import { Element } from 'react-scroll';
+import { useSpring, animated } from '@react-spring/web';
+import { InView } from 'react-intersection-observer';
 
 const ScrollCardAnimation = ({ isMobile }) => {
   const [moveAmount, setMoveAmount] = useState(0);
@@ -42,9 +42,9 @@ const ScrollCardAnimation = ({ isMobile }) => {
 
   useEffect(() => {
     if (animation) {
-      window.addEventListener("scroll", handleScrollAnimation);
+      window.addEventListener('scroll', handleScrollAnimation);
       return () => {
-        window.removeEventListener("scroll", handleScrollAnimation);
+        window.removeEventListener('scroll', handleScrollAnimation);
       };
     }
   }, [isMobile, animation]);

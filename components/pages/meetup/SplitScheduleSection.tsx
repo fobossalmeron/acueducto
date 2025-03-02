@@ -1,9 +1,31 @@
-import {
-  SplitLayout,
-  AuxiliaryTitle,
-  Title,
-  Paragraph,
-} from 'components/layout/Grid';
+import { SplitLayout } from 'components/layout/layouts';
+import { Title, Paragraph, AuxiliaryTitle } from 'components/ui';
+import Hands from 'public/assets/img/layout/meetup/hands.png';
+import Notes from 'public/assets/img/layout/meetup/notes.png';
+import Org from 'public/assets/img/layout/meetup/org.png';
+import Image from 'next/image';
+
+function ScheduleItem({
+  title,
+  description,
+  time,
+  image,
+}: {
+  title: string;
+  description: string;
+  time: string;
+  image: React.ReactNode;
+}) {
+  return (
+    <div className="bg-background-light flex flex-col gap-2 rounded-4xl p-8">
+      {image}
+      <p>
+        {title} <span>{time}</span>
+      </p>
+      <p>{description}</p>
+    </div>
+  );
+}
 
 export function SplitScheduleSection() {
   return (
@@ -20,33 +42,24 @@ export function SplitScheduleSection() {
           Cada meetup se desenvuelve de la siguiente forma:
         </Paragraph>
         <div className="flex flex-col gap-4">
-          <p>
-            Vibra<span>(6:30 - 7:00pm)</span>
-          </p>
-          <p>
-            Media hora para conocerse y preparase antes de las charlas. Les
-            daremos name tags porque las conversaciones entre desconocidos
-            pueden ser maravillosas.
-          </p>
-        </div>
-        <div>
-          <p>
-            Escucha<span>(7:00 - 8:00pm)</span>
-          </p>
-          <p>
-            Cada meetup tiene de 2 a 4 expertos, cada uno con una charla de
-            alrededor de 20 minutos. Ninguna charla es igual a otra.
-          </p>
-        </div>
-        <div>
-          <p>
-            Conecta<span>(8:00 - 10:00pm)</span>
-          </p>
-          <p>
-            Después de las charlas, disfruta de los refrigedios y las bebidas
-            mientras conoces a los ponentes y al resto de los asistentes. Es el
-            momento de conectar con líderes que piensan como tú.
-          </p>
+          <ScheduleItem
+            title="Vibra"
+            description="Media hora para conocerse y preparase antes de las charlas. Les daremos name tags porque las conversaciones entre desconocidos pueden ser maravillosas."
+            time="(6:30 - 7:00pm)"
+            image={<Image src={Hands} alt="Hands" width={95} height={95} />}
+          />
+          <ScheduleItem
+            title="Escucha"
+            description="Cada meetup tiene de 2 a 4 expertos, cada uno con una charla de alrededor de 20 minutos. Ninguna charla es igual a otra."
+            time="(7:00 - 8:00pm)"
+            image={<Image src={Notes} alt="Notes" width={95} height={95} />}
+          />
+          <ScheduleItem
+            title="Conecta"
+            description="Después de las charlas, disfruta de los refrigedios y las bebidas mientras conoces a los ponentes y al resto de los asistentes. Es el momento de conectar con líderes que piensan como tú."
+            time="(8:00 - 10:00pm)"
+            image={<Image src={Org} alt="Org" width={95} height={95} />}
+          />
         </div>
       </SplitLayout.Content>
     </SplitLayout>

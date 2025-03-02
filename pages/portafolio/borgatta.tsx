@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/legacy/image";
-import Head from "components/layout/Head";
-import { Fade } from "react-awesome-reveal";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/legacy/image';
+import Head from 'components/layout/Head/Head';
+import { Fade } from 'react-awesome-reveal';
 
-import LandSection from "components/pages/work/borgatta/LandSection";
-import AnimatedUIComponents from "components/pages/work/borgatta/AnimatedUIComponents";
-import CaseTable from "../../components/pages/work/borgatta/CaseTable";
-import Marquee from "components/work/Marquee";
-import TextColumn from "components/work/TextColumn";
-import { P } from "components/shared/Dangerously";
-import { SeoH2 } from "components/work/SEOHeadings";
-import Quote from "components/work/Quote";
-import Picture from "components/work/Picture";
-import NextStudy from "components/work/NextStudy";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import { IntroVideoPadded } from "components/work/IntroVideo";
+import LandSection from 'components/pages/work/borgatta/LandSection';
+import AnimatedUIComponents from 'components/pages/work/borgatta/AnimatedUIComponents';
+import CaseTable from '../../components/pages/work/borgatta/CaseTable';
+import Marquee from 'components/pages/work/Marquee';
+import TextColumn from 'components/pages/work/TextColumn';
+import { P } from 'components/shared/Dangerously';
+import { SeoH2 } from 'components/pages/work/SEOHeadings';
+import Quote from 'components/pages/work/Quote';
+import Picture from 'components/pages/work/Picture';
+import NextStudy from 'components/pages/work/NextStudy';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import { IntroVideoPadded } from 'components/pages/work/IntroVideo';
 
-import ResultMd from "public/assets/img/casestudies/borgatta/resultsOnThePage-md.png";
-import ResultSm from "public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png";
-import Page from "public/assets/img/casestudies/borgatta/page.png";
+import ResultMd from 'public/assets/img/casestudies/borgatta/resultsOnThePage-md.png';
+import ResultSm from 'public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png';
+import Page from 'public/assets/img/casestudies/borgatta/page.png';
 
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
-import { useIsMobile } from "utils/useIsMobile";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
+import { useIsMobile } from 'utils/useIsMobile';
 
 import {
   PageWrapperBorgatta,
@@ -36,7 +36,7 @@ import {
   ResultContainer,
   Results,
   FourthSection,
-} from "components/pages/work/borgatta/Borgatta.styles";
+} from 'components/pages/work/borgatta/Borgatta.styles';
 
 interface BorgattaProps {
   locale: string;
@@ -50,7 +50,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
 
   const t = useLocalizedContent({
     locale,
-    fileName: "work.borgatta",
+    fileName: 'work.borgatta',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -63,16 +63,16 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
     <PageWrapperBorgatta>
       <Head
         {...t?.head}
-        image={{ fileName: "og_image_borgatta.png", alt: t?.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/borgatta"}
-        en_canonical={"https://acueducto.studio/en/work/borgatta"}
+        image={{ fileName: 'og_image_borgatta.png', alt: t?.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/borgatta'}
+        en_canonical={'https://acueducto.studio/en/work/borgatta'}
       />
       <Fade triggerOnce>
         <LandSection isMobile={isMobile} title={t.head.seo_h1} />
       </Fade>
       <FirstSection>
         {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <IntroVideoPadded backgroundColor={"#f7f6f7"} link={t.link} />
+        <IntroVideoPadded backgroundColor={'#f7f6f7'} link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <Fade delay={300} triggerOnce>
           <TextColumn>
@@ -115,7 +115,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
           </Fade>
         </AspectContainer>
         <CaseTable />
-        <Quote quote={t.second_section.quote} color={"#060809"} />
+        <Quote quote={t.second_section.quote} color={'#060809'} />
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -131,8 +131,8 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
                     {result.sign && <p className="h4">{result.sign}</p>}
                     {result.title.length > 4 ? (
                       <div>
-                        <p className="h2">{result.title.split(" ")[0]}</p>
-                        <p className="h3">{result.title.split(" ")[1]}</p>
+                        <p className="h2">{result.title.split(' ')[0]}</p>
+                        <p className="h3">{result.title.split(' ')[1]}</p>
                       </div>
                     ) : (
                       <p className="h2">{result.title}</p>
@@ -154,7 +154,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
             blurDataURL={ResultMd.src}
           />
         </Fade>
-        <Quote quote={t.third_section.quote} color={"#F4F4F4"} />
+        <Quote quote={t.third_section.quote} color={'#F4F4F4'} />
       </ThirdSection>
       <FourthSection>
         <TextColumn>
@@ -174,7 +174,7 @@ export default React.memo(Borgatta);
 export const getStaticProps = async (context: any) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: "work.borgatta.json",
+    fileName: 'work.borgatta.json',
   });
   return {
     props: {

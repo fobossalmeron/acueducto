@@ -1,17 +1,17 @@
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import { GetStaticProps } from "next";
-import ssrLocale from "utils/ssrLocale";
-import Head from "components/layout/Head";
-import Link from "next/link";
-import PageWrapper from "components/layout/PageWrapper";
-import SimplePinnedSection from "components/shared/pinnedSections/SimplePinnedSection";
-import { P, H3 } from "components/shared/Dangerously";
-import ContactFooter from "components/layout/footers/ContactFooter";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import { GetStaticProps } from 'next';
+import ssrLocale from 'utils/ssrLocale';
+import Head from 'components/layout/Head/Head';
+import Link from 'next/link';
+import PageWrapper from 'components/layout/PageWrapper';
+import SimplePinnedSection from 'components/shared/pinnedSections/SimplePinnedSection';
+import { P, H3 } from 'components/shared/Dangerously';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
 export default function Cookies({ locale, setTitle, pt }) {
   const t = useLocalizedContent({
     locale,
-    fileName: "cookies",
+    fileName: 'cookies',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -21,8 +21,8 @@ export default function Cookies({ locale, setTitle, pt }) {
     <PageWrapper>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio/cookies"}
-        en_canonical={"https://acueducto.studio/en/cookies"}
+        es_canonical={'https://acueducto.studio/cookies'}
+        en_canonical={'https://acueducto.studio/en/cookies'}
         noIndex
       />
       <SimplePinnedSection title={t.intro.title} heading={1}>
@@ -31,7 +31,7 @@ export default function Cookies({ locale, setTitle, pt }) {
           {b.p0}
           <Link
             href="/privacidad"
-            as={locale === "en" ? "/privacy" : "/privacidad"}
+            as={locale === 'en' ? '/privacy' : '/privacidad'}
             locale={locale}
             passHref
             legacyBehavior
@@ -71,7 +71,7 @@ export default function Cookies({ locale, setTitle, pt }) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "cookies.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'cookies.json' });
   return {
     props: {
       pt,

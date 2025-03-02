@@ -1,9 +1,9 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
-import { useInView } from "react-hook-inview";
-import styled from "styled-components";
-import useInterval from "../../../utils/useInterval";
-import Holed from "public/assets/img/layout/holed.svg";
-import Picture from "components/work/Picture";
+import React, { useState, useEffect, useRef, useCallback } from 'react';
+import { useInView } from 'react-hook-inview';
+import styled from 'styled-components';
+import useInterval from '../../../utils/useInterval';
+import Holed from 'public/assets/img/layout/holed.svg';
+import Picture from 'components/pages/work/Picture';
 
 const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
   const [activeIndex, setIndex] = useState<number>(0);
@@ -23,7 +23,6 @@ const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
 
   useEffect(() => {
     if (isVisible) setStart(true);
-
   }, [isVisible]);
 
   useEffect(() => {
@@ -59,10 +58,7 @@ const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
           <Holed />
           <CarouselContainer>
             {items.map((word, index) => (
-              <Word
-                key={`word${index}`}
-                $show={index === activeIndex}
-              >
+              <Word key={`word${index}`} $show={index === activeIndex}>
                 <Picture
                   src={`/assets/img/layout/home_draw/${index + 5}.png`}
                   width={165}

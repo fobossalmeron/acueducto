@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllEpisodes } from 'utils/podcastApi';
 import { createClient } from '../../prismicio';
-import { PrismicPodcastEpisode, MarkdownPodcastEpisode } from "components/podcast/podcast.types";
+import { PrismicPodcastEpisode, MarkdownPodcastEpisode } from "components/pages/podcast/podcast.types";
 
 export default async function handler(
   req: NextApiRequest,

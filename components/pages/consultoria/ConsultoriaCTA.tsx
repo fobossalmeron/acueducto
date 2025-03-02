@@ -1,10 +1,10 @@
-import React from "react";
-import Link from "next/link";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import { Span } from "components/shared/Dangerously";
-import BorderLink from "components/shared/BorderedLink";
-import { Button } from "components/shared/Button/Button";
+import React from 'react';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import { Span } from 'components/shared/Dangerously';
+import BorderLink from 'components/shared/BorderedLink';
+import { Button } from 'components/ui/Button/Button';
 
 interface ConsultoriaCTAProps {
   cta: any;
@@ -12,44 +12,43 @@ interface ConsultoriaCTAProps {
   price?: boolean;
 }
 
-const ConsultoriaCTA: React.FC<ConsultoriaCTAProps> = React.memo(({
-  cta,
-  diagnostico_cta,
-  price,
-}) => {
-  return (
-    <Container>
-      <h2>{cta.title}</h2>
-      {price ? (
-        <Span>{`${cta.price} <em>${cta.sessions}</em>`}</Span>
-      ) : (
-        <span className="noPrice">elevemos tu negocio</span>
-      )}
-      <SpecialA>
-        <Link href={"/contacto"}>
-          <Button
-            text={cta.submit}
-            inverse
-            className="clean"
-            parentComponent="ConsultoriaCTA"
-          />
-        </Link>
-      </SpecialA>
-      {diagnostico_cta && (
-        <Diagnostico>
-          <Fade triggerOnce>
-            <h2>{cta.title2}</h2>
-            <p>
-              <span>{cta.linktext}</span>
-              <Link href={cta.link[0]}>{cta.link[1]}</Link>
-              <span>{cta.linktext2}</span>
-            </p>
-          </Fade>
-        </Diagnostico>
-      )}
-    </Container>
-  );
-}, () => true);
+const ConsultoriaCTA: React.FC<ConsultoriaCTAProps> = React.memo(
+  ({ cta, diagnostico_cta, price }) => {
+    return (
+      <Container>
+        <h2>{cta.title}</h2>
+        {price ? (
+          <Span>{`${cta.price} <em>${cta.sessions}</em>`}</Span>
+        ) : (
+          <span className="noPrice">elevemos tu negocio</span>
+        )}
+        <SpecialA>
+          <Link href={'/contacto'}>
+            <Button
+              text={cta.submit}
+              inverse
+              className="clean"
+              parentComponent="ConsultoriaCTA"
+            />
+          </Link>
+        </SpecialA>
+        {diagnostico_cta && (
+          <Diagnostico>
+            <Fade triggerOnce>
+              <h2>{cta.title2}</h2>
+              <p>
+                <span>{cta.linktext}</span>
+                <Link href={cta.link[0]}>{cta.link[1]}</Link>
+                <span>{cta.linktext2}</span>
+              </p>
+            </Fade>
+          </Diagnostico>
+        )}
+      </Container>
+    );
+  },
+  () => true,
+);
 
 export default ConsultoriaCTA;
 

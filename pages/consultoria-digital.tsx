@@ -1,30 +1,25 @@
-import { useEffect, useState } from "react";
-import ssrLocale from "utils/ssrLocale";
-import styled from "styled-components";
-import useInterval from "utils/useInterval";
-import Head from "components/layout/Head";
-import TitleSection from "components/shared/TitleSection";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import { Fade } from "react-awesome-reveal";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import { P } from "components/shared/Dangerously";
-import ConsultoriaCTA from "components/pages/consultoria/ConsultoriaCTA";
-import Steps from "components/shared/Steps";
+import { useEffect, useState } from 'react';
+import ssrLocale from 'utils/ssrLocale';
+import styled from 'styled-components';
+import useInterval from 'utils/useInterval';
+import Head from 'components/layout/Head/Head';
+import TitleSection from 'components/shared/TitleSection';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import { Fade } from 'react-awesome-reveal';
+import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
+import { P } from 'components/shared/Dangerously';
+import ConsultoriaCTA from 'components/pages/consultoria/ConsultoriaCTA';
+import Steps from 'components/shared/Steps';
 
 import {
   DigitalTransformation,
   Strategy,
   Apps,
   Culture,
-} from "components/shared/Icons";
+} from 'components/shared/Icons';
 
-const stepIconArray = [
-  Strategy,
-  DigitalTransformation,
-  Apps,
-  Culture,
-];
+const stepIconArray = [Strategy, DigitalTransformation, Apps, Culture];
 
 interface SpinPinnedSectionProps {
   hasLoaded: boolean;
@@ -44,14 +39,18 @@ interface ConsultoriaProps {
   pt: any;
 }
 
-const SpinPinnedSection: React.FC<SpinPinnedSectionProps> = ({ hasLoaded, children, intro }) => {
+const SpinPinnedSection: React.FC<SpinPinnedSectionProps> = ({
+  hasLoaded,
+  children,
+  intro,
+}) => {
   const [spinWord, setSpinWord] = useState<number>(0);
   useInterval(
     () => {
       setSpinWord(spinWord === 2 ? 0 : spinWord + 1);
     },
     1700,
-    hasLoaded
+    hasLoaded,
   );
   let spinTitle = intro.pre_title + intro.words[spinWord] + intro.post_title;
 
@@ -62,7 +61,12 @@ const SpinPinnedSection: React.FC<SpinPinnedSectionProps> = ({ hasLoaded, childr
   );
 };
 
-const Consultoria: React.FC<ConsultoriaProps> = ({ locale, setTitle, pt, hasLoaded }) => {
+const Consultoria: React.FC<ConsultoriaProps> = ({
+  locale,
+  setTitle,
+  pt,
+  hasLoaded,
+}) => {
   let {
     head,
     intro,
@@ -81,19 +85,19 @@ const Consultoria: React.FC<ConsultoriaProps> = ({ locale, setTitle, pt, hasLoad
     <PageWrapper>
       <Head
         {...head}
-        image={{ fileName: "og_image_consultoria.jpg", alt: head.image_alt }}
+        image={{ fileName: 'og_image_consultoria.jpg', alt: head.image_alt }}
         es_canonical="https://acueducto.studio/consultoria-digital"
       />
       <SpinPinnedSection hasLoaded={hasLoaded} intro={intro}>
         <>
           <P>{intro.p}</P>
-          <ConsultoriaCTA cta={cta}/>
+          <ConsultoriaCTA cta={cta} />
           <FitSection>
             <h2>{fit_section.title}</h2>
             <P>{fit_section.p}</P>
             <ul>
               {fit_section.ul.map((li, i) => (
-                <li key={"fit" + i}>{li}</li>
+                <li key={'fit' + i}>{li}</li>
               ))}
             </ul>
           </FitSection>
@@ -131,14 +135,14 @@ const Consultoria: React.FC<ConsultoriaProps> = ({ locale, setTitle, pt, hasLoad
       <ContactFooter />
     </PageWrapper>
   );
-}
+};
 
 export default Consultoria;
 
 export const getStaticProps = async (context: { locale: string }) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: "consultoria.json",
+    fileName: 'consultoria.json',
   });
   if (!pt) {
     return {
@@ -242,7 +246,7 @@ const LastStep = styled.div`
         margin-bottom: 20px;
       }
       &:before {
-        content: " ";
+        content: ' ';
         width: 10px;
         height: 3px;
         background-color: ${(p) => p.theme.colors.accent};
@@ -271,7 +275,7 @@ const FitSection = styled.div`
       max-width: 445px;
 
       &:before {
-        content: "– ";
+        content: '– ';
         color: ${(p) => p.theme.colors.accent};
       }
     }

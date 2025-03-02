@@ -1,7 +1,7 @@
 import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import PageWrapper from 'components/layout/PageWrapper';
-import Head from 'components/layout/Head';
+import Head from 'components/layout/Head/Head';
 import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import MetalFooter from 'components/layout/footers/MetalFooter';
 

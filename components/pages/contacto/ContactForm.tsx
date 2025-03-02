@@ -1,18 +1,18 @@
-import React, { useRef, useState, useCallback } from "react";
-import dynamic from "next/dynamic";
-import { SubmitHandler, useForm } from "react-hook-form";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import { CSSTransition } from "react-transition-group";
+import React, { useRef, useState, useCallback } from 'react';
+import dynamic from 'next/dynamic';
+import { SubmitHandler, useForm } from 'react-hook-form';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import { CSSTransition } from 'react-transition-group';
 
-import { ButtonSubmit } from "components/shared/Button/ButtonSubmit";
-import InputField from "components/shared/ContactInputField";
-import delayForLoading from "utils/delayForLoading";
-import { useLenis } from "utils/LenisContext";
-import { createContact, sendEmail } from "utils/brevo";
-import { MailContact } from "utils/types/BrevoProps";
+import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
+import InputField from 'components/shared/ContactInputField';
+import delayForLoading from 'utils/delayForLoading';
+import { useLenis } from 'utils/LenisContext';
+import { createContact, sendEmail } from 'utils/brevo';
+import { MailContact } from 'utils/types/BrevoProps';
 
-const DynamicAmongUs = dynamic(() => import("./AmongUs"), {
+const DynamicAmongUs = dynamic(() => import('./AmongUs'), {
   ssr: false,
 });
 
@@ -41,18 +41,18 @@ interface ContactFormProps {
   testing?: boolean;
 }
 
-type FormStatus = "IDLE" | "LOADING" | "SUCCESS";
+type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
 
 const ContactForm: React.FC<ContactFormProps> = ({
   text,
   intro,
   testing = false,
 }) => {
-  if (process.env.NODE_ENV === "production" && testing) {
+  if (process.env.NODE_ENV === 'production' && testing) {
     throw new Error('No se puede usar el prop "testing" en producción');
   }
 
-  const [formStatus, setFormStatus] = useState<FormStatus>("IDLE");
+  const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
 
@@ -68,7 +68,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
         listIds: [10], //PidioExploracion
         updateEnabled: true,
         attributes: {
-          SUBSCRIBED_FROM: "Contact Form",
+          SUBSCRIBED_FROM: 'Contact Form',
           COMPANY: data.company,
           POSITION: data.job,
           JOB: data.job,
@@ -77,34 +77,34 @@ const ContactForm: React.FC<ContactFormProps> = ({
       const completeData = { ...data, ...listData };
       lenis.scrollTo(0, { immediate: false });
       await delayForLoading(300);
-      setFormStatus("LOADING");
+      setFormStatus('LOADING');
 
       if (testing) {
         console.log(
-          "Modo de prueba: Simulando envío exitoso del formulario",
-          completeData
+          'Modo de prueba: Simulando envío exitoso del formulario',
+          completeData,
         );
         await delayForLoading(2300);
       } else {
         await Promise.all([
           sendEmail(data),
           createContact(completeData).catch(() => {
-            setFormStatus("IDLE");
-            console.error("Error al crear el contacto en Brevo");
+            setFormStatus('IDLE');
+            console.error('Error al crear el contacto en Brevo');
             return;
           }),
           delayForLoading(2300),
         ]);
       }
 
-      setFormStatus("SUCCESS");
+      setFormStatus('SUCCESS');
     },
-    [lenis, testing]
+    [lenis, testing],
   );
 
   const renderForm = () => (
     <CSSTransition
-      in={formStatus === "IDLE"}
+      in={formStatus === 'IDLE'}
       timeout={300}
       classNames="fade"
       unmountOnExit
@@ -127,7 +127,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               id={`cp_email`}
               type="email"
               placeholder={text.email.placeholder}
-              {...register("email", {
+              {...register('email', {
                 required: text.email.errorMissing,
                 pattern: {
                   value:
@@ -148,7 +148,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 id={`cp_firstName`}
                 type="text"
                 placeholder={text.firstName.placeholder}
-                {...register("firstName", { required: true })}
+                {...register('firstName', { required: true })}
               />
               {errors.firstName && <span>{text.firstName.errorMissing}</span>}
             </InputField>
@@ -159,7 +159,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
                 id={`cp_lastName`}
                 type="text"
                 placeholder={text.lastName.placeholder}
-                {...register("lastName", { required: true })}
+                {...register('lastName', { required: true })}
               />
               {errors.lastName && <span>{text.lastName.errorMissing}</span>}
             </InputField>
@@ -171,7 +171,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               id={`cp_company`}
               type="text"
               placeholder={text.company.placeholder}
-              {...register("company", { required: true })}
+              {...register('company', { required: true })}
             />
             {errors.company && <span>{text.company.errorMissing}</span>}
           </InputField>
@@ -182,7 +182,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               id={`cp_job`}
               type="text"
               placeholder={text.job.placeholder}
-              {...register("job", { required: true })}
+              {...register('job', { required: true })}
             />
             {errors.job && <span>{text.job.errorMissing}</span>}
           </InputField>
@@ -192,7 +192,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
               name="message"
               id={`cp_message`}
               placeholder={text.message.placeholder}
-              {...register("message", { required: true })}
+              {...register('message', { required: true })}
             />
             {errors.message && <span>{text.message.errorMissing}</span>}
           </InputField>
@@ -225,8 +225,8 @@ const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <>
       {renderForm()}
-      {formStatus === "LOADING" && renderLoading()}
-      {formStatus === "SUCCESS" && renderSuccess()}
+      {formStatus === 'LOADING' && renderLoading()}
+      {formStatus === 'SUCCESS' && renderSuccess()}
     </>
   );
 };

@@ -1,10 +1,10 @@
-import React from "react";
-import { Fade } from "react-awesome-reveal";
-import Link from "next/link";
-import BorderLink from "components/shared/BorderedLink";
-import CaseGrid from "components/work/CaseGrid";
-import styled from "styled-components";
-import { Button } from "components/shared/Button/Button";
+import React from 'react';
+import { Fade } from 'react-awesome-reveal';
+import Link from 'next/link';
+import BorderLink from 'components/shared/BorderedLink';
+import CaseGrid from 'components/work/CaseGrid';
+import styled from 'styled-components';
+import { Button } from 'components/ui/Button/Button';
 
 interface EntryPreviewProps {
   title: string;
@@ -25,7 +25,7 @@ export const EntryPreview: React.FC<EntryPreviewProps> = ({
 }) => {
   const LinkComplex: React.FC<{ children: React.ReactNode }> = ({
     children,
-  }) => <Link href={"/blog/" + slug}>{children}</Link>;
+  }) => <Link href={'/blog/' + slug}>{children}</Link>;
   return (
     <CaseGrid reverse={reverse} early={850}>
       <LinkComplex>
@@ -49,7 +49,7 @@ export const EntryPreview: React.FC<EntryPreviewProps> = ({
           <p className="subtitle">{subtitle}</p>
           <div>{featured && <p>{excerpt}</p>}</div>
           <CTA $featured={featured}>
-            <Link href={"/blog/" + slug}>
+            <Link href={'/blog/' + slug}>
               <Button text="leer más" secondary />
             </Link>
           </CTA>
@@ -60,7 +60,7 @@ export const EntryPreview: React.FC<EntryPreviewProps> = ({
 };
 
 const CTA = styled.div<{ $featured?: boolean }>`
-  margin-top: ${(p) => (p.$featured ? "20%" : 0)};
+  margin-top: ${(p) => (p.$featured ? '20%' : 0)};
 `;
 
 const ImageContainer = styled.div`

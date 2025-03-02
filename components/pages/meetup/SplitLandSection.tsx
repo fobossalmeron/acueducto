@@ -1,5 +1,6 @@
-import { SplitLayout, AuxiliaryTitle, Title } from 'components/layout/Grid';
-import { Button } from 'components/shared/Button/Button';
+import { SplitLayout } from 'components/layout/layouts';
+import { Title, AuxiliaryTitle } from 'components/ui';
+import { Button } from 'components/ui/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
 import { TalkCard } from './TalkCard';
 import landBg from 'public/assets/img/layout/meetup/land_bg.png';
@@ -15,14 +16,14 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
         </Title>
       </SplitLayout.Header>
       <SplitLayout.Content className="lg:col-start-8">
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-2">
           <div className="flex flex-col gap-0">
             <span className="text-over-black text-base">Próximo evento</span>
             <p className="text-foreground! m-0! text-3xl leading-tight! font-medium xl:text-4xl">
               {nextEvent.date}
             </p>
           </div>
-          <div className="flex flex-col items-start gap-6">
+          <div className="flex flex-col items-start gap-5">
             <p className="m-0! flex items-center gap-3 font-medium">
               <Location />
               {nextEvent.location}, CDMX
@@ -30,10 +31,8 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
             <Button inverse text="regístrate" />
           </div>
         </div>
-        <div className="mt-16">
-          <p className="text-foreground-lowest mb-4! text-base">
-            Con charlas de
-          </p>
+        <div className="mt-10">
+          <p className="text-foreground-low mb-4! text-base">Con charlas de</p>
           <div className="flex flex-col gap-4">
             {nextEvent.talks.map((talk) => (
               <TalkCard

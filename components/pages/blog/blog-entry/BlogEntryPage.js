@@ -1,13 +1,13 @@
-import React from "react";
-import styled from "styled-components";
-import { H1, P } from "components/shared/Dangerously";
-import { Fade } from "react-awesome-reveal";
-import Header from "./BlogEntryHeader";
-import ShareRouter from "components/podcast/ShareRouter";
+import React from 'react';
+import styled from 'styled-components';
+import { H1, P } from 'components/shared/Dangerously';
+import { Fade } from 'react-awesome-reveal';
+import Header from './BlogEntryHeader';
+import ShareRouter from 'components/pages/podcast/ShareRouter';
 import CenteredSection, {
   Content,
   Transcript,
-} from "components/shared/CenteredSection";
+} from 'components/shared/CenteredSection';
 
 const ArticlePage = ({
   title,
@@ -19,10 +19,10 @@ const ArticlePage = ({
   content,
 }) => {
   let fullDate = new Date(`${date}T00:00:00`);
-  let formatDate = fullDate.toLocaleDateString("es-MX", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  let formatDate = fullDate.toLocaleDateString('es-MX', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
   return (
     <>
@@ -37,7 +37,9 @@ const ArticlePage = ({
               </P>
             </>
           ) : (
-            <H1 className="h1">{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
+            <H1 className="h1">
+              {title.charAt(0).toLowerCase() + title.slice(1)}
+            </H1>
           )}
           <Credits>
             <h2>{subtitle}</h2>

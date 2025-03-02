@@ -1,33 +1,33 @@
-import { useEffect, lazy, Suspense } from "react";
-import EpisodeProps from "utils/types/EpisodeProps";
-import markdownToHtml from "utils/markdownToHtml";
+import { useEffect, lazy, Suspense } from 'react';
+import EpisodeProps from 'utils/types/EpisodeProps';
+import markdownToHtml from 'utils/markdownToHtml';
 import {
   getAllEpisodes,
   getEpisodeBySlug,
   getNextEpisodeSlug,
-} from "utils/podcastApi";
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import type { GetStaticPropsContext } from "next";
-import { createClient } from "../../prismicio";
-import { PodcastEpisodePage } from "components/pages/podcastEpisode/PodcastEpisodePage";
+} from 'utils/podcastApi';
+import Head from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import type { GetStaticPropsContext } from 'next';
+import { createClient } from '../../prismicio';
+import { PodcastEpisodePage } from 'components/pages/podcast/podcast-episode/PodcastEpisodePage';
 
 const ResourceFooter = lazy(
-  () => import("components/layout/footers/ResourceFooter")
+  () => import('components/layout/footers/ResourceFooter'),
 );
 
 const SEO_OVERRIDES = {
-  "no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos": {
-    title: "Jorge Combe DD360: No vivas de usuarios, construye con ellos",
-    h1: "Jorge Combe DD360: No vivas de usuarios, construye con ellos",
+  'no-vivas-de-tus-usuarios-construye-tu-futuro-junto-con-ellos': {
+    title: 'Jorge Combe DD360: No vivas de usuarios, construye con ellos',
+    h1: 'Jorge Combe DD360: No vivas de usuarios, construye con ellos',
   },
-  "como-se-ve-la-educacion-online": {
-    title: "Desarrollo de habilidades digitales: Explorando Coderhouse",
-    h1: "Nahuel Lema y Coderhouse ¿Qué es y de dónde es?",
+  'como-se-ve-la-educacion-online': {
+    title: 'Desarrollo de habilidades digitales: Explorando Coderhouse',
+    h1: 'Nahuel Lema y Coderhouse ¿Qué es y de dónde es?',
   },
-  "como-captar-3m-de-usuarios": {
-    title: "Iván Canales de Nubank México: Cómo captar 3M de usuarios",
-    h1: "Iván Canales, Nubank Mexico: Como captar 3M de usuarios",
+  'como-captar-3m-de-usuarios': {
+    title: 'Iván Canales de Nubank México: Cómo captar 3M de usuarios',
+    h1: 'Iván Canales, Nubank Mexico: Como captar 3M de usuarios',
   },
 };
 
@@ -40,7 +40,7 @@ export default function Episodio({
   findNextPrismic,
 }) {
   useEffect(() => {
-    setTitle("Podcast");
+    setTitle('Podcast');
   }, [locale, setTitle]);
 
   const title = slugMatchesPrismic?.data.introduction[0].title[0].text;
@@ -59,9 +59,9 @@ export default function Episodio({
               episode.seo_title
                 ? episode.seo_title
                 : episode.title +
-                  " | " +
+                  ' | ' +
                   episode.guest +
-                  ", " +
+                  ', ' +
                   episode.business
             }
             description={episode.description}
@@ -73,7 +73,7 @@ export default function Episodio({
                   ? `og_image_e${episode.episode}.gif`
                   : `og_image_e${episode.episode}.png`,
               alt:
-                episode.title + " | " + episode.guest + ", " + episode.business,
+                episode.title + ' | ' + episode.guest + ', ' + episode.business,
             }}
             noIndex={!episode.index}
           />
@@ -86,14 +86,14 @@ export default function Episodio({
             title={
               SEO_OVERRIDES[slugMatchesPrismic.uid]
                 ? SEO_OVERRIDES[slugMatchesPrismic.uid].title
-                : title + " | " + guest + ", " + business
+                : title + ' | ' + guest + ', ' + business
             }
             description={description}
             headerTitle="Episodio"
             es_canonical={`https://acueducto.studio/podcast/${slugMatchesPrismic.uid}`}
             image={{
               fileName: gif,
-              alt: title + " | " + guest + ", " + business,
+              alt: title + ' | ' + guest + ', ' + business,
             }}
             noIndex={SEO_OVERRIDES[slugMatchesPrismic.uid]}
           />
@@ -131,26 +131,26 @@ export default function Episodio({
 
 async function loadMarkdownEpisode(slug) {
   const episode = getEpisodeBySlug(slug, [
-    "title",
-    "seo_title",
-    "seo_h1",
-    "guest",
-    "date",
-    "insights",
-    "business",
-    "category",
-    "description",
-    "episode",
-    "slug",
-    "spotify",
-    "apple",
-    "google",
-    "youtube",
-    "content",
-    "index",
+    'title',
+    'seo_title',
+    'seo_h1',
+    'guest',
+    'date',
+    'insights',
+    'business',
+    'category',
+    'description',
+    'episode',
+    'slug',
+    'spotify',
+    'apple',
+    'google',
+    'youtube',
+    'content',
+    'index',
   ]);
 
-  const content = await markdownToHtml(episode.content.toString() || "");
+  const content = await markdownToHtml(episode.content.toString() || '');
   return { ...episode, content };
 }
 
@@ -159,28 +159,28 @@ export async function getStaticProps({
   previewData,
 }: GetStaticPropsContext) {
   const client = createClient({ previewData });
-  const prismicEpisodes = await client.getAllByType("episode");
+  const prismicEpisodes = await client.getAllByType('episode');
 
   const slugMatchesPrismic = prismicEpisodes.find(
-    (ep) => ep.uid === params.slug
+    (ep) => ep.uid === params.slug,
   );
 
   const nextToMd: EpisodeProps = getEpisodeBySlug(getNextEpisodeSlug(105), [
-    "title",
-    "seo_title",
-    "seo_h1",
-    "guest",
-    "date",
-    "business",
-    "category",
-    "description",
-    "episode",
-    "slug",
-    "spotify",
-    "apple",
-    "google",
-    "youtube",
-    "index",
+    'title',
+    'seo_title',
+    'seo_h1',
+    'guest',
+    'date',
+    'business',
+    'category',
+    'description',
+    'episode',
+    'slug',
+    'spotify',
+    'apple',
+    'google',
+    'youtube',
+    'index',
   ]);
 
   const findNextPrismic =
@@ -188,7 +188,7 @@ export async function getStaticProps({
     prismicEpisodes.find(
       (ep) =>
         ep.data.introduction[0].episode ===
-        slugMatchesPrismic.data.introduction[0].episode - 1
+        slugMatchesPrismic.data.introduction[0].episode - 1,
     );
 
   const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
@@ -196,7 +196,7 @@ export async function getStaticProps({
   if (!slugMatchesPrismic) {
     const episode: EpisodeProps = await loadMarkdownEpisode(params.slug);
     const next: EpisodeProps = await loadMarkdownEpisode(
-      getNextEpisodeSlug(episode.episode)
+      getNextEpisodeSlug(episode.episode),
     );
 
     if (!episode) {
@@ -233,10 +233,10 @@ export async function getStaticProps({
 }
 
 export async function getStaticPaths() {
-  const episodes = getAllEpisodes(["slug"]);
+  const episodes = getAllEpisodes(['slug']);
 
   const client = createClient({ previewData: null });
-  const prismicEpisodes = await client.getAllByType("episode");
+  const prismicEpisodes = await client.getAllByType('episode');
   const prismicSlugs = prismicEpisodes.map((result) => result.uid);
 
   const allSlugs = [

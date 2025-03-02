@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from 'next';
 import { getAllEpisodes, getEpisodeBySlug } from "utils/podcastApi";
 import { createClient } from "../../prismicio";
-import { PrismicPodcastEpisode, MarkdownPodcastEpisode } from "components/podcast/podcast.types";
+import { PrismicPodcastEpisode, MarkdownPodcastEpisode } from "components/pages/podcast/podcast.types";
 
 const EPISODES_PER_PAGE = 30;
 
@@ -41,15 +41,15 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     const episodeB = isPrismicEpisode(b) ? b.data.introduction[0].episode : b.episode;
     return episodeB - episodeA;  // Sort from newest to oldest
   });
-  
+
   const filteredEpisodes = category.toString().toLowerCase() === "todas"
     ? allEpisodes
     : allEpisodes.filter(episode => {
-        const episodeCategory = isPrismicEpisode(episode)
-          ? episode.data.introduction[0].category
-          : episode.category;
-        return episodeCategory.toLowerCase() === category.toString().toLowerCase();
-      });
+      const episodeCategory = isPrismicEpisode(episode)
+        ? episode.data.introduction[0].category
+        : episode.category;
+      return episodeCategory.toLowerCase() === category.toString().toLowerCase();
+    });
 
   const pageNumber = parseInt(page.toString(), 10);
   const startIndex = (pageNumber - 1) * EPISODES_PER_PAGE;
