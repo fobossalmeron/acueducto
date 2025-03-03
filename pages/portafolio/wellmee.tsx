@@ -1,30 +1,30 @@
-import Image from "next/legacy/image";
-import React, { useEffect, useState } from "react";
-import { Fade } from "react-awesome-reveal";
+import Image from 'next/legacy/image';
+import React, { useEffect, useState } from 'react';
+import { Fade } from 'react-awesome-reveal';
 
-import Head from "components/layout/Head";
-import { IntroVideo } from "components/work/IntroVideo";
-import Marquee from "components/work/Marquee";
-import NextStudy from "components/work/NextStudy";
-import Picture from "components/work/Picture";
-import { SeoH2 } from "components/work/SEOHeadings";
-import TextColumn from "components/work/TextColumn";
-import AnimatedDataCards from "components/pages/work/wellmee/AnimationDataCards";
-import AnimationScrollCards from "components/pages/work/wellmee/AnimationScrollCards";
-import AnimationSlideCards from "components/pages/work/wellmee/AnimationSlideCards";
-import LandSectionWellmee from "components/pages/work/wellmee/LandSectionWellmee";
-import UIComponentsAnimation from "components/pages/work/wellmee/AnimationUIComponents";
-import { P } from "components/shared/Dangerously";
-import ContactFooter from "components/layout/footers/ContactFooter";
+import Head from 'components/layout/Head/Head';
+import { IntroVideo } from 'components/pages/work/IntroVideo';
+import Marquee from 'components/pages/work/Marquee';
+import NextStudy from 'components/pages/work/NextStudy';
+import Picture from 'components/pages/work/Picture';
+import { SeoH2 } from 'components/pages/work/SEOHeadings';
+import TextColumn from 'components/pages/work/TextColumn';
+import AnimatedDataCards from 'components/pages/work/wellmee/AnimationDataCards';
+import AnimationScrollCards from 'components/pages/work/wellmee/AnimationScrollCards';
+import AnimationSlideCards from 'components/pages/work/wellmee/AnimationSlideCards';
+import LandSectionWellmee from 'components/pages/work/wellmee/LandSectionWellmee';
+import UIComponentsAnimation from 'components/pages/work/wellmee/AnimationUIComponents';
+import { P } from 'components/shared/Dangerously';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
-import Combinator from "public/assets/img/casestudies/wellmee/Combinator.png";
-import Iphone from "public/assets/img/casestudies/wellmee/Iphone1.png";
-import Iphone2 from "public/assets/img/casestudies/wellmee/Iphone2.png";
-import Point4 from "public/assets/img/casestudies/wellmee/Point4.png";
+import Combinator from 'public/assets/img/casestudies/wellmee/Combinator.png';
+import Iphone from 'public/assets/img/casestudies/wellmee/Iphone1.png';
+import Iphone2 from 'public/assets/img/casestudies/wellmee/Iphone2.png';
+import Point4 from 'public/assets/img/casestudies/wellmee/Point4.png';
 
-import { useIsMobile } from "utils/useIsMobile";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
+import { useIsMobile } from 'utils/useIsMobile';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
 
 import {
   PageClipperWellmee,
@@ -39,8 +39,8 @@ import {
   StepContainer,
   Step,
   ContainerResultCard,
-  FourthSection
-} from "components/pages/work/wellmee/Wellmee.styles";
+  FourthSection,
+} from 'components/pages/work/wellmee/Wellmee.styles';
 
 interface WellmeeProps {
   locale: string;
@@ -53,7 +53,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
   const isMobile = useIsMobile();
   const t = useLocalizedContent({
     locale,
-    fileName: "work.wellmee",
+    fileName: 'work.wellmee',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -66,9 +66,9 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
     <PageClipperWellmee>
       <Head
         {...t?.head}
-        image={{ fileName: "og_image_wellmee.png", alt: t?.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/wellmee"}
-        en_canonical={"https://acueducto.studio/en/work/wellmee"}
+        image={{ fileName: 'og_image_wellmee.png', alt: t?.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/wellmee'}
+        en_canonical={'https://acueducto.studio/en/work/wellmee'}
       />
       <Fade delay={300} triggerOnce>
         <LandSectionWellmee
@@ -117,7 +117,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                     </div>
                   </Challenge>
                 </Fade>
-              )
+              ),
             )}
           </ChallengesContainer>
         </TextColumn>
@@ -135,8 +135,8 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         <TextColumn>
           <P className="h2">{t.third_section.title}</P>
           <PointContainer>
-            <Fade delay={300} triggerOnce key={"point1"}>
-              <Point style={{ paddingBottom: isMobile ? "49px" : "90px" }}>
+            <Fade delay={300} triggerOnce key={'point1'}>
+              <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
                 <div>
                   <span className="number">
                     <p>1</p>
@@ -144,7 +144,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                   <p>{t?.third_section.points[0].p}</p>
                 </div>
                 <Picture
-                  src={"/assets/img/casestudies/wellmee/Point1.png"}
+                  src={'/assets/img/casestudies/wellmee/Point1.png'}
                   alt="Point"
                   width={420}
                   height={263}
@@ -154,7 +154,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
           </PointContainer>
         </TextColumn>
         <TextColumn>
-          <Fade delay={300} triggerOnce key={"point2"}>
+          <Fade delay={300} triggerOnce key={'point2'}>
             <Point>
               <div>
                 <span className="number">
@@ -183,7 +183,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
           </StepContainer>
         </Fade>
         <TextColumn>
-          <Fade delay={300} triggerOnce key={"point3"}>
+          <Fade delay={300} triggerOnce key={'point3'}>
             <Point>
               <div>
                 <span className="number">
@@ -196,7 +196,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         </TextColumn>
         <AnimationScrollCards isMobile={isMobile} />
         <TextColumn>
-          <Fade delay={300} triggerOnce key={"point4"}>
+          <Fade delay={300} triggerOnce key={'point4'}>
             <Point>
               <div>
                 <span className="number">
@@ -221,7 +221,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                 <div>
                   {result.sign && <p className="h5">{result.sign}</p>}
                   <p className="h3">{result.title}</p>
-                  <p className="h4">{i !== 1 && " " + result.first_subtitle}</p>
+                  <p className="h4">{i !== 1 && ' ' + result.first_subtitle}</p>
                 </div>
                 <p className="h4">{i === 1 && result.first_subtitle}</p>
                 <p className="h4">{result.second_subtitle}</p>
@@ -268,7 +268,7 @@ export default React.memo(Wellmee);
 export const getStaticProps = async (context: any) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: "work.wellmee.json",
+    fileName: 'work.wellmee.json',
   });
   return {
     props: {

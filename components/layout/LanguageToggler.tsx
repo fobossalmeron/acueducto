@@ -1,50 +1,51 @@
-import React, { useEffect, useState } from "react";
-import styled from "styled-components";
-import Arrows from "public/assets/img/layout/language2.svg";
-import { useRouter } from "next/router";
+import React, { useEffect, useState } from 'react';
+import styled from 'styled-components';
+import Arrows from 'public/assets/img/layout/language2.svg';
+import { useRouter } from 'next/router';
 
 const ONE_LANG_PAGES = [
-  "user-feedback-masterclass",
-  "consultoria",
-  "podcast",
-  "mvs",
-  "diagnostico",
-  "linkenbio",
-  "blog",
+  'user-feedback-masterclass',
+  'meetup',
+  'consultoria',
+  'podcast',
+  'mvs',
+  'diagnostico',
+  'linkenbio',
+  'blog',
 ];
 
 const ROUTE_MAPPINGS = {
   en: {
-    "/work/wellmee": "/portafolio/wellmee",
-    "/work/recupera": "/portafolio/recupera",
-    "/work/borgatta": "/portafolio/borgatta",
-    "/work/blockstem": "/portafolio/blockstem",
-    "/work/rahid": "/portafolio/rahid",
-    "/work/ladanzadelasfieras": "/portafolio/ladanzadelasfieras",
-    "/work/salvajenada": "/portafolio/salvajenada",
-    "/work": "/portafolio",
-    "/about": "/nosotros",
-    "/contact": "/contacto",
-    "/pitch": "/pitch",
-    "/cookies": "/cookies",
-    "/privacy": "/privacidad",
-    "/": "/",
+    '/work/wellmee': '/portafolio/wellmee',
+    '/work/recupera': '/portafolio/recupera',
+    '/work/borgatta': '/portafolio/borgatta',
+    '/work/blockstem': '/portafolio/blockstem',
+    '/work/rahid': '/portafolio/rahid',
+    '/work/ladanzadelasfieras': '/portafolio/ladanzadelasfieras',
+    '/work/salvajenada': '/portafolio/salvajenada',
+    '/work': '/portafolio',
+    '/about': '/nosotros',
+    '/contact': '/contacto',
+    '/pitch': '/pitch',
+    '/cookies': '/cookies',
+    '/privacy': '/privacidad',
+    '/': '/',
   },
   es: {
-    "/portafolio/wellmee": "/work/wellmee",
-    "/portafolio/recupera": "/work/recupera",
-    "/portafolio/borgatta": "/work/borgatta",
-    "/portafolio/blockstem": "/work/blockstem",
-    "/portafolio/rahid": "/work/rahid",
-    "/portafolio/ladanzadelasfieras": "/work/ladanzadelasfieras",
-    "/portafolio/salvajenada": "/work/salvajenada",
-    "/portafolio": "/work",
-    "/nosotros": "/about",
-    "/contacto": "/contact",
-    "/pitch": "/pitch",
-    "/cookies": "/cookies",
-    "/privacidad": "/privacy",
-    "/": "/",
+    '/portafolio/wellmee': '/work/wellmee',
+    '/portafolio/recupera': '/work/recupera',
+    '/portafolio/borgatta': '/work/borgatta',
+    '/portafolio/blockstem': '/work/blockstem',
+    '/portafolio/rahid': '/work/rahid',
+    '/portafolio/ladanzadelasfieras': '/work/ladanzadelasfieras',
+    '/portafolio/salvajenada': '/work/salvajenada',
+    '/portafolio': '/work',
+    '/nosotros': '/about',
+    '/contacto': '/contact',
+    '/pitch': '/pitch',
+    '/cookies': '/cookies',
+    '/privacidad': '/privacy',
+    '/': '/',
   },
 };
 
@@ -63,17 +64,17 @@ function LanguageToggler({
   }, [router.asPath]);
 
   const handleLink = () => {
-    const targetLocale = locale === "en" ? "es" : "en";
+    const targetLocale = locale === 'en' ? 'es' : 'en';
     const currentPath = router.asPath;
 
     const getTargetPath = () => {
       // Manejo de rutas de trabajo/portafolio
       if (
-        currentPath.startsWith("/work/") ||
-        currentPath.startsWith("/portafolio/")
+        currentPath.startsWith('/work/') ||
+        currentPath.startsWith('/portafolio/')
       ) {
-        const basePath = locale === "en" ? "/work/" : "/portafolio/";
-        const targetBasePath = locale === "en" ? "/portafolio/" : "/work/";
+        const basePath = locale === 'en' ? '/work/' : '/portafolio/';
+        const targetBasePath = locale === 'en' ? '/portafolio/' : '/work/';
         return currentPath.replace(basePath, targetBasePath);
       }
 
@@ -93,8 +94,8 @@ function LanguageToggler({
       </IconWrapper>
       <RevealWrapper>
         <Reveal>
-          <span>{locale === "es" ? "switch language" : "cambiar idioma"}</span>
-          {locale === "es" ? "english" : "español"}
+          <span>{locale === 'es' ? 'switch language' : 'cambiar idioma'}</span>
+          {locale === 'es' ? 'english' : 'español'}
         </Reveal>
       </RevealWrapper>
     </A>

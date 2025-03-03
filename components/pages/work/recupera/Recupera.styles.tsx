@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import PageWrapper from "components/layout/PageWrapper";
-import CommonSection from "components/work/CommonSection";
+import styled from 'styled-components';
+import PageWrapper from 'components/layout/PageWrapper';
+import CommonSection from 'components/pages/work/CommonSection';
 
-const h2Title = "#292D34";
-const bodyText1 = "#FFFFFF";
-const bodyText2 = "#5C5C81";
-const bAccent1 = "#FAD166";
-const bAccent2 = "#7368F8";
-const backgroundColorSection = "#FEFAF5";
-const mainGradient = "linear-gradient(46deg, #6239d9 0%, #5c50ed 100%)";
+const h2Title = '#292D34';
+const bodyText1 = '#FFFFFF';
+const bodyText2 = '#5C5C81';
+const bAccent1 = '#FAD166';
+const bAccent2 = '#7368F8';
+const backgroundColorSection = '#FEFAF5';
+const mainGradient = 'linear-gradient(46deg, #6239d9 0%, #5c50ed 100%)';
 
 export {
   PageClipperRecupera,
@@ -202,7 +202,7 @@ const FourthSection = styled(CommonSection)`
 `;
 
 const DesktopAndMobile = styled.div`
-  background-image: url("/assets/img/casestudies/recupera/backgroundDesktopMobile.svg");
+  background-image: url('/assets/img/casestudies/recupera/backgroundDesktopMobile.svg');
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

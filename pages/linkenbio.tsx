@@ -1,20 +1,20 @@
-import React, { useEffect } from "react";
-import { GetStaticProps } from "next";
-import Image, { StaticImageData } from "next/image";
-import Link from "next/link";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
+import React, { useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import Image, { StaticImageData } from 'next/image';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
 
-import ssrLocale from "utils/ssrLocale";
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import MetalPinnedSection from "components/shared/pinnedSections/MetalPinnedSection";
-import ContactFooter from "components/layout/footers/ContactFooter";
+import ssrLocale from 'utils/ssrLocale';
+import Head from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import MetalPinnedSection from 'components/shared/pinnedSections/MetalPinnedSection';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
-import Articulos from "public/assets/img/layout/linkenbio/articulos.svg";
-import PodcastPng from "public/assets/img/layout/linkenbio/podcast.png";
-import Kit from "public/assets/img/layout/linkenbio/kit.png";
-import Portafolio from "public/assets/img/layout/linkenbio/portafolio.png";
+import Articulos from 'public/assets/img/layout/linkenbio/articulos.svg';
+import PodcastPng from 'public/assets/img/layout/linkenbio/podcast.png';
+import Kit from 'public/assets/img/layout/linkenbio/kit.png';
+import Portafolio from 'public/assets/img/layout/linkenbio/portafolio.png';
 
 interface LinkEnBioProps {
   locale: string;
@@ -57,7 +57,7 @@ export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
     <PageWrapper>
       <Head
         {...head}
-        es_canonical={"https://acueducto.studio/linkenbio"}
+        es_canonical={'https://acueducto.studio/linkenbio'}
         noIndex
       ></Head>
       <MetalPinnedSection title={title} heading={1}>
@@ -102,7 +102,7 @@ export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "linkenbio.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'linkenbio.json' });
   if (!pt) {
     return {
       notFound: true,

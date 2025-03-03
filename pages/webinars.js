@@ -1,14 +1,14 @@
-import React, { useEffect } from "react";
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
+import React, { useEffect } from 'react';
+import Head from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
 
 function Webinars({ locale, setTitle }) {
   useEffect(() => {
-    setTitle("webinars");
+    setTitle('webinars');
   }, [locale]);
   return (
     <PageWrapper>
@@ -16,7 +16,7 @@ function Webinars({ locale, setTitle }) {
         title="Nuestros Webinars - Acueducto"
         description="Inscríbete a nuestros próximos webinars"
         headerTitle="Webinars"
-        es_canonical={"https://acueducto.studio/webinars"}
+        es_canonical={'https://acueducto.studio/webinars'}
         noIndex
       />
       <PinnedSection title="próximos webinars" heading={1}>

@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import Picture from "components/work/Picture";
-import Case1 from "public/assets/img/casestudies/borgatta/case1.gif";
-import Case2 from "public/assets/img/casestudies/borgatta/case2.png";
-import Case3 from "public/assets/img/casestudies/borgatta/case3.png";
-import Case4 from "public/assets/img/casestudies/borgatta/case4.png";
-import Case5 from "public/assets/img/casestudies/borgatta/case5.png";
-import Case6 from "public/assets/img/casestudies/borgatta/case6.gif";
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import Picture from 'components/pages/work/Picture';
+import Case1 from 'public/assets/img/casestudies/borgatta/case1.gif';
+import Case2 from 'public/assets/img/casestudies/borgatta/case2.png';
+import Case3 from 'public/assets/img/casestudies/borgatta/case3.png';
+import Case4 from 'public/assets/img/casestudies/borgatta/case4.png';
+import Case5 from 'public/assets/img/casestudies/borgatta/case5.png';
+import Case6 from 'public/assets/img/casestudies/borgatta/case6.gif';
 
 const CaseTable = () => {
   return (

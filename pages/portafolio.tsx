@@ -1,15 +1,15 @@
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
-import Head from "components/layout/Head";
-import TitleSection from "components/shared/TitleSection";
-import CaseList from "components/work/CaseList";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
+import Head from 'components/layout/Head/Head';
+import TitleSection from 'components/shared/TitleSection';
+import CaseList from 'components/pages/work/CaseList';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
 export default function Work({ locale, setTitle, pt }) {
   const t = useLocalizedContent({
     locale,
-    fileName: "work",
+    fileName: 'work',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -18,8 +18,8 @@ export default function Work({ locale, setTitle, pt }) {
     <PageWrapper>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio/portafolio"}
-        en_canonical={"https://acueducto.studio/en/work"}
+        es_canonical={'https://acueducto.studio/portafolio'}
+        en_canonical={'https://acueducto.studio/en/work'}
       />
       <TitleSection {...t.intro} />
       <CaseList limit={6} />
@@ -28,7 +28,7 @@ export default function Work({ locale, setTitle, pt }) {
   );
 }
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "work.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'work.json' });
   return {
     props: {
       pt,

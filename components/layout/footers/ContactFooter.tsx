@@ -1,13 +1,13 @@
-import React from "react";
-import { useLocaleContext } from "utils/LangContext";
-import styled from "styled-components";
-import Link from "next/link";
-import { P } from "components/shared/Dangerously";
-import FooterNav from "./FooterNav";
-import { Fade } from "react-awesome-reveal";
-import TitleSectionGrid from "components/shared/TitleSectionGrid";
-import FooterLogoCrop from "./FooterLogoCrop";
-import { Button } from "components/shared/Button/Button";
+import React from 'react';
+import { useLocaleContext } from 'utils/LangContext';
+import styled from 'styled-components';
+import Link from 'next/link';
+import { P } from 'components/shared/Dangerously';
+import FooterNav from './FooterNav';
+import { Fade } from 'react-awesome-reveal';
+import TitleSectionGrid from 'components/shared/TitleSectionGrid';
+import FooterLogoCrop from './FooterLogoCrop';
+import { Button } from 'components/ui/Button/Button';
 
 const ContactFooter = () => {
   const context = useLocaleContext();
@@ -21,8 +21,8 @@ const ContactFooter = () => {
         <Fade triggerOnce>
           <p>{p}</p>
           <Link
-            href={"/contacto"}
-            as={context.lang === "en" ? "/contact" : "/contacto"}
+            href={'/contacto'}
+            as={context.lang === 'en' ? '/contact' : '/contacto'}
             locale={context.lang}
           >
             <Button text={button_text} parentComponent="ContactFooter" />
@@ -55,7 +55,7 @@ const Grid = styled(TitleSectionGrid)`
     &:hover {
       b {
         border-bottom: ${(props) =>
-          props.theme.stroke + " solid " + props.theme.colors.background};
+          props.theme.stroke + ' solid ' + props.theme.colors.background};
         border-color: transparent;
         transition: 0.3s ease all;
       }
@@ -68,7 +68,7 @@ const Grid = styled(TitleSectionGrid)`
       transition: 0.3s ease all 0.1s;
       padding-bottom: 2px;
       border-bottom: ${(props) =>
-        props.theme.stroke + " solid " + props.theme.colors.foreground};
+        props.theme.stroke + ' solid ' + props.theme.colors.foreground};
     }
   }
   @media (max-width: 600px) {

@@ -1,4 +1,4 @@
-import Theme from "./theme";
+import Theme from './theme';
 
 const styles = `
   #revealer {
@@ -211,30 +211,7 @@ const styles = `
     height: 100%;
     width: 100%;
   }
-  h1 {
-    margin: 0;
-    font-weight: inherit;
-    font-size: 5rem;
-    font-weight: 300;
-  }
-  h2 {
-    margin: 0;
-    font-weight: inherit;
-    font-size: 5.8rem;
-  }
-  h3 {
-    font-size: 5.8rem;
-    margin: 0px;
-    font-weight: inherit;
-  }
-  p {
-    margin: 0;
-    line-height: 135%;
-  }
-  h4 {
-    font-weight: inherit;
-    margin: 0;
-  }
+  
   a {
     color: inherit;
   }
@@ -248,8 +225,8 @@ const styles = `
 function renderStyles() {
   return {
     __html: styles
-      .replace(/(\r\n|\n|\r)/gm, "") // removes all new lines
-      .replace(/ +(?= )/g, ""), // removes all multiple spaces (indenting)
+      .replace(/(\r\n|\n|\r)/gm, '') // removes all new lines
+      .replace(/ +(?= )/g, ''), // removes all multiple spaces (indenting)
     // .replace(/.}/g, "}\n") // adds new line after every } charracter
   };
 }

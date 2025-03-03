@@ -1,32 +1,32 @@
-import React, { useEffect, useState } from "react";
-import dynamic from "next/dynamic";
-import { Fade } from "react-awesome-reveal";
-import { GetStaticProps } from "next";
+import React, { useEffect, useState } from 'react';
+import dynamic from 'next/dynamic';
+import { Fade } from 'react-awesome-reveal';
+import { GetStaticProps } from 'next';
 
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
 
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
+import Head from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
-import NextStudy from "components/work/NextStudy";
-import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
-import { IntroVideo } from "components/work/IntroVideo";
-import Marquee from "components/work/Marquee";
-import Quote from "components/work/Quote";
-import Insight from "components/work/Insight";
-import TextColumn from "components/work/TextColumn";
-import Picture from "components/work/Picture";
+import NextStudy from 'components/pages/work/NextStudy';
+import { P } from 'components/shared/Dangerously';
+import { SeoH1, SeoH2 } from 'components/pages/work/SEOHeadings';
+import { IntroVideo } from 'components/pages/work/IntroVideo';
+import Marquee from 'components/pages/work/Marquee';
+import Quote from 'components/pages/work/Quote';
+import Insight from 'components/pages/work/Insight';
+import TextColumn from 'components/pages/work/TextColumn';
+import Picture from 'components/pages/work/Picture';
 
-import LogoDanza from "public/assets/img/casestudies/ladanzadelasfieras/logoDanza.svg";
-import Laurel from "public/assets/img/casestudies/ladanzadelasfieras/laurel.svg";
-import PosterLine from "public/assets/img/casestudies/ladanzadelasfieras/line.svg";
-import Type_1 from "public/assets/img/casestudies/ladanzadelasfieras/type_1.svg";
-import Type_2 from "public/assets/img/casestudies/ladanzadelasfieras/type_2.svg";
-import Type_3 from "public/assets/img/casestudies/ladanzadelasfieras/type_3.svg";
-import AppSvg from "public/assets/img/casestudies/ladanzadelasfieras/app.svg";
+import LogoDanza from 'public/assets/img/casestudies/ladanzadelasfieras/logoDanza.svg';
+import Laurel from 'public/assets/img/casestudies/ladanzadelasfieras/laurel.svg';
+import PosterLine from 'public/assets/img/casestudies/ladanzadelasfieras/line.svg';
+import Type_1 from 'public/assets/img/casestudies/ladanzadelasfieras/type_1.svg';
+import Type_2 from 'public/assets/img/casestudies/ladanzadelasfieras/type_2.svg';
+import Type_3 from 'public/assets/img/casestudies/ladanzadelasfieras/type_3.svg';
+import AppSvg from 'public/assets/img/casestudies/ladanzadelasfieras/app.svg';
 
 import {
   fierasRed,
@@ -50,15 +50,15 @@ import {
   SecondSection,
   LaurelNumbers,
   FirstSection,
-  LandSection
-} from "components/pages/work/ladanzadelasfieras/LaDanzaDeLasFieras.styles";
+  LandSection,
+} from 'components/pages/work/ladanzadelasfieras/LaDanzaDeLasFieras.styles';
 
 const ThePlayer = dynamic(
-  () => import("components/pages/work/ladanzadelasfieras/VideoPlayer"),
+  () => import('components/pages/work/ladanzadelasfieras/VideoPlayer'),
   {
     loading: () => <p>Loading player...</p>,
     ssr: false,
-  }
+  },
 );
 
 interface LaDanzaDeLasFierasProps {
@@ -71,7 +71,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
   const [loadAssets, setloadAssets] = useState(false);
   const t = useLocalizedContent({
     locale,
-    fileName: "work.lddlf",
+    fileName: 'work.lddlf',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -84,9 +84,9 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
     <PageWrapper unPadded>
       <Head
         {...t.head}
-        image={{ fileName: "og_image_lddlf.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/ladanzadelasfieras"}
-        en_canonical={"https://acueducto.studio/en/work/ladanzadelasfieras"}
+        image={{ fileName: 'og_image_lddlf.png', alt: t.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/ladanzadelasfieras'}
+        en_canonical={'https://acueducto.studio/en/work/ladanzadelasfieras'}
       />
       <Fade triggerOnce>
         <LandSection>
@@ -107,7 +107,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
             <Laurel />
             <ul>
               {t.intro_section.stats.map((stat, index) => (
-                <li key={"stat_" + index}>
+                <li key={'stat_' + index}>
                   <b>{stat.big}</b>
                   <p>{stat.small}</p>
                 </li>
@@ -128,7 +128,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
             <PosterLine />
           </Fade>
           <Picture
-            src={"/assets/img/casestudies/ladanzadelasfieras/p_1.jpg"}
+            src={'/assets/img/casestudies/ladanzadelasfieras/p_1.jpg'}
             alt="First references for branding"
             width={114}
             height={160}
@@ -196,18 +196,18 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
           />
         </TransitionWrapper>
         <TextColumn>
-          <P className="h3">{"– " + t.second_section.subtitle}</P>
+          <P className="h3">{'– ' + t.second_section.subtitle}</P>
           <P>{t.second_section.p2}</P>
         </TextColumn>
         <SequenceContainer>
           {loadAssets && (
             <Fade triggerOnce>
               <ThePlayer
-                url={"https://www.youtube.com/watch?v=11aYNilxhko"}
+                url={'https://www.youtube.com/watch?v=11aYNilxhko'}
                 still={
-                  "/assets/img/casestudies/ladanzadelasfieras/videoBack.jpg"
+                  '/assets/img/casestudies/ladanzadelasfieras/videoBack.jpg'
                 }
-                ratio={"50.62%"}
+                ratio={'50.62%'}
               />
             </Fade>
           )}
@@ -215,7 +215,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
       </Section_Sub>
       <Third>
         <TextColumn>
-          <P className="h3">{"– " + t.third_section.subtitle}</P>
+          <P className="h3">{'– ' + t.third_section.subtitle}</P>
           <P>{t.third_section.p}</P>
         </TextColumn>
         <Insight
@@ -271,7 +271,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
           </MacContact>
         </Insight>
         <TextColumn>
-          <P className="h3">{"– " + t.third_section.subtitle2}</P>
+          <P className="h3">{'– ' + t.third_section.subtitle2}</P>
           <P>{t.third_section.p2}</P>
           <AppGrid>
             <Picture
@@ -287,7 +287,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
       </Third>
       <Fourth>
         <TextColumn>
-          <P className="h3">{"– " + t.fourth_section.subtitle}</P>
+          <P className="h3">{'– ' + t.fourth_section.subtitle}</P>
           <P>{t.fourth_section.p}</P>
           <Stat>
             <span>
@@ -304,7 +304,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
                 muted
                 loop
                 poster={
-                  "/assets/img/casestudies/ladanzadelasfieras/incognito_poster.jpg"
+                  '/assets/img/casestudies/ladanzadelasfieras/incognito_poster.jpg'
                 }
               >
                 <source src="/assets/video/casestudies/ladanzadelasfieras/incognito.mp4" />
@@ -353,7 +353,10 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
 export default React.memo(LaDanzaDeLasFieras);
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale as string, fileName: "work.lddlf.json" });
+  const pt = ssrLocale({
+    locale: context.locale as string,
+    fileName: 'work.lddlf.json',
+  });
   return {
     props: {
       pt,

@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { GetStaticProps } from "next";
-import Link from "next/link";
-import Image from "next/image";
-import dynamic from "next/dynamic";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+import Image from 'next/image';
+import dynamic from 'next/dynamic';
+import styled from 'styled-components';
 
-import ssrLocale from "utils/ssrLocale";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import TitleSection from "components/shared/TitleSection";
-import { Button } from "components/shared/Button/Button";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import Services from "components/pages/index/Services";
-import Head from "components/layout/Head";
-import Carousel from "components/pages/index/Carousel";
-import { Fade } from "react-awesome-reveal";
-import BroadcastRouter from "components/podcast/BroadcastRouter";
-import FAQSection from "components/pages/index/FAQ";
-import PageWrapper from "components/layout/PageWrapper";
-import Quotes from "components/pages/index/Quotes";
-import CaseList from "components/work/CaseList";
-import { useIsMobile } from "utils/useIsMobile";
+import ssrLocale from 'utils/ssrLocale';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import TitleSection from 'components/shared/TitleSection';
+import { Button } from 'components/ui/Button/Button';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import Services from 'components/pages/index/Services';
+import Head from 'components/layout/Head/Head';
+import Carousel from 'components/pages/index/Carousel';
+import { Fade } from 'react-awesome-reveal';
+import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
+import FAQSection from 'components/pages/index/FAQ';
+import PageWrapper from 'components/layout/PageWrapper';
+import Quotes from 'components/pages/index/Quotes';
+import CaseList from 'components/pages/work/CaseList';
+import { useIsMobile } from 'utils/useIsMobile';
 
-import ClientsDesktop from "../public/assets/img/layout/clients.png";
-import ClientsMobile from "../public/assets/img/layout/clientsMobile.png";
-import PodcastCover from "../public/assets/img/layout/podcast_cover.png";
+import ClientsDesktop from '../public/assets/img/layout/clients.png';
+import ClientsMobile from '../public/assets/img/layout/clientsMobile.png';
+import PodcastCover from '../public/assets/img/layout/podcast_cover.png';
 
-const HomeVideo = dynamic(() => import("../components/pages/index/HomeVideo"), {
+const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
   ssr: false,
 });
 
@@ -39,7 +39,7 @@ interface IndexProps {
 const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
   const t = useLocalizedContent({
     locale,
-    fileName: "home",
+    fileName: 'home',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -60,13 +60,13 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         en_canonical="https://acueducto.studio/en"
       />
       <div style={{ zIndex: 1 }}>
-        <Land id="land">
+        <Land id="land" locale={locale}>
           <LandContainer>
             <Fade cascade delay={0.4}>
               <p className="h1">{t.landing.heading}</p>
-              <h2 className="h2">{t.landing.tagline}</h2>
+              <h1 className="h2">{t.landing.tagline}</h1>
               <Link
-                href={locale === "en" ? "/work" : "/portafolio"}
+                href={locale === 'en' ? '/work' : '/portafolio'}
                 locale={locale}
               >
                 <Button
@@ -75,9 +75,6 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
                   parentComponent="Land"
                 />
               </Link>
-            </Fade>
-            <Fade>
-              <h1>{t.landing.seo_h1}</h1>
             </Fade>
           </LandContainer>
         </Land>
@@ -99,13 +96,13 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
           </Fade>
           <Fade triggerOnce>
             <span className="text">
-              {locale === "en"
-                ? "From our clients"
-                : "Lo que nuestros clientes dicen de nosotros"}
+              {locale === 'en'
+                ? 'From our clients'
+                : 'Lo que nuestros clientes dicen de nosotros'}
             </span>
             <Quotes isMobile={isMobile} />
             <Link
-              href={locale === "en" ? "/work" : "/portafolio"}
+              href={locale === 'en' ? '/work' : '/portafolio'}
               locale={locale}
             >
               <Button
@@ -147,7 +144,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
 };
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "home.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'home.json' });
   return {
     props: {
       pt,
@@ -157,7 +154,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default React.memo(Index);
 
-const Land = styled.section`
+const Land = styled.section<{ locale: string }>`
   min-height: 100vh;
   width: 100%;
   display: grid;
@@ -166,23 +163,10 @@ const Land = styled.section`
   grid-gap: 2.2rem;
   align-items: center;
   position: relative;
-  h1 {
-    text-transform: uppercase;
-    font-size: 1rem;
-    letter-spacing: 4px;
-    line-height: 140%;
-    font-weight: 100;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 6%;
-    z-index: -10;
-    text-align: center;
-  }
   .h2 {
     font-size: 2.1rem;
     margin-top: 15px;
-    max-width: 300px;
+    max-width: ${({ locale }) => (locale === 'en' ? '27ch' : '28ch')};
     color: ${(props) => props.theme.colors.white};
     margin-bottom: 2rem;
   }
@@ -190,7 +174,7 @@ const Land = styled.section`
     color: ${(props) => props.theme.colors.white};
     line-height: 100%;
     font-size: 7rem;
-    max-width: 860px;
+    max-width: 19ch;
     font-weight: 500;
   }
   @media (max-width: 1115px) {
@@ -219,39 +203,19 @@ const Land = styled.section`
   @media (max-width: 900px) {
     .h1 {
       font-size: 5rem;
-      max-width: 360px;
     }
     .h2 {
       font-size: 1.8rem;
-      max-width: 420px;
     }
   }
   @media (max-width: 700px) {
-    h1 {
-      font-size: 0.7;
-      text-align: left;
-      left: 4%;
-      transform: unset;
-      max-width: 300px;
-    }
     .h1 {
       font-size: 4rem;
-      max-width: 450px;
-    }
-  }
-  @media (max-width: 520px) {
-    .h1 {
-      max-width: 280px;
     }
   }
   @media (max-width: 420px) {
-    h1 {
-      font-size: 0.6;
-      margin-bottom: 70px;
-    }
     .h1 {
       font-size: 3.35rem;
-      max-width: 250px;
     }
     .h2 {
       font-size: 1.6rem;

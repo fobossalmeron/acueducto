@@ -1,16 +1,16 @@
-import { useEffect } from "react";
-import { GetStaticProps } from "next";
-import ArticleProps from "utils/types/ArticleProps";
-import markdownToHtml from "utils/markdownToHtml";
-import { getAllPosts, getPostBySlug } from "utils/blogApi";
-import Head from "components/layout/Head";
-import BlogEntryPage from "components/pages/blogEntry/BlogEntryPage";
-import PageWrapper from "components/layout/PageWrapper";
-import ResourceFooter from "components/layout/footers/ResourceFooter";
+import { useEffect } from 'react';
+import { GetStaticProps } from 'next';
+import ArticleProps from 'utils/types/ArticleProps';
+import markdownToHtml from 'utils/markdownToHtml';
+import { getAllPosts, getPostBySlug } from 'utils/blogApi';
+import Head from 'components/layout/Head/Head';
+import BlogEntryPage from 'components/pages/blog/blog-entry/BlogEntryPage';
+import PageWrapper from 'components/layout/PageWrapper';
+import ResourceFooter from 'components/layout/footers/ResourceFooter';
 
 export default function BlogEntry({ locale, setTitle, article }) {
   useEffect(() => {
-    setTitle("Blog");
+    setTitle('Blog');
   }, [locale]);
 
   return (
@@ -31,18 +31,18 @@ export default function BlogEntry({ locale, setTitle, article }) {
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const article: ArticleProps = getPostBySlug(context.params.slug, [
-    "title",
-    "seo_h1",
-    "seo_title",
-    "excerpt",
-    "subtitle",
-    "date",
-    "slug",
-    "author",
-    "content",
-    "index",
+    'title',
+    'seo_h1',
+    'seo_title',
+    'excerpt',
+    'subtitle',
+    'date',
+    'slug',
+    'author',
+    'content',
+    'index',
   ]);
-  const content = await markdownToHtml(article.content || "");
+  const content = await markdownToHtml(article.content || '');
 
   if (!article) {
     return {
@@ -60,7 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 };
 
 export async function getStaticPaths() {
-  const articles = getAllPosts(["slug"]);
+  const articles = getAllPosts(['slug']);
   return {
     paths: articles.map((article: ArticleProps) => {
       return {

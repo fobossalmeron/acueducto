@@ -1,8 +1,8 @@
-import React from "react";
-import { P, H1, H2 } from "components/shared/Dangerously";
-import Grid, { Container } from "./TitleSectionGrid";
-import LinkWithArrow from "components/shared/LinkWithArrow";
-import { Fade } from "react-awesome-reveal";
+import React from 'react';
+import { P, H1, H2 } from 'components/shared/Dangerously';
+import Grid, { Container } from './TitleSectionGrid';
+import LinkWithArrow from 'components/shared/LinkWithArrow';
+import { Fade } from 'react-awesome-reveal';
 
 interface TitleProps {
   title: string;
@@ -15,6 +15,7 @@ interface TitleProps {
   children?: React.ReactNode;
   heading?: number;
   seo_h1?: string;
+  className?: string;
 }
 
 const TitleSection = ({
@@ -28,14 +29,15 @@ const TitleSection = ({
   ul,
   heading,
   seo_h1,
+  className,
 }: TitleProps) => {
   return (
-    <Grid $borderTop={borderTop}>  
+    <Grid $borderTop={borderTop}>
       {
         // Si viene un h1 de SEO, renderearlo junto con el título
         seo_h1 && (
           <Fade triggerOnce>
-            <div>
+            <div className={className}>
               <H1>{seo_h1}</H1>
               <P className="h1">{title}</P>
             </div>
@@ -70,7 +72,7 @@ const TitleSection = ({
           <Fade triggerOnce>
             <ul>
               {ul.map((t: string, index) => (
-                <li key={"li" + index}>{t}</li>
+                <li key={'li' + index}>{t}</li>
               ))}
             </ul>
           </Fade>

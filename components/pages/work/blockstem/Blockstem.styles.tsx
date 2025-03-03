@@ -1,12 +1,12 @@
-import styled from "styled-components";
-import CommonSection from "components/work/CommonSection";
-import PageWrapper from "components/layout/PageWrapper";
+import styled from 'styled-components';
+import CommonSection from 'components/pages/work/CommonSection';
+import PageWrapper from 'components/layout/PageWrapper';
 
-const blockstemForeground = "#31302E";
-const bAccent1 = "#4EA68E";
-const bAccent2 = "#2B67DD";
+const blockstemForeground = '#31302E';
+const bAccent1 = '#4EA68E';
+const bAccent2 = '#2B67DD';
 const mainGradient =
-  "linear-gradient(96.9deg, #060809 12.06%, #3A3A3A 113.48%);";
+  'linear-gradient(96.9deg, #060809 12.06%, #3A3A3A 113.48%);';
 
 export const PageClipperBlockstem = styled(PageWrapper)`
   background: ${mainGradient};
@@ -181,7 +181,7 @@ export const TransitionWrapper = styled.div`
     }
   }
   &:before {
-    content: " ";
+    content: ' ';
     z-index: 0;
     position: absolute;
     height: 50%;
@@ -308,21 +308,21 @@ export const Lesson = styled.div`
     position: relative;
     &::before,
     &::after {
-      content: " ";
+      content: ' ';
       width: 22px;
       height: 22px;
       background: linear-gradient(70.86deg, #1a4ce0 23.81%, #81edce 385.7%);
       border-radius: 100%;
     }
     &::before {
-      content: " ";
+      content: ' ';
       display: inline-block;
       position: relative;
       margin-right: 12px;
       margin-left: 7px;
     }
     &::after {
-      content: " ";
+      content: ' ';
       display: block;
       position: absolute;
       left: 0px;
@@ -430,7 +430,8 @@ export const SixthSection = styled(CommonSection)`
 `;
 
 export const FifthSection = styled(CommonSection)`
-  background: linear-gradient(
+  background:
+    linear-gradient(
       90.27deg,
       #1a4ce0 -6.41%,
       #2f6edc 106.96%,
@@ -486,7 +487,7 @@ export const FirstSection = styled(CommonSection)`
 
 export const LandSection = styled(CommonSection)`
   min-height: 100vh;
-  background-image: url("/assets/img/casestudies/blockstem/main-bg.png");
+  background-image: url('/assets/img/casestudies/blockstem/main-bg.png');
   background-position: left center;
   background-size: auto 75%;
   background-repeat: no-repeat;

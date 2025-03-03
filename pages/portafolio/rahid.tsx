@@ -1,26 +1,26 @@
-import React, { useEffect, useState } from "react";
-import Image from "next/image";
-import { GetStaticProps } from "next";
+import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
+import { GetStaticProps } from 'next';
 
-import Head from "components/layout/Head";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import NextStudy from "components/work/NextStudy";
-import { P } from "components/shared/Dangerously";
-import { SeoH1, SeoH2 } from "components/work/SEOHeadings";
-import { IntroVideo } from "components/work/IntroVideo";
-import Marquee from "components/work/Marquee";
-import Quote from "components/work/Quote";
-import TextColumn from "components/work/TextColumn";
-import Picture from "components/work/Picture";
+import Head from 'components/layout/Head/Head';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import NextStudy from 'components/pages/work/NextStudy';
+import { P } from 'components/shared/Dangerously';
+import { SeoH1, SeoH2 } from 'components/pages/work/SEOHeadings';
+import { IntroVideo } from 'components/pages/work/IntroVideo';
+import Marquee from 'components/pages/work/Marquee';
+import Quote from 'components/pages/work/Quote';
+import TextColumn from 'components/pages/work/TextColumn';
+import Picture from 'components/pages/work/Picture';
 
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import ssrLocale from "utils/ssrLocale";
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import ssrLocale from 'utils/ssrLocale';
 
-import { Fade } from "react-awesome-reveal";
+import { Fade } from 'react-awesome-reveal';
 
-import LogoRahid from "public/assets/img/casestudies/rahid/logoRahid.svg";
-import BoxesImage from "public/assets/img/casestudies/rahid/boxes.png";
+import LogoRahid from 'public/assets/img/casestudies/rahid/logoRahid.svg';
+import BoxesImage from 'public/assets/img/casestudies/rahid/boxes.png';
 
 import {
   rahidBackground,
@@ -36,8 +36,8 @@ import {
   SecondSection,
   OldBrand,
   FirstSection,
-  LandSection
-} from "components/pages/work/rahid/Rahid.styles";
+  LandSection,
+} from 'components/pages/work/rahid/Rahid.styles';
 
 interface RahidProps {
   locale: string;
@@ -49,7 +49,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
   const t = useLocalizedContent({
     locale,
-    fileName: "work.rahid",
+    fileName: 'work.rahid',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -62,9 +62,9 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
     <PageWrapper unPadded>
       <Head
         {...t.head}
-        image={{ fileName: "og_image_rahid.png", alt: t.head.image_alt }}
-        es_canonical={"https://acueducto.studio/portafolio/rahid"}
-        en_canonical={"https://acueducto.studio/en/work/rahid"}
+        image={{ fileName: 'og_image_rahid.png', alt: t.head.image_alt }}
+        es_canonical={'https://acueducto.studio/portafolio/rahid'}
+        en_canonical={'https://acueducto.studio/en/work/rahid'}
       />
       <Fade triggerOnce>
         <LandSection>
@@ -95,7 +95,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
       </FirstSection>
       <SecondSection>
         <TextColumn>
-          <P className="h3">{"– " + t.second_section.subtitle}</P>
+          <P className="h3">{'– ' + t.second_section.subtitle}</P>
           <P>{t.second_section.p}</P>
         </TextColumn>
         <Quote quote={t.second_section.quote} color={rahidBackground} />
@@ -109,7 +109,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
           <Fade triggerOnce>
             <div>
               {t.third_section.spans.map((span, index) => (
-                <span key={index + "span"}>{span}</span>
+                <span key={index + 'span'}>{span}</span>
               ))}
               {loadAssets && (
                 <img
@@ -143,7 +143,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
       </ThirdSection>
       <FourthSection>
         <TextColumn>
-          <P className="h3">{"– " + t.fourth_section.subtitle}</P>
+          <P className="h3">{'– ' + t.fourth_section.subtitle}</P>
           <P>{t.fourth_section.p}</P>
           <Picture
             src="/assets/img/casestudies/rahid/home.jpg"
@@ -232,7 +232,10 @@ function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
 export default React.memo(Rahid);
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale as string, fileName: "work.rahid.json" });
+  const pt = ssrLocale({
+    locale: context.locale as string,
+    fileName: 'work.rahid.json',
+  });
   return {
     props: {
       pt,

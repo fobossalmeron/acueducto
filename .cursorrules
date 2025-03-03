@@ -1,0 +1,4 @@
+- We're using Tailwind 4
+- Styled components is also being used in this project, it'll be migrated later, but any new sugestion should use tailwind
+
+Tailwind 4 docs: https://tailwindcss.com/blog/tailwindcss-v4

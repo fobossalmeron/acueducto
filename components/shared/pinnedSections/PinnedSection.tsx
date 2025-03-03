@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import BorderLink from "components/shared/BorderedLink";
-import MetalPinnedSection from "./MetalPinnedSection";
+import styled from 'styled-components';
+import BorderLink from 'components/shared/BorderedLink';
+import MetalPinnedSection from './MetalPinnedSection';
 
 const PinnedSection = styled(MetalPinnedSection)`
   p {
@@ -8,7 +8,7 @@ const PinnedSection = styled(MetalPinnedSection)`
     color: ${(props) => props.theme.colors.over_black};
     margin-bottom: 5%;
     margin-top: 0;
-    &:first-of-type {
+    &:first-of-type:not(.h1) {
       margin-top: 10px;
     }
     b {
@@ -17,10 +17,10 @@ const PinnedSection = styled(MetalPinnedSection)`
     }
     cite {
       color: ${(props) => props.theme.colors.foreground_lower};
-      text-transform:uppercase;
-      font-weight:300;
-      letter-spacing:1px;
-      font-size:.8em;
+      text-transform: uppercase;
+      font-weight: 300;
+      letter-spacing: 1px;
+      font-size: 0.8em;
       font-style: normal;
     }
   }

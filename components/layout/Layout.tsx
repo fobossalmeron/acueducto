@@ -1,20 +1,20 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
-import { useRouter } from "next/router";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import { useRouter } from 'next/router';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
-import styled, { createGlobalStyle } from "styled-components";
-import Header from "./Header";
-import Nav from "./Nav/Nav";
-import LanguageToggler from "./LanguageToggler";
-import Hamburger from "./Hamburger";
-import Border from "./Border";
-import CookieMessage from "./CookieMessage";
-import ScrollIncentive from "./ScrollIncentive";
-import NewsletterPopup from "components/NewsletterPopup";
+import styled, { createGlobalStyle } from 'styled-components';
+import Header from 'components/ui/Header';
+import Nav from './Nav/Nav';
+import LanguageToggler from './LanguageToggler';
+import Hamburger from 'components/ui/Hamburger';
+import Border from 'components/ui/Border';
+import CookieMessage from './CookieMessage';
+import ScrollIncentive from 'components/ui/ScrollIncentive';
+import NewsletterPopup from './NewsletterPopup';
 
-import ReactPixel from "react-facebook-pixel";
-import LinkedInTag from "react-linkedin-insight";
-import { useLenis } from "utils/LenisContext";
+import ReactPixel from 'react-facebook-pixel';
+import LinkedInTag from 'react-linkedin-insight';
+import { useLenis } from 'utils/LenisContext';
 
 interface LayoutProps {
   t: any;
@@ -24,20 +24,20 @@ interface LayoutProps {
 
 const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   const [isOpen, setOpen] = useState<boolean>(false);
-  const [headerTitle, setTitle] = useState<string>("");
+  const [headerTitle, setTitle] = useState<string>('');
   const [showArrow, setShowArrow] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const router = useRouter();
-  const { stopScroll, startScroll } = useLenis(); 
+  const { stopScroll, startScroll } = useLenis();
 
   const initializePixels = useCallback((): void => {
     const fbOptions = {
       autoConfig: true,
       debug: false,
     };
-    ReactPixel.init("506854653278097", null, fbOptions);
+    ReactPixel.init('506854653278097', null, fbOptions);
     ReactPixel.pageView();
-    LinkedInTag.init("1943114", "dc", false);
+    LinkedInTag.init('1943114', 'dc', false);
   }, []);
 
   useEffect(() => {
@@ -47,8 +47,8 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   }, [hasLoaded, initializePixels]);
 
   useEffect(() => {
-    const isHomePage = router.route === "/";
-    const isPodcastPage = router.route === "/podcast";
+    const isHomePage = router.route === '/';
+    const isPodcastPage = router.route === '/podcast';
 
     setShowArrow(isHomePage);
     setShowPopup(isPodcastPage);
@@ -78,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         hasLoaded,
         locale: router.locale,
       }),
-    [children, setTitle, hasLoaded, router.locale]
+    [children, setTitle, hasLoaded, router.locale],
   );
 
   return (
@@ -117,13 +117,13 @@ const BodyOverflow = createGlobalStyle<{ $hasLoaded: boolean }>`
      box-shadow: 1px 1px 4px ${(props) => props.theme.colors.accent} !important;
   }
   body  {
-    overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
+    overflow-y: ${(props) => (props.$hasLoaded ? 'auto' : 'hidden')};
     overflow-x: hidden;
   }  
   #LayoutWrapper  {
-    /* overflow-y: ${(props) => (props.$hasLoaded ? "auto" : "hidden")};
+    /* overflow-y: ${(props) => (props.$hasLoaded ? 'auto' : 'hidden')};
     overflow-x: hidden; */
-    /* height: ${(props) => (props.$hasLoaded ? "auto" : "100vh")}; */
+    /* height: ${(props) => (props.$hasLoaded ? 'auto' : '100vh')}; */
   }  
 `;
 

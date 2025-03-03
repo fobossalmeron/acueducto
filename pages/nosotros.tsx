@@ -1,23 +1,23 @@
-import React from "react";
-import Image from "next/image";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
+import React from 'react';
+import Image from 'next/image';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
 
-import ssrLocale from "utils/ssrLocale";
-import { useLocalizedContent } from "utils/useLocalizedContent";
+import ssrLocale from 'utils/ssrLocale';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
 
-import Head from "components/layout/Head";
-import TitleSection from "components/shared/TitleSection";
-import PageWrapper from "components/layout/PageWrapper";
-import ContactFooter from "components/layout/footers/ContactFooter";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import { P } from "components/shared/Dangerously";
-import TitleSectionGrid from "components/shared/TitleSectionGrid";
-import Recursos from "components/pages/nosotros/Recursos";
-import ManifiestoSection from "components/pages/nosotros/ManifiestoSection";
+import Head from 'components/layout/Head/Head';
+import TitleSection from 'components/shared/TitleSection';
+import PageWrapper from 'components/layout/PageWrapper';
+import ContactFooter from 'components/layout/footers/ContactFooter';
+import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
+import { P } from 'components/shared/Dangerously';
+import TitleSectionGrid from 'components/shared/TitleSectionGrid';
+import Recursos from 'components/pages/nosotros/Recursos';
+import ManifiestoSection from 'components/pages/nosotros/ManifiestoSection';
 
-import pTeam from "public/assets/img/layout/team.png";
-import pPaper from "public/assets/img/layout/paper.png";
+import pTeam from 'public/assets/img/layout/team.png';
+import pPaper from 'public/assets/img/layout/paper.png';
 
 interface AboutProps {
   locale: string;
@@ -28,7 +28,7 @@ interface AboutProps {
 const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
   const t = useLocalizedContent({
     locale,
-    fileName: "about",
+    fileName: 'about',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -37,8 +37,8 @@ const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
     <PageWrapper>
       <Head
         {...t.head}
-        es_canonical={"https://acueducto.studio/nosotros"}
-        en_canonical={"https://acueducto.studio/en/about"}
+        es_canonical={'https://acueducto.studio/nosotros'}
+        en_canonical={'https://acueducto.studio/en/about'}
       />
       <Team as={TitleSectionGrid}>
         <Fade triggerOnce>
@@ -83,7 +83,7 @@ const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
 export default React.memo(About);
 
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: "about.json" });
+  const pt = ssrLocale({ locale: context.locale, fileName: 'about.json' });
   return {
     props: {
       pt,

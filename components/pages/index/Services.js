@@ -1,8 +1,8 @@
-import React from "react";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import Picture from "components/work/Picture";
+import React from 'react';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
+import Picture from 'components/pages/work/Picture';
 
 const Services = ({ services }) => {
   let heights = [127, 153, 173, 137];
@@ -10,7 +10,7 @@ const Services = ({ services }) => {
     <ServicesSection>
       <PinnedSection title={services.title} borderTop heading={2}>
         {services.areas.map((area, index) => (
-          <Service key={"area" + index}>
+          <Service key={'area' + index}>
             <Fade triggerOnce>
               <Picture
                 src={`/assets/img/layout/home_draw/${index + 1}.png`}

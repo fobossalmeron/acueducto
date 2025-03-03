@@ -1,41 +1,25 @@
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import Picture from "components/work/Picture";
-import FirstCard from "public/assets/img/casestudies/wellmee/FirstCard.png";
-import SecondCard from "public/assets/img/casestudies/wellmee/SecondCard.png";
-import ThirdCard from "public/assets/img/casestudies/wellmee/ThirdCard.png";
-import FourthCard from "public/assets/img/casestudies/wellmee/FourthCard.png";
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import Picture from 'components/pages/work/Picture';
+import FirstCard from 'public/assets/img/casestudies/wellmee/FirstCard.png';
+import SecondCard from 'public/assets/img/casestudies/wellmee/SecondCard.png';
+import ThirdCard from 'public/assets/img/casestudies/wellmee/ThirdCard.png';
+import FourthCard from 'public/assets/img/casestudies/wellmee/FourthCard.png';
 
 const AnimatedDataCards = () => {
   return (
     <CasesContainer>
       <Fade delay={300} triggerOnce className="firstCard">
-        <Picture
-          src={FirstCard}
-          alt="Hoja de dato"
-          withWrapper
-        />
+        <Picture src={FirstCard} alt="Hoja de dato" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="secondCard">
-        <Picture
-          src={SecondCard}
-          alt="Hoja de dato"
-          withWrapper
-        />
+        <Picture src={SecondCard} alt="Hoja de dato" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="thirdCard">
-        <Picture
-          src={ThirdCard}
-          alt="Hoja de dato"
-          withWrapper
-        />
+        <Picture src={ThirdCard} alt="Hoja de dato" withWrapper />
       </Fade>
       <Fade delay={300} triggerOnce className="fourthCard">
-        <Picture
-          src={FourthCard}
-          alt="Hoja de dato"
-          withWrapper
-        />
+        <Picture src={FourthCard} alt="Hoja de dato" withWrapper />
       </Fade>
     </CasesContainer>
   );
@@ -54,7 +38,10 @@ const CasesContainer = styled.div`
   max-width: 722px;
   margin-top: 7%;
 
-  .firstCard, .secondCard, .thirdCard, .fourthCard {
+  .firstCard,
+  .secondCard,
+  .thirdCard,
+  .fourthCard {
     display: flex;
     justify-content: center;
   }
@@ -84,7 +71,9 @@ const CasesContainer = styled.div`
     padding: 5%;
 
     div span {
-      box-shadow: 1px 1px 11px 0px rgba(64, 64, 64, 0.05), 0px 0px 32px 0px rgba(95, 95, 131, 0.05);
+      box-shadow:
+        1px 1px 11px 0px rgba(64, 64, 64, 0.05),
+        0px 0px 32px 0px rgba(95, 95, 131, 0.05);
       border-radius: 10px;
     }
   }
