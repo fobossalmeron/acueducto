@@ -95,7 +95,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
               <a>
                 <THoverable>cuando el río suena</THoverable>
                 <span>
-                  por <Logo />
+                  por <Logo className="inline" />
                 </span>
               </a>
             </Link>

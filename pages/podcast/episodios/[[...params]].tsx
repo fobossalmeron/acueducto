@@ -17,6 +17,7 @@ import { GetStaticProps, GetStaticPaths } from 'next';
 import { debounce } from 'utils/debounce';
 import {
   PodcastGrid,
+  NameComponent,
   PodcastList,
   CatList,
   CatFilter,
@@ -272,34 +273,6 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     );
   }, [searchTerm, filteredEpisodes, episodes, currentFilteredPage]);
 
-  const memoizedEpisodes = useMemo(
-    () =>
-      paginatedEpisodes.map((episode) => (
-        <EpisodePreview
-          key={episode.uid || episode.slug}
-          {...(isPrismicEpisode(episode)
-            ? {
-                title: episode.data.introduction[0].title[0].text,
-                guest: episode.data.introduction[0].guest,
-                business: episode.data.introduction[0].business,
-                slug: episode.uid,
-                spotify: episode.data.introduction[0].spotify,
-                apple: episode.data.introduction[0].apple,
-                google: episode.data.introduction[0].google,
-                youtube: episode.data.introduction[0].youtube,
-                podcastImage: episode.data.images[0].episode,
-                episode: episode.data.introduction[0].episode,
-                description: episode.data.introduction[0].description[0].text,
-                date: episode.data.introduction[0].date,
-                category: episode.data.introduction[0].category,
-                prismic: true,
-              }
-            : episode)}
-        />
-      )),
-    [paginatedEpisodes, isPrismicEpisode],
-  );
-
   if (error || allEpisodesError) return <div>Failed to load episodes</div>;
   if (!episodes) return <div>Loading...</div>;
 
@@ -314,10 +287,12 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
       <PodcastGrid>
         <div>
           <Fade triggerOnce>
-            <H1>{intro.title}</H1>
-            <span className="blue">
-              por <Logo />
-            </span>
+            <NameComponent>
+              <H1>{intro.title}</H1>
+              <span className="blue">
+                por <Logo />
+              </span>
+            </NameComponent>
           </Fade>
           <BroadcastRouter
             spotify="https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"

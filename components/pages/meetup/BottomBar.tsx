@@ -10,7 +10,7 @@ interface BottomBarProps {
 export const BottomBar = ({ date, location }: BottomBarProps) => {
   return (
     <div className="sm:bg-background/10 border-border fixed right-0 bottom-0 left-0 z-8 mb-4.5 bg-transparent sm:border-2 sm:backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[1220px] flex-row-reverse items-center justify-end px-9 py-2 sm:flex-row sm:justify-between sm:px-14">
+      <div className="mx-auto flex max-w-[1220px] flex-row-reverse items-center justify-end px-9 py-6 sm:flex-row sm:justify-between sm:px-14 sm:py-2">
         <div className="flex items-center">
           <p className="text-foreground m-0 hidden flex-row items-center gap-4 text-base sm:flex">
             <span className="text-over-black">Próximo evento</span>

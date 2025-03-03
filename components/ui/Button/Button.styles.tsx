@@ -86,14 +86,10 @@ export const ButtonElement = styled.div<{
     }
   }
   @media (max-width: 600px) {
-    margin-bottom: 10px;
-    padding-top: 15px;
-    padding-bottom: 11px;
     ${Pin} {
-      transform: translateY(-3px);
       &:after {
         margin-left: 0px;
-        transform: rotate(-45deg) translateY(7px) scale(1);
+        transform: rotate(-45deg) translateY(3px) translateX(0px) scale(1);
       }
     }
     &:active {
@@ -103,10 +99,10 @@ export const ButtonElement = styled.div<{
       ${Pin} {
         background-color: ${(p) =>
           !p.$inverse ? p.theme.colors.accent : p.theme.colors.background};
-        margin-left: 25px;
+        margin-left: ${(p) => (p.$size === 'small' ? '15px' : '25px')};
         &:after {
           border-color: ${(p) => p.theme.colors.foreground};
-          transform: rotate(-45deg) translateY(7px) scale(0.8);
+          transform: rotate(-45deg) translateY(5px) translateX(3px) scale(0.8);
         }
       }
     }

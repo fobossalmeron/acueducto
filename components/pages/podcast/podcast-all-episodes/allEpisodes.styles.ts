@@ -82,6 +82,7 @@ export const PodcastGrid = styled.div`
     }
   }
   @media (max-width: 400px) {
+     padding: 8% 5%;
     background-position: 65% 300px;
   }
 `;
@@ -254,6 +255,26 @@ export const SearchInput = styled.input`
   background-color: ${(p) => p.theme.colors.background};
   color: ${(p) => p.theme.colors.foreground};
   margin-top:10px;
+`;
+
+export const NameComponent = styled.div`
+h1{
+  font-weight:300;
+}
+svg{
+  max-width: 110px;
+  width:100%;
+  * {
+    fill: ${(props) => props.theme.colors.accent};
+  }
+}
+  span {
+      display: flex;
+      justify-content: start;
+      gap: 8px;
+      font-size: 2rem;
+      font-weight: 100;
+    }
 `;
 
 export const TextToIcon = styled.div<{ $reverse?: boolean }>`

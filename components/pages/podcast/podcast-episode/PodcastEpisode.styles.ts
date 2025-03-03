@@ -142,11 +142,15 @@ export const IntroLogo = styled.p`
     text-decoration: none;
   }
   span {
-    display: block;
+    display: flex;
+    width:100%;
+    justify-content: center;
+    gap: 8px;
     font-size: 2rem;
     font-weight: 100;
     color: ${(props) => props.theme.colors.accent};
     svg {
+      display: inline-block;
       max-width: 110px;
       * {
         fill: ${(props) => props.theme.colors.accent};
@@ -175,6 +179,7 @@ export const IntroLogo = styled.p`
     span {
       margin-top: 0px;
       font-size: 1.3rem;
+      gap: 4px;
       svg {
         max-width: 70px;
       }
