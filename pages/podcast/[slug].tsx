@@ -165,23 +165,24 @@ export async function getStaticProps({
     (ep) => ep.uid === params.slug
   );
 
-  const nextToMd: EpisodeProps = getEpisodeBySlug(getNextEpisodeSlug(105), [
-    "title",
-    "seo_title",
-    "seo_h1",
-    "guest",
-    "date",
-    "business",
-    "category",
-    "description",
-    "episode",
-    "slug",
-    "spotify",
-    "apple",
-    "google",
-    "youtube",
-    "index",
-  ]);
+  const nextToMd = (slug: string): EpisodeProps =>
+    getEpisodeBySlug(slug, [
+      // "title",
+      // "seo_title",
+      // "seo_h1",
+      "guest",
+      // "date",
+      "business",
+      "category",
+      // "description",
+      "episode",
+      "slug",
+      // "spotify",
+      // "apple",
+      // "google",
+      // "youtube",
+      // "index",
+    ]);
 
   const findNextPrismic =
     slugMatchesPrismic &&
@@ -191,11 +192,13 @@ export async function getStaticProps({
         slugMatchesPrismic.data.introduction[0].episode - 1
     );
 
-  const nextPrismic = findNextPrismic ? findNextPrismic : nextToMd;
+  const nextPrismic = findNextPrismic
+    ? findNextPrismic
+    : nextToMd(getNextEpisodeSlug(105));
 
   if (!slugMatchesPrismic) {
     const episode: EpisodeProps = await loadMarkdownEpisode(params.slug);
-    const next: EpisodeProps = await loadMarkdownEpisode(
+    const next: EpisodeProps = await nextToMd(
       getNextEpisodeSlug(episode.episode)
     );
 
