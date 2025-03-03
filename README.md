@@ -17,3 +17,4 @@
 Todo:
 http://localhost:3000/podcast/tu-experiencia-de-usuario-es-tu-mayor-diferenciado tiene roto el logo
 Quitar: Empresa de desarrollo de software y apps: Acueducto del home
+http://localhost:3000/podcast/episodios también está afectado el logo

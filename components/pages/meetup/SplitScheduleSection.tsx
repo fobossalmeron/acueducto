@@ -22,21 +22,21 @@ export function SplitScheduleSection() {
         </Paragraph>
         <div className="flex flex-col gap-4">
           <ScheduleItem
-            title="Vibra"
+            title="Convive"
             description="Media hora para conocerse, beber y comer algo. Tendrás tu name tag porque las conversaciones entre desconocidos pueden ser maravillosas."
             time="(6:30 - 7:00pm)"
             image={<Image src={Hands} alt="Hands" width={95} height={95} />}
           />
           <ScheduleItem
-            title="Escucha"
+            title="Charlas"
             description="Cada meetup tiene de 2 a 4 expertos, cada uno con una charla de alrededor de 20 minutos. Ninguna charla es igual a otra."
-            time="(7:00 - 8:00pm)"
+            time="(7:00 - 8:30pm)"
             image={<Image src={Notes} alt="Notes" width={95} height={95} />}
           />
           <ScheduleItem
             title="Conecta"
             description="Disfruta de los snacks y bebidas mientras conoces a los ponentes y al resto de los asistentes. También tendremos ice breakers para los timidos."
-            time="(8:00 - 10:00pm)"
+            time="(8:30 - 10:00pm)"
             image={<Image src={Org} alt="Org" width={95} height={95} />}
           />
         </div>

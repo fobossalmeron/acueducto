@@ -127,6 +127,24 @@ export const MeetupForm = () => {
                   value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
                   message: 'Por favor ingresa un correo electrónico válido',
                 },
+                validate: {
+                  noPersonalEmail: (value) => {
+                    const personalDomains = [
+                      'gmail.com',
+                      'hotmail.com',
+                      'yahoo.com',
+                      'aol.com',
+                      'outlook.com',
+                      'live.com',
+                      'icloud.com',
+                    ];
+                    const domain = value.split('@')[1]?.toLowerCase();
+                    return (
+                      !personalDomains.includes(domain) ||
+                      'Por favor ingresa un email de trabajo'
+                    );
+                  },
+                },
               })}
             />
             {errors.email && <span>{errors.email.message}</span>}

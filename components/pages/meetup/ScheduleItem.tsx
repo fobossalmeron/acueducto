@@ -10,13 +10,17 @@ export function ScheduleItem({
   image: React.ReactNode;
 }) {
   return (
-    <div className="bg-background-light flex max-w-[445px] flex-col gap-2 rounded-4xl p-8">
+    <div className="bg-background-light flex max-w-[445px] flex-col gap-2 rounded-4xl p-6 md:p-8">
       {image}
       <div className="flex flex-col gap-0">
-        <p className="text-foreground pt-4 text-xl font-medium">{title}</p>
-        <span className="text-primary text-base font-normal">{time}</span>
+        <p className="text-foreground pt-4 text-lg font-medium md:text-xl">
+          {title}
+        </p>
+        <span className="text-primary text-sm font-normal md:text-base">
+          {time}
+        </span>
       </div>
-      <p className="text-foreground-low">{description}</p>
+      <p className="text-foreground-low text-sm">{description}</p>
     </div>
   );
 }

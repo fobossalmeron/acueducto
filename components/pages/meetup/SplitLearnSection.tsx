@@ -7,7 +7,7 @@ import { SmoothAnchor } from './SmoothAnchor';
 
 export function SplitLearnSection() {
   return (
-    <OverlapLayout className="border-foreground min-h-screen content-center border-t">
+    <OverlapLayout className="border-foreground content-center overflow-hidden border-t lg:min-h-screen">
       <OverlapLayout.Header className="items-center">
         <AuxiliaryTitle>Innovation Leaders Meetup</AuxiliaryTitle>
         <Title as="h1" className="max-w-[20ch]">
@@ -26,7 +26,7 @@ export function SplitLearnSection() {
         alt="Creciendo, escalando"
         width={350}
         height={800}
-        className="absolute right-[10%] -bottom-0 h-[800px] w-[350px] [@media(min-width:1100px)]:-bottom-0"
+        className="relative right-0 -bottom-0 col-span-12 flex h-[300px] w-auto justify-self-center sm:absolute sm:h-auto sm:w-[200px] lg:right-[10%] xl:w-[350px]"
       />
     </OverlapLayout>
   );
