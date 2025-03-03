@@ -3,11 +3,12 @@ import { AuxiliaryTitle, Title, Paragraph } from 'components/ui';
 import { Button } from 'components/ui/Button';
 import Image from 'next/image';
 import secondBg from 'public/assets/img/layout/meetup/second_bg.png';
+import { SmoothAnchor } from './SmoothAnchor';
 
 export function SplitLearnSection() {
   return (
-    <OverlapLayout className="border-foreground border-t">
-      <OverlapLayout.Header>
+    <OverlapLayout className="border-foreground min-h-screen content-center border-t">
+      <OverlapLayout.Header className="items-center">
         <AuxiliaryTitle>Innovation Leaders Meetup</AuxiliaryTitle>
         <Title as="h1" className="max-w-[20ch]">
           aprende, conecta y transforma tu negocio
@@ -16,7 +17,9 @@ export function SplitLearnSection() {
           Reúnete con líderes de negocio, innovación y tecnología mientras
           aprendes de quienes están en el frente de batalla.
         </Paragraph>
-        <Button inverse text="regístrate" />
+        <SmoothAnchor targetId="registro">
+          <Button inverse text="regístrate" />
+        </SmoothAnchor>
       </OverlapLayout.Header>
       <Image
         src={secondBg}

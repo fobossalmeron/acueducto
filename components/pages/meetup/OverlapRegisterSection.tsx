@@ -4,7 +4,7 @@ import { MeetupForm } from './MeetupForm';
 
 export function OverlapRegisterSection() {
   return (
-    <OverlapLayout className="border-foreground border-t pb-0">
+    <OverlapLayout id="registro" className="border-foreground border-t pb-0">
       <OverlapLayout.Header>
         <Title className="max-w-[16ch]">¿emocionado? nosotros también</Title>
       </OverlapLayout.Header>

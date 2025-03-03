@@ -1,5 +1,6 @@
 import { Button } from 'components/ui/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
+import { SmoothAnchor } from './SmoothAnchor';
 
 interface BottomBarProps {
   date: string;
@@ -8,8 +9,8 @@ interface BottomBarProps {
 
 export const BottomBar = ({ date, location }: BottomBarProps) => {
   return (
-    <div className="bg-background/10 border-border fixed right-0 bottom-0 left-0 z-8 mb-7 border-2 backdrop-blur-xl">
-      <div className="mx-auto flex max-w-[1170px] items-center justify-between px-14 py-4">
+    <div className="bg-background/10 border-border fixed right-0 bottom-0 left-0 z-8 mb-4.5 border-2 backdrop-blur-xl">
+      <div className="mx-auto flex max-w-[1220px] items-center justify-between px-14 py-2">
         <div className="flex items-center">
           <p className="text-foreground m-0 flex items-center gap-4">
             <span className="text-over-black">Próximo evento</span>
@@ -28,7 +29,9 @@ export const BottomBar = ({ date, location }: BottomBarProps) => {
               <span className="text-foreground">{location}</span>
             </div>
           </div>
-          <Button secondary text="regístrate" />
+          <SmoothAnchor targetId="registro">
+            <Button secondary text="regístrate" size="small" />
+          </SmoothAnchor>
         </div>
       </div>
     </div>

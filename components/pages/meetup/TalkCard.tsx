@@ -16,7 +16,7 @@ export const TalkCard: React.FC<TalkProps> = ({
   return (
     <div
       key={guest}
-      className="border-foreground flex max-w-[340px] flex-col gap-4 rounded-4xl border-1 px-7 py-6"
+      className="border-foreground flex max-w-[340px] flex-col gap-4 rounded-4xl border-1 px-4 py-4"
     >
       <div className="flex items-center gap-4">
         <Image

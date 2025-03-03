@@ -5,6 +5,7 @@ import Location from 'public/assets/img/layout/meetup/location.svg';
 import { TalkCard } from './TalkCard';
 import landBg from 'public/assets/img/layout/meetup/land_bg.png';
 import Image from 'next/image';
+import { SmoothAnchor } from './SmoothAnchor';
 
 export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
   return (
@@ -28,7 +29,9 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
               <Location />
               {nextEvent.location}, CDMX
             </p>
-            <Button inverse text="regístrate" />
+            <SmoothAnchor targetId="registro">
+              <Button inverse text="regístrate" />
+            </SmoothAnchor>
           </div>
         </div>
         <div className="mt-10">

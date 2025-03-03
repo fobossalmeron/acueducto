@@ -3,12 +3,17 @@ import { SimpleGrid } from './SimpleGrid';
 export const SplitLayout = ({
   children,
   className,
+  ...props
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+} & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <SimpleGrid className={className || ''} data-component="split-layout">
+    <SimpleGrid
+      className={className || ''}
+      data-component="split-layout"
+      {...props}
+    >
       {children}
     </SimpleGrid>
   );

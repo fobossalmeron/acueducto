@@ -4,28 +4,7 @@ import Hands from 'public/assets/img/layout/meetup/hands.png';
 import Notes from 'public/assets/img/layout/meetup/notes.png';
 import Org from 'public/assets/img/layout/meetup/org.png';
 import Image from 'next/image';
-
-function ScheduleItem({
-  title,
-  description,
-  time,
-  image,
-}: {
-  title: string;
-  description: string;
-  time: string;
-  image: React.ReactNode;
-}) {
-  return (
-    <div className="bg-background-light flex flex-col gap-2 rounded-4xl p-8">
-      {image}
-      <p>
-        {title} <span>{time}</span>
-      </p>
-      <p>{description}</p>
-    </div>
-  );
-}
+import { ScheduleItem } from './ScheduleItem';
 
 export function SplitScheduleSection() {
   return (
@@ -44,7 +23,7 @@ export function SplitScheduleSection() {
         <div className="flex flex-col gap-4">
           <ScheduleItem
             title="Vibra"
-            description="Media hora para conocerse y preparase antes de las charlas. Les daremos name tags porque las conversaciones entre desconocidos pueden ser maravillosas."
+            description="Media hora para conocerse, beber y comer algo. Tendrás tu name tag porque las conversaciones entre desconocidos pueden ser maravillosas."
             time="(6:30 - 7:00pm)"
             image={<Image src={Hands} alt="Hands" width={95} height={95} />}
           />
@@ -56,7 +35,7 @@ export function SplitScheduleSection() {
           />
           <ScheduleItem
             title="Conecta"
-            description="Después de las charlas, disfruta de los refrigedios y las bebidas mientras conoces a los ponentes y al resto de los asistentes. Es el momento de conectar con líderes que piensan como tú."
+            description="Disfruta de los snacks y bebidas mientras conoces a los ponentes y al resto de los asistentes. También tendremos ice breakers para los timidos."
             time="(8:00 - 10:00pm)"
             image={<Image src={Org} alt="Org" width={95} height={95} />}
           />

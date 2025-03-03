@@ -3,12 +3,17 @@ import { SimpleGrid } from './SimpleGrid';
 export const OverlapLayout = ({
   children,
   className,
+  ...props
 }: {
   children: React.ReactNode;
   className?: string;
-}) => {
+} & React.HTMLAttributes<HTMLDivElement>) => {
   return (
-    <SimpleGrid data-component="overlap-layout" className={className || ''}>
+    <SimpleGrid
+      data-component="overlap-layout"
+      className={className || ''}
+      {...props}
+    >
       {children}
     </SimpleGrid>
   );

@@ -3,5 +3,6 @@ export type ButtonProps = {
   text: string;
   className?: string;
   secondary?: boolean;
+  size?: 'default' | 'small';
   parentComponent?: string;
 };

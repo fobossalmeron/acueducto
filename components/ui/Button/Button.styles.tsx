@@ -1,6 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const Pin = styled.span<{ $inverse: boolean }>`
+export const Pin = styled.span<{
+  $inverse: boolean;
+  $size: 'default' | 'small';
+}>`
   width: 30px;
   height: 30px;
   pointer-events: none;
@@ -8,10 +11,10 @@ export const Pin = styled.span<{ $inverse: boolean }>`
   background-color: ${(p) =>
     !p.$inverse ? p.theme.colors.background : p.theme.colors.accent};
   border-radius: 100%;
-  margin-left: 15px;
+  margin-left: ${(p) => (p.$size === 'small' ? '5px' : '15px')};
   transition: 0.3s ease all;
   &::after {
-    content: " ";
+    content: ' ';
     border: solid
       ${(p) =>
         !p.$inverse ? p.theme.colors.accent : p.theme.colors.background};
@@ -24,10 +27,16 @@ export const Pin = styled.span<{ $inverse: boolean }>`
   }
 `;
 
-export const ButtonElement = styled.div<{ $inverse?: boolean; $marginTop?: boolean; $secondary?: boolean }>`
+export const ButtonElement = styled.div<{
+  $inverse?: boolean;
+  $marginTop?: boolean;
+  $secondary?: boolean;
+  $size?: 'default' | 'small';
+}>`
   text-decoration: none;
-  padding: 13px 17px 14px 25px;
-  font-size: 1.8rem;
+  padding: ${(p) =>
+    p.$size === 'small' ? '11px 12px 9px 22px' : '13px 17px 14px 25px'};
+  font-size: ${(p) => (p.$size === 'small' ? '1.7rem' : '1.8rem')};
   border-radius: 50px;
   color: ${(p) => p.theme.colors.foreground};
   background-color: ${(p) =>
@@ -39,9 +48,11 @@ export const ButtonElement = styled.div<{ $inverse?: boolean; $marginTop?: boole
   font-weight: 100;
   appearance: button-bevel; // Añadir esta línea para compatibilidad
   -webkit-appearance: button-bevel;
-  margin-top: ${(p) => (p.$marginTop ? "10px" : "0px")};
+  margin-top: ${(p) => (p.$marginTop ? '10px' : '0px')};
   cursor: pointer;
-  ${(p) => p.$secondary && `
+  ${(p) =>
+    p.$secondary &&
+    `
     border: 2px solid ${p.theme.colors.accent};
   `}
   input {
@@ -66,7 +77,7 @@ export const ButtonElement = styled.div<{ $inverse?: boolean; $marginTop?: boole
       ${Pin} {
         background-color: ${(p) =>
           !p.$inverse ? p.theme.colors.accent : p.theme.colors.background};
-        margin-left: 25px;
+        margin-left: ${(p) => (p.$size === 'small' ? '15px' : '25px')};
         &:after {
           border-color: ${(p) => p.theme.colors.foreground};
           transform: rotate(-45deg) translateY(3px) scale(0.8);
