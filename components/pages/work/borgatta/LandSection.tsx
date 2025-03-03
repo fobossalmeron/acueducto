@@ -1,24 +1,24 @@
-import styled from "styled-components";
-import CommonSection from "components/work/CommonSection";
-import { Fade } from "react-awesome-reveal";
-import { SeoH1 } from "components/work/SEOHeadings";
-import Image from "next/legacy/image";
-import Landing1 from "public/assets/img/casestudies/borgatta/landing1.png";
-import Landing2 from "public/assets/img/casestudies/borgatta/landing2.png";
-import Landing3 from "public/assets/img/casestudies/borgatta/landing3.png";
-import Landing4 from "public/assets/img/casestudies/borgatta/landing4.png";
-import Landing5 from "public/assets/img/casestudies/borgatta/landing5.png";
-import Landing6 from "public/assets/img/casestudies/borgatta/landing6.png";
-import Landing7 from "public/assets/img/casestudies/borgatta/landing7.png";
-import Landing8 from "public/assets/img/casestudies/borgatta/landing8.png";
-import LandingMobile1 from "public/assets/img/casestudies/borgatta/landingMobile1.png";
-import LandingMobile2 from "public/assets/img/casestudies/borgatta/landingMobile2.png";
-import LandingMobile3 from "public/assets/img/casestudies/borgatta/landingMobile3.png";
-import LandingMobile4 from "public/assets/img/casestudies/borgatta/landingMobile4.png";
-import LandingMobile5 from "public/assets/img/casestudies/borgatta/landingMobile5.png";
-import LandingMobile6 from "public/assets/img/casestudies/borgatta/landingMobile6.png";
-import { keyframes } from "@emotion/react";
-import Reveal from "react-awesome-reveal";
+import styled from 'styled-components';
+import CommonSection from 'components/pages/work/CommonSection';
+import { Fade } from 'react-awesome-reveal';
+import { SeoH1 } from 'components/pages/work/SEOHeadings';
+import Image from 'next/legacy/image';
+import Landing1 from 'public/assets/img/casestudies/borgatta/landing1.png';
+import Landing2 from 'public/assets/img/casestudies/borgatta/landing2.png';
+import Landing3 from 'public/assets/img/casestudies/borgatta/landing3.png';
+import Landing4 from 'public/assets/img/casestudies/borgatta/landing4.png';
+import Landing5 from 'public/assets/img/casestudies/borgatta/landing5.png';
+import Landing6 from 'public/assets/img/casestudies/borgatta/landing6.png';
+import Landing7 from 'public/assets/img/casestudies/borgatta/landing7.png';
+import Landing8 from 'public/assets/img/casestudies/borgatta/landing8.png';
+import LandingMobile1 from 'public/assets/img/casestudies/borgatta/landingMobile1.png';
+import LandingMobile2 from 'public/assets/img/casestudies/borgatta/landingMobile2.png';
+import LandingMobile3 from 'public/assets/img/casestudies/borgatta/landingMobile3.png';
+import LandingMobile4 from 'public/assets/img/casestudies/borgatta/landingMobile4.png';
+import LandingMobile5 from 'public/assets/img/casestudies/borgatta/landingMobile5.png';
+import LandingMobile6 from 'public/assets/img/casestudies/borgatta/landingMobile6.png';
+import { keyframes } from '@emotion/react';
+import Reveal from 'react-awesome-reveal';
 
 const Landing = (props) => {
   return (
@@ -283,7 +283,7 @@ const LogoBorgatta = styled.div`
   max-width: 670px;
   h1 {
     margin-top: 4%;
-    text-align:center;
+    text-align: center;
   }
   img {
     max-height: 96px;

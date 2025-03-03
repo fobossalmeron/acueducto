@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import PageWrapper from "components/layout/PageWrapper";
-import CommonSection from "components/work/CommonSection";
+import styled from 'styled-components';
+import PageWrapper from 'components/layout/PageWrapper';
+import CommonSection from 'components/pages/work/CommonSection';
 
-const h2Title = "#383955";
-const bodyText1 = "#4a4a73";
-const bodyText2 = "#FFFFFF";
-const bAccent1 = "#00ceba";
-const backgroundColorSection = "#5a5a8c";
-const backgroundColorMain = "#f3f6f3";
+const h2Title = '#383955';
+const bodyText1 = '#4a4a73';
+const bodyText2 = '#FFFFFF';
+const bAccent1 = '#00ceba';
+const backgroundColorSection = '#5a5a8c';
+const backgroundColorMain = '#f3f6f3';
 
 export const PageClipperWellmee = styled(PageWrapper)`
   background-color: ${backgroundColorMain};
@@ -18,7 +18,7 @@ export const PageClipperWellmee = styled(PageWrapper)`
 
 export const FirstSection = styled(CommonSection)`
   padding-bottom: 10.7%;
-  background-image: url("/assets/img/casestudies/wellmee/Background1.svg");
+  background-image: url('/assets/img/casestudies/wellmee/Background1.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: 0% 30%;
@@ -158,7 +158,7 @@ export const SecondSection = styled(CommonSection)`
 export const ThirdSection = styled(CommonSection)`
   padding-bottom: 10%;
   color: ${bodyText1};
-  background-image: url("/assets/img/casestudies/wellmee/Background2.svg");
+  background-image: url('/assets/img/casestudies/wellmee/Background2.svg');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: 0% 69%;
@@ -285,7 +285,7 @@ export const StepContainer = styled.div`
   display: flex;
   flex-direction: row;
   gap: 64px;
-  background-image: url("/assets/img/casestudies/wellmee/Background4.svg");
+  background-image: url('/assets/img/casestudies/wellmee/Background4.svg');
   background-size: 80%;
   background-repeat: no-repeat;
   background-position: center 18%;
@@ -298,7 +298,7 @@ export const StepContainer = styled.div`
   }
 
   @media (max-width: 740px) {
-    background-image: url("/assets/img/casestudies/wellmee/Background5.svg");
+    background-image: url('/assets/img/casestudies/wellmee/Background5.svg');
     background-size: 10% 80%;
     background-position: 11% 0%;
     flex-direction: column;
@@ -489,7 +489,7 @@ export const ContainerResultCard = styled.div`
 export const FourthSection = styled(CommonSection)`
   background-color: ${backgroundColorSection};
   color: ${bodyText2};
-  background-image: url("/assets/img/casestudies/wellmee/Background3.svg");
+  background-image: url('/assets/img/casestudies/wellmee/Background3.svg');
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: bottom;

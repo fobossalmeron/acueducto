@@ -1,14 +1,14 @@
-import styled from "styled-components";
-import PageWrapper from "components/layout/PageWrapper";
-import CommonSection from "components/work/CommonSection";
+import styled from 'styled-components';
+import PageWrapper from 'components/layout/PageWrapper';
+import CommonSection from 'components/pages/work/CommonSection';
 
-const H2_TITLE = "#d76e32";
-const BODY_TEXT1 = "#FFFFFF";
-const BODY_TEXT2 = "#626262";
+const H2_TITLE = '#d76e32';
+const BODY_TEXT1 = '#FFFFFF';
+const BODY_TEXT2 = '#626262';
 
-const BACKGROUND_COLOR_SECTION = "#fbfbfd";
+const BACKGROUND_COLOR_SECTION = '#fbfbfd';
 const MAIN_GRADIENT =
-  "linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);";
+  'linear-gradient(0deg, rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.05)), linear-gradient(0deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1)), linear-gradient(123.72deg, #E3772D 18.96%, #F2B559 114.27%);';
 
 export const PageWrapperBorgatta = styled(PageWrapper)`
   background: ${MAIN_GRADIENT};

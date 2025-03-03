@@ -1,7 +1,7 @@
-import styled from "styled-components";
-import CommonSection from "components/work/CommonSection";
+import styled from 'styled-components';
+import CommonSection from 'components/pages/work/CommonSection';
 
-export const fierasRed = "rgb(201,32,26)";
+export const fierasRed = 'rgb(201,32,26)';
 
 export const SequenceContainer = styled.div`
   max-width: 1300px;
@@ -110,7 +110,7 @@ export const ColorGrid = styled.div`
     justify-content: space-between;
     line-height: 140%;
     &:before {
-      content: " ";
+      content: ' ';
       width: 80px;
       height: 80px;
       border-radius: 50%;
@@ -187,7 +187,7 @@ export const TransitionWrapper = styled.div`
     }
   }
   &:before {
-    content: " ";
+    content: ' ';
     z-index: 0;
     position: absolute;
     height: 50%;
@@ -321,7 +321,7 @@ export const Stat = styled.div`
 export const Sixth = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${(props) => props.theme.colors.background};
-  background-image: url("/assets/img/casestudies/ladanzadelasfieras/sixthBack.svg");
+  background-image: url('/assets/img/casestudies/ladanzadelasfieras/sixthBack.svg');
   background-position: center bottom;
   background-size: cover;
   a {
@@ -520,7 +520,7 @@ export const FirstSection = styled(CommonSection)`
 export const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${(props) => props.theme.colors.background};
-  background-image: url("/assets/img/casestudies/ladanzadelasfieras/landBack.svg");
+  background-image: url('/assets/img/casestudies/ladanzadelasfieras/landBack.svg');
   background-position: center bottom;
   background-size: cover;
   & > div {

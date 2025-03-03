@@ -2,7 +2,7 @@ import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link';
 import BorderLink from 'components/shared/BorderedLink';
-import CaseGrid from 'components/work/CaseGrid';
+import CaseGrid from 'components/pages/work/CaseGrid';
 import styled from 'styled-components';
 import { Button } from 'components/ui/Button/Button';
 

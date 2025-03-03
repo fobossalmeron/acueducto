@@ -1,11 +1,10 @@
+import styled from 'styled-components';
+import CommonSection from 'components/pages/work/CommonSection';
 
-import styled from "styled-components";
-import CommonSection from "components/work/CommonSection";
-
-export const rahidBackground = "#F9F5F0";
-const rahidForeground = "#31302E";
-const rahidAccent = "#8893CE";
-const rahidAccentDarker = "#7A84B9";
+export const rahidBackground = '#F9F5F0';
+const rahidForeground = '#31302E';
+const rahidAccent = '#8893CE';
+const rahidAccentDarker = '#7A84B9';
 
 export const LaunchGrid = styled.div`
   max-width: 800px;
@@ -211,7 +210,7 @@ export const Stat = styled.div`
 export const SixthSection = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${rahidAccent};
-  background-image: url("/assets/img/casestudies/rahid/landBack.svg");
+  background-image: url('/assets/img/casestudies/rahid/landBack.svg');
   background-repeat: no-repeat;
   background-position: left top;
   background-size: auto 100%;
@@ -373,7 +372,7 @@ export const FirstSection = styled(CommonSection)`
 export const LandSection = styled(CommonSection)`
   min-height: 100vh;
   background-color: ${rahidBackground};
-  background-image: url("/assets/img/casestudies/rahid/landBack.svg");
+  background-image: url('/assets/img/casestudies/rahid/landBack.svg');
   background-position: left center;
   background-size: cover;
   align-items: flex-end;
@@ -411,7 +410,7 @@ export const LandSection = styled(CommonSection)`
   }
   @media (max-width: 800px) {
     background-position: 25% 100%;
-    background-image: url("/assets/img/casestudies/rahid/landBackMobile.svg");
+    background-image: url('/assets/img/casestudies/rahid/landBackMobile.svg');
     background-position: center center;
     align-items: center;
     & > div {

@@ -1,14 +1,14 @@
-import { useEffect } from "react";
-import styled from "styled-components";
-import CommonSection from "components/work/CommonSection";
-import { SeoH1 } from "components/work/SEOHeadings";
+import { useEffect } from 'react';
+import styled from 'styled-components';
+import CommonSection from 'components/pages/work/CommonSection';
+import { SeoH1 } from 'components/pages/work/SEOHeadings';
 
 const LandSectionWellmee = (props) => {
   useEffect(() => {
     //Configuración de carga circle-md
     const circle = props.isMobile
-      ? document.querySelector(".progress-ring__circle-md-mobile")
-      : document.querySelector(".progress-ring__circle-md");
+      ? document.querySelector('.progress-ring__circle-md-mobile')
+      : document.querySelector('.progress-ring__circle-md');
     const radius = circle.r.baseVal.value;
     const circumference = radius * 2 * Math.PI;
     const offset =
@@ -19,8 +19,8 @@ const LandSectionWellmee = (props) => {
 
     // Configuración de carga circle-xl
     const circleExtra = props.isMobile
-      ? document.querySelector(".progress-ring__circle-xl-mobile")
-      : document.querySelector(".progress-ring__circle-xl");
+      ? document.querySelector('.progress-ring__circle-xl-mobile')
+      : document.querySelector('.progress-ring__circle-xl');
     const radiusExtra = circleExtra.r.baseVal.value;
     const circumferenceExtra = radiusExtra * 2 * Math.PI;
     const offsetExtra =
@@ -37,10 +37,10 @@ const LandSectionWellmee = (props) => {
 
         // Animacion circle-tip-md
         const circleTipMd = props.isMobile
-          ? document.querySelector(".circle-tip-md-mobile")
-          : document.querySelector(".circle-tip-md");
+          ? document.querySelector('.circle-tip-md-mobile')
+          : document.querySelector('.circle-tip-md');
         circleTipMd &&
-          (circleTipMd.style.animation = `${props.isMobile ? "rotateMdMobile" : "rotateMd"} 1s ease-in-out forwards 0s`);
+          (circleTipMd.style.animation = `${props.isMobile ? 'rotateMdMobile' : 'rotateMd'} 1s ease-in-out forwards 0s`);
 
         // Animacion circle-xl
         circleExtra.style.transition = `stroke-dashoffset 1s ease-in-out 0s`;
@@ -48,10 +48,10 @@ const LandSectionWellmee = (props) => {
 
         // Animacion circle-tip-xl
         const circleTipXl = props.isMobile
-          ? document.querySelector(".circle-tip-xl-mobile")
-          : document.querySelector(".circle-tip-xl");
+          ? document.querySelector('.circle-tip-xl-mobile')
+          : document.querySelector('.circle-tip-xl');
         circleTipXl &&
-          (circleTipXl.style.animation = `${props.isMobile ? "rotateXlMobile" : "rotateXl"} 1s ease-in-out forwards 0s`);
+          (circleTipXl.style.animation = `${props.isMobile ? 'rotateXlMobile' : 'rotateXl'} 1s ease-in-out forwards 0s`);
       }, 1000);
     };
     requestAnimationFrame(animateCircles);
