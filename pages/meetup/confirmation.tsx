@@ -12,7 +12,7 @@ const TechLeadersConfirmation = () => {
         title="Registro confirmado - Tech Leaders Meetup"
         description="Tu registro al Tech Leaders Meetup ha sido confirmado. Te esperamos en San Ángel, Ciudad de México."
         headerTitle="Registro confirmado"
-        es_canonical="https://acueducto.studio/tech-leaders/confirmation"
+        es_canonical="https://acueducto.studio/meetup/confirmation"
         noIndex
       />
       <div className="pb-0 [&_.scroll-down]:flex [&_.scroll-down]:justify-center">

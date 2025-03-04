@@ -50,16 +50,19 @@ export const MeetupForm = () => {
         ...data,
         message: `
           <p>¡Hola ${data.firstName}!</p>
-          <p>Gracias por registrarte a nuestro Tech Leaders Meetup.</p>
-          <p>La dirección del evento es <a href="https://g.co/kgs/g55m26C">Iglesia 270, San Ángel, Ciudad de México</a>.</p>
-          <p>¡Nos vemos!<br/>Artemio, CEO de Acueducto</p>
+          <p>Gracias por registrarte a nuestro Meetup de líderes de innovación.</p>
+          <p>Pronto te enviamos el resto de la información.</p>
+          <p>¡Nos vemos pronto!<br/>Artemio, CEO de Acueducto</p>
         `,
-        subject: 'Registro exitoso - Tech Leaders Meetup',
+        subject: 'Registro exitoso - Meetup de líderes de innovación',
       };
 
       const completeData = { ...data, ...listData };
 
       lenis.scrollTo(0, { immediate: false });
+      lenis.scrollTo('#registro', {
+        immediate: false,
+      });
       setFormStatus('LOADING');
 
       try {
@@ -70,7 +73,7 @@ export const MeetupForm = () => {
         ]);
 
         setTimeout(() => {
-          router.push('/tech-leaders/confirmation');
+          router.push('/meetup/confirmation');
         }, 1000);
       } catch (error) {
         console.error('Error al enviar el formulario:', error);
