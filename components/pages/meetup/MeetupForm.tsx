@@ -21,7 +21,11 @@ interface FeedbackFormData extends MailContact {
 
 type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
 
-export const MeetupForm = () => {
+export const MeetupForm = ({
+  googleCalendarEvent,
+}: {
+  googleCalendarEvent: string;
+}) => {
   const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
@@ -51,7 +55,8 @@ export const MeetupForm = () => {
         message: `
           <p>¡Hola ${data.firstName}!</p>
           <p>Gracias por registrarte a nuestro Meetup de líderes de innovación.</p>
-          <p>Pronto te enviamos el resto de la información.</p>
+          <p>Pronto te enviaremos el resto de la información.</p>
+          <p><a href="${googleCalendarEvent}" target="_blank" style="display: inline-block; background-color: #1A4CE0; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; margin-top: 15px; margin-bottom: 15px;">Añadir a Google Calendar</a></p>
           <p>¡Nos vemos pronto!<br/>Artemio, CEO de Acueducto</p>
         `,
         subject: 'Registro exitoso - Meetup de líderes de innovación',

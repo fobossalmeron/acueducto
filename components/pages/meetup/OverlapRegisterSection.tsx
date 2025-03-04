@@ -2,7 +2,11 @@ import { OverlapLayout } from 'components/layout/layouts';
 import { Title } from 'components/ui';
 import { MeetupForm } from './MeetupForm';
 
-export function OverlapRegisterSection() {
+export function OverlapRegisterSection({
+  googleCalendarEvent,
+}: {
+  googleCalendarEvent: string;
+}) {
   return (
     <OverlapLayout
       id="registro"
@@ -15,7 +19,7 @@ export function OverlapRegisterSection() {
         <p className="text-foreground-low mb-6">
           Llena el formulario y ven a nuestro meetup
         </p>
-        <MeetupForm />
+        <MeetupForm googleCalendarEvent={googleCalendarEvent} />
       </OverlapLayout.Content>
     </OverlapLayout>
   );

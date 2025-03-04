@@ -9,6 +9,8 @@ import { OverlapRegisterSection } from 'components/pages/meetup/OverlapRegisterS
 
 const nextEvent = {
   date: 'Marzo 26',
+  googleCalendarEvent:
+    'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG1sZ3AzdjFpZm5zamY3bjR1MnNvbXBjNW4gaG9sYUBhY3VlZHVjdG8uc3R1ZGlv&tmsrc=hola%40acueducto.studio',
   location: 'Condesa',
   title: 'Itera con el feedback de tus usuarios',
   talks: [
@@ -49,7 +51,9 @@ const Meetup = () => {
 
       <SplitScheduleSection />
 
-      <OverlapRegisterSection />
+      <OverlapRegisterSection
+        googleCalendarEvent={nextEvent.googleCalendarEvent}
+      />
 
       <BottomBar date={nextEvent.date} location={nextEvent.location} />
       <MetalFooter />
