@@ -4,8 +4,10 @@ import { MeetupForm } from './MeetupForm';
 
 export function OverlapRegisterSection({
   googleCalendarEvent,
+  meetupEdition,
 }: {
   googleCalendarEvent: string;
+  meetupEdition: number;
 }) {
   return (
     <OverlapLayout
@@ -19,7 +21,10 @@ export function OverlapRegisterSection({
         <p className="text-foreground-low mb-6">
           Llena el formulario y ven a nuestro meetup
         </p>
-        <MeetupForm googleCalendarEvent={googleCalendarEvent} />
+        <MeetupForm
+          meetupEdition={meetupEdition}
+          googleCalendarEvent={googleCalendarEvent}
+        />
       </OverlapLayout.Content>
     </OverlapLayout>
   );

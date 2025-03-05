@@ -8,7 +8,8 @@ import { SplitLearnSection } from 'components/pages/meetup/SplitLearnSection';
 import { OverlapRegisterSection } from 'components/pages/meetup/OverlapRegisterSection';
 
 const nextEvent = {
-  date: 'Marzo 26',
+  date: 'Marzo 27',
+  meetupEdition: 2,
   googleCalendarEvent:
     'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG1sZ3AzdjFpZm5zamY3bjR1MnNvbXBjNW4gaG9sYUBhY3VlZHVjdG8uc3R1ZGlv&tmsrc=hola%40acueducto.studio',
   location: 'Condesa',
@@ -52,6 +53,7 @@ const Meetup = () => {
       <SplitScheduleSection />
 
       <OverlapRegisterSection
+        meetupEdition={nextEvent.meetupEdition}
         googleCalendarEvent={nextEvent.googleCalendarEvent}
       />
 

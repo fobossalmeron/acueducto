@@ -23,8 +23,10 @@ type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
 
 export const MeetupForm = ({
   googleCalendarEvent,
+  meetupEdition,
 }: {
   googleCalendarEvent: string;
+  meetupEdition: number;
 }) => {
   const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
   const formRef = useRef<HTMLFormElement>(null);
@@ -43,7 +45,7 @@ export const MeetupForm = ({
         listIds: [17],
         updateEnabled: true,
         attributes: {
-          SUBSCRIBED_FROM: 'Meetup #1',
+          SUBSCRIBED_FROM: `Meetup #${meetupEdition}`,
           COMPANY: data.company,
           POSITION: data.position,
           JOB: data.position,
