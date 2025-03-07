@@ -11,7 +11,7 @@ const nextEvent = {
   date: 'Marzo 27',
   meetupEdition: 2,
   googleCalendarEvent:
-    'https://calendar.google.com/calendar/event?action=TEMPLATE&tmeid=NG1sZ3AzdjFpZm5zamY3bjR1MnNvbXBjNW4gaG9sYUBhY3VlZHVjdG8uc3R1ZGlv&tmsrc=hola%40acueducto.studio',
+    'https://calendar.google.com/calendar/r/eventedit?text=Innovation+Leaders+Meetup&details=Meetup+for+innovation+leaders&location=La+Condesa%2C+06140+Mexico+City%2C+CDMX%2C+Mexico&dates=20250327T180000/20250327T220000&ctz=America/Mexico_City',
   location: 'Condesa',
   title: 'Itera con el feedback de tus usuarios',
   talks: [
