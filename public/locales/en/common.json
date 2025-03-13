@@ -7,11 +7,11 @@
   ],
   "legal_nav": {
     "cookies": {
-      "title": "cookie policy",
+      "title": "Cookie policy",
       "link": "cookies"
     },
     "privacy": {
-      "title": "privacy policy",
+      "title": "Privacy policy",
       "link": "privacidad",
       "as": "/privacy"
     }
@@ -64,7 +64,7 @@
   "contact_footer": {
     "title": "let's elevate</br> your business",
     "p": "Are we the right fit for your next digital venture?",
-    "button_text": "get in touch",
+    "button_text": "Get in touch",
     "footer_nav": {
       "navTitles": {
         "main": "studio",
@@ -73,15 +73,15 @@
         "resources": ""
       },
       "main": [
-        { "title": "home", "link": "/" },
-        { "title": "about", "link": "/nosotros", "as": "/about" },
-        { "title": "work", "link": "/portafolio", "as": "/work" },
-        { "title": "contact", "link": "/contacto", "as": "/contact" }
+        { "title": "Home", "link": "/" },
+        { "title": "About", "link": "/nosotros", "as": "/about" },
+        { "title": "Work", "link": "/portafolio", "as": "/work" },
+        { "title": "Contact", "link": "/contacto", "as": "/contact" }
       ],
       "policies": [
-        { "title": "cookie policy", "link": "/cookies" },
+        { "title": "Cookie policy", "link": "/cookies" },
         {
-          "title": "privacy policy",
+          "title": "Privacy policy",
           "link": "/privacidad",
           "as": "/privacy"
         }

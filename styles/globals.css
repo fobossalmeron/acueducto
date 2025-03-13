@@ -47,6 +47,8 @@
   --color-error: #cc2e44;
   --color-success: #27ae60;
   --color-success-background: #27ae6012;
+  --color-card-background: #1b1d22;
+  --color-card-border: #2f3032;
 
   /* Bordes redondeados ajustados */
   --rounded-sm: 0.2rem; /* 2px */

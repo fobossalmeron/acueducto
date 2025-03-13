@@ -10,19 +10,18 @@ import { useLocalizedContent } from 'utils/useLocalizedContent';
 import TitleSection from 'components/shared/TitleSection';
 import { Button } from 'components/ui/Button/Button';
 import ContactFooter from 'components/layout/footers/ContactFooter';
-import Services from 'components/pages/index/Services';
 import Head from 'components/layout/Head/Head';
-import Carousel from 'components/pages/index/Carousel';
 import { Fade } from 'react-awesome-reveal';
 import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
 import FAQSection from 'components/pages/index/FAQ';
 import PageWrapper from 'components/layout/PageWrapper';
-import Quotes from 'components/pages/index/Quotes';
 import CaseList from 'components/pages/work/CaseList';
-import { useIsMobile } from 'utils/useIsMobile';
+import { ProblemSection } from 'components/pages/index/ProblemSection';
+import { ProcessSection } from 'components/pages/index/ProcessSection';
+import { StackSection } from 'components/pages/index/StackSection';
+import { SocialProofSection } from 'components/pages/index/SocialProofSection';
+import { JobOpeningsSection } from 'components/pages/index/JobOpeningsSection';
 
-import ClientsDesktop from '../public/assets/img/layout/clients.png';
-import ClientsMobile from '../public/assets/img/layout/clientsMobile.png';
 import PodcastCover from '../public/assets/img/layout/podcast_cover.png';
 
 const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
@@ -44,7 +43,6 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
     onTitleChange: setTitle,
   });
   const [showSpline, setShowSpline] = useState(false);
-  const isMobile = useIsMobile(760);
 
   useEffect(() => {
     if (hasLoaded) {
@@ -65,56 +63,40 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
             <Fade cascade delay={0.4}>
               <p className="h1">{t.landing.heading}</p>
               <h1 className="h2">{t.landing.tagline}</h1>
-              <Link
-                href={locale === 'en' ? '/work' : '/portafolio'}
-                locale={locale}
-              >
-                <Button
-                  text={t.landing.button}
-                  inverse
-                  parentComponent="Land"
-                />
-              </Link>
+              <div className="flex gap-4">
+                <Link
+                  href={locale === 'en' ? '/contact' : '/contacto'}
+                  locale={locale}
+                >
+                  <Button
+                    text={t.landing.ctaContact}
+                    inverse
+                    parentComponent="Land"
+                  />
+                </Link>
+                <Link
+                  href={locale === 'en' ? '/work' : '/portafolio'}
+                  locale={locale}
+                >
+                  <Button
+                    text={t.landing.ctaWork}
+                    secondary
+                    parentComponent="Land"
+                  />
+                </Link>
+              </div>
             </Fade>
           </LandContainer>
         </Land>
-        <Intro id="removeArrow">
+        <div id="removeArrow">
           <CaseList limit={6} />
-          <TitleSection {...t.intro} borderTop heading={2} />
-        </Intro>
-        <Carousel items={t.carousel} />
-        <TitleSection {...t.clients.intro} borderTop heading={2} />
-        <LogosSection>
-          <Fade triggerOnce>
-            <span className="text">{t.clients.span}</span>
-            <Image
-              src={isMobile ? ClientsMobile : ClientsDesktop}
-              width={isMobile ? 550 : 800}
-              height={isMobile ? 171 : 120}
-              alt="Clientes"
-            />
-          </Fade>
-          <Fade triggerOnce>
-            <span className="text">
-              {locale === 'en'
-                ? 'From our clients'
-                : 'Lo que nuestros clientes dicen de nosotros'}
-            </span>
-            <Quotes isMobile={isMobile} />
-            <Link
-              href={locale === 'en' ? '/work' : '/portafolio'}
-              locale={locale}
-            >
-              <Button
-                text={t.clients.cta}
-                inverse
-                parentComponent="LogosSection"
-              />
-            </Link>
-          </Fade>
-        </LogosSection>
-        <Services services={t.services} />
+        </div>
+        <ProblemSection {...t.problem} />
+        <ProcessSection {...t.process} />
+        <StackSection {...t.stack} />
+        <SocialProofSection {...t.clients} />
         <FAQSection t={t.faq} />
+        <JobOpeningsSection {...t.openings} />
         <TitleSection {...t.podcast.intro} borderTop heading={2}>
           <Fade>
             <Link href="/podcast" passHref locale="es" legacyBehavior>
@@ -138,7 +120,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         </TitleSection>
         <ContactFooter />
       </div>
-      {showSpline && <HomeVideo />}
+      {/* {showSpline && <HomeVideo />} */}
     </PageWrapper>
   );
 };
@@ -233,71 +215,6 @@ const LandContainer = styled.div`
   }
   @media (max-width: 420px) {
     grid-column: 1 / span 12;
-  }
-`;
-
-const Intro = styled.section`
-  color: ${(props) => props.theme.colors.foreground};
-  background-color: ${(props) => props.theme.colors.background};
-  transition: 0.3s ease all;
-  & > div {
-    padding-bottom: 6%;
-  }
-  @media (max-width: 900px) {
-    padding-bottom: 6%;
-  }
-`;
-
-const LogosSection = styled.div`
-  background-color: ${(props) => props.theme.colors.background};
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-bottom: calc(70px + 5%);
-  .text {
-    color: ${(props) => props.theme.colors.foreground_lower};
-    margin-bottom: 3.5rem;
-    text-align: center;
-    display: block;
-    padding: 0 15px;
-  }
-  & > :nth-child(3) {
-    margin-top: 6%;
-  }
-  & > :nth-last-child(1) {
-    margin-top: 5.5rem;
-  }
-  img {
-    height: auto;
-  }
-  @media (max-width: 1100px) {
-    img {
-      max-width: 700px;
-    }
-  }
-  @media (max-width: 900px) {
-    img {
-      max-width: 600px;
-    }
-  }
-  @media (max-width: 760px) {
-    img {
-      max-width: 450px;
-    }
-  }
-  @media (max-width: 600px) {
-    padding-bottom: 12%;
-  }
-  @media (max-width: 550px) {
-    img {
-      max-width: 300px;
-    }
-  }
-  @media (max-width: 400px) {
-    img {
-      max-width: 280px;
-    }
   }
 `;
 

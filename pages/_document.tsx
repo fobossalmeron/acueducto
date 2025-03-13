@@ -4,9 +4,9 @@ import Document, {
   Main,
   NextScript,
   DocumentContext,
-} from "next/document";
-import { ServerStyleSheet } from "styled-components";
-import GlobalStyles from "../styles/global";
+} from 'next/document';
+import { ServerStyleSheet } from 'styled-components';
+import GlobalStyles from '../styles/global';
 import { AppType } from 'next/app';
 
 export default class MyDocument extends Document {
@@ -17,8 +17,10 @@ export default class MyDocument extends Document {
     try {
       ctx.renderPage = () =>
         originalRenderPage({
-          enhanceApp: (App: React.ComponentType<React.ComponentProps<AppType>>) => (props) =>
-          sheet.collectStyles(<App {...props} />),
+          enhanceApp:
+            (App: React.ComponentType<React.ComponentProps<AppType>>) =>
+            (props) =>
+              sheet.collectStyles(<App {...props} />),
         });
 
       const initialProps = await Document.getInitialProps(ctx);
@@ -94,7 +96,6 @@ export default class MyDocument extends Document {
           </div>
           <Main />
           <NextScript />
-          {/* <script src="https://cdn.jsdelivr.net/npm/tsparticles-confetti@2.10.1/tsparticles.confetti.bundle.min.js"></script> */}
         </body>
       </Html>
     );

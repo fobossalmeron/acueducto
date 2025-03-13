@@ -1,35 +1,36 @@
-import { useState, useCallback, useMemo } from "react";
-import { useSprings, animated, to as interpolate } from "@react-spring/web";
-import { useDrag } from "react-use-gesture";
-import styled from "styled-components";
-import Image from "next/image";
-import cindy from "public/assets/img/layout/clients/cindy.jpg";
-import karla from "public/assets/img/layout/clients/karla.jpg";
-import rodrigo from "public/assets/img/layout/clients/rodrigo.jpg";
-import david from "public/assets/img/layout/clients/david.jpg";
+import { useState, useCallback, useMemo } from 'react';
+import { useSprings, animated, to as interpolate } from '@react-spring/web';
+import { useDrag } from 'react-use-gesture';
+import styled from 'styled-components';
+import Image from 'next/image';
+import cindy from 'public/assets/img/layout/clients/cindy.jpg';
+import karla from 'public/assets/img/layout/clients/karla.jpg';
+import rodrigo from 'public/assets/img/layout/clients/rodrigo.jpg';
+import david from 'public/assets/img/layout/clients/david.jpg';
+
 const cards = [
   {
-    text: "No hay una sola persona que no me haya dicho que el trabajo que hicimos con Acueducto fue verdaderamente excepcional y el diseño sofisticado.",
-    person: "Karla Hernández",
-    job: "CEO, Recupera",
+    text: 'No hay una sola persona que no me haya dicho que el trabajo que hicimos con Acueducto fue verdaderamente excepcional y el diseño sofisticado.',
+    person: 'Karla Hernández',
+    job: 'CEO, Recupera',
     picture: karla,
   },
   {
-    text: "Encontramos una nueva oportunidad de crecimiento. Con el trabajo de Acueducto estamos exponenciando nuestra oferta y llegando a nuevos clientes.",
-    person: "Rodrigo Maldonado",
-    job: "CEO, Rahid",
+    text: 'Encontramos una nueva oportunidad de crecimiento. Con el trabajo de Acueducto estamos exponenciando nuestra oferta y llegando a nuevos clientes.',
+    person: 'Rodrigo Maldonado',
+    job: 'CEO, Rahid',
     picture: rodrigo,
   },
   {
-    text: "Estoy sumamente satisfecha, cada vez nos diferenciamos más de la competencia y me encanta el excelente trabajo que podemos hacer con Acueducto.",
-    person: "Cindy Borgatta", 
-    job: "CMO, Borgatta",
+    text: 'Estoy sumamente satisfecha, cada vez nos diferenciamos más de la competencia y me encanta el excelente trabajo que podemos hacer con Acueducto.',
+    person: 'Cindy Borgatta',
+    job: 'CMO, Borgatta',
     picture: cindy,
   },
   {
-    text: "Nunca nos había entendido una agencia como nos entiende Acueducto. Son el mejor estudio con el que he trabajado.",
-    person: "David Elizondo", 
-    job: "Product Manager, DeAcero",
+    text: 'Nunca nos había entendido una agencia como nos entiende Acueducto. Son el mejor estudio con el que he trabajado.',
+    person: 'David Elizondo',
+    job: 'Product Manager, DeAcero',
     picture: david,
   },
 ];
@@ -39,71 +40,93 @@ const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
 const trans = (r: number, s: number, i: number) =>
   `perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(${i * -1.5}deg) scale(${1 - -r * 0.005}) translateX(0%)`;
 
-function Deck({ isMobile }) {
+export function Quotes({ isMobile }: { isMobile: boolean }) {
   const [gone] = useState(() => new Set());
-  const [props, api] = useSprings(cards.length, (i) => ({ ...to(i), from: from() }));
+  const [props, api] = useSprings(cards.length, (i) => ({
+    ...to(i),
+    from: from(),
+  }));
 
-  const moveCard = useCallback((direction: 'left' | 'right') => {
-    const i = cards.length - 1 - gone.size;
-    if (i < 0) return;
+  const moveCard = useCallback(
+    (direction: 'left' | 'right') => {
+      const i = cards.length - 1 - gone.size;
+      if (i < 0) return;
 
-    gone.add(i);
-    api.current[i].start({ 
-      x: direction === 'left' ? (isMobile ? -600 : -1200) : (isMobile ? 400 : 1200) 
-    });
+      gone.add(i);
+      api.current[i].start({
+        x:
+          direction === 'left'
+            ? isMobile
+              ? -600
+              : -1200
+            : isMobile
+              ? 400
+              : 1200,
+      });
 
-    if (gone.size === cards.length) {
-      setTimeout(() => {
-        gone.clear();
-        api.start((i) => to(i));
-      }, 400);
-    }
-  }, [gone, api, isMobile]);
+      if (gone.size === cards.length) {
+        setTimeout(() => {
+          gone.clear();
+          api.start((i) => to(i));
+        }, 400);
+      }
+    },
+    [gone, api, isMobile],
+  );
 
-  const bind = useDrag(({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
-    const trigger = velocity > 0.2;
-    const dir = xDir < 0 ? -1 : 1;
-    if (!down && trigger) gone.add(index);
-    api.start(i => {
-      if (index !== i) return;
-      const isGone = gone.has(index);
-      const x = isGone ? (500 + window.innerWidth) * dir : down ? mx : 0;
-      const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0);
-      const scale = down ? 1.1 : 1;
-      return {
-        x,
-        rot,
-        scale,
-        delay: undefined,
-        config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
-      };
-    });
-    if (!down && gone.size === cards.length) {
-      setTimeout(() => {
-        gone.clear();
-        api.start((i) => to(i));
-      }, 400);
-    }
-  });
+  const bind = useDrag(
+    ({ args: [index], down, movement: [mx], direction: [xDir], velocity }) => {
+      const trigger = velocity > 0.2;
+      const dir = xDir < 0 ? -1 : 1;
+      if (!down && trigger) gone.add(index);
+      api.start((i) => {
+        if (index !== i) return;
+        const isGone = gone.has(index);
+        const x = isGone ? (500 + window.innerWidth) * dir : down ? mx : 0;
+        const rot = mx / 100 + (isGone ? dir * 10 * velocity : 0);
+        const scale = down ? 1.1 : 1;
+        return {
+          x,
+          rot,
+          scale,
+          delay: undefined,
+          config: { friction: 50, tension: down ? 800 : isGone ? 200 : 500 },
+        };
+      });
+      if (!down && gone.size === cards.length) {
+        setTimeout(() => {
+          gone.clear();
+          api.start((i) => to(i));
+        }, 400);
+      }
+    },
+  );
 
-  const cardElements = useMemo(() => props.map(({ x, y, rot, scale }, i) => (
-    <animated.div className="deck" key={i} style={{ x, y }}>
-      <animated.div {...bind(i)} style={{ transform: interpolate([rot, scale, i], trans) }}>
-        <p className="text">{cards[i].text}</p>
-        <Person>
-          <Image
-            src={cards[i].picture}
-            width={100}
-            height={100}
-            alt={`${cards[i].person}, ${cards[i].job}`}
-          />
-          <p className="person">
-            {cards[i].person} <span>{cards[i].job}</span>
-          </p>
-        </Person>
-      </animated.div>
-    </animated.div>
-  )), [props, bind]);
+  const cardElements = useMemo(
+    () =>
+      props.map(({ x, y, rot, scale }, i) => (
+        <animated.div className="deck" key={i} style={{ x, y }}>
+          <animated.div
+            {...bind(i)}
+            style={{ transform: interpolate([rot, scale, i], trans) }}
+          >
+            <p className="text">{cards[i].text}</p>
+            <Person>
+              <Image
+                src={cards[i].picture}
+                width={100}
+                height={100}
+                alt={`${cards[i].person}, ${cards[i].job}`}
+              />
+              <p className="person">
+                {cards[i].person} <span>{cards[i].job}</span>
+              </p>
+            </Person>
+          </animated.div>
+        </animated.div>
+      )),
+    [props, bind],
+  );
 
   return (
     <QuotesSection>
@@ -113,8 +136,6 @@ function Deck({ isMobile }) {
     </QuotesSection>
   );
 }
-
-export default Deck;
 
 const Pin = styled.span`
   width: 42px;
@@ -129,7 +150,7 @@ const Pin = styled.span`
   cursor: pointer;
   user-select: none;
   &::after {
-    content: " ";
+    content: ' ';
     position: absolute;
     left: 7px;
     top: 10px;
@@ -213,8 +234,8 @@ const QuotesSection = styled.div`
       display: flex;
       flex-direction: column;
       justify-content: center;
-      background-color: #181a1b;
-      border: 2px solid ${(p) => p.theme.colors.accent};
+      background-color: #091a4e;
+      border: 1px solid ${(p) => p.theme.colors.accent};
       will-change: transform;
       border-radius: 30px;
       cursor: grab;
@@ -237,11 +258,11 @@ const QuotesSection = styled.div`
           position: absolute;
         }
         &::before {
-          content: "“";
+          content: '“';
           left: -10px;
         }
         &::after {
-          content: "“";
+          content: '“';
         }
       }
     }

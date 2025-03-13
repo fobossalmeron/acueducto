@@ -8,33 +8,77 @@
     "seo_h1": "Empresa de desarrollo de software y apps: Acueducto",
     "heading": "apalanca tu negocio con tecnología",
     "tagline": "Acueducto es un estudio de diseño y desarrollo de software",
-    "button": "casos de estudio"
+    "ctaContact": "Escríbenos",
+    "ctaWork": "Ver portafolio"
   },
-  "intro": {
-    "title": "con apps, plataformas y sitios web",
-    "p": "Nuestro equipo se alinea a tus objetivos de negocio para echar a andar proyectos tecnológicos en tu empresa.<br/><br/>Convertimos el problema que estás enfrentando en una idea, tu idea en una solución y esta solución en software de la mano de:"
-  },
-  "carousel": ["ingenieros", "diseñadores", "product managers"],
-  "services": {
-    "title": "diseñados para escalar",
-    "areas": [
+  "problem": {
+    "title": "hablamos negocios, software y diseño",
+    "p": "Diseñamos y construimos software. Apps, sitios web, MVPs y plataformas que te permiten ahorrar recursos en tu empresa o hacer más con lo mismo.",
+    "scenes": [
       {
-        "title": "investigación y facilitación",
-        "p": "Analizamos junto a ti tus objetivos de negocio y las necesidades de tus usuarios. Paralelamente, hacemos un análisis de herramientas que ya resuelven el problema que estamos solucionando para entender patrones y expectativas de usuario."
+        "text": "encontrar talento es tan complicado",
+        "profile": "Director TI"
       },
       {
-        "title": "diseño",
-        "p": "Construimos una experiencia que te hace pensar el mínimo, muestra naturalmente cuál es el siguiente paso y entrega resultados lo más rápido posible."
+        "text": "¿cómo integro IA en mi negocio?",
+        "profile": "Emprendedor"
       },
       {
-        "title": "desarrollo",
-        "p": "Desarrollamos arquitecturas escalables y escribimos código de calidad."
+        "text": "¿cómo pruebo nuevas iniciativas antes de gastar millones?",
+        "profile": "CEO"
       },
       {
-        "title": "crecimiento",
-        "p": "Una vez vivo, empujamos la evolución de tu producto iterando progresivamente para alcanzar nuevos objetivos."
+        "text": "tengo que mejorar la experiencia digital de mis clientes pronto",
+        "profile": "CMO"
       }
     ]
+  },
+  "process": {
+    "title": "tu idea a código en tiempo récord",
+    "labelFirst": "Primeros 10 días",
+    "labelSecond": "Siguientes 10 días",
+    "stages": [
+      {
+        "title": "definimos tu MVP",
+        "p": "Junto contigo, definimos las funcionalidades esenciales de tu Minimum Viable Product y hacemos un análisis de ingeniería.",
+        "badge": "Validas los requisitos aquí"
+      },
+      {
+        "title": "iteramos un prototipo",
+        "p": "Programamos un prototipo completamente interactivo. Lo probamos con usuarios reales e iteramos con su retroalimentación.",
+        "badge": "Validas el prototipo aquí"
+      },
+      {
+        "title": "integramos y lanzamos",
+        "p": "Conectamos el producto a tu tecnología y te acompañamos en tu lanzamiento.",
+        "badge": "Lanzamos tu MVP"
+      }
+    ],
+    "agileCard": {
+      "auxiliary": "Si tu producto necesita crecer",
+      "title": "desarrollo ágil de producto",
+      "p": "Incrementamos y refinamos sobre la marcha en ambientes seguros de producción y desarrollo.",
+      "button": "Cuéntanos tu idea"
+    }
+  },
+  "stack": {
+    "title": ["un stack poderoso", "que se adapta al tuyo"],
+    "p": "Nos adaptamos a la tecnología que ya usas y desarrollamos tus MVPs con tecnología web moderna lista para escalar.",
+    "ends": [
+      {
+        "label": "Frontend",
+        "title": "Next.js (React)"
+      },
+      {
+        "label": "Backend",
+        "title": "Serverless o Nestjs"
+      },
+      {
+        "label": "Deploy",
+        "title": "Vercel + AWS"
+      }
+    ],
+    "lastP": "Otras empresas que utilizan este stack"
   },
   "clients": {
     "intro": {
@@ -42,7 +86,8 @@
       "p": "Te ayudamos a ejecutar proyectos que pueden transformar tu organización en una con mejores operaciones, una arquitectura escalable y una experiencia de cliente de primer nivel."
     },
     "span": "Hemos trabajado con",
-    "cta": "ve nuestro trabajo"
+    "span2": "Lo que nuestros clientes dicen de nosotros",
+    "cta": "Ver portafolio"
   },
   "faq": {
     "title": "preguntas frecuentes",
@@ -53,7 +98,7 @@
       },
       {
         "title": "¿en cuánto tiempo podrían construir algo para mi negocio?",
-        "p": "Dependiendo las especificaciones, pero aproximadamente 4 semanas."
+        "p": "En 10 días puedes probar con usuarios reales un MVP de tu producto. En 20 días puedes lanzar tu MVP."
       },
       {
         "title": "¿ofrecen servicios de diseño?",
@@ -65,10 +110,15 @@
       }
     ]
   },
+  "openings": {
+    "title": "forma parte de nuestro equipo",
+    "p": "¿Quieres unirte a nuestro equipo? Revisa nuestras vacantes.",
+    "cta": "Ver vacantes"
+  },
   "podcast": {
     "intro": {
-      "title": "conoce la historia detrás de productos increíbles",
-      "p": "Aprende cómo construyen producto las empresas de servicios digitales más importantes de Latinoamérica de la mano de nuestro CEO, Artemio Pedraza y nuestro COO, Rodrigo Salmerón.<br/><br/>Disponible en todas las plataformas de streaming."
+      "title": "echa un vistazo a como pensamos",
+      "p": "Escucha nuestro podcast con más de 200 episodios donde compartimos como construyen producto las empresas más importantes de Latinoamérica.<br/><br/>Disponible en todas las plataformas de streaming."
     }
   }
 }

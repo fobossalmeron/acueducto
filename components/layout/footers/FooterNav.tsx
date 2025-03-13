@@ -1,21 +1,21 @@
-import React from "react";
-import { useLocaleContext } from "utils/LangContext";
-import Link from "next/link";
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import BorderLink from "components/shared/BorderedLink";
+import React from 'react';
+import { useLocaleContext } from 'utils/LangContext';
+import Link from 'next/link';
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import BorderLink from 'components/shared/BorderedLink';
 
 const socialNav = [
   // { title: "facebook", link: "https://www.facebook.com/acueducto.studio/" },
   // { title: "tiktok", link: "https://www.tiktok.com/@acueducto.studio" },
-  { title: "instagram", link: "https://www.instagram.com/acueducto.studio/" },
+  { title: 'Instagram', link: 'https://www.instagram.com/acueducto.studio/' },
   {
-    title: "youtube",
-    link: "https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg",
+    title: 'YouTube',
+    link: 'https://www.youtube.com/channel/UCuFV_fKt_ELREPwoAb5lprg',
   },
   {
-    title: "linkedin",
-    link: "https://www.linkedin.com/company/acueductostudio/",
+    title: 'LinkedIn',
+    link: 'https://www.linkedin.com/company/acueductostudio/',
   },
 ];
 interface FooterNavProps {
@@ -49,7 +49,7 @@ export default function FooterNav() {
               <Fade
                 triggerOnce
                 delay={200 + index * 50}
-                key={"itemMain" + index}
+                key={'itemMain' + index}
               >
                 <li>
                   <Link
@@ -64,7 +64,7 @@ export default function FooterNav() {
             ))}
           </ul>
         </NavList>
-        {context.lang === "es" && (
+        {context.lang === 'es' && (
           <NavList>
             <Fade triggerOnce>
               <span>{navTitles.resources}</span>
@@ -74,7 +74,7 @@ export default function FooterNav() {
                 <Fade
                   triggerOnce
                   delay={200 + index * 50}
-                  key={"itemResource" + index}
+                  key={'itemResource' + index}
                 >
                   <li>
                     <Link
@@ -99,7 +99,7 @@ export default function FooterNav() {
               <Fade
                 triggerOnce
                 delay={200 + index * 50}
-                key={"itemSocial" + index}
+                key={'itemSocial' + index}
               >
                 <li>
                   <Link href={item.link}>{item.title}</Link>
@@ -117,7 +117,7 @@ export default function FooterNav() {
               <Fade
                 triggerOnce
                 delay={200 + index * 50}
-                key={"itemPolicy" + index}
+                key={'itemPolicy' + index}
               >
                 <li>
                   <Link

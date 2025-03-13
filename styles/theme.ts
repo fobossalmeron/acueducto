@@ -17,7 +17,7 @@ const Theme: DefaultTheme = {
     success: "#27AE60",
     success_background: "#27ae6012",
   },
-  stroke: "2px",
+  stroke: "1px",
 };
 
 export default Theme;

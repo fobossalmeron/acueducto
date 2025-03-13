@@ -6,8 +6,8 @@
     { "title": "contacto", "link": "/contacto" }
   ],
   "legal_nav": {
-    "cookies": { "title": "política de cookies", "link": "/cookies" },
-    "privacy": { "title": "política de privacidad", "link": "/privacidad" }
+    "cookies": { "title": "Política de cookies", "link": "/cookies" },
+    "privacy": { "title": "Política de privacidad", "link": "/privacidad" }
   },
   "lang": "es",
   "casestudies": [
@@ -57,7 +57,7 @@
   "contact_footer": {
     "title": "asociémonos,</br> elevemos tu negocio",
     "p": "¿Somos los indicados para acompañarte en tu próximo proyecto?",
-    "button_text": "escríbenos",
+    "button_text": "Escríbenos",
     "footer_nav": {
       "navTitles": {
         "main": "estudio",
@@ -66,20 +66,19 @@
         "policies": "políticas"
       },
       "main": [
-        { "title": "home", "link": "/" },
-        { "title": "nosotros", "link": "/nosotros" },
-        { "title": "portafolio", "link": "/portafolio" },
-        { "title": "consultoría digital", "link": "/consultoria-digital" },
-        { "title": "contacto", "link": "/contacto" }
+        { "title": "Home", "link": "/" },
+        { "title": "Nosotros", "link": "/nosotros" },
+        { "title": "Portafolio", "link": "/portafolio" },
+        { "title": "Contacto", "link": "/contacto" }
       ],
       "resources": [
-        { "title": "podcast", "link": "/podcast" },
-        { "title": "blog", "link": "/blog" },
-        { "title": "diagnóstico", "link": "/diagnostico" }
+        { "title": "Podcast", "link": "/podcast" },
+        { "title": "Meetup", "link": "/meetup" },
+        { "title": "Link en bio", "link": "/linkenbio" }
       ],
       "policies": [
-        { "title": "cookies", "link": "/cookies" },
-        { "title": "privacidad", "link": "/privacidad" }
+        { "title": "Cookies", "link": "/cookies" },
+        { "title": "Privacidad", "link": "/privacidad" }
       ],
       "mailto": {
         "subject": "Trabajemos juntos",

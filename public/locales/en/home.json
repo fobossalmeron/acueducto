@@ -8,33 +8,77 @@
     "seo_h1": "Software development consulting services: Acueducto",
     "heading": "empower your business with technology",
     "tagline": "Acueducto is a software design and development studio",
-    "button": "case studies"
+    "ctaContact": "Contact us",
+    "ctaWork": "Our work"
   },
-  "intro": {
-    "title": "with incredible digital products",
-    "p": "Our team aligns with your business objectives to kick-start technological projects in your company.<br/><br/>We turn the problem you're facing into an idea, your idea into a solution, and this solution into software, hand in hand with:"
-  },
-  "carousel": ["engineers", "designers", "product managers"],
-  "services": {
-    "title": "designed and developed to scale",
-    "areas": [
+  "problem": {
+    "title": "we speak business, software, and design",
+    "p": "We design and build software. Apps, websites, MVPs, and platforms that allow you to save resources in your company or do more with the same.",
+    "scenes": [
       {
-        "title": "research and facilitation",
-        "p": "We analyze your business goals and the needs of your users together with you. Simultaneously, we conduct an analysis of already existing tools in order to understand user patterns and expectations"
+        "text": "finding talent is so complicated",
+        "profile": "IT Director"
       },
       {
-        "title": "design",
-        "p": "We build experiences that make you think minimally, naturally display the next step, and deliver results as quickly as possible"
+        "text": "how do I integrate AI into my business?",
+        "profile": "Entrepreneur"
       },
       {
-        "title": "development",
-        "p": "We develop scalable architectures and write quality code"
+        "text": "how can I test new initiatives before spending millions?",
+        "profile": "CEO"
       },
       {
-        "title": "growth",
-        "p": "Once alive, we drive the evolution of your product by progressively iterating to reach new goals"
+        "text": "I need to improve my customers' digital experience soon",
+        "profile": "CMO"
       }
     ]
+  },
+  "process": {
+    "title": "your idea to code in record time",
+    "labelFirst": "First 10 days",
+    "labelSecond": "Next 10 days",
+    "stages": [
+      {
+        "title": "we define your MVP",
+        "p": "Together with you, we define the essential functionalities of your Minimum Viable Product and perform an engineering analysis.",
+        "badge": "We validate requirements here"
+      },
+      {
+        "title": "we iterate a prototype",
+        "p": "We program a fully interactive prototype. We test it with real users and iterate based on their feedback.",
+        "badge": "You validate the prototype here"
+      },
+      {
+        "title": "we integrate and launch",
+        "p": "We connect the product to your technology and accompany you in your launch.",
+        "badge": "We launch your MVP"
+      }
+    ],
+    "agileCard": {
+      "auxiliary": "If your product needs to grow",
+      "title": "agile product development",
+      "p": "We increment and refine on the go in secure production and development environments.",
+      "button": "Tell us your idea"
+    }
+  },
+  "stack": {
+    "title": ["a powerful stack", "that adapts to yours"],
+    "p": "We adapt to the technology you already use and develop your MVPs with modern web technology ready to scale.",
+    "ends": [
+      {
+        "label": "Frontend",
+        "title": "Next.js (React)"
+      },
+      {
+        "label": "Backend",
+        "title": "Serverless or Nestjs"
+      },
+      {
+        "label": "Deploy",
+        "title": "Vercel + AWS"
+      }
+    ],
+    "lastP": "Other companies using this stack"
   },
   "clients": {
     "intro": {
@@ -42,6 +86,7 @@
       "p": "We help you execute projects that can transform your organization into one with improved operations, a scalable architecture, and a first-class customer experience."
     },
     "span": "We have worked with",
+    "span2": "From our clients",
     "cta": "See our work"
   },
   "faq": {
@@ -53,22 +98,27 @@
       },
       {
         "title": "how long would it take to build something for my business?",
-        "p": "Depending on the specifications, but approximately 16 weeks."
+        "p": "In 10 days you can test an MVP of your product with real users. In 20 days you can launch your MVP."
       },
       {
         "title": "do you offer design services?",
-        "p": "We are a design studio above all. We firmly believe that amazing user experiences should also be beautiful."
+        "p": "We are a design studio first and foremost. We are convinced that amazing user experiences should also be beautiful."
       },
       {
         "title": "how much does a project cost?",
-        "p": "Each project has a fixed monthly fee, so you will know how much you will spend from the beginning. We will need to consider some costs of other tools/services that we use to build your project. These costs will be charged directly to you in a transparent manner."
+        "p": "Each project has a fixed monthly fee, so you'll know how much you'll spend from the start. We'll need to consider some costs of other tools/services we use to build your project. These costs will be charged directly to you in a transparent manner."
       }
     ]
   },
+  "openings": {
+    "title": "join our team",
+    "p": "Want to join our team? Check out our open positions.",
+    "cta": "See openings"
+  },
   "podcast": {
     "intro": {
-      "title": "discover the story behind amazing products",
-      "p": "Learn how the leading digital service companies in Latin America build products, with insights from our CEO, Artemio Pedraza, and our COO, Rodrigo Salmerón.<br/><br/>Available on all streaming platforms (spanish)."
+      "title": "take a look at how we think",
+      "p": "Listen to our podcast with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
     }
   }
 }
