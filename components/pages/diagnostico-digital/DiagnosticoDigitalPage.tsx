@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { useForm } from "react-hook-form";
-import { Fade } from "react-awesome-reveal";
-import Arrow from "components/shared/Arrow";
-import { createContact } from "utils/brevo";
-import { advancedMatching } from "utils/analytics";
-import delayForLoading from "utils/delayForLoading";
-import Results from "./Results";
-import ReactPixel from "react-facebook-pixel";
-import InputField, { SubmitField } from "components/shared/ContactInputField";
+import React, { useState, useEffect } from 'react';
+import { useForm } from 'react-hook-form';
+import { Fade } from 'react-awesome-reveal';
+import Arrow from 'components/shared/Arrow';
+import { createContact } from 'utils/brevo';
+import delayForLoading from 'utils/delayForLoading';
+import Results from './Results';
+import * as FacebookPixel from 'utils/facebookPixel';
+import InputField, { SubmitField } from 'components/shared/ContactInputField';
 import {
   Loading,
   Tag,
@@ -19,7 +18,7 @@ import {
   QuestionGrid,
   Question,
   QuestionSection,
-} from "./DiagnosticoDigital.styles";
+} from './DiagnosticoDigital.styles';
 
 const NUMBER_OF_QS = 15;
 
@@ -63,8 +62,8 @@ interface FormData {
   email: string;
 }
 
-const PRUEBA_RESULTADOS = [9, 7, 4, "Ramiro"];
-const PRUEBA_ESTADO = "done";
+const PRUEBA_RESULTADOS = [9, 7, 4, 'Ramiro'];
+const PRUEBA_ESTADO = 'done';
 
 const Diagnostico: React.FC<DiagnosticoProps> = ({
   diagnose_section,
@@ -76,8 +75,13 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
   const [aIndex, setAIndex] = useState<number>(0);
   const [aIndexShouldIncrease, setAIndexShouldIncrease] =
     useState<boolean>(true);
-  const [testStatus, setTestStatus] = useState<string>("");
-  const [results, setResults] = useState<[number, number, number, string]>([0, 0, 0, ""]);
+  const [testStatus, setTestStatus] = useState<string>('');
+  const [results, setResults] = useState<[number, number, number, string]>([
+    0,
+    0,
+    0,
+    '',
+  ]);
 
   const {
     register,
@@ -86,7 +90,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
   } = useForm<FormData>();
 
   const onSubmit = (data: FormData) => {
-    setTestStatus("loading");
+    setTestStatus('loading');
     //Clean TestResults object in sendinBlue
     let testResults = { ...data };
     delete testResults.email;
@@ -129,22 +133,21 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
       6;
 
     setResults([estrategia, cultura, competencia, data.firstName]);
-    ReactPixel.init("506854653278097", advancedMatching(data.email));
-    ReactPixel.track("Lead", { email: data.email }); // Hizo el diagnóstico
-    delayForLoading(1500).then(() => setTestStatus("done"));
+    FacebookPixel.trackEvent('Lead', { email: data.email }); // Hizo el diagnóstico
+    delayForLoading(1500).then(() => setTestStatus('done'));
   };
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === "Enter") {
+    if (e.key === 'Enter') {
       qIndex < NUMBER_OF_QS && e.preventDefault();
     }
-    if (e.key === "ArrowLeft") {
+    if (e.key === 'ArrowLeft') {
       e.preventDefault();
       if (qIndex < NUMBER_OF_QS) {
         prevIndex();
       }
     }
-    if (e.key === "ArrowRight") {
+    if (e.key === 'ArrowRight') {
       e.preventDefault();
       if (qIndex < NUMBER_OF_QS) {
         nextIndex();
@@ -174,13 +177,13 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
 
   return (
     <QuestionSection>
-      {testStatus === "" && (
+      {testStatus === '' && (
         <Fade triggerOnce>
           <QuestionGrid>
             <form onSubmit={handleSubmit(onSubmit)} onKeyDown={handleKeyDown}>
               {questions.map((question, index) => (
                 <Question
-                  key={"question" + index}
+                  key={'question' + index}
                   $selected={qIndex === index}
                   $deselected={qIndex === index - 1}
                 >
@@ -193,10 +196,10 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                     <label>
                       {question.a1}
                       <input
-                        name={"Q" + index}
+                        name={'Q' + index}
                         type="radio"
                         value={10}
-                        {...register("Q" + index)}
+                        {...register('Q' + index)}
                         onClick={handleClick}
                       />
                       <span />
@@ -204,10 +207,10 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                     <label>
                       {question.a2}
                       <input
-                        name={"Q" + index}
+                        name={'Q' + index}
                         type="radio"
                         value={5}
-                        {...register("Q" + index)}
+                        {...register('Q' + index)}
                         onClick={handleClick}
                       />
                       <span />
@@ -215,10 +218,10 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                     <label>
                       {question.a3}
                       <input
-                        name={"Q" + index}
+                        name={'Q' + index}
                         type="radio"
                         value={0}
-                        {...register("Q" + index)}
+                        {...register('Q' + index)}
                         onClick={handleClick}
                       />
                       <span />
@@ -241,7 +244,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                       type="text"
                       id="firstName"
                       placeholder={collection_form.firstName.placeholder}
-                      {...register("firstName", { required: true })}
+                      {...register('firstName', { required: true })}
                     />
                     {errors.firstName && (
                       <span>{collection_form.firstName.errorMissing}</span>
@@ -257,7 +260,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                       type="text"
                       id="lastName"
                       placeholder={collection_form.lastName.placeholder}
-                      {...register("lastName", { required: true })}
+                      {...register('lastName', { required: true })}
                     />
                     {errors.lastName && (
                       <span>{collection_form.lastName.errorMissing}</span>
@@ -271,7 +274,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
                       type="email"
                       id="email"
                       placeholder={collection_form.email.placeholder}
-                      {...register("email", {
+                      {...register('email', {
                         required: collection_form.email.errorMissing,
                         pattern: {
                           value:
@@ -304,7 +307,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
           </QuestionGrid>
         </Fade>
       )}
-      {testStatus === "loading" && (
+      {testStatus === 'loading' && (
         <Fade triggerOnce>
           <Loading>
             <p>analizando resultados...</p>
@@ -312,7 +315,7 @@ const Diagnostico: React.FC<DiagnosticoProps> = ({
           </Loading>
         </Fade>
       )}
-      {testStatus === "done" && (
+      {testStatus === 'done' && (
         <Results results={results} results_section={results_section} />
       )}
     </QuestionSection>

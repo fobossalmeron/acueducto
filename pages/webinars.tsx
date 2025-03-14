@@ -6,7 +6,12 @@ import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 
-function Webinars({ locale, setTitle }) {
+interface WebinarsProps {
+  locale: string;
+  setTitle: (title: string) => void;
+}
+
+function Webinars({ locale, setTitle }: WebinarsProps) {
   useEffect(() => {
     setTitle('webinars');
   }, [locale]);
@@ -26,9 +31,9 @@ function Webinars({ locale, setTitle }) {
               src="https://lu.ma/embed-checkout/evt-JD3veO6QwHNzH6B"
               width="100%"
               height="820"
-              allowFullScreen=""
+              allowFullScreen={true}
               aria-hidden="false"
-              tabindex="0"
+              tabIndex={0}
             ></iframe>
           </Webinar>
         </Fade>

@@ -5,8 +5,7 @@ import Cross from 'public/assets/img/layout/cross.svg';
 import es from 'public/locales/es/newsletter.json';
 import NamedForm from 'components/shared/NamedForm';
 import { createContact } from 'utils/brevo';
-import ReactPixel from 'react-facebook-pixel';
-import { advancedMatching } from 'utils/analytics';
+import * as FacebookPixel from 'utils/facebookPixel';
 import { useLenis } from 'utils/LenisContext';
 
 const NewsletterPopup = () => {
@@ -33,19 +32,15 @@ const NewsletterPopup = () => {
         SUBSCRIBED_FROM: 'popup',
       },
     });
-    ReactPixel.init('506854653278097', advancedMatching(data.email));
-    // Suscripción a la newsletter
-    ReactPixel.track('Subscribe', { email: data.email });
+    FacebookPixel.trackSubscribe(data.email);
   };
 
   const popupShow = () => {
-    // Usar el método stopScroll del contexto Lenis
     stopScroll();
     setShowPopup(true);
   };
 
   const unlockScreen = () => {
-    // Usar el método startScroll del contexto Lenis
     startScroll();
     setShowPopup(false);
   };

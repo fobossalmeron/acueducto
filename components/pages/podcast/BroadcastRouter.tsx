@@ -1,8 +1,8 @@
-import styled from "styled-components";
-import EpisodeProps from "utils/types/EpisodeProps";
-import ReactPixel from "react-facebook-pixel";
-import { P } from "components/shared/Dangerously";
-import { Fade } from "react-awesome-reveal";
+import styled from 'styled-components';
+import EpisodeProps from 'utils/types/EpisodeProps';
+import * as FacebookPixel from 'utils/facebookPixel';
+import { P } from 'components/shared/Dangerously';
+import { Fade } from 'react-awesome-reveal';
 
 interface EpisodeComplete extends EpisodeProps {
   episode?: number;
@@ -20,7 +20,7 @@ const BroadcastRouter = ({
   trackClicks,
 }: EpisodeComplete) => {
   const handleLog = (episode: number, medium: string): void => {
-    ReactPixel.trackCustom("Podcast_play", {
+    FacebookPixel.trackCustomEvent('Podcast_play', {
       episode: `E0${episode}`,
       medio: medium,
     });
@@ -28,10 +28,10 @@ const BroadcastRouter = ({
   return (
     <Fade triggerOnce>
       <LogoList>
-        {children && <P>{children + " "}</P>}
+        {children && <P>{children + ' '}</P>}
         {spotify && (
           <a
-            onClick={() => (trackClicks ? handleLog(episode, "Spotify") : null)}
+            onClick={() => (trackClicks ? handleLog(episode, 'Spotify') : null)}
             target="_blank"
             rel="noopener noreferrer"
             href={spotify}
@@ -48,7 +48,7 @@ const BroadcastRouter = ({
         {apple && (
           <a
             onClick={() =>
-              trackClicks ? handleLog(episode, "ApplePodcasts") : null
+              trackClicks ? handleLog(episode, 'ApplePodcasts') : null
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -66,7 +66,7 @@ const BroadcastRouter = ({
         {google && (
           <a
             onClick={() =>
-              trackClicks ? handleLog(episode, "GooglePodcasts") : null
+              trackClicks ? handleLog(episode, 'GooglePodcasts') : null
             }
             target="_blank"
             rel="noopener noreferrer"
@@ -83,7 +83,7 @@ const BroadcastRouter = ({
         )}
         {youtube && (
           <a
-            onClick={() => (trackClicks ? handleLog(episode, "YouTube") : null)}
+            onClick={() => (trackClicks ? handleLog(episode, 'YouTube') : null)}
             target="_blank"
             rel="noopener noreferrer"
             href={youtube}

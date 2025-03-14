@@ -6,7 +6,7 @@ import dynamic from 'next/dynamic';
 import { Fade } from 'react-awesome-reveal';
 import { Button } from 'components/ui/Button/Button';
 import Tilt from 'react-parallax-tilt';
-import ReactPixel from 'react-facebook-pixel';
+import * as FacebookPixel from 'utils/facebookPixel';
 
 import EpisodeFeature from 'components/pages/podcast/EpisodeFeature/EpisodeFeature';
 import Head, { HeadProps } from 'components/layout/Head/Head';
@@ -19,7 +19,6 @@ import MetalForm from 'components/shared/MetalForm';
 
 import ssrLocale from 'utils/ssrLocale';
 import { createContact } from 'utils/brevo';
-import { advancedMatching } from 'utils/analytics';
 import { useIsMobile } from 'utils/useIsMobile';
 import { createClient } from '../prismicio';
 import { GetStaticProps } from 'next';
@@ -107,57 +106,53 @@ function PodcastLanding({
     setTitle(head.headerTitle);
   }, [locale, head.headerTitle, setTitle]);
 
-  const activateSubscribePixels = useCallback((data: SubmitData) => {
-    ReactPixel.init('506854653278097', advancedMatching(data.email));
-    ReactPixel.track('Subscribe', { email: data.email });
+  const handleSubscribe = useCallback((data: SubmitData, source: string) => {
+    createContact({
+      email: data.email,
+      listIds: [2],
+      updateEnabled: true,
+      attributes: {
+        SUBSCRIBED_FROM: source,
+      },
+    });
+
+    FacebookPixel.trackSubscribe(data.email);
   }, []);
 
-  const onSubmit = useCallback(
-    (data: SubmitData, source: string) => {
-      createContact({
-        email: data.email,
-        listIds: [2],
-        updateEnabled: true,
-        attributes: {
-          SUBSCRIBED_FROM: source,
-        },
-      });
-      activateSubscribePixels(data);
+  const renderEpisodeCard = useCallback(
+    (episode: PrismicPodcastEpisode, index: number, isPortrait = false) => {
+      if (!episode?.data?.introduction?.[0]) return null;
+
+      const episodeData = episode.data.introduction[0];
+
+      return (
+        <div key={`episode-${index}`}>
+          <Fade triggerOnce>
+            <Tilt tiltMaxAngleX={10} tiltMaxAngleY={10} tiltEnable={!isMobile}>
+              <EpisodeFeature
+                title={episodeData.title[0].text}
+                guest={episodeData.guest}
+                business={episodeData.business}
+                slug={episode.uid}
+                episode={episodeData.episode}
+                image={episode.data.images[0].solas}
+                logos={episode.logos}
+                portrait={isPortrait}
+              />
+            </Tilt>
+          </Fade>
+        </div>
+      );
     },
-    [activateSubscribePixels],
+    [isMobile],
   );
 
   const memoizedFeaturedEpisodes = useMemo(
     () =>
-      featuredEpisodes.map(
-        (episode, index) =>
-          episode &&
-          episode.data &&
-          episode.data.introduction &&
-          episode.data.introduction[0] && (
-            <div key={'npd' + index}>
-              <Fade triggerOnce>
-                <Tilt
-                  tiltMaxAngleX={10}
-                  tiltMaxAngleY={10}
-                  tiltEnable={!isMobile}
-                >
-                  <EpisodeFeature
-                    title={episode.data.introduction[0].title[0].text}
-                    guest={episode.data.introduction[0].guest}
-                    business={episode.data.introduction[0].business}
-                    slug={episode.uid}
-                    episode={episode.data.introduction[0].episode}
-                    image={episode.data.images[0].solas}
-                    logos={episode.logos}
-                    portrait
-                  />
-                </Tilt>
-              </Fade>
-            </div>
-          ),
+      featuredEpisodes.map((episode, index) =>
+        renderEpisodeCard(episode, index, true),
       ),
-    [featuredEpisodes, isMobile],
+    [featuredEpisodes, renderEpisodeCard],
   );
 
   return (
@@ -175,7 +170,7 @@ function PodcastLanding({
             <p>{intro.p}</p>
             <MetalForm
               onSubmit={(data: { email: string }) =>
-                onSubmit(data, 'Landing Header')
+                handleSubscribe(data, 'Landing Header')
               }
               id={'podcastOL'}
               text={intro.form}
@@ -264,7 +259,7 @@ function PodcastLanding({
           <div>
             <MetalForm
               onSubmit={(data: { email: string }) =>
-                onSubmit(data, 'Landing Footer')
+                handleSubscribe(data, 'Landing Footer')
               }
               id={'podcastOL'}
               text={intro.form}

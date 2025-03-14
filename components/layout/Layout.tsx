@@ -12,7 +12,7 @@ import CookieMessage from './CookieMessage';
 import ScrollIncentive from 'components/ui/ScrollIncentive';
 import NewsletterPopup from './NewsletterPopup';
 
-import ReactPixel from 'react-facebook-pixel';
+import * as FacebookPixel from 'utils/facebookPixel';
 import LinkedInTag from 'react-linkedin-insight';
 import { useLenis } from 'utils/LenisContext';
 
@@ -37,12 +37,8 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   const { stopScroll, startScroll } = useLenis();
 
   const initializePixels = useCallback((): void => {
-    const fbOptions = {
-      autoConfig: true,
-      debug: false,
-    };
-    ReactPixel.init('506854653278097', null, fbOptions);
-    ReactPixel.pageView();
+    FacebookPixel.initFacebookPixel();
+    FacebookPixel.trackPageView();
     LinkedInTag.init('1943114', 'dc', false);
   }, []);
 
@@ -60,7 +56,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
     setShowPopup(isPodcastPage);
 
     if (hasLoaded) {
-      ReactPixel.pageView();
+      FacebookPixel.trackPageView();
     }
   }, [router.route, hasLoaded]);
 
