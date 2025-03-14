@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import BorderLink from "components/shared/BorderedLink";
+import styled from 'styled-components';
+import BorderLink from 'components/shared/BorderedLink';
 
 export const HoverableContainer = styled.div`
   margin-bottom: 8px;
@@ -14,13 +14,12 @@ export const H2overable = styled.h3`
 
 export const PictureContainer = styled.div<{
   $hoverable: boolean;
-  episode: number;
   $portrait: boolean;
 }>`
   margin-bottom: 7%;
   height: 145px;
   position: relative;
-  max-width: ${(p) => (p.$portrait ? "142px" : "unset")};
+  max-width: ${(p) => (p.$portrait ? '142px' : 'unset')};
   & > div:not(.logos) {
     border-radius: 25px;
     overflow: hidden;
@@ -51,8 +50,8 @@ export const Guest = styled.div<{ $blue?: boolean }>`
   margin-bottom: 10px;
   text-shadow: ${(p) =>
     p.$blue
-      ? "-1px -1px 0 #305EE3,  1px -1px 0 #305EE3,-1px 1px 0 #305EE3,1px 1px 0 #305EE3;"
-      : "-1px -1px 0 #131516,  1px -1px 0 #131516,-1px 1px 0 #131516,1px 1px 0 #131516;"};
+      ? '-1px -1px 0 #305EE3,  1px -1px 0 #305EE3,-1px 1px 0 #305EE3,1px 1px 0 #305EE3;'
+      : '-1px -1px 0 #131516,  1px -1px 0 #131516,-1px 1px 0 #131516,1px 1px 0 #131516;'};
   a {
     display: flex;
   }
@@ -62,7 +61,7 @@ export const Guest = styled.div<{ $blue?: boolean }>`
   }
 `;
 
-export const NewPod = styled.a<{ $blue?: boolean; episode: number }>`
+export const NewPod = styled.a<{ $blue?: boolean }>`
   display: flex;
   flex-direction: column;
   text-align: left;
@@ -75,7 +74,7 @@ export const NewPod = styled.a<{ $blue?: boolean; episode: number }>`
       : 'url("/assets/img/layout/backCard.svg")'};
   background-size: cover;
   background-position: bottom;
-  background-color: ${(p) => (p.$blue ? "#305EE3" : "#181a1b")};
+  background-color: ${(p) => (p.$blue ? '#305EE3' : '#181a1b')};
   border-radius: 50px;
   padding: 3.5rem 3.5rem 2.5rem 3.5rem;
   text-decoration: none;
@@ -116,11 +115,11 @@ export const NewPod = styled.a<{ $blue?: boolean; episode: number }>`
 
   @media (hover: hover) and (pointer: fine) {
     &:hover {
-      background-color: ${(p) => (p.$blue ? "#3A65E4" : "#1e2224")};
+      background-color: ${(p) => (p.$blue ? '#3A65E4' : '#1e2224')};
     }
   }
   &:active {
-    background-color: ${(p) => (p.$blue ? "#3A65E4" : "#1e2224")};
+    background-color: ${(p) => (p.$blue ? '#3A65E4' : '#1e2224')};
   }
 
   @media (max-width: 970px) {

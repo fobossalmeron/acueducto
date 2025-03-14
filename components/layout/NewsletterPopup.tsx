@@ -1,13 +1,13 @@
-import styled from "styled-components";
-import { useState, useEffect } from "react";
-import { H4 } from "components/shared/Dangerously";
-import Cross from "public/assets/img/layout/cross.svg";
-import es from "public/locales/es/newsletter.json";
-import DefaultForm from "components/shared/DefaultForm";
-import { createContact } from "utils/brevo";
-import ReactPixel from "react-facebook-pixel";
-import { advancedMatching } from "utils/analytics";
-import { useLenis } from "utils/LenisContext";
+import styled from 'styled-components';
+import { useState, useEffect } from 'react';
+import { H4 } from 'components/shared/Dangerously';
+import Cross from 'public/assets/img/layout/cross.svg';
+import es from 'public/locales/es/newsletter.json';
+import NamedForm from 'components/shared/NamedForm';
+import { createContact } from 'utils/brevo';
+import ReactPixel from 'react-facebook-pixel';
+import { advancedMatching } from 'utils/analytics';
+import { useLenis } from 'utils/LenisContext';
 
 const NewsletterPopup = () => {
   let newsletter = es.newsletter_component;
@@ -30,12 +30,12 @@ const NewsletterPopup = () => {
       listIds: [2],
       updateEnabled: true,
       attributes: {
-        SUBSCRIBED_FROM: "popup",
+        SUBSCRIBED_FROM: 'popup',
       },
     });
-    ReactPixel.init("506854653278097", advancedMatching(data.email));
+    ReactPixel.init('506854653278097', advancedMatching(data.email));
     // Suscripción a la newsletter
-    ReactPixel.track("Subscribe", { email: data.email });
+    ReactPixel.track('Subscribe', { email: data.email });
   };
 
   const popupShow = () => {
@@ -56,11 +56,10 @@ const NewsletterPopup = () => {
         <Border>
           <H4>{newsletter.title}</H4>
           <p>{newsletter.p}</p>
-          <DefaultForm
+          <NamedForm
             id="newsletter"
             onSubmit={onSubmit}
             text={newsletter}
-            buttonArrowInverse
             successMarkup={<Message success>{newsletter.success.p}</Message>}
           />
           <CrossContainer>
@@ -79,7 +78,7 @@ const Background = styled.div<{ $visible: boolean }>`
   background-color: ${(props) => props.theme.colors.background};
   opacity: ${(props) => (props.$visible ? 0.6 : 0)};
   position: fixed;
-  pointer-events: ${(props) => (props.$visible ? "auto" : "none")};
+  pointer-events: ${(props) => (props.$visible ? 'auto' : 'none')};
   left: 0;
   bottom: 0;
   right: 0;
@@ -122,17 +121,19 @@ const CrossContainer = styled.div`
 `;
 
 const NewsWrapper = styled.div<{ $clickable: boolean }>`
-  pointer-events: ${(props) => (props.$clickable ? "auto" : "none")};
-  opacity: ${(props) => (props.$clickable ? "1" : "0")};
+  pointer-events: ${(props) => (props.$clickable ? 'auto' : 'none')};
+  opacity: ${(props) => (props.$clickable ? '1' : '0')};
   max-width: 440px;
   width: 80%;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%)
-    ${(props) => (props.$clickable ? "translateY(0%)" : "translateY(5%)")};
+    ${(props) => (props.$clickable ? 'translateY(0%)' : 'translateY(5%)')};
   font-weight: 100;
   position: fixed;
-  transition: opacity 0.4s ease, transform 0.5s ease;
+  transition:
+    opacity 0.4s ease,
+    transform 0.5s ease;
   z-index: 14;
   p {
     color: ${(props) => props.theme.colors.over_black};

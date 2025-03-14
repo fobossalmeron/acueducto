@@ -7,7 +7,7 @@ import Head from 'components/layout/Head/Head';
 import TitleSection from 'components/shared/TitleSection';
 import { EntryPreview } from 'components/pages/blog/EntryPreview';
 import PageWrapper from 'components/layout/PageWrapper';
-import ResourceFooter from 'components/layout/footers/ResourceFooter';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
 export default function Articles({ locale, setTitle, posts, pt }) {
   const { intro, head } = pt;
@@ -28,7 +28,7 @@ export default function Articles({ locale, setTitle, posts, pt }) {
           key={`article${i}`}
         />
       ))}
-      <ResourceFooter identify="blog" />
+      <ContactFooter />
     </PageWrapper>
   );
 }

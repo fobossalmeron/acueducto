@@ -13,3 +13,7 @@
 - 🦜 [Twitter](https://twitter.com/acueductostudio)
 - 📷 [Tiktok](https://www.tiktok.com/@acueducto.studio)
 - 🔌 [LinkedIn](https://www.linkedin.com/company/acueductostudio/)
+
+# TODO
+
+- Findnext y next en episode page traen información duplicada y mucha innecesaria

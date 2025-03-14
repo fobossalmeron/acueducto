@@ -49,33 +49,35 @@ interface SingleEpisodePageProps {
   apple: string;
   youtube?: string;
   episode: number;
-  content: string | any; // Replace 'any' with a more specific type if possible
+  content: string | any;
   next: any; // Replace 'any' with a more specific type if possible
   youtubeImage?: string;
   podcastImage: ImageFieldImage;
   findNextPrismic?: boolean;
 }
 
-export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
-  title,
-  seo_h1,
-  date,
-  guest,
-  insights,
-  business,
-  category,
-  description,
-  slug,
-  spotify,
-  apple,
-  youtube,
-  episode,
-  content,
-  next,
-  youtubeImage,
-  podcastImage,
-  findNextPrismic,
-}) => {
+export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
+  const {
+    title,
+    seo_h1,
+    date,
+    guest,
+    insights,
+    business,
+    category,
+    description,
+    slug,
+    spotify,
+    apple,
+    youtube,
+    episode,
+    content,
+    next,
+    youtubeImage,
+    podcastImage,
+    findNextPrismic,
+  } = props;
+
   const embedYoutube = youtube && youtube.replace('watch?v=', 'embed/');
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
 
@@ -102,7 +104,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
           </IntroLogo>
         </Fade>
         <Fade triggerOnce>
-          <>
+          <div>
             <Link href={'/podcast/episodios'} passHref legacyBehavior>
               <AllEpisodesHoverable>
                 <BackArrowIcon />
@@ -153,7 +155,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = ({
                 </VideoContainer>
               </Center>
             )}
-          </>
+          </div>
         </Fade>
         <Fade triggerOnce>
           <EpisodePreview

@@ -58,7 +58,7 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         en_canonical="https://acueducto.studio/en"
       />
       <div style={{ zIndex: 1 }}>
-        <Land id="land" locale={locale}>
+        <Land id="land" $locale={locale}>
           <LandContainer>
             <Fade cascade delay={0.4}>
               <p className="h1">{t.landing.heading}</p>
@@ -136,7 +136,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
 
 export default React.memo(Index);
 
-const Land = styled.section<{ locale: string }>`
+const Land = styled.section<{ $locale: string }>`
   min-height: 100vh;
   width: 100%;
   display: grid;
@@ -148,7 +148,7 @@ const Land = styled.section<{ locale: string }>`
   .h2 {
     font-size: 2.1rem;
     margin-top: 15px;
-    max-width: ${({ locale }) => (locale === 'en' ? '27ch' : '28ch')};
+    max-width: ${({ $locale }) => ($locale === 'en' ? '27ch' : '28ch')};
     color: ${(props) => props.theme.colors.white};
     margin-bottom: 2rem;
   }

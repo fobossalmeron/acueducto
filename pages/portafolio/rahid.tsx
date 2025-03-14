@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import Image from 'next/image';
 import { GetStaticProps } from 'next';
 
 import Head from 'components/layout/Head/Head';
@@ -20,7 +19,6 @@ import ssrLocale from 'utils/ssrLocale';
 import { Fade } from 'react-awesome-reveal';
 
 import LogoRahid from 'public/assets/img/casestudies/rahid/logoRahid.svg';
-import BoxesImage from 'public/assets/img/casestudies/rahid/boxes.png';
 
 import {
   rahidBackground,
@@ -45,7 +43,7 @@ interface RahidProps {
   pt: any; // Tipo exacto depende de la estructura de tus datos localizados
 }
 
-function Rahid({ locale, setTitle, pt }: RahidProps): JSX.Element {
+function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
   const t = useLocalizedContent({
     locale,

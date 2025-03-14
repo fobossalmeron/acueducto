@@ -12,8 +12,8 @@ import type { GetStaticPropsContext } from 'next';
 import { createClient } from '../../prismicio';
 import { PodcastEpisodePage } from 'components/pages/podcast/podcast-episode/PodcastEpisodePage';
 
-const ResourceFooter = lazy(
-  () => import('components/layout/footers/ResourceFooter'),
+const ContactFooter = lazy(
+  () => import('components/layout/footers/ContactFooter'),
 );
 
 const SEO_OVERRIDES = {
@@ -123,7 +123,7 @@ export default function Episodio({
         </>
       )}
       <Suspense fallback={<div>Cargando footer...</div>}>
-        <ResourceFooter shadow />
+        <ContactFooter />
       </Suspense>
     </PageWrapper>
   );
@@ -167,21 +167,11 @@ export async function getStaticProps({
 
   const nextToMd = (slug: string): EpisodeProps =>
     getEpisodeBySlug(slug, [
-      // "title",
-      // "seo_title",
-      // "seo_h1",
       'guest',
-      // "date",
       'business',
       'category',
-      // "description",
       'episode',
       'slug',
-      // "spotify",
-      // "apple",
-      // "google",
-      // "youtube",
-      // "index",
     ]);
 
   const findNextPrismic =

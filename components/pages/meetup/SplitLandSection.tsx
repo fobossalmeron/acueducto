@@ -52,26 +52,12 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
           </div>
         </div>
       </SplitLayout.Content>
-      {/* <Image
-        src={landBg}
-        alt="meetup"
-        width={540}
-        height={346.5}
-        className="absolute -bottom-0 left-0 h-[346.5px] w-[540px] origin-top scale-x-[-1] rotate-90 [@media(min-width:1100px)]:-bottom-0 [@media(min-width:1100px)]:left-[16%] [@media(min-width:1100px)]:scale-x-100 [@media(min-width:1100px)]:rotate-0"
-      /> */}
-      {/* esta es la imagen que se queda abajo del contenido
       <Image
         src={Look}
         alt="Look"
         width={347.875}
         height={423.5}
-        className="relative bottom-0 left-0 col-span-10 col-start-1 mt-10 max-w-[200px] rounded-[0_0_1000px_1000px] sm:col-span-5 sm:col-start-2 sm:max-w-none md:col-start-5 lg:absolute lg:left-[15%] lg:col-start-2 lg:rounded-none"
-      /> */}
-      <Image
-        src={Look}
-        alt="Look"
-        width={347.875}
-        height={423.5}
+        priority
         className="absolute top-[25%] col-start-7 max-w-[100px] justify-self-center rounded-[0_0_1000px_1000px] md:max-w-[200px] lg:top-auto lg:bottom-0 lg:col-span-5 lg:col-start-2 lg:max-w-none lg:justify-self-start lg:rounded-none"
       />
     </SplitLayout>

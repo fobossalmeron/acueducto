@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect } from 'react';
 import { useSprings, animated, to as interpolate } from '@react-spring/web';
 import { useDrag } from 'react-use-gesture';
 import styled from 'styled-components';
@@ -36,9 +36,9 @@ const cards = [
 ];
 
 const to = (i: number) => ({ x: 0, y: 0, scale: 1, rot: i, delay: i * 100 });
-const from = () => ({ x: 0, rot: 0, scale: 1.5, y: -1000 });
+const from = () => ({ x: 0, rot: 0, scale: 1, y: 0 });
 const trans = (r: number, s: number, i: number) =>
-  `perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(${i * -1.5}deg) scale(${1 - -r * 0.005}) translateX(0%)`;
+  `perspective(200px) rotateX(0deg) rotateY(0deg) rotateZ(${i * -1}deg) scale(${s}) translateX(0%)`;
 
 export function Quotes({ isMobile }: { isMobile: boolean }) {
   const [gone] = useState(() => new Set());
@@ -46,6 +46,14 @@ export function Quotes({ isMobile }: { isMobile: boolean }) {
     ...to(i),
     from: from(),
   }));
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      api.start((i) => to(i));
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, [api]);
 
   const moveCard = useCallback(
     (direction: 'left' | 'right') => {
@@ -105,7 +113,9 @@ export function Quotes({ isMobile }: { isMobile: boolean }) {
   const cardElements = useMemo(
     () =>
       props.map(({ x, y, rot, scale }, i) => (
+        // @ts-ignore - Ignorar errores de tipado en animated.div
         <animated.div className="deck" key={i} style={{ x, y }}>
+          {/* @ts-ignore - Ignorar errores de tipado en animated.div */}
           <animated.div
             {...bind(i)}
             style={{ transform: interpolate([rot, scale, i], trans) }}
@@ -214,18 +224,21 @@ const Person = styled.div`
 `;
 
 const QuotesSection = styled.div`
-  /* margin-top: 8%; */
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 0 4%;
+  min-height: 400px;
+
   .deck {
     will-change: transform;
     display: flex;
     align-items: center;
     justify-content: center;
     touch-action: none;
+    min-width: 300px;
+
     &:not(:last-of-type) {
       position: absolute;
       max-width: 92%;

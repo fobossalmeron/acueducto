@@ -3,6 +3,14 @@
 // });
 
 const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'images.prismic.io',
+      },
+    ],
+  },
   compiler: {
     styledComponents: {
       displayName: true,
@@ -12,93 +20,95 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/es/about",
-        destination: "/en/about",
+        source: '/es/about',
+        destination: '/en/about',
         locale: false,
         permanent: true,
       },
       {
-        source: "/en/nosotros",
-        destination: "/en/about",
+        source: '/en/nosotros',
+        destination: '/en/about',
         locale: false,
         permanent: true,
       },
       {
-        source: "/es/contact",
-        destination: "/en/contact",
+        source: '/es/contact',
+        destination: '/en/contact',
         locale: false,
         permanent: true,
       },
       {
-        source: "/en/contacto",
-        destination: "/en/contact",
+        source: '/en/contacto',
+        destination: '/en/contact',
         locale: false,
         permanent: true,
       },
       {
-        source: "/es/work",
-        destination: "/en/work",
+        source: '/es/work',
+        destination: '/en/work',
         locale: false,
         permanent: true,
       },
       {
-        source: "/en/portafolio",
-        destination: "/en/work",
+        source: '/en/portafolio',
+        destination: '/en/work',
         locale: false,
         permanent: true,
       },
       {
-        source: "/es/work/:slug",
-        destination: "/en/work/:slug",
+        source: '/es/work/:slug',
+        destination: '/en/work/:slug',
         locale: false,
         permanent: true,
       },
       {
-        source: "/en/portafolio/:slug",
-        destination: "/en/work/:slug",
+        source: '/en/portafolio/:slug',
+        destination: '/en/work/:slug',
         locale: false,
         permanent: true,
       },
       {
-        source: "/pitch",
-        destination: "/nosotros",
+        source: '/pitch',
+        destination: '/nosotros',
         permanent: false,
       },
       {
-        source: "/consultoria",
-        destination: "/consultoria-digital",
+        source: '/consultoria',
+        destination: '/consultoria-digital',
         permanent: true,
       },
       {
-        source: "/articulos",
-        destination: "/blog",
+        source: '/articulos',
+        destination: '/blog',
         permanent: true,
       },
       {
-        source: "/articulos/:slug",
-        destination: "/blog/:slug",
+        source: '/articulos/:slug',
+        destination: '/blog/:slug',
         permanent: true,
       },
       {
-        source: "/es/privacy",
-        destination: "/en/privacy",
+        source: '/es/privacy',
+        destination: '/en/privacy',
         locale: false,
         permanent: true,
       },
       {
-        source: "/en/privacidad",
-        destination: "/en/privacy",
+        source: '/en/privacidad',
+        destination: '/en/privacy',
         locale: false,
         permanent: true,
       },
       {
-        source: "/podcast/cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup",
-        destination: "/podcast/cual-es-el-trabajo-de-una-directora-de-operaciones-en-una-startup",
+        source:
+          '/podcast/cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup',
+        destination:
+          '/podcast/cual-es-el-trabajo-de-una-directora-de-operaciones-en-una-startup',
         permanent: true,
       },
       {
-        source: "/podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano",
-        destination: "/podcast/como-captar-3m-de-usuarios",
+        source: '/podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano',
+        destination: '/podcast/como-captar-3m-de-usuarios',
         permanent: true,
       },
     ];
@@ -106,40 +116,40 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: "/about",
-        destination: "/nosotros",
+        source: '/about',
+        destination: '/nosotros',
       },
       {
-        source: "/contact",
-        destination: "/contacto",
+        source: '/contact',
+        destination: '/contacto',
       },
       {
-        source: "/work",
-        destination: "/portafolio",
+        source: '/work',
+        destination: '/portafolio',
       },
       {
-        source: "/work/:slug",
-        destination: "/portafolio/:slug",
+        source: '/work/:slug',
+        destination: '/portafolio/:slug',
       },
       {
-        source: "/privacy",
-        destination: "/privacidad",
+        source: '/privacy',
+        destination: '/privacidad',
       },
       {
-        source: "/service-worker.js",
-        destination: "/_next/static/service-worker.js",
+        source: '/service-worker.js',
+        destination: '/_next/static/service-worker.js',
       },
     ];
   },
   reactStrictMode: true,
   webpack: (config) => {
     config.cache = false;
-    
+
     config.module.rules.push({
       test: /\.svg$/,
       use: [
         {
-          loader: "@svgr/webpack",
+          loader: '@svgr/webpack',
           options: {
             svgo: false,
           },
@@ -153,8 +163,8 @@ const nextConfig = {
     BREVO_API: process.env.BREVO_API,
   },
   i18n: {
-    locales: ["es", "en"],
-    defaultLocale: "es",
+    locales: ['es', 'en'],
+    defaultLocale: 'es',
     localeDetection: false,
   },
 };

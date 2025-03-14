@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import styled, { keyframes } from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import delayForLoading from "utils/delayForLoading";
-import InputField, { SubmitField } from "components/shared/ContactInputField";
-import ButtonArrow from "components/layout/footers/ButtonArrow";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import styled, { keyframes } from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import delayForLoading from 'utils/delayForLoading';
+import InputField from 'components/shared/ContactInputField';
+import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
 
 type FormProps = {
   text: {
@@ -29,24 +29,20 @@ type FormProps = {
   };
   onSubmit: (data: object) => void;
   formMarkup?: React.ReactNode;
-  buttonArrow?: boolean;
-  buttonArrowInverse?: boolean;
   successMarkup?: React.ReactNode;
   id: string;
   infinite?: boolean;
 };
 
-const DefaultForm = ({
+const NamedForm = ({
   text,
   onSubmit,
   formMarkup,
-  buttonArrow,
-  buttonArrowInverse,
   successMarkup,
   id,
   infinite,
 }: FormProps) => {
-  const [formStatus, setFormStatus] = useState("");
+  const [formStatus, setFormStatus] = useState('');
   const {
     register,
     handleSubmit,
@@ -54,14 +50,14 @@ const DefaultForm = ({
   } = useForm();
 
   const onSubmitInside = (data) => {
-    setFormStatus("loading");
+    setFormStatus('loading');
     onSubmit(data);
-    !infinite && delayForLoading(1500).then(() => setFormStatus("done"));
+    !infinite && delayForLoading(1500).then(() => setFormStatus('done'));
   };
 
   return (
     <>
-      {formStatus === "" && (
+      {formStatus === '' && (
         <>
           {formMarkup}
           <form onSubmit={handleSubmit(onSubmitInside)}>
@@ -72,7 +68,7 @@ const DefaultForm = ({
                 id={`${id}firstName`}
                 type="text"
                 placeholder={text.firstName.placeholder}
-                {...register("firstName", { required: true })}
+                {...register('firstName', { required: true })}
               />
               {errors.firstName && <span>{text.firstName.errorMissing}</span>}
             </InputField>
@@ -83,7 +79,7 @@ const DefaultForm = ({
                 id={`${id}lastName`}
                 type="text"
                 placeholder={text.lastName.placeholder}
-                {...register("lastName", { required: true })}
+                {...register('lastName', { required: true })}
               />
               {errors.lastName && <span>{text.lastName.errorMissing}</span>}
             </InputField>
@@ -94,7 +90,7 @@ const DefaultForm = ({
                 id={`${id}email`}
                 type="email"
                 placeholder={text.email.placeholder}
-                {...register("email", {
+                {...register('email', {
                   required: text.email.errorMissing,
                   pattern: {
                     value:
@@ -106,33 +102,23 @@ const DefaultForm = ({
               <span>{errors?.email?.message as string}</span>
             </InputField>
 
-            {buttonArrow || buttonArrowInverse ? (
-              <ButtonArrow
-                text={text.submit}
-                inverse={buttonArrowInverse}
-                submitButton
-              />
-            ) : (
-              <SubmitField>
-                <input type="submit" value={text.submit} />
-              </SubmitField>
-            )}
+            <ButtonSubmit text={text.submit} inverse />
           </form>
         </>
       )}
-      {formStatus === "loading" && (
+      {formStatus === 'loading' && (
         <Fade triggerOnce>
           <Loading>
             <p>{text.loading}</p>
           </Loading>
         </Fade>
       )}
-      {formStatus === "done" && successMarkup}
+      {formStatus === 'done' && successMarkup}
     </>
   );
 };
 
-export default DefaultForm;
+export default NamedForm;
 
 const fadeIn = keyframes`
   from {
@@ -158,11 +144,11 @@ const Loading = styled.div`
     display: flex;
     height: 2px;
     background-color: ${(p) => p.theme.colors.accent};
-    content: " ";
+    content: ' ';
     width: 100%;
   }
   &:before {
-    content: " ";
+    content: ' ';
     position: absolute;
     background-color: rgba(0, 0, 0, 0.3);
     height: 4px;

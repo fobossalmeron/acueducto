@@ -1,10 +1,10 @@
-import { useState } from "react";
-import { useForm } from "react-hook-form";
-import styled, { keyframes } from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import delayForLoading from "utils/delayForLoading";
-import InputField from "components/shared/ContactInputField";
-import ButtonArrow from "components/layout/footers/ButtonArrow";
+import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import styled, { keyframes } from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import delayForLoading from 'utils/delayForLoading';
+import InputField from 'components/shared/ContactInputField';
+import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
 
 type MetalFormProps = {
   text: {
@@ -22,7 +22,7 @@ type MetalFormProps = {
 };
 
 const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
-  const [formStatus, setFormStatus] = useState("");
+  const [formStatus, setFormStatus] = useState('');
   const {
     register,
     handleSubmit,
@@ -30,14 +30,14 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
   } = useForm();
 
   const onSubmitInside = (data) => {
-    setFormStatus("loading");
+    setFormStatus('loading');
     onSubmit(data);
-    delayForLoading(1500).then(() => setFormStatus("done"));
+    delayForLoading(1500).then(() => setFormStatus('done'));
   };
 
   return (
     <>
-      {formStatus === "" && (
+      {formStatus === '' && (
         <Fade triggerOnce>
           <PillForm onSubmit={handleSubmit(onSubmitInside)}>
             <InputField>
@@ -47,7 +47,7 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
                 id={`${id}email`}
                 type="email"
                 placeholder={text.email.placeholder}
-                {...register("email", {
+                {...register('email', {
                   required: text.email.errorMissing,
                   pattern: {
                     value:
@@ -62,16 +62,16 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
                 </Fade>
               )}
             </InputField>
-            <ButtonArrow text={text.submit} inverse={true} submitButton />
+            <ButtonSubmit text={text.submit} inverse={true} />
           </PillForm>
         </Fade>
       )}
-      {formStatus === "loading" && (
+      {formStatus === 'loading' && (
         <Fade triggerOnce>
           <Loading />
         </Fade>
       )}
-      {formStatus === "done" && (
+      {formStatus === 'done' && (
         <Fade triggerOnce>
           <Success>
             <p>{text.success}</p>
@@ -88,7 +88,7 @@ const PillForm = styled.form`
   position: relative;
   display: flex;
   margin-top: 6%;
-  text-align:left;
+  text-align: left;
   & div:nth-of-type(1) {
     width: auto;
     margin: 0;
@@ -173,7 +173,7 @@ const Loading = styled.div`
     margin-bottom: 5px;
   }
   &:before {
-    content: " ";
+    content: ' ';
     background-color: ${(p) => p.theme.colors.accent};
     height: 53px;
     border-radius: 40px;

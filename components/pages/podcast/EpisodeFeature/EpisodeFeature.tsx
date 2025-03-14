@@ -1,16 +1,16 @@
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Fade } from "react-awesome-reveal";
-import { PrismicNextImage } from "@prismicio/next";
-import { ImageField } from "@prismicio/client";
+import React from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
+import { Fade } from 'react-awesome-reveal';
+import { PrismicNextImage } from '@prismicio/next';
+import { ImageField } from '@prismicio/client';
 import {
   H2overable,
   PictureContainer,
   HoverableContainer,
   Guest,
   NewPod,
-} from "./EpisodeFeature.styles";
+} from './EpisodeFeature.styles';
 
 interface EpisodeFeatureProps {
   title: string;
@@ -37,12 +37,8 @@ const EpisodeFeature: React.FC<EpisodeFeatureProps> = ({
 }) => {
   return (
     <Link href={`/podcast/${slug}`} passHref legacyBehavior>
-      <NewPod $blue={blue} episode={episode}>
-        <PictureContainer
-          $hoverable={true}
-          episode={episode}
-          $portrait={portrait}
-        >
+      <NewPod $blue={blue}>
+        <PictureContainer $hoverable={true} $portrait={portrait}>
           {!portrait && image ? (
             <Fade triggerOnce>
               <PrismicNextImage field={image} fallbackAlt="" />

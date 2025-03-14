@@ -8,7 +8,7 @@ import ssrLocale from 'utils/ssrLocale';
 import { getAllEpisodes } from 'utils/podcastApi';
 import Head, { HeadProps } from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
-import ResourceFooter from 'components/layout/footers/ResourceFooter';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 import Logo from 'public/assets/img/layout/logo.svg';
 import { H1 } from 'components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';
@@ -405,7 +405,7 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
           )}
         </div>
       </PodcastGrid>
-      <ResourceFooter shadow identify="podcast" />
+      <ContactFooter />
     </PageWrapper>
   );
 };

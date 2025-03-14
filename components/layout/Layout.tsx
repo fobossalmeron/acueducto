@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from 'react';
+import React, { useEffect, useState, useCallback, cloneElement } from 'react';
 import { useRouter } from 'next/router';
 import { GoogleAnalytics } from '@next/third-parties/google';
 
@@ -20,6 +20,12 @@ interface LayoutProps {
   t: any;
   hasLoaded: boolean;
   children: React.ReactElement;
+}
+
+interface ChildProps {
+  setTitle: (title: string) => void;
+  hasLoaded: boolean;
+  locale: string;
 }
 
 const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
@@ -71,16 +77,6 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   }, []);
   const closeNav = useCallback((): void => setOpen(false), []);
 
-  const MemoizedChild = useMemo(
-    () =>
-      React.cloneElement(children, {
-        setTitle,
-        hasLoaded,
-        locale: router.locale,
-      }),
-    [children, setTitle, hasLoaded, router.locale],
-  );
-
   return (
     <LayoutWrapper id="LayoutWrapper">
       <Border />
@@ -99,7 +95,11 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         closeNav={closeNav}
         isOpen={isOpen}
       />
-      {MemoizedChild}
+      {cloneElement(children as React.ReactElement<ChildProps>, {
+        setTitle,
+        hasLoaded,
+        locale: router.locale,
+      })}
       <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
@@ -119,11 +119,6 @@ const BodyOverflow = createGlobalStyle<{ $hasLoaded: boolean }>`
   body  {
     overflow-y: ${(props) => (props.$hasLoaded ? 'auto' : 'hidden')};
     overflow-x: hidden;
-  }  
-  #LayoutWrapper  {
-    /* overflow-y: ${(props) => (props.$hasLoaded ? 'auto' : 'hidden')};
-    overflow-x: hidden; */
-    /* height: ${(props) => (props.$hasLoaded ? 'auto' : '100vh')}; */
   }  
 `;
 

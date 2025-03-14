@@ -6,7 +6,7 @@ import { getAllPosts, getPostBySlug } from 'utils/blogApi';
 import Head from 'components/layout/Head/Head';
 import BlogEntryPage from 'components/pages/blog/blog-entry/BlogEntryPage';
 import PageWrapper from 'components/layout/PageWrapper';
-import ResourceFooter from 'components/layout/footers/ResourceFooter';
+import ContactFooter from 'components/layout/footers/ContactFooter';
 
 export default function BlogEntry({ locale, setTitle, article }) {
   useEffect(() => {
@@ -24,7 +24,7 @@ export default function BlogEntry({ locale, setTitle, article }) {
         noIndex={!article.index}
       ></Head>
       <BlogEntryPage {...article} slug={article.slug} />
-      <ResourceFooter identify={article.slug} />
+      <ContactFooter />
     </PageWrapper>
   );
 }
