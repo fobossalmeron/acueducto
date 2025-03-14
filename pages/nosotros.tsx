@@ -15,17 +15,12 @@ import { P } from 'components/shared/Dangerously';
 import TitleSectionGrid from 'components/shared/TitleSectionGrid';
 import Recursos from 'components/pages/nosotros/Recursos';
 import ManifiestoSection from 'components/pages/nosotros/ManifiestoSection';
+import { PageProps } from 'types/PageProps';
 
 import pTeam from 'public/assets/img/layout/team.png';
 import pPaper from 'public/assets/img/layout/paper.png';
 
-interface AboutProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-}
-
-const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
+export default function About({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'about',
@@ -78,9 +73,7 @@ const About: React.FC<AboutProps> = ({ locale, setTitle, pt }) => {
       <ContactFooter />
     </PageWrapper>
   );
-};
-
-export default React.memo(About);
+}
 
 export const getStaticProps = async (context) => {
   const pt = ssrLocale({ locale: context.locale, fileName: 'about.json' });

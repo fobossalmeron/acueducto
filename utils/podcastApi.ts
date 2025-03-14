@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import EpisodeProps from "utils/types/EpisodeProps";
+import EpisodeProps from "types/EpisodeProps";
 
 const episodesDirectory = join(process.cwd(), "_episodios");
 

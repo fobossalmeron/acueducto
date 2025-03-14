@@ -1,14 +1,23 @@
 import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
-import ArticleProps from 'utils/types/ArticleProps';
+import ArticleProps from 'types/ArticleProps';
 import markdownToHtml from 'utils/markdownToHtml';
 import { getAllPosts, getPostBySlug } from 'utils/blogApi';
 import Head from 'components/layout/Head/Head';
 import BlogEntryPage from 'components/pages/blog/blog-entry/BlogEntryPage';
 import PageWrapper from 'components/layout/PageWrapper';
 import ContactFooter from 'components/layout/footers/ContactFooter';
+import { PageProps } from 'types/PageProps';
 
-export default function BlogEntry({ locale, setTitle, article }) {
+interface BlogEntryProps extends PageProps {
+  article: ArticleProps;
+}
+
+export default function BlogEntry({
+  locale,
+  setTitle,
+  article,
+}: BlogEntryProps) {
   useEffect(() => {
     setTitle('Blog');
   }, [locale]);

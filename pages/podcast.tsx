@@ -36,6 +36,7 @@ import {
   Parallax,
   FullLastSection,
 } from 'components/pages/podcast/podcast-landing/podcastLanding.styles';
+import { PageProps } from 'types/PageProps';
 
 // Lazy load ContactFooter
 const ContactFooter = dynamic(
@@ -45,9 +46,7 @@ const ContactFooter = dynamic(
   },
 );
 
-interface PodcastLandingProps {
-  locale: string;
-  setTitle: (title: string) => void;
+interface PodcastLandingProps extends PageProps {
   lastPrismicEpisode: PrismicPodcastEpisode;
   featuredEpisodes: PrismicPodcastEpisode[];
   pt: {
@@ -92,7 +91,7 @@ interface SubmitData {
   email: string;
 }
 
-function PodcastLanding({
+export default function PodcastLanding({
   locale,
   setTitle,
   lastPrismicEpisode,
@@ -271,8 +270,6 @@ function PodcastLanding({
     </PageWrapper>
   );
 }
-
-export default React.memo(PodcastLanding);
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({ locale: context.locale, fileName: 'podcast.json' });

@@ -1,18 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import Link from 'next/link';
-import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import styled from 'styled-components';
 
 import ssrLocale from 'utils/ssrLocale';
 import { useLocalizedContent } from 'utils/useLocalizedContent';
-import TitleSection from 'components/shared/TitleSection';
 import { Button } from 'components/ui/Button/Button';
 import ContactFooter from 'components/layout/footers/ContactFooter';
 import Head from 'components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
-import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
 import FAQSection from 'components/pages/index/FAQ';
 import PageWrapper from 'components/layout/PageWrapper';
 import CaseList from 'components/pages/work/CaseList';
@@ -21,21 +18,14 @@ import { ProcessSection } from 'components/pages/index/ProcessSection';
 import { StackSection } from 'components/pages/index/StackSection';
 import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 import { JobOpeningsSection } from 'components/pages/index/JobOpeningsSection';
-
-import PodcastCover from '../public/assets/img/layout/podcast_cover.png';
+import { PodcastSection } from 'components/pages/index/PodcastSection';
+import { PageProps } from 'types/PageProps';
 
 const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
   ssr: false,
 });
 
-interface IndexProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-  hasLoaded: boolean;
-}
-
-const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
+export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'home',
@@ -97,33 +87,13 @@ const Index: React.FC<IndexProps> = ({ locale, pt, hasLoaded, setTitle }) => {
         <SocialProofSection {...t.clients} />
         <FAQSection t={t.faq} />
         <JobOpeningsSection {...t.openings} />
-        <TitleSection {...t.podcast.intro} borderTop heading={2}>
-          <Fade>
-            <Link href="/podcast" passHref locale="es" legacyBehavior>
-              <HoverablePicture>
-                <Image
-                  src={PodcastCover}
-                  width={230}
-                  height={230}
-                  alt="Cuando el río suena"
-                />
-              </HoverablePicture>
-            </Link>
-            <BroadcastRouter
-              trackClicks
-              episode={3}
-              spotify="https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"
-              apple="https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
-              youtube="https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
-            />
-          </Fade>
-        </TitleSection>
+        <PodcastSection {...t.podcast} />
         <ContactFooter />
       </div>
       {/* {showSpline && <HomeVideo />} */}
     </PageWrapper>
   );
-};
+}
 
 export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({ locale: context.locale, fileName: 'home.json' });
@@ -133,8 +103,6 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
-
-export default React.memo(Index);
 
 const Land = styled.section<{ $locale: string }>`
   min-height: 100vh;
@@ -215,17 +183,5 @@ const LandContainer = styled.div`
   }
   @media (max-width: 420px) {
     grid-column: 1 / span 12;
-  }
-`;
-
-const HoverablePicture = styled.a`
-  img {
-    border: 2.5px solid transparent !important;
-    transition: 0.3s ease-out;
-    border-radius: 35px;
-    width: auto;
-    &:hover {
-      border-color: ${(p) => p.theme.colors.accent} !important;
-    }
   }
 `;

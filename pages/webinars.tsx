@@ -5,13 +5,9 @@ import ContactFooter from 'components/layout/footers/ContactFooter';
 import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
+import { PageProps } from 'types/PageProps';
 
-interface WebinarsProps {
-  locale: string;
-  setTitle: (title: string) => void;
-}
-
-function Webinars({ locale, setTitle }: WebinarsProps) {
+function Webinars({ locale, setTitle }: PageProps) {
   useEffect(() => {
     setTitle('webinars');
   }, [locale]);

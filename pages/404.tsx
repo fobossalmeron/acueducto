@@ -5,8 +5,9 @@ import ssrLocale from 'utils/ssrLocale';
 import PageWrapper from 'components/layout/PageWrapper';
 import TitleSection from 'components/shared/TitleSection';
 import ContactFooter from 'components/layout/footers/ContactFooter';
+import { PageProps } from 'types/PageProps';
 
-export default function Error({ locale, setTitle, pt }) {
+export default function Error({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: '404',

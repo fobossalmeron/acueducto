@@ -116,9 +116,7 @@
     "cta": "Ver vacantes"
   },
   "podcast": {
-    "intro": {
-      "title": "echa un vistazo a como pensamos",
-      "p": "Escucha nuestro podcast con más de 200 episodios donde compartimos como construyen producto las empresas más importantes de Latinoamérica.<br/><br/>Disponible en todas las plataformas de streaming."
-    }
+    "title": "echa un vistazo a como pensamos",
+    "p": "Escucha nuestro podcast con más de 200 episodios donde compartimos como construyen producto las empresas más importantes de Latinoamérica.<br/><br/>Disponible en todas las plataformas de streaming."
   }
 }

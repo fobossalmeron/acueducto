@@ -10,7 +10,7 @@ import InputField from 'components/shared/ContactInputField';
 import delayForLoading from 'utils/delayForLoading';
 import { useLenis } from 'utils/LenisContext';
 import { createContact, sendEmailToContact } from 'utils/brevo';
-import { MailContact } from 'utils/types/BrevoProps';
+import { MailContact } from 'types/BrevoProps';
 
 interface FeedbackFormData extends MailContact {
   firstName: string;

@@ -1,4 +1,4 @@
-import { NewContact, MailContact, EmailToContact } from './types/BrevoProps';
+import { NewContact, MailContact, EmailToContact } from '../types/BrevoProps';
 
 // Función para crear un contacto
 export const createContact = async (submittedData: NewContact) => {

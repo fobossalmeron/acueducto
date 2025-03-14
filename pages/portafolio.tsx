@@ -5,8 +5,9 @@ import TitleSection from 'components/shared/TitleSection';
 import CaseList from 'components/pages/work/CaseList';
 import PageWrapper from 'components/layout/PageWrapper';
 import ContactFooter from 'components/layout/footers/ContactFooter';
+import { PageProps } from 'types/PageProps';
 
-export default function Work({ locale, setTitle, pt }) {
+export default function Work({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'work',

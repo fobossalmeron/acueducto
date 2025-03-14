@@ -19,3 +19,4 @@
 - Findnext y next en episode page traen información duplicada y mucha innecesaria
 - React share y react-sprint no guantan react 19 ver si se cambian
 - http://localhost:3000/portafolio/recupera da classname en react fragment
+  intenta hacer deploy porque quitaste el yarn.lock del vercelignore

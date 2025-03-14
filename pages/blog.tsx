@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
-import ArticleProps from 'utils/types/ArticleProps';
+import ArticleProps from 'types/ArticleProps';
 import ssrLocale from 'utils/ssrLocale';
 import { getAllPosts, getPostBySlug } from 'utils/blogApi';
 import Head from 'components/layout/Head/Head';

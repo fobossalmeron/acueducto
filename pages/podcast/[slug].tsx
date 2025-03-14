@@ -1,5 +1,5 @@
 import { useEffect, lazy, Suspense } from 'react';
-import EpisodeProps from 'utils/types/EpisodeProps';
+import EpisodeProps from 'types/EpisodeProps';
 import markdownToHtml from 'utils/markdownToHtml';
 import {
   getAllEpisodes,
@@ -39,6 +39,15 @@ export default function Episodio({
   slugMatchesPrismic,
   findNextPrismic,
 }) {
+  console.group('Datos del episodio actual');
+  console.log('Episodio actual:', episode);
+  console.groupEnd();
+
+  console.group('Datos de Prismic');
+  console.log('slugMatchesPrismic:', slugMatchesPrismic);
+  console.log('nextEpisodePrismic:', nextEpisodePrismic);
+  console.log('findNextPrismic:', findNextPrismic);
+  console.groupEnd();
   useEffect(() => {
     setTitle('Podcast');
   }, [locale, setTitle]);

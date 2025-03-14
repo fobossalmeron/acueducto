@@ -15,18 +15,35 @@ import Articulos from 'public/assets/img/layout/linkenbio/articulos.svg';
 import PodcastPng from 'public/assets/img/layout/linkenbio/podcast.png';
 import Kit from 'public/assets/img/layout/linkenbio/kit.png';
 import Portafolio from 'public/assets/img/layout/linkenbio/portafolio.png';
+import { PageProps } from 'types/PageProps';
 
-interface LinkEnBioProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
+interface LinkEnBioProps extends PageProps {
+  pt: {
+    head: {
+      title: string;
+      description: string;
+      headerTitle: string;
+    };
+    title: string;
+    links: {
+      url: string;
+      subtitle: string;
+      title: string;
+    }[];
+    p: string;
+    secondary_links: {
+      url: string;
+      title: string;
+      subtitle: string;
+    }[];
+  };
 }
 
 export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
   let { head, title, p } = pt;
 
   useEffect(() => {
-    setTitle(head.headerTitle);
+    setTitle(head.headerTitle as unknown as string);
   }, [locale]);
 
   interface BioLinkProps {

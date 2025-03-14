@@ -7,8 +7,9 @@ import PageWrapper from 'components/layout/PageWrapper';
 import SimplePinnedSection from 'components/shared/pinnedSections/SimplePinnedSection';
 import ContactFooter from 'components/layout/footers/ContactFooter';
 import { P, Ul, Li } from 'components/shared/Dangerously';
+import { PageProps } from 'types/PageProps';
 
-export default function Privacy({ locale, setTitle, pt }) {
+export default function Privacy({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'privacy',

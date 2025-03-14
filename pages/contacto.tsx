@@ -7,8 +7,9 @@ import PageWrapper from 'components/layout/PageWrapper';
 import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import MetalFooter from 'components/layout/footers/MetalFooter';
 import ContactForm from 'components/pages/contacto/ContactForm';
+import { PageProps } from 'types/PageProps';
 
-export default function Contact({ locale, setTitle, pt }) {
+export default function Contact({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'contact',

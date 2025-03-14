@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import EpisodeProps from 'utils/types/EpisodeProps';
+import EpisodeProps from 'types/EpisodeProps';
 import * as FacebookPixel from 'utils/facebookPixel';
 import { P } from 'components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';

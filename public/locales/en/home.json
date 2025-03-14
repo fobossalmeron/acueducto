@@ -116,9 +116,7 @@
     "cta": "See openings"
   },
   "podcast": {
-    "intro": {
-      "title": "take a look at how we think",
-      "p": "Listen to our podcast with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
-    }
+    "title": "take a look at how we think",
+    "p": "Listen to our podcast (spanish only) with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
   }
 }

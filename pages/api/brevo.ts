@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { capitalize, capitalizeAll } from 'utils/capitalize';
-import { NewContact, MailContact, EmailToContact } from 'utils/types/BrevoProps';
+import { NewContact, MailContact, EmailToContact } from 'types/BrevoProps';
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
@@ -56,7 +56,7 @@ async function handleCreateContact(data: NewContact, res: NextApiResponse) {
     }
 
     const response = await fetch("https://api.brevo.com/v3/contacts", requestOptions);
-    
+
     console.log('Complete response from Brevo API:', response.status, response.statusText, response.body, response);
 
     if (response.status === 204) {

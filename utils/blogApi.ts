@@ -1,7 +1,7 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import ArticleProps from "utils/types/ArticleProps";
+import ArticleProps from "types/ArticleProps";
 
 const postsDirectory = join(process.cwd(), "_blog");
 

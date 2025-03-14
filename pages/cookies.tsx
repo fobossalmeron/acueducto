@@ -7,8 +7,9 @@ import PageWrapper from 'components/layout/PageWrapper';
 import SimplePinnedSection from 'components/shared/pinnedSections/SimplePinnedSection';
 import { P, H3 } from 'components/shared/Dangerously';
 import ContactFooter from 'components/layout/footers/ContactFooter';
+import { PageProps } from 'types/PageProps';
 
-export default function Cookies({ locale, setTitle, pt }) {
+export default function Cookies({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
     fileName: 'cookies',
