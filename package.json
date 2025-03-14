@@ -74,8 +74,8 @@
   "packageManager": "yarn@4.7.0",
   "overrides": {
     "react-share": {
-      "react": "18.2.0",
-      "react-dom": "18.2.0"
+      "react": "19.0.0",
+      "react-dom": "19.0.0"
     },
     "@react-spring/web": {
       "react": "^19.0.0",
