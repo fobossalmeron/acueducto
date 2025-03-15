@@ -1,8 +1,7 @@
 export type ButtonProps = {
-  inverse?: boolean;
+  variant?: 'primary' | 'secondary' | 'outline';
   text: string;
   className?: string;
-  secondary?: boolean;
   size?: 'default' | 'small';
   parentComponent?: string;
 };

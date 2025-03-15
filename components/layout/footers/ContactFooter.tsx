@@ -25,7 +25,7 @@ const ContactFooter = () => {
             as={context.lang === 'en' ? '/contact' : '/contacto'}
             locale={context.lang}
           >
-            <Button text={button_text} parentComponent="ContactFooter" />
+            <Button text={button_text} variant="secondary" />
           </Link>
         </Fade>
         <FooterLogoCrop />

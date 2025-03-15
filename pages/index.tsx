@@ -58,11 +58,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
                   href={locale === 'en' ? '/contact' : '/contacto'}
                   locale={locale}
                 >
-                  <Button
-                    text={t.landing.ctaContact}
-                    inverse
-                    parentComponent="Land"
-                  />
+                  <Button text={t.landing.ctaContact} parentComponent="Land" />
                 </Link>
                 <Link
                   href={locale === 'en' ? '/work' : '/portafolio'}
@@ -70,7 +66,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
                 >
                   <Button
                     text={t.landing.ctaWork}
-                    secondary
+                    variant="outline"
                     parentComponent="Land"
                   />
                 </Link>

@@ -1,28 +1,31 @@
 import React, { memo } from 'react';
-import { Pin, ButtonElement } from './Button.styles';
 import { ButtonProps } from './Button.types';
+import { cn } from '../../../utils/cn'; // Utilidad para combinar clases de Tailwind
+import { baseStyles, variantStyles, sizeStyles } from './Button.styles';
 
-export const Button = memo<ButtonProps & React.HTMLAttributes<HTMLDivElement>>(
+export const Button = memo<
+  ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
+>(
   ({
-    inverse = false,
+    variant = 'primary',
     text,
     className,
-    secondary = false,
     parentComponent = 'Desconocido',
     size = 'default',
     ...rest
   }) => {
     return (
-      <ButtonElement
-        className={className}
-        $inverse={inverse}
-        $secondary={secondary}
-        $size={size}
+      <button
+        className={cn(
+          baseStyles,
+          variantStyles[variant],
+          sizeStyles[size],
+          className,
+        )}
         {...rest}
       >
-        {text}
-        <Pin $size={size} $inverse={inverse} />
-      </ButtonElement>
+        <span>{text}</span>
+      </button>
     );
   },
 );
