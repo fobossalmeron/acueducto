@@ -1,19 +1,14 @@
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import { B } from "components/shared/Dangerously";
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import { B } from 'components/shared/Dangerously';
 
-const Stat = ({
-  stat,
-  children,
-}) => {
+const Stat = ({ stat, children }) => {
   return (
     <StatWrapper>
       <Fade triggerOnce>
         <p>
-          <>
-            <B>{stat.big}</B>
-            {stat.small}
-          </>
+          <B>{stat.big}</B>
+          {stat.small}
         </p>
       </Fade>
       {children}

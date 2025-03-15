@@ -2,8 +2,6 @@ import React, { memo } from 'react';
 import { Pin, ButtonElement } from './Button.styles';
 import { ButtonProps } from './Button.types';
 
-//Estabas exportando Pin desde este archivo
-
 export const Button = memo<ButtonProps & React.HTMLAttributes<HTMLDivElement>>(
   ({
     inverse = false,
@@ -14,13 +12,6 @@ export const Button = memo<ButtonProps & React.HTMLAttributes<HTMLDivElement>>(
     size = 'default',
     ...rest
   }) => {
-    // Solo mostramos el log en desarrollo
-    if (process.env.NODE_ENV === 'development') {
-      console.log(
-        `Button renderizado con inverse: ${inverse}, componente padre: ${parentComponent} y es ${secondary}`,
-      );
-    }
-
     return (
       <ButtonElement
         className={className}

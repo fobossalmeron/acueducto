@@ -13,7 +13,7 @@ import ScrollIncentive from 'components/ui/ScrollIncentive';
 import NewsletterPopup from './NewsletterPopup';
 
 import * as FacebookPixel from 'utils/facebookPixel';
-import LinkedInTag from 'react-linkedin-insight';
+import * as LinkedInPixel from 'utils/linkedInPixel';
 import { useLenis } from 'utils/LenisContext';
 
 interface LayoutProps {
@@ -39,7 +39,8 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   const initializePixels = useCallback((): void => {
     FacebookPixel.initFacebookPixel();
     FacebookPixel.trackPageView();
-    LinkedInTag.init('1943114', 'dc', false);
+    LinkedInPixel.initLinkedinPixel();
+    LinkedInPixel.trackPageView();
   }, []);
 
   useEffect(() => {

@@ -1,5 +1,4 @@
 import { Fade } from 'react-awesome-reveal';
-import { Quotes } from './Quotes';
 import Link from 'next/link';
 import { Button } from 'components/ui/Button/Button';
 import { useIsMobile } from 'utils/useIsMobile';
@@ -19,6 +18,12 @@ interface SocialProofSectionProps {
   span: string;
   span2: string;
   cta: string;
+  quotes: {
+    text: string;
+    person: string;
+    job: string;
+    picture: string;
+  }[];
 }
 
 export function SocialProofSection({
@@ -26,9 +31,28 @@ export function SocialProofSection({
   span,
   span2,
   cta,
+  quotes,
 }: SocialProofSectionProps) {
   const isMobile = useIsMobile(760);
   const { locale } = useRouter();
+
+  // Crear un array con todas las quotes y las cards adicionales
+  const quotesAndCards = [...quotes];
+
+  // Insertar las cards después de las posiciones 0 y 1 (después de las dos primeras quotes)
+  quotesAndCards.splice(2, 0, {
+    text: '',
+    person: 'card-one',
+    job: '',
+    picture: '',
+  });
+  quotesAndCards.splice(3, 0, {
+    text: '',
+    person: 'card-two',
+    job: '',
+    picture: '',
+  });
+
   return (
     <div className="bg-background">
       <OverlapLayout className="border-card-border mb-0 content-center overflow-hidden border-t">
@@ -56,10 +80,53 @@ export function SocialProofSection({
             />
           </Fade>
           <Fade triggerOnce>
-            <span className="text-foreground-lower mt-[6%] mb-14 block px-4 text-center">
+            <span className="text-foreground-lower mt-24 mb-14 block px-4 text-center">
               {span2}
             </span>
-            <Quotes isMobile={isMobile} />
+            <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              {quotesAndCards.map((item, index) => {
+                // Si es una de las cards especiales
+                if (item.person === 'card-one' || item.person === 'card-two') {
+                  return (
+                    <div
+                      key={`card-${index}`}
+                      className="card relative overflow-hidden rounded-4xl p-8"
+                    >
+                      <Image
+                        src={`/assets/img/layout/card-bg-${item.person === 'card-one' ? 'one' : 'two'}.jpg`}
+                        alt="Card background"
+                        width={100}
+                        height={100}
+                        className="object-cover"
+                      />
+                    </div>
+                  );
+                }
+                return (
+                  <div
+                    key={item.person}
+                    className="primary-card flex flex-col justify-center gap-4 rounded-4xl p-9"
+                  >
+                    <p className="text-over-black text-base">{item.text}</p>
+                    <div className="flex origin-bottom-left flex-row items-center gap-4 select-none">
+                      <Image
+                        src={`/assets/img/layout/clients/${item.picture}.jpg`}
+                        width={45}
+                        height={45}
+                        alt={`${item.person}, ${item.job}`}
+                        className="rounded-full"
+                      />
+                      <p className="text-foreground-low flex flex-col text-sm">
+                        {item.person}{' '}
+                        <span className="text-accent-light text-[1.4rem]">
+                          {item.job}
+                        </span>
+                      </p>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
             <Link
               href={locale === 'en' ? '/work' : '/portafolio'}
               locale={locale}

@@ -7,7 +7,7 @@
   /* Tamaños de fuente personalizados - CORREGIDOS */
   --text-xs: 1.2rem; /* 12px con base 62.5% */
   --text-sm: 1.5rem; /* 15px */
-  --text-base: 1.8rem; /* 18px - tu tamaño base actual */
+  --text-base: 1.7rem; /* 17px */
   --text-lg: 2rem; /* 20px */
   --text-xl: 2.4rem; /* 24px */
   --text-2xl: 3rem; /* 30px */
@@ -41,7 +41,7 @@
   --color-foreground-lower: #8d8d8d;
   --color-foreground-lowest: #4f4f4f;
   --color-accent: #1a4ce0;
-  --color-accent-smalltext: #4871ea;
+  --color-accent-light: #1b5ae4;
   --color-white: #f4f4f4;
   --color-warning: #f2c53a;
   --color-error: #cc2e44;
@@ -49,6 +49,7 @@
   --color-success-background: #27ae6012;
   --color-card-background: #1b1d22;
   --color-card-border: #2f3032;
+  --color-primary-card-background: #091a4e;
 
   /* Bordes redondeados ajustados */
   --rounded-sm: 0.2rem; /* 2px */
@@ -59,4 +60,13 @@
   --rounded-2xl: 1.6rem; /* 16px */
   --rounded-3xl: 2.4rem; /* 24px */
   --rounded-full: 9999px;
+}
+
+@layer components {
+  .card {
+    @apply bg-card-background border-card-border border;
+  }
+  .primary-card {
+    @apply bg-primary-card-background border-primary border;
+  }
 }

@@ -87,6 +87,32 @@
     },
     "span": "We have worked with",
     "span2": "From our clients",
+    "quotes": [
+      {
+        "text": "No agency had ever understood us like Acueducto does. They're the best studio I've worked with.",
+        "person": "David Elizondo",
+        "job": "Product Manager, DeAcero",
+        "picture": "david"
+      },
+      {
+        "text": "I'm extremely satisfied, we're increasingly differentiating ourselves from the competition and I love the excellent work we can do with Acueducto.",
+        "person": "Cindy Borgatta",
+        "job": "CMO, Borgatta",
+        "picture": "cindy"
+      },
+      {
+        "text": "We found a new growth opportunity. With Acueducto's work we're scaling our offering and reaching new customers.",
+        "person": "Rodrigo Maldonado",
+        "job": "CEO, Rahid",
+        "picture": "rodrigo"
+      },
+      {
+        "text": "There isn't a single person who hasn't told me that the work we did with Acueducto was truly exceptional and the design sophisticated.",
+        "person": "Karla Hernández",
+        "job": "CEO, Recupera",
+        "picture": "karla"
+      }
+    ],
     "cta": "See our work"
   },
   "faq": {

@@ -13,7 +13,7 @@ export const Paragraph = <C extends React.ElementType = 'p'>({
   const Component = as || 'p';
   return (
     <Component
-      className={`text-over-black relative max-w-[445px] pb-10 text-sm leading-[160%] font-normal md:text-base ${className || ''}`}
+      className={`text-over-black relative max-w-[445px] pb-10 text-sm leading-[150%] font-normal md:text-base ${className || ''}`}
       {...props}
     >
       {children}

@@ -58,7 +58,7 @@ export const StackSection: React.FC<StackSectionProps> = ({
               <StackEnd
                 label={ends[0].label}
                 title={ends[0].title}
-                className="bg-[#1E1F24]"
+                className="card"
               />
             </div>
 
@@ -76,12 +76,12 @@ export const StackSection: React.FC<StackSectionProps> = ({
                 <StackEnd
                   label={ends[1].label}
                   title={ends[1].title}
-                  className="bg-[#1347E7]"
+                  className="primary-card"
                 />
                 <StackEnd
                   label={ends[2].label}
                   title={ends[2].title}
-                  className="bg-[#1B1F2A]"
+                  className="card"
                 />
               </div>
             </div>

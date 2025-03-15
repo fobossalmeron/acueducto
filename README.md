@@ -16,7 +16,11 @@
 
 # TODO
 
+- Botones
 - Los episodios de markdown sugiere el prev incorrecto
+- El search de http://localhost:3000/podcast/episodios/operador está roto
+
 - React share y react-sprint no guantan react 19 ver si se cambian
-- http://localhost:3000/portafolio/recupera da classname en react fragment
-  intenta hacer deploy porque quitaste el yarn.lock del vercelignore
+
+- Home podcast hay unos <>br
+- footer bajar a text-sm links

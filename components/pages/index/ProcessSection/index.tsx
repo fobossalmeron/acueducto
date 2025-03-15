@@ -98,7 +98,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
 
       {/* Tarjeta de desarrollo ágil */}
       <div className="mx-auto max-w-7xl px-4 pb-20">
-        <div className="border-primary relative overflow-hidden rounded-4xl border bg-[#091A4E] p-12">
+        <div className="primary-card relative overflow-hidden rounded-4xl border bg-[#091A4E] p-12">
           <div className="grid grid-cols-1 items-center gap-8 md:grid-cols-2">
             <div className="space-y-4">
               <p className="text-primary text-sm">{agileCard.auxiliary}</p>
