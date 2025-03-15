@@ -9,6 +9,7 @@ import EpisodeNumber from '../EpisodeNumber';
 import ShareRouter from '../ShareRouter';
 import { PrismicNextImage } from '@prismicio/next';
 import { ImageFieldImage } from '@prismicio/client';
+import EpisodeProps from 'types/EpisodeProps';
 
 import {
   ToBeReleased,
@@ -35,24 +36,11 @@ const getShortDate = (date: string): string => {
   return fullDate.toLocaleDateString('es-MX');
 };
 
-interface EpisodePreviewProps {
-  title: string;
-  guest: string;
-  business: string;
-  description: string;
-  category: string;
-  slug: string;
-  date: string;
-  spotify?: string;
-  apple?: string;
-  youtube?: string;
-  episode: number;
+interface EpisodePreviewProps extends EpisodeProps {
   longFormat?: boolean;
   simplest?: boolean;
   text?: string;
   hideImageMobile?: boolean;
-  podcastImage?: ImageFieldImage;
-  prismic?: boolean;
 }
 
 const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
@@ -66,13 +54,13 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   spotify,
   apple,
   youtube,
-  episode,
+  episodeNumber,
   longFormat = false,
   simplest = false,
   text = '',
   hideImageMobile = false,
-  podcastImage = null,
-  prismic = false,
+  podcastCoverImage = null,
+  episodeSource,
 }) => {
   const LinkComplex = useMemo(() => {
     const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
@@ -87,16 +75,16 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   const shortDate = useMemo(() => getShortDate(date), [date]);
 
   return (
-    <NewPod key={'npd' + episode} $simplest={simplest}>
+    <NewPod key={'npd' + episodeNumber} $simplest={simplest}>
       <PictureContainer
         $hoverable={!longFormat}
         $hideImageMobile={hideImageMobile}
       >
         <Fade triggerOnce>
-          {prismic ? (
+          {episodeSource === 'prismic' ? (
             longFormat ? (
               <PrismicNextImage
-                field={podcastImage}
+                field={podcastCoverImage}
                 width={180}
                 height={180}
                 alt=""
@@ -105,7 +93,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
             ) : (
               <LinkComplex>
                 <PrismicNextImage
-                  field={podcastImage}
+                  field={podcastCoverImage}
                   height={simplest ? 185 : 180}
                   width={simplest ? 185 : 180}
                   alt=""
@@ -115,7 +103,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
             )
           ) : (
             <Image
-              src={`/assets/img/podcast/${episode}.jpg`}
+              src={`/assets/img/podcast/${episodeNumber}.jpg`}
               alt={`${business} - ${guest}`}
               width={simplest ? 185 : 180}
               height={simplest ? 185 : 180}
@@ -136,7 +124,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
           <Guest>
             {!longFormat ? (
               <LinkComplex>
-                <EpisodeNumber episode={episode} />
+                <EpisodeNumber episodeNumber={episodeNumber} />
                 <p className="guest">
                   {guest} <span>{business}</span>
                 </p>
@@ -159,7 +147,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
               (spotify ? (
                 <BroadcastRouter
                   trackClicks
-                  episode={episode}
+                  episodeNumber={episodeNumber}
                   spotify={spotify}
                   apple={apple}
                   youtube={youtube}

@@ -1,7 +1,9 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-const EpisodeNumber = ({ episode }: { episode: number }) => {
-  return <Number>{episode < 10 ? "0" + episode : episode}</Number>;
+const EpisodeNumber = ({ episodeNumber }: { episodeNumber: number }) => {
+  return (
+    <Number>{episodeNumber < 10 ? '0' + episodeNumber : episodeNumber}</Number>
+  );
 };
 
 export default EpisodeNumber;
@@ -14,7 +16,7 @@ const Number = styled.div`
   text-align: center;
   justify-content: center;
   font-weight: 200;
-  font-size: 2.0rem;
+  font-size: 2rem;
   width: 45px;
   height: 45px;
   color: ${(p) => p.theme.colors.background};

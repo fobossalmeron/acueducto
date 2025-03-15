@@ -5,17 +5,17 @@ import EpisodeProps from "types/EpisodeProps";
 
 const episodesDirectory = join(process.cwd(), "_episodios");
 
-export function getEpisodeSlugs() {
+export function getMarkdownEpisodeSlugs() {
   return fs.readdirSync(episodesDirectory);
 }
 
-export function getEpisodeBySlug(slug, fields = []) {
+export function getMarkdownEpisodeBySlug(slug, fields = []): EpisodeProps {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(episodesDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const items: EpisodeProps = {};
+  const items = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -25,24 +25,27 @@ export function getEpisodeBySlug(slug, fields = []) {
     if (field === "content") {
       items[field] = content;
     }
-
+    if (field === "episode") {
+      items["episodeNumber"] = data.episode;
+    }
     if (data[field]) {
       items[field] = data[field];
     }
   });
 
-  return items;
+  return items as EpisodeProps;
 }
 
-export function getAllEpisodes(fields = []) {
-  const slugs = getEpisodeSlugs();
-  const episodes = slugs.map((slug) => getEpisodeBySlug(slug, fields));
+export function getAllMarkdownEpisodes(fields = []) {
+  const slugs = getMarkdownEpisodeSlugs();
+  const episodes = slugs.map((slug) => getMarkdownEpisodeBySlug(slug, fields));
   return episodes;
 }
 
 export function getNextEpisodeSlug(currentEpisode) {
   //retreive object with episodes in alphabetical order
-  const allIds = getAllEpisodes(["episode"]);
+  const allIds = getAllMarkdownEpisodes(["episodeNumber"]);
+
 
   //turn object into simple array, same order
   let slugArr: number[] = [];
@@ -65,7 +68,7 @@ export function getNextEpisodeSlug(currentEpisode) {
     : (nextEpPosInArr = nextEpPosInArr);
 
   //retreive object with episodes slug in alphabetical order
-  const allSlugs = getAllEpisodes(["slug"]);
+  const allSlugs = getAllMarkdownEpisodes(["slug"]);
 
   //find slug by looking for next episode position in slug array
   if (nextEpPosInArr == -1) {

@@ -280,7 +280,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   }
 
   const fetchPrismicEpisodes = async () => {
-    const prismicClient = createClient({ previewData: context.previewData });
+    const prismicClient = createClient();
     const unsortedPrismicEpisodes = await prismicClient.getAllByType('episode');
     return unsortedPrismicEpisodes.sort(
       (ep, nextEp) =>
@@ -334,7 +334,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     const sortedPrismicEpisodes = await fetchPrismicEpisodes();
     const lastPrismicEpisode =
       sortedPrismicEpisodes[sortedPrismicEpisodes.length - 1];
-    const prismicClient = createClient({ previewData: context.previewData });
+    const prismicClient = createClient();
     const featuredEpisodes = await fetchFeaturedEpisodes(prismicClient);
 
     return {

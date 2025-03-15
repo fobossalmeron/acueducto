@@ -5,7 +5,7 @@ import { EpisodePreview } from 'components/pages/podcast/EpisodePreview/EpisodeP
 import EpisodePreviewSkeleton from 'components/pages/podcast/EpisodePreviewSkeleton';
 import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
 import ssrLocale from 'utils/ssrLocale';
-import { getAllEpisodes } from 'utils/podcastApi';
+import { getAllMarkdownEpisodes } from 'utils/podcastApi';
 import Head, { HeadProps } from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
 import ContactFooter from 'components/layout/footers/ContactFooter';
@@ -15,6 +15,8 @@ import { Fade } from 'react-awesome-reveal';
 import { createClient } from '../../../prismicio';
 import { GetStaticProps, GetStaticPaths } from 'next';
 import { debounce } from 'utils/debounce';
+import EpisodeProps from 'types/EpisodeProps';
+import { PageProps } from 'types/PageProps';
 import {
   PodcastGrid,
   NameComponent,
@@ -34,9 +36,7 @@ import {
   MarkdownPodcastEpisode,
 } from 'components/pages/podcast/podcast.types';
 
-interface EpisodesPageProps {
-  locale: string;
-  setTitle: (title: string) => void;
+interface EpisodesPageProps extends PageProps {
   initialEpisodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>;
   totalEpisodes: number;
   pt: {
@@ -414,7 +414,7 @@ export default React.memo(EpisodesPage);
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = createClient();
-  const episodes = getAllEpisodes(['slug', 'category']);
+  const episodes = getAllMarkdownEpisodes(['slug', 'category']);
   const prismicEpisodes = await client.getAllByType('episode');
 
   let paths = [];
@@ -461,9 +461,9 @@ export const getStaticProps: GetStaticProps<
   const category = params[0] || 'todas';
   const page = Number(params[1]) || 1;
 
-  const client = createClient({ previewData: context.previewData });
+  const client = createClient();
 
-  const markdownEpisodes = getAllEpisodes([
+  const markdownEpisodes = getAllMarkdownEpisodes([
     'title',
     'guest',
     'business',
@@ -476,7 +476,7 @@ export const getStaticProps: GetStaticProps<
     'apple',
     'google',
     'youtube',
-  ]) as MarkdownPodcastEpisode[];
+  ]) as EpisodeProps[];
 
   const prismicEpisodes = (await client.getAllByType(
     'episode',

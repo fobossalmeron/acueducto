@@ -28,59 +28,47 @@ import {
   VideoContainer,
   Video,
 } from './PodcastEpisode.styles';
-import { ImageFieldImage } from '@prismicio/client';
+import EpisodeProps, { PrevEpisodeProps } from 'types/EpisodeProps';
+import { RichTextField } from '@prismicio/client';
 
+// Importación dinámica del reproductor de YouTube para evitar problemas de SSR
+// Se carga solo en el cliente para evitar errores de renderizado en el servidor
 const NoSSRPlayer = dynamic(() => import('react-player/youtube'), {
   loading: () => <p>Cargando...</p>,
   ssr: false,
 });
 
-interface SingleEpisodePageProps {
-  title: string;
-  seo_h1?: string;
-  date: string;
-  guest: string;
-  insights?: any;
-  business: string;
-  category: string;
-  description: string;
-  slug: string;
-  spotify: string;
-  apple: string;
-  youtube?: string;
-  episode: number;
-  content: string | any;
-  next: any; // Replace 'any' with a more specific type if possible
-  youtubeImage?: string;
-  podcastImage: ImageFieldImage;
-  findNextPrismic?: boolean;
+interface PodcastEpisodePageProps {
+  episode: EpisodeProps;
+  prevEpisode: PrevEpisodeProps;
 }
 
-export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
+export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
+  episode,
+  prevEpisode,
+}) => {
   const {
     title,
     seo_h1,
-    date,
-    guest,
     insights,
     business,
-    category,
-    description,
     slug,
     spotify,
     apple,
     youtube,
-    episode,
+    episodeNumber,
     content,
-    next,
-    youtubeImage,
-    podcastImage,
-    findNextPrismic,
-  } = props;
+    youtubeImageUrl,
+    episodeSource,
+  } = episode;
 
+  // Convierte la URL de YouTube al formato de embed para poder incrustar el video
   const embedYoutube = youtube && youtube.replace('watch?v=', 'embed/');
+  // Estado para controlar si el DOM ya está cargado (necesario para componentes client-side)
+  // Probablemente pueda heredar el hasLoaded de la página de episodios
   const [domLoaded, setDomLoaded] = useState<boolean>(false);
 
+  // Establece domLoaded a true cuando el componente se monta en el cliente
   useEffect(() => {
     setDomLoaded(true);
   }, []);
@@ -91,6 +79,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
         $customBackground={'/assets/img/layout/backOld.svg'}
         id="cuandoelriosuena"
       >
+        {/* Cabecera del podcast con logo y título */}
         <Fade triggerOnce>
           <IntroLogo>
             <Link href="/podcast" passHref legacyBehavior>
@@ -105,15 +94,18 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
         </Fade>
         <Fade triggerOnce>
           <div>
+            {/* Enlace para volver a todos los episodios */}
             <Link href={'/podcast/episodios'} passHref legacyBehavior>
               <AllEpisodesHoverable>
                 <BackArrowIcon />
                 <p>ver todos los episodios</p>
               </AllEpisodesHoverable>
             </Link>
+            {/* Número de episodio */}
             <EpisodeNumberStyled>
-              <EpisodeNumber episode={episode} />
+              <EpisodeNumber episodeNumber={episodeNumber} />
             </EpisodeNumberStyled>
+            {/* Título del episodio - maneja SEO con h1 oculto si es necesario */}
             {seo_h1 ? (
               <>
                 <h1 className="seo_h1">{seo_h1}</h1>
@@ -124,10 +116,11 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
             ) : (
               <H1>{title.charAt(0).toLowerCase() + title.slice(1)}</H1>
             )}
+            {/* Enlaces a plataformas de podcast */}
             <Center style={{ marginTop: '10px' }}>
               <BroadcastRouter
                 trackClicks
-                episode={episode}
+                episodeNumber={episodeNumber}
                 spotify={spotify}
                 apple={apple}
                 youtube={youtube}
@@ -135,6 +128,7 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
                 Escúchalo en
               </BroadcastRouter>
             </Center>
+            {/* Reproductor de YouTube si existe URL y el DOM está cargado */}
             {youtube && domLoaded && (
               <Center>
                 <VideoContainer>
@@ -142,9 +136,9 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
                     <NoSSRPlayer
                       className="react-player"
                       light={
-                        youtubeImage
-                          ? youtubeImage
-                          : `/assets/img/podcast/youtube/${episode}.jpg`
+                        episodeSource === 'prismic'
+                          ? youtubeImageUrl
+                          : `/assets/img/podcast/youtube/${episodeNumber}.jpg`
                       }
                       url={embedYoutube}
                       controls={true}
@@ -157,25 +151,13 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
             )}
           </div>
         </Fade>
+
+        {/* Previsualización del episodio con detalles */}
         <Fade triggerOnce>
-          <EpisodePreview
-            hideImageMobile
-            title={title}
-            guest={guest}
-            business={business}
-            slug={slug}
-            spotify={spotify}
-            apple={apple}
-            youtube={youtube}
-            episode={episode}
-            description={description}
-            date={date}
-            category={category}
-            podcastImage={podcastImage}
-            prismic={podcastImage ? true : false}
-            longFormat
-          />
+          <EpisodePreview hideImageMobile {...episode} longFormat />
         </Fade>
+
+        {/* Sección de Insights - Puntos clave del episodio */}
         <Fade triggerOnce>
           {spotify && insights && (
             <Content as={Insights}>
@@ -185,34 +167,39 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
                 operadores, inversionistas y fundadores de {business} es lo
                 siguiente:
               </p>
-              {youtubeImage && insights?.length > 0 ? (
-                <PrismicRichText field={insights.map((e) => e)} />
-              ) : (
+              {/* Renderiza insights de manera diferente según la fuente (Prismic o Markdown) */}
+              {episodeSource === 'prismic' ? (
+                <PrismicRichText field={insights as RichTextField} />
+              ) : episodeSource === 'markdown' ? (
                 <Transcript as={'div'}>
-                  {insights && (
+                  {
                     <ul>
                       {insights.map((insight, i) => (
                         <Li key={'insight' + i}>{insight}</Li>
                       ))}
                     </ul>
-                  )}
+                  }
                 </Transcript>
-              )}
+              ) : null}
             </Content>
           )}
         </Fade>
+
+        {/* Sección de transcripción del episodio */}
         <Fade>
           {spotify && (
             <Content>
-              {youtubeImage ? (
+              {youtubeImageUrl ? (
                 <>
+                  {/* Contenido de Prismic renderizado con PrismicRichText */}
                   {content && Array.isArray(content) && content.length > 0 && (
                     <ContentType>Transcript</ContentType>
                   )}
-                  <PrismicRichText field={content} />
+                  <PrismicRichText field={content as RichTextField} />
                 </>
               ) : (
                 <>
+                  {/* Contenido de Markdown renderizado como HTML */}
                   <ContentType>Transcript</ContentType>
                   <Transcript>{content}</Transcript>
                 </>
@@ -220,6 +207,8 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
             </Content>
           )}
         </Fade>
+
+        {/* Sección para compartir el episodio */}
         <Fade triggerOnce>
           <CenteredDiv>
             {content && spotify && (
@@ -235,29 +224,11 @@ export const PodcastEpisodePage: React.FC<SingleEpisodePageProps> = (props) => {
             )}
           </CenteredDiv>
         </Fade>
+
+        {/* Sección para mostrar el siguiente episodio */}
         <NextEp>
           <p>Escucha otro episodio</p>
-          {!youtubeImage || !findNextPrismic ? (
-            <EpisodePreview {...next} simplest />
-          ) : (
-            <EpisodePreview
-              hideImageMobile
-              title={next.data.introduction[0].title[0].text}
-              guest={next.data.introduction[0].guest}
-              business={next.data.introduction[0].business}
-              slug={next.uid}
-              spotify={next.data.introduction[0].spotify}
-              apple={next.data.introduction[0].apple}
-              youtube={next.data.introduction[0].youtube}
-              podcastImage={next.data.images[0].episode}
-              episode={next.data.introduction[0].episode}
-              description={next.data.introduction[0].description[0].text}
-              date={next.data.introduction[0].date}
-              category={next.data.introduction[0].category}
-              simplest
-              prismic
-            />
-          )}
+          <EpisodePreview {...prevEpisode} simplest />
         </NextEp>
       </CenteredSection>
     </>
