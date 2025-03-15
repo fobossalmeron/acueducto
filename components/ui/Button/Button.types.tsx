@@ -3,5 +3,4 @@ export type ButtonProps = {
   text: string;
   className?: string;
   size?: 'default' | 'small';
-  parentComponent?: string;
 };

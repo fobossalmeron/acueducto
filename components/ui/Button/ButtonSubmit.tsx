@@ -10,23 +10,9 @@ export const ButtonSubmit = React.forwardRef<
   ButtonProps & React.InputHTMLAttributes<HTMLInputElement>
 >(
   (
-    {
-      variant = 'primary',
-      text,
-      className,
-      parentComponent = 'Desconocido',
-      size = 'default',
-      ...rest
-    },
+    { variant = 'primary', text, className, size = 'default', ...rest },
     ref,
   ) => {
-    // Solo mostramos el log en desarrollo
-    if (process.env.NODE_ENV === 'development') {
-      console.log(
-        `ButtonSubmit renderizado con variante: ${variant}, componente padre: ${parentComponent}`,
-      );
-    }
-
     return (
       <div
         className={cn(
