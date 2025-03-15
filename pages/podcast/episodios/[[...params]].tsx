@@ -13,7 +13,8 @@ import Logo from 'public/assets/img/layout/logo.svg';
 import { H1 } from 'components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';
 import { createClient } from '../../../prismicio';
-import { GetStaticProps, GetStaticPaths } from 'next';
+import { GetStaticPaths } from 'next';
+import type { GetStaticPropsContext } from 'next';
 import { debounce } from 'utils/debounce';
 import EpisodeProps from 'types/EpisodeProps';
 import { PageProps } from 'types/PageProps';
@@ -31,14 +32,13 @@ import {
   TextToIcon,
   SearchInput,
 } from 'components/pages/podcast/podcast-all-episodes/allEpisodes.styles';
-import {
-  PrismicPodcastEpisode,
-  MarkdownPodcastEpisode,
-} from 'components/pages/podcast/podcast.types';
 
 interface EpisodesPageProps extends PageProps {
-  initialEpisodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>;
+  initialEpisodes: Array<EpisodeProps>;
   totalEpisodes: number;
+  totalPages: number;
+  currentPage: number;
+  currentCategory: string;
   pt: {
     intro: {
       title: string;
@@ -46,12 +46,9 @@ interface EpisodesPageProps extends PageProps {
     };
     head: HeadProps;
   };
-  totalPages: number;
-  currentPage: number;
-  currentCategory: string;
 }
 
-const EPISODES_PER_PAGE = 30;
+const EPISODES_PER_PAGE = 20;
 const CATEGORIES = [
   'todas',
   'founder',
@@ -66,15 +63,14 @@ const CATEGORIES = [
 
 const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-const EpisodesPage: React.FC<EpisodesPageProps> = ({
-  locale,
+export default function EpisodesPage({
   setTitle,
   initialEpisodes,
   pt,
   totalPages,
   currentPage,
   currentCategory,
-}) => {
+}: EpisodesPageProps) {
   const { intro, head } = pt;
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
@@ -82,9 +78,9 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
   const [inputValue, setInputValue] = useState('');
   const [searchTerm, setSearchTerm] = useState('');
   const [isSearching, setIsSearching] = useState(false);
-  const [filteredEpisodes, setFilteredEpisodes] = useState<
-    Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>
-  >([]);
+  const [filteredEpisodes, setFilteredEpisodes] = useState<Array<EpisodeProps>>(
+    [],
+  );
   const [currentFilteredPage, setCurrentFilteredPage] = useState(1);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -109,7 +105,7 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
 
   useEffect(() => {
     setTitle(head.headerTitle);
-  }, [locale, head.headerTitle, setTitle]);
+  }, []);
 
   useEffect(() => {
     // Asegurarse de que isLoading se establezca en false cuando cambian los episodios
@@ -140,14 +136,9 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
     };
   }, [checkMobile]);
 
-  const isPrismicEpisode = useCallback(
-    (
-      episode: MarkdownPodcastEpisode | PrismicPodcastEpisode,
-    ): episode is PrismicPodcastEpisode => {
-      return 'data' in episode;
-    },
-    [],
-  );
+  const isPrismicEpisode = useCallback((episode: EpisodeProps): boolean => {
+    return episode.episodeSource === 'prismic';
+  }, []);
 
   const normalizeText = useCallback((text: string): string => {
     return text
@@ -157,39 +148,14 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
   }, []);
 
   const performSearch = useCallback(
-    (
-      term: string,
-      episodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>,
-    ) => {
+    (term: string, episodes: Array<EpisodeProps>) => {
       const normalizedTerm = normalizeText(term);
       const filtered = episodes.filter((episode) => {
-        if (isPrismicEpisode(episode)) {
-          return (
-            normalizeText(episode.data.introduction[0].title[0].text).includes(
-              normalizedTerm,
-            ) ||
-            normalizeText(episode.data.introduction[0].guest).includes(
-              normalizedTerm,
-            ) ||
-            normalizeText(episode.data.introduction[0].business).includes(
-              normalizedTerm,
-            ) ||
-            normalizeText(
-              episode.data.introduction[0].description[0].text,
-            ).includes(normalizedTerm) ||
-            normalizeText(episode.data.introduction[0].category).includes(
-              normalizedTerm,
-            )
-          );
-        } else {
-          return (
-            normalizeText(episode.title).includes(normalizedTerm) ||
-            normalizeText(episode.guest).includes(normalizedTerm) ||
-            normalizeText(episode.business).includes(normalizedTerm) ||
-            normalizeText(episode.description).includes(normalizedTerm) ||
-            normalizeText(episode.category).includes(normalizedTerm)
-          );
-        }
+        normalizeText(episode.title).includes(normalizedTerm) ||
+          normalizeText(episode.guest).includes(normalizedTerm) ||
+          normalizeText(episode.business).includes(normalizedTerm) ||
+          normalizeText(episode.description).includes(normalizedTerm) ||
+          normalizeText(episode.category).includes(normalizedTerm);
       });
       setFilteredEpisodes(filtered);
       setNoResults(filtered.length === 0);
@@ -204,17 +170,11 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
 
   const debouncedSearch = useMemo(
     () =>
-      debounce(
-        (
-          term: string,
-          episodes: Array<MarkdownPodcastEpisode | PrismicPodcastEpisode>,
-        ) => {
-          setSearchTerm(term);
-          performSearch(term, episodes);
-          setCurrentFilteredPage(1);
-        },
-        300,
-      ),
+      debounce((term: string, episodes: Array<EpisodeProps>) => {
+        setSearchTerm(term);
+        performSearch(term, episodes);
+        setCurrentFilteredPage(1);
+      }, 300),
     [performSearch],
   );
 
@@ -346,28 +306,7 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
               <PodcastList>
                 {(searchTerm ? filteredEpisodes : paginatedEpisodes).map(
                   (episode, index) => (
-                    <EpisodePreview
-                      key={`npd${index}`}
-                      {...(isPrismicEpisode(episode)
-                        ? {
-                            title: episode.data.introduction[0].title[0].text,
-                            guest: episode.data.introduction[0].guest,
-                            business: episode.data.introduction[0].business,
-                            slug: episode.uid,
-                            spotify: episode.data.introduction[0].spotify,
-                            apple: episode.data.introduction[0].apple,
-                            google: episode.data.introduction[0].google,
-                            youtube: episode.data.introduction[0].youtube,
-                            podcastImage: episode.data.images[0].episode,
-                            episode: episode.data.introduction[0].episode,
-                            description:
-                              episode.data.introduction[0].description[0].text,
-                            date: episode.data.introduction[0].date,
-                            category: episode.data.introduction[0].category,
-                            prismic: true,
-                          }
-                        : episode)}
-                    />
+                    <EpisodePreview key={`npd${index}`} {...episode} />
                   ),
                 )}
               </PodcastList>
@@ -408,9 +347,7 @@ const EpisodesPage: React.FC<EpisodesPageProps> = ({
       <ContactFooter />
     </PageWrapper>
   );
-};
-
-export default React.memo(EpisodesPage);
+}
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const client = createClient();
@@ -454,12 +391,13 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<
-  Omit<EpisodesPageProps, 'setTitle'>
-> = async (context) => {
-  const params = (context.params?.params as string[]) || [];
-  const category = params[0] || 'todas';
-  const page = Number(params[1]) || 1;
+export async function getStaticProps({
+  params,
+  locale,
+}: GetStaticPropsContext) {
+  const paramsArray = (params?.params as string[]) || [];
+  const category = paramsArray[0] || 'todas';
+  const page = Number(paramsArray[1]) || 1;
 
   const client = createClient();
 
@@ -478,13 +416,13 @@ export const getStaticProps: GetStaticProps<
     'youtube',
   ]) as EpisodeProps[];
 
-  const prismicEpisodes = (await client.getAllByType(
-    'episode',
-  )) as PrismicPodcastEpisode[];
+  const prismicEpisodes = await client.getAllByType('episode');
 
   const allEpisodes = [...markdownEpisodes, ...prismicEpisodes].sort((a, b) => {
-    const episodeA = 'data' in a ? a.data.introduction[0].episode : a.episode;
-    const episodeB = 'data' in b ? b.data.introduction[0].episode : b.episode;
+    const episodeA =
+      'data' in a ? a.data.introduction[0].episode : a.episodeNumber;
+    const episodeB =
+      'data' in b ? b.data.introduction[0].episode : b.episodeNumber;
     return episodeB - episodeA; // Ordenar de mayor a menor (más nuevo a más viejo)
   });
 
@@ -504,9 +442,41 @@ export const getStaticProps: GetStaticProps<
 
   const startIndex = (page - 1) * EPISODES_PER_PAGE;
   const endIndex = startIndex + EPISODES_PER_PAGE;
-  const paginatedEpisodes = filteredEpisodes.slice(startIndex, endIndex);
+  const paginatedEpisodes = filteredEpisodes
+    .slice(startIndex, endIndex)
+    .map((episode) => {
+      if ('data' in episode) {
+        // Es un episodio de Prismic
+        return {
+          slug: episode.uid,
+          date: episode.data.introduction[0].date,
+          title:
+            'text' in episode.data.introduction[0].title[0]
+              ? episode.data.introduction[0].title[0].text
+              : '',
+          guest: episode.data.introduction[0].guest,
+          business: episode.data.introduction[0].business,
+          category: episode.data.introduction[0].category,
+          description:
+            'text' in episode.data.introduction[0].description[0]
+              ? episode.data.introduction[0].description[0].text
+              : '',
+          episodeNumber: episode.data.introduction[0].episode,
+          spotify: episode.data.introduction[0].spotify,
+          apple: episode.data.introduction[0].apple,
+          youtube: episode.data.introduction[0].youtube,
+          podcastCoverImage: episode.data.images[0].episode.url,
+          episodeSource: 'prismic',
+        };
+      }
+      // Es un episodio de Markdown
+      return {
+        ...episode,
+        episodeSource: 'markdown',
+      };
+    });
 
-  const pt = ssrLocale({ locale: context.locale, fileName: 'archivo.json' });
+  const pt = ssrLocale({ locale: locale, fileName: 'archivo.json' });
   if (!pt) {
     return {
       notFound: true,
@@ -515,7 +485,7 @@ export const getStaticProps: GetStaticProps<
 
   return {
     props: {
-      locale: context.locale || 'es',
+      locale: locale || 'es',
       initialEpisodes: paginatedEpisodes,
       pt,
       totalPages,
@@ -524,4 +494,4 @@ export const getStaticProps: GetStaticProps<
       totalEpisodes,
     },
   };
-};
+}

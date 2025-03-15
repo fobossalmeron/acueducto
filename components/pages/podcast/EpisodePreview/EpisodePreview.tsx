@@ -7,8 +7,6 @@ import { P } from 'components/shared/Dangerously';
 import BroadcastRouter from '../BroadcastRouter';
 import EpisodeNumber from '../EpisodeNumber';
 import ShareRouter from '../ShareRouter';
-import { PrismicNextImage } from '@prismicio/next';
-import { ImageFieldImage } from '@prismicio/client';
 import EpisodeProps from 'types/EpisodeProps';
 
 import {
@@ -74,6 +72,13 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
   const formattedDate = useMemo(() => formatDate(date), [date]);
   const shortDate = useMemo(() => getShortDate(date), [date]);
 
+  // Asegurarse de que siempre haya una imagen válida
+  const imageUrl = useMemo(() => {
+    if (episodeSource === 'prismic' && podcastCoverImage) {
+      return podcastCoverImage;
+    }
+  }, [episodeSource, podcastCoverImage, episodeNumber]);
+
   return (
     <NewPod key={'npd' + episodeNumber} $simplest={simplest}>
       <PictureContainer
@@ -83,20 +88,20 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
         <Fade triggerOnce>
           {episodeSource === 'prismic' ? (
             longFormat ? (
-              <PrismicNextImage
-                field={podcastCoverImage}
+              <Image
+                src={imageUrl}
                 width={180}
                 height={180}
-                alt=""
+                alt={`${business} - ${guest}`}
                 loading="lazy"
               />
             ) : (
               <LinkComplex>
-                <PrismicNextImage
-                  field={podcastCoverImage}
+                <Image
+                  src={imageUrl}
                   height={simplest ? 185 : 180}
                   width={simplest ? 185 : 180}
-                  alt=""
+                  alt={`${business} - ${guest}`}
                   loading="lazy"
                 />
               </LinkComplex>

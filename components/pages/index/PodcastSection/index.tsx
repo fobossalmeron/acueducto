@@ -40,7 +40,7 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ title, p }) => {
             </Link>
             <BroadcastRouter
               trackClicks
-              episode={3}
+              episodeNumber={3}
               spotify="https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"
               apple="https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
               youtube="https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"

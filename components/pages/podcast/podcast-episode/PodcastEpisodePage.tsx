@@ -189,7 +189,7 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
         <Fade>
           {spotify && (
             <Content>
-              {youtubeImageUrl ? (
+              {episodeSource === 'prismic' ? (
                 <>
                   {/* Contenido de Prismic renderizado con PrismicRichText */}
                   {content && Array.isArray(content) && content.length > 0 && (

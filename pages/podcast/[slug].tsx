@@ -47,83 +47,51 @@ export default function Episodio({
   episode,
   prevEpisode,
 }: EpisodioProps) {
-  console.group('Datos del episodio actual');
-  console.log('Episodio actual:', {
-    ...episode,
-    content: undefined, // Ocultamos el contenido para no imprimirlo
-  });
-  console.groupEnd();
-
-  // console.group('Datos de Prismic');
-  // console.log('slugMatchesPrismic:', slugMatchesPrismic);
-  // console.log('nextEpisodePrismic:', nextEpisodePrismic);
-  // console.log('findNextPrismic:', findNextPrismic);
-  // console.log('nextEpisode:', nextEpisode);
-  // console.groupEnd();
-
-  // Establece el título de la página
   useEffect(() => {
     setTitle('Podcast');
   }, [setTitle]);
 
+  const titleContent = episode.seo_title
+    ? episode.seo_title
+    : `${episode.title} | ${episode.guest}, ${episode.business}`;
+
+  const imageAlt = `${episode.title} | ${episode.guest}, ${episode.business}`;
+
+  const imageFileName =
+    episode.episodeSource === 'markdown'
+      ? episode.episodeNumber >= 63
+        ? `og_image_e${episode.episodeNumber}.gif`
+        : `og_image_e${episode.episodeNumber}.png`
+      : episode.gif;
+
+  const noIndex =
+    episode.episodeSource === 'markdown'
+      ? !episode.index
+      : SEO_OVERRIDES[episode.slug];
+
   return (
     <PageWrapper>
-      {/* Renderiza episodio desde Markdown si no hay coincidencia en Prismic */}
-      {episode.episodeSource === 'markdown' && (
-        <Head
-          title={
-            episode.seo_title
-              ? episode.seo_title
-              : episode.title + ' | ' + episode.guest + ', ' + episode.business
-          }
-          description={episode.description}
-          headerTitle="Episodio"
-          es_canonical={`https://acueducto.studio/podcast/${episode.slug}`}
-          image={{
-            fileName:
-              episode.episodeNumber >= 63
-                ? `og_image_e${episode.episodeNumber}.gif`
-                : `og_image_e${episode.episodeNumber}.png`,
-            alt:
-              episode.title + ' | ' + episode.guest + ', ' + episode.business,
-          }}
-          noIndex={!episode.index}
-        />
-      )}
-
-      {/* Renderiza episodio desde Prismic si hay coincidencia */}
-      {episode.episodeSource === 'prismic' && (
-        <Head
-          title={
-            episode.seo_title
-              ? episode.seo_title
-              : episode.title + ' | ' + episode.guest + ', ' + episode.business
-          }
-          description={episode.description}
-          headerTitle="Episodio"
-          es_canonical={`https://acueducto.studio/podcast/${episode.slug}`}
-          image={{
-            fileName: episode.gif,
-            alt:
-              episode.title + ' | ' + episode.guest + ', ' + episode.business,
-          }}
-          noIndex={SEO_OVERRIDES[episode.slug]}
-        />
-      )}
+      <Head
+        title={titleContent}
+        description={episode.description}
+        headerTitle="Episodio"
+        es_canonical={`https://acueducto.studio/podcast/${episode.slug}`}
+        image={{
+          fileName: imageFileName,
+          alt: imageAlt,
+        }}
+        noIndex={noIndex}
+      />
       <PodcastEpisodePage episode={episode} prevEpisode={prevEpisode} />
-
       <ContactFooter />
     </PageWrapper>
   );
 }
 
 /**
- * Carga un episodio desde archivos Markdown
- * @param slug - Identificador único del episodio
- * @returns Objeto con los datos del episodio y el contenido convertido a HTML
+ * Funciones utilitarias para cargar episodios
  */
 async function loadMarkdownEpisode(slug) {
-  // Obtiene los datos del episodio desde el archivo Markdown
   const episode = getMarkdownEpisodeBySlug(slug, [
     'title',
     'seo_title',
@@ -144,16 +112,11 @@ async function loadMarkdownEpisode(slug) {
     'index',
   ]);
   episode.episodeSource = 'markdown';
-  // Convierte el contenido Markdown a HTML
   const content = await markdownToHtml(episode.content.toString() || '');
   return { ...episode, content };
 }
 
-/**
- * Función auxiliar para obtener datos básicos de un episodio Markdown
- * para mostrar como "siguiente episodio"
- */
-const loadNextMarkdownEpisode = (slug: string): PrevEpisodeProps => ({
+const loadPrevMarkdownEpisode = (slug: string): PrevEpisodeProps => ({
   ...getMarkdownEpisodeBySlug(slug, [
     'guest',
     'business',
@@ -164,23 +127,16 @@ const loadNextMarkdownEpisode = (slug: string): PrevEpisodeProps => ({
   episodeSource: 'markdown',
 });
 
-/**
- * Función getStaticProps para generar páginas estáticas en tiempo de compilación
- * Maneja la obtención de datos tanto de Prismic como de archivos Markdown
- */
 export async function getStaticProps({ params }: GetStaticPropsContext) {
-  // Inicializamos las variables
   let episode: EpisodeProps;
   let prevEpisode: PrevEpisodeProps;
 
-  // Determina si viene de markdown
   let matchesMarkdown;
   const markdownEpisodes = getAllMarkdownEpisodes(['slug']);
   matchesMarkdown = markdownEpisodes.some(
     (episode) => episode.slug === params.slug,
   );
 
-  // Determina si viene de prismic
   let matchesPrismic;
   const client = createClient();
   try {
@@ -191,7 +147,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
 
   if (matchesMarkdown) {
     episode = await loadMarkdownEpisode(params.slug);
-    prevEpisode = await loadNextMarkdownEpisode(
+    prevEpisode = await loadPrevMarkdownEpisode(
       getNextEpisodeSlug(episode.episodeNumber),
     );
   } else if (matchesPrismic) {
@@ -218,12 +174,11 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       spotify: prismicEpisode.data.introduction[0].spotify,
       apple: prismicEpisode.data.introduction[0].apple,
       content: prismicEpisode.data.body,
-      podcastCoverImage: prismicEpisode.data.images[0].episode,
+      podcastCoverImage: prismicEpisode.data.images[0].episode.url,
       episodeNumber: prismicEpisode.data.introduction[0].episode,
-      seo_h1:
-        SEO_OVERRIDES[prismicEpisode.uid] &&
-        SEO_OVERRIDES[prismicEpisode.uid].h1,
-      google: prismicEpisode.data.introduction[0].google,
+      seo_h1: SEO_OVERRIDES[prismicEpisode.uid]
+        ? SEO_OVERRIDES[prismicEpisode.uid].h1
+        : null,
       youtube: prismicEpisode.data.introduction[0].youtube,
       youtubeImageUrl: prismicEpisode.data.images[0].youtube.url,
       episodeSource: 'prismic',
@@ -245,12 +200,12 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
         business: nextPrismicEpisode.data.introduction[0].business,
         category: nextPrismicEpisode.data.introduction[0].category,
         episodeNumber: nextPrismicEpisode.data.introduction[0].episode,
-        podcastCoverImage: nextPrismicEpisode.data.images[0].episode,
+        podcastCoverImage: nextPrismicEpisode.data.images[0].episode.url,
         episodeSource: 'prismic',
       };
     } else {
       // Si no hay episodio previo en Prismic, usar uno de Markdown como fallback
-      prevEpisode = await loadNextMarkdownEpisode(getNextEpisodeSlug(105));
+      prevEpisode = await loadPrevMarkdownEpisode(getNextEpisodeSlug(105));
     }
   }
 
@@ -273,20 +228,12 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   };
 }
 
-/**
- * Esta función ESTA BIEN. NO HAY QUE CAMBIARLA.
- * Función getStaticPaths para generar las rutas estáticas en tiempo de compilación
- * Combina slugs de episodios tanto de Markdown como de Prismic
- */
 export async function getStaticPaths() {
-  // Obtiene todos los slugs de episodios desde archivos Markdown
   const markdownEpisodes = getAllMarkdownEpisodes(['slug']);
 
-  // Obtiene todos los slugs de episodios desde Prismic
   const client = createClient();
   const prismicEpisodes = await client.getAllByType('episode');
 
-  // Combina todos los slugs de ambas fuentes
   const allSlugs = [
     ...markdownEpisodes.map((episode) => episode.slug),
     ...prismicEpisodes.map((result) => result.uid),
