@@ -16,9 +16,6 @@
 
 # TODO
 
-- El search de http://localhost:3000/podcast/episodios/operador está roto
-
-- React share y react-sprint no guantan react 19 ver si se cambian
-
 - clear animation frame
 - metalform está roto
+- React share y react-sprint no guantan react 19 ver si se cambian4

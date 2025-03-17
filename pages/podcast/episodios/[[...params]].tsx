@@ -71,6 +71,11 @@ export default function EpisodesPage({
   currentPage,
   currentCategory,
 }: EpisodesPageProps) {
+  // Verificar que pt existe antes de destructurarlo
+  if (!pt) {
+    return <div>Error: No se pudo cargar la información de la página</div>;
+  }
+
   const { intro, head } = pt;
   const router = useRouter();
   const [isMobile, setIsMobile] = useState(false);
@@ -151,11 +156,13 @@ export default function EpisodesPage({
     (term: string, episodes: Array<EpisodeProps>) => {
       const normalizedTerm = normalizeText(term);
       const filtered = episodes.filter((episode) => {
-        normalizeText(episode.title).includes(normalizedTerm) ||
+        return (
+          normalizeText(episode.title).includes(normalizedTerm) ||
           normalizeText(episode.guest).includes(normalizedTerm) ||
           normalizeText(episode.business).includes(normalizedTerm) ||
           normalizeText(episode.description).includes(normalizedTerm) ||
-          normalizeText(episode.category).includes(normalizedTerm);
+          normalizeText(episode.category).includes(normalizedTerm)
+        );
       });
       setFilteredEpisodes(filtered);
       setNoResults(filtered.length === 0);
@@ -232,6 +239,21 @@ export default function EpisodesPage({
       endIndex,
     );
   }, [searchTerm, filteredEpisodes, episodes, currentFilteredPage]);
+
+  // Manejar el estado de fallback
+  if (router.isFallback) {
+    return (
+      <PageWrapper>
+        <PodcastGrid>
+          <div>
+            <div style={{ textAlign: 'center', padding: '50px 0' }}>
+              <p>Cargando episodios...</p>
+            </div>
+          </div>
+        </PodcastGrid>
+      </PageWrapper>
+    );
+  }
 
   if (error || allEpisodesError) return <div>Failed to load episodes</div>;
   if (!episodes) return <div>Loading...</div>;
@@ -350,45 +372,41 @@ export default function EpisodesPage({
 }
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const client = createClient();
-  const episodes = getAllMarkdownEpisodes(['slug', 'category']);
-  const prismicEpisodes = await client.getAllByType('episode');
+  try {
+    const client = createClient();
+    const episodes = getAllMarkdownEpisodes(['slug', 'category']);
 
-  let paths = [];
+    let prismicEpisodes = [];
+    try {
+      // Intentar obtener episodios de Prismic con un timeout más largo
+      prismicEpisodes = await client.getAllByType('episode');
+    } catch (error) {
+      console.error(
+        'Error al obtener episodios de Prismic en getStaticPaths:',
+        error,
+      );
+      // Continuar con un array vacío si falla
+    }
 
-  // Generate paths for /podcast/episodios
-  paths.push({ params: { params: [] } });
+    // Generar solo las rutas principales para reducir el tiempo de build
+    const paths = [
+      { params: { params: [] } }, // /podcast/episodios
+      ...CATEGORIES.map((category) => ({ params: { params: [category] } })), // /podcast/episodios/[category]
+    ];
 
-  CATEGORIES.forEach((category) => {
-    // Generate paths for /podcast/episodios/[category]
-    paths.push({ params: { params: [category] } });
+    return {
+      paths,
+      fallback: true, // Cambiar a true para generar páginas bajo demanda
+    };
+  } catch (error) {
+    console.error('Error en getStaticPaths:', error);
 
-    const filteredEpisodes =
-      category.toLowerCase() === 'todas'
-        ? [...episodes, ...prismicEpisodes]
-        : [
-            ...episodes.filter(
-              (ep) => ep.category.toLowerCase() === category.toLowerCase(),
-            ),
-            ...prismicEpisodes.filter(
-              (ep) =>
-                ep.data.introduction[0].category.toLowerCase() ===
-                category.toLowerCase(),
-            ),
-          ];
-
-    const totalPages = Math.ceil(filteredEpisodes.length / EPISODES_PER_PAGE);
-
-    // Generate paths for /podcast/episodios/[category]/[page]
-    Array.from({ length: totalPages }, (_, i) => i + 1).forEach((page) => {
-      paths.push({ params: { params: [category, page.toString()] } });
-    });
-  });
-
-  return {
-    paths,
-    fallback: false,
-  };
+    // Devolver rutas mínimas en caso de error
+    return {
+      paths: [{ params: { params: [] } }],
+      fallback: true,
+    };
+  }
 };
 
 export async function getStaticProps({
@@ -399,99 +417,148 @@ export async function getStaticProps({
   const category = paramsArray[0] || 'todas';
   const page = Number(paramsArray[1]) || 1;
 
-  const client = createClient();
+  try {
+    const client = createClient();
 
-  const markdownEpisodes = getAllMarkdownEpisodes([
-    'title',
-    'guest',
-    'business',
-    'description',
-    'category',
-    'episode',
-    'date',
-    'slug',
-    'spotify',
-    'apple',
-    'google',
-    'youtube',
-  ]) as EpisodeProps[];
+    let prismicEpisodes = [];
+    try {
+      // Intentar obtener episodios de Prismic
+      prismicEpisodes = await client.getAllByType('episode');
+    } catch (prismicError) {
+      console.error('Error al obtener episodios de Prismic:', prismicError);
+      // Continuar con un array vacío si falla
+    }
 
-  const prismicEpisodes = await client.getAllByType('episode');
+    const markdownEpisodes = getAllMarkdownEpisodes([
+      'title',
+      'guest',
+      'business',
+      'description',
+      'category',
+      'episode',
+      'date',
+      'slug',
+      'spotify',
+      'apple',
+      'google',
+      'youtube',
+    ]) as EpisodeProps[];
 
-  const allEpisodes = [...markdownEpisodes, ...prismicEpisodes].sort((a, b) => {
-    const episodeA =
-      'data' in a ? a.data.introduction[0].episode : a.episodeNumber;
-    const episodeB =
-      'data' in b ? b.data.introduction[0].episode : b.episodeNumber;
-    return episodeB - episodeA; // Ordenar de mayor a menor (más nuevo a más viejo)
-  });
+    const allEpisodes = [...markdownEpisodes, ...prismicEpisodes].sort(
+      (a, b) => {
+        const episodeA =
+          'data' in a ? a.data.introduction[0].episode : a.episodeNumber;
+        const episodeB =
+          'data' in b ? b.data.introduction[0].episode : b.episodeNumber;
+        return episodeB - episodeA; // Ordenar de mayor a menor (más nuevo a más viejo)
+      },
+    );
 
-  const filteredEpisodes =
-    category.toLowerCase() === 'todas'
-      ? allEpisodes
-      : allEpisodes.filter((episode) => {
-          const episodeCategory =
-            'data' in episode
-              ? episode.data.introduction[0].category
-              : episode.category;
-          return episodeCategory.toLowerCase() === category.toLowerCase();
-        });
+    const filteredEpisodes =
+      category.toLowerCase() === 'todas'
+        ? allEpisodes
+        : allEpisodes.filter((episode) => {
+            const episodeCategory =
+              'data' in episode
+                ? episode.data.introduction[0].category
+                : episode.category;
+            return episodeCategory.toLowerCase() === category.toLowerCase();
+          });
 
-  const totalEpisodes = filteredEpisodes.length;
-  const totalPages = Math.ceil(totalEpisodes / EPISODES_PER_PAGE);
+    const totalEpisodes = filteredEpisodes.length;
+    const totalPages = Math.ceil(totalEpisodes / EPISODES_PER_PAGE);
 
-  const startIndex = (page - 1) * EPISODES_PER_PAGE;
-  const endIndex = startIndex + EPISODES_PER_PAGE;
-  const paginatedEpisodes = filteredEpisodes
-    .slice(startIndex, endIndex)
-    .map((episode) => {
-      if ('data' in episode) {
-        // Es un episodio de Prismic
+    const startIndex = (page - 1) * EPISODES_PER_PAGE;
+    const endIndex = startIndex + EPISODES_PER_PAGE;
+    const paginatedEpisodes = filteredEpisodes
+      .slice(startIndex, endIndex)
+      .map((episode) => {
+        if ('data' in episode) {
+          // Es un episodio de Prismic
+          return {
+            slug: episode.uid,
+            date: episode.data.introduction[0].date,
+            title:
+              'text' in episode.data.introduction[0].title[0]
+                ? episode.data.introduction[0].title[0].text
+                : '',
+            guest: episode.data.introduction[0].guest,
+            business: episode.data.introduction[0].business,
+            category: episode.data.introduction[0].category,
+            description:
+              'text' in episode.data.introduction[0].description[0]
+                ? episode.data.introduction[0].description[0].text
+                : '',
+            episodeNumber: episode.data.introduction[0].episode,
+            spotify: episode.data.introduction[0].spotify,
+            apple: episode.data.introduction[0].apple,
+            youtube: episode.data.introduction[0].youtube,
+            podcastCoverImage: episode.data.images[0].episode.url,
+            episodeSource: 'prismic',
+          };
+        }
+        // Es un episodio de Markdown
         return {
-          slug: episode.uid,
-          date: episode.data.introduction[0].date,
-          title:
-            'text' in episode.data.introduction[0].title[0]
-              ? episode.data.introduction[0].title[0].text
-              : '',
-          guest: episode.data.introduction[0].guest,
-          business: episode.data.introduction[0].business,
-          category: episode.data.introduction[0].category,
-          description:
-            'text' in episode.data.introduction[0].description[0]
-              ? episode.data.introduction[0].description[0].text
-              : '',
-          episodeNumber: episode.data.introduction[0].episode,
-          spotify: episode.data.introduction[0].spotify,
-          apple: episode.data.introduction[0].apple,
-          youtube: episode.data.introduction[0].youtube,
-          podcastCoverImage: episode.data.images[0].episode.url,
-          episodeSource: 'prismic',
+          ...episode,
+          episodeSource: 'markdown',
         };
-      }
-      // Es un episodio de Markdown
-      return {
-        ...episode,
-        episodeSource: 'markdown',
-      };
-    });
+      });
 
-  const pt = ssrLocale({ locale: locale, fileName: 'archivo.json' });
-  if (!pt) {
+    // Obtener traducciones
+    const pt = ssrLocale({ locale: locale, fileName: 'archivo.json' });
+
+    // Si no hay traducciones, usar un objeto predeterminado
+    const defaultPt = {
+      intro: {
+        title: 'Episodios del podcast',
+        p: 'Escucha todos nuestros episodios',
+      },
+      head: {
+        title: 'Episodios | Cuando el río suena',
+        description: 'Todos los episodios del podcast Cuando el río suena',
+        headerTitle: 'Episodios',
+        image: { alt: 'Episodios del podcast' },
+      },
+    };
+
     return {
-      notFound: true,
+      props: {
+        locale: locale || 'es',
+        initialEpisodes: paginatedEpisodes,
+        pt: pt || defaultPt,
+        totalPages,
+        currentPage: page,
+        currentCategory: category,
+        totalEpisodes,
+      },
+      revalidate: 60, // Revalidar cada minuto si hay error
+    };
+  } catch (error) {
+    console.error('Error general en getStaticProps:', error);
+
+    // Devolver datos mínimos para evitar que falle el build
+    return {
+      props: {
+        locale: locale || 'es',
+        initialEpisodes: [],
+        pt: {
+          intro: {
+            title: 'Episodios del podcast',
+            p: 'Escucha todos nuestros episodios',
+          },
+          head: {
+            title: 'Episodios | Cuando el río suena',
+            description: 'Todos los episodios del podcast Cuando el río suena',
+            headerTitle: 'Episodios',
+            image: { alt: 'Episodios del podcast' },
+          },
+        },
+        totalPages: 1,
+        currentPage: 1,
+        currentCategory: category || 'todas',
+        totalEpisodes: 0,
+      },
+      revalidate: 60,
     };
   }
-
-  return {
-    props: {
-      locale: locale || 'es',
-      initialEpisodes: paginatedEpisodes,
-      pt,
-      totalPages,
-      currentPage: page,
-      currentCategory: category,
-      totalEpisodes,
-    },
-  };
 }

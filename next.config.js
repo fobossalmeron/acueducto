@@ -67,16 +67,7 @@ const nextConfig = {
         locale: false,
         permanent: true,
       },
-      {
-        source: '/pitch',
-        destination: '/nosotros',
-        permanent: false,
-      },
-      {
-        source: '/consultoria',
-        destination: '/consultoria-digital',
-        permanent: true,
-      },
+
       {
         source: '/articulos',
         destination: '/blog',
@@ -97,18 +88,6 @@ const nextConfig = {
         source: '/en/privacidad',
         destination: '/en/privacy',
         locale: false,
-        permanent: true,
-      },
-      {
-        source:
-          '/podcast/cual-es-el-trabajo-de-un-director-de-operaciones-en-una-startup',
-        destination:
-          '/podcast/cual-es-el-trabajo-de-una-directora-de-operaciones-en-una-startup',
-        permanent: true,
-      },
-      {
-        source: '/podcast/como-captar-30m-de-usuarios-en-menos-de-un-ano',
-        destination: '/podcast/como-captar-3m-de-usuarios',
         permanent: true,
       },
     ];
