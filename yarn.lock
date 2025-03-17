@@ -3083,6 +3083,7 @@ __metadata:
     remark: "npm:^15.0.1"
     remark-html: "npm:^16.0.1"
     serve: "npm:^14.2.4"
+    shader-doodle: "npm:^0.0.5"
     sharp: "npm:^0.33.5"
     slice-machine-ui: "npm:^2.13.2"
     styled-components: "npm:^6.1.15"
@@ -8808,6 +8809,13 @@ __metadata:
   version: 1.2.0
   resolution: "setprototypeof@npm:1.2.0"
   checksum: 10c0/68733173026766fa0d9ecaeb07f0483f4c2dc70ca376b3b7c40b7cda909f94b0918f6c5ad5ce27a9160bdfb475efaa9d5e705a11d8eaae18f9835d20976028bc
+  languageName: node
+  linkType: hard
+
+"shader-doodle@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "shader-doodle@npm:0.0.5"
+  checksum: 10c0/ad38a6c3a4d231188c74930e4ee175b6bde30c61c195271afff3fc839f602f504a1c150ef1a59ba4ef7c2880965abed4d56eee89ef47c34cf9d25ab577a92cfa
   languageName: node
   linkType: hard
 

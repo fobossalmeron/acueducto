@@ -55,7 +55,7 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
 }) => {
   return (
     <div className="bg-background">
-      <OverlapLayout className="border-card-border mb-20 content-center overflow-hidden border-t px-[4%]">
+      <OverlapLayout className="border-card-border content-center overflow-hidden border-t px-[4%]">
         <OverlapLayout.Header>
           <Title as="h2" className="max-w-[18ch]">
             {title}

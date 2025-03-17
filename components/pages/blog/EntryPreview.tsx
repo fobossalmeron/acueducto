@@ -50,7 +50,7 @@ export const EntryPreview: React.FC<EntryPreviewProps> = ({
           <div>{featured && <p>{excerpt}</p>}</div>
           <CTA $featured={featured}>
             <Link href={'/blog/' + slug}>
-              <Button text="leer más" secondary />
+              <Button text="Leer más" variant="primary" />
             </Link>
           </CTA>
         </Fade>

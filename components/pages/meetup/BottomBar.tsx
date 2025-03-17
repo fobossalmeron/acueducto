@@ -30,7 +30,7 @@ export const BottomBar = ({ date, location }: BottomBarProps) => {
             </div>
           </div>
           <SmoothAnchor targetId="registro">
-            <Button secondary text="regístrate" size="small" />
+            <Button variant="outline" text="Regístrate" size="small" />
           </SmoothAnchor>
         </div>
       </div>

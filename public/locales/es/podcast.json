@@ -2,8 +2,10 @@
   "head": {
     "title": "Cuando el río suena: Podcast de negocios y productos digitales",
     "description": "Podcast de emprendimiento, negocios y productos digitales. Aprende cómo se construyen las empresas de servicios digitales más importantes de Latinoamérica.",
-    "image": { "alt":"Cuando el río suena: un podcast de productos digitales"},
-    "headerTitle": "Podcast" 
+    "image": {
+      "alt": "Cuando el río suena: un podcast de productos digitales"
+    },
+    "headerTitle": "Podcast"
   },
   "intro": {
     "subtitle": "Cuando el río suena </br> <span>Podcast de negocios & productos digitales</span>",
@@ -11,23 +13,23 @@
     "p": "Aprende cómo desarrollan producto las empresas de servicios digitales más importantes de Latinoamérica como Mercado Libre, Rappi, Nu, Uber y más.",
     "form": {
       "email": {
-        "placeholder": "ingresa tu email",
-        "errorMissing": "falta tu email",
-        "errorInvalid": "email inválido"
+        "placeholder": "Ingresa tu email",
+        "errorMissing": "Falta tu email",
+        "errorInvalid": "Email inválido"
       },
-      "submit": "suscríbeme",
-      "loading": "enviando...",
+      "submit": "Suscríbeme",
+      "loading": "Enviando...",
       "success": "¡Éxito! Ahora revisa tu email para confirmar tu suscripción"
     }
   },
   "banner": {
     "title": "aprende desde la experiencia de expertos",
     "p": "Platicamos con los fundadores, operadores e inversionistas de las startups tecnológicas y empresas más exitosas de la región.",
-    "button": "ver último episodio"
+    "button": "Ver último episodio"
   },
   "favorites": {
     "title": "episodios</br> más escuchados",
-    "button": "ver todos los episodios"
+    "button": "Ver todos los episodios"
   },
   "hosts": {
     "title": "conoce a tus anfitriones",

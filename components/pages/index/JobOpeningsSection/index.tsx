@@ -24,7 +24,7 @@ export const JobOpeningsSection = ({
         <OverlapLayout.Content>
           <Paragraph>{p}</Paragraph>
           <Link href="/jobs">
-            <Button text={cta} inverse parentComponent="LogosSection" />
+            <Button text={cta} />
           </Link>
         </OverlapLayout.Content>
       </OverlapLayout>

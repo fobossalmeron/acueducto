@@ -48,6 +48,7 @@
     "react-transition-group": "^4.4.5",
     "remark": "^15.0.1",
     "remark-html": "^16.0.1",
+    "shader-doodle": "^0.0.5",
     "sharp": "^0.33.5",
     "styled-components": "^6.1.15",
     "swr": "^2.3.3",

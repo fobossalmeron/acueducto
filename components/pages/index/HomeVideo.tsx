@@ -1,94 +1,102 @@
-import { useState, useCallback } from "react";
-import styled, { keyframes } from "styled-components";
+import React, { useState, useEffect } from 'react';
 
-const HomeSpline = () => {
+declare module 'react' {
+  namespace JSX {
+    interface IntrinsicElements {
+      'shader-doodle': any;
+    }
+  }
+}
+
+const HomeVideo = () => {
   const [show, setShow] = useState(false);
+  const [shaderLoaded, setShaderLoaded] = useState(false);
 
-  const onLoad = useCallback(() => {
-    setShow(true);
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      import('shader-doodle')
+        .then(() => {
+          console.log('shader-doodle cargado exitosamente');
+          setShaderLoaded(true);
+          setShow(true);
+        })
+        .catch((error) => {
+          console.error('Error cargando shader-doodle:', error);
+        });
+    }
   }, []);
 
   return (
-    <SketchContainer>
-      <Video
-        autoPlay
-        loop
-        muted
-        playsInline
-        onLoadedData={onLoad}
-        $show={show}
-        preload="auto"
-      >
-        <source src="/assets/video/acompressed.mp4" type="video/mp4" />
-        <source src="/assets/video/video.webm" type="video/webm" />
-        Tu navegador no soporta videos en HTML5.
-      </Video>
-      <Overlay $show={show} />
-      <NoiseOverlay $show={show} />
-    </SketchContainer>
+    <div className="fixed inset-0 mx-auto h-[120vh] w-full max-w-[1500px]">
+      {shaderLoaded && (
+        <div
+          className={`fixed inset-0 z-50 h-screen w-screen transition-opacity duration-[2000ms] will-change-[opacity] ${
+            show ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <shader-doodle className="absolute inset-0 h-full w-full">
+            <script type="x-shader/x-fragment">{`
+              precision mediump float;
+
+              // Función para generar ruido
+              float noise(vec2 st) {
+                return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+              }
+
+              float rand(float x) {
+                return fract(sin(x) * 12345.6789);
+              }
+
+              void main() {
+                vec2 st = gl_FragCoord.xy / u_resolution.xy;
+                float t = u_time * 0.2; // Movimiento más lento
+
+                // Centro del blob que se mueve
+                vec2 blobCenter = vec2(
+                    0.5 + sin(t * 0.7) * 0.3 + sin(t * 0.4) * 0.2,
+                    0.5 + cos(t * 0.5) * 0.2 + cos(t * 0.3) * 0.3
+                );
+
+                // Distancia al centro del blob
+                float dist = length(st - blobCenter);
+                
+                // Ruido para deformar el blob
+                float deformation = noise(st * 3.0 + t * vec2(0.3, 0.2)) * 0.3;
+                deformation += noise(st * 5.0 - t * vec2(0.2, 0.3)) * 0.2;
+
+                // Forma base del blob
+                float blob = smoothstep(0.4 + deformation, 0.0, dist);
+
+                // Preferencia por el lado derecho
+                float rightBias = smoothstep(0.0, 1.0, st.x) * 0.5 + 0.5;
+                
+                // Color base (accent puro)
+                vec3 baseColor = vec3(0.0, 0.4, 1.0);
+                
+                // Colores de interferencia
+                vec3 interference1 = vec3(0.0, 0.35, 0.9);
+                vec3 interference2 = vec3(0.0, 0.25, 0.95);
+
+                // Mezclamos los colores
+                vec3 color = mix(vec3(0.0), baseColor, blob * rightBias);
+                
+                // Efectos adicionales de ruido
+                float noiseEffect = noise(st * 4.0 + t * vec2(0.4, 0.5));
+                
+                color = mix(color, interference1, noiseEffect * blob * 0.7);
+                color = mix(color, interference2, noiseEffect * blob * 0.4);
+
+                // Intensidad general
+                color *= 1.8;
+
+                gl_FragColor = vec4(color, 1.0);
+              }
+            `}</script>
+          </shader-doodle>
+        </div>
+      )}
+    </div>
   );
 };
 
-export default HomeSpline;
-
-const SketchContainer = styled.div`
-  width: 100%;
-  height: 120vh;
-  position: fixed;
-  inset: 0;
-  max-width: 1500px;
-  margin: 0 auto;
-`;
-
-const Video = styled.video<{ $show: boolean }>`
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  mix-blend-mode: multiply;
-  backdrop-filter: blur(5px);
-  transition: opacity 3s ease;
-  opacity: ${({ $show }) => ($show ? 1 : 0)};
-  will-change: opacity;
-`;
-
-const rotate = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-`;
-
-const Overlay = styled.div<{ $show: boolean }>`
-  animation: ${rotate} 400ms infinite steps(4);
-  position: fixed;
-  left: -100%;
-  right: -100%;
-  top: -100%;
-  bottom: -100%;
-  image-rendering: pixelated;
-  background-image: url("/assets/img/layout/basketball.webp");
-  background-repeat: repeat;
-  backdrop-filter: blur(10px);
-  mix-blend-mode: darken;
-  will-change: transform;
-  transition: opacity 2s ease 1s;
-  opacity: ${({ $show }) => ($show ? 0.5 : 0)};
-`;
-
-const NoiseOverlay = styled.div<{ $show: boolean }>`
-  animation: ${rotate} 200ms infinite steps(4);
-  position: fixed;
-  left: -100%;
-  right: -100%;
-  top: -100%;
-  bottom: -100%;
-  image-rendering: pixelated;
-  background-image: url("/assets/img/layout/noise.webp");
-  background-repeat: repeat;
-  mix-blend-mode: multiply;
-  will-change: transform;
-  transition: opacity 2s ease 1s;
-  opacity: ${({ $show }) => ($show ? 1 : 0)};
-`;
+export default HomeVideo;

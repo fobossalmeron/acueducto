@@ -196,11 +196,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
             />
             {errors.message && <span>{text.message.errorMissing}</span>}
           </InputField>
-          <ButtonSubmit
-            text={text.submit}
-            inverse
-            parentComponent="ContactForm"
-          />
+          <ButtonSubmit text={text.submit} className="mt-4 w-fit" />
         </Form>
       </FadeWrapper>
     </CSSTransition>
@@ -298,7 +294,7 @@ const Loading = styled.div`
 
 const Form = styled.form`
   padding: 5% 7.5%;
-  border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
+  border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
   border-radius: 30px;
   margin-top: -10px;
   display: flex;

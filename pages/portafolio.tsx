@@ -23,7 +23,7 @@ export default function Work({ locale, setTitle, pt }: PageProps) {
         en_canonical={'https://acueducto.studio/en/work'}
       />
       <TitleSection {...t.intro} />
-      <CaseList limit={6} />
+      <CaseList cases={t.caseStudies} limit={6} locale={locale} />
       <ContactFooter />
     </PageWrapper>
   );

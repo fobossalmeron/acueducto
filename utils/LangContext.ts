@@ -18,12 +18,14 @@ export type SharedTProps = {
     };
   };
   lang: string;
-  casestudies: Array<{
-    title: string;
-    tags: string;
-    link: string;
-    bg_format?: string;
-  }>;
+  casestudies: {
+    cases: Array<{
+      title: string;
+      tags: string;
+      link: string;
+      bg_format?: string;
+    }>;
+  };
   contact_footer: {
     title: string;
     p: string;

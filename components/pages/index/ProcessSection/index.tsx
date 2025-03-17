@@ -108,7 +108,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
               <p className="text-over-black max-w-md text-base">
                 {agileCard.p}
               </p>
-              <Button inverse text={agileCard.button} />
+              <Button text={agileCard.button} />
             </div>
             <div className="relative">
               <div className="absolute right-0 bottom-0">

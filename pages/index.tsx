@@ -12,13 +12,13 @@ import Head from 'components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
 import FAQSection from 'components/pages/index/FAQ';
 import PageWrapper from 'components/layout/PageWrapper';
-import CaseList from 'components/pages/work/CaseList';
 import { ProblemSection } from 'components/pages/index/ProblemSection';
 import { ProcessSection } from 'components/pages/index/ProcessSection';
 import { StackSection } from 'components/pages/index/StackSection';
 import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 import { JobOpeningsSection } from 'components/pages/index/JobOpeningsSection';
 import { PodcastSection } from 'components/pages/index/PodcastSection';
+import { PortfolioSection } from 'components/pages/index/PortfolioSection';
 import { PageProps } from 'types/PageProps';
 
 const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
@@ -72,7 +72,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
           </LandContainer>
         </Land>
         <div id="removeArrow">
-          <CaseList limit={6} />
+          <PortfolioSection {...t.work} />
         </div>
         <ProblemSection {...t.problem} />
         <ProcessSection {...t.process} />

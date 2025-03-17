@@ -184,7 +184,7 @@ const NavList = styled.div<{ $accentColor?: boolean }>`
   }
   ul {
     list-style: none;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     color: ${(p) =>
       p.$accentColor
         ? p.theme.colors.foreground_lowest

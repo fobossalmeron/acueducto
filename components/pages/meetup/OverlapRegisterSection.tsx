@@ -12,15 +12,12 @@ export function OverlapRegisterSection({
   return (
     <OverlapLayout
       id="registro"
-      className="border-foreground border-t pt-20 pb-0"
+      className="border-foreground-lowest border-t pt-20 pb-0"
     >
       <OverlapLayout.Header>
         <Title className="max-w-[16ch]">¿emocionado? nosotros también</Title>
       </OverlapLayout.Header>
       <OverlapLayout.Content>
-        <p className="text-foreground-low mb-6">
-          Llena el formulario y ven a nuestro meetup
-        </p>
         <MeetupForm
           meetupEdition={meetupEdition}
           googleCalendarEvent={googleCalendarEvent}

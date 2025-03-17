@@ -132,7 +132,7 @@ export function SocialProofSection({
               locale={locale}
               className="mt-22"
             >
-              <Button text={cta} inverse parentComponent="LogosSection" />
+              <Button text={cta} />
             </Link>
           </Fade>
         </div>

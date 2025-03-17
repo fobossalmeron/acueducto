@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const InputField = styled.div`
   width: 100%;
@@ -23,9 +23,9 @@ const InputField = styled.div`
     width: 100%;
     height: 60px;
     font-weight: 100;
-    background-color: ${(p) => p.theme.colors.background};
+    background-color: transparent;
     color: ${(p) => p.theme.colors.foreground_low};
-    border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
+    border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
     transition: 0.4s ease all;
     &::placeholder {
       color: ${(p) => p.theme.colors.foreground_lower};
@@ -124,7 +124,9 @@ export const CheckMark = styled(InputField)`
     border-radius: 10px;
     border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
     z-index: -1;
-    transition: 0.2s ease-in border, 0.1s ease-in background-color;
+    transition:
+      0.2s ease-in border,
+      0.1s ease-in background-color;
   }
 
   @media (hover: hover) and (pointer: fine) {

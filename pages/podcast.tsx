@@ -200,7 +200,7 @@ export default function PodcastLanding({
             <div>
               {lastPrismicEpisode.uid && (
                 <Link href={'/podcast/' + lastPrismicEpisode.uid}>
-                  <Button text={banner.button} />
+                  <Button text={banner.button} variant="secondary" />
                 </Link>
               )}
             </div>

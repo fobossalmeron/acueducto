@@ -14,52 +14,40 @@
     }
   },
   "form": {
-    "p3": "O contesta nuestro cuestionario",
+    "p3": "O contesta nuestro formulario",
     "email": {
-      "label": "email de trabajo",
-      "placeholder": "tu email",
-      "errorMissing": "*falta tu email",
-      "errorInvalid": "*email inválido"
+      "label": "Email de trabajo",
+      "placeholder": "Tu email",
+      "errorMissing": "*Falta tu email",
+      "errorInvalid": "*Email inválido"
     },
     "firstName": {
-      "label": "nombre",
-      "placeholder": "tu nombre",
-      "errorMissing": "*falta tu nombre"
+      "label": "Nombre",
+      "placeholder": "Tu nombre",
+      "errorMissing": "*Falta tu nombre"
     },
     "lastName": {
-      "label": "apellido",
-      "placeholder": "tu apellido",
-      "errorMissing": "*falta tu apellido"
+      "label": "Apellido",
+      "placeholder": "Tu apellido",
+      "errorMissing": "*Falta tu apellido"
     },
     "company": {
-      "label": "tu empresa",
-      "placeholder": "nombre de tu empresa",
-      "errorMissing": "*falta tu empresa"
+      "label": "Tu empresa",
+      "placeholder": "Nombre de tu empresa",
+      "errorMissing": "*Falta tu empresa"
     },
     "job": {
-      "label": "tu puesto",
-      "placeholder": "nombre de tu puesto",
-      "errorMissing": "*falta tu puesto"
-    },
-    "employees": {
-      "label": "número de empleados"
+      "label": "Tu puesto",
+      "placeholder": "Nombre de tu puesto",
+      "errorMissing": "*Falta tu puesto"
     },
     "message": {
-      "label": "¿qué problemas buscas resolver?",
-      "placeholder": "desarrolla tu idea",
-      "errorMissing": "*falta tu idea o proyecto"
+      "label": "¿Qué problemas buscas resolver?",
+      "placeholder": "Desarrolla tu idea",
+      "errorMissing": "*Falta tu idea o proyecto"
     },
-    "phonecheckbox": {
-      "label": "Quiero que me contacten por WhatsApp"
-    },
-    "phone": {
-      "label": "número de teléfono",
-      "placeholder": "tu número de WhatsApp",
-      "errorMissing": "*falta tu número de teléfono",
-      "errorInvalid": "*teléfono inválido (+XX XX XXXX XXXX)"
-    },
-    "submit": "contáctenme",
-    "loading": "enviando...",
+    "submit": "Contáctenme",
+    "loading": "Enviando...",
     "success": {
       "p": "Gracias por contactarnos, te contestaremos lo más pronto posible."
     }

@@ -8,7 +8,7 @@ import { ScheduleItem } from './ScheduleItem';
 
 export function SplitScheduleSection() {
   return (
-    <SplitLayout className="border-foreground border-t">
+    <SplitLayout className="border-foreground-lowest border-t">
       <SplitLayout.Header className="max-h-[300px]">
         <AuxiliaryTitle>¿de qué va?</AuxiliaryTitle>
         <Title as="h2">innovation leaders meetup</Title>

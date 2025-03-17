@@ -1,28 +1,28 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import Link from "next/link";
-import Image, { StaticImageData } from "next/image";
-import { Fade } from "react-awesome-reveal";
-import LangContext from "utils/LangContext";
-import { P, H2 } from "components/shared/Dangerously";
-import BorderLink from "components/shared/BorderedLink";
-import Arrow from "components/shared/Arrow";
-import CaseGrid from "./CaseGrid";
+import React, { useContext } from 'react';
+import styled from 'styled-components';
+import Link from 'next/link';
+import Image, { StaticImageData } from 'next/image';
+import { Fade } from 'react-awesome-reveal';
+import LangContext from 'utils/LangContext';
+import { P, H2 } from 'components/shared/Dangerously';
+import BorderLink from 'components/shared/BorderedLink';
+import Arrow from 'components/shared/Arrow';
+import CaseGrid from './CaseGrid';
 
-import p_cover_borgatta from "public/assets/img/casestudies/borgatta/p_cover.jpg";
-import p_cover_recupera from "public/assets/img/casestudies/recupera/p_cover.jpg";
-import p_cover_wellmee from "public/assets/img/casestudies/wellmee/p_cover.jpg";
-import p_cover_ladanzadelasfieras from "public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg";
-import p_cover_blockstem from "public/assets/img/casestudies/blockstem/p_cover.jpg";
-import p_cover_rahid from "public/assets/img/casestudies/rahid/p_cover.jpg";
+import p_cover_borgatta from 'public/assets/img/casestudies/borgatta/p_cover.jpg';
+import p_cover_recupera from 'public/assets/img/casestudies/recupera/p_cover.jpg';
+import p_cover_wellmee from 'public/assets/img/casestudies/wellmee/p_cover.jpg';
+import p_cover_ladanzadelasfieras from 'public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg';
+import p_cover_blockstem from 'public/assets/img/casestudies/blockstem/p_cover.jpg';
+import p_cover_rahid from 'public/assets/img/casestudies/rahid/p_cover.jpg';
 
 const coverArray: { a: string; c: StaticImageData }[] = [
-  { a: "borgatta", c: p_cover_borgatta },
-  { a: "recupera", c: p_cover_recupera },
-  { a: "wellmee", c: p_cover_wellmee },
-  { a: "ladanzadelasfieras", c: p_cover_ladanzadelasfieras },
-  { a: "blockstem", c: p_cover_blockstem },
-  { a: "rahid", c: p_cover_rahid },
+  { a: 'borgatta', c: p_cover_borgatta },
+  { a: 'recupera', c: p_cover_recupera },
+  { a: 'wellmee', c: p_cover_wellmee },
+  { a: 'ladanzadelasfieras', c: p_cover_ladanzadelasfieras },
+  { a: 'blockstem', c: p_cover_blockstem },
+  { a: 'rahid', c: p_cover_rahid },
 ];
 
 interface StudyProps {
@@ -32,21 +32,23 @@ interface StudyProps {
 }
 
 interface SingleCaseProps extends StudyProps {
-  lang: string;
+  locale: string;
 }
 
-const SingleCase: React.FC<SingleCaseProps> = (props) => {
-  const cover = coverArray.find(({ a }) => a === props.link)?.c;
+function SingleCase({ link, title, tags, locale }: SingleCaseProps) {
+  const cover = coverArray.find(({ a }) => a === link)?.c;
 
-  const PortfolioLink = ({ children, style }: { children: React.ReactNode, style?: React.CSSProperties }) => (
+  const PortfolioLink = ({
+    children,
+    style,
+  }: {
+    children: React.ReactNode;
+    style?: React.CSSProperties;
+  }) => (
     <Link
-      href={"/portafolio/" + props.link}
-      as={
-        props.lang === "en"
-          ? "/work/" + props.link
-          : "/portafolio/" + props.link
-      }
-      locale={props.lang}
+      href={'/portafolio/' + link}
+      as={locale === 'en' ? '/work/' + link : '/portafolio/' + link}
+      locale={locale}
       style={style}
     >
       {children}
@@ -56,39 +58,41 @@ const SingleCase: React.FC<SingleCaseProps> = (props) => {
     <CaseGrid>
       <PortfolioLink>
         <VidContainer>
-          {props.lang === "en" ? "go to project" : "visitar proyecto"}
+          {locale === 'en' ? 'go to project' : 'visitar proyecto'}
           <div className="img_container">
             <Image
               src={cover}
-              alt={props.link}
+              alt={link}
               placeholder="blur"
               fill
               sizes="(min-width: 700px) 50vw, 100vw"
               style={{
-                objectFit: "cover",
+                objectFit: 'cover',
               }}
             />
           </div>
         </VidContainer>
       </PortfolioLink>
       <Info>
-        <PortfolioLink style={{ flexDirection: "column-reverse", display: "flex" }}>
+        <PortfolioLink
+          style={{ flexDirection: 'column-reverse', display: 'flex' }}
+        >
           <Fade cascade damping={0.2}>
-            <Hoverable>{props.title}</Hoverable>
+            <Hoverable>{title}</Hoverable>
 
             <SmallLogo
-              src={`/assets/img/casestudies/${props.link}/p_logo.svg`}
-              alt={`logo_${props.link}`}
+              src={`/assets/img/casestudies/${link}/p_logo.svg`}
+              alt={`logo_${link}`}
             />
           </Fade>
         </PortfolioLink>
         <Flexed>
           <Fade>
-            <P>{props.tags}</P>
+            <P>{tags}</P>
           </Fade>
-          <Fade style={{ alignContent: "flex-end" }}>
+          <Fade style={{ alignContent: 'flex-end' }}>
             <PortfolioLink>
-              {props.lang === "en" ? "go to project" : "visitar proyecto"}
+              {locale === 'en' ? 'go to project' : 'visitar proyecto'}
               <Arrow />
             </PortfolioLink>
           </Fade>
@@ -96,21 +100,28 @@ const SingleCase: React.FC<SingleCaseProps> = (props) => {
       </Info>
     </CaseGrid>
   );
-};
+}
 
-const CaseList: React.FC<{ limit?: number }> = ({ limit }) => {
-  const context = useContext(LangContext);
+function CaseList({
+  limit,
+  cases,
+  locale,
+}: {
+  limit?: number;
+  cases: StudyProps[];
+  locale: string;
+}) {
   return (
     <CaseStudiesWrapper>
-      {(context.casestudies as StudyProps[]).map(function (study, index) {
+      {(cases as StudyProps[]).map(function (study, index) {
         if (limit !== undefined && index + 1 > limit) {
           return null;
         } else {
           return (
             <SingleCase
-              key={"case" + index}
+              key={'case' + index}
               {...study}
-              lang={context.lang}
+              locale={locale}
               link={study.link}
               title={study.title}
               tags={study.tags}
@@ -120,7 +131,7 @@ const CaseList: React.FC<{ limit?: number }> = ({ limit }) => {
       })}
     </CaseStudiesWrapper>
   );
-};
+}
 
 export default React.memo(CaseList);
 

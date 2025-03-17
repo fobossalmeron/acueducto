@@ -3,7 +3,6 @@ import { Title, AuxiliaryTitle } from 'components/ui';
 import { Button } from 'components/ui/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
 import { TalkCard } from './TalkCard';
-// import landBg from 'public/assets/img/layout/meetup/land_bg.png';
 import Image from 'next/image';
 import { SmoothAnchor } from './SmoothAnchor';
 import Look from 'public/assets/img/layout/meetup/look.png';
@@ -33,7 +32,7 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
               {nextEvent.location}, CDMX
             </p>
             <SmoothAnchor targetId="registro">
-              <Button inverse text="regístrate" />
+              <Button text="Regístrate" />
             </SmoothAnchor>
           </div>
         </div>
@@ -43,7 +42,6 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
             {nextEvent.talks.map((talk) => (
               <TalkCard
                 key={talk.guest}
-                title={talk.title}
                 guest={talk.guest}
                 role={talk.role}
                 image={talk.image}

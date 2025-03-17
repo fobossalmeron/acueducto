@@ -11,6 +11,9 @@
     "ctaContact": "Escríbenos",
     "ctaWork": "Ver portafolio"
   },
+  "work": {
+    "title": "experiencias tan bellas como poderosas"
+  },
   "problem": {
     "title": "hablamos negocios, software y diseño",
     "p": "Diseñamos y construimos software. Apps, sitios web, MVPs y plataformas que te permiten ahorrar recursos en tu empresa o hacer más con lo mismo.",

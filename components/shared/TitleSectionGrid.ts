@@ -37,7 +37,7 @@ const TitleSectionGrid = styled.div<{ $borderTop?: boolean; $notSticky?: boolean
   }
   h1:not(.h1) {
     text-transform: uppercase;
-    font-size: 1.3rem;
+    font-size: 1rem;
     letter-spacing: 4px;
     line-height: 140%;
     font-weight: 100;

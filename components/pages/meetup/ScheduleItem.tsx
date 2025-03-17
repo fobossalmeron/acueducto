@@ -10,7 +10,7 @@ export function ScheduleItem({
   image: React.ReactNode;
 }) {
   return (
-    <div className="bg-background-light flex max-w-[445px] flex-col gap-2 rounded-4xl p-6 md:p-8">
+    <div className="primary-card flex max-w-[445px] flex-col gap-2 rounded-4xl p-6 md:p-8">
       {image}
       <div className="flex flex-col gap-0">
         <p className="text-foreground pt-4 text-lg font-medium md:text-xl">

@@ -102,7 +102,7 @@ const NamedForm = ({
               <span>{errors?.email?.message as string}</span>
             </InputField>
 
-            <ButtonSubmit text={text.submit} inverse />
+            <ButtonSubmit text={text.submit} className="mt-3" />
           </form>
         </>
       )}

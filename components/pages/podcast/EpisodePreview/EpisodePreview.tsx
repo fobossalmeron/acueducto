@@ -176,7 +176,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
         <ButtonSpace>
           {simplest && (
             <Link href={`/podcast/${slug}`}>
-              <Button text={text || 'seguir aprendiendo'} inverse />
+              <Button text={text || 'Seguir aprendiendo'} />
             </Link>
           )}
         </ButtonSpace>

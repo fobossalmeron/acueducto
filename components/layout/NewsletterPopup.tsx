@@ -49,7 +49,7 @@ const NewsletterPopup = () => {
     <>
       <NewsWrapper $clickable={showPopup} id="NewsletterPopup">
         <Border>
-          <H4>{newsletter.title}</H4>
+          <H4 className="max-w-[16ch]">{newsletter.title}</H4>
           <p>{newsletter.p}</p>
           <NamedForm
             id="newsletter"
@@ -57,8 +57,8 @@ const NewsletterPopup = () => {
             text={newsletter}
             successMarkup={<Message success>{newsletter.success.p}</Message>}
           />
-          <CrossContainer>
-            <Cross onClick={unlockScreen} />
+          <CrossContainer className="card" onClick={unlockScreen}>
+            <Cross />
           </CrossContainer>
         </Border>
       </NewsWrapper>
@@ -93,12 +93,12 @@ const Message = styled.div<{ success: boolean }>`
 
 const Border = styled.div`
   border: ${(props) => props.theme.stroke} solid
-    ${(props) => props.theme.colors.foreground};
+    ${(props) => props.theme.colors.foreground_lowest};
   background-color: ${(props) => props.theme.colors.background};
-  padding: 10% 15% 14% 15%;
+  padding: 8% 10% 10% 10%;
   border-radius: 30px;
   @media (max-width: 380px) {
-    padding: 10% 10% 14% 10%;
+    padding: 8% 8% 14% 8%;
   }
 `;
 
@@ -109,9 +109,29 @@ const CrossContainer = styled.div`
   position: absolute;
   top: 2.4%;
   right: 3%;
+  cursor: pointer;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition:
+    background-color 0.3s ease,
+    border 0.3s ease;
+  &:hover {
+    border: 1px solid ${(props) => props.theme.colors.accent};
+    svg * {
+      stroke: ${(props) => props.theme.colors.accent};
+    }
+  }
   svg {
     width: 100%;
     cursor: pointer;
+
+    * {
+      stroke: ${(props) => props.theme.colors.foreground_lower};
+      stroke-width: 1;
+      transition: stroke 0.3s ease;
+    }
   }
 `;
 
@@ -131,7 +151,7 @@ const NewsWrapper = styled.div<{ $clickable: boolean }>`
     transform 0.5s ease;
   z-index: 14;
   p {
-    color: ${(props) => props.theme.colors.over_black};
+    color: ${(props) => props.theme.colors.foreground_lower};
     padding-bottom: 20px;
   }
   h4 {

@@ -19,5 +19,5 @@ export const variantStyles: Record<NonNullable<ButtonProps['variant']>, string> 
 // Estilos según el tamaño
 export const sizeStyles: Record<NonNullable<ButtonProps['size']>, string> = {
     default: 'text-lg py-4 px-6',
-    small: 'text-base py-2 px-5',
+    small: 'text-base py-3 px-5',
 }; 

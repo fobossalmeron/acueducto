@@ -98,26 +98,36 @@ export const MeetupForm = ({
       unmountOnExit
     >
       <FadeWrapper>
-        <Form onSubmit={handleSubmit(onSubmitInside)} ref={formRef}>
+        <Form
+          onSubmit={handleSubmit(onSubmitInside)}
+          ref={formRef}
+          className="border-card border"
+        >
+          <p className="text-over-black mt-3 mb-3 max-w-[13ch] text-2xl leading-[115%] font-bold">
+            Regístrate aquí y aparta tu lugar
+          </p>
+          <p className="text-foreground-lower mb-10 text-base">
+            Llena el formulario y ven a nuestro meetup
+          </p>
           <OneLine>
             <InputField>
-              <label htmlFor={`cp_firstName`}>nombre</label>
+              <label htmlFor={`cp_firstName`}>Nombre</label>
               <input
                 name="firstName"
                 id={`cp_firstName`}
                 type="text"
-                placeholder="tu nombre"
+                placeholder="Tu nombre"
                 {...register('firstName', { required: true })}
               />
               {errors.firstName && <span>Por favor ingresa tu nombre</span>}
             </InputField>
             <InputField>
-              <label htmlFor={`cp_lastName`}>apellido</label>
+              <label htmlFor={`cp_lastName`}>Apellido</label>
               <input
                 name="lastName"
                 id={`cp_lastName`}
                 type="text"
-                placeholder="tu apellido"
+                placeholder="Tu apellido"
                 {...register('lastName', { required: true })}
               />
               {errors.lastName && <span>Por favor ingresa tu apellido</span>}
@@ -125,7 +135,7 @@ export const MeetupForm = ({
           </OneLine>
 
           <InputField>
-            <label htmlFor={`cp_email`}>correo electrónico</label>
+            <label htmlFor={`cp_email`}>Correo electrónico</label>
             <input
               name="email"
               id={`cp_email`}
@@ -161,12 +171,12 @@ export const MeetupForm = ({
           </InputField>
 
           <InputField>
-            <label htmlFor={`cp_company`}>tu empresa</label>
+            <label htmlFor={`cp_company`}>Tu empresa</label>
             <input
               name="company"
               id={`cp_company`}
               type="text"
-              placeholder="nombre de tu empresa"
+              placeholder="Nombre de tu empresa"
               {...register('company', { required: true })}
             />
             {errors.company && (
@@ -175,22 +185,18 @@ export const MeetupForm = ({
           </InputField>
 
           <InputField>
-            <label htmlFor={`cp_position`}>tu puesto</label>
+            <label htmlFor={`cp_position`}>Tu puesto</label>
             <input
               name="position"
               id={`cp_position`}
               type="text"
-              placeholder="tu puesto actual"
+              placeholder="Tu puesto actual"
               {...register('position', { required: true })}
             />
             {errors.position && <span>Por favor ingresa tu cargo</span>}
           </InputField>
 
-          <ButtonSubmit
-            text="regístrate"
-            inverse
-            parentComponent="MasterclassFeedbackForm"
-          />
+          <ButtonSubmit text="Regístrate" className="mt-4 w-fit" />
         </Form>
       </FadeWrapper>
     </CSSTransition>
@@ -267,7 +273,7 @@ const Loading = styled.div`
 
 const Form = styled.form`
   padding: 5% 7.5%;
-  border: 2px solid ${(p) => p.theme.colors.foreground_lowest};
+  border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
   border-radius: 30px;
   margin-top: -10px;
   display: flex;
