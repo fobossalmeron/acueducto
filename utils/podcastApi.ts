@@ -42,38 +42,39 @@ export function getAllMarkdownEpisodes(fields = []) {
   return episodes;
 }
 
-export function getNextEpisodeSlug(currentEpisode) {
-  //retreive object with episodes in alphabetical order
-  const allIds = getAllMarkdownEpisodes(["episodeNumber"]);
+export function getPrevEpisodeSlug(currentEpisode) {
+  // Obtener todos los episodios con su número y slug
+  const allEpisodes = getAllMarkdownEpisodes(["episode", "slug"]);
 
+  // Buscar el episodio anterior (currentEpisode - 1)
+  const prevEpisodeNumber = currentEpisode - 1;
+  const prevEpisode = allEpisodes.find(
+    (ep) => ep.episodeNumber === prevEpisodeNumber
+  );
 
-  //turn object into simple array, same order
-  let slugArr: number[] = [];
-  allIds.map((obj) => {
-    for (var [key, value] of Object.entries(obj)) {
-      slugArr.push(value);
-    }
+  // Si encontramos el episodio anterior, devolver su slug
+  if (prevEpisode) {
+    return prevEpisode.slug;
+  }
+
+  // Si no encontramos el episodio anterior, buscar el episodio con el número más cercano
+  // Ordenar episodios por número (de mayor a menor)
+  const sortedEpisodes = [...allEpisodes].sort((a, b) => {
+    const aNum = a.episodeNumber || 0;
+    const bNum = b.episodeNumber || 0;
+    return bNum - aNum;
   });
 
-  //identify next episode number
-  let nextEp = currentEpisode - 1;
+  // Encontrar el primer episodio con número menor que el actual
+  const closestPrevEpisode = sortedEpisodes.find(
+    (ep) => (ep.episodeNumber || 0) < currentEpisode
+  );
 
-  //identify next episode position in array by looking for its episode num in the simple array
-  let nextEpPosInArr = slugArr.indexOf(nextEp, 0);
-
-  //if the next position doesn't exist (last episode + 1), return to first episode
-  //this also prevents mislabeled episodes from breaking 
-  nextEpPosInArr == -1
-    ? (nextEpPosInArr = slugArr.indexOf(slugArr.length, 0))
-    : (nextEpPosInArr = nextEpPosInArr);
-
-  //retreive object with episodes slug in alphabetical order
-  const allSlugs = getAllMarkdownEpisodes(["slug"]);
-
-  //find slug by looking for next episode position in slug array
-  if (nextEpPosInArr == -1) {
-    return allSlugs[33].slug;
-  } else {
-    return allSlugs[nextEpPosInArr].slug;
+  // Si encontramos un episodio cercano, devolver su slug
+  if (closestPrevEpisode) {
+    return closestPrevEpisode.slug;
   }
+
+  // Si todo falla, devolver el episodio más reciente
+  return sortedEpisodes[0]?.slug || '';
 }

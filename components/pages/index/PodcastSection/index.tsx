@@ -23,7 +23,7 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ title, p }) => {
           </Title>
         </OverlapLayout.Header>
         <OverlapLayout.Content>
-          <Paragraph>{p}</Paragraph>
+          <Paragraph dangerouslySetInnerHTML={{ __html: p }} />
           <Fade>
             <Link href="/podcast" passHref locale="es" legacyBehavior>
               <a className="block">

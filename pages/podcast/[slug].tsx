@@ -4,7 +4,7 @@ import markdownToHtml from 'utils/markdownToHtml';
 import {
   getAllMarkdownEpisodes,
   getMarkdownEpisodeBySlug,
-  getNextEpisodeSlug,
+  getPrevEpisodeSlug,
 } from 'utils/podcastApi';
 import Head from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
@@ -148,7 +148,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
   if (matchesMarkdown) {
     episode = await loadMarkdownEpisode(params.slug);
     prevEpisode = await loadPrevMarkdownEpisode(
-      getNextEpisodeSlug(episode.episodeNumber),
+      getPrevEpisodeSlug(episode.episodeNumber),
     );
   } else if (matchesPrismic) {
     const prismicEpisode = await client.getByUID(
@@ -205,7 +205,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       };
     } else {
       // Si no hay episodio previo en Prismic, usar uno de Markdown como fallback
-      prevEpisode = await loadPrevMarkdownEpisode(getNextEpisodeSlug(105));
+      prevEpisode = await loadPrevMarkdownEpisode(getPrevEpisodeSlug(105));
     }
   }
 

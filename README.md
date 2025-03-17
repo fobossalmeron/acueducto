@@ -16,11 +16,9 @@
 
 # TODO
 
-- Los episodios de markdown sugiere el prev incorrecto
 - El search de http://localhost:3000/podcast/episodios/operador está roto
 
 - React share y react-sprint no guantan react 19 ver si se cambian
 
-- Home podcast hay unos <>br
 - clear animation frame
 - metalform está roto

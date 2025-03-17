@@ -228,7 +228,7 @@ export default function PodcastLanding({
         </FeatureList>
         <Fade triggerOnce>
           <Link href="/podcast/episodios">
-            <Button text={favorites.button} inverse />
+            <Button text={favorites.button} />
           </Link>
         </Fade>
       </EpisodesSection>

@@ -4,7 +4,7 @@ import { createClient } from "../../prismicio";
 import { PrismicPodcastEpisode } from "components/pages/podcast/podcast.types";
 import EpisodeProps from 'types/EpisodeProps';
 import { EpisodeSource } from 'types/EpisodeProps';
-const EPISODES_PER_PAGE = 30;
+const EPISODES_PER_PAGE = 20;
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   const { category = 'todas', page = '1' } = req.query;
