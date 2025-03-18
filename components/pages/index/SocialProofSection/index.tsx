@@ -9,6 +9,8 @@ import Image from 'next/image';
 import { OverlapLayout } from 'components/layout/layouts/OverlapLayout';
 import { Title } from 'components/ui/Title';
 import { Paragraph } from 'components/ui/Paragraph';
+import Quotes1 from 'public/assets/img/layout/home/quotes-3.png';
+import Quotes2 from 'public/assets/img/layout/home/quotes-4.png';
 
 interface SocialProofSectionProps {
   intro: {
@@ -93,11 +95,11 @@ export function SocialProofSection({
                       className="card relative overflow-hidden rounded-4xl p-8"
                     >
                       <Image
-                        src={`/assets/img/layout/card-bg-${item.person === 'card-one' ? 'one' : 'two'}.jpg`}
+                        src={item.person === 'card-one' ? Quotes1 : Quotes2}
                         alt="Card background"
-                        width={100}
-                        height={100}
-                        className="object-cover"
+                        width={500}
+                        height={300}
+                        className="absolute top-0 left-0 h-full w-full object-cover"
                       />
                     </div>
                   );

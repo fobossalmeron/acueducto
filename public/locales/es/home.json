@@ -19,19 +19,19 @@
     "p": "Diseñamos y construimos software. Apps, sitios web, MVPs y plataformas que te permiten ahorrar recursos en tu empresa o hacer más con lo mismo.",
     "scenes": [
       {
-        "text": "encontrar talento es tan complicado",
+        "text": "Encontrar talento es tan complicado",
         "profile": "Director TI"
       },
       {
-        "text": "¿cómo integro IA en mi negocio?",
+        "text": "¿Cómo integro IA en mi negocio?",
         "profile": "Emprendedor"
       },
       {
-        "text": "¿cómo pruebo nuevas iniciativas antes de gastar millones?",
+        "text": "¿Cómo pruebo nuevas iniciativas antes de gastar millones?",
         "profile": "CEO"
       },
       {
-        "text": "tengo que mejorar la experiencia digital de mis clientes pronto",
+        "text": "Tengo que mejorar la experiencia digital de mis clientes pronto",
         "profile": "CMO"
       }
     ]
@@ -81,6 +81,7 @@
         "title": "Vercel + AWS"
       }
     ],
+    "sticker": "Acelerado con IA",
     "lastP": "Otras empresas que utilizan este stack"
   },
   "clients": {
@@ -140,7 +141,7 @@
     ]
   },
   "openings": {
-    "title": "forma parte de nuestro equipo",
+    "title": "forma parte</br> de nuestro equipo",
     "p": "¿Quieres unirte a nuestro equipo? Revisa nuestras vacantes.",
     "cta": "Ver vacantes"
   },

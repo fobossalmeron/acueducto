@@ -5,9 +5,8 @@ import { Fade } from 'react-awesome-reveal';
 import { OverlapLayout } from 'components/layout/layouts/OverlapLayout';
 import { Title } from 'components/ui/Title';
 import { Paragraph } from 'components/ui/Paragraph';
-import BroadcastRouter from 'components/pages/podcast/BroadcastRouter';
-import PodcastCover from 'public/assets/img/layout/podcast_cover.png';
-
+import { Button } from 'components/ui/Button';
+import PodcastCover from 'public/assets/img/layout/home/pod.png';
 interface PodcastSectionProps {
   title: string;
   p: string;
@@ -25,26 +24,22 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ title, p }) => {
         <OverlapLayout.Content>
           <Paragraph dangerouslySetInnerHTML={{ __html: p }} />
           <Fade>
-            <Link href="/podcast" passHref locale="es" legacyBehavior>
-              <a className="block">
-                <div className="relative">
-                  <Image
-                    src={PodcastCover}
-                    width={230}
-                    height={230}
-                    alt="Cuando el río suena"
-                    className="hover:border-accent rounded-[35px] border-[2.5px] border-transparent transition-all duration-300 ease-out"
-                  />
-                </div>
-              </a>
-            </Link>
-            <BroadcastRouter
-              trackClicks
-              episodeNumber={3}
-              spotify="https://open.spotify.com/show/2YLB7SOeJsLp5DtDuIwX8t"
-              apple="https://podcasts.apple.com/us/podcast/cuando-el-r%C3%ADo-suena/id1500473556"
-              youtube="https://www.youtube.com/watch?v=k4CDIGcQ3gc&list=PLX3VC_2vq4TTRsyLoyWOHutWND0hQt9lD"
+            <Image
+              src={PodcastCover}
+              alt="Cuando el río suena"
+              width={320}
+              height={320}
             />
+            <Link
+              href="/podcast"
+              passHref
+              locale="es"
+              className="flex flex-col justify-start"
+            >
+              <div className="mt-10">
+                <Button text="Ver podcast" />
+              </div>
+            </Link>
           </Fade>
         </OverlapLayout.Content>
       </OverlapLayout>

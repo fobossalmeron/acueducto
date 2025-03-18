@@ -93,9 +93,6 @@ const TitleSectionGrid = styled.div<{ $borderTop?: boolean; $notSticky?: boolean
     }
   }
   @media (max-width: 1100px) {
-    h1:not(.h1) {
-      font-size: 1.3rem;
-    }
     & > div:not(:nth-of-type(1)) {
       grid-column: 5 / span 6;
     }

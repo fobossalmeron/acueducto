@@ -38,7 +38,7 @@ const ContactFooter = () => {
 export default React.memo(ContactFooter);
 
 const Grid = styled(TitleSectionGrid)`
-  background-color: ${(props) => props.theme.colors.accent};
+  background-color: ${(props) => props.theme.colors.accent} !important;
   box-shadow: 0px -3px 10px rgba(0, 0, 0, 0.1);
   padding: 10% 4% 20% 4%;
   .h1 {
