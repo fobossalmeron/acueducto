@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
 declare module 'react' {
   namespace JSX {
@@ -11,12 +11,21 @@ declare module 'react' {
 const HomeVideo = () => {
   const [show, setShow] = useState(false);
   const [shaderLoaded, setShaderLoaded] = useState(false);
+  const shaderRef = useRef<any>(null);
 
   useEffect(() => {
+    // Agregar polyfill para clearAnimationFrame
+    if (typeof window !== 'undefined' && !window.clearAnimationFrame) {
+      window.clearAnimationFrame = window.cancelAnimationFrame;
+    }
+
+    let shaderDoodleModule: any = null;
+
     if (typeof window !== 'undefined') {
       import('shader-doodle')
-        .then(() => {
+        .then((module) => {
           console.log('shader-doodle cargado exitosamente');
+          shaderDoodleModule = module;
           setShaderLoaded(true);
           setShow(true);
         })
@@ -24,6 +33,35 @@ const HomeVideo = () => {
           console.error('Error cargando shader-doodle:', error);
         });
     }
+
+    // Función de limpieza para cuando el componente se desmonta
+    return () => {
+      // Asegurarse de que clearAnimationFrame esté definido
+      if (typeof window !== 'undefined' && !window.clearAnimationFrame) {
+        window.clearAnimationFrame = window.cancelAnimationFrame;
+      }
+
+      if (shaderRef.current) {
+        // Intentamos acceder a cualquier método de limpieza que pueda tener el componente shader-doodle
+        if (typeof shaderRef.current.cancelAnimationFrame === 'function') {
+          shaderRef.current.cancelAnimationFrame();
+        }
+
+        // También podemos intentar detener cualquier animación en curso
+        if (window.cancelAnimationFrame && shaderRef.current._animationFrame) {
+          window.cancelAnimationFrame(shaderRef.current._animationFrame);
+        }
+
+        // Si el componente tiene un método destroy, lo llamamos
+        if (typeof shaderRef.current.destroy === 'function') {
+          try {
+            shaderRef.current.destroy();
+          } catch (e) {
+            console.error('Error al destruir shader-doodle:', e);
+          }
+        }
+      }
+    };
   }, []);
 
   return (
@@ -34,7 +72,10 @@ const HomeVideo = () => {
             show ? 'opacity-100' : 'opacity-0'
           }`}
         >
-          <shader-doodle className="absolute inset-0 h-full w-full">
+          <shader-doodle
+            ref={shaderRef}
+            className="absolute inset-0 h-full w-full"
+          >
             <script type="x-shader/x-fragment">{`
               precision mediump float;
 
@@ -98,5 +139,12 @@ const HomeVideo = () => {
     </div>
   );
 };
+
+// Añadimos tipos en el objeto Window global
+declare global {
+  interface Window {
+    clearAnimationFrame?: (id: number) => void;
+  }
+}
 
 export default HomeVideo;

@@ -49,7 +49,7 @@ const InputField = styled.div`
     }
     @media (hover: hover) and (pointer: fine) {
       &:hover {
-        border: 2px solid ${(p) => p.theme.colors.foreground_low};
+        border: 1px solid ${(p) => p.theme.colors.foreground_low};
         &::placeholder {
           color: ${(p) => p.theme.colors.foreground_lower};
         }

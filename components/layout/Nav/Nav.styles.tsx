@@ -1,5 +1,5 @@
-import styled, { css } from "styled-components";
-import BorderLink from "components/shared/BorderedLink";
+import styled, { css } from 'styled-components';
+import BorderLink from 'components/shared/BorderedLink';
 
 export {
   Hoverable,
@@ -60,7 +60,7 @@ const BottomNav = styled.div`
   display: flex;
   justify-content: space-between;
   border-top: ${(props) =>
-    props.theme.stroke + " solid " + props.theme.colors.foreground_lowest};
+    props.theme.stroke + ' solid ' + props.theme.colors.foreground_lowest};
   position: absolute;
   bottom: 0;
   padding: 2.5% 4%;
@@ -103,7 +103,7 @@ const BottomNav = styled.div`
       span {
         font-size: 1.5rem;
         display: flex;
-        border: 2px solid ${(props) => props.theme.colors.foreground_low};
+        border: 1px solid ${(props) => props.theme.colors.foreground_low};
         border-radius: 24px;
         padding: 6px 16px 9px 16px;
         align-items: center;
@@ -194,14 +194,14 @@ const NavWrapper = styled.div<{ open: boolean }>`
   opacity: 0;
   pointer-events: none;
   z-index: 9;
-  width: calc(100% - 40px);
-  height: calc(100% - 40px);
+  width: calc(100% - 36px);
+  height: calc(100% - 36px);
   background-color: ${(props) => props.theme.colors.background};
   position: fixed;
-  left: 20px;
-  top: 20px;
-  right: 20px;
-  bottom: 20px;
+  left: 18px;
+  top: 18px;
+  right: 18px;
+  bottom: 18px;
   display: grid;
   margin: 0 auto;
   max-width: 1500px;
@@ -213,7 +213,6 @@ const NavWrapper = styled.div<{ open: boolean }>`
   align-items: center;
   pointer-events: none;
   transition: opacity 0.3s ease 150ms;
-  border-radius: 57px;
   a {
     text-decoration: none;
   }
@@ -224,9 +223,6 @@ const NavWrapper = styled.div<{ open: boolean }>`
       pointer-events: auto;
       transition: opacity 0.3s ease;
     `}
-  @media(max-width:1530px) {
-    border-radius: 38px;
-  }
   @media (max-width: 800px) {
     ${NavLink} {
       background-position: 0 93%;

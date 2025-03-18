@@ -39,9 +39,12 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
     <>
       {formStatus === '' && (
         <Fade triggerOnce>
-          <PillForm onSubmit={handleSubmit(onSubmitInside)}>
+          <PillForm
+            onSubmit={handleSubmit(onSubmitInside)}
+            className="w-fit items-center gap-3"
+          >
             <InputField>
-              <label htmlFor={`${id}email`}>email</label>
+              <label htmlFor={`${id}email`}>Email</label>
               <input
                 name="email"
                 id={`${id}email`}
@@ -57,7 +60,7 @@ const MetalForm = ({ text, onSubmit, id }: MetalFormProps) => {
                 })}
               />
               {errors?.email && (
-                <Fade>
+                <Fade className="absolute -bottom-8">
                   <span>{errors?.email?.message as string}</span>
                 </Fade>
               )}
@@ -89,61 +92,27 @@ const PillForm = styled.form`
   display: flex;
   margin-top: 6%;
   text-align: left;
+  background-color: ${(p) => p.theme.colors.background};
+  padding: 10px 10px;
+  border-radius: 400px;
+  border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
   & div:nth-of-type(1) {
     width: auto;
     margin: 0;
     input {
-      border-radius: 100px 0 0 100px;
-      height: 57px;
-      padding: 11px 16px 16px 24px;
-    }
-    span {
-      background-color: #cc2e44;
-      color: ${(p) => p.theme.colors.foreground};
-      border-radius: 50px;
-      width: auto;
-      display: flex;
-      padding: 6px 18px 10px;
-      margin-top: 5px;
-      align-self: flex-start;
-      position: absolute;
-      bottom: -50px;
-    }
-    label {
-      opacity: 0;
-      font-size: 0;
-      margin: 0;
+      border-radius: 200px;
+      height: 100% !important;
+      padding-left: 22px;
+      padding-top: 18px;
+      padding-bottom: 19px;
     }
   }
-  & div:nth-of-type(2) {
-    border-radius: 0px 100px 100px 0;
+  label {
+    opacity: 0;
+    font-size: 0;
     margin: 0;
-    margin-left: -2px;
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
   }
   @media (max-width: 800px) {
-    flex-direction: column;
-    & div:nth-of-type(1) {
-      max-width: 350px;
-      input {
-        border-radius: 100px;
-        height: 57px;
-        padding: 11px 16px 16px 24px;
-      }
-      span {
-        position: relative;
-        display: inline-block;
-        margin: 0;
-        bottom: -5px;
-      }
-    }
-    & div:nth-of-type(2) {
-      border-radius: 100px;
-      margin-top: 10px;
-      margin-left: inherit;
-      align-self: flex-start;
-      box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
-    }
   }
 `;
 

@@ -13,9 +13,3 @@
 - 🦜 [Twitter](https://twitter.com/acueductostudio)
 - 📷 [Tiktok](https://www.tiktok.com/@acueducto.studio)
 - 🔌 [LinkedIn](https://www.linkedin.com/company/acueductostudio/)
-
-# TODO
-
-- clear animation frame
-- metalform está roto
-- React share y react-sprint no guantan react 19 ver si se cambian4
