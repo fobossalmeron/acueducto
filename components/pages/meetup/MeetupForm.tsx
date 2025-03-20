@@ -103,10 +103,10 @@ export const MeetupForm = ({
           ref={formRef}
           className="border-card border"
         >
-          <p className="text-over-black mt-3 mb-3 max-w-[13ch] text-2xl leading-[115%] font-bold">
+          <p className="text-over-black mt-3 mb-3 max-w-[13ch] text-lg leading-[125%] font-medium md:text-xl">
             Regístrate aquí y aparta tu lugar
           </p>
-          <p className="text-foreground-lower mb-10 text-base">
+          <p className="text-foreground-lower mb-8 text-sm md:mb-10 md:text-base">
             Llena el formulario y ven a nuestro meetup
           </p>
           <OneLine>
@@ -196,7 +196,7 @@ export const MeetupForm = ({
             {errors.position && <span>Por favor ingresa tu cargo</span>}
           </InputField>
 
-          <ButtonSubmit text="Regístrate" className="mt-4 w-fit" />
+          <ButtonSubmit text="Regístrate" className="mt-4 mb-3 w-fit" />
         </Form>
       </FadeWrapper>
     </CSSTransition>
