@@ -16,7 +16,10 @@
 
 TODO:
 
+\*\* Estás en Process Section todavía te falta que sea más fluido aunque el breakpoint de móvil está bien.
+
 - Móvil de arriba hacia abajo.
+- Los botones en active en movil necesitan tener la animación
 - Logos de StackSection pueden mejorar su alineación
 - Portafolio adecuar imágenes
 - Cambiar cambio de idioma a globo

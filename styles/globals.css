@@ -69,4 +69,7 @@
   .primary-card {
     @apply bg-primary-card-background border-primary border;
   }
+  .mobile-max-char {
+    @apply max-sm:max-w-[10ch];
+  }
 }
