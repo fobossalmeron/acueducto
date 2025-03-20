@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import { Fade } from 'react-awesome-reveal';
-
+import styled from 'styled-components';
 import { useLocalizedContent } from 'utils/useLocalizedContent';
 import ssrLocale from 'utils/ssrLocale';
 import { useIsMobile } from 'utils/useIsMobile';
@@ -167,7 +167,9 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             ))}
           </ChallengesContainer>
         </TextColumn>
-        <ScreensAnimation />
+        <Container>
+          <ScreensAnimation />
+        </Container>
       </SecondSection>
       <ThirdSection>
         <TextColumn>
@@ -249,3 +251,7 @@ export const getStaticProps = async (context: any) => {
     },
   };
 };
+
+const Container = styled.div`
+  overflow: hidden;
+`;

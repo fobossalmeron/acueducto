@@ -6,29 +6,32 @@ import dynamic from 'next/dynamic';
 import animationData from 'public/assets/img/casestudies/recupera/lottie-recupera.json';
 import { Fade } from 'react-awesome-reveal';
 import Image from 'next/legacy/image';
+import { OverflowHidden } from './Recupera.styles';
 
 const Lottie = dynamic(() => import('lottie-react'), { ssr: false });
 
 const ScreenAnimation = () => {
   return (
-    <DesktopAnimation>
-      <Fade delay={300} direction="up" triggerOnce className="screen1">
-        <Image src={Screen1} alt="Recupera" />
-      </Fade>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '3%' }}>
-        <Fade delay={400} direction="right" triggerOnce className="screen2">
-          <div className="screen2-container">
-            <Image src={Screen2} alt="Recupera" />
-            <div className="lottie">
-              <Lottie animationData={animationData} loop={true} />
-            </div>
-          </div>
+    <OverflowHidden>
+      <DesktopAnimation>
+        <Fade delay={300} direction="up" triggerOnce className="screen1">
+          <Image src={Screen1} alt="Recupera" />
         </Fade>
-        <Fade delay={420} direction="up" triggerOnce className="screen3">
-          <Image src={Screen3} alt="Recupera" />
-        </Fade>
-      </div>
-    </DesktopAnimation>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '3%' }}>
+          <Fade delay={400} direction="right" triggerOnce className="screen2">
+            <>
+              <Image src={Screen2} alt="Recupera" />
+              <div className="lottie">
+                <Lottie animationData={animationData} loop={true} />
+              </div>
+            </>
+          </Fade>
+          <Fade delay={420} direction="up" triggerOnce className="screen3">
+            <Image src={Screen3} alt="Recupera" />
+          </Fade>
+        </div>
+      </DesktopAnimation>
+    </OverflowHidden>
   );
 };
 

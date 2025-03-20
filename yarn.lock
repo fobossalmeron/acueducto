@@ -3073,7 +3073,6 @@ __metadata:
     react-hook-form: "npm:^7.54.2"
     react-hook-inview: "npm:^4.5.1"
     react-intersection-observer: "npm:^9.16.0"
-    react-linkedin-insight: "npm:^0.1.3"
     react-parallax-tilt: "npm:^1.7.286"
     react-player: "npm:^2.16.0"
     react-scroll: "npm:^1.9.3"
@@ -3518,13 +3517,6 @@ __metadata:
   version: 3.0.2
   resolution: "brcast@npm:3.0.2"
   checksum: 10c0/7a23ec79cac00f3cb5c27e3550103acb369fbf53f5fc93f50be9cddf89247d0a2b8bfc143cb572eb146a65a270c919808efb5f141962899176c8ea1cb2aab17e
-  languageName: node
-  linkType: hard
-
-"browser-or-node@npm:^1.3.0":
-  version: 1.3.0
-  resolution: "browser-or-node@npm:1.3.0"
-  checksum: 10c0/a914790dd6a857149b1bb128a39872a95172f6f1db7824dd014b88cc2f88ce6433013ec83388fff83512fb815e7dc2ea60ddbfe8ff150d4f233092ff0d60ec60
   languageName: node
   linkType: hard
 
@@ -8162,15 +8154,6 @@ __metadata:
   peerDependencies:
     react: ">=0.13"
   checksum: 10c0/ac839438354682cd24306c2d2e8b702dd0a04053dda79a7a4b86b2e53bea06412088c897847a4bc05488f6f6ba69e866b33d89006b469b356981703bf813bdf2
-  languageName: node
-  linkType: hard
-
-"react-linkedin-insight@npm:^0.1.3":
-  version: 0.1.3
-  resolution: "react-linkedin-insight@npm:0.1.3"
-  dependencies:
-    browser-or-node: "npm:^1.3.0"
-  checksum: 10c0/d0207d8c9de9d0e222a5b4b4c30e32e80c661f96db20794e45e1a0987561cd29cb5e28363d95379052753827e6903bc09bb1aa4004f6810adb7a8ad1b3cf7717
   languageName: node
   linkType: hard
 

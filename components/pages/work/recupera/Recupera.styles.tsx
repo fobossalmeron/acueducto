@@ -21,7 +21,12 @@ export {
   ThirdPoint,
   FourthSection,
   DesktopAndMobile,
+  OverflowHidden,
 };
+
+const OverflowHidden = styled.div`
+  overflow: hidden;
+`;
 
 const PageClipperRecupera = styled(PageWrapper)`
   background: ${mainGradient};
@@ -209,6 +214,7 @@ const DesktopAndMobile = styled.div`
   display: flex;
   justify-content: flex-end;
   width: 100%;
+  overflow: hidden;
   margin-top: 3rem;
   img {
     width: 100%;
