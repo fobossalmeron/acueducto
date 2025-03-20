@@ -1,16 +1,13 @@
 import { useRouter } from 'next/router';
-// Componente para renderizar cada etapa del proceso
 interface StageCardProps {
   stage: { title: string; p: string; badge: string };
   stageNumber: string;
-  badge: string;
   className?: string;
 }
 
 export const StageCard: React.FC<StageCardProps> = ({
   stage,
   stageNumber,
-  badge,
   className,
 }) => {
   const router = useRouter();
@@ -25,14 +22,6 @@ export const StageCard: React.FC<StageCardProps> = ({
       </span>
       <h3 className="mb-4 text-xl font-medium">{stage.title}</h3>
       <p className="text-over-black max-w-[40ch] text-sm">{stage.p}</p>
-
-      {/* Badge en la esquina inferior derecha */}
-      <div className="absolute right-6 bottom-6 -rotate-5 rounded-full">
-        <div className="flex h-[100px] w-[100px] flex-col items-center justify-center gap-1 rounded-full border-1 border-[#666666] bg-[#2F333C] px-4 py-2 text-center text-xs shadow-2xl">
-          <span className="text-yellow-400">✦</span>
-          <span className="font-medium text-white">{badge}</span>
-        </div>
-      </div>
     </div>
   );
 };

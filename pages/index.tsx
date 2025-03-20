@@ -10,7 +10,7 @@ import { Button } from 'components/ui/Button/Button';
 import ContactFooter from 'components/layout/footers/ContactFooter';
 import Head from 'components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
-import FAQSection from 'components/pages/index/FAQ';
+import { FAQSection } from 'components/pages/index/FAQSection';
 import PageWrapper from 'components/layout/PageWrapper';
 import { ProblemSection } from 'components/pages/index/ProblemSection';
 import { ProcessSection } from 'components/pages/index/ProcessSection';

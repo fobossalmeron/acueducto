@@ -32,8 +32,8 @@ export const PortfolioSection = ({ title }: { title: string }) => {
             {title}
           </Title>
         </OverlapLayout.Header>
-        <div className="col-span-10 col-start-2 grid grid-cols-1 gap-6 md:grid-cols-2">
-          <div className="grid grid-cols-2 gap-6">
+        <div className="col-span-12 col-start-1 grid grid-cols-1 gap-5 sm:col-span-10 sm:col-start-2 md:grid-cols-2">
+          <div className="grid grid-cols-2 gap-5">
             {caseStudies.slice(0, -1).map((caseStudy, index) => (
               <PortfolioImage
                 key={caseStudy.case}

@@ -17,7 +17,7 @@ export function AgileDevCard({
       <div className="primary-card relative flex overflow-hidden rounded-4xl border bg-[#091A4E]">
         <div className="flex items-end">
           <div className="w-2/3 space-y-4 p-10 pr-2">
-            <p className="text-primary mb-1 text-sm">{auxiliary}</p>
+            <p className="text-accent-light mb-1 text-sm">{auxiliary}</p>
             <h2 className="mb-2 text-xl font-medium text-white">{title}</h2>
             <p className="text-over-black text-base">{p}</p>
             <Button text={button} />

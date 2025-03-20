@@ -13,3 +13,10 @@
 - 🦜 [Twitter](https://twitter.com/acueductostudio)
 - 📷 [Tiktok](https://www.tiktok.com/@acueducto.studio)
 - 🔌 [LinkedIn](https://www.linkedin.com/company/acueductostudio/)
+
+TODO:
+
+- Móvil de arriba hacia abajo.
+- Logos de StackSection pueden mejorar su alineación
+- Portafolio adecuar imágenes
+- Cambiar cambio de idioma a globo

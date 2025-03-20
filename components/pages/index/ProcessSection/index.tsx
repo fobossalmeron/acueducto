@@ -5,6 +5,7 @@ import { Title } from 'components/ui';
 import Image from 'next/image';
 import { StageCard } from './StageCard';
 import { AgileDevCard } from './AgileDevCard';
+import { Badge } from './Badge';
 
 interface ProcessSectionProps {
   title: string;
@@ -43,7 +44,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
 
           {/* Contenedor sin líneas divisorias */}
           <div className="relative pt-2">
-            <div className="absolute top-0 h-full max-h-full w-full">
+            <div className="absolute top-0 h-full max-h-full w-full opacity-50">
               <Image
                 src={'/assets/img/layout/home/lines.svg'}
                 alt="Lines"
@@ -53,18 +54,18 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
             </div>
             {/* Contenido de las tarjetas */}
             <div className="relative grid grid-cols-10">
-              <div className="col-span-10 md:col-span-4">
-                <StageCard
-                  stage={stages[0]}
-                  stageNumber="1"
+              <div className="relative col-span-10 md:col-span-4">
+                <StageCard stage={stages[0]} stageNumber="1" />
+                <Badge
                   badge={stages[0].badge}
+                  className="absolute -top-6 right-6"
                 />
               </div>
-              <div className="col-span-10 md:col-span-6">
-                <StageCard
-                  stage={stages[1]}
-                  stageNumber="2"
+              <div className="relative col-span-10 md:col-span-6">
+                <StageCard stage={stages[1]} stageNumber="2" />
+                <Badge
                   badge={stages[1].badge}
+                  className="absolute right-1 -bottom-3"
                 />
               </div>
             </div>
@@ -77,7 +78,7 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
 
           {/* Segunda fila: Etapa 3 */}
           <div className="relative pt-2 pb-5">
-            <div className="absolute top-0 h-full max-h-full w-full">
+            <div className="absolute top-0 h-full max-h-full w-full opacity-50">
               <Image
                 src={'/assets/img/layout/home/lines.svg'}
                 alt="Lines"
@@ -85,13 +86,13 @@ export const ProcessSection: React.FC<ProcessSectionProps> = ({
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
               />
             </div>
-            <Fade triggerOnce>
-              <StageCard
-                stage={stages[2]}
-                stageNumber="3"
+            <div className="relative">
+              <StageCard stage={stages[2]} stageNumber="3" />
+              <Badge
                 badge={stages[2].badge}
+                className="bg-accent absolute right-6 bottom-1/2 translate-y-1/2 !border-[#7191EF]"
               />
-            </Fade>
+            </div>
           </div>
         </div>
       </OverlapLayout>

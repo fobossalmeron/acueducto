@@ -17,23 +17,21 @@ export const JobOpeningsSection = ({
   cta: string;
 }) => {
   return (
-    <div className="bg-background">
-      <OverlapLayout className="border-card-border mb-0 content-center overflow-hidden border-t">
-        <OverlapLayout.Header>
-          <Title as="h2" dangerouslySetInnerHTML={{ __html: title }} />
-        </OverlapLayout.Header>
-        <OverlapLayout.Content>
-          <Paragraph className="!max-w-[30ch]">{p}</Paragraph>
-          <Link href="/jobs">
-            <Button text={cta} />
-          </Link>
-        </OverlapLayout.Content>
-        <Image
-          src={JobOpenings}
-          alt="Job Openings"
-          className="absolute bottom-0 left-[15%] h-[300px] w-auto"
-        />
-      </OverlapLayout>
-    </div>
+    <OverlapLayout className="bg-background border-foreground-lowest mb-0 content-center overflow-hidden border-t">
+      <OverlapLayout.Header>
+        <Title as="h2" dangerouslySetInnerHTML={{ __html: title }} />
+      </OverlapLayout.Header>
+      <OverlapLayout.Content>
+        <Paragraph className="!max-w-[30ch]">{p}</Paragraph>
+        <Link href="/jobs">
+          <Button text={cta} />
+        </Link>
+      </OverlapLayout.Content>
+      <Image
+        src={JobOpenings}
+        alt="Job Openings"
+        className="absolute bottom-0 left-[15%] h-[300px] w-auto"
+      />
+    </OverlapLayout>
   );
 };

@@ -123,19 +123,19 @@
     "title": "preguntas frecuentes",
     "questions": [
       {
-        "title": "¿qué tipo de proyectos pueden construir?",
+        "title": "¿Qué tipo de proyectos pueden construir?",
         "p": "Prácticamente lo que sea: sitios web, aplicaciones web, aplicaciones móviles, blogs, plataformas, dashboards internos… lo que tu negocio necesite. También podemos ayudarte a automatizar operaciones de negocio con formularios dinámicos, manipulación de data y bases de dato para digitalizar y optimizar tu trabajo."
       },
       {
-        "title": "¿en cuánto tiempo podrían construir algo para mi negocio?",
+        "title": "¿En cuánto tiempo podrían construir algo para mi negocio?",
         "p": "En 10 días puedes probar con usuarios reales un MVP de tu producto. En 20 días puedes lanzar tu MVP."
       },
       {
-        "title": "¿ofrecen servicios de diseño?",
+        "title": "¿Ofrecen servicios de diseño?",
         "p": "Somos un estudio de diseño antes que nada. Estamos convencidos que las increíbles experiencias de usuario también deben ser hermosas."
       },
       {
-        "title": "¿cuánto cuesta un proyecto?",
+        "title": "¿Cuánto cuesta un proyecto?",
         "p": "Cada proyecto tiene una mensualidad fija por lo que sabrás cuánto gastarás desde el principio. Habrá que considerar algunos costos de otras herramientas/servicios que utilicemos para construir tu proyecto. Estos costos serán cobrados directamente a ti de forma transparente."
       }
     ]

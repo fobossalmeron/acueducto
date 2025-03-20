@@ -36,24 +36,26 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
           <Paragraph>{p}</Paragraph>
         </OverlapLayout.Content>
 
-        <div className="col-span-10 col-start-2">
+        <div className="col-span-12 col-start-1 sm:col-span-10 sm:col-start-2">
           <Fade cascade triggerOnce>
             <div className="grid grid-cols-1 gap-5 md:grid-cols-10">
-              <div className="flex flex-col gap-5 md:col-span-4">
+              <div className="col-span-10 flex flex-col gap-5 lg:col-span-4">
                 {/* Scene Card 1 - Left image */}
-                <div className="card overflow-hidden rounded-3xl md:h-1/2">
-                  <div className="flex h-full flex-col md:flex-row">
-                    <div className="h-full flex-shrink-0 md:w-auto">
+                <div className="card h-fit max-h-[133px] overflow-hidden rounded-3xl lg:h-1/2 lg:max-h-1/2">
+                  <div className="flex h-full flex-row justify-between">
+                    <div className="h-full w-1/3">
                       <Image
                         src={Scene1.src}
                         alt={`Imagen de ${scenes[0]?.profile}`}
                         width={150}
                         height={133}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover object-right"
                       />
                     </div>
-                    <div className="flex flex-col items-end px-8 py-6 text-end">
-                      <p className="text-lg">{scenes[0]?.text}</p>
+                    <div className="flex h-fit w-2/3 flex-col items-end px-6 py-4 pl-4 text-end md:px-8 md:py-6">
+                      <p className="max-w-[15ch] text-base lg:text-lg">
+                        {scenes[0]?.text}
+                      </p>
                       <p className="text-foreground-lower mt-1 text-sm">
                         - {scenes[0]?.profile}
                       </p>
@@ -62,19 +64,21 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
                 </div>
 
                 {/* Scene Card 2 - Right image */}
-                <div className="card overflow-hidden rounded-3xl md:h-1/2">
-                  <div className="flex flex-col md:flex-row-reverse">
-                    <div className="flex-shrink-0 md:w-1/3">
+                <div className="card h-fit max-h-[166px] overflow-hidden rounded-3xl lg:h-1/2 lg:max-h-1/2">
+                  <div className="flex h-full flex-row-reverse justify-between">
+                    <div className="h-full w-1/3">
                       <Image
                         src={Scene2.src}
                         alt={`Imagen de ${scenes[1]?.profile}`}
                         width={136}
                         height={162}
-                        className="h-full w-full object-cover"
+                        className="h-full w-full object-cover object-left"
                       />
                     </div>
-                    <div className="flex flex-col px-8 py-6">
-                      <p className="text-lg">{scenes[1]?.text}</p>
+                    <div className="flex h-fit w-2/3 flex-col px-6 py-4 md:px-8 md:py-6">
+                      <p className="max-w-[15ch] text-base lg:text-lg">
+                        {scenes[1]?.text}
+                      </p>
                       <p className="text-foreground-lower mt-1 text-sm">
                         - {scenes[1]?.profile}
                       </p>
@@ -84,15 +88,17 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
               </div>
 
               {/* Scene Card 3 - Bottom image */}
-              <div className="bg-accent overflow-hidden rounded-3xl md:col-span-3 md:h-full">
+              <div className="bg-accent col-span-10 max-h-[240px] overflow-hidden rounded-3xl md:h-full lg:col-span-3 lg:max-h-full">
                 <div className="flex h-full flex-col">
-                  <div className="flex flex-col px-8 py-6 pb-0">
-                    <p className="text-lg">{scenes[2]?.text}</p>
+                  <div className="flex flex-col items-end px-6 py-4 pb-0 text-right md:px-8 md:py-6 lg:items-start lg:text-left">
+                    <p className="max-w-[26ch] text-base lg:max-w-[18ch] lg:text-lg">
+                      {scenes[2]?.text}
+                    </p>
                     <p className="text-foreground-low mt-1 text-sm">
                       - {scenes[2]?.profile}
                     </p>
                   </div>
-                  <div className="mt-auto">
+                  <div className="mt-auto h-auto">
                     <Image
                       src={Scene3.src}
                       alt={`Imagen de ${scenes[2]?.profile}`}
@@ -105,15 +111,17 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
               </div>
 
               {/* Scene Card 4 - Bottom image */}
-              <div className="card overflow-hidden rounded-3xl md:col-span-3">
+              <div className="card col-span-10 overflow-hidden rounded-3xl lg:col-span-3">
                 <div className="flex h-full flex-col">
-                  <div className="flex flex-col px-8 py-6 pb-0">
-                    <p className="text-lg">{scenes[3]?.text}</p>
+                  <div className="flex flex-col px-6 py-4 pb-0 md:px-8 md:py-6">
+                    <p className="max-w-[30ch] text-base lg:max-w-[19ch] lg:text-lg">
+                      {scenes[3]?.text}
+                    </p>
                     <p className="text-foreground-lower mt-1 text-sm">
                       - {scenes[3]?.profile}
                     </p>
                   </div>
-                  <div className="mt-auto">
+                  <div className="mt-auto max-h-[120px] max-w-[350px] self-end lg:h-auto lg:max-h-full">
                     <Image
                       src={Scene4.src}
                       alt={`Imagen de ${scenes[3]?.profile}`}

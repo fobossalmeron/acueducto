@@ -67,7 +67,7 @@ export function SocialProofSection({
           <Paragraph>{intro.p}</Paragraph>
         </OverlapLayout.Content>
 
-        <div className="col-span-full col-start-1 flex flex-col items-center pb-[calc(70px+5%)] md:col-span-10 md:col-start-2">
+        <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
             <span className="text-foreground-lower mb-14 block px-4 text-center">
               {' '}
