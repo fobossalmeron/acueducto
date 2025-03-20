@@ -3,7 +3,6 @@ import { Title, AuxiliaryTitle } from 'components/ui';
 import { Button } from 'components/ui/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
 import { TalkCard } from './TalkCard';
-// import landBg from 'public/assets/img/layout/meetup/land_bg.png';
 import Image from 'next/image';
 import { SmoothAnchor } from './SmoothAnchor';
 import Look from 'public/assets/img/layout/meetup/look.png';

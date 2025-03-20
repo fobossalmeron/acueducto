@@ -13,25 +13,26 @@ const nextEvent = {
   googleCalendarEvent:
     'https://calendar.google.com/calendar/r/eventedit?text=Innovation+Leaders+Meetup&details=Meetup+for+innovation+leaders&location=La+Condesa%2C+06140+Mexico+City%2C+CDMX%2C+Mexico&dates=20250327T180000/20250327T220000&ctz=America/Mexico_City',
   location: 'Condesa',
-  title: 'Itera con el feedback de tus usuarios',
   talks: [
     {
       guest: 'Adriana Malaret',
       image: 'adriana-malaret.png',
       role: 'Head of Product @ Koltin',
-      title: 'Diseñando productos centrados en el usuario',
     },
     {
-      guest: 'Oscar Castillo',
-      image: 'oscar-castillo.png',
-      role: 'CTO @ Stealth Startup',
-      title: 'Innovación en la era de la IA',
+      guest: 'Juan Martín Vignart',
+      image: 'juan-vignart.png',
+      role: 'Country Manager México @ Tiendanube',
+    },
+    {
+      guest: 'Marcos Subía',
+      image: 'marcos-subia.png',
+      role: 'Gerente de Operaciones @ Carryt',
     },
     {
       guest: 'Rodrigo y Artemio',
       image: 'rodrigo-artemio.png',
       role: 'Cofundadores @ Acueducto',
-      title: 'Escalando equipos de ingeniería de alto rendimiento',
     },
   ],
 };

@@ -14,6 +14,7 @@ import { Fade } from 'react-awesome-reveal';
 import { Element } from 'react-scroll';
 import { useSpring, animated } from '@react-spring/web';
 import { InView } from 'react-intersection-observer';
+import { OverflowHidden } from './Recupera.styles';
 
 const ScrollCardAnimation = ({ isMobile }) => {
   const [moveAmount, setMoveAmount] = useState(0);
@@ -50,66 +51,68 @@ const ScrollCardAnimation = ({ isMobile }) => {
   }, [isMobile, animation]);
 
   return (
-    <Fade delay={300} triggerOnce>
-      <InView as="div" onChange={(inView) => setAnimation(inView)}>
-        {!isMobile ? (
-          <PicturesContainerDesktop>
-            <Element className="scroll-element">
-              <animated.div style={card1Animation}>
-                <RowDesktop>
-                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot4} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot2} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot5} alt="Screenshots" withWrapper />
-                </RowDesktop>
-              </animated.div>
-            </Element>
-            <Element className="scroll-element">
-              <animated.div style={card2Animation}>
-                <RowDesktop>
-                  <Picture src={Screenshot6} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot7} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot8} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot9} alt="Screenshots" withWrapper />
-                </RowDesktop>
-              </animated.div>
-            </Element>
-          </PicturesContainerDesktop>
-        ) : (
-          <PicturesContainerMobile>
-            <Element className="scroll-element">
-              <animated.div style={card1Animation}>
-                <FirstRowMobile>
-                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot2} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
-                </FirstRowMobile>
-              </animated.div>
-            </Element>
-            <Element className="scroll-element">
-              <animated.div style={card2Animation}>
-                <SecondRowMobile>
-                  <Picture src={Screenshot3} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot7} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot8} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot1} alt="Screenshots" withWrapper />
-                </SecondRowMobile>
-              </animated.div>
-            </Element>
-            <Element className="scroll-element">
-              <animated.div style={card1Animation}>
-                <FirstRowMobile>
-                  <Picture src={Screenshot6} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot9} alt="Screenshots" withWrapper />
-                  <Picture src={Screenshot5} alt="Screenshots" withWrapper />
-                </FirstRowMobile>
-              </animated.div>
-            </Element>
-          </PicturesContainerMobile>
-        )}
-      </InView>
-    </Fade>
+    <OverflowHidden>
+      <Fade delay={300} triggerOnce>
+        <InView as="div" onChange={(inView) => setAnimation(inView)}>
+          {!isMobile ? (
+            <PicturesContainerDesktop>
+              <Element className="scroll-element">
+                <animated.div style={card1Animation}>
+                  <RowDesktop>
+                    <Picture src={Screenshot1} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot4} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot2} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot3} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot5} alt="Screenshots" withWrapper />
+                  </RowDesktop>
+                </animated.div>
+              </Element>
+              <Element className="scroll-element">
+                <animated.div style={card2Animation}>
+                  <RowDesktop>
+                    <Picture src={Screenshot6} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot7} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot8} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot9} alt="Screenshots" withWrapper />
+                  </RowDesktop>
+                </animated.div>
+              </Element>
+            </PicturesContainerDesktop>
+          ) : (
+            <PicturesContainerMobile>
+              <Element className="scroll-element">
+                <animated.div style={card1Animation}>
+                  <FirstRowMobile>
+                    <Picture src={Screenshot1} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot2} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot3} alt="Screenshots" withWrapper />
+                  </FirstRowMobile>
+                </animated.div>
+              </Element>
+              <Element className="scroll-element">
+                <animated.div style={card2Animation}>
+                  <SecondRowMobile>
+                    <Picture src={Screenshot3} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot7} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot8} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot1} alt="Screenshots" withWrapper />
+                  </SecondRowMobile>
+                </animated.div>
+              </Element>
+              <Element className="scroll-element">
+                <animated.div style={card1Animation}>
+                  <FirstRowMobile>
+                    <Picture src={Screenshot6} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot9} alt="Screenshots" withWrapper />
+                    <Picture src={Screenshot5} alt="Screenshots" withWrapper />
+                  </FirstRowMobile>
+                </animated.div>
+              </Element>
+            </PicturesContainerMobile>
+          )}
+        </InView>
+      </Fade>
+    </OverflowHidden>
   );
 };
 

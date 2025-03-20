@@ -4,6 +4,7 @@ import styled from 'styled-components';
 import { useState } from 'react';
 import { useSpring, animated } from '@react-spring/web';
 import { useEffect } from 'react';
+import { OverflowHidden } from '../recupera/Recupera.styles';
 
 const AnimatedSlideCards = (props) => {
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -55,78 +56,80 @@ const AnimatedSlideCards = (props) => {
   }, [isTablet, props.isMobile]);
 
   return (
-    <Fade delay={300} triggerOnce>
-      <SlideContainer className="slider">
-        <i
-          id="right"
-          onClick={() => handleScroll('right')}
-          style={{
-            cursor:
-              scrollPosition !== 0 && scrollPosition === maxScroll && 'auto',
-            backgroundColor:
-              scrollPosition !== 0 && scrollPosition === maxScroll
-                ? '#7273A2'
-                : '#FCFDFC',
-          }}
-        >
-          <Pin />
-        </i>
-        <PicturesContainer className="carrousel">
-          <animated.div style={animation}>
-            {props?.t.solutions.map((solution, i) => (
-              <SlideCards
-                key={`solution${i}`}
-                $i={i}
-                $centeredCardIndex={centeredCardIndex}
-              >
-                <span>
-                  <h4>{solution.title}</h4>
-                  <p>{solution.p}</p>
-                </span>
-                <Picture
-                  src={`/assets/img/casestudies/wellmee/CardMobile${i + 1}.png`}
-                  alt="Combinator"
-                  width={161}
-                  height={349}
-                />
-                <span className="mobileNavigationIndicators">
-                  {props.t.solutions.map((solution, i) => (
-                    <div
-                      key={`guia${i}`}
-                      style={{
-                        backgroundColor:
-                          centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
-                      }}
-                    ></div>
-                  ))}
-                </span>
-              </SlideCards>
-            ))}
-          </animated.div>
-          <div className="desktopNavigationIndicators">
-            {props.t.solutions.map((solution, i) => (
-              <div
-                key={`guia${i}`}
-                style={{
-                  backgroundColor:
-                    centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
-                }}
-              ></div>
-            ))}
-          </div>
-        </PicturesContainer>
-        <i
-          id="left"
-          onClick={() => scrollPosition !== 0 && handleScroll('left')}
-          style={{
-            cursor: scrollPosition === 0 && 'auto',
-            backgroundColor: scrollPosition === 0 ? '#7273A2' : '#FCFDFC',
-          }}
-        >
-          <Pin />
-        </i>
-      </SlideContainer>
-    </Fade>
+    <OverflowHidden>
+      <Fade delay={300} triggerOnce>
+        <SlideContainer className="slider">
+          <i
+            id="right"
+            onClick={() => handleScroll('right')}
+            style={{
+              cursor:
+                scrollPosition !== 0 && scrollPosition === maxScroll && 'auto',
+              backgroundColor:
+                scrollPosition !== 0 && scrollPosition === maxScroll
+                  ? '#7273A2'
+                  : '#FCFDFC',
+            }}
+          >
+            <Pin />
+          </i>
+          <PicturesContainer className="carrousel">
+            <animated.div style={animation}>
+              {props?.t.solutions.map((solution, i) => (
+                <SlideCards
+                  key={`solution${i}`}
+                  $i={i}
+                  $centeredCardIndex={centeredCardIndex}
+                >
+                  <span>
+                    <h4>{solution.title}</h4>
+                    <p>{solution.p}</p>
+                  </span>
+                  <Picture
+                    src={`/assets/img/casestudies/wellmee/CardMobile${i + 1}.png`}
+                    alt="Combinator"
+                    width={161}
+                    height={349}
+                  />
+                  <span className="mobileNavigationIndicators">
+                    {props.t.solutions.map((solution, i) => (
+                      <div
+                        key={`guia${i}`}
+                        style={{
+                          backgroundColor:
+                            centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
+                        }}
+                      ></div>
+                    ))}
+                  </span>
+                </SlideCards>
+              ))}
+            </animated.div>
+            <div className="desktopNavigationIndicators">
+              {props.t.solutions.map((solution, i) => (
+                <div
+                  key={`guia${i}`}
+                  style={{
+                    backgroundColor:
+                      centeredCardIndex === i ? '#FFFFFF' : '#7273A2',
+                  }}
+                ></div>
+              ))}
+            </div>
+          </PicturesContainer>
+          <i
+            id="left"
+            onClick={() => scrollPosition !== 0 && handleScroll('left')}
+            style={{
+              cursor: scrollPosition === 0 && 'auto',
+              backgroundColor: scrollPosition === 0 ? '#7273A2' : '#FCFDFC',
+            }}
+          >
+            <Pin />
+          </i>
+        </SlideContainer>
+      </Fade>
+    </OverflowHidden>
   );
 };
 
