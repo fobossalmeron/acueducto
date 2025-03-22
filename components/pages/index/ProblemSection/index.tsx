@@ -88,13 +88,13 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
               </div>
 
               {/* Scene Card 3 - Bottom image */}
-              <div className="bg-accent col-span-10 max-h-[240px] overflow-hidden rounded-3xl md:h-full lg:col-span-3 lg:max-h-full">
+              <div className="primary-card col-span-10 max-h-[240px] overflow-hidden rounded-3xl md:h-full lg:col-span-3 lg:max-h-full">
                 <div className="flex h-full flex-col">
                   <div className="flex flex-col items-end px-6 py-4 pb-0 text-right md:px-8 md:py-6 lg:items-start lg:text-left">
                     <p className="max-w-[26ch] text-base lg:max-w-[18ch] lg:text-lg">
                       {scenes[2]?.text}
                     </p>
-                    <p className="text-foreground-low mt-1 text-sm">
+                    <p className="text-foreground-lower mt-1 text-sm">
                       - {scenes[2]?.profile}
                     </p>
                   </div>
