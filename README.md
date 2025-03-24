@@ -18,7 +18,6 @@ TODO:
 
 \*\* Estás en Stack
 
-- Móvil de arriba hacia abajo.
-- Logos de StackSection pueden mejorar su alineación
-- Portafolio adecuar imágenes
+- Botón de mobile menu estilos de button nuevos
+- Portafolio Home adecuar imágenes
 - Cambiar cambio de idioma a globo

@@ -67,20 +67,6 @@
   "stack": {
     "title": ["a powerful stack", "that adapts to yours"],
     "p": "We adapt to the technology you already use and develop your MVPs with modern web technology ready to scale.",
-    "ends": [
-      {
-        "label": "Frontend",
-        "title": "Next.js (React)"
-      },
-      {
-        "label": "Backend",
-        "title": "Serverless or Nestjs"
-      },
-      {
-        "label": "Deploy",
-        "title": "Vercel + AWS"
-      }
-    ],
     "sticker": "Accelerated with AI",
     "lastP": "Other companies using this stack"
   },
@@ -123,19 +109,19 @@
     "title": "frequently asked questions",
     "questions": [
       {
-        "title": "what kind of projects can we build?",
+        "title": "What kind of projects can we build?",
         "p": "Practically anything: websites, web applications, mobile applications, blogs, platforms, internal dashboards... whatever your business needs. We can also help you automate business operations with dynamic forms, data manipulation, and databases to digitize and optimize your work."
       },
       {
-        "title": "how long would it take to build something for my business?",
+        "title": "How long would it take to build something for my business?",
         "p": "In 10 days you can test an MVP of your product with real users. In 20 days you can launch your MVP."
       },
       {
-        "title": "do you offer design services?",
+        "title": "Do you offer design services?",
         "p": "We are a design studio first and foremost. We are convinced that amazing user experiences should also be beautiful."
       },
       {
-        "title": "how much does a project cost?",
+        "title": "How much does a project cost?",
         "p": "Each project has a fixed monthly fee, so you'll know how much you'll spend from the start. We'll need to consider some costs of other tools/services we use to build your project. These costs will be charged directly to you in a transparent manner."
       }
     ]

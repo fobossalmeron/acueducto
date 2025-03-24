@@ -29,6 +29,7 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ title, p }) => {
               alt="Cuando el río suena"
               width={320}
               height={320}
+              className="h-auto w-[70%] sm:h-[320px] sm:w-auto"
             />
             <Link
               href="/podcast"

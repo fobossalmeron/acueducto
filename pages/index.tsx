@@ -79,7 +79,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
         <StackSection {...t.stack} />
         <SocialProofSection {...t.clients} />
         <FAQSection t={t.faq} />
-        <JobOpeningsSection {...t.openings} />
+        {locale === 'es' && <JobOpeningsSection {...t.openings} />}
         <PodcastSection {...t.podcast} />
         <ContactFooter />
       </div>

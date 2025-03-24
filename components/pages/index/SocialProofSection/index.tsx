@@ -35,7 +35,7 @@ export function SocialProofSection({
   cta,
   quotes,
 }: SocialProofSectionProps) {
-  const isMobile = useIsMobile(760);
+  const isMobile = useIsMobile(767);
   const { locale } = useRouter();
 
   // Crear un array con todas las quotes y las cards adicionales
@@ -69,7 +69,7 @@ export function SocialProofSection({
 
         <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
-            <span className="text-foreground-lower mb-14 block px-4 text-center">
+            <span className="text-foreground-lower mb-10 block px-4 text-center sm:mb-14">
               {' '}
               {span}{' '}
             </span>
@@ -78,11 +78,11 @@ export function SocialProofSection({
               width={isMobile ? 550 : 800}
               height={isMobile ? 171 : 120}
               alt="Clientes"
-              className="xs:max-w-[300px] h-auto max-w-[800px] sm:max-w-[450px] md:max-w-[600px] lg:max-w-[700px]"
+              className="h-auto max-w-full sm:max-w-[450px] md:max-w-[600px] lg:max-w-[700px]"
             />
           </Fade>
           <Fade triggerOnce>
-            <span className="text-foreground-lower mt-24 mb-14 block px-4 text-center">
+            <span className="text-foreground-lower mt-24 mb-10 block px-4 text-center sm:mb-14">
               {span2}
             </span>
             <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
@@ -92,14 +92,21 @@ export function SocialProofSection({
                   return (
                     <div
                       key={`card-${index}`}
-                      className="card relative overflow-hidden rounded-4xl p-8"
+                      className={`card relative min-h-[220px] overflow-hidden rounded-4xl ${
+                        item.person === 'card-two' ? 'hidden lg:block' : ''
+                      } ${
+                        item.person === 'card-one'
+                          ? 'scale-x-[-1] lg:scale-x-100'
+                          : ''
+                      }`}
                     >
                       <Image
                         src={item.person === 'card-one' ? Quotes1 : Quotes2}
                         alt="Card background"
                         width={500}
                         height={300}
-                        className="absolute top-0 left-0 h-full w-full object-cover"
+                        sizes="(max-width: 768px) 100vw, 355px"
+                        className="absolute top-0 left-0 h-full w-full object-contain md:object-cover"
                       />
                     </div>
                   );
@@ -107,9 +114,11 @@ export function SocialProofSection({
                 return (
                   <div
                     key={item.person}
-                    className="primary-card flex flex-col justify-center gap-4 rounded-4xl p-9"
+                    className="primary-card flex flex-col justify-center gap-4 rounded-4xl p-6 lg:p-9"
                   >
-                    <p className="text-over-black text-base">{item.text}</p>
+                    <p className="text-over-black text-sm md:text-base">
+                      {item.text}
+                    </p>
                     <div className="flex origin-bottom-left flex-row items-center gap-4 select-none">
                       <Image
                         src={`/assets/img/layout/clients/${item.picture}.jpg`}
@@ -120,7 +129,7 @@ export function SocialProofSection({
                       />
                       <p className="text-foreground-low flex flex-col text-sm">
                         {item.person}{' '}
-                        <span className="text-accent-light text-[1.4rem]">
+                        <span className="text-accent-light text-xs sm:text-[1.4rem]">
                           {item.job}
                         </span>
                       </p>

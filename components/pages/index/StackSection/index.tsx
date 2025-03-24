@@ -56,9 +56,9 @@ export const StackSection: React.FC<StackSectionProps> = ({
                 <div className="flex h-full items-center justify-between">
                   <div className="flex flex-1 flex-col p-6 sm:gap-2 sm:p-8 lg:translate-x-[15%] lg:text-center">
                     <span className="text-over-black text-sm lg:text-base">
-                      {ends[0].label}
+                      Frontend
                     </span>
-                    <h3 className="text-lg lg:text-xl">{ends[0].title}</h3>
+                    <h3 className="text-lg lg:text-xl">Next.js (React)</h3>
                   </div>
                   <div className="order-last flex h-full flex-shrink-0 items-center">
                     <Image
@@ -139,7 +139,7 @@ export const StackSection: React.FC<StackSectionProps> = ({
 
           {/* Companies Section */}
           <div className="mt-10 flex flex-col items-center text-center sm:mt-20">
-            <p className="mb-8 max-w-[25ch] text-base text-[#7D7D7D] sm:max-w-[50ch]">
+            <p className="mb-8 max-w-[25ch] text-sm text-[#7D7D7D] sm:max-w-[50ch] sm:text-base">
               {lastP}
             </p>
             <div className="flex flex-wrap items-center justify-center gap-8 gap-y-6 px-10 sm:gap-12 sm:gap-y-7">

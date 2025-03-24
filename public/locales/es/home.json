@@ -67,20 +67,6 @@
   "stack": {
     "title": ["un stack poderoso", "que se adapta al tuyo"],
     "p": "Nos adaptamos a la tecnología que ya usas y desarrollamos tus MVPs con tecnología web moderna lista para escalar.",
-    "ends": [
-      {
-        "label": "Frontend",
-        "title": "Next.js (React)"
-      },
-      {
-        "label": "Backend",
-        "title": "Serverless o Nestjs"
-      },
-      {
-        "label": "Deploy",
-        "title": "Vercel + AWS"
-      }
-    ],
     "sticker": "Acelerado con IA",
     "lastP": "Otras empresas que utilizan este stack"
   },
@@ -124,7 +110,7 @@
     "questions": [
       {
         "title": "¿Qué tipo de proyectos pueden construir?",
-        "p": "Prácticamente lo que sea: sitios web, aplicaciones web, aplicaciones móviles, blogs, plataformas, dashboards internos… lo que tu negocio necesite. También podemos ayudarte a automatizar operaciones de negocio con formularios dinámicos, manipulación de data y bases de dato para digitalizar y optimizar tu trabajo."
+        "p": "Prácticamente lo que sea: sitios web, aplicaciones web, aplicaciones móviles, blogs, plataformas, dashboards internos… lo que tu negocio necesite. También podemos ayudarte a automatizar operaciones de negocio con formularios dinámicos, manipulación de data y bases de datos para digitalizar y optimizar tu trabajo."
       },
       {
         "title": "¿En cuánto tiempo podrían construir algo para mi negocio?",
