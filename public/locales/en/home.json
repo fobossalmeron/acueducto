@@ -23,7 +23,7 @@
         "profile": "IT Director"
       },
       {
-        "text": "how do I integrate AI into my business?",
+        "text": "how can I integrate AI into my business?",
         "profile": "Entrepreneur"
       },
       {
@@ -43,18 +43,18 @@
     "stages": [
       {
         "title": "we define your MVP",
-        "p": "Together with you, we define the essential functionalities of your Minimum Viable Product and perform an engineering analysis.",
-        "badge": "We validate requirements here"
+        "p": "We define the essential functionalities of your Minimum Viable Product and perform an engineering analysis.",
+        "badge": "Requirements validated"
       },
       {
         "title": "we iterate a prototype",
-        "p": "We program a fully interactive prototype. We test it with real users and iterate based on their feedback.",
-        "badge": "You validate the prototype here"
+        "p": "We code a fully interactive prototype. We test it with real users and iterate based on their feedback.",
+        "badge": "Prototype validated"
       },
       {
         "title": "we integrate and launch",
         "p": "We connect the product to your technology and accompany you in your launch.",
-        "badge": "We launch your MVP"
+        "badge": "MVP launched"
       }
     ],
     "agileCard": {

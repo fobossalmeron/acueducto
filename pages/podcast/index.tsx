@@ -20,11 +20,11 @@ import MetalForm from 'components/shared/MetalForm';
 import ssrLocale from 'utils/ssrLocale';
 import { createContact } from 'utils/brevo';
 import { useIsMobile } from 'utils/useIsMobile';
-import { createClient } from '../prismicio';
+import { createClient } from '../../prismicio';
 import { GetStaticProps } from 'next';
 import { PrismicPodcastEpisode } from 'components/pages/podcast/podcast.types';
 
-import pHosts from '../public/assets/img/layout/hosts.jpg';
+import pHosts from '/public/assets/img/layout/hosts.jpg';
 
 import {
   PodcastGrid,

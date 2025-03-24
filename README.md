@@ -19,5 +19,5 @@ TODO:
 \*\* Estás en Stack
 
 - Botón de mobile menu estilos de button nuevos
-- Portafolio Home adecuar imágenes
 - Cambiar cambio de idioma a globo
+- Falta añadir Fades

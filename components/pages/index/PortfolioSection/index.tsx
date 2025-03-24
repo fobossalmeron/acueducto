@@ -5,7 +5,7 @@ import { PortfolioImage } from './PortfolioImage';
 
 import p_cover_borgatta from 'public/assets/img/casestudies/borgatta/p_cover.jpg';
 import p_cover_recupera from 'public/assets/img/casestudies/recupera/p_cover.jpg';
-import p_cover_wellmee from 'public/assets/img/casestudies/wellmee/p_cover.jpg';
+import np_cover_wellmee from 'public/assets/img/casestudies/wellmee/np_cover.jpg';
 import p_cover_ladanzadelasfieras from 'public/assets/img/casestudies/ladanzadelasfieras/p_cover.jpg';
 import p_cover_blockstem from 'public/assets/img/casestudies/blockstem/p_cover.jpg';
 import p_cover_rahid from 'public/assets/img/casestudies/rahid/p_cover.jpg';
@@ -20,7 +20,7 @@ const caseStudies: { case: string; cover: StaticImageData; color: string }[] = [
     cover: p_cover_ladanzadelasfieras,
     color: '#B92E1D',
   },
-  { case: 'wellmee', cover: p_cover_wellmee, color: '#57DBC5' },
+  { case: 'wellmee', cover: np_cover_wellmee, color: '#57DBC5' },
 ];
 
 export const PortfolioSection = ({ title }: { title: string }) => {
@@ -49,8 +49,8 @@ export const PortfolioSection = ({ title }: { title: string }) => {
 
           <PortfolioImage
             caseStudy={caseStudies[5]}
-            className="aspect-[5/9]"
-            imageSizes="50vw"
+            className="aspect-[10/7] md:aspect-[5/9]"
+            imageSizes="(max-width: 768px) 100vw, 50vw"
           />
         </div>
       </OverlapLayout>

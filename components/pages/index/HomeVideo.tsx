@@ -65,7 +65,7 @@ const HomeVideo = () => {
   }, []);
 
   return (
-    <div className="fixed inset-0 mx-auto h-[120vh] w-full max-w-[1500px]">
+    <div className="fixed inset-0 mx-auto h-[120vh] w-full max-w-[1500px] mix-blend-lighten">
       {shaderLoaded && (
         <div
           className={`fixed inset-0 z-50 h-screen w-screen transition-opacity duration-[2000ms] will-change-[opacity] ${
