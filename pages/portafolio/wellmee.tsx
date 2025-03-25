@@ -58,9 +58,18 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
     isServer: typeof window === 'undefined', // Para ver si es SSR o cliente
   });
 
+  console.log('Wellmee - Contenido inicial (pt):', {
+    hasContent: !!pt,
+    contentStructure: pt ? Object.keys(pt) : [],
+    head: pt?.head ? Object.keys(pt.head) : 'sin head',
+    headValues: pt?.head
+      ? JSON.stringify(pt.head).substring(0, 100) + '...'
+      : 'sin valores',
+  });
+
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.wellmee',
+    fileName: 'work_wellmee',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -69,215 +78,254 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
     hasContent: !!t,
     isServer: typeof window === 'undefined',
     contentKeys: Object.keys(t || {}),
+    headExists: !!t?.head,
+    headKeys: t?.head ? Object.keys(t.head) : 'sin head',
+    headValues: t?.head
+      ? JSON.stringify(t.head).substring(0, 100) + '...'
+      : 'sin valores',
   });
 
   useEffect(() => {
     console.log('Wellmee - useEffect (solo cliente):', {
       hasContent: !!t,
       contentKeys: Object.keys(t || {}),
+      headExists: !!t?.head,
+      headKeys: t?.head ? Object.keys(t.head) : [],
+      headValues: t?.head
+        ? JSON.stringify(t.head).substring(0, 100) + '...'
+        : 'sin valores',
     });
     setLoadAssets(true);
   }, [t]);
 
-  return (
-    <PageClipperWellmee>
-      <Head
-        {...t.head}
-        image={{ fileName: 'og_image_wellmee.png', alt: t.head.image_alt }}
-        es_canonical={'https://acueducto.studio/portafolio/wellmee'}
-        en_canonical={'https://acueducto.studio/en/work/wellmee'}
-      />
-      <Fade delay={300} triggerOnce>
-        <LandSectionWellmee
-          isMobile={isMobile}
-          title={t.head.title}
-          seo_h1={t.head.seo_h1}
-        />
-      </Fade>
-      <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
-        <IntroVideo link={t.link} />
-        <SeoH2>{t.head.description}</SeoH2>
-        <TextColumn>
-          <P className="h2">{t?.intro_section.title}</P>
-          <P>{t?.intro_section.p}</P>
-        </TextColumn>
-        <TextColumn>
-          <P className="h3">
-            {t?.intro_section.characteristics.first.subtitle}
-          </P>
-          <P>{t?.intro_section.characteristics.first.p}</P>
-        </TextColumn>
-        <AnimatedDataCards />
-        <TextColumn>
-          <P className="h3">
-            {t.intro_section.characteristics.second.subtitle}
-          </P>
-          <P>{t.intro_section.characteristics.second.p}</P>
-          <CombinatorContainer>
-            <Picture src={Combinator} alt="Combinator" />
-          </CombinatorContainer>
-        </TextColumn>
-        <TextColumn>
-          <P className="h3">{t.intro_section.characteristics.third.subtitle}</P>
-          <ChallengesContainer>
-            {t?.intro_section.characteristics.third.challenges.map(
-              (challenge: any, i: number) => (
-                <Fade delay={300} triggerOnce key={`challenge${i}`}>
-                  <Challenge>
-                    <span>
-                      <p>{i + 1}</p>
-                    </span>
-                    <div>
-                      <p className="h5">{challenge.title}</p>
-                      <p>{challenge.p}</p>
-                    </div>
-                  </Challenge>
-                </Fade>
-              ),
-            )}
-          </ChallengesContainer>
-        </TextColumn>
-        <UIComponentsAnimation isMobile={isMobile} />
-      </FirstSection>
-      <SecondSection>
-        <TextColumn>
-          <P className="h2">{t?.second_section.title}</P>
-        </TextColumn>
-        {loadAssets && (
-          <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
+  try {
+    return (
+      <PageClipperWellmee>
+        {t?.head ? (
+          <Head
+            {...t.head}
+            image={{ fileName: 'og_image_wellmee.png', alt: t.head.image_alt }}
+            es_canonical={'https://acueducto.studio/portafolio/wellmee'}
+            en_canonical={'https://acueducto.studio/en/work/wellmee'}
+          />
+        ) : (
+          <div style={{ padding: '20px', background: 'red', color: 'white' }}>
+            Error: No se ha podido cargar el contenido de la página
+          </div>
         )}
-      </SecondSection>
-      <ThirdSection>
-        <TextColumn>
-          <P className="h2">{t.third_section.title}</P>
-          <PointContainer>
-            <Fade delay={300} triggerOnce key={'point1'}>
-              <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
+
+        {t?.head && (
+          <Fade delay={300} triggerOnce>
+            <LandSectionWellmee
+              isMobile={isMobile}
+              title={t.head.title}
+              seo_h1={t.head.seo_h1}
+            />
+          </Fade>
+        )}
+
+        <FirstSection>
+          {loadAssets && t?.intro_section?.tags && (
+            <Marquee tags={t.intro_section.tags} />
+          )}
+          {t?.link && <IntroVideo link={t.link} />}
+          {t?.head?.description && <SeoH2>{t.head.description}</SeoH2>}
+          <TextColumn>
+            <P className="h2">{t?.intro_section.title}</P>
+            <P>{t?.intro_section.p}</P>
+          </TextColumn>
+          <TextColumn>
+            <P className="h3">
+              {t?.intro_section.characteristics.first.subtitle}
+            </P>
+            <P>{t?.intro_section.characteristics.first.p}</P>
+          </TextColumn>
+          <AnimatedDataCards />
+          <TextColumn>
+            <P className="h3">
+              {t.intro_section.characteristics.second.subtitle}
+            </P>
+            <P>{t.intro_section.characteristics.second.p}</P>
+            <CombinatorContainer>
+              <Picture src={Combinator} alt="Combinator" />
+            </CombinatorContainer>
+          </TextColumn>
+          <TextColumn>
+            <P className="h3">
+              {t.intro_section.characteristics.third.subtitle}
+            </P>
+            <ChallengesContainer>
+              {t?.intro_section.characteristics.third.challenges.map(
+                (challenge: any, i: number) => (
+                  <Fade delay={300} triggerOnce key={`challenge${i}`}>
+                    <Challenge>
+                      <span>
+                        <p>{i + 1}</p>
+                      </span>
+                      <div>
+                        <p className="h5">{challenge.title}</p>
+                        <p>{challenge.p}</p>
+                      </div>
+                    </Challenge>
+                  </Fade>
+                ),
+              )}
+            </ChallengesContainer>
+          </TextColumn>
+          <UIComponentsAnimation isMobile={isMobile} />
+        </FirstSection>
+        <SecondSection>
+          <TextColumn>
+            <P className="h2">{t?.second_section.title}</P>
+          </TextColumn>
+          {loadAssets && (
+            <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
+          )}
+        </SecondSection>
+        <ThirdSection>
+          <TextColumn>
+            <P className="h2">{t.third_section.title}</P>
+            <PointContainer>
+              <Fade delay={300} triggerOnce key={'point1'}>
+                <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
+                  <div>
+                    <span className="number">
+                      <p>1</p>
+                    </span>
+                    <p>{t?.third_section.points[0].p}</p>
+                  </div>
+                  <Picture
+                    src={'/assets/img/casestudies/wellmee/Point1.png'}
+                    alt="Point"
+                    width={420}
+                    height={263}
+                  />
+                </Point>
+              </Fade>
+            </PointContainer>
+          </TextColumn>
+          <TextColumn>
+            <Fade delay={300} triggerOnce key={'point2'}>
+              <Point>
                 <div>
                   <span className="number">
-                    <p>1</p>
+                    <p>2</p>
                   </span>
-                  <p>{t?.third_section.points[0].p}</p>
+                  <p>{t?.third_section.points[1].p}</p>
                 </div>
-                <Picture
-                  src={'/assets/img/casestudies/wellmee/Point1.png'}
-                  alt="Point"
-                  width={420}
-                  height={263}
-                />
               </Point>
             </Fade>
-          </PointContainer>
-        </TextColumn>
-        <TextColumn>
-          <Fade delay={300} triggerOnce key={'point2'}>
-            <Point>
-              <div>
-                <span className="number">
-                  <p>2</p>
-                </span>
-                <p>{t?.third_section.points[1].p}</p>
-              </div>
-            </Point>
+          </TextColumn>
+          <Fade delay={300} triggerOnce>
+            <StepContainer>
+              {t?.third_section.points[1].steps.map(
+                (step: string, i: number) => (
+                  <Step key={`step${i}`}>
+                    <div>
+                      <Picture
+                        src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
+                        alt="Step"
+                        width={isMobile ? 37 : 48}
+                        height={isMobile ? 37 : 48}
+                      />
+                    </div>
+                    <p>{step}</p>
+                  </Step>
+                ),
+              )}
+            </StepContainer>
           </Fade>
-        </TextColumn>
-        <Fade delay={300} triggerOnce>
-          <StepContainer>
-            {t?.third_section.points[1].steps.map((step: string, i: number) => (
-              <Step key={`step${i}`}>
+          <TextColumn>
+            <Fade delay={300} triggerOnce key={'point3'}>
+              <Point>
                 <div>
-                  <Picture
-                    src={`/assets/img/casestudies/wellmee/Step${i + 1}.svg`}
-                    alt="Step"
-                    width={isMobile ? 37 : 48}
-                    height={isMobile ? 37 : 48}
-                  />
+                  <span className="number">
+                    <p>3</p>
+                  </span>
+                  <p>{t?.third_section.points[2].p}</p>
                 </div>
-                <p>{step}</p>
-              </Step>
-            ))}
-          </StepContainer>
-        </Fade>
-        <TextColumn>
-          <Fade delay={300} triggerOnce key={'point3'}>
-            <Point>
-              <div>
-                <span className="number">
-                  <p>3</p>
-                </span>
-                <p>{t?.third_section.points[2].p}</p>
-              </div>
-            </Point>
-          </Fade>
-        </TextColumn>
-        <AnimationScrollCards isMobile={isMobile} />
-        <TextColumn>
-          <Fade delay={300} triggerOnce key={'point4'}>
-            <Point>
-              <div>
-                <span className="number">
-                  <p>4</p>
-                </span>
-                <p>{t?.third_section.points[3].p}</p>
-              </div>
-              <div className="point4">
-                <Image src={Point4} alt="Point" />
-              </div>
-            </Point>
-          </Fade>
-        </TextColumn>
-        <TextColumn>
-          <P className="h3">{t.third_section.subtitle}</P>
-          <P>{t.third_section.p}</P>
-        </TextColumn>
-        <Fade delay={300} triggerOnce>
-          <ContainerResultCard>
-            {t?.third_section.results.map((result: any, i: number) => (
-              <div className={`result${i}`} key={`result${i}`}>
+              </Point>
+            </Fade>
+          </TextColumn>
+          <AnimationScrollCards isMobile={isMobile} />
+          <TextColumn>
+            <Fade delay={300} triggerOnce key={'point4'}>
+              <Point>
                 <div>
-                  {result.sign && <p className="h5">{result.sign}</p>}
-                  <p className="h3">{result.title}</p>
-                  <p className="h4">{i !== 1 && ' ' + result.first_subtitle}</p>
+                  <span className="number">
+                    <p>4</p>
+                  </span>
+                  <p>{t?.third_section.points[3].p}</p>
                 </div>
-                <p className="h4">{i === 1 && result.first_subtitle}</p>
-                <p className="h4">{result.second_subtitle}</p>
-                <p>{result.p}</p>
-              </div>
-            ))}
-          </ContainerResultCard>
-        </Fade>
-        <Fade delay={300} triggerOnce>
+                <div className="point4">
+                  <Image src={Point4} alt="Point" />
+                </div>
+              </Point>
+            </Fade>
+          </TextColumn>
+          <TextColumn>
+            <P className="h3">{t.third_section.subtitle}</P>
+            <P>{t.third_section.p}</P>
+          </TextColumn>
+          <Fade delay={300} triggerOnce>
+            <ContainerResultCard>
+              {t?.third_section.results.map((result: any, i: number) => (
+                <div className={`result${i}`} key={`result${i}`}>
+                  <div>
+                    {result.sign && <p className="h5">{result.sign}</p>}
+                    <p className="h3">{result.title}</p>
+                    <p className="h4">
+                      {i !== 1 && ' ' + result.first_subtitle}
+                    </p>
+                  </div>
+                  <p className="h4">{i === 1 && result.first_subtitle}</p>
+                  <p className="h4">{result.second_subtitle}</p>
+                  <p>{result.p}</p>
+                </div>
+              ))}
+            </ContainerResultCard>
+          </Fade>
+          <Fade delay={300} triggerOnce>
+            <Image
+              src={Iphone}
+              alt="Iphone"
+              width={902}
+              height={492}
+              placeholder="blur"
+              blurDataURL={Iphone.src}
+              loading="lazy"
+            />
+          </Fade>
+        </ThirdSection>
+        <FourthSection>
+          <TextColumn>
+            <P className="h2">{t.fourth_section.title}</P>
+            <P>{t.fourth_section.p}</P>
+          </TextColumn>
           <Image
-            src={Iphone}
-            alt="Iphone"
-            width={902}
-            height={492}
+            src={Iphone2}
+            alt="Wellmee"
+            width={914}
+            height={836}
             placeholder="blur"
-            blurDataURL={Iphone.src}
+            blurDataURL={Iphone2.src}
             loading="lazy"
           />
-        </Fade>
-      </ThirdSection>
-      <FourthSection>
-        <TextColumn>
-          <P className="h2">{t.fourth_section.title}</P>
-          <P>{t.fourth_section.p}</P>
-        </TextColumn>
-        <Image
-          src={Iphone2}
-          alt="Wellmee"
-          width={914}
-          height={836}
-          placeholder="blur"
-          blurDataURL={Iphone2.src}
-          loading="lazy"
-        />
-      </FourthSection>
-      <NextStudy link="recupera" />
-      <ContactFooter />
-    </PageClipperWellmee>
-  );
+        </FourthSection>
+        <NextStudy link="recupera" />
+        <ContactFooter />
+      </PageClipperWellmee>
+    );
+  } catch (error) {
+    console.error('Wellmee - Error durante el renderizado:', error);
+    return (
+      <PageClipperWellmee>
+        <div style={{ padding: '20px', background: 'red', color: 'white' }}>
+          Error de renderizado: {error.message}
+        </div>
+      </PageClipperWellmee>
+    );
+  }
 };
 
 export default React.memo(Wellmee);
@@ -286,12 +334,22 @@ export const getStaticProps = async (context: any) => {
   try {
     console.log('getStaticProps - Starting:', {
       locale: context.locale,
-      path: 'work.wellmee.json',
+      path: 'work_wellmee.json',
     });
 
     const pt = ssrLocale({
       locale: context.locale,
-      fileName: 'work.wellmee.json',
+      fileName: 'work_wellmee.json',
+    });
+
+    console.log('getStaticProps - SSR content:', {
+      hasContent: !!pt,
+      contentStructure: pt ? Object.keys(pt) : [],
+      hasHead: !!pt?.head,
+      headKeys: pt?.head ? Object.keys(pt.head) : [],
+      headValues: pt?.head
+        ? JSON.stringify(pt.head).substring(0, 100) + '...'
+        : 'sin valores',
     });
 
     if (!pt || !pt.head) {
@@ -315,6 +373,10 @@ export const getStaticProps = async (context: any) => {
     };
   } catch (error) {
     console.error('getStaticProps - Error:', error);
+    console.error('getStaticProps - Error details:', {
+      message: error.message,
+      stack: error.stack,
+    });
     return { notFound: true };
   }
 };

@@ -18,7 +18,23 @@ export const useLocalizedContent = ({
   initialContent,
   onTitleChange,
 }: UseLocalizedContentProps): LocalizedContent => {
-  const [content, setContent] = useState<LocalizedContent>(initialContent);
+  // Logging adicional detallado
+  console.log(`[useLocalizedContent] DEBUG - initialContent estructura:`, {
+    estructura: initialContent ? Object.keys(initialContent) : 'vacío',
+    tieneHead: !!initialContent?.head,
+    headKeys: initialContent?.head
+      ? Object.keys(initialContent.head)
+      : 'sin head',
+    headValues: initialContent?.head
+      ? JSON.stringify(initialContent.head).substring(0, 100) + '...'
+      : 'sin valores',
+    isDefaultExport: !!initialContent?.default,
+    isServer: typeof window === 'undefined',
+  });
+
+  const [content, setContent] = useState<LocalizedContent>(
+    initialContent || {},
+  );
 
   console.log(
     `[useLocalizedContent] Initializing with locale: ${locale}, file: ${fileName}`,
@@ -31,7 +47,7 @@ export const useLocalizedContent = ({
 
   useEffect(() => {
     const loadLocalizedContent = async () => {
-      if (locale === initialContent.locale) {
+      if (locale === initialContent?.locale) {
         console.log(
           '[useLocalizedContent] Using initial content - same locale',
         );
@@ -42,6 +58,12 @@ export const useLocalizedContent = ({
         console.log(
           `[useLocalizedContent] Loading content for ${locale}/${fileName}`,
         );
+
+        // Debugging temporal - contenido del módulo
+        console.log('[useLocalizedContent] DEBUG - Antes de import:', {
+          isServer: typeof window === 'undefined',
+          path: `public/locales/${locale}/${fileName}.json`,
+        });
 
         const newContent = await import(
           `public/locales/${locale}/${fileName}.json`
@@ -54,26 +76,63 @@ export const useLocalizedContent = ({
           newContent,
         });
 
-        setContent(newContent);
+        // Debugging adicional detallado
+        console.log('[useLocalizedContent] DEBUG - Después de import:', {
+          isModule: typeof newContent === 'object',
+          hasDefault: 'default' in newContent,
+          defaultKeys: newContent.default
+            ? Object.keys(newContent.default)
+            : 'sin default',
+          contentType: Object.prototype.toString.call(newContent),
+          directKeys: Object.keys(newContent),
+        });
+
+        // Normalizar el contenido para garantizar consistencia
+        const normalizedContent = {
+          ...initialContent, // Mantener estructura base
+          ...(newContent.default || newContent), // Manejar posible exportación default
+        };
+
+        // Verificación de estructura
+        console.log('[useLocalizedContent] DEBUG - Contenido normalizado:', {
+          hasHead: !!normalizedContent.head,
+          headKeys: normalizedContent.head
+            ? Object.keys(normalizedContent.head)
+            : 'sin head',
+          contentKeys: Object.keys(normalizedContent),
+        });
+
+        setContent(normalizedContent);
 
         if (onTitleChange) {
           onTitleChange(
-            newContent.head?.headerTitle ? newContent.head.headerTitle : '',
+            normalizedContent.head?.headerTitle
+              ? normalizedContent.head.headerTitle
+              : '',
           );
         }
       } catch (error) {
         console.error('[useLocalizedContent] Error loading content:', error);
-        setContent(initialContent);
+        console.error('[useLocalizedContent] DEBUG - Error completo:', {
+          mensaje: error.message,
+          stack: error.stack,
+          fileName,
+          locale,
+        });
+        setContent(initialContent || {});
       }
     };
 
     loadLocalizedContent();
   }, [locale, fileName, onTitleChange, initialContent]);
 
+  // Logging adicional al final
   console.log('[useLocalizedContent] Returning content:', {
     fileName,
     hasContent: !!content,
     contentKeys: Object.keys(content || {}),
+    tieneHead: !!content?.head,
+    headKeys: content?.head ? Object.keys(content.head) : 'sin head',
     locale,
   });
 
