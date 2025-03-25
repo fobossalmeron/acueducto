@@ -52,7 +52,11 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
   const [loadAssets, setLoadAssets] = useState(false);
   const isMobile = useIsMobile();
 
-  console.log('Wellmee - Initial render:', { locale, hasInitialContent: !!pt });
+  console.log('Wellmee - Props recibidas:', {
+    locale,
+    hasInitialContent: !!pt,
+    isServer: typeof window === 'undefined', // Para ver si es SSR o cliente
+  });
 
   const t = useLocalizedContent({
     locale,
@@ -61,15 +65,19 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
     onTitleChange: setTitle,
   });
 
-  // Si no hay contenido, mostrar 404
-  if (!t) {
-    console.log('No content available, returning 404');
-    return null; // Next.js mostrará la página 404 automáticamente
-  }
+  console.log('Wellmee - Después de useLocalizedContent:', {
+    hasContent: !!t,
+    isServer: typeof window === 'undefined',
+    contentKeys: Object.keys(t || {}),
+  });
 
   useEffect(() => {
+    console.log('Wellmee - useEffect (solo cliente):', {
+      hasContent: !!t,
+      contentKeys: Object.keys(t || {}),
+    });
     setLoadAssets(true);
-  }, []);
+  }, [t]);
 
   return (
     <PageClipperWellmee>
@@ -286,16 +294,16 @@ export const getStaticProps = async (context: any) => {
       fileName: 'work.wellmee.json',
     });
 
-    if (!pt) {
-      console.log('getStaticProps - No content found');
-      return {
-        notFound: true,
-      };
+    if (!pt || !pt.head) {
+      console.log('getStaticProps - Invalid content structure:', {
+        hasContent: !!pt,
+        contentKeys: pt ? Object.keys(pt) : [],
+      });
+      return { notFound: true };
     }
 
     console.log('getStaticProps - Success:', {
       locale: context.locale,
-      hasContent: !!pt,
       contentKeys: Object.keys(pt),
     });
 
@@ -306,13 +314,7 @@ export const getStaticProps = async (context: any) => {
       },
     };
   } catch (error) {
-    console.error('getStaticProps - Error:', {
-      locale: context.locale,
-      error,
-      stack: error.stack,
-    });
-    return {
-      notFound: true,
-    };
+    console.error('getStaticProps - Error:', error);
+    return { notFound: true };
   }
 };

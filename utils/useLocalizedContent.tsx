@@ -20,11 +20,16 @@ export const useLocalizedContent = ({
 }: UseLocalizedContentProps): LocalizedContent => {
   const [content, setContent] = useState<LocalizedContent>(initialContent);
 
-  useEffect(() => {
-    console.log(
-      `[useLocalizedContent] Initializing with locale: ${locale}, file: ${fileName}`,
-    );
+  console.log(
+    `[useLocalizedContent] Initializing with locale: ${locale}, file: ${fileName}`,
+  );
+  console.log(`[useLocalizedContent] Estado inicial:`, {
+    fileName,
+    initialContentKeys: Object.keys(initialContent || {}),
+    initialContent,
+  });
 
+  useEffect(() => {
     const loadLocalizedContent = async () => {
       if (locale === initialContent.locale) {
         console.log(
@@ -42,13 +47,13 @@ export const useLocalizedContent = ({
           `public/locales/${locale}/${fileName}.json`
         );
 
-        if (!newContent || Object.keys(newContent).length === 0) {
-          console.error('[useLocalizedContent] Content is empty or invalid');
-          setContent(initialContent);
-          return;
-        }
-
         console.log('[useLocalizedContent] Content loaded successfully');
+        console.log('[useLocalizedContent] Contenido cargado:', {
+          fileName,
+          newContentKeys: Object.keys(newContent || {}),
+          newContent,
+        });
+
         setContent(newContent);
 
         if (onTitleChange) {
@@ -64,6 +69,13 @@ export const useLocalizedContent = ({
 
     loadLocalizedContent();
   }, [locale, fileName, onTitleChange, initialContent]);
+
+  console.log('[useLocalizedContent] Returning content:', {
+    fileName,
+    hasContent: !!content,
+    contentKeys: Object.keys(content || {}),
+    locale,
+  });
 
   return content;
 };
