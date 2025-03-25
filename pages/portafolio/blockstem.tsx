@@ -41,14 +41,9 @@ import {
   Lesson,
   LessonContainer,
 } from 'components/pages/work/blockstem/Blockstem.styles';
+import { PageProps } from 'types/PageProps';
 
-interface BlockstemProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-}
-
-function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
+function Blockstem({ locale, setTitle, pt }: PageProps) {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
 
   useEffect(() => {

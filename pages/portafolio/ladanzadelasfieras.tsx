@@ -53,6 +53,7 @@ import {
   FirstSection,
   LandSection,
 } from 'components/pages/work/ladanzadelasfieras/LaDanzaDeLasFieras.styles';
+import { PageProps } from 'types/PageProps';
 
 const ThePlayer = dynamic(
   () => import('components/pages/work/ladanzadelasfieras/VideoPlayer'),
@@ -62,13 +63,7 @@ const ThePlayer = dynamic(
   },
 );
 
-interface LaDanzaDeLasFierasProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-}
-
-function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
+function LaDanzaDeLasFieras({ locale, setTitle, pt }: PageProps) {
   const [loadAssets, setloadAssets] = useState(false);
   const t = useLocalizedContent({
     locale,
@@ -101,7 +96,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
         </LandSection>
       </Fade>
       <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
+        <Marquee tags={t.intro_section.tags} />
         <IntroVideo link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>

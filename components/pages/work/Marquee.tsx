@@ -1,28 +1,22 @@
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
-import MarqueeHelper from "react-double-marquee";
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+// import MarqueeHelper from "react-double-marquee";
 
-const Marquee = ({
-  tags,
-  amount = 1,
-}: {
-  tags: string[];
-  amount?: number;
-}) => {
+const Marquee = ({ tags, amount = 1 }: { tags: string[]; amount?: number }) => {
   const list = (
     <ul>
       {tags.map((tag, index) => (
-        <li key={index + "h"}>{tag}</li>
+        <li key={index + 'h'}>{tag}</li>
       ))}
     </ul>
   );
   return (
     <TagScroll>
       <Fade triggerOnce>
-        <MarqueeHelper delay={0} childMargin={0}>
+        {/* <MarqueeHelper delay={0} childMargin={0}>
           {list}
           {amount === 2 ? list : null}
-        </MarqueeHelper>
+        </MarqueeHelper> */}
       </Fade>
     </TagScroll>
   );

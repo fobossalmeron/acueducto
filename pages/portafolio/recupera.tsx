@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import Image from 'next/image';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
@@ -37,15 +37,9 @@ import {
   FourthSection,
   DesktopAndMobile,
 } from 'components/pages/work/recupera/Recupera.styles';
+import { PageProps } from 'types/PageProps';
 
-interface RecuperaProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-}
-
-const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
-  const [loadAssets, setLoadAssets] = useState(false);
+const Recupera = ({ locale, setTitle, pt }: PageProps) => {
   const isMobile = useIsMobile();
 
   const {
@@ -61,10 +55,6 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
     initialContent: pt,
     onTitleChange: setTitle,
   });
-
-  useEffect(() => {
-    setLoadAssets(true);
-  }, []);
 
   return (
     <PageClipperRecupera>
@@ -140,20 +130,17 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </LandSection>
       </Fade>
       <FirstSection>
-        {/* {loadAssets && <Marquee tags={intro_section.tags} />} */}
+        <Marquee tags={intro_section.tags} />
         <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} />
         <SeoH2>{head.description}</SeoH2>
-        {/* 
         <TextColumn>
           <P className="h2">{intro_section.title}</P>
           <P>{intro_section.p}</P>
         </TextColumn>
-        */}
         <ScrollCardAnimation isMobile={isMobile} />
         <Quote quote={intro_section.quote} color={'#F4F4F4'} />
       </FirstSection>
       <SecondSection>
-        {/* 
         <TextColumn>
           <P className="h2">{second_section.title}</P>
           <P>{second_section.p}</P>
@@ -170,13 +157,11 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             ))}
           </ChallengesContainer>
         </TextColumn>
-        */}
         <Container>
           <ScreensAnimation />
         </Container>
       </SecondSection>
       <ThirdSection>
-        {/* 
         <TextColumn>
           <P className="h2">{third_section.title}</P>
           <P>{third_section.p}</P>
@@ -194,9 +179,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             <P>{third_section.points.second.p}</P>
           </div>
         </TextColumn>
-        */}
         <UIComponentsAnimation isMobile={isMobile} />
-        {/* 
         <TextColumn>
           <ThirdPoint>
             <P className="h3">{third_section.points.third.subtitle}</P>
@@ -220,15 +203,12 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             </div>
           </ThirdPoint>
         </TextColumn>
-        */}
       </ThirdSection>
       <FourthSection>
-        {/* 
         <TextColumn>
           <P className="h2">{fourth_section.title}</P>
           <P>{fourth_section.p}</P>
         </TextColumn>
-        */}
         <Functionalities isMobile={isMobile} t={fourth_section} />
         <Quote quote={fourth_section.quote} color={'rgb(79, 79, 79)'} />
         <DesktopAndMobile>
@@ -242,7 +222,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
           </div>
         </DesktopAndMobile>
       </FourthSection>
-      {/* <NextStudy link="rahid" /> */}
+      <NextStudy link="rahid" />
       <ContactFooter />
     </PageClipperRecupera>
   );

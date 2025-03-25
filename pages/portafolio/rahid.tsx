@@ -37,14 +37,9 @@ import {
   FirstSection,
   LandSection,
 } from 'components/pages/work/rahid/Rahid.styles';
+import { PageProps } from 'types/PageProps';
 
-interface RahidProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any; // Tipo exacto depende de la estructura de tus datos localizados
-}
-
-function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
+function Rahid({ locale, setTitle, pt }: PageProps): React.ReactElement {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
   const theme = useTheme();
   const backgroundColor = theme.colors.background;
@@ -77,7 +72,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
         </LandSection>
       </Fade>
       <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
+        <Marquee tags={t.intro_section.tags} />
         <IntroVideo link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <TextColumn>

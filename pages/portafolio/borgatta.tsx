@@ -37,15 +37,9 @@ import {
   Results,
   FourthSection,
 } from 'components/pages/work/borgatta/Borgatta.styles';
+import { PageProps } from 'types/PageProps';
 
-interface BorgattaProps {
-  locale: string;
-  setTitle: (title: string) => void;
-  pt: any;
-}
-
-const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
-  const [loadAssets, setloadAssets] = useState(false);
+const Borgatta = ({ locale, setTitle, pt }: PageProps) => {
   const isMobile = useIsMobile(650);
 
   const t = useLocalizedContent({
@@ -54,10 +48,6 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
     initialContent: pt,
     onTitleChange: setTitle,
   });
-
-  useEffect(() => {
-    setloadAssets(true);
-  }, []);
 
   return (
     <PageWrapperBorgatta>
@@ -71,7 +61,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
         <LandSection isMobile={isMobile} title={t.head.seo_h1} />
       </Fade>
       <FirstSection>
-        {/* {loadAssets && <Marquee tags={t.intro_section.tags} />} */}
+        <Marquee tags={t.intro_section.tags} />
         <IntroVideoPadded backgroundColor={'#f7f6f7'} link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <Fade delay={300} triggerOnce>
