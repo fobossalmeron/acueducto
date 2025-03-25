@@ -157,11 +157,12 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
             />
           </Fade>
         )}
-        {/* 
+
         <FirstSection>
           {loadAssets && intro_section.tags && (
             <Marquee tags={intro_section.tags} />
           )}
+          {/* 
           {link && <IntroVideo link={link} />}
           {head.description && <SeoH2>{head.description}</SeoH2>}
           <TextColumn>
@@ -206,9 +207,10 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
               ) || []}
             </ChallengesContainer>
           </TextColumn>
+              */}
           <UIComponentsAnimation isMobile={isMobile} />
         </FirstSection>
-        */}
+
         <SecondSection>
           <TextColumn>
             <P className="h2">{second_section?.title || ''}</P>

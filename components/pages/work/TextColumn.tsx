@@ -1,14 +1,21 @@
-import styled from "styled-components";
-import { Fade } from "react-awesome-reveal";
+import styled from 'styled-components';
+import { Fade } from 'react-awesome-reveal';
+import React from 'react';
 
-const TextColumn = ({ children, padding = 0 }) => (
+const TextColumn = ({
+  children,
+  padding = 0,
+}: {
+  children: React.ReactNode;
+  padding?: number | string;
+}) => (
   <Column $passedPadding={padding}>
     <Fade triggerOnce>{children}</Fade>
   </Column>
 );
 
-const Column = styled.div`
-  padding: ${(props) => (props.$passedPadding ? props.$passedPadding : "0 5%")};
+const Column = styled.div<{ $passedPadding?: number | string }>`
+  padding: ${(props) => (props.$passedPadding ? props.$passedPadding : '0 5%')};
   h2,
   .h2 {
     font-size: 5.8rem;
@@ -26,7 +33,6 @@ const Column = styled.div`
   h3,
   .h3 {
     font-size: 4.5rem;
-    /* margin-bottom: 25px; */
     max-width: 670px;
     font-weight: 300;
     padding: 18% 0 5% 0;
@@ -42,7 +48,7 @@ const Column = styled.div`
   }
   img {
     width: 100%;
-    height:auto;
+    height: auto;
   }
   @media (max-width: 1000px) {
     h2,
