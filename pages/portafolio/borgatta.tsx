@@ -50,7 +50,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
 
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.borgatta',
+    fileName: 'work_borgatta',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -174,7 +174,7 @@ export default React.memo(Borgatta);
 export const getStaticProps = async (context: any) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: 'work.borgatta.json',
+    fileName: 'work_borgatta.json',
   });
   return {
     props: {
