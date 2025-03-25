@@ -50,6 +50,7 @@ interface WellmeeProps {
 
 const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
   const [loadAssets, setLoadAssets] = useState(false);
+  const [contentReady, setContentReady] = useState(false);
   const isMobile = useIsMobile();
 
   console.log('Wellmee - Props recibidas:', {
@@ -85,6 +86,16 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
       : 'sin valores',
   });
 
+  // Desestructurar el contenido para tener valores predeterminados
+  const {
+    head = {},
+    intro_section = {},
+    second_section = {},
+    third_section = {},
+    fourth_section = {},
+    link = '',
+  } = t || {};
+
   useEffect(() => {
     console.log('Wellmee - useEffect (solo cliente):', {
       hasContent: !!t,
@@ -96,66 +107,83 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         : 'sin valores',
     });
     setLoadAssets(true);
-  }, [t]);
+
+    // Verificar si el contenido esencial está disponible
+    if (head?.title && intro_section) {
+      setContentReady(true);
+    }
+  }, [t, head, intro_section]);
+
+  // Mostrar un estado de carga mientras el contenido no esté listo
+  if (!contentReady) {
+    return (
+      <PageClipperWellmee>
+        <div className="flex min-h-screen items-center justify-center p-8">
+          <div className="text-center">
+            <p className="mb-4 text-xl">Cargando contenido...</p>
+          </div>
+        </div>
+      </PageClipperWellmee>
+    );
+  }
 
   try {
     return (
       <PageClipperWellmee>
-        {t?.head ? (
+        {head.title ? (
           <Head
-            {...t.head}
-            image={{ fileName: 'og_image_wellmee.png', alt: t.head.image_alt }}
+            {...head}
+            image={{
+              fileName: 'og_image_wellmee.png',
+              alt: head.image_alt || '',
+            }}
             es_canonical={'https://acueducto.studio/portafolio/wellmee'}
             en_canonical={'https://acueducto.studio/en/work/wellmee'}
           />
-        ) : (
-          <div style={{ padding: '20px', background: 'red', color: 'white' }}>
-            Error: No se ha podido cargar el contenido de la página
-          </div>
-        )}
+        ) : null}
 
-        {t?.head && (
+        {head.title && (
           <Fade delay={300} triggerOnce>
             <LandSectionWellmee
               isMobile={isMobile}
-              title={t.head.title}
-              seo_h1={t.head.seo_h1}
+              title={head.title || ''}
+              seo_h1={head.seo_h1 || ''}
             />
           </Fade>
         )}
 
         <FirstSection>
-          {loadAssets && t?.intro_section?.tags && (
-            <Marquee tags={t.intro_section.tags} />
+          {loadAssets && intro_section.tags && (
+            <Marquee tags={intro_section.tags} />
           )}
-          {t?.link && <IntroVideo link={t.link} />}
-          {t?.head?.description && <SeoH2>{t.head.description}</SeoH2>}
+          {link && <IntroVideo link={link} />}
+          {head.description && <SeoH2>{head.description}</SeoH2>}
           <TextColumn>
-            <P className="h2">{t?.intro_section.title}</P>
-            <P>{t?.intro_section.p}</P>
+            <P className="h2">{intro_section.title || ''}</P>
+            <P>{intro_section.p || ''}</P>
           </TextColumn>
           <TextColumn>
             <P className="h3">
-              {t?.intro_section.characteristics.first.subtitle}
+              {intro_section.characteristics?.first?.subtitle || ''}
             </P>
-            <P>{t?.intro_section.characteristics.first.p}</P>
+            <P>{intro_section.characteristics?.first?.p || ''}</P>
           </TextColumn>
           <AnimatedDataCards />
           <TextColumn>
             <P className="h3">
-              {t.intro_section.characteristics.second.subtitle}
+              {intro_section.characteristics?.second?.subtitle || ''}
             </P>
-            <P>{t.intro_section.characteristics.second.p}</P>
+            <P>{intro_section.characteristics?.second?.p || ''}</P>
             <CombinatorContainer>
               <Picture src={Combinator} alt="Combinator" />
             </CombinatorContainer>
           </TextColumn>
           <TextColumn>
             <P className="h3">
-              {t.intro_section.characteristics.third.subtitle}
+              {intro_section.characteristics?.third?.subtitle || ''}
             </P>
             <ChallengesContainer>
-              {t?.intro_section.characteristics.third.challenges.map(
+              {intro_section.characteristics?.third?.challenges?.map(
                 (challenge: any, i: number) => (
                   <Fade delay={300} triggerOnce key={`challenge${i}`}>
                     <Challenge>
@@ -163,28 +191,28 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                         <p>{i + 1}</p>
                       </span>
                       <div>
-                        <p className="h5">{challenge.title}</p>
-                        <p>{challenge.p}</p>
+                        <p className="h5">{challenge?.title || ''}</p>
+                        <p>{challenge?.p || ''}</p>
                       </div>
                     </Challenge>
                   </Fade>
                 ),
-              )}
+              ) || []}
             </ChallengesContainer>
           </TextColumn>
           <UIComponentsAnimation isMobile={isMobile} />
         </FirstSection>
         <SecondSection>
           <TextColumn>
-            <P className="h2">{t?.second_section.title}</P>
+            <P className="h2">{second_section?.title || ''}</P>
           </TextColumn>
-          {loadAssets && (
-            <AnimationSlideCards t={t?.second_section} isMobile={isMobile} />
+          {loadAssets && second_section && (
+            <AnimationSlideCards t={second_section} isMobile={isMobile} />
           )}
         </SecondSection>
         <ThirdSection>
           <TextColumn>
-            <P className="h2">{t.third_section.title}</P>
+            <P className="h2">{third_section?.title || ''}</P>
             <PointContainer>
               <Fade delay={300} triggerOnce key={'point1'}>
                 <Point style={{ paddingBottom: isMobile ? '49px' : '90px' }}>
@@ -192,7 +220,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                     <span className="number">
                       <p>1</p>
                     </span>
-                    <p>{t?.third_section.points[0].p}</p>
+                    <p>{third_section?.points?.[0]?.p || ''}</p>
                   </div>
                   <Picture
                     src={'/assets/img/casestudies/wellmee/Point1.png'}
@@ -211,14 +239,14 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                   <span className="number">
                     <p>2</p>
                   </span>
-                  <p>{t?.third_section.points[1].p}</p>
+                  <p>{third_section?.points?.[1]?.p || ''}</p>
                 </div>
               </Point>
             </Fade>
           </TextColumn>
           <Fade delay={300} triggerOnce>
             <StepContainer>
-              {t?.third_section.points[1].steps.map(
+              {third_section?.points?.[1]?.steps?.map(
                 (step: string, i: number) => (
                   <Step key={`step${i}`}>
                     <div>
@@ -229,10 +257,10 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                         height={isMobile ? 37 : 48}
                       />
                     </div>
-                    <p>{step}</p>
+                    <p>{step || ''}</p>
                   </Step>
                 ),
-              )}
+              ) || []}
             </StepContainer>
           </Fade>
           <TextColumn>
@@ -242,7 +270,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                   <span className="number">
                     <p>3</p>
                   </span>
-                  <p>{t?.third_section.points[2].p}</p>
+                  <p>{third_section?.points?.[2]?.p || ''}</p>
                 </div>
               </Point>
             </Fade>
@@ -255,7 +283,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
                   <span className="number">
                     <p>4</p>
                   </span>
-                  <p>{t?.third_section.points[3].p}</p>
+                  <p>{third_section?.points?.[3]?.p || ''}</p>
                 </div>
                 <div className="point4">
                   <Image src={Point4} alt="Point" />
@@ -264,25 +292,25 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
             </Fade>
           </TextColumn>
           <TextColumn>
-            <P className="h3">{t.third_section.subtitle}</P>
-            <P>{t.third_section.p}</P>
+            <P className="h3">{third_section?.subtitle || ''}</P>
+            <P>{third_section?.p || ''}</P>
           </TextColumn>
           <Fade delay={300} triggerOnce>
             <ContainerResultCard>
-              {t?.third_section.results.map((result: any, i: number) => (
+              {third_section?.results?.map((result: any, i: number) => (
                 <div className={`result${i}`} key={`result${i}`}>
                   <div>
-                    {result.sign && <p className="h5">{result.sign}</p>}
-                    <p className="h3">{result.title}</p>
+                    {result?.sign && <p className="h5">{result.sign}</p>}
+                    <p className="h3">{result?.title || ''}</p>
                     <p className="h4">
-                      {i !== 1 && ' ' + result.first_subtitle}
+                      {i !== 1 && ' ' + (result?.first_subtitle || '')}
                     </p>
                   </div>
-                  <p className="h4">{i === 1 && result.first_subtitle}</p>
-                  <p className="h4">{result.second_subtitle}</p>
-                  <p>{result.p}</p>
+                  <p className="h4">{i === 1 && result?.first_subtitle}</p>
+                  <p className="h4">{result?.second_subtitle || ''}</p>
+                  <p>{result?.p || ''}</p>
                 </div>
-              ))}
+              )) || []}
             </ContainerResultCard>
           </Fade>
           <Fade delay={300} triggerOnce>
@@ -299,8 +327,8 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         </ThirdSection>
         <FourthSection>
           <TextColumn>
-            <P className="h2">{t.fourth_section.title}</P>
-            <P>{t.fourth_section.p}</P>
+            <P className="h2">{fourth_section?.title || ''}</P>
+            <P>{fourth_section?.p || ''}</P>
           </TextColumn>
           <Image
             src={Iphone2}
@@ -352,10 +380,14 @@ export const getStaticProps = async (context: any) => {
         : 'sin valores',
     });
 
-    if (!pt || !pt.head) {
+    // Validación mejorada para asegurar que tenemos el contenido necesario
+    if (!pt || !pt.head || !pt.head.title || !pt.intro_section) {
       console.log('getStaticProps - Invalid content structure:', {
         hasContent: !!pt,
         contentKeys: pt ? Object.keys(pt) : [],
+        hasHead: !!pt?.head,
+        hasTitle: !!pt?.head?.title,
+        hasIntroSection: !!pt?.intro_section,
       });
       return { notFound: true };
     }

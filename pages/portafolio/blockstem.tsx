@@ -57,7 +57,7 @@ function Blockstem({ locale, setTitle, pt }: BlockstemProps) {
 
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.blockstem',
+    fileName: 'work_blockstem',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -276,7 +276,7 @@ export default React.memo(Blockstem);
 export const getStaticProps = async (context: { locale: string }) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: 'work.blockstem.json',
+    fileName: 'work_blockstem.json',
   });
   return {
     props: {

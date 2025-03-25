@@ -71,7 +71,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
   const [loadAssets, setloadAssets] = useState(false);
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.lddlf',
+    fileName: 'work_lddlf',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -355,7 +355,7 @@ export default React.memo(LaDanzaDeLasFieras);
 export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({
     locale: context.locale as string,
-    fileName: 'work.lddlf.json',
+    fileName: 'work_lddlf.json',
   });
   return {
     props: {

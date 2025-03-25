@@ -18,8 +18,47 @@ export const useLocalizedContent = ({
   initialContent,
   onTitleChange,
 }: UseLocalizedContentProps): LocalizedContent => {
-  // Logging adicional detallado
-  console.log(`[useLocalizedContent] DEBUG - initialContent estructura:`, {
+  const [content, setContent] = useState<LocalizedContent>(
+    initialContent || {},
+  );
+
+  // Función para determinar si estamos en una página que necesita logging detallado
+  const shouldShowDetailedLogs = (): boolean => {
+    if (typeof window === 'undefined') {
+      // En el servidor, asumimos que no necesitamos logs detallados
+      return false;
+    }
+
+    const path = window.location.pathname;
+    return (
+      path.includes('/portafolio/') ||
+      path.includes('/work/') ||
+      path.includes('/recupera')
+    );
+  };
+
+  // Función para log condicional
+  const conditionalLog = (message: string, data?: any) => {
+    if (shouldShowDetailedLogs()) {
+      if (data) {
+        console.log(message, data);
+      } else {
+        console.log(message);
+      }
+    }
+  };
+
+  // Función para error log (siempre mostramos errores)
+  const errorLog = (message: string, error?: any) => {
+    if (error) {
+      console.error(message, error);
+    } else {
+      console.error(message);
+    }
+  };
+
+  // Logging adicional detallado solo si es necesario
+  conditionalLog(`[useLocalizedContent] DEBUG - initialContent estructura:`, {
     estructura: initialContent ? Object.keys(initialContent) : 'vacío',
     tieneHead: !!initialContent?.head,
     headKeys: initialContent?.head
@@ -32,14 +71,10 @@ export const useLocalizedContent = ({
     isServer: typeof window === 'undefined',
   });
 
-  const [content, setContent] = useState<LocalizedContent>(
-    initialContent || {},
-  );
-
-  console.log(
+  conditionalLog(
     `[useLocalizedContent] Initializing with locale: ${locale}, file: ${fileName}`,
   );
-  console.log(`[useLocalizedContent] Estado inicial:`, {
+  conditionalLog(`[useLocalizedContent] Estado inicial:`, {
     fileName,
     initialContentKeys: Object.keys(initialContent || {}),
     initialContent,
@@ -48,19 +83,19 @@ export const useLocalizedContent = ({
   useEffect(() => {
     const loadLocalizedContent = async () => {
       if (locale === initialContent?.locale) {
-        console.log(
+        conditionalLog(
           '[useLocalizedContent] Using initial content - same locale',
         );
         return;
       }
 
       try {
-        console.log(
+        conditionalLog(
           `[useLocalizedContent] Loading content for ${locale}/${fileName}`,
         );
 
         // Debugging temporal - contenido del módulo
-        console.log('[useLocalizedContent] DEBUG - Antes de import:', {
+        conditionalLog('[useLocalizedContent] DEBUG - Antes de import:', {
           isServer: typeof window === 'undefined',
           path: `public/locales/${locale}/${fileName}.json`,
         });
@@ -69,15 +104,15 @@ export const useLocalizedContent = ({
           `public/locales/${locale}/${fileName}.json`
         );
 
-        console.log('[useLocalizedContent] Content loaded successfully');
-        console.log('[useLocalizedContent] Contenido cargado:', {
+        conditionalLog('[useLocalizedContent] Content loaded successfully');
+        conditionalLog('[useLocalizedContent] Contenido cargado:', {
           fileName,
           newContentKeys: Object.keys(newContent || {}),
           newContent,
         });
 
         // Debugging adicional detallado
-        console.log('[useLocalizedContent] DEBUG - Después de import:', {
+        conditionalLog('[useLocalizedContent] DEBUG - Después de import:', {
           isModule: typeof newContent === 'object',
           hasDefault: 'default' in newContent,
           defaultKeys: newContent.default
@@ -94,7 +129,7 @@ export const useLocalizedContent = ({
         };
 
         // Verificación de estructura
-        console.log('[useLocalizedContent] DEBUG - Contenido normalizado:', {
+        conditionalLog('[useLocalizedContent] DEBUG - Contenido normalizado:', {
           hasHead: !!normalizedContent.head,
           headKeys: normalizedContent.head
             ? Object.keys(normalizedContent.head)
@@ -112,8 +147,9 @@ export const useLocalizedContent = ({
           );
         }
       } catch (error) {
-        console.error('[useLocalizedContent] Error loading content:', error);
-        console.error('[useLocalizedContent] DEBUG - Error completo:', {
+        // Siempre mostramos errores
+        errorLog('[useLocalizedContent] Error loading content:', error);
+        errorLog('[useLocalizedContent] DEBUG - Error completo:', {
           mensaje: error.message,
           stack: error.stack,
           fileName,
@@ -127,7 +163,7 @@ export const useLocalizedContent = ({
   }, [locale, fileName, onTitleChange, initialContent]);
 
   // Logging adicional al final
-  console.log('[useLocalizedContent] Returning content:', {
+  conditionalLog('[useLocalizedContent] Returning content:', {
     fileName,
     hasContent: !!content,
     contentKeys: Object.keys(content || {}),

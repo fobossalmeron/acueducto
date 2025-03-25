@@ -101,7 +101,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
   const [loadAssets, setloadAssets] = useState(false);
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.salvajenada',
+    fileName: 'work_salvajenada',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -342,7 +342,7 @@ export default function Salvajenada({ locale, setTitle, pt }) {
 export const getStaticProps = async (context) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: 'work.salvajenada.json',
+    fileName: 'work_salvajenada.json',
   });
   return {
     props: {

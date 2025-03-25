@@ -47,7 +47,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
   const t = useLocalizedContent({
     locale,
-    fileName: 'work.rahid',
+    fileName: 'work_rahid',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -232,7 +232,7 @@ export default React.memo(Rahid);
 export const getStaticProps: GetStaticProps = async (context) => {
   const pt = ssrLocale({
     locale: context.locale as string,
-    fileName: 'work.rahid.json',
+    fileName: 'work_rahid.json',
   });
   return {
     props: {

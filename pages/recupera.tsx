@@ -57,7 +57,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
     link,
   } = useLocalizedContent({
     locale,
-    fileName: 'work.recupera',
+    fileName: 'work_recupera',
     initialContent: pt,
     onTitleChange: setTitle,
   });
@@ -243,7 +243,7 @@ export default React.memo(Recupera);
 export const getStaticProps = async (context: any) => {
   const pt = ssrLocale({
     locale: context.locale,
-    fileName: 'work.recupera.json',
+    fileName: 'work_recupera.json',
   });
   return {
     props: {
