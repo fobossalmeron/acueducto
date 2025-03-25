@@ -3,6 +3,7 @@
 // });
 
 const nextConfig = {
+  productionBrowserSourceMaps: true,
   images: {
     remotePatterns: [
       {

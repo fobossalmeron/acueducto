@@ -24,7 +24,6 @@ const HomeVideo = () => {
     if (typeof window !== 'undefined') {
       import('shader-doodle')
         .then((module) => {
-          console.log('shader-doodle cargado exitosamente');
           shaderDoodleModule = module;
           setShaderLoaded(true);
           setShow(true);

@@ -51,12 +51,21 @@ interface WellmeeProps {
 const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
   const [loadAssets, setLoadAssets] = useState(false);
   const isMobile = useIsMobile();
+
+  console.log('Wellmee - Initial render:', { locale, hasInitialContent: !!pt });
+
   const t = useLocalizedContent({
     locale,
     fileName: 'work.wellmee',
     initialContent: pt,
     onTitleChange: setTitle,
   });
+
+  // Si no hay contenido, mostrar 404
+  if (!t) {
+    console.log('No content available, returning 404');
+    return null; // Next.js mostrará la página 404 automáticamente
+  }
 
   useEffect(() => {
     setLoadAssets(true);
@@ -65,8 +74,8 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
   return (
     <PageClipperWellmee>
       <Head
-        {...t?.head}
-        image={{ fileName: 'og_image_wellmee.png', alt: t?.head.image_alt }}
+        {...t.head}
+        image={{ fileName: 'og_image_wellmee.png', alt: t.head.image_alt }}
         es_canonical={'https://acueducto.studio/portafolio/wellmee'}
         en_canonical={'https://acueducto.studio/en/work/wellmee'}
       />
@@ -266,13 +275,44 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
 export default React.memo(Wellmee);
 
 export const getStaticProps = async (context: any) => {
-  const pt = ssrLocale({
-    locale: context.locale,
-    fileName: 'work.wellmee.json',
-  });
-  return {
-    props: {
-      pt,
-    },
-  };
+  try {
+    console.log('getStaticProps - Starting:', {
+      locale: context.locale,
+      path: 'work.wellmee.json',
+    });
+
+    const pt = ssrLocale({
+      locale: context.locale,
+      fileName: 'work.wellmee.json',
+    });
+
+    if (!pt) {
+      console.log('getStaticProps - No content found');
+      return {
+        notFound: true,
+      };
+    }
+
+    console.log('getStaticProps - Success:', {
+      locale: context.locale,
+      hasContent: !!pt,
+      contentKeys: Object.keys(pt),
+    });
+
+    return {
+      props: {
+        pt,
+        locale: context.locale || 'es',
+      },
+    };
+  } catch (error) {
+    console.error('getStaticProps - Error:', {
+      locale: context.locale,
+      error,
+      stack: error.stack,
+    });
+    return {
+      notFound: true,
+    };
+  }
 };

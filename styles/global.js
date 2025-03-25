@@ -24,9 +24,9 @@ const styles = `
     top: 18px;
     right: 18px;
     bottom: 18px;
-    border: 17px solid white;
+    border: 16px solid ${Theme.colors.foreground_lowest};
     border-radius: 500px;
-    border-width: 17px;
+    border-width: 16px;
     transform: scale(0.12);
     transition: transform 0.4s ease-in, border-width 0.3s ease-in, border-radius 0.3s ease-out;
     will-change: transform;
@@ -44,7 +44,7 @@ const styles = `
   #bordered.hidden{
     border-radius:60px;
     transform: scale(1);
-    border-width:2px;
+    border-width:1px;
   }
   @media(max-width:1530px) {
     #logo {
