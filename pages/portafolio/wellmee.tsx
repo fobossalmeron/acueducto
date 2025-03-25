@@ -148,7 +148,6 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
           </div>
         </div>
 
-        {/* 
         {head.title && (
           <Fade delay={300} triggerOnce>
             <LandSectionWellmee
@@ -158,7 +157,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
             />
           </Fade>
         )}
-
+        {/* 
         <FirstSection>
           {loadAssets && intro_section.tags && (
             <Marquee tags={intro_section.tags} />

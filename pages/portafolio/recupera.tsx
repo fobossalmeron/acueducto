@@ -68,12 +68,14 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperRecupera>
+      {/* 
       <Head
         {...head}
         image={{ fileName: 'og_image_recupera.png', alt: head.image_alt }}
         es_canonical={'https://acueducto.studio/portafolio/recupera'}
         en_canonical={'https://acueducto.studio/en/work/recupera'}
       />
+      */}
       <Fade triggerOnce>
         <LandSection>
           {!isMobile ? (
@@ -140,17 +142,20 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </LandSection>
       </Fade>
       <FirstSection>
-        {loadAssets && <Marquee tags={intro_section.tags} />}
-        <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} />
-        <SeoH2>{head.description}</SeoH2>
+        {/* {loadAssets && <Marquee tags={intro_section.tags} />} */}
+        {/* <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} /> */}
+        {/* <SeoH2>{head.description}</SeoH2> */}
+        {/* 
         <TextColumn>
           <P className="h2">{intro_section.title}</P>
           <P>{intro_section.p}</P>
         </TextColumn>
+        */}
         <ScrollCardAnimation isMobile={isMobile} />
-        <Quote quote={intro_section.quote} color={'#F4F4F4'} />
+        {/* <Quote quote={intro_section.quote} color={'#F4F4F4'} /> */}
       </FirstSection>
       <SecondSection>
+        {/* 
         <TextColumn>
           <P className="h2">{second_section.title}</P>
           <P>{second_section.p}</P>
@@ -167,11 +172,13 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             ))}
           </ChallengesContainer>
         </TextColumn>
+        */}
         <Container>
           <ScreensAnimation />
         </Container>
       </SecondSection>
       <ThirdSection>
+        {/* 
         <TextColumn>
           <P className="h2">{third_section.title}</P>
           <P>{third_section.p}</P>
@@ -189,7 +196,9 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             <P>{third_section.points.second.p}</P>
           </div>
         </TextColumn>
+        */}
         <UIComponentsAnimation isMobile={isMobile} />
+        {/* 
         <TextColumn>
           <ThirdPoint>
             <P className="h3">{third_section.points.third.subtitle}</P>
@@ -213,14 +222,17 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
             </div>
           </ThirdPoint>
         </TextColumn>
+        */}
       </ThirdSection>
       <FourthSection>
+        {/* 
         <TextColumn>
           <P className="h2">{fourth_section.title}</P>
           <P>{fourth_section.p}</P>
         </TextColumn>
+        */}
         <Functionalities isMobile={isMobile} t={fourth_section} />
-        <Quote quote={fourth_section.quote} color={'rgb(79, 79, 79)'} />
+        {/* <Quote quote={fourth_section.quote} color={'rgb(79, 79, 79)'} /> */}
         <DesktopAndMobile>
           <div className="image">
             <Image
@@ -232,8 +244,8 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
           </div>
         </DesktopAndMobile>
       </FourthSection>
-      <NextStudy link="rahid" />
-      <ContactFooter />
+      {/* <NextStudy link="rahid" /> */}
+      {/* <ContactFooter /> */}
     </PageClipperRecupera>
   );
 };
