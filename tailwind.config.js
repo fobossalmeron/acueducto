@@ -4,5 +4,9 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   hoverOnlyWhenSupported: true,
-  content: ['./src/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
+  content: [
+    './src/**/*.{js,jsx,ts,tsx}',
+    './components/**/*.{js,jsx,ts,tsx}',
+    './pages/**/*.{js,jsx,ts,tsx}',
+  ],
 };

@@ -1,35 +1,32 @@
-import styled from "styled-components";
-import { H1 } from "components/shared/Dangerously";
+import styled from 'styled-components';
+import { H1 } from 'components/shared/Dangerously';
 
 export const SeoH1 = styled(H1)`
   text-transform: uppercase;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   letter-spacing: 4px;
   line-height: 130%;
   font-weight: 100;
-  @media (max-width: 1000px) {
-    font-size: 1.2rem;
-  }
   @media (max-width: 630px) {
-    font-size: 1.1rem;
+    font-size: 1rem;
   }
 `;
 
 export const SeoH2 = styled.h2`
   color: ${(props) => props.theme.colors.background};
   text-transform: uppercase;
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 200;
   letter-spacing: 3px;
   line-height: 140%;
   max-width: 670px;
   background-color: #f9fcfb;
-  border: 2.5px solid #4da465;
+  border: 1px solid #4da465;
   padding: 3%;
-  border-radius: 50px;
+  border-radius: 20px;
   margin: 8% 5% 0 5%;
   &::before {
-    content: "*";
+    content: '*';
     display: inline-block;
     width: 8px;
     height: 8px;

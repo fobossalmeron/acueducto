@@ -1,55 +1,23 @@
-import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
-// import MarqueeHelper from "react-double-marquee";
+import Marquee from 'react-fast-marquee';
 
-const Marquee = ({ tags, amount = 1 }: { tags: string[]; amount?: number }) => {
-  const list = (
-    <ul>
-      {tags.map((tag, index) => (
-        <li key={index + 'h'}>{tag}</li>
-      ))}
-    </ul>
-  );
+const MarqueeSection = ({ tags }: { tags: string[] }) => {
   return (
-    <TagScroll>
+    <div className="my-[10%] w-full overflow-hidden uppercase">
       <Fade triggerOnce>
-        {/* <MarqueeHelper delay={0} childMargin={0}>
-          {list}
-          {amount === 2 ? list : null}
-        </MarqueeHelper> */}
+        <Marquee direction="right" delay={0}>
+          {tags.map((tag, index) => (
+            <span
+              key={`tag-${index}`}
+              className="mr-14 inline-block text-[1rem] font-light tracking-[4px] whitespace-nowrap sm:mr-20 sm:text-[1.4rem]"
+            >
+              {tag}
+            </span>
+          ))}
+        </Marquee>
       </Fade>
-    </TagScroll>
+    </div>
   );
 };
 
-export default Marquee;
-
-const TagScroll = styled.div`
-  text-transform: uppercase;
-  white-space: nowrap;
-  margin: 7% 0 7% 0;
-  width: 100%;
-  ul {
-    width: 100%;
-    display: inline;
-    li {
-      margin-right: 70px;
-      font-weight: 300;
-      font-size: 1.4rem;
-      display: inline;
-      letter-spacing: 4px;
-    }
-  }
-  @media (max-width: 700px) {
-    margin: 10% 0 10% 0;
-    ul li {
-      margin-right: 35px;
-      font-size: 1rem;
-    }
-  }
-  @media (max-width: 450px) {
-    span ul li {
-      font-size: 0.7rem;
-    }
-  }
-`;
+export default MarqueeSection;
