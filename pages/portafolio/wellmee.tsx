@@ -142,6 +142,13 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
           />
         ) : null}
 
+        <div className="flex min-h-screen items-center justify-center p-8">
+          <div className="text-center">
+            <p className="text-xl">Contenido simplificado para pruebas</p>
+          </div>
+        </div>
+
+        {/* 
         {head.title && (
           <Fade delay={300} triggerOnce>
             <LandSectionWellmee
@@ -342,6 +349,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         </FourthSection>
         <NextStudy link="recupera" />
         <ContactFooter />
+        */}
       </PageClipperWellmee>
     );
   } catch (error) {
