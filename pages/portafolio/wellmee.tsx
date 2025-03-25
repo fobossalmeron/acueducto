@@ -159,16 +159,17 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
         )}
 
         <FirstSection>
-          {loadAssets && intro_section.tags && (
+          {/* {loadAssets && intro_section.tags && (
             <Marquee tags={intro_section.tags} />
-          )}
-          {/* 
+          )} */}
+
           {link && <IntroVideo link={link} />}
           {head.description && <SeoH2>{head.description}</SeoH2>}
           <TextColumn>
             <P className="h2">{intro_section.title || ''}</P>
             <P>{intro_section.p || ''}</P>
           </TextColumn>
+          {/* 
           <TextColumn>
             <P className="h3">
               {intro_section.characteristics?.first?.subtitle || ''}

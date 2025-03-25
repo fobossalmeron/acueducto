@@ -142,7 +142,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
       <FirstSection>
         {/* {loadAssets && <Marquee tags={intro_section.tags} />} */}
         <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} />
-        {/* <SeoH2>{head.description}</SeoH2> */}
+        <SeoH2>{head.description}</SeoH2>
         {/* 
         <TextColumn>
           <P className="h2">{intro_section.title}</P>

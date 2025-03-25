@@ -71,7 +71,7 @@ const Borgatta: React.FC<BorgattaProps> = ({ locale, setTitle, pt }) => {
         <LandSection isMobile={isMobile} title={t.head.seo_h1} />
       </Fade>
       <FirstSection>
-        {loadAssets && <Marquee tags={t.intro_section.tags} />}
+        {/* {loadAssets && <Marquee tags={t.intro_section.tags} />} */}
         <IntroVideoPadded backgroundColor={'#f7f6f7'} link={t.link} />
         <SeoH2>{t.head.description}</SeoH2>
         <Fade delay={300} triggerOnce>
