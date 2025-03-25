@@ -1,6 +1,8 @@
 import { Button } from 'components/ui/Button/Button';
 import ArrowDesktop from 'public/assets/img/layout/home/arrow-desktop.svg';
 import ArrowMobile from 'public/assets/img/layout/home/arrow-mobile.svg';
+import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export function AgileDevCard({
   auxiliary,
@@ -13,6 +15,9 @@ export function AgileDevCard({
   p: string;
   button: string;
 }) {
+  const router = useRouter();
+  const contactPath = router.locale === 'es' ? '/contacto' : '/contact';
+
   return (
     <div className="col-span-12 col-start-1 mt-0 sm:col-span-10 sm:col-start-2 md:mt-20 lg:col-span-8 lg:col-start-3 lg:mx-auto lg:max-w-[605px]">
       <div className="primary-card relative flex overflow-hidden rounded-4xl border bg-[#091A4E]">
@@ -26,7 +31,9 @@ export function AgileDevCard({
               {title}
             </h2>
             <p className="text-over-black text-sm md:text-base">{p}</p>
-            <Button text={button} />
+            <Link href={contactPath}>
+              <Button text={button} />
+            </Link>
           </div>
           <div className="relative hidden max-h-[270px] w-1/3 sm:flex">
             <ArrowDesktop className="h-full w-full" />

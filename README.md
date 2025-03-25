@@ -21,3 +21,4 @@ TODO:
 - Botón de mobile menu estilos de button nuevos
 - Cambiar cambio de idioma a globo
 - Falta añadir Fades
+- Intro loading animation que onda
