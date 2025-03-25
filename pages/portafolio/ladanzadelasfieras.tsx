@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import dynamic from 'next/dynamic';
 import { Fade } from 'react-awesome-reveal';
 import { GetStaticProps } from 'next';
+import { useTheme } from 'styled-components';
 
 import { useLocalizedContent } from 'utils/useLocalizedContent';
 import ssrLocale from 'utils/ssrLocale';
@@ -75,6 +76,9 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
     initialContent: pt,
     onTitleChange: setTitle,
   });
+
+  const theme = useTheme();
+  const backgroundColor = theme.colors.background;
 
   useEffect(() => {
     setloadAssets(true);
@@ -234,7 +238,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
         </Insight>
         <Quote
           quote={t.third_section.insights.portfolio.quote}
-          color={(props) => props.theme.colors.background}
+          color={backgroundColor}
           noMargin
         />
         <Insight
@@ -253,7 +257,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
         </Insight>
         <Quote
           quote={t.third_section.insights.press.quote}
-          color={(props) => props.theme.colors.background}
+          color={backgroundColor}
           noMargin
         />
         <Insight
@@ -318,10 +322,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: LaDanzaDeLasFierasProps) {
           <P className="h2">{t.fifth_section.title}</P>
           <P>{t.fifth_section.p}</P>
         </TextColumn>
-        <Quote
-          quote={t.fifth_section.quote}
-          color={(props) => props.theme.colors.background}
-        />
+        <Quote quote={t.fifth_section.quote} color={backgroundColor} />
         <TextColumn>
           <Picture
             src="/assets/img/casestudies/ladanzadelasfieras/l_1.jpg"

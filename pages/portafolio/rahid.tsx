@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { GetStaticProps } from 'next';
+import { useTheme } from 'styled-components';
 
 import Head from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
@@ -45,6 +46,9 @@ interface RahidProps {
 
 function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
   const [loadAssets, setloadAssets] = useState<boolean>(false);
+  const theme = useTheme();
+  const backgroundColor = theme.colors.background;
+
   const t = useLocalizedContent({
     locale,
     fileName: 'work_rahid',
@@ -206,10 +210,7 @@ function Rahid({ locale, setTitle, pt }: RahidProps): React.ReactElement {
         <TextColumn>
           <P>{t.fifth_section.p4}</P>
         </TextColumn>
-        <Quote
-          quote={t.fifth_section.quote}
-          color={(props) => props.theme.colors.background}
-        />
+        <Quote quote={t.fifth_section.quote} color={backgroundColor} />
         <TextColumn>
           <P>{t.fifth_section.p5}</P>
         </TextColumn>

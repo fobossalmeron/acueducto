@@ -208,6 +208,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
           </TextColumn>
           <UIComponentsAnimation isMobile={isMobile} />
         </FirstSection>
+        */}
         <SecondSection>
           <TextColumn>
             <P className="h2">{second_section?.title || ''}</P>
@@ -216,6 +217,7 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
             <AnimationSlideCards t={second_section} isMobile={isMobile} />
           )}
         </SecondSection>
+        {/*
         <ThirdSection>
           <TextColumn>
             <P className="h2">{third_section?.title || ''}</P>

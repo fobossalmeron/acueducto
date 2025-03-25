@@ -68,14 +68,12 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
 
   return (
     <PageClipperRecupera>
-      {/* 
       <Head
         {...head}
         image={{ fileName: 'og_image_recupera.png', alt: head.image_alt }}
         es_canonical={'https://acueducto.studio/portafolio/recupera'}
         en_canonical={'https://acueducto.studio/en/work/recupera'}
       />
-      */}
       <Fade triggerOnce>
         <LandSection>
           {!isMobile ? (
@@ -152,7 +150,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </TextColumn>
         */}
         <ScrollCardAnimation isMobile={isMobile} />
-        {/* <Quote quote={intro_section.quote} color={'#F4F4F4'} /> */}
+        <Quote quote={intro_section.quote} color={'#F4F4F4'} />
       </FirstSection>
       <SecondSection>
         {/* 
@@ -232,7 +230,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </TextColumn>
         */}
         <Functionalities isMobile={isMobile} t={fourth_section} />
-        {/* <Quote quote={fourth_section.quote} color={'rgb(79, 79, 79)'} /> */}
+        <Quote quote={fourth_section.quote} color={'rgb(79, 79, 79)'} />
         <DesktopAndMobile>
           <div className="image">
             <Image
@@ -245,7 +243,7 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </DesktopAndMobile>
       </FourthSection>
       {/* <NextStudy link="rahid" /> */}
-      {/* <ContactFooter /> */}
+      <ContactFooter />
     </PageClipperRecupera>
   );
 };

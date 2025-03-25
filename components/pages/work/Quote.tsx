@@ -1,15 +1,30 @@
-import styled from "styled-components";
-import { Blockquote } from "components/shared/Dangerously";
-import Mark from "public/assets/img/layout/quoteMark.svg";
-import { Fade } from "react-awesome-reveal";
+import styled from 'styled-components';
+import { Blockquote } from 'components/shared/Dangerously';
+import Mark from 'public/assets/img/layout/quoteMark.svg';
+import { Fade } from 'react-awesome-reveal';
+import React from 'react';
 
+// Definimos la interfaz para las props de Quote
+interface QuoteProps {
+  color?: string;
+  noMargin?: boolean;
+  specialMarginBottom?: boolean;
+  quote: {
+    quote: string;
+    name: string;
+    label?: string;
+  };
+  mark?: string;
+}
+
+// Usamos function component con tipado explícito en lugar de React.FC
 const Quote = ({
   color,
   noMargin = false,
   specialMarginBottom = false,
   quote,
-  mark = "",
-}) => (
+  mark = '',
+}: QuoteProps): React.ReactElement => (
   <QuoteWrapper
     $color={color}
     $noMargin={noMargin}
@@ -20,9 +35,9 @@ const Quote = ({
         <QuoteMark $color={color} $mark={mark}>
           <Mark />
         </QuoteMark>
-        <Blockquote>{quote.quote}</Blockquote>
-        <Author>– {quote.name}</Author>
-        {quote.label ? <Label>{quote.label}</Label> : null}
+        <Blockquote>{quote?.quote || ''}</Blockquote>
+        <Author>– {quote?.name || ''}</Author>
+        {quote?.label ? <Label>{quote.label}</Label> : null}
       </QuoteLimiter>
     </Fade>
   </QuoteWrapper>
@@ -37,6 +52,7 @@ const Author = styled.p`
   opacity: 1.4;
   font-weight: 200;
 `;
+
 const Label = styled.p`
   font-size: 1.1rem;
   opacity: 0.6;
@@ -45,11 +61,10 @@ const Label = styled.p`
   text-transform: uppercase;
 `;
 
-const QuoteMark = styled.div`
+const QuoteMark = styled.div<{ $color?: string; $mark?: string }>`
   left: -55px;
   top: -15px;
-  opacity: ${(props) =>
-    props.$mark ? '0.2' : '0.07' };
+  opacity: ${(props) => (props.$mark ? '0.2' : '0.07')};
   width: 125px;
   height: 115px;
   font-size: 10rem;
@@ -58,7 +73,11 @@ const QuoteMark = styled.div`
     width: 100%;
     * {
       fill: ${(props) =>
-        props.$mark ? props.$mark : props.$color ? props.$color : props.theme.colors.foreground};
+        props.$mark
+          ? props.$mark
+          : props.$color
+            ? props.$color
+            : props.theme.colors.foreground};
     }
   }
 `;
@@ -68,11 +87,15 @@ const QuoteLimiter = styled.div`
   position: relative;
 `;
 
-const QuoteWrapper = styled.div`
+const QuoteWrapper = styled.div<{
+  $color?: string;
+  $noMargin?: boolean;
+  $specialMarginBottom?: boolean;
+}>`
   width: 100%;
   font-size: 3.4rem;
-  margin: ${(props) => (props.$noMargin ? "0" : "6% 0 4% 0")};
-  ${(props) => (props.$specialMarginBottom ? "margin-bottom: -10%;" : "")}
+  margin: ${(props) => (props.$noMargin ? '0' : '6% 0 4% 0')};
+  ${(props) => (props.$specialMarginBottom ? 'margin-bottom: -10%;' : '')}
   padding: 0 5%;
   position: relative;
   display: flex;
