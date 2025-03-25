@@ -347,10 +347,9 @@ const Wellmee: React.FC<WellmeeProps> = ({ locale, setTitle, pt }) => {
             blurDataURL={Iphone2.src}
             loading="lazy"
           />
-        </FourthSection>
+        </FourthSection>        */}
         <NextStudy link="recupera" />
         <ContactFooter />
-        */}
       </PageClipperWellmee>
     );
   } catch (error) {

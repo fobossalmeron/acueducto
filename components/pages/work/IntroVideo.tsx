@@ -1,7 +1,9 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
+import React from "react";
 
-export const IntroVideo = (props) => (
+// Componentes sin interfaces separadas
+export const IntroVideo = ({ link }: { link: string }) => (
   <VideoWrapper $desktopLayout>
     <Fade triggerOnce>
       <Video
@@ -9,22 +11,26 @@ export const IntroVideo = (props) => (
         playsInline
         muted
         loop
-        poster={`/assets/img/casestudies/${props.link}/intro_poster.jpg`}
+        poster={`/assets/img/casestudies/${link}/intro_poster.jpg`}
       >
-        <source src={`/assets/video/casestudies/${props.link}/intro.mp4`} />
+        <source src={`/assets/video/casestudies/${link}/intro.mp4`} />
       </Video>
     </Fade>
   </VideoWrapper>
 );
 
-export const IntroVideoPadded = ({ backgroundColor, link }) => (
+export const IntroVideoPadded = ({ 
+  backgroundColor, 
+  link 
+}: { backgroundColor?: string; link: string }) => (
   <EditVideo $backgroundColor={backgroundColor}>
     <IntroVideo link={link} />
   </EditVideo>
 );
 
-const VideoWrapper = styled.div`
-  max-width: ${(p) => (p.desktopLayout ? "863px" : "1150px")};
+// Componentes estilizados con tipos inline
+const VideoWrapper = styled.div<{ $desktopLayout?: boolean }>`
+  max-width: ${(p) => (p.$desktopLayout ? "863px" : "1150px")};
   padding: 0 5%;
 `;
 
@@ -32,7 +38,7 @@ const Video = styled.video`
   width: 100%;
 `;
 
-export const EditVideo = styled.div`
+export const EditVideo = styled.div<{ $backgroundColor?: string }>`
   padding: 3%;
   border-radius: 40px;
   background-color: ${(p) =>

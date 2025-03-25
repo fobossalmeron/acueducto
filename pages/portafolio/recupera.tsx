@@ -140,8 +140,8 @@ const Recupera: React.FC<RecuperaProps> = ({ locale, setTitle, pt }) => {
         </LandSection>
       </Fade>
       <FirstSection>
-        {/* {loadAssets && <Marquee tags={intro_section.tags} />} */}
-        {/* <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} /> */}
+        {loadAssets && <Marquee tags={intro_section.tags} />}
+        <IntroVideoPadded backgroundColor={'#F7F3F1'} link={link} />
         {/* <SeoH2>{head.description}</SeoH2> */}
         {/* 
         <TextColumn>
