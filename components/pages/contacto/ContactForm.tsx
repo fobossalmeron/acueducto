@@ -1,10 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import styled from 'styled-components';
-import { Fade } from 'react-awesome-reveal';
-import { CSSTransition } from 'react-transition-group';
-
 import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
 import InputField from 'components/shared/ContactInputField';
 import delayForLoading from 'utils/delayForLoading';
@@ -103,124 +99,124 @@ const ContactForm: React.FC<ContactFormProps> = ({
   );
 
   const renderForm = () => (
-    <CSSTransition
-      in={formStatus === 'IDLE'}
-      timeout={300}
-      classNames="fade"
-      unmountOnExit
-    >
-      <FadeWrapper>
-        <p>
+    <div className="animate-fade-in">
+      <div className="text-over-black">
+        <p className="mb-4">
           {intro.p2} <br />
           <a
+            className="hover:decoration-primary !text-white underline decoration-gray-500 transition-all duration-300 ease-in-out"
             href={`mailto:hola@acueducto.studio?subject=${intro.mailto.subject}&body=${intro.mailto.body}`}
           >
             hola@acueducto.studio
           </a>
         </p>
-        <p>{text.p3}</p>
-        <Form onSubmit={handleSubmit(onSubmitInside)} ref={formRef}>
+        <p className="mb-6">{text.p3}</p>
+      </div>
+      <form
+        onSubmit={handleSubmit(onSubmitInside)}
+        ref={formRef}
+        className="border-foreground-lowest flex flex-col rounded-4xl border px-[7%] py-8"
+      >
+        <InputField>
+          <label htmlFor={`cp_email`}>{text.email.label}</label>
+          <input
+            name="email"
+            id={`cp_email`}
+            type="email"
+            placeholder={text.email.placeholder}
+            {...register('email', {
+              required: text.email.errorMissing,
+              pattern: {
+                value:
+                  /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
+                message: text.email.errorInvalid,
+              },
+            })}
+          />
+          <span>
+            <>{errors?.email?.message}</>
+          </span>
+        </InputField>
+        <div className="flex flex-col sm:flex-row sm:gap-6">
           <InputField>
-            <label htmlFor={`cp_email`}>{text.email.label}</label>
+            <label htmlFor={`cp_firstName`}>{text.firstName.label}</label>
             <input
-              name="email"
-              id={`cp_email`}
-              type="email"
-              placeholder={text.email.placeholder}
-              {...register('email', {
-                required: text.email.errorMissing,
-                pattern: {
-                  value:
-                    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i,
-                  message: text.email.errorInvalid,
-                },
-              })}
-            />
-            <span>
-              <>{errors?.email?.message}</>
-            </span>
-          </InputField>
-          <OneLine>
-            <InputField>
-              <label htmlFor={`cp_firstName`}>{text.firstName.label}</label>
-              <input
-                name="firstName"
-                id={`cp_firstName`}
-                type="text"
-                placeholder={text.firstName.placeholder}
-                {...register('firstName', { required: true })}
-              />
-              {errors.firstName && <span>{text.firstName.errorMissing}</span>}
-            </InputField>
-            <InputField>
-              <label htmlFor={`cp_lastName`}>{text.lastName.label}</label>
-              <input
-                name="lastName"
-                id={`cp_lastName`}
-                type="text"
-                placeholder={text.lastName.placeholder}
-                {...register('lastName', { required: true })}
-              />
-              {errors.lastName && <span>{text.lastName.errorMissing}</span>}
-            </InputField>
-          </OneLine>
-          <InputField>
-            <label htmlFor={`cp_company`}>{text.company.label}</label>
-            <input
-              name="company"
-              id={`cp_company`}
+              name="firstName"
+              id={`cp_firstName`}
               type="text"
-              placeholder={text.company.placeholder}
-              {...register('company', { required: true })}
+              placeholder={text.firstName.placeholder}
+              {...register('firstName', { required: true })}
             />
-            {errors.company && <span>{text.company.errorMissing}</span>}
+            {errors.firstName && <span>{text.firstName.errorMissing}</span>}
           </InputField>
           <InputField>
-            <label htmlFor={`cp_job`}>{text.job.label}</label>
+            <label htmlFor={`cp_lastName`}>{text.lastName.label}</label>
             <input
-              name="job"
-              id={`cp_job`}
+              name="lastName"
+              id={`cp_lastName`}
               type="text"
-              placeholder={text.job.placeholder}
-              {...register('job', { required: true })}
+              placeholder={text.lastName.placeholder}
+              {...register('lastName', { required: true })}
             />
-            {errors.job && <span>{text.job.errorMissing}</span>}
+            {errors.lastName && <span>{text.lastName.errorMissing}</span>}
           </InputField>
-          <InputField>
-            <label htmlFor={`cp_message`}>{text.message.label}</label>
-            <textarea
-              name="message"
-              id={`cp_message`}
-              placeholder={text.message.placeholder}
-              {...register('message', { required: true })}
-            />
-            {errors.message && <span>{text.message.errorMissing}</span>}
-          </InputField>
-          <ButtonSubmit text={text.submit} className="mt-4 w-fit" />
-        </Form>
-      </FadeWrapper>
-    </CSSTransition>
+        </div>
+        <InputField>
+          <label htmlFor={`cp_company`}>{text.company.label}</label>
+          <input
+            name="company"
+            id={`cp_company`}
+            type="text"
+            placeholder={text.company.placeholder}
+            {...register('company', { required: true })}
+          />
+          {errors.company && <span>{text.company.errorMissing}</span>}
+        </InputField>
+        <InputField>
+          <label htmlFor={`cp_job`}>{text.job.label}</label>
+          <input
+            name="job"
+            id={`cp_job`}
+            type="text"
+            placeholder={text.job.placeholder}
+            {...register('job', { required: true })}
+          />
+          {errors.job && <span>{text.job.errorMissing}</span>}
+        </InputField>
+        <InputField>
+          <label htmlFor={`cp_message`}>{text.message.label}</label>
+          <textarea
+            name="message"
+            id={`cp_message`}
+            placeholder={text.message.placeholder}
+            {...register('message', { required: true })}
+          />
+          {errors.message && <span>{text.message.errorMissing}</span>}
+        </InputField>
+        <ButtonSubmit text={text.submit} className="mt-4 w-fit" />
+      </form>
+    </div>
   );
 
   const renderLoading = () => (
-    <Fade triggerOnce>
-      <Loading>
+    <div className="animate-fade-in">
+      <div className="flex w-full flex-row items-center justify-center pt-[10%] pb-[10%]">
         <DynamicAmongUs />
-      </Loading>
-    </Fade>
+      </div>
+    </div>
   );
 
   const renderSuccess = () => (
-    <Fade triggerOnce>
-      <Message>
-        <p>{text.success.p}</p>
-      </Message>
-    </Fade>
+    <div className="animate-fade-in">
+      <div className="text-success border-success bg-success-background flex w-full flex-col items-center justify-center rounded-3xl border-1 p-[30px_35px] text-center text-lg">
+        <p className="m-0 max-w-[30ch] p-0">{text.success.p}</p>
+      </div>
+    </div>
   );
 
   return (
     <>
-      {renderForm()}
+      {formStatus === 'IDLE' && renderForm()}
       {formStatus === 'LOADING' && renderLoading()}
       {formStatus === 'SUCCESS' && renderSuccess()}
     </>
@@ -228,92 +224,3 @@ const ContactForm: React.FC<ContactFormProps> = ({
 };
 
 export default ContactForm;
-
-const OneLine = styled.div`
-  flex-direction: row;
-  display: flex;
-  gap: 2rem;
-  @media (max-width: 600px), (max-height: 450px) {
-    display: unset;
-  }
-`;
-
-const Message = styled.div`
-  color: ${(p) => p.theme.colors.success};
-  border: 2px solid ${(p) => p.theme.colors.success};
-  background-color: ${(p) => p.theme.colors.success_background};
-  border-radius: 30px;
-  font-size: 1.8rem;
-  padding: 30px 35px;
-  text-align: center;
-  display: flex;
-  width: 100%;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  p,
-  p:first-of-type {
-    max-width: 30ch;
-    color: inherit;
-    padding: 0;
-    margin: 0;
-  }
-  @media (max-width: 600px), (max-height: 450px) {
-    font-size: 1.6rem;
-    margin-top: 20px;
-  }
-`;
-
-const Loading = styled.div`
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  padding-bottom: 10%;
-  padding-top: 10%;
-  flex-direction: row;
-  p {
-    margin-bottom: 5px;
-    margin-left: 20px;
-    width: 100%;
-    font-weight: 200;
-    font-size: 2.2rem;
-  }
-  .lottie {
-    width: 100px;
-    height: 100px;
-  }
-  @media (max-width: 600px), (max-height: 450px) {
-    .lottie {
-      width: 70px;
-      height: 70px;
-    }
-  }
-`;
-
-const Form = styled.form`
-  padding: 5% 7.5%;
-  border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
-  border-radius: 30px;
-  margin-top: -10px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const FadeWrapper = styled.div`
-  &.fade-enter {
-    opacity: 0;
-  }
-  &.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  &.fade-exit {
-    opacity: 1;
-  }
-  &.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease-in;
-  }
-`;

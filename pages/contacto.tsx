@@ -1,13 +1,13 @@
 import { useLocalizedContent } from 'utils/useLocalizedContent';
 import { GetStaticProps } from 'next';
 import ssrLocale from 'utils/ssrLocale';
-import styled from 'styled-components';
 import Head from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
-import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import MetalFooter from 'components/layout/footers/MetalFooter';
 import ContactForm from 'components/pages/contacto/ContactForm';
 import { PageProps } from 'types/PageProps';
+import { SplitLayout } from 'components/layout/layouts';
+import { Title } from 'components/ui';
 
 export default function Contact({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
@@ -25,9 +25,15 @@ export default function Contact({ locale, setTitle, pt }: PageProps) {
         en_canonical={'https://acueducto.studio/en/contact'}
         noIndex
       ></Head>
-      <CustomPinnedSection title={t.intro.title} heading={1}>
-        <ContactForm text={t.form} intro={t.intro} />
-      </CustomPinnedSection>
+      <SplitLayout className="bg-background border-foreground-lowest border-t">
+        <SplitLayout.Header>
+          <Title>{t.intro.title}</Title>
+        </SplitLayout.Header>
+        <SplitLayout.Content>
+          <ContactForm text={t.form} intro={t.intro} />
+        </SplitLayout.Content>
+      </SplitLayout>
+
       <MetalFooter />
     </PageWrapper>
   );
@@ -41,13 +47,3 @@ export const getStaticProps: GetStaticProps = async (context) => {
     },
   };
 };
-
-const CustomPinnedSection = styled(PinnedSection)`
-  .scroll-down {
-    justify-content: center;
-  }
-  padding-bottom: 0;
-  a {
-    line-height: 165%;
-  }
-`;
