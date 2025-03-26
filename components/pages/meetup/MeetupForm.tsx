@@ -1,8 +1,6 @@
 import React, { useRef, useState, useCallback } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
-import { CSSTransition } from 'react-transition-group';
 import { useRouter } from 'next/router';
 
 import { ButtonSubmit } from 'components/ui/Button';
@@ -91,208 +89,123 @@ export const MeetupForm = ({
   );
 
   const renderForm = () => (
-    <CSSTransition
-      in={formStatus === 'IDLE'}
-      timeout={300}
-      classNames="fade"
-      unmountOnExit
-    >
-      <FadeWrapper>
-        <Form
-          onSubmit={handleSubmit(onSubmitInside)}
-          ref={formRef}
-          className="border-card border"
-        >
-          <p className="text-over-black mt-3 mb-3 max-w-[13ch] text-lg leading-[125%] font-medium md:text-xl">
-            Regístrate aquí y aparta tu lugar
-          </p>
-          <p className="text-foreground-lower mb-8 text-sm md:mb-10 md:text-base">
-            Llena el formulario y ven a nuestro meetup
-          </p>
-          <OneLine>
-            <InputField>
-              <label htmlFor={`cp_firstName`}>Nombre</label>
-              <input
-                name="firstName"
-                id={`cp_firstName`}
-                type="text"
-                placeholder="Tu nombre"
-                {...register('firstName', { required: true })}
-              />
-              {errors.firstName && <span>Por favor ingresa tu nombre</span>}
-            </InputField>
-            <InputField>
-              <label htmlFor={`cp_lastName`}>Apellido</label>
-              <input
-                name="lastName"
-                id={`cp_lastName`}
-                type="text"
-                placeholder="Tu apellido"
-                {...register('lastName', { required: true })}
-              />
-              {errors.lastName && <span>Por favor ingresa tu apellido</span>}
-            </InputField>
-          </OneLine>
+    <div className="animate-fade-in">
+      <form
+        onSubmit={handleSubmit(onSubmitInside)}
+        ref={formRef}
+        className="border-foreground-lowest flex flex-col rounded-4xl border px-[7%] py-8"
+      >
+        <p className="text-over-black mt-3 mb-3 max-w-[13ch] text-lg leading-[125%] font-medium md:text-xl">
+          Regístrate aquí y aparta tu lugar
+        </p>
+        <p className="text-foreground-lower mb-8 text-sm md:mb-10 md:text-base">
+          Llena el formulario y ven a nuestro meetup
+        </p>
 
+        <div className="flex flex-col sm:flex-row sm:gap-6">
           <InputField>
-            <label htmlFor={`cp_email`}>Correo electrónico</label>
+            <label htmlFor={`cp_firstName`}>Nombre</label>
             <input
-              name="email"
-              id={`cp_email`}
-              type="email"
-              placeholder="tu@email.com"
-              {...register('email', {
-                required: 'Por favor ingresa tu correo electrónico',
-                pattern: {
-                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
-                  message: 'Por favor ingresa un correo electrónico válido',
-                },
-                validate: {
-                  noPersonalEmail: (value) => {
-                    const personalDomains = [
-                      'gmail.com',
-                      'hotmail.com',
-                      'yahoo.com',
-                      'aol.com',
-                      'outlook.com',
-                      'live.com',
-                      'icloud.com',
-                    ];
-                    const domain = value.split('@')[1]?.toLowerCase();
-                    return (
-                      !personalDomains.includes(domain) ||
-                      'Por favor ingresa un email de trabajo'
-                    );
-                  },
-                },
-              })}
-            />
-            {errors.email && <span>{errors.email.message}</span>}
-          </InputField>
-
-          <InputField>
-            <label htmlFor={`cp_company`}>Tu empresa</label>
-            <input
-              name="company"
-              id={`cp_company`}
+              name="firstName"
+              id={`cp_firstName`}
               type="text"
-              placeholder="Nombre de tu empresa"
-              {...register('company', { required: true })}
+              placeholder="Tu nombre"
+              {...register('firstName', { required: true })}
             />
-            {errors.company && (
-              <span>Por favor ingresa el nombre de tu empresa</span>
-            )}
+            {errors.firstName && <span>Por favor ingresa tu nombre</span>}
           </InputField>
-
           <InputField>
-            <label htmlFor={`cp_position`}>Tu puesto</label>
+            <label htmlFor={`cp_lastName`}>Apellido</label>
             <input
-              name="position"
-              id={`cp_position`}
+              name="lastName"
+              id={`cp_lastName`}
               type="text"
-              placeholder="Tu puesto actual"
-              {...register('position', { required: true })}
+              placeholder="Tu apellido"
+              {...register('lastName', { required: true })}
             />
-            {errors.position && <span>Por favor ingresa tu cargo</span>}
+            {errors.lastName && <span>Por favor ingresa tu apellido</span>}
           </InputField>
+        </div>
 
-          <ButtonSubmit text="Regístrate" className="mt-4 mb-3 w-fit" />
-        </Form>
-      </FadeWrapper>
-    </CSSTransition>
+        <InputField>
+          <label htmlFor={`cp_email`}>Correo electrónico</label>
+          <input
+            name="email"
+            id={`cp_email`}
+            type="email"
+            placeholder="tu@email.com"
+            {...register('email', {
+              required: 'Por favor ingresa tu correo electrónico',
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                message: 'Por favor ingresa un correo electrónico válido',
+              },
+              validate: {
+                noPersonalEmail: (value) => {
+                  const personalDomains = [
+                    'gmail.com',
+                    'hotmail.com',
+                    'yahoo.com',
+                    'aol.com',
+                    'outlook.com',
+                    'live.com',
+                    'icloud.com',
+                  ];
+                  const domain = value.split('@')[1]?.toLowerCase();
+                  return (
+                    !personalDomains.includes(domain) ||
+                    'Por favor ingresa un email de trabajo'
+                  );
+                },
+              },
+            })}
+          />
+          {errors.email && <span>{errors.email.message}</span>}
+        </InputField>
+
+        <InputField>
+          <label htmlFor={`cp_company`}>Tu empresa</label>
+          <input
+            name="company"
+            id={`cp_company`}
+            type="text"
+            placeholder="Nombre de tu empresa"
+            {...register('company', { required: true })}
+          />
+          {errors.company && (
+            <span>Por favor ingresa el nombre de tu empresa</span>
+          )}
+        </InputField>
+
+        <InputField>
+          <label htmlFor={`cp_position`}>Tu puesto</label>
+          <input
+            name="position"
+            id={`cp_position`}
+            type="text"
+            placeholder="Tu puesto actual"
+            {...register('position', { required: true })}
+          />
+          {errors.position && <span>Por favor ingresa tu cargo</span>}
+        </InputField>
+
+        <ButtonSubmit text="Regístrate" className="mt-4 w-fit" />
+      </form>
+    </div>
   );
 
   const renderLoading = () => (
-    <Fade triggerOnce>
-      <Loading>
-        <p>Enviando...</p>
-      </Loading>
-    </Fade>
+    <div className="animate-fade-in">
+      <div className="flex w-full flex-row items-center justify-center py-[10%]">
+        <p className="ml-5 text-lg">Enviando...</p>
+      </div>
+    </div>
   );
 
   return (
     <>
-      {renderForm()}
+      {formStatus === 'IDLE' && renderForm()}
       {formStatus === 'LOADING' && renderLoading()}
     </>
   );
 };
-
-// Reutilizamos los mismos estilos del ContactForm
-const OneLine = styled.div`
-  flex-direction: row;
-  display: flex;
-  gap: 2rem;
-  @media (max-width: 600px), (max-height: 450px) {
-    display: unset;
-  }
-`;
-
-const Message = styled.div`
-  color: ${(p) => p.theme.colors.success};
-  border: 2px solid ${(p) => p.theme.colors.success};
-  background-color: ${(p) => p.theme.colors.success_background};
-  border-radius: 30px;
-  font-size: 1.8rem;
-  padding: 30px 35px;
-  text-align: center;
-  display: flex;
-  width: 100%;
-  align-content: center;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  p {
-    max-width: 30ch;
-    color: inherit;
-    padding: 0;
-    margin: 0;
-  }
-  @media (max-width: 600px), (max-height: 450px) {
-    font-size: 1.6rem;
-    margin-top: 20px;
-  }
-`;
-
-const Loading = styled.div`
-  width: 100%;
-  align-items: center;
-  justify-content: center;
-  display: flex;
-  padding-bottom: 10%;
-  padding-top: 10%;
-  flex-direction: row;
-  p {
-    margin-bottom: 5px;
-    margin-left: 20px;
-    width: 100%;
-    font-weight: 200;
-    font-size: 2.2rem;
-  }
-`;
-
-const Form = styled.form`
-  padding: 5% 7.5%;
-  border: 1px solid ${(p) => p.theme.colors.foreground_lowest};
-  border-radius: 30px;
-  margin-top: -10px;
-  display: flex;
-  flex-direction: column;
-`;
-
-const FadeWrapper = styled.div`
-  &.fade-enter {
-    opacity: 0;
-  }
-  &.fade-enter-active {
-    opacity: 1;
-    transition: opacity 300ms ease-in;
-  }
-  &.fade-exit {
-    opacity: 1;
-  }
-  &.fade-exit-active {
-    opacity: 0;
-    transition: opacity 300ms ease-in;
-  }
-`;
