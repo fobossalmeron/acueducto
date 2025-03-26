@@ -22,3 +22,4 @@ TODO:
 - Cambiar cambio de idioma a globo
 - Falta añadir Fades
 - Intro loading animation que onda
+- <Fade cascade damping={0.1} className="contents"> en Social proof section

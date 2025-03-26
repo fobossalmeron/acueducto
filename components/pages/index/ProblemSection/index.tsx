@@ -28,12 +28,16 @@ export const ProblemSection: React.FC<ProblemSectionProps> = ({
     <div className="bg-background">
       <OverlapLayout className="border-card-border content-center overflow-hidden border-t px-[4%]">
         <OverlapLayout.Header>
-          <Title as="h2" className="max-w-[18ch]">
-            {title}
-          </Title>
+          <Fade triggerOnce>
+            <Title as="h2" className="max-w-[18ch]">
+              {title}
+            </Title>
+          </Fade>
         </OverlapLayout.Header>
         <OverlapLayout.Content className="lg:col-start-8 lg:col-end-12">
-          <Paragraph>{p}</Paragraph>
+          <Fade triggerOnce>
+            <Paragraph>{p}</Paragraph>
+          </Fade>
         </OverlapLayout.Content>
 
         <div className="col-span-12 col-start-1 sm:col-span-10 sm:col-start-2">

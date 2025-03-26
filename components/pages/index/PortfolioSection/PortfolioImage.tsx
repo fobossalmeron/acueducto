@@ -30,7 +30,7 @@ export const PortfolioImage = ({
       style={{
         borderColor: caseStudy.color,
       }}
-      className={`group relative min-h-full max-w-full overflow-hidden rounded-4xl border transition-transform duration-300 ease-out ${className}`}
+      className={`group relative flex min-h-full max-w-full overflow-hidden rounded-4xl border transition-transform duration-300 ease-out ${className}`}
     >
       <div className="relative h-full w-full transition-transform duration-300 ease-out group-hover:scale-103">
         <Image

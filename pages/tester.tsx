@@ -1,11 +1,12 @@
 import index from 'public/locales/es/home.json';
 import PageWrapper from 'components/layout/PageWrapper';
-import { FAQSection } from 'components/pages/index/FAQSection';
+import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 
 const Tester = () => {
   return (
     <PageWrapper>
-      <FAQSection t={index.faq} />
+      <div className="h-[100vh] w-full bg-red-500"></div>
+      <SocialProofSection {...index.clients} />
     </PageWrapper>
   );
 };

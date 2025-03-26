@@ -59,19 +59,22 @@ export function SocialProofSection({
     <div className="bg-background">
       <OverlapLayout className="border-card-border mb-0 content-center overflow-hidden border-t">
         <OverlapLayout.Header>
-          <Title as="h2" className="max-w-[14ch]">
-            {intro.title}
-          </Title>
+          <Fade triggerOnce>
+            <Title as="h2" className="max-w-[14ch]">
+              {intro.title}
+            </Title>
+          </Fade>
         </OverlapLayout.Header>
         <OverlapLayout.Content>
-          <Paragraph>{intro.p}</Paragraph>
+          <Fade triggerOnce>
+            <Paragraph>{intro.p}</Paragraph>
+          </Fade>
         </OverlapLayout.Content>
 
         <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
             <span className="text-foreground-lower mb-10 block px-4 text-center sm:mb-14">
-              {' '}
-              {span}{' '}
+              {span}
             </span>
             <Image
               src={isMobile ? ClientsMobile : ClientsDesktop}
@@ -85,58 +88,63 @@ export function SocialProofSection({
             <span className="text-foreground-lower mt-24 mb-10 block px-4 text-center sm:mb-14">
               {span2}
             </span>
-            <div className="mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {quotesAndCards.map((item, index) => {
-                // Si es una de las cards especiales
-                if (item.person === 'card-one' || item.person === 'card-two') {
+            <div className="relative mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+              <Fade cascade damping={0.1} className="contents">
+                {quotesAndCards.map((item, index) => {
+                  // Si es una de las cards especiales
+                  if (
+                    item.person === 'card-one' ||
+                    item.person === 'card-two'
+                  ) {
+                    return (
+                      <div
+                        key={`card-${index}`}
+                        className={`card relative min-h-[220px] overflow-hidden rounded-4xl lg:min-h-full ${
+                          item.person === 'card-two' ? 'hidden lg:block' : ''
+                        } ${
+                          item.person === 'card-one'
+                            ? 'scale-x-[-1] lg:scale-x-100'
+                            : ''
+                        }`}
+                      >
+                        <Image
+                          src={item.person === 'card-one' ? Quotes1 : Quotes2}
+                          alt="Card background"
+                          width={500}
+                          height={300}
+                          sizes="(max-width: 768px) 100vw, 355px"
+                          className="absolute top-0 left-0 h-full w-full object-contain md:object-cover"
+                        />
+                      </div>
+                    );
+                  }
                   return (
                     <div
-                      key={`card-${index}`}
-                      className={`card relative min-h-[220px] overflow-hidden rounded-4xl ${
-                        item.person === 'card-two' ? 'hidden lg:block' : ''
-                      } ${
-                        item.person === 'card-one'
-                          ? 'scale-x-[-1] lg:scale-x-100'
-                          : ''
-                      }`}
+                      key={item.person}
+                      className="primary-card flex min-h-full flex-col justify-center gap-4 rounded-4xl p-6 lg:p-9"
                     >
-                      <Image
-                        src={item.person === 'card-one' ? Quotes1 : Quotes2}
-                        alt="Card background"
-                        width={500}
-                        height={300}
-                        sizes="(max-width: 768px) 100vw, 355px"
-                        className="absolute top-0 left-0 h-full w-full object-contain md:object-cover"
-                      />
+                      <p className="text-over-black text-sm md:text-base">
+                        {item.text}
+                      </p>
+                      <div className="flex origin-bottom-left flex-row items-center gap-4 select-none">
+                        <Image
+                          src={`/assets/img/layout/clients/${item.picture}.jpg`}
+                          width={45}
+                          height={45}
+                          alt={`${item.person}, ${item.job}`}
+                          className="rounded-full"
+                        />
+                        <p className="text-foreground-low flex flex-col text-sm">
+                          {item.person}{' '}
+                          <span className="text-accent-light text-xs sm:text-[1.4rem]">
+                            {item.job}
+                          </span>
+                        </p>
+                      </div>
                     </div>
                   );
-                }
-                return (
-                  <div
-                    key={item.person}
-                    className="primary-card flex flex-col justify-center gap-4 rounded-4xl p-6 lg:p-9"
-                  >
-                    <p className="text-over-black text-sm md:text-base">
-                      {item.text}
-                    </p>
-                    <div className="flex origin-bottom-left flex-row items-center gap-4 select-none">
-                      <Image
-                        src={`/assets/img/layout/clients/${item.picture}.jpg`}
-                        width={45}
-                        height={45}
-                        alt={`${item.person}, ${item.job}`}
-                        className="rounded-full"
-                      />
-                      <p className="text-foreground-low flex flex-col text-sm">
-                        {item.person}{' '}
-                        <span className="text-accent-light text-xs sm:text-[1.4rem]">
-                          {item.job}
-                        </span>
-                      </p>
-                    </div>
-                  </div>
-                );
-              })}
+                })}
+              </Fade>
             </div>
             <Link
               href={locale === 'en' ? '/work' : '/portafolio'}

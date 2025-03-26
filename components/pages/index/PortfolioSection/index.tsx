@@ -2,6 +2,7 @@ import { StaticImageData } from 'next/image';
 import { OverlapLayout } from 'components/layout/layouts/OverlapLayout';
 import { Title } from 'components/ui/Title';
 import { PortfolioImage } from './PortfolioImage';
+import { Fade } from 'react-awesome-reveal';
 
 import p_cover_borgatta from 'public/assets/img/casestudies/borgatta/p_cover.jpg';
 import p_cover_recupera from 'public/assets/img/casestudies/recupera/p_cover.jpg';
@@ -28,30 +29,40 @@ export const PortfolioSection = ({ title }: { title: string }) => {
     <div className="bg-background">
       <OverlapLayout className="border-foreground-lowest mb-0 content-center overflow-hidden border-t">
         <OverlapLayout.Header>
-          <Title as="h2" className="max-w-[18ch]">
-            {title}
-          </Title>
+          <Fade triggerOnce>
+            <Title as="h2" className="max-w-[18ch]">
+              {title}
+            </Title>
+          </Fade>
         </OverlapLayout.Header>
         <div className="col-span-12 col-start-1 grid grid-cols-1 gap-5 sm:col-span-10 sm:col-start-2 md:grid-cols-2">
           <div className="grid grid-cols-2 gap-5">
             {caseStudies.slice(0, -1).map((caseStudy, index) => (
-              <PortfolioImage
+              <div
                 key={caseStudy.case}
-                caseStudy={caseStudy}
                 className={
                   index === 0
                     ? 'col-span-2 aspect-[10/7]'
                     : 'col-span-1 aspect-square'
                 }
-              />
+              >
+                <Fade triggerOnce className="h-full w-full">
+                  <PortfolioImage
+                    caseStudy={caseStudy}
+                    className="h-full w-full"
+                  />
+                </Fade>
+              </div>
             ))}
           </div>
 
-          <PortfolioImage
-            caseStudy={caseStudies[5]}
-            className="aspect-[10/7] md:aspect-[5/9]"
-            imageSizes="(max-width: 768px) 100vw, 50vw"
-          />
+          <Fade triggerOnce className="aspect-[10/7] md:aspect-[5/8] md:h-full">
+            <PortfolioImage
+              caseStudy={caseStudies[5]}
+              className="h-full w-full"
+              imageSizes="(max-width: 768px) 100vw, 50vw"
+            />
+          </Fade>
         </div>
       </OverlapLayout>
     </div>
