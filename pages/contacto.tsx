@@ -8,7 +8,7 @@ import ContactForm from 'components/pages/contacto/ContactForm';
 import { PageProps } from 'types/PageProps';
 import { SplitLayout } from 'components/layout/layouts';
 import { Title } from 'components/ui';
-
+import { Fade } from 'react-awesome-reveal';
 export default function Contact({ locale, setTitle, pt }: PageProps) {
   const t = useLocalizedContent({
     locale,
@@ -27,13 +27,16 @@ export default function Contact({ locale, setTitle, pt }: PageProps) {
       ></Head>
       <SplitLayout className="bg-background border-foreground-lowest border-t">
         <SplitLayout.Header>
-          <Title>{t.intro.title}</Title>
+          <Fade triggerOnce>
+            <Title>{t.intro.title}</Title>
+          </Fade>
         </SplitLayout.Header>
         <SplitLayout.Content>
-          <ContactForm text={t.form} intro={t.intro} />
+          <Fade triggerOnce>
+            <ContactForm text={t.form} intro={t.intro} />
+          </Fade>
         </SplitLayout.Content>
       </SplitLayout>
-
       <MetalFooter />
     </PageWrapper>
   );

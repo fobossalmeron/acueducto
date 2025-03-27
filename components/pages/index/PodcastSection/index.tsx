@@ -17,13 +17,15 @@ export const PodcastSection: React.FC<PodcastSectionProps> = ({ title, p }) => {
     <div className="bg-background">
       <OverlapLayout className="border-foreground-lowest mb-0 content-center overflow-hidden border-t">
         <OverlapLayout.Header>
-          <Title as="h2" className="max-w-[14ch]">
-            {title}
-          </Title>
+          <Fade triggerOnce>
+            <Title as="h2" className="max-w-[14ch]">
+              {title}
+            </Title>
+          </Fade>
         </OverlapLayout.Header>
         <OverlapLayout.Content>
-          <Paragraph dangerouslySetInnerHTML={{ __html: p }} />
-          <Fade>
+          <Fade triggerOnce>
+            <Paragraph dangerouslySetInnerHTML={{ __html: p }} />
             <Image
               src={PodcastCover}
               alt="Cuando el río suena"

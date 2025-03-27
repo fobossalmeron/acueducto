@@ -47,7 +47,9 @@ export const FAQSection = React.memo(
     return (
       <SplitLayout className="bg-background border-foreground-lowest border-t">
         <SplitLayout.Header>
-          <Title>{t.title}</Title>
+          <Fade triggerOnce>
+            <Title>{t.title}</Title>
+          </Fade>
         </SplitLayout.Header>
         <SplitLayout.Content>
           <ol>

@@ -20,6 +20,6 @@ TODO:
 
 - Botón de mobile menu estilos de button nuevos
 - Cambiar cambio de idioma a globo
-- Falta añadir Fades
 - Intro loading animation que onda
 - <Fade cascade damping={0.1} className="contents"> en Social proof section
+  add https://playwright.dev/docs/intro
