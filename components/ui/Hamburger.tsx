@@ -1,106 +1,51 @@
-import React from "react";
-import styled, { css } from "styled-components";
-import HamburgerIcon from "public/assets/img/layout/hamburger.svg";
+import React from 'react';
+import HamburgerIcon from 'public/assets/img/layout/hamburger.svg';
+import { cn } from '../../utils/cn';
 
-const Hamburger = ({
-  hasLoaded,
-  toggleNav,
-  isOpen,
-}: {
+interface HamburgerProps {
   hasLoaded: boolean;
   toggleNav: () => void;
   isOpen: boolean;
-}) => {
-  const doToggleNav = () => toggleNav();
+}
+
+const Hamburger = ({ hasLoaded, toggleNav, isOpen }: HamburgerProps) => {
+  const containerClasses = cn(
+    'pointer-events-none fixed top-0 right-0 left-0 z-12 mx-auto flex w-full max-w-[1500px] justify-end p-[55px_50px] mix-blend-exclusion transition-opacity delay-[350ms] duration-300',
+    'opacity-0',
+    hasLoaded && 'opacity-100',
+    'max-[1530px]:pt-[55px] max-[1530px]:pr-[60px]',
+    'mobile-or-landscape:top-auto mobile-or-landscape:bottom-0 mobile-or-landscape:pr-[38px] mobile-or-landscape:pb-10 mobile-or-landscape:mix-blend-normal',
+  );
+
+  const buttonClasses = cn(
+    'pointer-events-auto relative w-[30px] cursor-pointer justify-self-end',
+    'mobile-or-landscape:h-[60px] mobile-or-landscape:w-[60px] mobile-or-landscape:scale-100 mobile-or-landscape:transform mobile-or-landscape:rounded-full mobile-or-landscape:shadow-[0px_3px_7px_rgba(0,0,0,0.3)] mobile-or-landscape:transition-all mobile-or-landscape:duration-200 mobile-or-landscape:ease-in mobile-or-landscape:focus:scale-90',
+    'mobile-or-landscape:active:shadow-[0_0_18px_rgba(77,117,234,0.6)] mobile-or-landscape:active:before:opacity-100 mobile-or-landscape:active:before:scale-100 mobile-or-landscape:before:absolute mobile-or-landscape:before:inset-[-6px] mobile-or-landscape:before:rounded-full mobile-or-landscape:before:transition-all mobile-or-landscape:before:duration-300 mobile-or-landscape:before:opacity-0 mobile-or-landscape:before:border mobile-or-landscape:before:border-[#4D75EA] mobile-or-landscape:before:scale-95',
+    'mobile-or-landscape:bg-accent',
+  );
+
+  const iconWrapperClasses = cn(
+    'h-auto w-full max-w-[30px] pt-[7px]',
+    'mobile-or-landscape:mt-[19px] mobile-or-landscape:ml-[14px] mobile-or-landscape:p-0',
+  );
+
+  const iconClasses = cn(
+    '[&_line]:stroke-round [&_line]:ease [&_line]:stroke-white [&_line]:stroke-[1] [&_line]:transition-transform [&_line]:duration-300',
+    '[&_#bot]:ease [&_#bot]:transition-transform [&_#bot]:delay-150 [&_#bot]:duration-300',
+    isOpen && '[&_#bot]:translate-x-[13px] [&_#top]:translate-x-[-28px]',
+  );
+
   return (
-    <TriggerContainer $visible={hasLoaded}>
-      <Trigger onClick={doToggleNav} $open={isOpen}>
-        <HamburgerIcon />
-      </Trigger>
-    </TriggerContainer>
+    <div className={containerClasses}>
+      <div onClick={toggleNav} className={buttonClasses}>
+        <div className={iconWrapperClasses}>
+          <HamburgerIcon className={iconClasses} />
+        </div>
+      </div>
+    </div>
   );
 };
 
+Hamburger.displayName = 'Hamburger';
+
 export default React.memo(Hamburger);
-
-const Trigger = styled.div<{ $open: boolean }>`
-  pointer-events: auto;
-  cursor: pointer;
-  width: 30px;
-  position: relative;
-  justify-self: flex-end;
-  svg {
-    width: 100%;
-    height: auto;
-    max-width: 30px;
-    padding-top: 7px;
-    line {
-      stroke-width: ${(props) => props.theme.stroke};
-      stroke-linejoin: round;
-      stroke: ${(props) => props.theme.colors.white};
-      transition: transform 0.3s ease;
-      &#bot {
-        transition: transform 0.3s ease 0.15s;
-      }
-    }
-  }
-  ${(props) =>
-    props.$open &&
-    css`
-      svg {
-        #top {
-          transform: translateX(-28px);
-        }
-        #bot {
-          transform: translateX(13px);
-        }
-      }
-    `}
-`;
-
-const TriggerContainer = styled.div<{ $visible: boolean }>`
-  opacity: ${(props) => (props.$visible ? 1 : 0)};
-  display: flex;
-  justify-content: flex-end;
-  position: fixed;
-  width: 100%;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 55px 50px;
-  z-index: 12;
-  margin: 0px auto;
-  max-width: 1500px;
-  pointer-events: none;
-  mix-blend-mode: exclusion;
-  transition: opacity 0.3s ease 0.35s;
-  @media (max-width: 1530px) {
-    padding-right: 60px;
-    padding-top: 55px;
-  }
-  @media (max-width: 600px), (max-height: 450px) {
-    top: unset;
-    bottom: 0;
-    padding-bottom: 40px;
-    padding-right: 38px;
-    mix-blend-mode: normal;
-    ${Trigger} {
-      background-color: ${(props) => props.theme.colors.accent};
-      box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.3);
-      border-radius: 50% 50%;
-      width: 60px;
-      height: 60px;
-      transform: scale(1);
-      transition: 0.2s ease-in transform;
-      &:focus,
-      &:active {
-        transform: scale(0.9);
-      }
-      svg {
-        margin-top: 19px;
-        margin-left: 14px;
-        padding: 0;
-      }
-    }
-  }
-`;

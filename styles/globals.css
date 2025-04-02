@@ -73,3 +73,5 @@
     @apply max-sm:max-w-[10ch];
   }
 }
+
+@custom-variant mobile-or-landscape (@media (max-width: 768px), @media (max-height: 450px));

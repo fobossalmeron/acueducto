@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import Arrows from 'public/assets/img/layout/language2.svg';
+import WWW from 'public/assets/img/layout/www.svg';
 import { useRouter } from 'next/router';
 
 const ONE_LANG_PAGES = [
@@ -90,7 +91,7 @@ function LanguageToggler({
   return (
     <A onClick={handleLink} $reveal={hasLoaded} $available={showToggler}>
       <IconWrapper>
-        <Arrows />
+        <WWW />
       </IconWrapper>
       <RevealWrapper>
         <Reveal>
@@ -123,7 +124,7 @@ const RevealWrapper = styled.div`
   max-width: 1500px;
   opacity: 0;
   transition: opacity 0.25s ease-in;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     align-items: flex-start;
     padding-top: 40px;
     padding-right: calc(22px + 1%);
@@ -152,7 +153,7 @@ const A = styled.a<{ $available: boolean; $reveal: boolean }>`
       }
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     &:hover {
       ${RevealWrapper} {
         opacity: 0;
@@ -225,7 +226,7 @@ const IconWrapper = styled.div`
       transform: scale(0.95);
     }
   }
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     align-items: flex-start;
     padding-top: 40px;
     padding-right: calc(22px + 1%);

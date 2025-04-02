@@ -1,21 +1,21 @@
-import { useEffect, useState } from "react";
-import styled, { keyframes } from "styled-components";
-import Arrow from "components/shared/Arrow";
+import { useEffect, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import Arrow from 'components/shared/Arrow';
 
 const scrollToNext = (e) => {
   e.preventDefault();
-  document.getElementById("removeArrow").scrollIntoView({ behavior: "smooth" });
+  document.getElementById('removeArrow').scrollIntoView({ behavior: 'smooth' });
 };
 
 const ScrollIncentive = () => {
   const [show, setShow] = useState(false);
 
-  // Showing and hiding of the arrow depending on scroll positing 
+  // Showing and hiding of the arrow depending on scroll positing
   // (for the event listener)
   const handleScroll = () => {
     if (window.scrollY > 200) {
       setShow(false);
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     } else {
       setShow(true);
     }
@@ -23,9 +23,9 @@ const ScrollIncentive = () => {
 
   //Adding and removing the event listener for the scroll
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [show]);
 
@@ -74,7 +74,7 @@ const jumping = keyframes`
 `;
 
 const Jumper = styled.div<{ $reveal?: boolean }>`
-  animation-name: ${(p) => (p.$reveal ? jumping : "none")};
+  animation-name: ${(p) => (p.$reveal ? jumping : 'none')};
   transform: translateY(0) rotate(90deg);
   animation-duration: 1.5s;
   animation-play-state: running;
@@ -82,7 +82,7 @@ const Jumper = styled.div<{ $reveal?: boolean }>`
   animation-iteration-count: infinite;
   animation-direction: normal;
   animation-play-state: running;
-  pointer-events: ${(props) => (props.$reveal ? "auto" : "none")};
+  pointer-events: ${(props) => (props.$reveal ? 'auto' : 'none')};
   cursor: pointer;
 `;
 
@@ -106,7 +106,7 @@ const Container = styled.div<{ $reveal?: boolean }>`
   max-width: 1500px;
   opacity: ${(props) => (props.$reveal ? 1 : 0)};
   transition: opacity 0.3s ease 1s;
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     padding-left: 25px;
     justify-content: flex-start;
     padding-bottom: 40px;
