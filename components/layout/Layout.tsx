@@ -5,13 +5,13 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import styled, { createGlobalStyle } from 'styled-components';
 import Header from 'components/ui/Header';
 import Nav from './Nav/Nav';
-import LanguageToggler from './LanguageToggler';
+import LanguageToggler from './LangSelector/LanguageToggler';
 import Hamburger from 'components/ui/Hamburger';
 import Border from 'components/ui/Border';
 import CookieMessage from './CookieMessage';
 import ScrollIncentive from 'components/ui/ScrollIncentive';
 import NewsletterPopup from './NewsletterPopup';
-
+import LangSelector from './LangSelector/LangSelector';
 import * as FacebookPixel from 'utils/facebookPixel';
 import * as LinkedInPixel from 'utils/linkedInPixel';
 import { useLenis } from 'utils/LenisContext';
@@ -97,7 +97,8 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         hasLoaded,
         locale: router.locale,
       })}
-      <LanguageToggler locale={router.locale} hasLoaded={hasLoaded} />
+      {/* <LanguageToggler locale={router.locale} /> */}
+      <LangSelector />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
       <BodyOverflow $hasLoaded={hasLoaded} />

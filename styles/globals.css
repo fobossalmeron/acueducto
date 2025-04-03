@@ -75,3 +75,4 @@
 }
 
 @custom-variant mobile-or-landscape (@media (max-width: 768px), @media (max-height: 450px));
+@custom-variant smallest (@media (max-width: 450px), @media (max-height: 450px));

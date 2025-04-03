@@ -25,7 +25,7 @@ export default function Contact({ locale, setTitle, pt }: PageProps) {
         en_canonical={'https://acueducto.studio/en/contact'}
         noIndex
       ></Head>
-      <SplitLayout className="bg-background border-foreground-lowest border-t">
+      <SplitLayout>
         <SplitLayout.Header>
           <Fade triggerOnce>
             <Title>{t.intro.title}</Title>
