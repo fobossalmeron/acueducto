@@ -4,6 +4,9 @@
   /* Espaciado base */
   --spacing: 0.4rem;
 
+  /* Breakpoints */
+  --breakpoint-xs: 320px;
+
   /* Tamaños de fuente personalizados - CORREGIDOS */
   --text-xs: 1.2rem; /* 12px con base 62.5% */
   --text-sm: 1.5rem; /* 15px */

@@ -6,5 +6,5 @@ alwaysApply: true
 
 # Your rule content
 
-- Always use tailwind 4 when using tailwind
+- Always use tailwind 4 when using tailwind (There is no tailwind.config.js and variables are defined in app/globals.css)
 - review docs if necessary at @web https://tailwindcss.com/blog/tailwindcss-v4
