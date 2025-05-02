@@ -10,26 +10,26 @@ import { PageProps } from 'types/PageProps';
 import { useEffect } from 'react';
 
 const nextEvent = {
-  date: 'Marzo 27',
-  meetupEdition: 2,
+  date: 'Mayo 15',
+  meetupEdition: 3,
   googleCalendarEvent:
-    'https://calendar.google.com/calendar/r/eventedit?text=Innovation+Leaders+Meetup&details=Meetup+for+innovation+leaders&location=La+Condesa%2C+06140+Mexico+City%2C+CDMX%2C+Mexico&dates=20250327T180000/20250327T220000&ctz=America/Mexico_City',
+    'https://calendar.google.com/calendar/r/eventedit?text=Innovation+Leaders+Meetup&details=Meetup+for+innovation+leaders&location=La+Condesa%2C+06140+Mexico+City%2C+CDMX%2C+Mexico&dates=20250515T180000/20250515T220000&ctz=America/Mexico_City',
   location: 'Condesa',
   talks: [
     {
-      guest: 'Adriana Malaret',
-      image: 'adriana-malaret.png',
-      role: 'Head of Product @ Koltin',
+      guest: 'Monserrat Reyes',
+      image: 'monserrat-reyes.png',
+      role: 'Engineering Director @ Clara',
     },
     {
-      guest: 'Juan Martín Vignart',
-      image: 'juan-vignart.png',
-      role: 'Country Manager México @ Tiendanube',
+      guest: 'Sebastián Prida',
+      image: 'sebastian-prida.png',
+      role: 'CEO @ Medu',
     },
     {
-      guest: 'Marcos Subía',
-      image: 'marcos-subia.png',
-      role: 'Gerente de Operaciones @ Carryt',
+      guest: 'Victor Lima',
+      image: 'victor-lima.png',
+      role: 'CTO @ UnDosTres',
     },
     {
       guest: 'Rodrigo y Artemio',
