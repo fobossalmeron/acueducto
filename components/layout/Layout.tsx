@@ -5,7 +5,6 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import styled, { createGlobalStyle } from 'styled-components';
 import Header from 'components/ui/Header';
 import Nav from './Nav/Nav';
-import LanguageToggler from './LangSelector/LanguageToggler';
 import Hamburger from 'components/ui/Hamburger';
 import Border from 'components/ui/Border';
 import CookieMessage from './CookieMessage';
@@ -33,6 +32,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   const [headerTitle, setTitle] = useState<string>('');
   const [showArrow, setShowArrow] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
+  const [isLangSelectorVisible, setLangSelectorVisible] = useState(false);
   const router = useRouter();
   const { stopScroll, startScroll } = useLenis();
 
@@ -64,6 +64,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
   useEffect(() => {
     if (isOpen) {
       stopScroll();
+      setLangSelectorVisible(false);
     } else {
       startScroll();
     }
@@ -97,8 +98,10 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
         hasLoaded,
         locale: router.locale,
       })}
-      {/* <LanguageToggler locale={router.locale} /> */}
-      <LangSelector />
+      <LangSelector
+        isContentVisible={isLangSelectorVisible}
+        setIsContentVisible={setLangSelectorVisible}
+      />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
       <BodyOverflow $hasLoaded={hasLoaded} />

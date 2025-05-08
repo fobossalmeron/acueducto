@@ -1,15 +1,21 @@
 import WWW from 'public/assets/img/layout/www.svg';
 import { useLanguageToggler } from './useLangSelector';
-import { useState } from 'react';
+import type { Dispatch, SetStateAction } from 'react';
 
-function LangSelector() {
+interface LangSelectorProps {
+  isContentVisible: boolean;
+  setIsContentVisible: Dispatch<SetStateAction<boolean>>;
+}
+
+function LangSelector({
+  isContentVisible,
+  setIsContentVisible,
+}: LangSelectorProps) {
   const { changeToLanguage, currentLanguage, showLangSelector } =
     useLanguageToggler();
 
-  const [isContentVisible, setIsContentVisible] = useState(false);
-
   const toggleContent = () => {
-    setIsContentVisible(!isContentVisible);
+    setIsContentVisible((prev) => !prev);
   };
 
   return (
