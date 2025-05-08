@@ -60,54 +60,6 @@ const styles = `
     }
   }
 
-  /* normalize */
-  figure {
-    margin: 0;
-  }
-  a {
-    background-color: transparent;
-  }
-  img {
-    border-style: none;
-  }
-  button,
-  input,
-  optgroup,
-  select,
-  textarea {
-    font-family: inherit;
- /*   font-size: 100%;*/
-    line-height: 1.15;
-    margin: 0;
-  }
-  button,
-  input {
-    overflow: visible;
-  }
-  button,
-  select {
-    text-transform: none;
-  }
-  [type="button"],
-  [type="reset"],
-  [type="submit"],
-  button {
-    -webkit-appearance: button;
-  }
-  [type="button"]::-moz-focus-inner,
-  [type="reset"]::-moz-focus-inner,
-  [type="submit"]::-moz-focus-inner,
-  button::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-  }
-  [type="button"]:-moz-focusring,
-  [type="reset"]:-moz-focusring,
-  [type="submit"]:-moz-focusring,
-  button:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
-
   @font-face {
     font-family: "Wide";
     font-display: block;
@@ -124,7 +76,6 @@ const styles = `
     font-weight: 200;
     font-style: normal;
   }
-
   @font-face {
     font-family: "Wide";
     font-display: block;
@@ -136,25 +87,13 @@ const styles = `
 
   html {
     font-size: 62.5%;
-    box-sizing: border-box;
     font-family: "Wide", sans-serif;
     font-weight: 100;
     font-style: normal;
     background-color: ${Theme.colors.background};
   }
 
-  /* .lenis.lenis-smooth {
-    scroll-behavior: auto !important;
-  } */
-
-  *,
-  *:before,
-  *:after {
-    box-sizing: inherit;
-  }
-
   body {
-    margin: 0;
     padding: 0;
     color: ${Theme.colors.foreground};
     font-size: 1.8rem;
@@ -174,18 +113,14 @@ const styles = `
     }
   }
 
+  /* .lenis.lenis-smooth {
+    scroll-behavior: auto !important;
+  } */
+
+
   #__next {
     height: 100%;
     width: 100%;
-  }
-  
-  a {
-    color: inherit;
-  }
-  ul,
-  ol {
-    margin: 0;
-    padding: 0;
   }
 `;
 

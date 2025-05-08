@@ -17,5 +17,4 @@
 TODO:
 
 - Brinca al cambiar de idioma
-- Se puede borrar el normalize de global.js?
 - try https://playwright.dev/docs/intro

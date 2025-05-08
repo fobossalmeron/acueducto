@@ -13,7 +13,7 @@
     "p": "Aprende cómo desarrollan producto las empresas de servicios digitales más importantes de Latinoamérica como Mercado Libre, Rappi, Nu, Uber y más.",
     "form": {
       "email": {
-        "placeholder": "Ingresa tu email",
+        "placeholder": "Tu email",
         "errorMissing": "Falta tu email",
         "errorInvalid": "Email inválido"
       },

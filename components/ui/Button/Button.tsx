@@ -16,7 +16,7 @@ export const Button = memo<
       )}
       {...rest}
     >
-      <span>{text}</span>
+      <span className="whitespace-[inherit]">{text}</span>
     </button>
   );
 });

@@ -53,19 +53,26 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
             <Fade cascade delay={0.4}>
               <p className="h1">{t.landing.heading}</p>
               <h1 className="h2">{t.landing.tagline}</h1>
-              <div className="bg-background border-card-border flex w-fit gap-4 rounded-full border p-3 md:p-4">
+              <div className="bg-background border-card-border xs:gap-4 flex w-fit gap-2 rounded-full border p-3 md:p-4">
                 <Link
                   href={locale === 'en' ? '/contact' : '/contacto'}
                   locale={locale}
                   className="flex gap-4"
                 >
-                  <Button text={t.landing.ctaContact} />
+                  <Button
+                    text={t.landing.ctaContact}
+                    className="whitespace-nowrap"
+                  />
                 </Link>
                 <Link
                   href={locale === 'en' ? '/work' : '/portafolio'}
                   locale={locale}
                 >
-                  <Button text={t.landing.ctaWork} variant="outline" />
+                  <Button
+                    text={t.landing.ctaWork}
+                    variant="outline"
+                    className="whitespace-nowrap"
+                  />
                 </Link>
               </div>
             </Fade>
