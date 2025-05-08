@@ -17,7 +17,7 @@ function LangSelector() {
       <div
         id="LangSelector"
         onClick={toggleContent}
-        className={`xs:top-10 xs:right-10 fixed top-6 right-6 z-20 flex h-13 w-13 transform content-center items-center justify-center rounded-full mix-blend-exclusion transition-all duration-300 md:top-1/2 md:-translate-y-1/2 ${
+        className={`xs:top-10 xs:right-[7%] fixed top-6 right-6 z-20 flex h-13 w-13 transform content-center items-center justify-center rounded-full mix-blend-exclusion transition-all duration-300 sm:top-10 sm:right-10 md:top-1/2 md:-translate-y-1/2 ${
           !isContentVisible
             ? 'border-1 border-transparent hover:border-[#4D75EA] hover:shadow-[0_0_18px_rgba(77,117,234,0.6)]'
             : 'border-1 border-transparent'
@@ -31,7 +31,7 @@ function LangSelector() {
       </div>
       <div
         id="LangSelectorContent"
-        className={`pointer-events-none fixed top-1/2 right-10 z-10 h-13 w-13 -translate-y-1/2 transform p-4 transition-opacity duration-300 ${!showLangSelector || !isContentVisible ? 'opacity-0' : 'opacity-100'}`}
+        className={`xs:top-10 xs:right-[7%] pointer-events-none fixed top-6 right-6 z-10 h-13 w-13 transform p-4 transition-opacity duration-300 sm:top-10 sm:right-10 md:top-1/2 md:-translate-y-1/2 ${!showLangSelector || !isContentVisible ? 'opacity-0' : 'opacity-100'}`}
       >
         <div className="card text-over-black absolute top-0 right-0 flex flex-col items-start gap-1 rounded-4xl p-2 pr-13 pl-2 text-base">
           <span

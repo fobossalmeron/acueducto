@@ -33,7 +33,7 @@ const DefaultBorder = styled.div`
   border-radius: 30px;
 
   @media (max-width: 600px), (max-height: 450px) {
-    border-radius: 30px;
+    border-radius: 25px;
   }
 `;
 
@@ -47,6 +47,6 @@ const BlackBorder = styled(DefaultBorder)`
   mix-blend-mode: normal;
 
   @media (max-width: 600px), (max-height: 450px) {
-    border-radius: 30px;
+    border-radius: 25px;
   }
 `;
