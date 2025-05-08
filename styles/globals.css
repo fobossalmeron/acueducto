@@ -77,5 +77,19 @@
   }
 }
 
+/* Para atender la altura que teníamos antes de cambiar a tailwind*/
 @custom-variant mobile-or-landscape (@media (max-width: 768px), @media (max-height: 450px));
 @custom-variant smallest (@media (max-width: 450px), @media (max-height: 450px));
+
+/* La mejor implementación para tailwind es la de abajo:
+Cuando un device tenga menos de 450px de alto, consideramos que está en mobile-landscape 
+Las clases de arriba se usan en Hamburger pero no nos encantan. Se pueden cambiar después. */
+@custom-variant height-landscape (@media (max-height: 450px));
+
+@media (max-height: 450px) {
+  .lang-selector-landscape {
+    top: 1.5rem; /* Equivalente a top-6 */
+    right: 1.5rem; /* Equivalente a right-6 */
+    transform: none; /* Quita cualquier translate */
+  }
+}

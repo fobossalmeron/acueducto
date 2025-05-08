@@ -18,5 +18,4 @@ TODO:
 
 - Brinca al cambiar de idioma
 - Intro loading animation que onda
-- La nav se rompe en landscape
 - try https://playwright.dev/docs/intro

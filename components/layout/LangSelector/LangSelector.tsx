@@ -23,7 +23,7 @@ function LangSelector({
       <div
         id="LangSelector"
         onClick={toggleContent}
-        className={`xs:top-10 xs:right-[7%] fixed top-6 right-6 z-20 flex h-13 w-13 transform content-center items-center justify-center rounded-full mix-blend-exclusion transition-all duration-300 sm:top-10 sm:right-10 md:top-1/2 md:-translate-y-1/2 ${
+        className={`xs:top-10 xs:right-[7%] height-landscape:top-6 height-landscape:translate-0 height-landscape:right-6 fixed top-6 right-6 z-20 flex h-13 w-13 transform content-center items-center justify-center rounded-full mix-blend-exclusion transition-all duration-300 sm:top-10 sm:right-10 md:top-1/2 md:-translate-y-1/2 ${
           !isContentVisible
             ? 'border-1 border-transparent hover:border-[#4D75EA] hover:shadow-[0_0_18px_rgba(77,117,234,0.6)]'
             : 'border-1 border-transparent'
