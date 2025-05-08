@@ -80,7 +80,6 @@ export default class MyDocument extends Document {
           <meta name="geo.placename" content="Acueducto" />
         </Head>
         <body>
-          <span id="dum"></span>
           <div id="revealer">
             <div id="bordered">
               <svg

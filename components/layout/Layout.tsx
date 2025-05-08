@@ -126,6 +126,7 @@ const BodyOverflow = createGlobalStyle<{ $hasLoaded: boolean }>`
 const LayoutWrapper = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
   flex-direction: column;
   display: flex;
   justify-content: flex-start;

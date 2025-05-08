@@ -60,10 +60,6 @@ const styles = `
     }
   }
 
-  #LayoutWrapper{
-    height:100%;
-  }
-
   /* normalize */
   figure {
     margin: 0;
@@ -144,6 +140,7 @@ const styles = `
     font-family: "Wide", sans-serif;
     font-weight: 100;
     font-style: normal;
+    background-color: ${Theme.colors.background};
   }
 
   /* .lenis.lenis-smooth {

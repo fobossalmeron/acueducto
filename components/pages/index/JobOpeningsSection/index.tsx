@@ -36,7 +36,11 @@ export const JobOpeningsSection = ({
         className="relative bottom-0 col-span-12 col-start-1 mt-5 h-[150px] w-auto sm:col-span-10 sm:col-start-2 sm:h-[200px] md:col-span-7 md:col-start-5 md:mt-10 lg:absolute lg:col-span-5 lg:col-start-2 lg:h-[40%]"
         triggerOnce
       >
-        <Image src={JobOpenings} alt="Job Openings" className="h-full w-full" />
+        <Image
+          src={JobOpenings}
+          alt="Job Openings"
+          className="h-full w-full object-contain"
+        />
       </Fade>
     </OverlapLayout>
   );
