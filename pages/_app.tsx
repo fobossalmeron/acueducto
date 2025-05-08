@@ -1,21 +1,21 @@
-import { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { useLocalizedContent } from "utils/useLocalizedContent";
-import { ThemeProvider } from "styled-components";
-import LoadingBar, { LoadingBarRef } from "react-top-loading-bar";
-import Layout from "components/layout/Layout";
-import theme from "styles/theme";
-import delayForLoading from "utils/delayForLoading";
-import en from "public/locales/en/common.json";
-import es from "public/locales/es/common.json";
-import { LangProvider } from "utils/LangContext";
-import { PrismicPreview } from "@prismicio/next";
-import { repositoryName } from "../prismicio";
-import { LenisProvider } from "utils/LenisContext";
-import { AppProps } from "next/app";
-import { NextRouter } from "next/router";
-import { SharedTProps } from "../utils/LangContext";
+import { useState, useEffect, useRef, useCallback, useMemo } from 'react';
+import { useLocalizedContent } from 'utils/useLocalizedContent';
+import { ThemeProvider } from 'styled-components';
+import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
+import Layout from 'components/layout/Layout';
+import theme from 'styles/theme';
+import delayForLoading from 'utils/delayForLoading';
+import en from 'public/locales/en/common.json';
+import es from 'public/locales/es/common.json';
+import { LangProvider } from 'utils/LangContext';
+import { PrismicPreview } from '@prismicio/next';
+import { repositoryName } from '../prismicio';
+import { LenisProvider } from 'utils/LenisContext';
+import { AppProps } from 'next/app';
+import { NextRouter } from 'next/router';
+import { SharedTProps } from '../utils/LangContext';
 import type { NextPage } from 'next';
-import '../styles/globals.css'
+import '../styles/globals.css';
 
 interface CustomAppProps extends Omit<AppProps, 'router'> {
   router: NextRouter;
@@ -31,12 +31,15 @@ function App({ Component, pageProps, router }: CustomAppProps) {
   // Usar el hook useLocalizedContent
   const localizedContent = useLocalizedContent({
     locale: router.locale,
-    fileName: "common",
-    initialContent: router.locale === "en" ? en : es,
+    fileName: 'common',
+    initialContent: router.locale === 'en' ? en : es,
   });
 
   // Memoizar el resultado de useLocalizedContent
-  const sharedT = useMemo(() => localizedContent as SharedTProps, [localizedContent]);
+  const sharedT = useMemo(
+    () => localizedContent as SharedTProps,
+    [localizedContent],
+  );
 
   // Memoizar los manejadores de eventos del router
   const handleRouteComplete = useCallback((url: string) => {
@@ -51,7 +54,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
   const handleRouteError = useCallback((err: Error, url: string) => {
     setTimeout(() => {
-      if ("cancelled" in err && err.cancelled) {
+      if ('cancelled' in err && err.cancelled) {
         // console.log(`${err} on route to ${url}`);
       }
       LoadingBarRef.current?.complete();
@@ -65,17 +68,17 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
     // Animación de carga
     delayForLoading(800).then(() => {
-      const bordered = document.getElementById("bordered");
-      const logo = document.getElementById("logo");
-      const revealer = document.getElementById("revealer");
+      const bordered = document.getElementById('bordered');
+      const logo = document.getElementById('logo');
+      const revealer = document.getElementById('revealer');
       if (bordered) {
         // Transición de salida
-        bordered.classList.add("hidden");
-        logo.style.opacity = "0";
+        bordered.classList.add('hidden');
+        logo.style.opacity = '0';
 
         setTimeout(() => {
-          revealer.style.pointerEvents = "none";
-          revealer.style.opacity = "0";
+          revealer.style.pointerEvents = 'none';
+          revealer.style.opacity = '0';
           setHasLoaded(true);
         }, 400);
 
@@ -89,22 +92,22 @@ function App({ Component, pageProps, router }: CustomAppProps) {
     });
 
     // Agregar event listeners para la barra de carga
-    router.events.on("routeChangeStart", handleRouteStart);
-    router.events.on("routeChangeComplete", handleRouteComplete);
-    router.events.on("routeChangeError", handleRouteError);
+    router.events.on('routeChangeStart', handleRouteStart);
+    router.events.on('routeChangeComplete', handleRouteComplete);
+    router.events.on('routeChangeError', handleRouteError);
 
     // Limpieza: remover event listeners
     return () => {
-      router.events.off("routeChangeStart", handleRouteStart);
-      router.events.off("routeChangeComplete", handleRouteComplete);
-      router.events.off("routeChangeError", handleRouteError);
+      router.events.off('routeChangeStart', handleRouteStart);
+      router.events.off('routeChangeComplete', handleRouteComplete);
+      router.events.off('routeChangeError', handleRouteError);
     };
   }, [handleRouteStart, handleRouteComplete, handleRouteError]);
 
   // Habilitar el scroll cuando la página ha cargado
   useEffect(() => {
     if (hasLoaded) {
-      console.log("Page hasLoaded");
+      console.log('Page hasLoaded');
       document.documentElement.style.overflow = '';
       document.documentElement.style.height = '';
     }
@@ -113,7 +116,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
   // Si la página tiene un getLayout personalizado, úsalo
   if (Component.getLayout) {
     return Component.getLayout(
-      <Component {...pageProps} lang={router.locale} />
+      <Component {...pageProps} lang={router.locale} />,
     );
   }
 

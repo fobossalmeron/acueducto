@@ -8,75 +8,45 @@ const styles = `
     right: 0;
     bottom: 0;
     top: 0;
-    padding: 19px;
+    padding: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     background-color: #0D1111;
     transition: opacity 0.4s ease-out;
     will-change: opacity;
   }
   #bordered {
-    width: calc(100% - 36px);
-    height: calc(100% - 36px);
-    max-width: 1500px;
-    margin: 0 auto;
-    position: fixed;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     pointer-events: none;
-    left: 18px;
-    top: 18px;
-    right: 18px;
-    bottom: 18px;
-    border: 16px solid ${Theme.colors.foreground_lowest};
-    border-radius: 500px;
-    border-width: 16px;
-    transform: scale(0.12);
+    border: 1px solid ${Theme.colors.foreground_lowest};
+    border-radius: 100%;
     transition: transform 0.4s ease-in, border-width 0.3s ease-in, border-radius 0.3s ease-out;
     will-change: transform;
     overflow: hidden;
   }
   #logo {
-    width: 40px;
-    height: 35px;
-    position: absolute;
-    top: calc(50% - 20px);
-    left: calc(50% - 20px);
+    width: 22.4px;
+    height: 19.6px;
+    z-index: 100;
     transition: opacity 0.2s ease-in;
   }
 
-  #bordered.hidden{
-    border-radius:60px;
-    transform: scale(1);
-    border-width:1px;
-  }
-  @media(max-width:1530px) {
-    #logo {
-      width: 32px;
-      height: 32px;
-      top: calc(50% - 16px);
-      left: calc(50% - 16px);
-    }
-   #bordered.hidden { 
-     border-radius: 40px;
-    }
-  }
-  @media(max-width:600px) {
-    #logo {
-      width: 25px;
-      height: 25px;
-      top: calc(50% - 12.5px);
-      left: calc(50% - 12.5px);
-    }
-    #bordered.hidden { 
-      border-radius: 30px;
-     }
-   }
   #bordered::before {
     content: " ";
     background-color: #1740bf;
-    width: 300%;
-    height: 100%;
+    width: 250%;
+    height: 250%;
     position: absolute;
+    z-index: -1;
     transform: translateX(-100%);
-    animation: shine 1s infinite ease-in;
+    animation: shine 1s infinite ease-in-out;
     transition: opacity 0.150s ease;
+    filter: blur(12px);
   }
   .hidden::before {
     opacity: 0;
@@ -86,7 +56,7 @@ const styles = `
       transform: translateX(-100%);
     }
     100% {
-      transform: translateX(50%);
+      transform: translateX(80%);
     }
   }
 

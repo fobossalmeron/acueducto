@@ -17,5 +17,7 @@
 TODO:
 
 - Brinca al cambiar de idioma
-- Intro loading animation que onda
+- Quitar <span id="dum"></span> de \_document.js
+- Se puede borrar #LayoutWrapper{height:100%;} de global.js?
+- Se puede borrar el normalize de global.js?
 - try https://playwright.dev/docs/intro
