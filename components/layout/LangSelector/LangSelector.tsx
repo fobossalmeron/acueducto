@@ -6,14 +6,16 @@ import { useRef, useEffect } from 'react';
 interface LangSelectorProps {
   isContentVisible: boolean;
   setIsContentVisible: Dispatch<SetStateAction<boolean>>;
+  onLanguageChangeStart?: () => void;
 }
 
 function LangSelector({
   isContentVisible,
   setIsContentVisible,
+  onLanguageChangeStart,
 }: LangSelectorProps) {
   const { changeToLanguage, currentLanguage, showLangSelector } =
-    useLanguageToggler();
+    useLanguageToggler(onLanguageChangeStart);
 
   const refButton = useRef<HTMLDivElement>(null);
   const refContent = useRef<HTMLDivElement>(null);

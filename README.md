@@ -16,5 +16,4 @@
 
 TODO:
 
-- Brinca al cambiar de idioma
 - try https://playwright.dev/docs/intro

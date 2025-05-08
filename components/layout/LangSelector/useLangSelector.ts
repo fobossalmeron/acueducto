@@ -35,7 +35,7 @@ Object.entries(ROUTE_PAIRS).forEach(([enRoute, esRoute]) => {
     ROUTE_MAPPINGS.es[esRoute] = enRoute;
 });
 
-export function useLanguageToggler() {
+export function useLanguageToggler(onLanguageChangeStart?: () => void) {
     const router = useRouter();
     const { locale } = router;
     const currentPath = router.asPath;
@@ -59,14 +59,13 @@ export function useLanguageToggler() {
     // Memoizamos la función para evitar recreaciones en cada renderización
     const changeToLanguage = useCallback((targetLang: string) => {
         if (currentLanguage !== targetLang) {
-            // Si el idioma objetivo es diferente al actual, realizar el cambio
+            if (onLanguageChangeStart) onLanguageChangeStart();
             const mappings = ROUTE_MAPPINGS[locale as keyof typeof ROUTE_MAPPINGS];
             const targetPath =
                 mappings[currentPath as keyof typeof mappings] || currentPath;
-
-            router.push(targetPath, targetPath, { locale: targetLang });
+            router.push(targetPath, targetPath, { locale: targetLang, scroll: false });
         }
-    }, [router, locale, currentLanguage, currentPath]);
+    }, [router, locale, currentLanguage, currentPath, onLanguageChangeStart]);
 
     return {
         currentLanguage,

@@ -14,6 +14,7 @@ import LangSelector from './LangSelector/LangSelector';
 import * as FacebookPixel from 'utils/facebookPixel';
 import * as LinkedInPixel from 'utils/linkedInPixel';
 import { useLenis } from 'utils/LenisContext';
+import PageLoader from './PageLoader';
 
 interface LayoutProps {
   t: any;
@@ -27,12 +28,13 @@ interface ChildProps {
   locale: string;
 }
 
-const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
+const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [headerTitle, setTitle] = useState<string>('');
   const [showArrow, setShowArrow] = useState<boolean>(true);
   const [showPopup, setShowPopup] = useState<boolean>(false);
   const [isLangSelectorVisible, setLangSelectorVisible] = useState(false);
+  const [showLoader, setShowLoader] = useState(false);
   const router = useRouter();
   const { stopScroll, startScroll } = useLenis();
 
@@ -70,6 +72,40 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
     }
   }, [isOpen, stopScroll, startScroll]);
 
+  // Mostrar loader al iniciar cambio de idioma
+  const handleLanguageChangeStart = () => {
+    setShowLoader(true);
+    // Guarda el tiempo de inicio
+    (window as any).__loaderStart = Date.now();
+  };
+
+  // Ocultar loader cuando termine el cambio de ruta
+  useEffect(() => {
+    const handleRouteChangeComplete = () => {
+      const minDuration = 800;
+      const start = (window as any).__loaderStart || Date.now();
+      const elapsed = Date.now() - start;
+      if (elapsed < minDuration) {
+        setTimeout(() => setShowLoader(false), minDuration - elapsed);
+      } else {
+        setShowLoader(false);
+      }
+    };
+    router.events.on('routeChangeComplete', handleRouteChangeComplete);
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChangeComplete);
+    };
+  }, [router.events]);
+
+  // Bloquear scroll con Lenis cuando el loader esté activo
+  useEffect(() => {
+    if (showLoader) {
+      stopScroll();
+    } else {
+      startScroll();
+    }
+  }, [showLoader, stopScroll, startScroll]);
+
   const toggleNav = useCallback((): void => {
     setOpen((prev) => !prev);
   }, []);
@@ -77,6 +113,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
 
   return (
     <LayoutWrapper id="LayoutWrapper">
+      <PageLoader visible={showLoader} />
       <Border />
       <Hamburger toggleNav={toggleNav} isOpen={isOpen} hasLoaded={hasLoaded} />
       <Header
@@ -101,6 +138,7 @@ const Layout: React.FC<LayoutProps> = ({ t, hasLoaded, children }) => {
       <LangSelector
         isContentVisible={isLangSelectorVisible}
         setIsContentVisible={setLangSelectorVisible}
+        onLanguageChangeStart={handleLanguageChangeStart}
       />
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
