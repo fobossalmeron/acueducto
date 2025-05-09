@@ -24,7 +24,7 @@ const Main = styled.main<{ $unPadded?: boolean }>`
   position: relative;
   width: calc(100% - 38px);
   height: calc(100% - 38px);
-  max-width: 1500px;
+  max-width: 1502px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;

@@ -60,10 +60,14 @@ export function useLanguageToggler(onLanguageChangeStart?: () => void) {
     const changeToLanguage = useCallback((targetLang: string) => {
         if (currentLanguage !== targetLang) {
             if (onLanguageChangeStart) onLanguageChangeStart();
-            const mappings = ROUTE_MAPPINGS[locale as keyof typeof ROUTE_MAPPINGS];
-            const targetPath =
-                mappings[currentPath as keyof typeof mappings] || currentPath;
-            router.push(targetPath, targetPath, { locale: targetLang, scroll: false });
+            
+            // Agregamos un retraso de 300ms antes de cambiar el idioma
+            setTimeout(() => {
+                const mappings = ROUTE_MAPPINGS[locale as keyof typeof ROUTE_MAPPINGS];
+                const targetPath =
+                    mappings[currentPath as keyof typeof mappings] || currentPath;
+                router.push(targetPath, targetPath, { locale: targetLang, scroll: false });
+            }, 300);
         }
     }, [router, locale, currentLanguage, currentPath, onLanguageChangeStart]);
 

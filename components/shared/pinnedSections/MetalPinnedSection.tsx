@@ -92,7 +92,7 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
   padding: 150px 4% calc(70px + 5%) 4%;
   border-top: ${(props) =>
     props.$borderTop
-      ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
+      ? `${props.theme.stroke} solid ${props.theme.colors.foreground_lowest}`
       : 'none'};
 
   .sticky {

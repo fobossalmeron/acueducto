@@ -30,7 +30,7 @@ const Hamburger = ({ hasLoaded, toggleNav, isOpen }: HamburgerProps) => {
   );
 
   const iconClasses = cn(
-    '[&_line]:stroke-round [&_line]:ease [&_line]:stroke-white [&_line]:stroke-[1] [&_line]:transition-transform [&_line]:duration-300',
+    '[&_line]:stroke-round [&_line]:ease [&_line]:stroke-white [&_line]:stroke-[1.3] [&_line]:transition-transform [&_line]:duration-300',
     '[&_#bot]:ease [&_#bot]:transition-transform [&_#bot]:delay-150 [&_#bot]:duration-300',
     isOpen && '[&_#bot]:translate-x-[13px] [&_#top]:translate-x-[-28px]',
   );

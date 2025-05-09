@@ -24,7 +24,7 @@ const TitleSectionGrid = styled.div<{ $borderTop?: boolean; $notSticky?: boolean
   background-color: ${(props) => props.theme.colors.background};
   border-top: ${(props) =>
     props.$borderTop
-      ? `${props.theme.stroke} solid ${props.theme.colors.foreground}`
+      ? `${props.theme.stroke} solid ${props.theme.colors.foreground_lowest}`
       : "none"};
   .h1 {
     letter-spacing: 0;
