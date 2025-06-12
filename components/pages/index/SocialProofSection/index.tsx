@@ -73,7 +73,7 @@ export function SocialProofSection({
 
         <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
-            <span className="text-foreground-lower mb-10 block px-4 text-center sm:mb-14">
+            <span className="text-foreground-lower mb-10 block px-4 text-center sm:mb-10">
               {span}
             </span>
             <Image
