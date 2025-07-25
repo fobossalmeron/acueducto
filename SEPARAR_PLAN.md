@@ -37,7 +37,11 @@ acueducto/
     │   │   ├── components/
     │   │   ├── utils/
     │   │   ├── styles/
-    │   │   └── types/
+    │   │   ├── types/
+    │   │   └── assets/              # Assets compartidos
+    │   │       ├── images/
+    │   │       ├── icons/
+    │   │       └── fonts/
     │   └── dist/
     └── typescript-config/           # Configuración TypeScript compartida
         ├── package.json
@@ -113,8 +117,9 @@ acueducto/
     }
   },
   "scripts": {
-    "build": "tsc && cp -r src/styles dist/",
-    "dev": "tsc --watch"
+    "build": "tsc && cp -r src/styles dist/ && npm run copy-assets",
+    "dev": "tsc --watch",
+    "copy-assets": "mkdir -p ../../apps/studio/public/shared ../../apps/podcast/public/shared && cp -r src/assets/* ../../apps/studio/public/shared/ && cp -r src/assets/* ../../apps/podcast/public/shared/"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -308,6 +313,10 @@ export default {
 - `styles/global.js`
 - `styles/globals.css`
 - `types/`
+- **Assets compartidos** → `src/assets/`:
+  - `public/assets/img/layout/` (logos, iconos de UI)
+  - `public/assets/img/shared/` (imágenes usadas en ambas apps)
+  - `public/fonts/` (fuentes del proyecto)
 
 ### A app del estudio (`apps/studio/`):
 
@@ -395,11 +404,12 @@ module.exports = {};
 9. Mover código específico de podcast a podcast/
 10. Actualizar imports para usar @acueducto/shared con export maps
 11. Configurar next.config.js de cada app
-12. Migrar assets específicos
-13. Migrar configuración Prismic a podcast
-14. Configurar Google Analytics usando @next/third-parties/google en Layout.tsx compartido
-15. Configurar y testear builds de TypeScript
-16. Crear archivos de configuración Vercel
+12. Migrar assets compartidos a packages/shared/src/assets/
+13. Migrar assets específicos a cada app
+14. Migrar configuración Prismic a podcast
+15. Configurar Google Analytics usando @next/third-parties/google en Layout.tsx compartido
+16. Configurar y testear builds de TypeScript
+17. Crear archivos de configuración Vercel
 
 ## Gestión de Dependencias
 
@@ -422,6 +432,13 @@ Apps (studio/podcast) → Shared Package → External Dependencies
 - ✅ **Export maps en shared**: Apuntan a `dist/` para consistencia dev/prod
 - ✅ **Sin path mapping**: TypeScript usa export maps automáticamente
 - ✅ **Imports específicos**: `@acueducto/shared/components/Button`
+
+### **Gestión de Assets Compartidos**
+
+- ✅ **Ubicación centralizada**: `packages/shared/src/assets/`
+- ✅ **Copia automática**: Build script distribuye a `apps/*/public/shared/`
+- ✅ **Referencias consistentes**: Componentes usan `/shared/images/logo.png`
+- ✅ **Desarrollo automático**: Turborepo ejecuta `shared:build` antes de `dev`
 
 ### **Prevención de Dependencias Circulares**
 

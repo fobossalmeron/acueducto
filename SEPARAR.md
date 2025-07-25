@@ -62,6 +62,7 @@ acueducto/
 - **Hot reload rápido**: Sin carga de 200 episodios en studio
 - **Aislamiento**: Cambios en uno no afectan el otro
 - **Componentes compartidos**: UI consistente automática
+- **Assets optimizados**: Gestión centralizada y distribución automática
 
 ## **Contexto Técnico**
 
