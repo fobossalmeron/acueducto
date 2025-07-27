@@ -1,0 +1,15 @@
+import { jsx as _jsx } from "react/jsx-runtime";
+import createMarkup from "../../utils/createMarkup";
+export const H1 = ({ children, ...props }) => (_jsx("h1", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const H2 = ({ children, ...props }) => (_jsx("h2", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const H3 = ({ children, ...props }) => (_jsx("h3", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const H4 = ({ children, ...props }) => (_jsx("h4", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const H5 = ({ children, ...props }) => (_jsx("h5", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const P = ({ children, ...props }) => (_jsx("p", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const Span = ({ children, ...props }) => (_jsx("span", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const B = ({ children, ...props }) => (_jsx("b", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const Blockquote = ({ children, ...props }) => (_jsx("blockquote", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const A = ({ children, ...props }) => (_jsx("a", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const Li = ({ children, ...props }) => (_jsx("li", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const Ul = ({ children, ...props }) => (_jsx("ul", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));
+export const Div = ({ children, ...props }) => (_jsx("div", { ...props, dangerouslySetInnerHTML: createMarkup(children) }));

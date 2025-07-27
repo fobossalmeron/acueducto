@@ -1,0 +1,50 @@
+{
+  "head": {
+    "title": "App and web developer portfolio | Let's build amazing things together",
+    "description": "Discover our app and web developer portfolio featuring UX website design and product development strategy examples. Let's create something amazing together!",
+    "headerTitle": "Work"
+  },
+  "intro": {
+    "seo_h1": "App and web developer <br/>portfolio: Acueducto",
+    "title": "our selected<br/> case studies",
+    "p": "Let the work speak for itself. Read about the selected projects we have launched alongside our clients."
+  },
+  "caseStudies": [
+    {
+      "title": "how to build a world-class web app",
+      "tags": "UI design<br/>UX design<br/>Web app<br/>Software development<br/>Product management<br/>",
+      "link": "wellmee",
+      "bg_format": "svg"
+    },
+    {
+      "title": "a chief marketing officer driving innovation in a corporation with 50 years in the market",
+      "tags": "UX design<br/>UI design<br/>Web app<br/>Software development<br/>Product management<br/>",
+      "link": "borgatta",
+      "bg_format": "svg"
+    },
+    {
+      "title": "how to validate an app in the market as quickly and inexpensively as possible",
+      "tags": "UI design<br/>Web development<br/>No-code development<br/>Digital branding<br/>Product management",
+      "link": "recupera",
+      "bg_format": "svg"
+    },
+    {
+      "title": "a unique ecommerce niche in Mexico",
+      "tags": "Web strategy<br/>Communication<br/>Digital branding<br/>Ecommerce<br/>Digital marketing",
+      "link": "rahid",
+      "bg_format": "svg"
+    },
+    {
+      "title": "a website for the filmmaking industry",
+      "tags": "Web strategy<br/>Communication<br/>Digital branding<br/>Animation<br/>Web app<br/>",
+      "link": "ladanzadelasfieras",
+      "bg_format": "svg"
+    },
+    {
+      "title": "how to educate your customers and investors to become a leader in your industry",
+      "tags": "Strategy<br/>Communication<br/>Digital branding<br/>No-code development<br/>Positioning<br/>",
+      "link": "blockstem",
+      "bg_format": "svg"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+export declare const Discover: () => import("react/jsx-runtime").JSX.Element;
+export declare const Envision: () => import("react/jsx-runtime").JSX.Element;
+export declare const BuildStory: () => import("react/jsx-runtime").JSX.Element;
+export declare const Craft: () => import("react/jsx-runtime").JSX.Element;
+export declare const Launch: () => import("react/jsx-runtime").JSX.Element;
+export declare const Review: () => import("react/jsx-runtime").JSX.Element;
+export declare const DigitalTransformation: () => import("react/jsx-runtime").JSX.Element;
+export declare const StrategicDesign: () => import("react/jsx-runtime").JSX.Element;
+export declare const Persona: () => import("react/jsx-runtime").JSX.Element;
+export declare const Check: () => import("react/jsx-runtime").JSX.Element;
+export declare const Apps: () => import("react/jsx-runtime").JSX.Element;
+export declare const DigitalProducts: () => import("react/jsx-runtime").JSX.Element;
+export declare const Strategy: () => import("react/jsx-runtime").JSX.Element;
+export declare const Marketing: () => import("react/jsx-runtime").JSX.Element;
+export declare const Culture: () => import("react/jsx-runtime").JSX.Element;
+//# sourceMappingURL=Icons.d.ts.map

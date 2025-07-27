@@ -1,0 +1,1 @@
+{"version":3,"file":"PageProps.d.ts","sourceRoot":"","sources":["../../src/types/PageProps.ts"],"names":[],"mappings":"AAAA,MAAM,WAAW,SAAS;IACtB,MAAM,EAAE,MAAM,CAAC;IACf,QAAQ,EAAE,CAAC,KAAK,EAAE,MAAM,KAAK,IAAI,CAAC;IAClC,EAAE,EAAE,MAAM,CAAC,MAAM,EAAE,OAAO,CAAC,CAAC;IAC5B,SAAS,EAAE,OAAO,CAAC;CACtB"}

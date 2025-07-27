@@ -1,0 +1,109 @@
+const returnLd = (locale, asPath, description, title, headerTitle, image) => {
+    const structure = {
+        "@context": "https://schema.org",
+        "@graph": [
+            {
+                "@type": "Organization",
+                "@id": "https://acueducto.studio/#organization",
+                name: "Acueducto",
+                url: "https://acueducto.studio",
+                sameAs: [
+                    "https://www.facebook.com/acueducto.studio",
+                    "https://www.instagram.com/acueducto.studio/",
+                    "https://www.linkedin.com/company/acueductostudio/",
+                    "https://twitter.com/acueductostudio",
+                    "https://www.tiktok.com/@acueducto.studio",
+                ],
+                logo: {
+                    "@type": "ImageObject",
+                    "@id": "https://acueducto.studio/#logo",
+                    contentUrl: "https://acueducto.studio/assets/img/og/acueducto.png",
+                    width: 1200,
+                    height: 1200,
+                    caption: "Acueducto",
+                    inLanguage: locale === "en" ? "en" : "es",
+                },
+                image: { "@id": "https://acueducto.studio/#logo" },
+            },
+            image ? {
+                "@type": "ImageObject",
+                "@id": `https://acueducto.studio/${locale === "en" ? "en" : ""}${asPath !== "/" ? asPath : ""}#primaryimage`,
+                contentUrl: `https://acueducto.studio/assets/img/og/${image.fileName}`,
+                width: 1200,
+                height: 1200,
+                caption: image.alt,
+                inLanguage: locale === "en" ? "en" : "es",
+            } : {
+                "@type": "ImageObject",
+                "@id": `https://acueducto.studio${locale === "en" ? "/en" : ""}${asPath}#primaryimage`,
+                contentUrl: `https://acueducto.studio/assets/img/og/acueducto.png`,
+                width: 1200,
+                height: 1200,
+                caption: "Acueducto",
+                inLanguage: locale === "en" ? "en" : "es",
+            },
+            {
+                "@type": "WebSite",
+                "@id": `https://acueducto.studio/${locale === "en" ? "en" : ""}#website`,
+                url: `https://acueducto.studio${locale === "en" ? "/en" : ""}`,
+                name: "Acueducto",
+                description: locale === "en" ?
+                    "We partner with innovators around the globe to develop digital strategies and experiences that tell compelling stories, inspire communities and build meaningful bonds."
+                    : "Desarrollamos estrategias digitales, apps web y móviles, productos digitales y campañas de marketing digital. Elevemos tu negocio con tecnología digital.",
+                publisher: {
+                    "@id": "https://acueducto.studio/#organization",
+                },
+                inLanguage: locale === "en" ? "en" : "es",
+            },
+            {
+                "@type": "WebPage",
+                "@id": `https://acueducto.studio${locale === "en" ? "/en" : ""}${asPath}#webpage`,
+                url: `https://acueducto.studio${locale === "en" ? "/en" : ""}${asPath}`,
+                name: title,
+                isPartOf: { "@id": `https://acueducto.studio/${locale === "en" ? "en" : ""}#website` },
+                about: { "@id": "https://acueducto.studio/#organization" },
+                primaryImageOfPage: { "@id": `https://acueducto.studio${locale === "en" ? "/en" : ""}${asPath}#primaryimage` },
+                description: description,
+                inLanguage: locale === "en" ? "en" : "es",
+            },
+            {
+                "@type": "BreadcrumbList",
+                "@id": "https://acueducto.studio/#breadcrumbs",
+                itemListElement: [
+                    {
+                        "@type": "ListItem",
+                        position: 1,
+                        name: "Home",
+                        item: "https://acueducto.studio" + (locale === "en" ? "/en" : ""),
+                    },
+                    asPath.includes("/portafolio") || asPath.includes("/work") ? ({
+                        "@type": "ListItem",
+                        position: 2,
+                        name: locale === "en" ? "Work" : "Portafolio",
+                        item: "https://acueducto.studio" + (locale === "en" ? "/en/work" : "/portafolio"),
+                    }) : "",
+                    asPath.includes("/blog") ? ({
+                        "@type": "ListItem",
+                        position: 2,
+                        name: "Blog",
+                        item: "https://acueducto.studio/blog",
+                    }) : "",
+                    asPath.includes("/podcast") ? ({
+                        "@type": "ListItem",
+                        position: 2,
+                        name: "Podcast",
+                        item: "https://acueducto.studio/podcast",
+                    }) : "",
+                    asPath !== "/" && asPath !== "/blog" && asPath !== "/portafolio" && asPath !== "/work" && asPath !== "/podcast" ? ({
+                        "@type": "ListItem",
+                        position: asPath.includes("/portafolio") || asPath.includes("/work") || asPath.includes("/articles") || asPath.includes("/podcast") ? 3 : 2,
+                        name: asPath.includes("/blog") || asPath.includes("/podcast") ? title : headerTitle,
+                        item: "https://acueducto.studio" + (locale === "en" ? "/en" : "") + asPath,
+                    }) : ""
+                ],
+            },
+        ],
+    };
+    return JSON.stringify(structure);
+};
+export default returnLd;

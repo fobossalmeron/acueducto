@@ -1,0 +1,72 @@
+{
+  "nav": [
+    { "title": "home", "link": "/" },
+    { "title": "about", "link": "/nosotros", "as": "/about" },
+    { "title": "work", "link": "/portafolio", "as": "/work" },
+    { "title": "contact", "link": "/contacto", "as": "/contact" }
+  ],
+  "legal_nav": {
+    "cookies": {
+      "title": "Cookie policy",
+      "link": "cookies"
+    },
+    "privacy": {
+      "title": "Privacy policy",
+      "link": "privacidad",
+      "as": "/privacy"
+    }
+  },
+  "lang": "en",
+  "contact_footer": {
+    "title": "let's elevate</br> your business",
+    "p": "Are we the right fit for your next digital venture?",
+    "button_text": "Get in touch",
+    "footer_nav": {
+      "navTitles": {
+        "main": "studio",
+        "community": "community",
+        "policies": "policies",
+        "resources": ""
+      },
+      "main": [
+        { "title": "Home", "link": "/" },
+        { "title": "About", "link": "/nosotros", "as": "/about" },
+        { "title": "Work", "link": "/portafolio", "as": "/work" },
+        { "title": "Contact", "link": "/contacto", "as": "/contact" }
+      ],
+      "policies": [
+        { "title": "Cookie policy", "link": "/cookies" },
+        {
+          "title": "Privacy policy",
+          "link": "/privacidad",
+          "as": "/privacy"
+        }
+      ],
+      "mailto": {
+        "subject": "Let's work together",
+        "body": "Hi,%0d%0a%0d%0a My name is [Name and last name] and I’d like to meet with you.%0d%0a%0d%0a My main problem is [detail your problem or idea].%0d%0a%0d%0a I'd like to schedule a call to discuss my ideas in depth.%0d%0a%0d%0a ¡Cheers!"
+      }
+    }
+  },
+  "cookie_message": {
+    "title": "I’m okay with cookies",
+    "p": "We only use cookies to give you the best experience but you can review our ",
+    "link": "cookie policy",
+    "p_continued": " and opt-out if you wish. If you continue to use this site, we’ll asume you’re okay with it."
+  },
+  "next_study": {
+    "p": "Click for the next case study"
+  },
+  "error_page": {
+    "headerTitle": "Error",
+    "meta_description": "Oops! Page not found",
+    "intro": {
+      "title": "oops!<br/> page not found",
+      "p": "This page doesn’t exist, please check if the URL is correct. If you think this is a problem on our end please contact us at <a class='inline' href='mailto:soporte@acueducto.studio'>soporte@acueducto.studio</a>."
+    }
+  },
+  "resources": {
+    "p": "Learn about our free resources <b>(spanish)</b>:",
+    "articles": "articles"
+  }
+}

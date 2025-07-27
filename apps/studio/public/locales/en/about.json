@@ -1,0 +1,86 @@
+{
+  "head": {
+    "title": "About Acueducto",
+    "description": "Get to know us better. Read about us, our studio's process, and the values we stand for every day we show up to work.",
+    "pageName": "about",
+    "headerTitle": "About"
+  },
+  "intro": {
+    "title": "welcome to acueducto",
+    "p": "This place is designed for people who love to build things, and who are optimistic on the impact technology can have on society and businesses.</br></br>We are a group of professionals, <b>distributed around the world</b>, whose energy and intellect are dedicated to organizations in need of digital technology solutions for the challenges they face.</br></br>For our clients, we are efficient and innovative; for our team, it is an opportunity to do the best work of our lives and to grow both personally and professionally."
+  },
+  "team": [
+    {
+      "name": "rodrigo<br/>salmerón",
+      "position": "design & development / co-founder",
+      "bio": "An interaction, visual, and motion designer and an open-source-enthusiast developer with an Interaction Design MA from The Harbour Space University and 10 years of design experience.<br/><br/>He has also worked for several design firms, film production houses, and development companies.<br/><br/>Rodrigo is also a music producer, composer, and lyricist; and whether it’s about music, coding or human-machine interactions, he’s always trying out the latest tools while looking for new challenges."
+    },
+    {
+      "name": "artemio<br/>pedraza",
+      "position": "strategy & communication / co-founder",
+      "bio": "A communication strategist, project and community manager with 7 years of experience as a freelancer.<br/><br/>He has gone from copywriter to content manager, and marketing consultant and is one of the first licensed digital communicators in Mexico.<br/><br/>When he’s not directing the strategy department or managing a project at Acueducto, he runs his own digital record label Bludot."
+    }
+  ],
+  "manifesto": {
+    "intro": {
+      "title": "what makes</br>us unique",
+      "p": "Years of experience have shaped the core values of Acueducto. Governed by the following principles, we develop the best digital strategies to build powerful services, products and applications.</br></br>This is our manifesto."
+    },
+    "beliefs": [
+      {
+        "title": "we build world-class software",
+        "p": "Our work standards match the apps you use every day. We know very well what top-tier software looks like, and we aim to only deliver undeniable quality work."
+      },
+      {
+        "title": "we are a high-performance team",
+        "p": "Each of us excels in our work, but it is as a team that we achieve exceptional results. We are doing the best work of our lives and dedicate the time and intellect needed to build valuable and relevant products."
+      },
+      {
+        "title": "we build incrementally",
+        "p": "We are agile and focus on what truly makes a difference. Whether in the work we do for our clients or in our day-to-day operations, we concentrate on actions with the greatest impact."
+      },
+      {
+        "title": "we are human",
+        "p": "We are efficient for our clients and a sanctuary for our employees. Empathy is a fundamental value of our organization, and we always strive to make a positive impact on every collaborator who chooses to join us."
+      }
+    ],
+    "cases": {
+      "title": "our selected<br/>case studies",
+      "p": "Every project we develop is unique, so we hand-picked these case studies to provide an understanding of how Acueducto works and what it can achieve.<br/><br/>Read about the selected projects we have launched alongside our partners."
+    }
+  },
+  "process": {
+    "title": "placing strategy<br/>at the core",
+    "p": "Innovation happens not by a spontaneous spark of creativity, but through a process that looks for real pain points, areas of opportunity, and the best way to solve them.</br></br>Approaching challenges through a design-driven perspective means working, alongside our partners, from the inception of the project, to develop strategies that deliver the best results for them and their users.</br></br><b>Discover our process.</b>",
+    "steps": [
+      {
+        "title": "discover",
+        "p": "Understand the context, audience, needs, and challenges of the project.<br/>We get smart."
+      },
+      {
+        "title": "envision",
+        "p": "Here we re-frame the problem to highlight new insights and opportunities.<br/>We make sense."
+      },
+      {
+        "title": "build the story",
+        "p": "Create a strategy that guides concepting, prioritization, and co-creation.<br/>We create empathy."
+      },
+      {
+        "title": "design, tech & craft",
+        "p": "Create prototypes, copywrite, iterate and refine designs, code, and test the product.<br/>We develop."
+      },
+      {
+        "title": "launch",
+        "p": "Implement new solutions, support socialization of organizational changes and product innovation.<br/>We drive change."
+      },
+      {
+        "title": "review",
+        "p": "Reflect, document, and iterate on our process and approach.<br/>We get better."
+      }
+    ]
+  },
+  "values": {
+    "title": "pick our brains</br> for free",
+    "p": "Read and listen to our thoughts and conversations around a single question: how to build healthy internet businesses?"
+  }
+}

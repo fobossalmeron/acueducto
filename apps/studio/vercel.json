@@ -1,0 +1,12 @@
+{
+  "rewrites": [
+    {
+      "source": "/podcast",
+      "destination": "https://cuandoelriosuena.vercel.app"
+    },
+    {
+      "source": "/podcast/(.*)",
+      "destination": "https://cuandoelriosuena.vercel.app/$1"
+    }
+  ]
+}

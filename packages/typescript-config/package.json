@@ -1,0 +1,12 @@
+{
+  "name": "@acueducto/typescript-config",
+  "version": "1.0.0",
+  "main": "index.js",
+  "files": [
+    "base.json",
+    "nextjs.json"
+  ],
+  "devDependencies": {
+    "typescript": "latest"
+  }
+}

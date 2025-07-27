@@ -1,0 +1,138 @@
+{
+  "head": {
+    "title": "Transforming preventative healthcare: web app development",
+    "description": "Discover how we revolutionized customer experience in preventative healthcare with our web app development process for Wellmee.",
+    "image_alt": "Wellmee, a case study by Acueducto",
+    "headerTitle": "Wellmee",
+    "seo_h1": "The Wellmee journey with web app development"
+  },
+  "headerTitle": "Wellmee",
+  "title": "How to build a world-class web app - Wellmee",
+  "tags": "UI Design<br/>UX Design<br/>Web App<br/>Software Development<br/>Product Strategy<br/>Product Management",
+  "video": "recover.mp4",
+  "logo": "wellmee.svg",
+  "link": "wellmee",
+  "intro_section": {
+    "tags": [
+      "UI Design",
+      "Web Development",
+      "No-Code Development",
+      "Branding",
+      "Product Management",
+      "Product Strategy"
+    ],
+    "title": "<b>Act I</b><br/>How to build a world-class web app",
+    "p": "This is the story of how Sebastián, who is building Wellmee - a startup that aims to revolutionize preventive health and the experience of medical check-ups - asked us to design and develop the Minimum Viable Product (MVP) of his product. It's an adventure of validation, connections with third parties, data visualization, and much more.",
+    "characteristics": {
+      "first": {
+        "subtitle": "A dream for customer experience and internal operations optimization",
+        "p": "Wellmee is a company founded by Sebastián Patrón, Humberto Herrera, and Eduardo Díaz, aiming to transform the experience around preventive health by facilitating access to comprehensive medical check-ups and following the principles of integral medicine. This is a startup that seeks to reduce the cryptic language in the reams of data you receive when getting test results from labs, as well as eliminate the need to physically visit their establishments and make your health evolution visible as you accumulate more medical records."
+      },
+      "second": {
+        "subtitle": "Seeking to build a world-class product",
+        "p": "When Sebastián approached our sales table, he shared the vision of Wellmee and his desire to prove this concept and develop an MVP to validate his business model. Once the first version of this product was built, he planned to apply to Y Combinator's acceleration program (where only 1.5% of applicants are accepted)."
+      },
+      "third": {
+        "subtitle": "Specific challenges existed",
+        "challenges": [
+          {
+            "title": "Testing a concept",
+            "p": "Despite Wellmee being a great idea from day one, it was necessary to test it with real users and gather market feedback to ensure its attractiveness."
+          },
+          {
+            "title": "Developing a relevant experience",
+            "p": "Sebastián is a design-oriented founder, so naturally, he aimed to have excellent standards in interface design, interaction, and user experience from day one."
+          },
+          {
+            "title": "Designing the best possible product",
+            "p": "It was essential to find and receive feedback from those who would be the company's first customers."
+          },
+          {
+            "title": "Managing the project handover",
+            "p": "Sebastián came to us to validate his idea, but once he secured his first round of investment, he would have enough resources to hire a product team to iterate and experiment. Therefore, from the beginning, an intuitive architecture and comprehensive documentation had to be thought out so that any developer could take charge of the project in the future."
+          }
+        ]
+      }
+    }
+  },
+  "second_section": {
+    "title": "<b>Act II</b><br/>And the solution was to build a beautiful and functional product",
+    "solutions": [
+      {
+        "title": "Intuitive onboarding",
+        "p": "It has an onboarding process to guide new users in its use."
+      },
+      {
+        "title": "Automatic scheduling and reminders",
+        "p": "Schedule check-ups, receive payments, and send automatic reminders for appointments."
+      },
+      {
+        "title": "Integrated medical score",
+        "p": "It displays a medical score designed by a panel of integral medicine doctors to provide an easy-to-understand report on your health status."
+      },
+      {
+        "title": "Biomarker data and recommendations",
+        "p": "It provides all your biomarker information in a user-friendly profile with recommendations to improve your health. Additionally, you can view the history of each biomarker and compare it with the results of each new check-up."
+      },
+      {
+        "title": "Export results as PDFs",
+        "p": "It can export PDFs with the results for sharing with your doctor and anyone you choose."
+      }
+    ]
+  },
+  "third_section": {
+    "title": "<b>Act III</b><br/>With a tested process",
+    "points": [
+      {
+        "p": "The first thing we did was a facilitation workshop to create a Lean Canvas. The result allowed us to deeply understand the business logic, its resources, strengths, weaknesses, key alliances, and vision."
+      },
+      {
+        "p": "Then we conducted a series of design sprints where we created prototypes and tested them with real users through several iterations to achieve a robust and validated result.",
+        "steps": [
+          "mapping",
+          "sketching",
+          "creating a storyboard",
+          "prototyping",
+          "testing with real users"
+        ]
+      },
+      {
+        "p": "And it was time to build. We designed a scalable and maintainable architecture with proper documentation tailored to the needs of Wellmee's new development team led by Eduardo Díaz."
+      },
+      {
+        "p": "Additional note: Notion. The entire project, including its documents and specifications, was managed on our client project dashboard, which is a portal where reports, documentation, calendars, deliveries, feedback, and any type of file produced or required for each project are reviewed and stored."
+      }
+    ],
+    "subtitle": "We achieved agility and designed an amazing experience",
+    "p": "We developed this product to address Wellmee's upcoming challenges, such as integrating hundreds of phlebotomists (sample takers for check-ups) into their team - thanks to an automated appointment calendar - and effectively forming their new development team - thanks to extensive documentation supervised by a Meta developer. But we also accomplished:",
+    "results": [
+      {
+        "title": "0",
+        "first_subtitle": "human errors",
+        "p": "in result capture thanks to direct integration with the laboratory via API."
+      },
+      {
+        "sign": "+",
+        "title": "64",
+        "first_subtitle": "biomarkers",
+        "p": "grouped into pillars with user and doctor-friendly results."
+      },
+      {
+        "title": "1",
+        "first_subtitle": "week",
+        "p": "to validate the original concept."
+      },
+      {
+        "sign": "+",
+        "title": "15",
+        "first_subtitle": "user",
+        "second_subtitle": " tests",
+        "p": "where real people provided us with feedback to design the best product."
+      }
+    ]
+  },
+  "fourth_section": {
+    "title": "<b>Act IV</b><br/>What's next for Wellmee?",
+    "p": "Now it's time for Wellmee, with its own team of developers, to iterate and experiment with its MVP, apply to Y Combinator, continue seeking new customers, and prepare for its next round of investment. It's always exciting to see a group of people challenging the status quo. The energy that Sebastián and his company have is contagious, and we are grateful to have been part of the story of this growing startup."
+  }
+}

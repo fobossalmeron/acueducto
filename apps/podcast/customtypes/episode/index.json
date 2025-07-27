@@ -1,0 +1,175 @@
+{
+  "id": "episode",
+  "label": "Episode",
+  "format": "page",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID",
+          "placeholder": "Se autocompletara si colocas el Título del episodio"
+        },
+        "type": "UID"
+      },
+      "introduction": {
+        "type": "Group",
+        "config": {
+          "label": "Introducción",
+          "fields": {
+            "title": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Título del episodio",
+                "placeholder": "Sin número, ni invitado, ni empresa",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "episode": {
+              "type": "Number",
+              "config": {
+                "label": "Número del episodio",
+                "placeholder": ""
+              }
+            },
+            "date": {
+              "type": "Date",
+              "config": {
+                "label": "Fecha de publicación planeada",
+                "placeholder": ""
+              }
+            },
+            "guest": {
+              "type": "Text",
+              "config": {
+                "label": "Invitado",
+                "placeholder": ""
+              }
+            },
+            "business": {
+              "type": "Text",
+              "config": {
+                "label": "Empresa",
+                "placeholder": ""
+              }
+            },
+            "category": {
+              "type": "Select",
+              "config": {
+                "label": "Categoría",
+                "placeholder": "",
+                "options": [
+                  "Founder",
+                  "Producto",
+                  "Operador",
+                  "People",
+                  "Innovacion",
+                  "Desarrollo",
+                  "Inversor",
+                  "Growth"
+                ]
+              }
+            },
+            "description": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Descripción",
+                "placeholder": "Excluye: \"Lo más importante que pueden aprender operadores... es lo siguiente:\"",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "insights": {
+              "type": "StructuredText",
+              "config": {
+                "label": "Insights",
+                "placeholder": "Convertir el texto en lista, la primera oración de cada punto en negrita",
+                "allowTargetBlank": true,
+                "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+              }
+            },
+            "spotify": {
+              "type": "Text",
+              "config": {
+                "label": "URL de Spotify",
+                "placeholder": "https://www..."
+              }
+            },
+            "google": {
+              "type": "Text",
+              "config": {
+                "label": "URL de Google",
+                "placeholder": "https://www..."
+              }
+            },
+            "apple": {
+              "type": "Text",
+              "config": {
+                "label": "URL de Apple",
+                "placeholder": "https://www..."
+              }
+            },
+            "youtube": {
+              "type": "Text",
+              "config": {
+                "label": "URL de Youtube",
+                "placeholder": "https://www..."
+              }
+            }
+          }
+        }
+      },
+      "body": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Body",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+        }
+      },
+      "images": {
+        "type": "Group",
+        "config": {
+          "label": "Imagenes",
+          "fields": {
+            "episode": {
+              "type": "Image",
+              "config": {
+                "label": "Portada del podcast (400x400)",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "solas": {
+              "type": "Image",
+              "config": {
+                "label": "Ilustración (508x285)",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "youtube": {
+              "type": "Image",
+              "config": {
+                "label": "Portada de Youtube (1600x900)",
+                "constraint": {},
+                "thumbnails": []
+              }
+            },
+            "gif": {
+              "type": "Image",
+              "config": {
+                "label": "Gif para compartir, OpenG (800x800)",
+                "constraint": {},
+                "thumbnails": []
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "head": {
+    "title": "Sobre Acueducto",
+    "description": "Somos un grupo de profesionales cuya energía está al servicio de líderes que empujan la innovación en sus negocios.",
+    "headerTitle": "Nosotros"
+  },
+  "intro": {
+    "title": "bienvenido a acueducto",
+    "p": "Este es un lugar diseñado para personas que construyen cosas donde antes no había nada y son optimistas respecto al impacto que tiene la tecnología en la sociedad y en los negocios.</br></br>Somos un grupo de profesionales, <b>distribuidos en el mundo</b>, cuya energía e intelecto están al servicio de organizaciones que necesitan soluciones con tecnología digital a los problemas que enfrentan.</br></br>Para nuestros clientes somos eficientes e innovadores; para nuestro equipo, la oportunidad para hacer el mejor trabajo de nuestras vidas y crecer tanto personal como profesionalmente."
+  },
+  "manifesto": {
+    "intro": {
+      "title": "¿qué nos hace distintos?",
+      "p": "Años de experiencia han forjado los valores fundamentales de Acueducto. Siguiendo estos principios, desarrollamos las mejores estrategias digitales para construir poderosos servicios, productos y aplicaciones. <br/><br/>Este es nuestro manifiesto."
+    },
+    "beliefs": [
+      {
+        "title": "construimos software de talla mundial",
+        "p": "Nuestro trabajo está a la altura de las aplicaciones que usamos todos los días. Sabemos muy bien cómo se ve el software de primer nivel y buscamos solo hacer trabajo de calidad innegable."
+      },
+      {
+        "title": "somos un equipo de alto rendimiento",
+        "p": "Estamos haciendo el mejor trabajo de nuestras vidas y dedicamos el tiempo e intelecto necesario para construir productos valiosos y relevantes. Cada uno de nosotros sobresale en su trabajo pero es en equipo que logramos resultados excepcionales."
+      },
+      {
+        "title": "vamos de menos a más",
+        "p": "Somos ágiles y nos concentramos en aquello que realmente mueve la aguja. Tanto con el trabajo que hacemos para nuestros clientes como en nuestro día a día, nos concentramos en las acciones que tienen mayor impacto."
+      },
+      {
+        "title": "somos humanos",
+        "p": "Somos eficientes para nuestros clientes y un santuario para nuestros empleados. La empatía es un valor fundamental de nuestra organización y siempre buscamos generar un impacto positivo en cada colaborador que decide acompañarnos."
+      }
+    ]
+  },
+  "values": {
+    "title": "echa un vistazo a cómo pensamos",
+    "p": "Consulta conversaciones y reflexiones alrededor de una sola pregunta: ¿cómo construir productos digitales increíbles?"
+  }
+}

@@ -1,0 +1,106 @@
+{
+  "head": {
+    "title": "Our Pitch - Why digital technology",
+    "description": "Digital technology has drastically restructured almost every business in the planet. Get to know our expertise, methodology, and toolbox.",
+    "headerTitle": "Pitch"
+  },
+  "intro": {
+    "title": "and now,<br/>our pitch",
+    "p0": "Digital technology has drastically restructured market after market. The world’s top businesses have developed digital products and services, web and mobile apps, marketing strategies, and/or automated their processes to keep up with the digital world and remain competitive.",
+    "subtitle1": "design and technology to innovate in areas like",
+    "li1": [
+      "Customer/user experience",
+      "Brand development",
+      "Internal processes",
+      "Business models"
+    ],
+    "p1": "At Acueducto, we develop the necessary strategies and interfaces to materialize your digital ideas. Hand in hand with your industry experience and a design-driven approach, we co-create:",
+    "subtitle3": "digital strategies",
+    "p3": "Having a solid digital strategy is the cornerstone of any business, regardless of its objective. In 2019 alone, 44% of businesses in the US adopted digital strategies into their customer experience and operations <cite>(PROGRESS, 2019)</cite>.With the latest digital ecosystem tools and your industry expertise, we create bold strategies. It all starts with your idea.",
+    "subtitle4": "digital interfaces",
+    "p4": "Digital interfaces are the human-machine means of interaction. They can be web and mobile apps, digital products and services, or even voice interfaces like Siri or Alexa. Designing the use of those interfaces (User Experience or UX) is vital for optimal functionality, usability, user retention, and scalability.</br></br>Without design tailored to the user’s needs and the business’ goals, any project’s success rate suffers severely.",
+    "subtitle5": "an important fact",
+    "img_business": "design-driven companies",
+    "alt": "Design-driven companies have won a considerable lead in the stock market, performing better than S&P500 companies by 211%.",
+    "p5": "Design-driven companies have won a considerable lead in the stock market, performing better than S&P 500 companies by 211%."
+  },
+  "second_section": {
+    "title": "case studies speak for themselves",
+    "p": "Rahid was perceived, even by its founder, as a low profile brand. Its identity was weak and it lacked cohesion between its sales channels.",
+    "linktext": "Read ",
+    "link": ["/portafolio/rahid", "about it"]
+  },
+  "products_section": {
+    "intro": {
+      "title": "to develop</br> innovative ideas",
+      "p": "Each dollar invested in user experience by designing products, services, and tools can see anywhere from 2 to 100 dollars in return <cite>(FORRESTER RESEARCH, 2017)</cite>.</br></br>Companies like Airbnb, Uber, or Google owe a large part of their success to developing excellent digital experiences around their users. Essentially, the goal is to build the best digital interfaces for both your customers and employees to interact with your business.</br></br>You can trust us to develop:"
+    },
+    "products": [
+      {
+        "title": "digital strategies",
+        "p": "Analyze external and internal trends, and your business’s data to make optimal decisions."
+      },
+      {
+        "title": "mobile<br/>and web apps",
+        "p": "Connect with your audience through any device, grow your business with a web experience or an app."
+      },
+      {
+        "title": "digital products<br/>and services",
+        "p": "Develop fast, scalable and attractive technologies to inspire the communities around them."
+      },
+      {
+        "title": "digital marketing strategies",
+        "p": "Grow your sales with communication strategies, creative content and paid advertising."
+      }
+    ]
+  },
+  "process_section": {
+    "title": "following a strategic process",
+    "p": "Our process is designed to iterate onto itself, getting closer to perfection with each project we see come to fruition. We’ve been developing it for years and it’s become one of our most precious assets. </br></br>It’s thanks to our process that we can confidently take one step after another. </br>Get acquainted with it.",
+    "steps": [
+      {
+        "title": "discover",
+        "p": "Where are we standing? Research and analysis are made on the project’s context, audience and needs.<br/><br/>We evaluate:",
+        "li": ["Business models", "Goals", "Brand", "Market"]
+      },
+      {
+        "title": "envision",
+        "p": "Where are we headed? Goals are defined and re-framed along with the project’s orientation and approach.<br/><br/>We explore:",
+        "li": [
+          "Creating value",
+          "Generating a differentiator",
+          "Developing competitive advantages"
+        ]
+      },
+      {
+        "title": "build the story",
+        "p": "How do we empathize with our audience? Messages are conceptualized, actions prioritized and narratives co-created with your team.<br/><br/>We define:",
+        "li": [
+          "Key Performance Indicators",
+          "Creative brief & storytelling",
+          "Branding",
+          "Calendar"
+        ]
+      },
+      {
+        "title": "design, tech & craft",
+        "p": "Enough planning, in this step the project contents and applications are developed.<br/><br/>We work on:",
+        "li": ["Designs and applications", "Prototypes", "Copywriting", "Code"]
+      },
+      {
+        "title": "launch",
+        "p": "It all comes down to this moment. Organizational changes are guided and launching is managed. <br/><br/>We implement:",
+        "li": ["Promotion", "Advertising", "Community Management"]
+      },
+      {
+        "title": "review",
+        "p": "Evaluation leads to improvement. All data from the projects’ processes and results is collected and reviewed.<br/><br/>We share:",
+        "li": ["Performance report", "Next possible steps"]
+      }
+    ]
+  },
+  "tools_section": {
+    "title": "working only</br> with the best tools",
+    "p": "Each project is unique and requires personalized treatment, that’s why we perform careful analyses to find the toolkit best fit for its development. In a sea of possibilities, we pick those that will help us achieve your business goals."
+  }
+}

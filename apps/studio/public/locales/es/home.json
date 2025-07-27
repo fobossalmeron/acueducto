@@ -1,0 +1,138 @@
+{
+  "head": {
+    "title": "Empresa de desarrollo de apps y software: Acueducto",
+    "description": "Acueducto es una empresa de desarrollo de software y apps web o móviles que ayuda a fundadores, CEOs, CTOs y CMOs a solucionar problemas reales.",
+    "headerTitle": ""
+  },
+  "landing": {
+    "seo_h1": "Empresa de desarrollo de software y apps: Acueducto",
+    "heading": "apalanca tu negocio con tecnología",
+    "tagline": "Acueducto es un estudio de diseño y desarrollo de software",
+    "ctaContact": "Escríbenos",
+    "ctaWork": "Ver portafolio"
+  },
+  "work": {
+    "title": "experiencias tan bellas como poderosas"
+  },
+  "problem": {
+    "title": "integramos negocio, software y diseño",
+    "p": "Diseñamos y construimos software. Apps, sitios web, MVPs y plataformas que te permiten ahorrar recursos en tu empresa o hacer más con lo mismo.",
+    "scenes": [
+      {
+        "text": "Encontrar talento es tan complicado",
+        "profile": "Director TI"
+      },
+      {
+        "text": "¿Cómo integro IA en mi negocio?",
+        "profile": "Emprendedor"
+      },
+      {
+        "text": "¿Cómo pruebo nuevas iniciativas antes de gastar millones?",
+        "profile": "CEO"
+      },
+      {
+        "text": "Tengo que mejorar la experiencia digital de mis clientes pronto",
+        "profile": "CMO"
+      }
+    ]
+  },
+  "process": {
+    "title": "tu idea a código en tiempo récord",
+    "labelFirst": "Primeros 10 días",
+    "labelSecond": "Siguientes 10 días",
+    "stages": [
+      {
+        "title": "definimos tu MVP",
+        "p": "Junto contigo, definimos las funcionalidades esenciales de tu Minimum Viable Product y hacemos un análisis de ingeniería.",
+        "badge": "Validas los requisitos aquí"
+      },
+      {
+        "title": "iteramos un prototipo",
+        "p": "Programamos un prototipo completamente interactivo. Lo probamos con usuarios reales e iteramos con su retroalimentación.",
+        "badge": "Validas el prototipo aquí"
+      },
+      {
+        "title": "integramos y lanzamos",
+        "p": "Conectamos el producto a tu tecnología y te acompañamos en tu lanzamiento.",
+        "badge": "Lanzamos tu MVP"
+      }
+    ],
+    "agileCard": {
+      "auxiliary": "Si tu producto necesita crecer",
+      "title": "desarrollo ágil de producto",
+      "p": "Incrementamos y refinamos sobre la marcha en ambientes seguros de producción y desarrollo.",
+      "button": "Cuéntanos tu idea"
+    }
+  },
+  "stack": {
+    "title": ["un stack poderoso", "que se adapta al tuyo"],
+    "p": "Nos adaptamos a la tecnología que ya usas y desarrollamos tus MVPs con tecnología web moderna lista para escalar.",
+    "sticker": "Acelerado con IA",
+    "lastP": "Otras empresas que utilizan este stack"
+  },
+  "clients": {
+    "intro": {
+      "title": "para negocios que buscan innovar",
+      "p": "Te ayudamos a ejecutar proyectos que pueden transformar tu organización en una con mejores operaciones, una arquitectura escalable y una experiencia de cliente de primer nivel."
+    },
+    "span": "Hemos trabajado con",
+    "span2": "Lo que nuestros clientes dicen de nosotros",
+    "quotes": [
+      {
+        "text": "Nunca nos había entendido una agencia como nos entiende Acueducto. Son el mejor estudio con el que he trabajado.",
+        "person": "David Elizondo",
+        "job": "Product Manager, DeAcero",
+        "picture": "david"
+      },
+      {
+        "text": "Estoy sumamente satisfecha, cada vez nos diferenciamos más de la competencia y me encanta el excelente trabajo que podemos hacer con Acueducto.",
+        "person": "Cindy Borgatta",
+        "job": "CMO, Borgatta",
+        "picture": "cindy"
+      },
+      {
+        "text": "Encontramos una nueva oportunidad de crecimiento. Con el trabajo de Acueducto estamos exponenciando nuestra oferta y llegando a nuevos clientes.",
+        "person": "Rodrigo Maldonado",
+        "job": "CEO, Rahid",
+        "picture": "rodrigo"
+      },
+      {
+        "text": "No hay una sola persona que no me haya dicho que el trabajo que hicimos con Acueducto fue verdaderamente excepcional y el diseño sofisticado.",
+        "person": "Karla Hernández",
+        "job": "CEO, Recupera",
+        "picture": "karla"
+      }
+    ],
+    "cta": "Ver portafolio"
+  },
+  "faq": {
+    "title": "preguntas frecuentes",
+    "questions": [
+      {
+        "title": "¿Qué tipo de proyectos pueden construir?",
+        "p": "Prácticamente lo que sea: sitios web, aplicaciones web, aplicaciones móviles, blogs, plataformas, dashboards internos… lo que tu negocio necesite. También podemos ayudarte a automatizar operaciones de negocio con formularios dinámicos, manipulación de data y bases de datos para digitalizar y optimizar tu trabajo."
+      },
+      {
+        "title": "¿En cuánto tiempo podrían construir algo para mi negocio?",
+        "p": "En 10 días puedes probar con usuarios reales un MVP de tu producto. En 20 días puedes lanzar tu MVP."
+      },
+      {
+        "title": "¿Ofrecen servicios de diseño?",
+        "p": "Somos un estudio de diseño antes que nada. Estamos convencidos que las increíbles experiencias de usuario también deben ser hermosas."
+      },
+      {
+        "title": "¿Cuánto cuesta un proyecto?",
+        "p": "Cada proyecto tiene una mensualidad fija por lo que sabrás cuánto gastarás desde el principio. Habrá que considerar algunos costos de otras herramientas/servicios que utilicemos para construir tu proyecto. Estos costos serán cobrados directamente a ti de forma transparente."
+      }
+    ]
+  },
+  "openings": {
+    "title": "forma parte</br> de nuestro equipo",
+    "p": "¿Quieres unirte a nuestro equipo? Revisa nuestras vacantes.",
+    "cta": "Ver vacantes"
+  },
+  "podcast": {
+    "title": "echa un vistazo a cómo pensamos",
+    "p": "Escucha nuestro podcast con más de 200 episodios donde compartimos cómo construyen producto las empresas más importantes de Latinoamérica.<br/><br/>Disponible en todas las plataformas de streaming."
+  }
+}

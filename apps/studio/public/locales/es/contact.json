@@ -1,0 +1,55 @@
+{
+  "head": {
+    "title": "¿Somos buen fit para trabajar juntos?",
+    "description": "Asociémonos, elevemos tu negocio. Puedes contactarnos por correo o llenando una forma de contacto.",
+    "headerTitle": "Contacto"
+  },
+  "intro": {
+    "title": "¿cómo podemos ayudarte?",
+    "p1": "Escríbenos por WhatsApp",
+    "p2": "Mándanos un email",
+    "mailto": {
+      "subject": "Trabajemos juntos",
+      "body": "Hola,%0d%0a%0d%0a Mi nombre es [Nombre y apellido] y escribo porque me interesa reunirme con ustedes.%0d%0a%0d%0a El principal problema que tengo es: [describe detalladamente tu idea].%0d%0a%0d%0a Me gustaría agendar una cita para discutir más a fondo sobre el tema.%0d%0a%0d%0a ¡Saludos!"
+    }
+  },
+  "form": {
+    "p3": "O contesta nuestro formulario",
+    "email": {
+      "label": "Email de trabajo",
+      "placeholder": "Tu email",
+      "errorMissing": "*Falta tu email",
+      "errorInvalid": "*Email inválido"
+    },
+    "firstName": {
+      "label": "Nombre",
+      "placeholder": "Tu nombre",
+      "errorMissing": "*Falta tu nombre"
+    },
+    "lastName": {
+      "label": "Apellido",
+      "placeholder": "Tu apellido",
+      "errorMissing": "*Falta tu apellido"
+    },
+    "company": {
+      "label": "Tu empresa",
+      "placeholder": "Nombre de tu empresa",
+      "errorMissing": "*Falta tu empresa"
+    },
+    "job": {
+      "label": "Tu puesto",
+      "placeholder": "Nombre de tu puesto",
+      "errorMissing": "*Falta tu puesto"
+    },
+    "message": {
+      "label": "¿Qué problemas buscas resolver?",
+      "placeholder": "Desarrolla tu idea",
+      "errorMissing": "*Falta tu idea o proyecto"
+    },
+    "submit": "Contáctenme",
+    "loading": "Enviando...",
+    "success": {
+      "p": "Gracias por contactarnos, te contestaremos lo más pronto posible."
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "@acueducto/shared",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./components/*": {
+      "types": "./dist/components/*.d.ts",
+      "default": "./dist/components/*.js"
+    },
+    "./utils/*": {
+      "types": "./dist/utils/*.d.ts",
+      "default": "./dist/utils/*.js"
+    },
+    "./types/*": {
+      "types": "./dist/types/*.d.ts",
+      "default": "./dist/types/*.js"
+    },
+    "./*": {
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc && cp -r src/styles dist/ && npm run copy-assets",
+    "dev": "tsc --watch",
+    "copy-assets": "mkdir -p ../../apps/studio/public/assets ../../apps/podcast/public/assets && cp -r src/assets/* ../../apps/studio/public/assets/ && cp -r src/assets/* ../../apps/podcast/public/assets/"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.14.0",
+    "clsx": "^2.1.1",
+    "js-cookie": "^3.0.5",
+    "lenis": "1.2.3",
+    "next": "^15.2.4",
+    "react": "^19.0.0",
+    "react-awesome-reveal": "^4.3.1",
+    "react-dom": "^19.0.0",
+    "styled-components": "^6.1.16",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.17"
+  },
+  "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "typescript": "latest"
+  }
+}

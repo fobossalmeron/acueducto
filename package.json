@@ -1,81 +1,23 @@
 {
-  "name": "acueducto",
-  "homepage": "https://acueducto.studio",
-  "repository": "github:fobossalmeron/acueducto",
-  "license": "UNLICENSED",
+  "name": "acueducto-monorepo",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "next",
-    "build": "node scripts/generateSitemap.js && next build",
-    "start": "next start",
-    "export": "next export",
-    "analyze": "ANALYZE=true yarn build",
-    "sitemap": "node scripts/generateSitemap.js",
-    "lint": "next lint",
-    "slicemachine": "start-slicemachine"
-  },
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@next/third-parties": "^15.2.4",
-    "@prismicio/client": "^7.17.0",
-    "@prismicio/helpers": "^2.3.9",
-    "@prismicio/next": "^1.7.2",
-    "@prismicio/react": "^3.2.0",
-    "@react-spring/web": "^9.7.5",
-    "@svgr/webpack": "^8.1.0",
-    "@tailwindcss/postcss": "^4.0.17",
-    "clsx": "^2.1.1",
-    "gray-matter": "^4.0.3",
-    "js-cookie": "^3.0.5",
-    "lenis": "^1.2.3",
-    "lottie-react": "^2.4.1",
-    "next": "^15.2.4",
-    "react": "^19.0.0",
-    "react-awesome-reveal": "^4.3.1",
-    "react-dom": "^19.0.0",
-    "react-facebook-pixel": "^1.0.4",
-    "react-fast-marquee": "^1.6.5",
-    "react-hook-form": "^7.54.2",
-    "react-hook-inview": "^4.5.1",
-    "react-intersection-observer": "^9.16.0",
-    "react-marquee-component": "^1.1.7",
-    "react-parallax-tilt": "^1.7.287",
-    "react-player": "^2.16.0",
-    "react-scroll": "^1.9.3",
-    "react-share": "^5.2.2",
-    "react-top-loading-bar": "^3.0.2",
-    "remark": "^15.0.1",
-    "remark-html": "^16.0.1",
-    "shader-doodle": "^0.0.5",
-    "sharp": "^0.33.5",
-    "styled-components": "^6.1.16",
-    "swr": "^2.3.3",
-    "tailwind-merge": "^3.0.2",
-    "tailwindcss": "^4.0.17"
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "dev:studio": "turbo dev --filter=@acueducto/studio",
+    "dev:podcast": "turbo dev --filter=@acueducto/podcast",
+    "build:studio": "turbo build --filter=@acueducto/studio",
+    "build:podcast": "turbo build --filter=@acueducto/podcast",
+    "lint": "turbo lint",
+    "clean": "turbo clean",
+    "slicemachine": "yarn workspace @acueducto/podcast slicemachine"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.2.4",
-    "@slicemachine/adapter-next": "^0.3.72",
-    "@types/node": "^22.13.13",
-    "@types/react": "^19.0.12",
-    "@types/react-dom": "^19.0.4",
-    "eslint-config-next": "^15.2.4",
-    "fs-extra": "^11.3.0",
-    "prettier": "^3.5.3",
-    "prettier-plugin-tailwindcss": "^0.6.11",
-    "serve": "^14.2.4",
-    "slice-machine-ui": "^2.14.2",
-    "typescript": "^5.8.2",
-    "webpack": "^5.98.0"
+    "turbo": "^2.3.3"
   },
-  "engines": {
-    "node": "20.x"
-  },
-  "packageManager": "yarn@4.7.0",
-  "overrides": {
-    "react-share": {
-      "react": "19.0.0",
-      "react-dom": "19.0.0"
-    }
-  }
+  "packageManager": "yarn@4.7.0"
 }

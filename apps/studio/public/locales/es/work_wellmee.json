@@ -1,0 +1,139 @@
+{
+  "head": {
+    "title": "Ejemplo de web app de área de salud. Conoce Wellmee",
+    "description": "Wellmee: web app de salud. Potencia tu salud a través de la tecnología.",
+    "image_alt": "Wellmee, caso de estudio por Acueducto",
+    "headerTitle": "Wellmee",
+    "seo_h1": "Wellmee: innovadora web app de salud"
+  },
+  "headerTitle": "Wellmee",
+  "title": "Cómo construir una web-app de talla mundial - Wellmee",
+  "tags": "Diseño UI<br/>Diseño UX<br/>Web App<br/>Desarrollo de sofware<br/>Estrategia de producto<br/>Product Management",
+  "video": "recupera.mp4",
+  "logo": "wellmee.svg",
+  "link": "wellmee",
+  "intro_section": {
+    "tags": [
+      "Diseño UI",
+      "Desarrollo web",
+      "Desarrollo no-code",
+      "Branding",
+      "Product Management",
+      "Estrategia de producto"
+    ],
+    "title": "<b>Acto I</b><br/>Cómo construir una web-app de talla mundial",
+    "p": "Esta es la historia de cómo Sebastián, quien está construyendo Wellmee -una startup que busca revolucionar la salud preventiva y la experiencia que tenemos al hacernos checkups médicos- nos pidió diseñar y desarrollar el Minimum Viable Product (MVP) de su producto. Una aventura de validación, conexiones con terceros, visualización de data y mucho más.",
+    "characteristics": {
+      "first": {
+        "subtitle": "Un sueño para la experiencia de sus clientes y la optimización de sus operaciones internas",
+        "p": "Wellmee es una empresa de Sebastián Patrón, Humberto Herrera y Eduardo Díaz que busca transformar la experiencia alrededor de la salud preventiva facilitando el acceso a checkups médicos completos y siguiendo los lineamientos de la medicina integral.<br/><br/>Esta es una startup que busca reducir el lenguaje críptico en las hojas y hojas de datos que obtienes al recibir resultados de exámenes en laboratorios; al igual que eliminar la necesidad de desplazarte a sus establecimientos y hacer visible la evolución de tu salud conforme tienes más récords médicos."
+      },
+      "second": {
+        "subtitle": "Que busca construir un producto de talla mundial",
+        "p": "Cuando Sebastián llegó a nuestra mesa de ventas nos contó sobre la visión de Wellmee y su deseo por probar este concepto y desarrollar un MVP que sirviera para validar su modelo de negocios. Una vez construida la primer versión de este producto, aplicaría al programa de aceleración de Y Combinator (donde solo aceptan al 1.5% de aplicantes)."
+      },
+      "third": {
+        "subtitle": "Existían retos específicos",
+        "challenges": [
+          {
+            "title": "Probar un concepto",
+            "p": "A pesar de que Wellmee era una gran idea desde el día 0 era necesario probarla con usuarios reales y colectar feedback del mercado para asegurarnos que era una atractiva."
+          },
+          {
+            "title": "Desarrollar una experiencia relevante",
+            "p": "Sebastián es un fundador orientado al diseño por lo que, naturalmente, buscó desde el día uno tener excelentes estándares en diseño de interfaz, interacción y experiencia de usuario."
+          },
+          {
+            "title": "Diseñar el mejor producto posible",
+            "p": "Era fundamental encontrar y tener retroalimentación de quienes serían los primeros clientes de la empresa."
+          },
+          {
+            "title": "Gestionar el traslado del proyecto",
+            "p": "Sebastián llegó a nosotros para validar su idea pero, una vez que bajara su primera ronda de inversión, tendría recursos suficientes para contratar a una escuadra de producto para iterar y experimentar. Por lo tanto, desde el principio tenía que pensarse una arquitectura intuitiva y una documentación exhaustiva para que cualquier desarrollador pudiera tomar las riendas del proyecto en el futuro."
+          }
+        ]
+      }
+    }
+  },
+  "second_section": {
+    "title": "<b>Acto II</b><br/>Y la solución fue construir un producto hermoso y funcional",
+    "solutions": [
+      {
+        "title": "Introducción intuitiva",
+        "p": "Tiene un proceso de onboarding para que nuevos usuarios sean guiados en su uso"
+      },
+      {
+        "title": "Agenda y recordatorios automáticos",
+        "p": "Agenda checkups, recibe pagos y envía recordatorios automáticos para citas"
+      },
+      {
+        "title": "Score médico integrado",
+        "p": "Muestra un score médico diseñado por un panel de doctores de medicina integral para darte un reporte fácil de comprender sobre tu estado de salud"
+      },
+      {
+        "title": "Datos biomarcadores y recomendaciones",
+        "p": "Te da toda la información de tus biomarcadores en tu perfil de manera amigable con recomendaciones para mejorar tu salud. Además, puedes ver el histórico de cada biomarcador y compararlo con el resultado de cada nuevo checkup"
+      },
+      {
+        "title": "Exporta resultados en PDF",
+        "p": "Es capaz de exportar PDFs con los resultados para compartir tu doctor y con quien quieras"
+      }
+    ]
+  },
+  "third_section": {
+    "title": "<b>Acto III</b><br/>Con un proceso probado",
+    "points": [
+      {
+        "p": "Lo primero que hicimos fue un taller de facilitación para construir un Lean Canvas. El resultado nos permitió conocer a profundidad la lógica del negocio, sus recursos, fortalezas, debilidades, alianzas clave y visión"
+      },
+      {
+        "p": "Después hicimos una serie de design sprints donde creamos prototipos y los probamos con usuarios reales con varias iteraciones hasta llegar a un resultado robusto y validado",
+        "steps": [
+          "mapear",
+          "bocetear",
+          "crear un storyboard",
+          "prototipar",
+          "probar con usuarios reales"
+        ]
+      },
+      {
+        "p": "Y llegó el momento de construir. Diseñamos una arquitectura escalable y mantenible con una correcta documentación adecuada a las necesidades del nuevo equipo de desarrollo de Wellmee liderado por Eduardo Díaz"
+      },
+      {
+        "p": "Nota extra: Notion. Todo el proyecto, tanto sus documentos como especificaciones, fue administrado en nuestro dashboard de proyectos para clientes, el cual es una portal donde se revisan y almacenan reportes, documentación, calendarios, entregas, feedback y cualquier tipo de archivo que produce o requiere cada proyecto"
+      }
+    ],
+    "subtitle": "Logramos ser ágiles y diseñar una increíble experiencia",
+    "p": "Desarrollamos este producto para enfrentar los próximos retos de Wellmee, como la integración de cientos de flebotomistas (técnicos tomadores de muestras para los checkups) a su equipo –gracias a un calendario de citas automatizadas– o la conformación efectiva de su nuevo equipo de desarrollo –gracias a la extensa documentación supervisada por un desarrollador de Meta–. Pero también conseguimos:",
+    "results": [
+      {
+        "title": "0",
+        "first_subtitle": "errores",
+        "second_subtitle": "humanos",
+        "p": "en la captura de resultados gracias a la integración directa con el laboratorio vía API"
+      },
+      {
+        "sign": "+",
+        "title": "64",
+        "first_subtitle": "biomarcadores",
+        "p": "agrupados en pilares con resultados amigables para usuarios y doctores"
+      },
+      {
+        "title": "1",
+        "first_subtitle": "semana",
+        "p": "en validar el concepto original"
+      },
+      {
+        "sign": "+",
+        "title": "15",
+        "first_subtitle": "pruebas",
+        "second_subtitle": " de usuarios",
+        "p": "donde personas reales nos dieron feedback para diseñar el mejor producto"
+      }
+    ]
+  },
+  "fourth_section": {
+    "title": "<b>Acto IV</b><br/>Pero, ¿qué sigue para Wellmee?",
+    "p": "Ahora es momento de que Wellmee, con su propio equipo de desarrolladores, itere y experimente con su MVP, aplique a Y Combinator, siga buscando nuevos clientes y se prepare para su próxima ronda de inversión.<br/><br/>Siempre es vibrante ver a un grupo de personas que buscan desafiar el status quo. La energía que tienen Sebastián y su compañía es contagiante y estamos agradecidos de haber formado parte de la historia de esta startup en crecimiento."
+  }
+}

@@ -1,0 +1,22 @@
+export interface NewContact {
+    firstName?: string;
+    lastName?: string;
+    email: string;
+    listIds: number[];
+    updateEnabled: boolean;
+    attributes?: object;
+}
+export interface MailContact {
+    firstName: string;
+    lastName: string;
+    email: string;
+    company: string;
+    job: string;
+    message: string;
+}
+export interface EmailToContact {
+    email: string;
+    message: string;
+    subject: string;
+}
+//# sourceMappingURL=BrevoProps.d.ts.map

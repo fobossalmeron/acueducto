@@ -1,0 +1,1 @@
+{"version":3,"file":"brevo.d.ts","sourceRoot":"","sources":["../../src/utils/brevo.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,UAAU,EAAE,WAAW,EAAE,cAAc,EAAE,MAAM,qBAAqB,CAAC;AAG9E,eAAO,MAAM,aAAa,GAAU,eAAe,UAAU,sBAY5D,CAAC;AAGF,eAAO,MAAM,SAAS,GAAU,UAAU,WAAW,sBAYpD,CAAC;AAGF,eAAO,MAAM,kBAAkB,GAAU,UAAU,cAAc,sBAYhE,CAAC"}

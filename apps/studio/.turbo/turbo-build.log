@@ -1,0 +1,16 @@
+   ▲ Next.js 15.2.4
+
+   Linting and checking validity of types ...
+Failed to compile.
+
+./components/pages/blog/EntryPreview.tsx:7:24
+Type error: Cannot find module '@acueducto/shared/components/ui/Button' or its corresponding type declarations.
+
+[0m [90m  5 |[39m [36mimport[39m [33mCaseGrid[39m [36mfrom[39m [32m'components/pages/work/CaseGrid'[39m[33m;[39m[0m
+[0m [90m  6 |[39m [36mimport[39m styled [36mfrom[39m [32m'styled-components'[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m  7 |[39m [36mimport[39m { [33mButton[39m } [36mfrom[39m [32m'@acueducto/shared/components/ui/Button'[39m[33m;[39m[0m
+[0m [90m    |[39m                        [31m[1m^[22m[39m[0m
+[0m [90m  8 |[39m[0m
+[0m [90m  9 |[39m [36minterface[39m [33mEntryPreviewProps[39m {[0m
+[0m [90m 10 |[39m   title[33m:[39m string[33m;[39m[0m
+Next.js build worker exited with code: 1 and signal: null

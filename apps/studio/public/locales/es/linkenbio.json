@@ -1,0 +1,39 @@
+{
+  "head": {
+    "title": "Link en bio - Acueducto",
+    "description": "Agendemos una cita, prueba una consultoría o escucha nuestro podcast.",
+    "headerTitle": "Link en bio"
+  },
+  "title": "¿qué estás buscando?",
+  "links": [
+    {
+      "url": "/podcast",
+      "subtitle": "Cuando el río suena",
+      "title": "Podcast"
+    },
+    {
+      "url": "https://www.latamstartup.club/esenciales-para-startups",
+      "subtitle": "Latam Startup 2023",
+      "title": "Esenciales para Startups"
+    },
+    {
+      "url": "/podcast/asi-se-ve-un-equipo-de-alto-rendimiento",
+      "subtitle": "¿Tienes un negocio?",
+      "title": "Tienes que ver esto"
+    }
+  ],
+  "p": "visita también",
+  "secondary_links": [
+    {
+      "url": "/portafolio",
+      "title": "casos de estudio",
+      "subtitle": "Nuestro trabajo"
+    },
+    {
+      "url": "https://acueducto.notion.site/Vacantes-223b939ba9a14051bca07f8546e8ad26",
+      "subtitle": "¿Quieres trabajar con nosotros?",
+      "title": "Conoce nuestras vacantes"
+    }
+    
+  ]
+}

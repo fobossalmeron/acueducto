@@ -1,0 +1,138 @@
+{
+  "head": {
+    "title": "Software development consulting services - Acueducto",
+    "description": "Elevate your projects with expert software development consulting services. Unlock innovation and efficiency for unparalleled success.",
+    "header_title": ""
+  },
+  "landing": {
+    "seo_h1": "Software development consulting services: Acueducto",
+    "heading": "empower your business with technology",
+    "tagline": "Acueducto is a software design and development studio",
+    "ctaContact": "Contact us",
+    "ctaWork": "Our work"
+  },
+  "work": {
+    "title": "as stunning as they are powerful"
+  },
+  "problem": {
+    "title": "we speak business, software, and design",
+    "p": "We design and build software. Apps, websites, MVPs, and platforms that allow you to save resources in your company or do more with the same.",
+    "scenes": [
+      {
+        "text": "finding talent is so complicated",
+        "profile": "IT Director"
+      },
+      {
+        "text": "how can I integrate AI into my business?",
+        "profile": "Entrepreneur"
+      },
+      {
+        "text": "how can I test new initiatives before spending millions?",
+        "profile": "CEO"
+      },
+      {
+        "text": "I need to improve my customers' digital experience soon",
+        "profile": "CMO"
+      }
+    ]
+  },
+  "process": {
+    "title": "your idea to code in record time",
+    "labelFirst": "First 10 days",
+    "labelSecond": "Next 10 days",
+    "stages": [
+      {
+        "title": "we define your MVP",
+        "p": "We define the essential functionalities of your Minimum Viable Product and perform an engineering analysis.",
+        "badge": "Requirements validated"
+      },
+      {
+        "title": "we iterate a prototype",
+        "p": "We code a fully interactive prototype. We test it with real users and iterate based on their feedback.",
+        "badge": "Prototype validated"
+      },
+      {
+        "title": "we integrate and launch",
+        "p": "We connect the product to your technology and accompany you in your launch.",
+        "badge": "MVP launched"
+      }
+    ],
+    "agileCard": {
+      "auxiliary": "If your product needs to grow",
+      "title": "agile product development",
+      "p": "We increment and refine on the go in secure production and development environments.",
+      "button": "Tell us your idea"
+    }
+  },
+  "stack": {
+    "title": ["a powerful stack", "that adapts to yours"],
+    "p": "We adapt to the technology you already use and develop your MVPs with modern web technology ready to scale.",
+    "sticker": "Accelerated with AI",
+    "lastP": "Other companies using this stack"
+  },
+  "clients": {
+    "intro": {
+      "title": "for businesses seeking innovation",
+      "p": "We help you execute projects that can transform your organization into one with improved operations, a scalable architecture, and a first-class customer experience."
+    },
+    "span": "We have worked with",
+    "span2": "From our clients",
+    "quotes": [
+      {
+        "text": "No agency had ever understood us like Acueducto does. They're the best studio I've worked with.",
+        "person": "David Elizondo",
+        "job": "Product Manager, DeAcero",
+        "picture": "david"
+      },
+      {
+        "text": "I'm extremely satisfied, we're increasingly differentiating ourselves from the competition and I love the excellent work we can do with Acueducto.",
+        "person": "Cindy Borgatta",
+        "job": "CMO, Borgatta",
+        "picture": "cindy"
+      },
+      {
+        "text": "We found a new growth opportunity. With Acueducto's work we're scaling our offering and reaching new customers.",
+        "person": "Rodrigo Maldonado",
+        "job": "CEO, Rahid",
+        "picture": "rodrigo"
+      },
+      {
+        "text": "There isn't a single person who hasn't told me that the work we did with Acueducto was truly exceptional and the design sophisticated.",
+        "person": "Karla Hernández",
+        "job": "CEO, Recupera",
+        "picture": "karla"
+      }
+    ],
+    "cta": "See our work"
+  },
+  "faq": {
+    "title": "frequently asked questions",
+    "questions": [
+      {
+        "title": "What kind of projects can we build?",
+        "p": "Practically anything: websites, web applications, mobile applications, blogs, platforms, internal dashboards... whatever your business needs. We can also help you automate business operations with dynamic forms, data manipulation, and databases to digitize and optimize your work."
+      },
+      {
+        "title": "How long would it take to build something for my business?",
+        "p": "In 10 days you can test an MVP of your product with real users. In 20 days you can launch your MVP."
+      },
+      {
+        "title": "Do you offer design services?",
+        "p": "We are a design studio first and foremost. We are convinced that amazing user experiences should also be beautiful."
+      },
+      {
+        "title": "How much does a project cost?",
+        "p": "Each project has a fixed monthly fee, so you'll know how much you'll spend from the start. We'll need to consider some costs of other tools/services we use to build your project. These costs will be charged directly to you in a transparent manner."
+      }
+    ]
+  },
+  "openings": {
+    "title": "join our team",
+    "p": "Want to join our team? Check out our open positions.",
+    "cta": "See openings"
+  },
+  "podcast": {
+    "title": "take a look at how we think",
+    "p": "Listen to our podcast (spanish only) with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
+  }
+}

@@ -1,0 +1,7 @@
+import { ButtonProps } from './Button.types';
+export declare const baseStyles = "inline-flex items-center justify-center rounded-full relative transition-all duration-300 ease-in-out cursor-pointer touch-manipulation select-none [text-size-adjust:none] [-webkit-text-size-adjust:none] [touch-action:manipulation] [-webkit-tap-highlight-color:transparent] before:absolute before:inset-[-6px] before:rounded-full before:transition-all before:duration-300 before:opacity-0 before:border before:border-[#4D75EA] before:scale-95";
+export declare const primaryButtonAnimation = "hover:shadow-[0_0_18px_rgba(77,117,234,0.6)] hover:before:opacity-100 hover:before:scale-100 active:shadow-[0_0_18px_rgba(77,117,234,0.6)] active:before:opacity-100 active:before:scale-100";
+export declare const secondaryButtonAnimation = "hover:shadow-[0_0_18px_rgba(26,49,142,1)] hover:before:opacity-100 hover:before:scale-100 active:before:opacity-100 active:before:scale-100 before:absolute before:inset-[-6px] before:rounded-full before:transition-all before:duration-300 before:opacity-0 before:border before:border-[#4D75EA] before:scale-95";
+export declare const variantStyles: Record<NonNullable<ButtonProps['variant']>, string>;
+export declare const sizeStyles: Record<NonNullable<ButtonProps['size']>, string>;
+//# sourceMappingURL=Button.styles.d.ts.map

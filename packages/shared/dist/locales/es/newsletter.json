@@ -1,0 +1,27 @@
+{
+    "newsletter_component": {
+        "title": "aprende de las mejores empresas",
+        "p": "Recibe medidas accionables para tu negocio cada lunes.",
+        "firstName": {
+            "label": "Nombre",
+            "placeholder": "Tu nombre",
+            "errorMissing": "*Falta tu nombre"
+        },
+        "lastName": {
+            "label": "Apellido",
+            "placeholder": "Tu apellido",
+            "errorMissing": "*Falta tu apellido"
+        },
+        "email": {
+            "label": "Email",
+            "placeholder": "Tu email",
+            "errorMissing": "*Falta tu email",
+            "errorInvalid": "*Email inválido"
+        },
+        "submit": "Suscribirme",
+        "loading": "Enviando...",
+        "success": {
+            "p": "¡Gracias por suscribirte!"
+        }
+    }
+}

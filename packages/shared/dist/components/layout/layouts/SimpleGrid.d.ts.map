@@ -1,0 +1,1 @@
+{"version":3,"file":"SimpleGrid.d.ts","sourceRoot":"","sources":["../../../../src/components/layout/layouts/SimpleGrid.tsx"],"names":[],"mappings":"AAAA,OAAO,KAAK,MAAM,OAAO,CAAC;AAE1B,eAAO,MAAM,UAAU,GAAI,mCAIxB;IACD,QAAQ,EAAE,KAAK,CAAC,SAAS,CAAC;IAC1B,SAAS,CAAC,EAAE,MAAM,CAAC;IACnB,gBAAgB,CAAC,EAAE,MAAM,CAAC;CAC3B,4CAOA,CAAC"}
