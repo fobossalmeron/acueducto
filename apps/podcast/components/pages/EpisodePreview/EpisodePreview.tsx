@@ -62,7 +62,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
 }) => {
   const LinkComplex = useMemo(() => {
     const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
-      <Link href={`/podcast/${slug}`} passHref legacyBehavior>
+      <Link href={`/${slug}`} passHref legacyBehavior>
         <a className="clean">{children}</a>
       </Link>
     );
@@ -167,7 +167,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
           <div>
             {longFormat && spotify && (
               <ShareRouter
-                shareUrl={`https://acueducto.studio/podcast/${slug}`}
+                shareUrl={`https://cuandoelriosuena.com/${slug}`}
               >
                 Comparte
               </ShareRouter>
@@ -176,7 +176,7 @@ const PreEpisodePreview: React.FC<EpisodePreviewProps> = ({
         </Fade>
         <ButtonSpace>
           {simplest && (
-            <Link href={`/podcast/${slug}`}>
+            <Link href={`/${slug}`}>
               <Button text={text || 'Seguir aprendiendo'} />
             </Link>
           )}

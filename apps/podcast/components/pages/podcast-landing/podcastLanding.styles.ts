@@ -4,7 +4,7 @@ import TitleSectionGrid from "@acueducto/shared/components/shared/TitleSectionGr
 export const Parallax = styled.div`
   .parallax-effect-img {
     transform-style: preserve-3d;
-    background-image: url("/assets/img/layout/podcast_cover_sq.png");
+    background-image: url("/assets/img/podcast_cover_sq.png");
     background-size: 60%;
     background-position: center;
     background-repeat: no-repeat;
@@ -231,7 +231,7 @@ export const FullLastSection = styled.section`
 export const PodcastGrid = styled(TitleSectionGrid)`
   background-color: ${(p) => p.theme.colors.background};
   background-repeat: no-repeat;
-  background-image: url("/assets/img/layout/backOld.svg");
+  background-image: url("/assets/img/backOld.svg");
   background-size: cover;
   background-position: 100% -10%;
   background-attachment: fixed;

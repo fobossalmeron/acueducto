@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import Logo from "public/shared/images/layout/logo.svg";
+import Logo from "../../../assets/images/layout/logo.svg";
 
 const FooterLogoCrop = ({ color }: { color?: string }) => (
   <LogoCrop color={color}>

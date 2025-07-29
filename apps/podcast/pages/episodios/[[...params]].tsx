@@ -4,12 +4,12 @@ import useSWR from 'swr';
 import { EpisodePreview } from '../../components/pages/EpisodePreview/EpisodePreview';
 import EpisodePreviewSkeleton from '../../components/pages/EpisodePreviewSkeleton';
 import BroadcastRouter from '../../components/pages/BroadcastRouter';
-import ssrLocale from 'utils/ssrLocale';
-import { getAllMarkdownEpisodes } from 'utils/podcastApi';
+import ssrLocale from '../../utils/ssrLocale';
+import { getAllMarkdownEpisodes } from '../../utils/podcastApi';
 import Head, { HeadProps } from '@acueducto/shared/components/layout/Head/Head';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
-import Logo from 'public/assets/images/layout/logo.svg';
+import Logo from 'public/assets/img/logo.svg';
 import { H1 } from '@acueducto/shared/components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';
 import { createClient } from '../../prismicio';
@@ -169,7 +169,7 @@ export default function EpisodesPage({
 
       // Navegar a la URL base de episodios
       if (currentCategory !== 'todas') {
-        router.push('/podcast/episodios', undefined, { shallow: true });
+        router.push('/episodios', undefined, { shallow: true });
       }
     },
     [isPrismicEpisode, currentCategory, router, normalizeText],
@@ -204,7 +204,7 @@ export default function EpisodesPage({
         setFilteredEpisodes([]);
         setNoResults(false);
         if (currentCategory !== 'todas') {
-          router.push(`/podcast/episodios/${currentCategory}`);
+          router.push(`/episodios/${currentCategory}`);
         }
       }
     },
@@ -225,7 +225,7 @@ export default function EpisodesPage({
         setNoResults(false);
         setFilteredEpisodes([]);
         setCurrentFilteredPage(1);
-        router.push(`/podcast/episodios/${category}`);
+        router.push(`/episodios/${category}`);
       }
     },
     [currentCategory, router, mutate],
@@ -263,14 +263,14 @@ export default function EpisodesPage({
       <Head
         {...head}
         image={{ fileName: 'og_image_podcast.png', alt: head.image.alt }}
-        es_canonical={`https://acueducto.studio/podcast/episodios/${currentCategory}/${currentPage}`}
+        es_canonical={`https://cuandoelriosuena.com/episodios/${currentCategory}/${currentPage}`}
         noIndex
       />
       <PodcastGrid>
         <div>
           <Fade triggerOnce>
             <NameComponent>
-              <H1>{intro.title}</H1>
+              <H1>cuando el río suena</H1>
               <span className="blue">
                 por <Logo />
               </span>
@@ -337,7 +337,7 @@ export default function EpisodesPage({
             <Pagination>
               {currentPage > 1 && (
                 <PageLink
-                  href={`/podcast/episodios/${currentCategory}/${currentPage - 1}`}
+                  href={`/episodios/${currentCategory}/${currentPage - 1}`}
                 >
                   {isMobile ? <TextToIcon $reverse /> : 'Anterior'}
                 </PageLink>
@@ -347,7 +347,7 @@ export default function EpisodesPage({
                   (page, index) => (
                     <PageNumber
                       key={page}
-                      href={`/podcast/episodios/${currentCategory}/${page}`}
+                      href={`/episodios/${currentCategory}/${page}`}
                       $active={page === currentPage}
                     >
                       {page}
@@ -357,7 +357,7 @@ export default function EpisodesPage({
               </PageNumbers>
               {currentPage < totalPages && (
                 <PageLink
-                  href={`/podcast/episodios/${currentCategory}/${currentPage + 1}`}
+                  href={`/episodios/${currentCategory}/${currentPage + 1}`}
                 >
                   {isMobile ? <TextToIcon /> : 'Siguiente'}
                 </PageLink>
@@ -390,8 +390,8 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
     // Generar solo las rutas principales para reducir el tiempo de build
     const paths = [
-      { params: { params: [] } }, // /podcast/episodios
-      ...CATEGORIES.map((category) => ({ params: { params: [category] } })), // /podcast/episodios/[category]
+      { params: { params: [] } }, // /episodios
+      ...CATEGORIES.map((category) => ({ params: { params: [category] } })), // /episodios/[category]
     ];
 
     return {

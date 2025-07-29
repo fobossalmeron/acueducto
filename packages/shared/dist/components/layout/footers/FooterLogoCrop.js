@@ -1,7 +1,7 @@
 import { jsx as _jsx } from "react/jsx-runtime";
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import Logo from "public/shared/images/layout/logo.svg";
+import Logo from "../../../assets/images/layout/logo.svg";
 const FooterLogoCrop = ({ color }) => (_jsx(LogoCrop, { color: color, children: _jsx(Fade, { triggerOnce: true, children: _jsx(Logo, {}) }) }));
 export default FooterLogoCrop;
 const LogoCrop = styled.div `

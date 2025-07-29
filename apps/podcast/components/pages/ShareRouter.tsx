@@ -11,6 +11,8 @@ import LnIcon from "../../../../public/assets/img/layout/logos/linkedin.svg";
 import TwIcon from "../../../../public/assets/img/layout/logos/tw.svg";
 import WAIcon from "../../../../public/assets/img/layout/logos/whatsapp-inv.svg";
 
+//TODO: Estos logos deben ser componentes exportados de shared
+
 const ShareRouter = ({
   children,
   shareUrl,

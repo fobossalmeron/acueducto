@@ -4,7 +4,7 @@ import Link from "next/link";
 // Styled components
 export const PodcastGrid = styled.div`
   background-color: ${(p) => p.theme.colors.background};
-  background-image: url("/assets/img/layout/back.svg");
+  background-image: url("/assets/img/back.svg");
   background-size: 130%;
   background-attachment: fixed;
   background-repeat: no-repeat;

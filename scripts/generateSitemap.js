@@ -170,6 +170,8 @@ const staticRoutes = [
   },
 ];
 
+//TODO: TODOS los episodios del podcast se publican
+
 async function generateSitemap() {
   try {
     const esRoute = (route) =>

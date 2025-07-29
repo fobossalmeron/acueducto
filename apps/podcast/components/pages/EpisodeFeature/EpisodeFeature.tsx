@@ -36,7 +36,7 @@ const EpisodeFeature: React.FC<EpisodeFeatureProps> = ({
   logos = null,
 }) => {
   return (
-    <Link href={`/podcast/${slug}`} passHref legacyBehavior>
+    <Link href={`/${slug}`} passHref legacyBehavior>
       <NewPod $blue={blue}>
         <PictureContainer $hoverable={true} $portrait={portrait}>
           {!portrait && image ? (

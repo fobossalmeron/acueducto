@@ -37,3 +37,27 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# turbo
+.turbo
+
+# Monorepo specific
+apps/*/node_modules
+apps/*/.next
+apps/*/out
+apps/*/build
+packages/*/node_modules
+packages/*/dist
+packages/*/.next
+
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db

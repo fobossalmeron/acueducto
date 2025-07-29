@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { H1, P, Li } from '@acueducto/shared/components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';
 import { EpisodePreview } from '../EpisodePreview/EpisodePreview';
-import Logo from 'public/shared/images/layout/logo.svg';
+import Logo from 'public/assets/img/logo.svg';
 import EpisodeNumber from '../EpisodeNumber';
 import Link from 'next/link';
 import CenteredSection, {
@@ -12,7 +12,7 @@ import CenteredSection, {
 } from '@acueducto/shared/components/shared/CenteredSection';
 import ShareRouter from '../ShareRouter';
 import dynamic from 'next/dynamic';
-import BackArrowIcon from 'public/shared/images/layout/backarrow.svg';
+import BackArrowIcon from 'public/assets/img/backarrow.svg';
 import { PrismicRichText } from '@prismicio/react';
 import BroadcastRouter from '../BroadcastRouter';
 import {
@@ -76,13 +76,13 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
   return (
     <>
       <CenteredSection
-        $customBackground={'/assets/img/layout/backOld.svg'}
+        $customBackground={'/assets/img/backOld.svg'}
         id="cuandoelriosuena"
       >
         {/* Cabecera del podcast con logo y título */}
         <Fade triggerOnce>
           <IntroLogo>
-            <Link href="/podcast" passHref legacyBehavior>
+            <Link href="/" passHref legacyBehavior>
               <a>
                 <THoverable>cuando el río suena</THoverable>
                 <span>
@@ -95,7 +95,7 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
         <Fade triggerOnce>
           <div>
             {/* Enlace para volver a todos los episodios */}
-            <Link href={'/podcast/episodios'} passHref legacyBehavior>
+            <Link href={'/episodios'} passHref legacyBehavior>
               <AllEpisodesHoverable>
                 <BackArrowIcon />
                 <p>ver todos los episodios</p>
@@ -218,7 +218,7 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
                   compártelo con esa persona.
                 </RouterSpace>
                 <ShareRouter
-                  shareUrl={`https://acueducto.studio/podcast/${slug}`}
+                  shareUrl={`https://cuandoelriosuena.com/${slug}`}
                 />
               </>
             )}

@@ -70,8 +70,8 @@ export const NewPod = styled.a<{ $blue?: boolean }>`
   width: 100%;
   background-image: ${(p) =>
     p.$blue
-      ? 'url("/assets/img/layout/backCardWhite.svg")'
-      : 'url("/assets/img/layout/backCard.svg")'};
+      ? 'url("/assets/img/backCardWhite.svg")'
+      : 'url("/assets/img/backCard.svg")'};
   background-size: cover;
   background-position: bottom;
   background-color: ${(p) => (p.$blue ? '#305EE3' : '#181a1b')};

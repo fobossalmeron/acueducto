@@ -1,7 +1,6 @@
 import React, { useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import dynamic from 'next/dynamic';
 
 import { Fade } from 'react-awesome-reveal';
 import { Button } from '@acueducto/shared';
@@ -25,7 +24,7 @@ import { createClient } from '../prismicio';
 import { GetStaticProps } from 'next';
 import { PrismicPodcastEpisode } from '../components/pages/podcast.types';
 
-import pHosts from 'public/assets/images/layout/hosts.jpg';
+import pHosts from 'public/assets/img/hosts.jpg';
 
 import {
   PodcastGrid,
@@ -38,14 +37,6 @@ import {
   FullLastSection,
 } from '../components/pages/podcast-landing/podcastLanding.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
-
-// Lazy load ContactFooter
-/* const ContactFooter = dynamic(
-  () => import('@acueducto/shared/components/layout/footers/ContactFooter'),
-  {
-    loading: () => <p>Loading...</p>,
-  },
-); */
 
 interface PodcastLandingProps extends PageProps {
   lastPrismicEpisode: PrismicPodcastEpisode;
@@ -191,7 +182,7 @@ export default function PodcastLanding({
                 className="inner-element"
                 width={438}
                 height={438}
-                src="/shared/img/layout/logos.png"
+                src="/assets/img/logos.png"
                 alt="Cuando el río suena"
               />
             </Tilt>
@@ -205,7 +196,7 @@ export default function PodcastLanding({
             <p>{banner.p}</p>
             <div>
               {lastPrismicEpisode.uid && (
-                <Link href={'/podcast/' + lastPrismicEpisode.uid}>
+                <Link href={'/' + lastPrismicEpisode.uid}>
                   <Button text={banner.button} variant="secondary" />
                 </Link>
               )}
@@ -233,7 +224,7 @@ export default function PodcastLanding({
           <div>{memoizedFeaturedEpisodes}</div>
         </FeatureList>
         <Fade triggerOnce>
-          <Link href={`/podcast/episodios`}>
+          <Link href={`/episodios`}>
             <Button text={favorites.button} />
           </Link>
         </Fade>
