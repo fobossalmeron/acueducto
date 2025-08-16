@@ -76,7 +76,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       slug: isPrismicEpisode(episode) ? episode.uid : episode.slug,
       episodeNumber: isPrismicEpisode(episode) ? episode.data.introduction[0].episode : episode.episodeNumber,
       category: isPrismicEpisode(episode) ? episode.data.introduction[0].category : episode.category,
-      description: isPrismicEpisode(episode) ? episode.data.introduction[0].description[0].text : episode.description,
+      description: isPrismicEpisode(episode) ? (episode.data.introduction[0].description?.[0]?.text || '') : episode.description,
       date: isPrismicEpisode(episode) ? episode.data.introduction[0].date : episode.date,
       spotify: isPrismicEpisode(episode) ? episode.data.introduction[0].spotify : episode.spotify,
       apple: isPrismicEpisode(episode) ? episode.data.introduction[0].apple : episode.apple,
