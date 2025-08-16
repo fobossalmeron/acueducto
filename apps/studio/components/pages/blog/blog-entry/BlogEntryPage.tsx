@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import { H1, P } from '@acueducto/shared/components/shared/Dangerously';
 import { Fade } from 'react-awesome-reveal';
 import Header from './BlogEntryHeader';
-import ShareRouter from 'components/pages/podcast/ShareRouter';
+import ShareRouter from '@acueducto/shared/components/shared/ShareRouter';
 import CenteredSection, {
   Content,
   Transcript,

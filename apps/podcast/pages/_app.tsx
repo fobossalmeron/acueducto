@@ -111,6 +111,13 @@ function App({ Component, pageProps, router }: CustomAppProps) {
     }
   }, [hasLoaded]);
 
+  // Si la página tiene un getLayout personalizado, úsalo
+  if (Component.getLayout) {
+    return Component.getLayout(
+      <Component {...pageProps} lang={router.locale} />,
+    );
+  }
+
   // Si no, usa el layout por defecto
   return (
     <ThemeProvider theme={theme}>

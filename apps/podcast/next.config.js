@@ -1,8 +1,16 @@
 const nextConfig = {
   compiler: {
-    styledComponents: true,
+    styledComponents: {
+      displayName: true,
+      ssr: false,
+    },
   },
   webpack: (config) => {
+    // Forzar una sola instancia de styled-components
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      'styled-components': require.resolve('styled-components'),
+    };
 
     config.module.rules.push({
       test: /\.svg$/,
@@ -27,6 +35,11 @@ const nextConfig = {
     ],
   },
   reactStrictMode: true,
+  // Suprimir warnings de hidratación temporalmente
+  onDemandEntries: {
+    maxInactiveAge: 25 * 1000,
+    pagesBufferLength: 2,
+  },
   i18n: {
     locales: ['es', 'en'],
     defaultLocale: 'es', 

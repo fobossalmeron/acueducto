@@ -1,18 +1,16 @@
-
-   [1m[38;2;173;127;168m▲ Next.js 15.2.4[39m[22m
+   ▲ Next.js 15.2.4
    - Environments: .env.local
 
-[?25l [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m..[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m...[39m[2K[1G [37m[1m [22m[39m Linting and checking validity of types  [36m.[39mFailed to compile.
+   Linting and checking validity of types ...
+Failed to compile.
 
-./pages/[slug].tsx:94:36
-Type error: Parameter 'slug' implicitly has an 'any' type.
+./components/pages/BroadcastRouter.tsx:2:32
+Type error: Cannot find module '@acueducto/shared/utils/facebookPixel' or its corresponding type declarations.
 
-[0m [90m 92 |[39m [90m * Funciones utilitarias para cargar episodios[39m[0m
-[0m [90m 93 |[39m [90m */[39m[0m
-[0m[31m[1m>[22m[39m[90m 94 |[39m [36masync[39m [36mfunction[39m loadMarkdownEpisode(slug) {[0m
-[0m [90m    |[39m                                    [31m[1m^[22m[39m[0m
-[0m [90m 95 |[39m   [36mconst[39m episode [33m=[39m getMarkdownEpisodeBySlug(slug[33m,[39m [[0m
-[0m [90m 96 |[39m     [32m'title'[39m[33m,[39m[0m
-[0m [90m 97 |[39m     [32m'seo_title'[39m[33m,[39m[0m
-[2K[1G[?25hNext.js build worker exited with code: 1 and signal: null
-[?25l [36m.[39m [?25h
+[0m [90m 1 |[39m [36mimport[39m styled [36mfrom[39m [32m'styled-components'[39m[33m;[39m[0m
+[0m[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mFacebookPixel[39m [36mfrom[39m [32m'@acueducto/shared/utils/facebookPixel'[39m[33m;[39m[0m
+[0m [90m   |[39m                                [31m[1m^[22m[39m[0m
+[0m [90m 3 |[39m [36mimport[39m { [33mP[39m } [36mfrom[39m [32m'@acueducto/shared/components/shared/Dangerously'[39m[33m;[39m[0m
+[0m [90m 4 |[39m [36mimport[39m { [33mFade[39m } [36mfrom[39m [32m'react-awesome-reveal'[39m[33m;[39m[0m
+[0m [90m 5 |[39m[0m
+Next.js build worker exited with code: 1 and signal: null

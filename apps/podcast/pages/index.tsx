@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import dynamic from 'next/dynamic';
 
 import { Fade } from 'react-awesome-reveal';
 import { Button } from '@acueducto/shared';
@@ -37,6 +38,14 @@ import {
   FullLastSection,
 } from '../components/pages/podcast-landing/podcastLanding.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
+
+// Lazy load ContactFooter
+/* const ContactFooter = dynamic(
+  () => import('@acueducto/shared/components/layout/footers/ContactFooter'),
+  {
+    loading: () => <p>Loading...</p>,
+  },
+); */
 
 interface PodcastLandingProps extends PageProps {
   lastPrismicEpisode: PrismicPodcastEpisode;
@@ -196,7 +205,7 @@ export default function PodcastLanding({
             <p>{banner.p}</p>
             <div>
               {lastPrismicEpisode.uid && (
-                <Link href={'/' + lastPrismicEpisode.uid}>
+                <Link href={'/podcast/' + lastPrismicEpisode.uid}>
                   <Button text={banner.button} variant="secondary" />
                 </Link>
               )}
@@ -224,7 +233,7 @@ export default function PodcastLanding({
           <div>{memoizedFeaturedEpisodes}</div>
         </FeatureList>
         <Fade triggerOnce>
-          <Link href={`/episodios`}>
+          <Link href={`/podcast/episodios`}>
             <Button text={favorites.button} />
           </Link>
         </Fade>
