@@ -3,10 +3,12 @@ import dynamic from 'next/dynamic';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
 import InputField from 'components/shared/ContactInputField';
+import { RecaptchaError } from 'components/shared/RecaptchaError';
 import delayForLoading from 'utils/delayForLoading';
 import { useLenis } from 'utils/LenisContext';
 import { createContact, sendEmail } from 'utils/brevo';
 import { MailContact } from 'types/BrevoProps';
+import { useRecaptcha } from 'utils/useRecaptcha';
 
 const DynamicAmongUs = dynamic(() => import('./AmongUs'), {
   ssr: false,
@@ -33,11 +35,16 @@ interface ContactFormProps {
     submit: string;
     loading: string;
     success: { p: string };
+    error: {
+      recaptchaFailed: string;
+      recaptchaNotLoaded: string;
+      generic: string;
+    };
   };
   testing?: boolean;
 }
 
-type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
+type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'ERROR';
 
 const ContactForm: React.FC<ContactFormProps> = ({
   text,
@@ -49,8 +56,10 @@ const ContactForm: React.FC<ContactFormProps> = ({
   }
 
   const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
+  const { getToken, recaptchaError } = useRecaptcha(!testing);
 
   const {
     register,
@@ -60,6 +69,23 @@ const ContactForm: React.FC<ContactFormProps> = ({
 
   const onSubmitInside: SubmitHandler<MailContact> = useCallback(
     async (data) => {
+      // Verificar si hay error al cargar reCAPTCHA
+      if (recaptchaError) {
+        setErrorMessage(text.error.recaptchaNotLoaded);
+        setFormStatus('ERROR');
+        return;
+      }
+
+      // Obtener token de reCAPTCHA
+      const recaptchaToken = await getToken('submit_contact_form');
+
+      // Si no se obtuvo token, bloquear envío
+      if (!recaptchaToken) {
+        setErrorMessage(text.error.recaptchaNotLoaded);
+        setFormStatus('ERROR');
+        return;
+      }
+
       const listData = {
         listIds: [10], //PidioExploracion
         updateEnabled: true,
@@ -74,6 +100,7 @@ const ContactForm: React.FC<ContactFormProps> = ({
       lenis.scrollTo(0, { immediate: false });
       await delayForLoading(300);
       setFormStatus('LOADING');
+      setErrorMessage('');
 
       if (testing) {
         console.log(
@@ -81,21 +108,44 @@ const ContactForm: React.FC<ContactFormProps> = ({
           completeData,
         );
         await delayForLoading(2300);
+        setFormStatus('SUCCESS');
       } else {
-        await Promise.all([
-          sendEmail(data),
-          createContact(completeData).catch(() => {
-            setFormStatus('IDLE');
+        try {
+          const emailResponse = await sendEmail(data, recaptchaToken);
+
+          if (!emailResponse.ok) {
+            const errorData = await emailResponse.json();
+            if (emailResponse.status === 403) {
+              // Error de reCAPTCHA
+              setErrorMessage(text.error.recaptchaFailed);
+              setFormStatus('ERROR');
+              console.error('Error de verificación reCAPTCHA:', errorData);
+              return;
+            } else {
+              // Otro error
+              setErrorMessage(text.error.generic);
+              setFormStatus('ERROR');
+              console.error('Error al enviar email:', errorData);
+              return;
+            }
+          }
+
+          // Crear contacto (no crítico si falla)
+          await createContact(completeData).catch(() => {
             console.error('Error al crear el contacto en Brevo');
             return;
-          }),
-          delayForLoading(2300),
-        ]);
-      }
+          });
 
-      setFormStatus('SUCCESS');
+          await delayForLoading(2300);
+          setFormStatus('SUCCESS');
+        } catch (error) {
+          setErrorMessage(text.error.generic);
+          setFormStatus('ERROR');
+          console.error('Error inesperado al enviar formulario:', error);
+        }
+      }
     },
-    [lenis, testing],
+    [lenis, testing, getToken, text.error, recaptchaError],
   );
 
   const renderForm = () => (
@@ -214,11 +264,22 @@ const ContactForm: React.FC<ContactFormProps> = ({
     </div>
   );
 
+  const handleRetry = () => {
+    setFormStatus('IDLE');
+    setErrorMessage('');
+  };
+
   return (
     <>
       {formStatus === 'IDLE' && renderForm()}
       {formStatus === 'LOADING' && renderLoading()}
       {formStatus === 'SUCCESS' && renderSuccess()}
+      {formStatus === 'ERROR' && (
+        <RecaptchaError
+          errorMessage={errorMessage || text.error.generic}
+          onRetry={handleRetry}
+        />
+      )}
     </>
   );
 };

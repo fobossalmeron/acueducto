@@ -5,10 +5,12 @@ import { useRouter } from 'next/router';
 
 import { ButtonSubmit } from 'components/ui/Button';
 import InputField from 'components/shared/ContactInputField';
+import { RecaptchaError } from 'components/shared/RecaptchaError';
 import delayForLoading from 'utils/delayForLoading';
 import { useLenis } from 'utils/LenisContext';
 import { createContact, sendEmailToContact } from 'utils/brevo';
 import { MailContact } from 'types/BrevoProps';
+import { useRecaptcha } from 'utils/useRecaptcha';
 
 interface FeedbackFormData extends MailContact {
   firstName: string;
@@ -17,7 +19,7 @@ interface FeedbackFormData extends MailContact {
   position: string;
 }
 
-type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS';
+type FormStatus = 'IDLE' | 'LOADING' | 'SUCCESS' | 'ERROR';
 
 export const MeetupForm = ({
   googleCalendarEvent,
@@ -27,9 +29,11 @@ export const MeetupForm = ({
   meetupEdition: number;
 }) => {
   const [formStatus, setFormStatus] = useState<FormStatus>('IDLE');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const formRef = useRef<HTMLFormElement>(null);
   const { lenis } = useLenis();
   const router = useRouter();
+  const { getToken, recaptchaError } = useRecaptcha();
 
   const {
     register,
@@ -39,6 +43,27 @@ export const MeetupForm = ({
 
   const onSubmitInside: SubmitHandler<FeedbackFormData> = useCallback(
     async (data) => {
+      // Verificar si hay error al cargar reCAPTCHA
+      if (recaptchaError) {
+        setErrorMessage(
+          'reCAPTCHA no pudo cargar. Por favor, recarga la página.',
+        );
+        setFormStatus('ERROR');
+        return;
+      }
+
+      // Obtener token de reCAPTCHA
+      const recaptchaToken = await getToken('submit_meetup_form');
+
+      // Si no se obtuvo token, bloquear envío
+      if (!recaptchaToken) {
+        setErrorMessage(
+          'reCAPTCHA no pudo cargar. Por favor, recarga la página.',
+        );
+        setFormStatus('ERROR');
+        return;
+      }
+
       const listData = {
         listIds: [17],
         updateEnabled: true,
@@ -69,23 +94,62 @@ export const MeetupForm = ({
         immediate: false,
       });
       setFormStatus('LOADING');
+      setErrorMessage('');
 
       try {
-        await Promise.all([
-          sendEmailToContact(emailData),
-          createContact(completeData),
-          delayForLoading(2300),
-        ]);
+        const emailResponse = await sendEmailToContact(
+          emailData,
+          recaptchaToken,
+        );
+
+        if (!emailResponse.ok) {
+          const errorData = await emailResponse.json();
+          if (emailResponse.status === 403) {
+            // Error de reCAPTCHA
+            setErrorMessage(
+              'No pudimos verificar que eres humano. Por favor, intenta de nuevo.',
+            );
+            setFormStatus('ERROR');
+            console.error('Error de verificación reCAPTCHA:', errorData);
+            return;
+          } else {
+            // Otro error
+            setErrorMessage(
+              'Hubo un error al enviar tu registro. Por favor, intenta de nuevo más tarde.',
+            );
+            setFormStatus('ERROR');
+            console.error('Error al enviar email:', errorData);
+            return;
+          }
+        }
+
+        // Crear contacto (no crítico si falla)
+        await createContact(completeData).catch(() => {
+          console.error('Error al crear el contacto en Brevo');
+          return;
+        });
+
+        await delayForLoading(2300);
 
         setTimeout(() => {
           router.push('/meetup/confirmation');
         }, 1000);
       } catch (error) {
-        console.error('Error al enviar el formulario:', error);
-        setFormStatus('IDLE');
+        setErrorMessage(
+          'Hubo un error al enviar tu registro. Por favor, intenta de nuevo más tarde.',
+        );
+        setFormStatus('ERROR');
+        console.error('Error inesperado al enviar formulario:', error);
       }
     },
-    [lenis, router],
+    [
+      lenis,
+      router,
+      getToken,
+      meetupEdition,
+      googleCalendarEvent,
+      recaptchaError,
+    ],
   );
 
   const renderForm = () => (
@@ -202,10 +266,24 @@ export const MeetupForm = ({
     </div>
   );
 
+  const handleRetry = () => {
+    setFormStatus('IDLE');
+    setErrorMessage('');
+  };
+
   return (
     <>
       {formStatus === 'IDLE' && renderForm()}
       {formStatus === 'LOADING' && renderLoading()}
+      {formStatus === 'ERROR' && (
+        <RecaptchaError
+          errorMessage={
+            errorMessage ||
+            'Hubo un error al enviar tu registro. Por favor, intenta de nuevo más tarde.'
+          }
+          onRetry={handleRetry}
+        />
+      )}
     </>
   );
 };

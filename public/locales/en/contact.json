@@ -62,6 +62,11 @@
     "loading": "sending...",
     "success": {
       "p": "Thanks for reaching out, we'll contact you as soon as possible."
+    },
+    "error": {
+      "recaptchaFailed": "We're sorry, but we couldn't verify you're human. Help us stay spam-free. Please try again.",
+      "recaptchaNotLoaded": "We're sorry, but reCAPTCHA could not load. Help us stay spam-free. Please reload the page and try again.",
+      "generic": "There was an error sending your message. Please try again later."
     }
   }
 }

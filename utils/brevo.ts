@@ -16,7 +16,7 @@ export const createContact = async (submittedData: NewContact) => {
 };
 
 // Función para enviar un correo a hola@acueducto.studio
-export const sendEmail = async (formData: MailContact) => {
+export const sendEmail = async (formData: MailContact, recaptchaToken?: string | null) => {
   const response = await fetch('/api/brevo', {
     method: 'POST',
     headers: {
@@ -25,13 +25,17 @@ export const sendEmail = async (formData: MailContact) => {
     body: JSON.stringify({
       action: 'sendEmail',
       data: formData,
+      recaptchaToken: recaptchaToken || undefined,
     }),
   });
   return response;
 };
 
 // Función para enviar un correo a un contacto específico
-export const sendEmailToContact = async (formData: EmailToContact) => {
+export const sendEmailToContact = async (
+  formData: EmailToContact,
+  recaptchaToken?: string | null,
+) => {
   const response = await fetch('/api/brevo', {
     method: 'POST',
     headers: {
@@ -40,6 +44,7 @@ export const sendEmailToContact = async (formData: EmailToContact) => {
     body: JSON.stringify({
       action: 'SendEmailToContact',
       data: formData,
+      recaptchaToken: recaptchaToken || undefined,
     }),
   });
   return response;

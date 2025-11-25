@@ -50,6 +50,11 @@
     "loading": "Enviando...",
     "success": {
       "p": "Gracias por contactarnos, te contestaremos lo más pronto posible."
+    },
+    "error": {
+      "recaptchaFailed": "Lo sentimos, pero no pudimos verificar que eres humano. Ayúdanos a mantenernos libres de spam. Por favor, intenta de nuevo.",
+      "recaptchaNotLoaded": "Lo sentimos, pero reCAPTCHA no pudo cargar. Ayúdanos a mantenernos libres de spam. Por favor, recarga la página e intenta de nuevo.",
+      "generic": "Hubo un error al enviar tu mensaje. Por favor, intenta de nuevo más tarde."
     }
   }
 }
