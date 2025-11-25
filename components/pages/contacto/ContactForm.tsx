@@ -264,21 +264,13 @@ const ContactForm: React.FC<ContactFormProps> = ({
     </div>
   );
 
-  const handleRetry = () => {
-    setFormStatus('IDLE');
-    setErrorMessage('');
-  };
-
   return (
     <>
       {formStatus === 'IDLE' && renderForm()}
       {formStatus === 'LOADING' && renderLoading()}
       {formStatus === 'SUCCESS' && renderSuccess()}
       {formStatus === 'ERROR' && (
-        <RecaptchaError
-          errorMessage={errorMessage || text.error.generic}
-          onRetry={handleRetry}
-        />
+        <RecaptchaError errorMessage={errorMessage || text.error.generic} />
       )}
     </>
   );

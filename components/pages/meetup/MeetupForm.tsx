@@ -266,11 +266,6 @@ export const MeetupForm = ({
     </div>
   );
 
-  const handleRetry = () => {
-    setFormStatus('IDLE');
-    setErrorMessage('');
-  };
-
   return (
     <>
       {formStatus === 'IDLE' && renderForm()}
@@ -281,7 +276,6 @@ export const MeetupForm = ({
             errorMessage ||
             'Hubo un error al enviar tu registro. Por favor, intenta de nuevo más tarde.'
           }
-          onRetry={handleRetry}
         />
       )}
     </>
