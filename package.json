@@ -29,7 +29,7 @@
     "js-cookie": "^3.0.5",
     "lenis": "^1.2.3",
     "lottie-react": "^2.4.1",
-    "next": "15.2.6",
+    "next": "15.4.10",
     "react": "19.0.1",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "19.0.1",
