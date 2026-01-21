@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { H1 } from 'components/shared/Dangerously';
+import { H1 } from '@acueducto/shared/components/shared/Dangerously';
 
 export const SeoH1 = styled(H1)`
   text-transform: uppercase;

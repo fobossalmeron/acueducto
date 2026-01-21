@@ -1,11 +1,11 @@
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import MetalFooter from '@acueducto/shared/components/layout/footers/MetalFooter';
-import { BottomBar } from '@acueducto/shared/components/pages/meetup/BottomBar';
-import { SplitLandSection } from '@acueducto/shared/components/pages/meetup/SplitLandSection';
-import { SplitScheduleSection } from '@acueducto/shared/components/pages/meetup/SplitScheduleSection';
-import { SplitLearnSection } from '@acueducto/shared/components/pages/meetup/SplitLearnSection';
-import { OverlapRegisterSection } from '@acueducto/shared/components/pages/meetup/OverlapRegisterSection';
+import { BottomBar } from '../../components/pages/meetup/BottomBar';
+import { SplitLandSection } from '../../components/pages/meetup/SplitLandSection';
+import { SplitScheduleSection } from '../../components/pages/meetup/SplitScheduleSection';
+import { SplitLearnSection } from '../../components/pages/meetup/SplitLearnSection';
+import { OverlapRegisterSection } from '../../components/pages/meetup/OverlapRegisterSection';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 import { useEffect } from 'react';
 

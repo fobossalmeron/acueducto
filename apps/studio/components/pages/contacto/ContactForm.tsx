@@ -1,14 +1,14 @@
 import React, { useRef, useState, useCallback } from 'react';
 import dynamic from 'next/dynamic';
 import { SubmitHandler, useForm } from 'react-hook-form';
-import { ButtonSubmit } from 'components/ui/Button/ButtonSubmit';
-import InputField from 'components/shared/ContactInputField';
-import { RecaptchaError } from 'components/shared/RecaptchaError';
-import delayForLoading from 'utils/delayForLoading';
-import { useLenis } from 'utils/LenisContext';
-import { createContact, sendEmail } from 'utils/brevo';
-import { MailContact } from 'types/BrevoProps';
-import { useRecaptcha } from 'utils/useRecaptcha';
+import { ButtonSubmit } from '@acueducto/shared/components/ui/Button/ButtonSubmit';
+import InputField from '@acueducto/shared/components/shared/ContactInputField';
+import { RecaptchaError } from '../../shared/RecaptchaError';
+import delayForLoading from '@acueducto/shared/utils/delayForLoading';
+import { useLenis } from '@acueducto/shared/utils/LenisContext';
+import { createContact, sendEmail } from '@acueducto/shared/utils/brevo';
+import { MailContact } from '@acueducto/shared/types/BrevoProps';
+import { useRecaptcha } from '../../../utils/useRecaptcha';
 
 const DynamicAmongUs = dynamic(() => import('./AmongUs'), {
   ssr: false,

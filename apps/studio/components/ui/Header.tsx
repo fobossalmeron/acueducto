@@ -2,7 +2,7 @@ import React, { useCallback } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import Logo from "public/assets/img/layout/logo.svg";
-import { useLenis } from "utils/LenisContext";
+import { useLenis } from "@acueducto/shared/utils/LenisContext";
 
 function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
   const { lenis } = useLenis();

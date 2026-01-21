@@ -8,13 +8,13 @@ import Head from '@acueducto/shared/components/layout/Head/Head';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
 
-import NextStudy from '@acueducto/shared/components/pages/work/NextStudy';
-import { SeoH1, SeoH2 } from '@acueducto/shared/components/pages/work/SEOHeadings';
-import { IntroVideoPadded } from '@acueducto/shared/components/pages/work/IntroVideo';
-import Marquee from '@acueducto/shared/components/pages/work/Marquee';
-import Quote from '@acueducto/shared/components/pages/work/Quote';
-import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
-import Picture from '@acueducto/shared/components/pages/work/Picture';
+import NextStudy from '../../components/pages/work/NextStudy';
+import { SeoH1, SeoH2 } from '../../components/pages/work/SEOHeadings';
+import { IntroVideoPadded } from '../../components/pages/work/IntroVideo';
+import Marquee from '../../components/pages/work/Marquee';
+import Quote from '../../components/pages/work/Quote';
+import TextColumn from '../../components/pages/work/TextColumn';
+import Picture from '../../components/pages/work/Picture';
 
 import LogoBlockstem from 'public/assets/img/casestudies/blockstem/logoBlockstem.svg';
 import Brand1 from 'public/assets/img/casestudies/blockstem/Brand1.svg';
@@ -40,7 +40,7 @@ import {
   LogosContainer,
   Lesson,
   LessonContainer,
-} from '@acueducto/shared/components/pages/work/blockstem/Blockstem.styles';
+} from '../../components/pages/work/blockstem/Blockstem.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 function Blockstem({ locale, setTitle, pt }: PageProps) {

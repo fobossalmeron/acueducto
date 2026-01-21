@@ -3,17 +3,17 @@ import React, { useEffect, useState } from 'react';
 import { Fade } from 'react-awesome-reveal';
 
 import Head from '@acueducto/shared/components/layout/Head/Head';
-import { IntroVideo } from '@acueducto/shared/components/pages/work/IntroVideo';
-import Marquee from '@acueducto/shared/components/pages/work/Marquee';
-import NextStudy from '@acueducto/shared/components/pages/work/NextStudy';
-import Picture from '@acueducto/shared/components/pages/work/Picture';
-import { SeoH2 } from '@acueducto/shared/components/pages/work/SEOHeadings';
-import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
-import AnimatedDataCards from '@acueducto/shared/components/pages/work/wellmee/AnimationDataCards';
-import AnimationScrollCards from '@acueducto/shared/components/pages/work/wellmee/AnimationScrollCards';
-import AnimationSlideCards from '@acueducto/shared/components/pages/work/wellmee/AnimationSlideCards';
-import LandSectionWellmee from '@acueducto/shared/components/pages/work/wellmee/LandSectionWellmee';
-import UIComponentsAnimation from '@acueducto/shared/components/pages/work/wellmee/AnimationUIComponents';
+import { IntroVideo } from '../../components/pages/work/IntroVideo';
+import Marquee from '../../components/pages/work/Marquee';
+import NextStudy from '../../components/pages/work/NextStudy';
+import Picture from '../../components/pages/work/Picture';
+import { SeoH2 } from '../../components/pages/work/SEOHeadings';
+import TextColumn from '../../components/pages/work/TextColumn';
+import AnimatedDataCards from '../../components/pages/work/wellmee/AnimationDataCards';
+import AnimationScrollCards from '../../components/pages/work/wellmee/AnimationScrollCards';
+import AnimationSlideCards from '../../components/pages/work/wellmee/AnimationSlideCards';
+import LandSectionWellmee from '../../components/pages/work/wellmee/LandSectionWellmee';
+import UIComponentsAnimation from '../../components/pages/work/wellmee/AnimationUIComponents';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
 
@@ -40,7 +40,7 @@ import {
   Step,
   ContainerResultCard,
   FourthSection,
-} from '@acueducto/shared/components/pages/work/wellmee/Wellmee.styles';
+} from '../../components/pages/work/wellmee/Wellmee.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 const Wellmee = ({ locale, setTitle, pt }: PageProps) => {

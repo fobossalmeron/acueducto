@@ -3,18 +3,18 @@ import Image from 'next/legacy/image';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
 
-import LandSection from '@acueducto/shared/components/pages/work/borgatta/LandSection';
-import AnimatedUIComponents from '@acueducto/shared/components/pages/work/borgatta/AnimatedUIComponents';
+import LandSection from '../../components/pages/work/borgatta/LandSection';
+import AnimatedUIComponents from '../../components/pages/work/borgatta/AnimatedUIComponents';
 import CaseTable from '../../components/pages/work/borgatta/CaseTable';
-import Marquee from '@acueducto/shared/components/pages/work/Marquee';
-import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
+import Marquee from '../../components/pages/work/Marquee';
+import TextColumn from '../../components/pages/work/TextColumn';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
-import { SeoH2 } from '@acueducto/shared/components/pages/work/SEOHeadings';
-import Quote from '@acueducto/shared/components/pages/work/Quote';
-import Picture from '@acueducto/shared/components/pages/work/Picture';
-import NextStudy from '@acueducto/shared/components/pages/work/NextStudy';
+import { SeoH2 } from '../../components/pages/work/SEOHeadings';
+import Quote from '../../components/pages/work/Quote';
+import Picture from '../../components/pages/work/Picture';
+import NextStudy from '../../components/pages/work/NextStudy';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
-import { IntroVideoPadded } from '@acueducto/shared/components/pages/work/IntroVideo';
+import { IntroVideoPadded } from '../../components/pages/work/IntroVideo';
 
 import ResultMd from 'public/assets/img/casestudies/borgatta/resultsOnThePage-md.png';
 import ResultSm from 'public/assets/img/casestudies/borgatta/resultsOnThePage-sm.png';
@@ -36,7 +36,7 @@ import {
   ResultContainer,
   Results,
   FourthSection,
-} from '@acueducto/shared/components/pages/work/borgatta/Borgatta.styles';
+} from '../../components/pages/work/borgatta/Borgatta.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 const Borgatta = ({ locale, setTitle, pt }: PageProps) => {

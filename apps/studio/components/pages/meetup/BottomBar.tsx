@@ -1,4 +1,4 @@
-import { Button } from 'components/ui/Button';
+import { Button } from '@acueducto/shared/components/ui/Button/Button';
 import Location from 'public/assets/img/layout/meetup/location.svg';
 import { SmoothAnchor } from './SmoothAnchor';
 

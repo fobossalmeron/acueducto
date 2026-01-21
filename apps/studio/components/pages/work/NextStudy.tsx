@@ -2,9 +2,9 @@ import styled from "styled-components";
 import React, { useContext, useMemo } from "react";
 import { Fade } from "react-awesome-reveal";
 import Link from "next/link";
-import Arrow from "components/shared/Arrow";
-import LangContext from "utils/LangContext";
-import { P } from "components/shared/Dangerously";
+import Arrow from "@acueducto/shared/components/shared/Arrow";
+import LangContext from "@acueducto/shared/utils/LangContext";
+import { P } from "@acueducto/shared/components/shared/Dangerously";
 
 const NextStudy: React.FC<{ link: string; margined?: boolean }> = ({ link, margined = false }) => {
   const context = useContext(LangContext);

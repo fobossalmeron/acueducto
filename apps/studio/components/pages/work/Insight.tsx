@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { Fade } from "react-awesome-reveal";
-import { P } from "components/shared/Dangerously";
+import { P } from "@acueducto/shared/components/shared/Dangerously";
 
 interface InsightProps {
   color?: string;

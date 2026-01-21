@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import Arrow from 'components/shared/Arrow';
+import Arrow from '@acueducto/shared/components/shared/Arrow';
 
 const scrollToNext = (e) => {
   e.preventDefault();

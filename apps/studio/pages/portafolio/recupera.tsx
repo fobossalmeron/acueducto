@@ -7,19 +7,19 @@ import ssrLocale from '../../utils/ssrLocale';
 import { useIsMobile } from '@acueducto/shared/utils/useIsMobile';
 
 import Head from '@acueducto/shared/components/layout/Head/Head';
-import Marquee from '@acueducto/shared/components/pages/work/Marquee';
-import { IntroVideoPadded } from '@acueducto/shared/components/pages/work/IntroVideo';
-import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
+import Marquee from '../../components/pages/work/Marquee';
+import { IntroVideoPadded } from '../../components/pages/work/IntroVideo';
+import TextColumn from '../../components/pages/work/TextColumn';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
-import { SeoH1, SeoH2 } from '@acueducto/shared/components/pages/work/SEOHeadings';
-import Quote from '@acueducto/shared/components/pages/work/Quote';
-import NextStudy from '@acueducto/shared/components/pages/work/NextStudy';
+import { SeoH1, SeoH2 } from '../../components/pages/work/SEOHeadings';
+import Quote from '../../components/pages/work/Quote';
+import NextStudy from '../../components/pages/work/NextStudy';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
-import ScreensAnimation from '@acueducto/shared/components/pages/work/recupera/ScreensAnimation';
-import UIComponentsAnimation from '@acueducto/shared/components/pages/work/recupera/UIComponentsAnimation';
-import ScrollCardAnimation from '@acueducto/shared/components/pages/work/recupera/ScrollCardAnimation';
-import Functionalities from '@acueducto/shared/components/pages/work/recupera/Functionalities';
-import { Act3PhoneAnimation } from '@acueducto/shared/components/pages/work/recupera/Act3PhoneAnimation';
+import ScreensAnimation from '../../components/pages/work/recupera/ScreensAnimation';
+import UIComponentsAnimation from '../../components/pages/work/recupera/UIComponentsAnimation';
+import ScrollCardAnimation from '../../components/pages/work/recupera/ScrollCardAnimation';
+import Functionalities from '../../components/pages/work/recupera/Functionalities';
+import { Act3PhoneAnimation } from '../../components/pages/work/recupera/Act3PhoneAnimation';
 
 import ToolsMd from 'public/assets/img/casestudies/recupera/toolsMd.png';
 import ToolsSm from 'public/assets/img/casestudies/recupera/toolsSm.png';
@@ -36,7 +36,7 @@ import {
   ThirdPoint,
   FourthSection,
   DesktopAndMobile,
-} from '@acueducto/shared/components/pages/work/recupera/Recupera.styles';
+} from '../../components/pages/work/recupera/Recupera.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 const Recupera = ({ locale, setTitle, pt }: PageProps) => {

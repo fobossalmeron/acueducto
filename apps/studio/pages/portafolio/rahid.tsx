@@ -5,14 +5,14 @@ import { useTheme } from 'styled-components';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
-import NextStudy from '@acueducto/shared/components/pages/work/NextStudy';
+import NextStudy from '../../components/pages/work/NextStudy';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
-import { SeoH1, SeoH2 } from '@acueducto/shared/components/pages/work/SEOHeadings';
-import { IntroVideo } from '@acueducto/shared/components/pages/work/IntroVideo';
-import Marquee from '@acueducto/shared/components/pages/work/Marquee';
-import Quote from '@acueducto/shared/components/pages/work/Quote';
-import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
-import Picture from '@acueducto/shared/components/pages/work/Picture';
+import { SeoH1, SeoH2 } from '../../components/pages/work/SEOHeadings';
+import { IntroVideo } from '../../components/pages/work/IntroVideo';
+import Marquee from '../../components/pages/work/Marquee';
+import Quote from '../../components/pages/work/Quote';
+import TextColumn from '../../components/pages/work/TextColumn';
+import Picture from '../../components/pages/work/Picture';
 
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
 import ssrLocale from '../../utils/ssrLocale';
@@ -36,7 +36,7 @@ import {
   OldBrand,
   FirstSection,
   LandSection,
-} from '@acueducto/shared/components/pages/work/rahid/Rahid.styles';
+} from '../../components/pages/work/rahid/Rahid.styles';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 function Rahid({ locale, setTitle, pt }: PageProps): React.ReactElement {

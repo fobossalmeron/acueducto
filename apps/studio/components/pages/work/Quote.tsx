@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Blockquote } from 'components/shared/Dangerously';
+import { Blockquote } from '@acueducto/shared/components/shared/Dangerously';
 import Mark from 'public/assets/img/layout/quoteMark.svg';
 import { Fade } from 'react-awesome-reveal';
 import React from 'react';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLenis } from 'utils/LenisContext';
+import { useLenis } from '@acueducto/shared/utils/LenisContext';
 
 interface SmoothAnchorProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {

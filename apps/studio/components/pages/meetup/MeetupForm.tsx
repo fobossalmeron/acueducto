@@ -3,12 +3,12 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { Fade } from 'react-awesome-reveal';
 import { useRouter } from 'next/router';
 
-import { ButtonSubmit } from 'components/ui/Button';
-import InputField from 'components/shared/ContactInputField';
-import delayForLoading from 'utils/delayForLoading';
-import { useLenis } from 'utils/LenisContext';
-import { createContact, sendEmailToContact } from 'utils/brevo';
-import { MailContact } from 'types/BrevoProps';
+import { ButtonSubmit } from '@acueducto/shared/components/ui/Button/ButtonSubmit';
+import InputField from '@acueducto/shared/components/shared/ContactInputField';
+import delayForLoading from '@acueducto/shared/utils/delayForLoading';
+import { useLenis } from '@acueducto/shared/utils/LenisContext';
+import { createContact, sendEmailToContact } from '@acueducto/shared/utils/brevo';
+import { MailContact } from '@acueducto/shared/types/BrevoProps';
 
 interface FeedbackFormData extends MailContact {
   firstName: string;

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
-import { B } from 'components/shared/Dangerously';
+import { B } from '@acueducto/shared/components/shared/Dangerously';
 
 const Stat = ({ stat, children }) => {
   return (

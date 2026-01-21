@@ -1,4 +1,4 @@
-import { Button } from 'components/ui/Button/Button';
+import { Button } from '@acueducto/shared/components/ui/Button/Button';
 import ArrowDesktop from 'public/assets/img/layout/home/arrow-desktop.svg';
 import ArrowMobile from 'public/assets/img/layout/home/arrow-mobile.svg';
 import Link from 'next/link';

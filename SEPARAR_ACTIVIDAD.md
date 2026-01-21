@@ -34,6 +34,6 @@ Estamos resolviendo imports rotos durante la migración del monorepo. El criteri
 
 ### Notas Importantes
 
-- **Siempre pedir confirmación** antes de mover archivos entre apps y shared
+- **Siempre pedir confirmación** antes de mover archivos entre apps y shared SIEMPRE, EL USUARIO DECIDE SI SE MUEVE A UNA CARPETA U OTRA. NUNCA AVANCES SIN CONFIRMAR.
 - Verificar dependencias: Si un componente local usa componentes de shared, esos imports deben apuntar a `@acueducto/shared`
 - Mantener estructura de carpetas consistente en shared
