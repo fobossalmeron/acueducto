@@ -7,8 +7,6 @@ import { theme, delayForLoading } from '@acueducto/shared';
 import { LangProvider, SharedTProps, LenisProvider } from '@acueducto/shared';
 import en from 'public/locales/en/common.json';
 import es from 'public/locales/es/common.json';
-import { PrismicPreview } from '@prismicio/next';
-import { repositoryName } from '../prismicio';
 import { AppProps } from 'next/app';
 import { NextRouter } from 'next/router';
 import type { NextPage } from 'next';
@@ -129,11 +127,9 @@ function App({ Component, pageProps, router }: CustomAppProps) {
             color={theme.colors.accent}
             className="TopBar"
           />
-          <PrismicPreview repositoryName={repositoryName}>
-            <Layout t={sharedT} hasLoaded={hasLoaded}>
-              <Component {...pageProps} lang={router.locale} />
-            </Layout>
-          </PrismicPreview>
+          <Layout t={sharedT} hasLoaded={hasLoaded}>
+            <Component {...pageProps} lang={router.locale} />
+          </Layout>
         </LenisProvider>
       </LangProvider>
     </ThemeProvider>

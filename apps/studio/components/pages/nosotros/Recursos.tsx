@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import Image from "next/image";
-import LangContext from "utils/LangContext";
-import { P } from "components/shared/Dangerously";
+import LangContext from "@acueducto/shared/utils/LangContext";
+import { P } from "@acueducto/shared/components/shared/Dangerously";
 
 const Recursos: React.FC = () => {
   const context = useContext(LangContext);

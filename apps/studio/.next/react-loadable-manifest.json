@@ -1,1 +1,14 @@
-{}
+{
+  "components/pages/index/HomeVideo.tsx -> shader-doodle": {
+    "id": "components/pages/index/HomeVideo.tsx -> shader-doodle",
+    "files": [
+      "static/chunks/_pages-dir-browser_node_modules_shader-doodle_dist_shader-doodle_umd_js.js"
+    ]
+  },
+  "pages/index.tsx -> ../components/pages/index/HomeVideo": {
+    "id": "pages/index.tsx -> ../components/pages/index/HomeVideo",
+    "files": [
+      "static/chunks/_pages-dir-browser_components_pages_index_HomeVideo_tsx.js"
+    ]
+  }
+}

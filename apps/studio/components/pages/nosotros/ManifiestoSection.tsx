@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import PinnedSection from "components/shared/pinnedSections/PinnedSection";
-import { P } from "components/shared/Dangerously";
+import PinnedSection from "@acueducto/shared/components/shared/pinnedSections/PinnedSection";
+import { P } from "@acueducto/shared/components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 
 const ManifiestoSection = ({ t }) => {

@@ -13,8 +13,8 @@ import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFo
 import PinnedSection from '@acueducto/shared/components/shared/pinnedSections/PinnedSection';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
 import TitleSectionGrid from '@acueducto/shared/components/shared/TitleSectionGrid';
-import Recursos from '@acueducto/shared/components/pages/nosotros/Recursos';
-import ManifiestoSection from '@acueducto/shared/components/pages/nosotros/ManifiestoSection';
+import Recursos from '../components/pages/nosotros/Recursos';
+import ManifiestoSection from '../components/pages/nosotros/ManifiestoSection';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 
 import pTeam from 'public/assets/img/layout/team.png';
