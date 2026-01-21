@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { Fade } from 'react-awesome-reveal';
-import LangContext from 'utils/LangContext';
-import { P, H2 } from 'components/shared/Dangerously';
-import BorderLink from 'components/shared/BorderedLink';
-import Arrow from 'components/shared/Arrow';
+import LangContext from '../../../../utils/LangContext';
+import { P, H2 } from '@acueducto/shared/components/shared/Dangerously';
+import BorderLink from '@acueducto/shared/components/shared/BorderedLink';
+import Arrow from '@acueducto/shared/components/shared/Arrow';
 import CaseGrid from './CaseGrid';
 
 import p_cover_borgatta from 'public/assets/img/casestudies/borgatta/p_cover.jpg';

@@ -21,7 +21,7 @@ import ResultSm from 'public/assets/img/casestudies/borgatta/resultsOnThePage-sm
 import Page from 'public/assets/img/casestudies/borgatta/page.png';
 
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 import { useIsMobile } from '@acueducto/shared/utils/useIsMobile';
 
 import {
@@ -162,13 +162,15 @@ const Borgatta = ({ locale, setTitle, pt }: PageProps) => {
 export default React.memo(Borgatta);
 
 export const getStaticProps = async (context: any) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale,
+    locale,
     fileName: 'work_borgatta.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

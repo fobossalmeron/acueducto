@@ -2,13 +2,11 @@ import { join } from 'path'
 import fs from "fs";
 
 const ssrLocale = ({
-  locale,
   fileName,
 }: {
-  locale: string;
   fileName: string;
 }) => {
-  const directory = join(process.cwd(), `public/locales/${locale}/${fileName}`);
+  const directory = join(process.cwd(), `public/locales/es/${fileName}`);
   let fileContents;
   try {
     fileContents = fs.readFileSync(directory, "utf8");

@@ -1,8 +1,8 @@
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import TitleSection from '@acueducto/shared/components/shared/TitleSection';
-import CaseList from '@acueducto/shared/components/pages/work/CaseList';
+import CaseList from '../../components/pages/work/CaseList';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
 import { PageProps } from '@acueducto/shared/types/PageProps';
@@ -29,10 +29,12 @@ export default function Work({ locale, setTitle, pt }: PageProps) {
   );
 }
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'work.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'work.json' });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

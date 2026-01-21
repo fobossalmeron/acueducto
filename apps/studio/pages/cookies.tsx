@@ -1,6 +1,6 @@
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
 import { GetStaticProps } from 'next';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../utils/ssrLocale';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import Link from 'next/link';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
@@ -72,10 +72,12 @@ export default function Cookies({ locale, setTitle, pt }: PageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'cookies.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'cookies.json' });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

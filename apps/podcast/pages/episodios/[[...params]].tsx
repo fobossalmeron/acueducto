@@ -411,7 +411,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 export async function getStaticProps({
   params,
-  locale,
 }: GetStaticPropsContext) {
   const paramsArray = (params?.params as string[]) || [];
   const category = paramsArray[0] || 'todas';
@@ -505,7 +504,7 @@ export async function getStaticProps({
       });
 
     // Obtener traducciones
-    const pt = ssrLocale({ locale: locale, fileName: 'archivo.json' });
+    const pt = ssrLocale({ fileName: 'archivo.json' });
 
     // Si no hay traducciones, usar un objeto predeterminado
     const defaultPt = {
@@ -523,7 +522,7 @@ export async function getStaticProps({
 
     return {
       props: {
-        locale: locale || 'es',
+        locale: 'es',
         initialEpisodes: paginatedEpisodes,
         pt: pt || defaultPt,
         totalPages,
@@ -539,7 +538,7 @@ export async function getStaticProps({
     // Devolver datos mínimos para evitar que falle el build
     return {
       props: {
-        locale: locale || 'es',
+        locale: 'es',
         initialEpisodes: [],
         pt: {
           intro: {

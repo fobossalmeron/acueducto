@@ -1,10 +1,10 @@
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
 import { GetStaticProps } from 'next';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../utils/ssrLocale';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import MetalFooter from '@acueducto/shared/components/layout/footers/MetalFooter';
-import ContactForm from '@acueducto/shared/components/pages/contacto/ContactForm';
+import ContactForm from '../components/pages/contacto/ContactForm';
 import { PageProps } from '@acueducto/shared/types/PageProps';
 import { SplitLayout } from '@acueducto/shared';
 import { Title } from '@acueducto/shared';
@@ -43,10 +43,12 @@ export default function Contact({ locale, setTitle, pt }: PageProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'contact.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'contact.json' });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

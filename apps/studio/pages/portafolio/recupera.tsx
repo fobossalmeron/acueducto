@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { Fade } from 'react-awesome-reveal';
 import styled from 'styled-components';
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 import { useIsMobile } from '@acueducto/shared/utils/useIsMobile';
 
 import Head from '@acueducto/shared/components/layout/Head/Head';
@@ -231,13 +231,15 @@ const Recupera = ({ locale, setTitle, pt }: PageProps) => {
 export default React.memo(Recupera);
 
 export const getStaticProps = async (context: any) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale,
+    locale,
     fileName: 'work_recupera.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

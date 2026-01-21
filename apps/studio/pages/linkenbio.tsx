@@ -5,7 +5,7 @@ import Link from 'next/link';
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../utils/ssrLocale';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import MetalPinnedSection from '@acueducto/shared/components/shared/pinnedSections/MetalPinnedSection';
@@ -119,7 +119,8 @@ export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'linkenbio.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'linkenbio.json' });
   if (!pt) {
     return {
       notFound: true,
@@ -128,6 +129,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

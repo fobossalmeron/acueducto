@@ -15,7 +15,7 @@ import TextColumn from '@acueducto/shared/components/pages/work/TextColumn';
 import Picture from '@acueducto/shared/components/pages/work/Picture';
 
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 
 import { Fade } from 'react-awesome-reveal';
 
@@ -226,13 +226,15 @@ function Rahid({ locale, setTitle, pt }: PageProps): React.ReactElement {
 export default React.memo(Rahid);
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale as string,
+    locale,
     fileName: 'work_rahid.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

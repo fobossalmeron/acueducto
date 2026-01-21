@@ -5,7 +5,6 @@ import LoadingBar, { LoadingBarRef } from 'react-top-loading-bar';
 import { Layout } from '@acueducto/shared';
 import { theme, delayForLoading } from '@acueducto/shared';
 import { LangProvider, SharedTProps, LenisProvider } from '@acueducto/shared';
-import en from 'public/locales/en/common.json';
 import es from 'public/locales/es/common.json';
 import { PrismicPreview } from '@prismicio/next';
 import { repositoryName } from '../prismicio';
@@ -28,9 +27,9 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
   // Usar el hook useLocalizedContent
   const localizedContent = useLocalizedContent({
-    locale: (router.locale || router.defaultLocale)!,
+    locale: 'es',
     fileName: 'common',
-    initialContent: router.locale === 'en' ? en : es,
+    initialContent: es,
   });
 
   // Memoizar el resultado de useLocalizedContent
@@ -114,7 +113,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
   // Si la página tiene un getLayout personalizado, úsalo
   if (Component.getLayout) {
     return Component.getLayout(
-      <Component {...pageProps} lang={router.locale} />,
+      <Component {...pageProps} lang="es" />,
     );
   }
 
@@ -131,7 +130,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
           />
           <PrismicPreview repositoryName={repositoryName}>
             <Layout t={sharedT} hasLoaded={hasLoaded}>
-              <Component {...pageProps} lang={router.locale} />
+              <Component {...pageProps} lang="es" />
             </Layout>
           </PrismicPreview>
         </LenisProvider>

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import ArticleProps from '@acueducto/shared/types/ArticleProps';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../utils/ssrLocale';
 import { getAllPosts, getPostBySlug } from '@acueducto/shared/utils/blogApi';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import TitleSection from '@acueducto/shared/components/shared/TitleSection';
@@ -48,7 +48,8 @@ export const getStaticProps: GetStaticProps = async (context) => {
     )
     .sort((a, b) => new Date(b.date).valueOf() - new Date(a.date).valueOf());
 
-  const pt = ssrLocale({ locale: context.locale, fileName: 'blog.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'blog.json' });
 
   if (!pt) {
     return {
@@ -59,6 +60,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
     props: {
       posts: [...posts],
       pt,
+      locale,
     },
   };
 };

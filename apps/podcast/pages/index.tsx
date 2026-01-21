@@ -278,7 +278,7 @@ export default function PodcastLanding({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'podcast.json' });
+  const pt = ssrLocale({ fileName: 'podcast.json' });
   if (!pt) {
     return {
       notFound: true,

@@ -24,7 +24,7 @@ import Point4 from 'public/assets/img/casestudies/wellmee/Point4.png';
 
 import { useIsMobile } from '@acueducto/shared/utils/useIsMobile';
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 
 import {
   PageClipperWellmee,
@@ -279,13 +279,15 @@ const Wellmee = ({ locale, setTitle, pt }: PageProps) => {
 export default React.memo(Wellmee);
 
 export const getStaticProps = async (context: any) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale,
+    locale,
     fileName: 'work_wellmee.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

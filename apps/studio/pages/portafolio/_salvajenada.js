@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 import styled from 'styled-components';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
@@ -340,13 +340,15 @@ export default function Salvajenada({ locale, setTitle, pt }) {
 }
 
 export const getStaticProps = async (context) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale,
+    locale,
     fileName: 'work_salvajenada.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

@@ -40,11 +40,6 @@ const nextConfig = {
     maxInactiveAge: 25 * 1000,
     pagesBufferLength: 2,
   },
-  i18n: {
-    locales: ['es', 'en'],
-    defaultLocale: 'es', 
-    localeDetection: false,
-  },
 };
 
 module.exports = nextConfig;

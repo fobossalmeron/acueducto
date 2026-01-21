@@ -31,10 +31,12 @@ export default function Error({ locale, setTitle, pt }: PageProps) {
   );
 }
 export const getStaticProps: GetStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: '404.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: '404.json' });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

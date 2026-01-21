@@ -5,7 +5,7 @@ import { GetStaticProps } from 'next';
 import { useTheme } from 'styled-components';
 
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../../utils/ssrLocale';
 
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
@@ -349,13 +349,15 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: PageProps) {
 export default React.memo(LaDanzaDeLasFieras);
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({
-    locale: context.locale as string,
+    locale,
     fileName: 'work_lddlf.json',
   });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };

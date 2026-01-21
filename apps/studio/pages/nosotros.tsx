@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
 
-import ssrLocale from '@acueducto/shared/utils/ssrLocale';
+import ssrLocale from '../utils/ssrLocale';
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
 
 import Head from '@acueducto/shared/components/layout/Head/Head';
@@ -76,10 +76,12 @@ export default function About({ locale, setTitle, pt }: PageProps) {
 }
 
 export const getStaticProps = async (context) => {
-  const pt = ssrLocale({ locale: context.locale, fileName: 'about.json' });
+  const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
+  const pt = ssrLocale({ locale, fileName: 'about.json' });
   return {
     props: {
       pt,
+      locale,
     },
   };
 };
