@@ -48,6 +48,7 @@
   --color-white: #f4f4f4;
   --color-warning: #f2c53a;
   --color-error: #cc2e44;
+  --color-error-background: #cc2e4412;
   --color-success: #27ae60;
   --color-success-background: #27ae6012;
   --color-card-background: #1b1d22;
@@ -91,4 +92,10 @@ Las clases de arriba se usan en Hamburger para evitar una duplicación salvaje d
     right: 1.5rem; /* Equivalente a right-6 */
     transform: none; /* Quita cualquier translate */
   }
+}
+
+.grecaptcha-badge {
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
 }

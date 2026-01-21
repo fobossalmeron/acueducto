@@ -45,6 +45,7 @@ export default function Privacy({ locale, setTitle, pt }: PageProps) {
             </Link>
             )
           </li>
+          <Li>{b.listItem4}</Li>
         </ul>
         <h2>{b.subtitle4}</h2>
         <P>{b.p4}</P>

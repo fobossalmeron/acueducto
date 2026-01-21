@@ -486,7 +486,7 @@ export async function getStaticProps({
             business: episode.data.introduction[0].business,
             category: episode.data.introduction[0].category,
             description:
-              'text' in episode.data.introduction[0].description[0]
+              episode.data.introduction[0].description?.[0] && 'text' in episode.data.introduction[0].description[0]
                 ? episode.data.introduction[0].description[0].text
                 : '',
             episodeNumber: episode.data.introduction[0].episode,

@@ -166,7 +166,7 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       business: prismicEpisode.data.introduction[0].business,
       category: prismicEpisode.data.introduction[0].category,
       description:
-        'text' in prismicEpisode.data.introduction[0].description[0]
+        prismicEpisode.data.introduction[0].description?.[0] && 'text' in prismicEpisode.data.introduction[0].description[0]
           ? prismicEpisode.data.introduction[0].description[0].text
           : '',
       gif: prismicEpisode.data.images[0].gif.url,
