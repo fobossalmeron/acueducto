@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CommonSection from 'components/pages/work/CommonSection';
+import CommonSection from '../CommonSection';
 
 export const fierasRed = 'rgb(201,32,26)';
 

@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import CommonSection from 'components/pages/work/CommonSection';
-import PageWrapper from 'components/layout/PageWrapper';
+import CommonSection from '../CommonSection';
+import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 
 const blockstemForeground = '#31302E';
 const bAccent1 = '#4EA68E';

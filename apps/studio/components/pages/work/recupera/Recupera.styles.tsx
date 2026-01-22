@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import PageWrapper from 'components/layout/PageWrapper';
-import CommonSection from 'components/pages/work/CommonSection';
+import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
+import CommonSection from '../CommonSection';
 
 const h2Title = '#292D34';
 const bodyText1 = '#FFFFFF';

@@ -3,7 +3,7 @@ import { useInView } from 'react-hook-inview';
 import styled from 'styled-components';
 import useInterval from '../../../utils/useInterval';
 import Holed from 'public/assets/img/layout/holed.svg';
-import Picture from 'components/pages/work/Picture';
+import Picture from '../work/Picture';
 
 const Carousel: React.FC<{ items: string[] }> = ({ items }) => {
   const [activeIndex, setIndex] = useState<number>(0);

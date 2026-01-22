@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import styled from 'styled-components';
-import CommonSection from 'components/pages/work/CommonSection';
-import { SeoH1 } from 'components/pages/work/SEOHeadings';
+import CommonSection from '../CommonSection';
+import { SeoH1 } from '../SEOHeadings';
 
 const LandSectionWellmee = (props) => {
   useEffect(() => {

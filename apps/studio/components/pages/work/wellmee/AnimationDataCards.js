@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
-import Picture from 'components/pages/work/Picture';
+import Picture from '../Picture';
 import FirstCard from 'public/assets/img/casestudies/wellmee/FirstCard.png';
 import SecondCard from 'public/assets/img/casestudies/wellmee/SecondCard.png';
 import ThirdCard from 'public/assets/img/casestudies/wellmee/ThirdCard.png';

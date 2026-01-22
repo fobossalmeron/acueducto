@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import CommonSection from 'components/pages/work/CommonSection';
+import CommonSection from '../CommonSection';
 
 export const rahidBackground = '#F9F5F0';
 const rahidForeground = '#31302E';

@@ -2,7 +2,7 @@ import React from 'react';
 import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link';
 import BorderLink from '@acueducto/shared/components/shared/BorderedLink';
-import CaseGrid from 'components/pages/work/CaseGrid';
+import CaseGrid from '../work/CaseGrid';
 import styled from 'styled-components';
 import { Button } from '@acueducto/shared';
 

@@ -2,6 +2,9 @@
   "/_app": "pages/_app.js",
   "/_error": "pages/_error.js",
   "/_document": "pages/_document.js",
+  "/portafolio/borgatta": "pages/portafolio/borgatta.js",
   "/portafolio": "pages/portafolio.js",
-  "/privacidad": "pages/privacidad.js"
+  "/cookies": "pages/cookies.js",
+  "/404": "pages/404.js",
+  "/": "pages/index.js"
 }

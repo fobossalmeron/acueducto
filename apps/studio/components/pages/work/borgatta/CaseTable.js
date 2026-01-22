@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
-import Picture from 'components/pages/work/Picture';
+import Picture from '../Picture';
 import Case1 from 'public/assets/img/casestudies/borgatta/case1.gif';
 import Case2 from 'public/assets/img/casestudies/borgatta/case2.png';
 import Case3 from 'public/assets/img/casestudies/borgatta/case3.png';

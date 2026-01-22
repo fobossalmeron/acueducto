@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import CommonSection from 'components/pages/work/CommonSection';
+import CommonSection from '../CommonSection';
 import { Fade } from 'react-awesome-reveal';
-import { SeoH1 } from 'components/pages/work/SEOHeadings';
+import { SeoH1 } from '../SEOHeadings';
 import Image from 'next/legacy/image';
 import Landing1 from 'public/assets/img/casestudies/borgatta/landing1.png';
 import Landing2 from 'public/assets/img/casestudies/borgatta/landing2.png';

@@ -52,8 +52,9 @@ export function useLanguageToggler(onLanguageChangeStart) {
                 onLanguageChangeStart();
             // Agregamos un retraso de 300ms antes de cambiar el idioma
             setTimeout(() => {
-                const mappings = ROUTE_MAPPINGS[locale];
-                const targetPath = mappings[currentPath] || currentPath;
+                const normalizedPath = currentPath.split('?')[0];
+                const mappings = locale ? ROUTE_MAPPINGS[locale] : null;
+                const targetPath = mappings?.[normalizedPath] || normalizedPath;
                 router.push(targetPath, targetPath, { locale: targetLang, scroll: false });
             }, 300);
         }
