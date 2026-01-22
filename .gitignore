@@ -42,13 +42,15 @@ yarn-error.log*
 .turbo
 
 # Monorepo specific
-apps/*/node_modules
-apps/*/.next
-apps/*/out
-apps/*/build
-packages/*/node_modules
-packages/*/dist
-packages/*/.next
+apps/**/node_modules
+apps/**/.next/
+apps/**/.next
+apps/**/out
+apps/**/build
+packages/**/node_modules
+packages/**/dist
+packages/**/.next/
+packages/**/.next
 
 # TypeScript
 *.tsbuildinfo
