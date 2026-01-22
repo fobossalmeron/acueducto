@@ -68,22 +68,35 @@ function App({ Component, pageProps, router }: CustomAppProps) {
       const bordered = document.getElementById('bordered');
       const logo = document.getElementById('logo');
       const revealer = document.getElementById('revealer');
-      if (bordered && logo && revealer) {
+      
+      if (bordered) {
         // Transición de salida
         bordered.classList.add('hidden');
-        logo.style.opacity = '0';
+        if (logo) {
+          logo.style.opacity = '0';
+        }
 
         setTimeout(() => {
-          revealer.style.pointerEvents = 'none';
-          revealer.style.opacity = '0';
+          if (revealer) {
+            revealer.style.pointerEvents = 'none';
+            revealer.style.opacity = '0';
+          }
           setHasLoaded(true);
         }, 400);
 
         setTimeout(() => {
           // Eliminar elementos de transición del DOM
           bordered.remove();
+          if (revealer) revealer.remove();
+          if (logo) logo.remove();
+        }, 1000);
+      } else if (revealer) {
+        // Fallback: si no hay bordered pero sí revealer, ocultarlo directamente
+        revealer.style.pointerEvents = 'none';
+        revealer.style.opacity = '0';
+        setHasLoaded(true);
+        setTimeout(() => {
           revealer.remove();
-          logo.remove();
         }, 1000);
       }
     });
@@ -129,7 +142,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
             className="TopBar"
           />
           <PrismicPreview repositoryName={repositoryName}>
-            <Layout t={sharedT} hasLoaded={hasLoaded}>
+            <Layout t={sharedT} hasLoaded={hasLoaded} locale="es" hideLangSelector>
               <Component {...pageProps} lang="es" />
             </Layout>
           </PrismicPreview>

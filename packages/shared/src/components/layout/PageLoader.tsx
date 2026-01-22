@@ -4,11 +4,14 @@ interface PageLoaderProps {
   visible: boolean;
 }
 
-const PageLoader = ({ visible }: PageLoaderProps) => (
-  <div
-    id="revealer"
-    className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-5 transition-opacity duration-300 will-change-[opacity] ${visible ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'}`}
-  >
+const PageLoader = ({ visible }: PageLoaderProps) => {
+  if (!visible) return null;
+  
+  return (
+    <div
+      id="page_load_revealer"
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/80 p-5 transition-opacity duration-300 will-change-[opacity] pointer-events-auto opacity-100"
+    >
     <div
       id="bordered"
       className="pointer-events-none relative flex h-20 w-20 items-center justify-center overflow-hidden rounded-full border border-[#232A2A] transition-all duration-400"
@@ -49,6 +52,7 @@ const PageLoader = ({ visible }: PageLoaderProps) => (
       `}</style>
     </div>
   </div>
-);
+  );
+};
 
 export default PageLoader;

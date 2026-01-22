@@ -15,7 +15,7 @@ import * as FacebookPixel from '../../utils/facebookPixel';
 import * as LinkedInPixel from '../../utils/linkedInPixel';
 import { useLenis } from '../../utils/LenisContext';
 import PageLoader from './PageLoader';
-const Layout = ({ t, hasLoaded, children }) => {
+const Layout = ({ t, hasLoaded, children, locale: localeProp, hideLangSelector = false }) => {
     const [isOpen, setOpen] = useState(false);
     const [headerTitle, setTitle] = useState('');
     const [showArrow, setShowArrow] = useState(true);
@@ -24,6 +24,7 @@ const Layout = ({ t, hasLoaded, children }) => {
     const [showLoader, setShowLoader] = useState(false);
     const router = useRouter();
     const { stopScroll, startScroll } = useLenis();
+    const locale = localeProp || router.locale;
     const initializePixels = useCallback(() => {
         FacebookPixel.initFacebookPixel();
         FacebookPixel.trackPageView();
@@ -54,13 +55,15 @@ const Layout = ({ t, hasLoaded, children }) => {
         }
     }, [isOpen, stopScroll, startScroll]);
     // Mostrar loader al iniciar cambio de idioma
-    const handleLanguageChangeStart = () => {
+    const handleLanguageChangeStart = hideLangSelector ? () => { } : () => {
         setShowLoader(true);
         // Guarda el tiempo de inicio
         window.__loaderStart = Date.now();
     };
     // Ocultar loader cuando termine el cambio de ruta
     useEffect(() => {
+        if (hideLangSelector)
+            return;
         const handleRouteChangeComplete = () => {
             const minDuration = 800;
             const start = window.__loaderStart || Date.now();
@@ -76,25 +79,27 @@ const Layout = ({ t, hasLoaded, children }) => {
         return () => {
             router.events.off('routeChangeComplete', handleRouteChangeComplete);
         };
-    }, [router.events]);
+    }, [router.events, hideLangSelector]);
     // Bloquear scroll con Lenis cuando el loader esté activo
     useEffect(() => {
+        if (hideLangSelector)
+            return;
         if (showLoader) {
             stopScroll();
         }
         else {
             startScroll();
         }
-    }, [showLoader, stopScroll, startScroll]);
+    }, [showLoader, stopScroll, startScroll, hideLangSelector]);
     const toggleNav = useCallback(() => {
         setOpen((prev) => !prev);
     }, []);
     const closeNav = useCallback(() => setOpen(false), []);
-    return (_jsxs(LayoutWrapper, { id: "LayoutWrapper", children: [_jsx(PageLoader, { visible: showLoader }), _jsx(Border, {}), _jsx(Hamburger, { toggleNav: toggleNav, isOpen: isOpen, hasLoaded: hasLoaded }), _jsx(Header, { isOpen: isOpen, headerTitle: headerTitle, hasLoaded: hasLoaded, closeNav: closeNav, locale: router.locale, route: router.route }), _jsx(Nav, { locale: router.locale, nav: t.nav, closeNav: closeNav, isOpen: isOpen }), cloneElement(children, {
+    return (_jsxs(LayoutWrapper, { id: "LayoutWrapper", children: [!hideLangSelector && _jsx(PageLoader, { visible: showLoader }), _jsx(Border, {}), _jsx(Hamburger, { toggleNav: toggleNav, isOpen: isOpen, hasLoaded: hasLoaded }), _jsx(Header, { isOpen: isOpen, headerTitle: headerTitle, hasLoaded: hasLoaded, closeNav: closeNav, locale: locale, route: router.route }), _jsx(Nav, { locale: locale, nav: t.nav, closeNav: closeNav, isOpen: isOpen }), cloneElement(children, {
                 setTitle,
                 hasLoaded,
-                locale: router.locale,
-            }), _jsx(LangSelector, { isContentVisible: isLangSelectorVisible, setIsContentVisible: setLangSelectorVisible, onLanguageChangeStart: handleLanguageChangeStart }), hasLoaded && showArrow && _jsx(ScrollIncentive, {}), _jsx(CookieMessage, { t: t, hasLoaded: hasLoaded }), _jsx(BodyOverflow, { "$hasLoaded": hasLoaded }), showPopup && _jsx(NewsletterPopup, {}), _jsx(GoogleAnalytics, { gaId: "G-VEB3KBDN1C" })] }));
+                locale: locale,
+            }), !hideLangSelector && (_jsx(LangSelector, { isContentVisible: isLangSelectorVisible, setIsContentVisible: setLangSelectorVisible, onLanguageChangeStart: handleLanguageChangeStart })), hasLoaded && showArrow && _jsx(ScrollIncentive, {}), _jsx(CookieMessage, { t: t, hasLoaded: hasLoaded }), _jsx(BodyOverflow, { "$hasLoaded": hasLoaded }), showPopup && _jsx(NewsletterPopup, {}), _jsx(GoogleAnalytics, { gaId: "G-VEB3KBDN1C" })] }));
 };
 export default Layout;
 const BodyOverflow = createGlobalStyle `

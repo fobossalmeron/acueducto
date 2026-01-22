@@ -20,6 +20,8 @@ interface LayoutProps {
   t: any;
   hasLoaded: boolean;
   children: React.ReactElement;
+  locale?: string;
+  hideLangSelector?: boolean;
 }
 
 interface ChildProps {
@@ -28,7 +30,7 @@ interface ChildProps {
   locale: string;
 }
 
-const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
+const Layout = ({ t, hasLoaded, children, locale: localeProp, hideLangSelector = false }: LayoutProps) => {
   const [isOpen, setOpen] = useState<boolean>(false);
   const [headerTitle, setTitle] = useState<string>('');
   const [showArrow, setShowArrow] = useState<boolean>(true);
@@ -37,6 +39,7 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
   const [showLoader, setShowLoader] = useState(false);
   const router = useRouter();
   const { stopScroll, startScroll } = useLenis();
+  const locale = localeProp || router.locale;
 
   const initializePixels = useCallback((): void => {
     FacebookPixel.initFacebookPixel();
@@ -73,7 +76,7 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
   }, [isOpen, stopScroll, startScroll]);
 
   // Mostrar loader al iniciar cambio de idioma
-  const handleLanguageChangeStart = () => {
+  const handleLanguageChangeStart = hideLangSelector ? () => {} : () => {
     setShowLoader(true);
     // Guarda el tiempo de inicio
     (window as any).__loaderStart = Date.now();
@@ -81,6 +84,8 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
 
   // Ocultar loader cuando termine el cambio de ruta
   useEffect(() => {
+    if (hideLangSelector) return;
+    
     const handleRouteChangeComplete = () => {
       const minDuration = 800;
       const start = (window as any).__loaderStart || Date.now();
@@ -95,16 +100,18 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
     return () => {
       router.events.off('routeChangeComplete', handleRouteChangeComplete);
     };
-  }, [router.events]);
+  }, [router.events, hideLangSelector]);
 
   // Bloquear scroll con Lenis cuando el loader esté activo
   useEffect(() => {
+    if (hideLangSelector) return;
+    
     if (showLoader) {
       stopScroll();
     } else {
       startScroll();
     }
-  }, [showLoader, stopScroll, startScroll]);
+  }, [showLoader, stopScroll, startScroll, hideLangSelector]);
 
   const toggleNav = useCallback((): void => {
     setOpen((prev) => !prev);
@@ -113,7 +120,7 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
 
   return (
     <LayoutWrapper id="LayoutWrapper">
-      <PageLoader visible={showLoader} />
+      {!hideLangSelector && <PageLoader visible={showLoader} />}
       <Border />
       <Hamburger toggleNav={toggleNav} isOpen={isOpen} hasLoaded={hasLoaded} />
       <Header
@@ -121,11 +128,11 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
         headerTitle={headerTitle}
         hasLoaded={hasLoaded}
         closeNav={closeNav}
-        locale={router.locale}
+        locale={locale}
         route={router.route}
       />
       <Nav
-        locale={router.locale}
+        locale={locale}
         nav={t.nav}
         closeNav={closeNav}
         isOpen={isOpen}
@@ -133,13 +140,15 @@ const Layout = ({ t, hasLoaded, children }: LayoutProps) => {
       {cloneElement(children as React.ReactElement<ChildProps>, {
         setTitle,
         hasLoaded,
-        locale: router.locale,
+        locale: locale,
       })}
-      <LangSelector
-        isContentVisible={isLangSelectorVisible}
-        setIsContentVisible={setLangSelectorVisible}
-        onLanguageChangeStart={handleLanguageChangeStart}
-      />
+      {!hideLangSelector && (
+        <LangSelector
+          isContentVisible={isLangSelectorVisible}
+          setIsContentVisible={setLangSelectorVisible}
+          onLanguageChangeStart={handleLanguageChangeStart}
+        />
+      )}
       {hasLoaded && showArrow && <ScrollIncentive />}
       <CookieMessage t={t} hasLoaded={hasLoaded} />
       <BodyOverflow $hasLoaded={hasLoaded} />
