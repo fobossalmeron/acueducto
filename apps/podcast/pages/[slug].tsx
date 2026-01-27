@@ -159,31 +159,28 @@ export async function getStaticProps({ params }: GetStaticPropsContext) {
       'episode',
       params.slug as string,
     );
+    const intro = prismicEpisode.data.introduction?.[0];
+    const titleBlock = intro?.title?.[0];
+    const descBlock = intro?.description?.[0];
     episode = {
       slug: prismicEpisode.uid,
-      date: prismicEpisode.data.introduction?.[0]?.date || undefined,
-      title:
-        prismicEpisode.data.introduction?.[0]?.title?.[0] && 'text' in prismicEpisode.data.introduction[0].title[0]
-          ? prismicEpisode.data.introduction[0].title[0].text || ''
-          : '',
-      guest: prismicEpisode.data.introduction?.[0]?.guest || '',
-      business: prismicEpisode.data.introduction?.[0]?.business || '',
-      category: prismicEpisode.data.introduction?.[0]?.category || '',
-      description:
-        'text' in prismicEpisode.data.introduction[0].description[0]
-          ? prismicEpisode.data.introduction[0].description[0].text
-          : '',
+      date: intro?.date || undefined,
+      title: (titleBlock && 'text' in titleBlock ? titleBlock.text : '') ?? '',
+      guest: intro?.guest || '',
+      business: intro?.business || '',
+      category: intro?.category || '',
+      description: (descBlock && 'text' in descBlock ? descBlock.text : '') ?? '',
       gif: prismicEpisode.data.images[0].gif.url,
-      insights: prismicEpisode.data.introduction[0].insights,
-      spotify: prismicEpisode.data.introduction[0].spotify,
-      apple: prismicEpisode.data.introduction[0].apple,
+      insights: intro?.insights,
+      spotify: intro?.spotify,
+      apple: intro?.apple,
       content: prismicEpisode.data.body,
       podcastCoverImage: prismicEpisode.data.images[0].episode.url,
-      episodeNumber: prismicEpisode.data.introduction[0].episode,
+      episodeNumber: intro?.episode ?? 0,
       seo_h1: SEO_OVERRIDES[prismicEpisode.uid]
         ? SEO_OVERRIDES[prismicEpisode.uid].h1
         : null,
-      youtube: prismicEpisode.data.introduction[0].youtube,
+      youtube: intro?.youtube,
       youtubeImageUrl: prismicEpisode.data.images[0].youtube.url,
       episodeSource: 'prismic',
     };

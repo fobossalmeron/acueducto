@@ -15,7 +15,7 @@
     "lint": "turbo lint",
     "clean": "turbo clean",
     "slicemachine": "yarn workspace @acueducto/podcast slicemachine",
-    "sitemap": "node scripts/generateSitemap.js",
+    "sitemap": "yarn workspace @acueducto/studio run sitemap",
     "analyze": "ANALYZE=true yarn build"
   },
   "devDependencies": {

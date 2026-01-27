@@ -474,24 +474,21 @@ export async function getStaticProps({
       .map((episode) => {
         if ('data' in episode) {
           // Es un episodio de Prismic
+          const intro = episode.data.introduction[0];
+          const titleBlock = intro.title?.[0];
+          const descBlock = intro.description?.[0];
           return {
             slug: episode.uid,
-            date: episode.data.introduction[0].date,
-            title:
-              'text' in episode.data.introduction[0].title[0]
-                ? episode.data.introduction[0].title[0].text
-                : '',
-            guest: episode.data.introduction[0].guest,
-            business: episode.data.introduction[0].business,
-            category: episode.data.introduction[0].category,
-            description:
-              'text' in episode.data.introduction[0].description[0]
-                ? episode.data.introduction[0].description[0].text
-                : '',
-            episodeNumber: episode.data.introduction[0].episode,
-            spotify: episode.data.introduction[0].spotify,
-            apple: episode.data.introduction[0].apple,
-            youtube: episode.data.introduction[0].youtube,
+            date: intro.date,
+            title: (titleBlock && 'text' in titleBlock ? titleBlock.text : '') ?? '',
+            guest: intro.guest,
+            business: intro.business,
+            category: intro.category,
+            description: (descBlock && 'text' in descBlock ? descBlock.text : '') ?? '',
+            episodeNumber: intro.episode,
+            spotify: intro.spotify,
+            apple: intro.apple,
+            youtube: intro.youtube,
             podcastCoverImage: episode.data.images[0].episode.url,
             episodeSource: 'prismic',
           };

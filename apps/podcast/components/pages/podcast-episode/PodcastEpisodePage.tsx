@@ -10,7 +10,7 @@ import CenteredSection, {
   Insights,
   Transcript,
 } from '@acueducto/shared/components/shared/CenteredSection';
-import ShareRouter from '../ShareRouter';
+import ShareRouter from '@acueducto/shared/components/shared/ShareRouter';
 import dynamic from 'next/dynamic';
 import BackArrowIcon from 'public/assets/img/backarrow.svg';
 import { PrismicRichText } from '@prismicio/react';

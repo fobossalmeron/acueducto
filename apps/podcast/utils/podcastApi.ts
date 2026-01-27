@@ -1,9 +1,10 @@
 import fs from "fs";
-import { join } from "path";
+import path from "path";
 import matter from "gray-matter";
 import EpisodeProps from "@acueducto/shared/types/EpisodeProps";
 
-const episodesDirectory = join(process.cwd(), "_episodios");
+// _episodios en la app podcast — process.cwd() es apps/podcast cuando Next.js corre (no usar __dirname: en el bundle apunta a .next/server/)
+const episodesDirectory = path.join(process.cwd(), "_episodios");
 
 export function getMarkdownEpisodeSlugs() {
   return fs.readdirSync(episodesDirectory);
@@ -14,7 +15,7 @@ export function getMarkdownEpisodeBySlug(
   fields: string[] = [],
 ): EpisodeProps {
   const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(episodesDirectory, `${realSlug}.md`);
+  const fullPath = path.join(episodesDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 

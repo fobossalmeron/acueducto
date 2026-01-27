@@ -46,13 +46,14 @@ export default async function handler(
     const transformedEpisodes = allEpisodes.map(episode => {
       if ('data' in episode) {
         // Es un episodio de Prismic
+        const intro = episode.data.introduction[0];
         return {
           slug: episode.uid,
-          title: episode.data.introduction[0].title[0].text,
-          guest: episode.data.introduction[0].guest,
-          business: episode.data.introduction[0].business,
-          description: episode.data.introduction[0].description[0].text,
-          category: episode.data.introduction[0].category,
+          title: intro.title?.[0]?.text ?? '',
+          guest: intro.guest,
+          business: intro.business,
+          description: intro.description?.[0]?.text ?? '',
+          category: intro.category,
           episodeNumber: episode.data.introduction[0].episode,
           date: episode.data.introduction[0].date,
           spotify: episode.data.introduction[0].spotify,

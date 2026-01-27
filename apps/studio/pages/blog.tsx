@@ -2,10 +2,10 @@ import { useEffect } from 'react';
 import { GetStaticProps } from 'next';
 import ArticleProps from '@acueducto/shared/types/ArticleProps';
 import ssrLocale from '../utils/ssrLocale';
-import { getAllPosts, getPostBySlug } from '@acueducto/shared/utils/blogApi';
+import { getAllPosts, getPostBySlug } from '../utils/blogApi';
 import Head from '@acueducto/shared/components/layout/Head/Head';
 import TitleSection from '@acueducto/shared/components/shared/TitleSection';
-import { EntryPreview } from '@acueducto/shared/components/pages/blog/EntryPreview';
+import { EntryPreview } from '../components/pages/blog/EntryPreview';
 import PageWrapper from '@acueducto/shared/components/layout/PageWrapper';
 import ContactFooter from '@acueducto/shared/components/layout/footers/ContactFooter';
 

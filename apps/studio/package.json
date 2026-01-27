@@ -5,7 +5,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "clean": "rm -rf .next"
+    "clean": "rm -rf .next",
+    "sitemap": "node scripts/generateSitemap.js"
   },
   "dependencies": {
     "@acueducto/shared": "*",

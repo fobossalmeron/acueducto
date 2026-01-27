@@ -6,7 +6,7 @@ import { Button } from '@acueducto/shared/components/ui/Button/Button';
 import { P } from '@acueducto/shared/components/shared/Dangerously';
 import BroadcastRouter from '../BroadcastRouter';
 import EpisodeNumber from '../EpisodeNumber';
-import ShareRouter from '../ShareRouter';
+import ShareRouter from '@acueducto/shared/components/shared/ShareRouter';
 import EpisodeProps from '@acueducto/shared/types/EpisodeProps';
 
 import {

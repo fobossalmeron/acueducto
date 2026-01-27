@@ -78,20 +78,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     // Transformar los episodios al formato de respuesta
     const paginatedEpisodes: EpisodeProps[] = filteredEpisodes.slice(startIndex, endIndex).map(episode => {
       // Crear un objeto base con propiedades comunes
+      const isPrismic = isPrismicEpisode(episode);
+      const intro = isPrismic ? episode.data.introduction[0] : null;
       const episodeData = {
-        title: isPrismicEpisode(episode) ? episode.data.introduction[0].title[0].text : episode.title,
-        guest: isPrismicEpisode(episode) ? episode.data.introduction[0].guest : episode.guest,
-        business: isPrismicEpisode(episode) ? episode.data.introduction[0].business : episode.business,
-        slug: isPrismicEpisode(episode) ? episode.uid : episode.slug,
-        episodeNumber: isPrismicEpisode(episode) ? episode.data.introduction[0].episode : episode.episodeNumber,
-        category: isPrismicEpisode(episode) ? episode.data.introduction[0].category : episode.category,
-        description: isPrismicEpisode(episode) ? episode.data.introduction[0].description[0].text : episode.description,
-        date: isPrismicEpisode(episode) ? episode.data.introduction[0].date : episode.date,
-        spotify: isPrismicEpisode(episode) ? episode.data.introduction[0].spotify : episode.spotify,
-        apple: isPrismicEpisode(episode) ? episode.data.introduction[0].apple : episode.apple,
-        youtube: isPrismicEpisode(episode) ? episode.data.introduction[0].youtube : episode.youtube,
-        podcastCoverImage: isPrismicEpisode(episode) ? episode.data.images[0].episode.url : null,
-        episodeSource: isPrismicEpisode(episode) ? 'prismic' : 'markdown' as EpisodeSource,
+        title: isPrismic ? (intro?.title?.[0]?.text ?? '') : episode.title,
+        guest: isPrismic ? (intro?.guest ?? '') : episode.guest,
+        business: isPrismic ? (intro?.business ?? '') : episode.business,
+        slug: isPrismic ? episode.uid : episode.slug,
+        episodeNumber: isPrismic ? (intro?.episode ?? 0) : episode.episodeNumber,
+        category: isPrismic ? (intro?.category ?? '') : episode.category,
+        description: isPrismic ? (intro?.description?.[0]?.text ?? '') : episode.description,
+        date: isPrismic ? (intro?.date ?? '') : episode.date,
+        spotify: isPrismic ? intro?.spotify : episode.spotify,
+        apple: isPrismic ? intro?.apple : episode.apple,
+        youtube: isPrismic ? intro?.youtube : episode.youtube,
+        podcastCoverImage: isPrismic ? episode.data.images[0].episode.url : null,
+        episodeSource: isPrismic ? 'prismic' : 'markdown' as EpisodeSource,
       };
 
       return episodeData;

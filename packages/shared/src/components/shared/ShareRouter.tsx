@@ -103,10 +103,10 @@ const LogoList = styled.div`
     }
   }
   svg {
-    width: 33px;
+    width: 53px;
     height: 43px;
     box-sizing: content-box;
-    padding: 0 10px 0 10px;
+    padding: 0 0px 0 0px;
     transition: transform 0.2s ease-out;
     aspect-ratio: attr(width) / attr(height);
   }
