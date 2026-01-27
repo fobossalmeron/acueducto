@@ -19,7 +19,7 @@
     "analyze": "ANALYZE=true yarn build"
   },
   "devDependencies": {
-    "turbo": "^2.3.3"
+    "turbo": "^2.7.6"
   },
   "resolutions": {
     "styled-components": "6.1.16"

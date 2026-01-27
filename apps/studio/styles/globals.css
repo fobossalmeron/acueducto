@@ -1,5 +1,8 @@
 @import 'tailwindcss';
 
+@source "../../../packages/shared/src/**/*.{js,ts,jsx,tsx}";
+@source "../**/*.{js,ts,jsx,tsx}";
+
 @theme {
   /* Espaciado base */
   --spacing: 0.4rem;
