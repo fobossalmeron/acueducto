@@ -1,3 +1,4 @@
+import { GetStaticProps } from 'next';
 import { useLocalizedContent } from '@acueducto/shared/utils/useLocalizedContent';
 import ssrLocale from '../../utils/ssrLocale';
 import Head from '@acueducto/shared/components/layout/Head/Head';
@@ -28,7 +29,7 @@ export default function Work({ locale, setTitle, pt }: PageProps) {
     </PageWrapper>
   );
 }
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({ locale, fileName: 'work.json' });
   return {

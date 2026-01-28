@@ -64,10 +64,12 @@ export const MeetupForm = ({
 
       const completeData = { ...data, ...listData };
 
-      lenis.scrollTo(0, { immediate: false });
-      lenis.scrollTo('#registro', {
-        immediate: false,
-      });
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: false });
+        lenis.scrollTo('#registro', {
+          immediate: false,
+        });
+      }
       setFormStatus('LOADING');
 
       try {
@@ -106,7 +108,6 @@ export const MeetupForm = ({
           <InputField>
             <label htmlFor={`cp_firstName`}>Nombre</label>
             <input
-              name="firstName"
               id={`cp_firstName`}
               type="text"
               placeholder="Tu nombre"
@@ -117,7 +118,6 @@ export const MeetupForm = ({
           <InputField>
             <label htmlFor={`cp_lastName`}>Apellido</label>
             <input
-              name="lastName"
               id={`cp_lastName`}
               type="text"
               placeholder="Tu apellido"
@@ -130,7 +130,6 @@ export const MeetupForm = ({
         <InputField>
           <label htmlFor={`cp_email`}>Correo electrónico</label>
           <input
-            name="email"
             id={`cp_email`}
             type="email"
             placeholder="tu@email.com"
@@ -166,7 +165,6 @@ export const MeetupForm = ({
         <InputField>
           <label htmlFor={`cp_company`}>Tu empresa</label>
           <input
-            name="company"
             id={`cp_company`}
             type="text"
             placeholder="Nombre de tu empresa"
@@ -180,7 +178,6 @@ export const MeetupForm = ({
         <InputField>
           <label htmlFor={`cp_position`}>Tu puesto</label>
           <input
-            name="position"
             id={`cp_position`}
             type="text"
             placeholder="Tu puesto actual"

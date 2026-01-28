@@ -1,4 +1,11 @@
 const nextConfig = {
+  async rewrites() {
+    if (process.env.NODE_ENV !== 'development') return [];
+    return [
+      { source: '/podcast', destination: '/' },
+      { source: '/podcast/:path*', destination: '/:path*' },
+    ];
+  },
   compiler: {
     styledComponents: {
       displayName: true,
@@ -27,6 +34,7 @@ const nextConfig = {
   },
   productionBrowserSourceMaps: true,
   images: {
+    unoptimized: process.env.NODE_ENV === 'development',
     remotePatterns: [
       {
         protocol: 'https',

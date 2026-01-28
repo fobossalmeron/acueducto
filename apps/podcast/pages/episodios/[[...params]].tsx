@@ -169,7 +169,7 @@ export default function EpisodesPage({
 
       // Navegar a la URL base de episodios
       if (currentCategory !== 'todas') {
-        router.push('/episodios', undefined, { shallow: true });
+        router.push('/podcast/episodios', undefined, { shallow: true });
       }
     },
     [isPrismicEpisode, currentCategory, router, normalizeText],
@@ -204,7 +204,7 @@ export default function EpisodesPage({
         setFilteredEpisodes([]);
         setNoResults(false);
         if (currentCategory !== 'todas') {
-          router.push(`/episodios/${currentCategory}`);
+          router.push(`/podcast/episodios/${currentCategory}`);
         }
       }
     },
@@ -225,7 +225,7 @@ export default function EpisodesPage({
         setNoResults(false);
         setFilteredEpisodes([]);
         setCurrentFilteredPage(1);
-        router.push(`/episodios/${category}`);
+        router.push(`/podcast/episodios/${category}`);
       }
     },
     [currentCategory, router, mutate],
@@ -263,7 +263,7 @@ export default function EpisodesPage({
       <Head
         {...head}
         image={{ fileName: 'og_image_podcast.png', alt: head.image.alt }}
-        es_canonical={`https://cuandoelriosuena.com/episodios/${currentCategory}/${currentPage}`}
+        es_canonical={`https://acueducto.studio/podcast/episodios/${currentCategory}/${currentPage}`}
         noIndex
       />
       <PodcastGrid>
@@ -337,7 +337,7 @@ export default function EpisodesPage({
             <Pagination>
               {currentPage > 1 && (
                 <PageLink
-                  href={`/episodios/${currentCategory}/${currentPage - 1}`}
+                  href={`/podcast/episodios/${currentCategory}/${currentPage - 1}`}
                 >
                   {isMobile ? <TextToIcon $reverse /> : 'Anterior'}
                 </PageLink>
@@ -347,7 +347,7 @@ export default function EpisodesPage({
                   (page, index) => (
                     <PageNumber
                       key={page}
-                      href={`/episodios/${currentCategory}/${page}`}
+                      href={`/podcast/episodios/${currentCategory}/${page}`}
                       $active={page === currentPage}
                     >
                       {page}
@@ -357,7 +357,7 @@ export default function EpisodesPage({
               </PageNumbers>
               {currentPage < totalPages && (
                 <PageLink
-                  href={`/episodios/${currentCategory}/${currentPage + 1}`}
+                  href={`/podcast/episodios/${currentCategory}/${currentPage + 1}`}
                 >
                   {isMobile ? <TextToIcon /> : 'Siguiente'}
                 </PageLink>

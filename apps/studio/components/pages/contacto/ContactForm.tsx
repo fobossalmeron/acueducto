@@ -97,7 +97,9 @@ const ContactForm: React.FC<ContactFormProps> = ({
         },
       };
       const completeData = { ...data, ...listData };
-      lenis.scrollTo(0, { immediate: false });
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: false });
+      }
       await delayForLoading(300);
       setFormStatus('LOADING');
       setErrorMessage('');
@@ -170,7 +172,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <InputField>
           <label htmlFor={`cp_email`}>{text.email.label}</label>
           <input
-            name="email"
             id={`cp_email`}
             type="email"
             placeholder={text.email.placeholder}
@@ -191,7 +192,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <InputField>
             <label htmlFor={`cp_firstName`}>{text.firstName.label}</label>
             <input
-              name="firstName"
               id={`cp_firstName`}
               type="text"
               placeholder={text.firstName.placeholder}
@@ -202,7 +202,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
           <InputField>
             <label htmlFor={`cp_lastName`}>{text.lastName.label}</label>
             <input
-              name="lastName"
               id={`cp_lastName`}
               type="text"
               placeholder={text.lastName.placeholder}
@@ -214,7 +213,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <InputField>
           <label htmlFor={`cp_company`}>{text.company.label}</label>
           <input
-            name="company"
             id={`cp_company`}
             type="text"
             placeholder={text.company.placeholder}
@@ -225,7 +223,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <InputField>
           <label htmlFor={`cp_job`}>{text.job.label}</label>
           <input
-            name="job"
             id={`cp_job`}
             type="text"
             placeholder={text.job.placeholder}
@@ -236,7 +233,6 @@ const ContactForm: React.FC<ContactFormProps> = ({
         <InputField>
           <label htmlFor={`cp_message`}>{text.message.label}</label>
           <textarea
-            name="message"
             id={`cp_message`}
             placeholder={text.message.placeholder}
             {...register('message', { required: true })}

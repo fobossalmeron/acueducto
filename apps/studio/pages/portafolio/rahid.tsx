@@ -105,7 +105,7 @@ function Rahid({ locale, setTitle, pt }: PageProps): React.ReactElement {
         <Branding>
           <Fade triggerOnce>
             <div>
-              {t.third_section.spans.map((span, index) => (
+              {t.third_section.spans.map((span: string, index: number) => (
                 <span key={index + 'span'}>{span}</span>
               ))}
               {loadAssets && (

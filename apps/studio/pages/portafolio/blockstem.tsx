@@ -81,7 +81,7 @@ function Blockstem({ locale, setTitle, pt }: PageProps) {
           <P className="h2">{t.intro_section.title}</P>
           <P>{t.intro_section.p}</P>
           <LessonContainer>
-            {t.intro_section.lessons.map((lesson, i) => (
+            {t.intro_section.lessons.map((lesson: { title: string; p: string }, i: number) => (
               <Lesson key={`lessn${i}`}>
                 <span>{lesson.title}</span>
                 <p>{lesson.p}</p>
@@ -113,7 +113,7 @@ function Blockstem({ locale, setTitle, pt }: PageProps) {
         <TextColumn>
           <P className="h2">{t.third_section.title}</P>
           <P>{t.third_section.p}</P>
-          {t.third_section.aspects.map((aspect, i) => (
+          {t.third_section.aspects.map((aspect: { p: string }, i: number) => (
             <Aspect key={`aspect${i}`}>
               <span>{i + 1}</span>
               <p>{aspect.p}</p>

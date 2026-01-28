@@ -1,5 +1,14 @@
 import { useState, useEffect, useCallback } from 'react';
 
+declare global {
+  interface Window {
+    grecaptcha?: {
+      ready: (cb: () => void) => void;
+      execute: (siteKey: string, opts: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 interface UseRecaptchaReturn {
     recaptchaLoaded: boolean;
     recaptchaError: boolean;
@@ -81,9 +90,10 @@ export const useRecaptcha = (enabled: boolean = true): UseRecaptchaReturn => {
             try {
                 const siteKey = process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY;
                 if (siteKey && typeof window !== 'undefined' && window.grecaptcha && typeof window.grecaptcha.ready === 'function') {
+                    const grecaptcha = window.grecaptcha;
                     const token = await new Promise<string>((resolve, reject) => {
-                        window.grecaptcha.ready(() => {
-                            window.grecaptcha
+                        grecaptcha.ready(() => {
+                            grecaptcha
                                 .execute(siteKey, { action })
                                 .then(resolve)
                                 .catch(reject);

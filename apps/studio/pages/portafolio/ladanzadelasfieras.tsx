@@ -105,7 +105,7 @@ function LaDanzaDeLasFieras({ locale, setTitle, pt }: PageProps) {
           <LaurelNumbers>
             <Laurel />
             <ul>
-              {t.intro_section.stats.map((stat, index) => (
+              {t.intro_section.stats.map((stat: { big: string; small: string }, index: number) => (
                 <li key={'stat_' + index}>
                   <b>{stat.big}</b>
                   <p>{stat.small}</p>

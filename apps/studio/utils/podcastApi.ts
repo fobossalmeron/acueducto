@@ -9,13 +9,13 @@ export function getMarkdownEpisodeSlugs() {
   return fs.readdirSync(episodesDirectory);
 }
 
-export function getMarkdownEpisodeBySlug(slug, fields = []): EpisodeProps {
+export function getMarkdownEpisodeBySlug(slug: string, fields: string[] = []): EpisodeProps {
   const realSlug = slug.replace(/\.md$/, "");
   const fullPath = join(episodesDirectory, `${realSlug}.md`);
   const fileContents = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(fileContents);
 
-  const items = {};
+  const items: Record<string, unknown> = {};
 
   // Ensure only the minimal needed data is exposed
   fields.forEach((field) => {
@@ -33,16 +33,16 @@ export function getMarkdownEpisodeBySlug(slug, fields = []): EpisodeProps {
     }
   });
 
-  return items as EpisodeProps;
+  return items as unknown as EpisodeProps;
 }
 
-export function getAllMarkdownEpisodes(fields = []) {
+export function getAllMarkdownEpisodes(fields: string[] = []) {
   const slugs = getMarkdownEpisodeSlugs();
   const episodes = slugs.map((slug) => getMarkdownEpisodeBySlug(slug, fields));
   return episodes;
 }
 
-export function getPrevEpisodeSlug(currentEpisode) {
+export function getPrevEpisodeSlug(currentEpisode: number) {
   // Obtener todos los episodios con su número y slug
   const allEpisodes = getAllMarkdownEpisodes(["episode", "slug"]);
 

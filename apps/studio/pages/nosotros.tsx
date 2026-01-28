@@ -1,4 +1,5 @@
 import React from 'react';
+import { GetStaticProps } from 'next';
 import Image from 'next/image';
 import styled from 'styled-components';
 import { Fade } from 'react-awesome-reveal';
@@ -75,7 +76,7 @@ export default function About({ locale, setTitle, pt }: PageProps) {
   );
 }
 
-export const getStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps = async (context) => {
   const locale = context.locale || 'es'; // Default to 'es' if locale is undefined
   const pt = ssrLocale({ locale, fileName: 'about.json' });
   return {

@@ -20,7 +20,7 @@ import LandingMobile6 from 'public/assets/img/casestudies/borgatta/landingMobile
 import { keyframes } from '@emotion/react';
 import Reveal from 'react-awesome-reveal';
 
-const Landing = (props) => {
+const Landing = (props: { isMobile?: boolean; title: string }) => {
   return (
     <LandSection>
       <Fade delay={750} triggerOnce>

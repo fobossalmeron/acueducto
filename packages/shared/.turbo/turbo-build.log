@@ -1,6 +1,4 @@
 
-[1G[0K[1G[0K⠙[1G[0K
 > @acueducto/shared@1.0.0 copy-assets
 > mkdir -p ../../apps/studio/public/assets ../../apps/podcast/public/assets && cp -r src/assets/* ../../apps/studio/public/assets/ && cp -r src/assets/* ../../apps/podcast/public/assets/ && cp -r src/assets dist/
 
-[1G[0K[1G[0K⠙[1G[0K

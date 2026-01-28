@@ -25,11 +25,11 @@ export default function BlogEntry({
   return (
     <PageWrapper unPadded>
       <Head
-        title={article.seo_title ? article.seo_title : article.title}
-        description={article.excerpt}
+        title={article.seo_title ?? article.title ?? ''}
+        description={article.excerpt ?? ''}
         headerTitle="Blog"
         es_canonical={`https://acueducto.studio/blog/${article.slug}`}
-        image={{ fileName: `${article.slug}.png`, alt: article.title }}
+        image={{ fileName: `${article.slug ?? ''}.png`, alt: article.title ?? '' }}
         noIndex={!article.index}
       ></Head>
       <BlogEntryPage {...article} slug={article.slug} />
@@ -39,7 +39,7 @@ export default function BlogEntry({
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
-  const article: ArticleProps = getPostBySlug(context.params.slug, [
+  const article: ArticleProps = getPostBySlug((context.params?.slug as string) ?? '', [
     'title',
     'seo_h1',
     'seo_title',

@@ -1,16 +1,61 @@
-   ▲ Next.js 15.2.4
-   - Environments: .env.local
+   ▲ Next.js 15.5.10
 
    Linting and checking validity of types ...
-Failed to compile.
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 7.7s
+   Collecting page data ...
+   Generating static pages (0/239) ...
+File not found.
+File not found.
+File not found.
+File not found.
+File not found.
+   Generating static pages (59/239) 
+File not found.
+File not found.
+File not found.
+File not found.
+File not found.
+   Generating static pages (119/239) 
+   Generating static pages (179/239) 
+ ✓ Generating static pages (239/239)
+   Finalizing page optimization ...
+   Collecting build traces ...
 
-./components/pages/BroadcastRouter.tsx:2:32
-Type error: Cannot find module '@acueducto/shared/utils/facebookPixel' or its corresponding type declarations.
+Route (pages)                                                           Size  First Load JS  Revalidate  Expire
+┌ ● / (2720 ms)                                                      12.3 kB         202 kB
+├   /_app                                                                0 B         186 kB
+├ ● /[slug] (400695 ms)                                               8.9 kB         230 kB          1h      1y
+├   ├ /el-stack-tecnologico-que-utilizan-las-startups (2901 ms)
+├   ├ /asi-es-tener-mas-de-10-mil-clientes-b2b (2900 ms)
+├   ├ /asi-hacen-ux-las-mejores-fintechs (2900 ms)
+├   ├ /como-conseguir-15k-clientes-b2b (2900 ms)
+├   ├ /asi-piensan-los-grandes-emprendedores (2900 ms)
+├   ├ /el-impacto-de-la-data-en-recursos-humanos (2899 ms)
+├   ├ /como-es-un-product-manager-de-uber-rappi-y-mercado (2899 ms)
+├   └ [+217 more paths] (avg 1753 ms)
+├ ○ /404                                                               226 B         186 kB
+├ ƒ /api/all-episodes                                                    0 B         186 kB
+├ ƒ /api/brevo                                                           0 B         186 kB
+├ ƒ /api/episodes                                                        0 B         186 kB
+├ ƒ /api/exit-preview                                                    0 B         186 kB
+├ ● /episodios/[[...params]] (17773 ms)                              8.97 kB         230 kB          1m      1y
+├   ├ /episodios (2361 ms)
+├   ├ /episodios/todas (2360 ms)
+├   ├ /episodios/founder (2360 ms)
+├   ├ /episodios/producto (2360 ms)
+├   ├ /episodios/inversor (2360 ms)
+├   ├ /episodios/desarrollo (1026 ms)
+├   ├ /episodios/operador (1026 ms)
+├   └ [+3 more paths] (avg 1023 ms)
+└ ○ /slice-simulator (873 ms)                                        6.29 kB         192 kB
++ First Load JS shared by all                                         192 kB
+  ├ chunks/framework-3245486b5e16c684.js                             59.7 kB
+  ├ chunks/main-a0bf43796b8de051.js                                  36.6 kB
+  ├ chunks/pages/_app-3554e89eccdbf90a.js                            87.8 kB
+  └ other shared chunks (total)                                      7.48 kB
 
-[0m [90m 1 |[39m [36mimport[39m styled [36mfrom[39m [32m'styled-components'[39m[33m;[39m[0m
-[0m[31m[1m>[22m[39m[90m 2 |[39m [36mimport[39m [33m*[39m [36mas[39m [33mFacebookPixel[39m [36mfrom[39m [32m'@acueducto/shared/utils/facebookPixel'[39m[33m;[39m[0m
-[0m [90m   |[39m                                [31m[1m^[22m[39m[0m
-[0m [90m 3 |[39m [36mimport[39m { [33mP[39m } [36mfrom[39m [32m'@acueducto/shared/components/shared/Dangerously'[39m[33m;[39m[0m
-[0m [90m 4 |[39m [36mimport[39m { [33mFade[39m } [36mfrom[39m [32m'react-awesome-reveal'[39m[33m;[39m[0m
-[0m [90m 5 |[39m[0m
-Next.js build worker exited with code: 1 and signal: null
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+

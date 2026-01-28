@@ -76,8 +76,8 @@ export const useLocalizedContent = ({
         // Siempre mostramos errores
         errorLog('[useLocalizedContent] Error loading content:', error);
         errorLog('[useLocalizedContent] DEBUG - Error completo:', {
-          mensaje: error.message,
-          stack: error.stack,
+          mensaje: error instanceof Error ? error.message : String(error),
+          stack: error instanceof Error ? error.stack : undefined,
           fileName,
           locale,
         });

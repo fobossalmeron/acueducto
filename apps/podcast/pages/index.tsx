@@ -224,7 +224,7 @@ export default function PodcastLanding({
           <div>{memoizedFeaturedEpisodes}</div>
         </FeatureList>
         <Fade triggerOnce>
-          <Link href={`/episodios`}>
+          <Link href={`/podcast/episodios`}>
             <Button text={favorites.button} />
           </Link>
         </Fade>
@@ -263,7 +263,7 @@ export default function PodcastLanding({
           </div>
         </Fade>
       </FullLastSection>
-      <ContactFooter />
+      {/* <ContactFooter /> */}
     </PageWrapper>
   );
 }

@@ -1,3 +1,52 @@
-   ▲ Next.js 15.2.4
+   ▲ Next.js 15.5.10
+   - Environments: .env
 
    Linting and checking validity of types ...
+   Creating an optimized production build ...
+ ✓ Compiled successfully in 7.6s
+   Collecting page data ...
+   Generating static pages (0/44) ...
+File not found.
+   Generating static pages (11/44) 
+   Generating static pages (22/44) 
+File not found.
+   Generating static pages (33/44) 
+ ✓ Generating static pages (44/44)
+   Finalizing page optimization ...
+   Collecting build traces ...
+
+Route (pages)                                                                        Size  First Load JS
+┌ ● /                                                                             16.8 kB         203 kB
+├   /_app                                                                             0 B         178 kB
+├ ○ /404                                                                          1.74 kB         184 kB
+├ ƒ /api/brevo                                                                        0 B         178 kB
+├ ● /blog                                                                         3.04 kB         185 kB
+├ ● /blog/[slug] (2463 ms)                                                        24.9 kB         210 kB
+├   ├ /es/blog/minimum-viable-startup (822 ms)
+├   ├ /es/blog/piensa-tu-producto-escalable-desde-el-inicio (821 ms)
+├   └ /es/blog/principales-errores-al-construir-producto-en-una-empresa (820 ms)
+├ ● /contacto                                                                     4.32 kB         186 kB
+├ ● /cookies                                                                      2.55 kB         184 kB
+├ ● /linkenbio                                                                     5.5 kB         191 kB
+├ ○ /meetup (613 ms)                                                              6.63 kB         193 kB
+├ ○ /meetup/confirmation (612 ms)                                                 1.99 kB         184 kB
+├ ● /nosotros                                                                     4.35 kB         190 kB
+├ ● /portafolio                                                                   4.36 kB         190 kB
+├ ● /portafolio/_salvajenada                                                      12.9 kB         202 kB
+├ ● /portafolio/blockstem                                                         15.6 kB         201 kB
+├ ● /portafolio/borgatta                                                          17.2 kB         203 kB
+├ ● /portafolio/ladanzadelasfieras                                                18.1 kB         207 kB
+├ ● /portafolio/rahid                                                             8.56 kB         194 kB
+├ ● /portafolio/recupera                                                          42.4 kB         249 kB
+├ ● /portafolio/wellmee                                                             15 kB         218 kB
+└ ● /privacidad                                                                   2.52 kB         184 kB
++ First Load JS shared by all                                                      187 kB
+  ├ chunks/framework-791bf8ff6e793e5e.js                                          59.7 kB
+  ├ chunks/main-ca251460b7252262.js                                               40.2 kB
+  ├ chunks/pages/_app-8c3d135b30281d53.js                                         75.1 kB
+  └ other shared chunks (total)                                                   11.8 kB
+
+○  (Static)   prerendered as static content
+●  (SSG)      prerendered as static HTML (uses getStaticProps)
+ƒ  (Dynamic)  server-rendered on demand
+

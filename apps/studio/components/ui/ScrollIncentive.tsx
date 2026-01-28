@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import Arrow from '@acueducto/shared/components/shared/Arrow';
 
-const scrollToNext = (e) => {
+const scrollToNext = (e: React.SyntheticEvent) => {
   e.preventDefault();
-  document.getElementById('removeArrow').scrollIntoView({ behavior: 'smooth' });
+  document.getElementById('removeArrow')?.scrollIntoView({ behavior: 'smooth' });
 };
 
 const ScrollIncentive = () => {

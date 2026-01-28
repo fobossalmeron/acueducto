@@ -82,7 +82,7 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
         {/* Cabecera del podcast con logo y título */}
         <Fade triggerOnce>
           <IntroLogo>
-            <Link href="/" passHref legacyBehavior>
+            <Link href="/podcast" passHref legacyBehavior>
               <a>
                 <THoverable>cuando el río suena</THoverable>
                 <span>
@@ -95,7 +95,7 @@ export const PodcastEpisodePage: React.FC<PodcastEpisodePageProps> = ({
         <Fade triggerOnce>
           <div>
             {/* Enlace para volver a todos los episodios */}
-            <Link href={'/episodios'} passHref legacyBehavior>
+            <Link href={'/podcast/episodios'} passHref legacyBehavior>
               <AllEpisodesHoverable>
                 <BackArrowIcon />
                 <p>ver todos los episodios</p>

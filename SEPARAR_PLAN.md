@@ -358,6 +358,8 @@ module.exports = {};
 module.exports = {};
 ```
 
+**Dev local:** Rewrites en podcast (solo `NODE_ENV === 'development'`): `/podcast` → `/`, `/podcast/:path*` → `/:path*`. Así en local (puerto 3001) los links `/podcast/...` funcionan. **Studio → podcast en local siempre roto:** no hay rewrite studio→podcast en dev; se usan 3000 (studio) y 3001 (podcast) por separado.
+
 ## Configuración Vercel
 
 ### Proyecto Studio:

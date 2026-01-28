@@ -72,7 +72,7 @@ export const trackPageView = () => {
  * @param email - Correo electrónico del usuario
  * @param additionalData - Datos adicionales para el evento
  */
-export const trackSubscribe = (email, additionalData = {}) => {
+export const trackSubscribe = (email: string, additionalData: Record<string, unknown> = {}) => {
     const ReactPixel = getPixelInstance();
     const advancedMatchingParams = advancedMatching(email);
 

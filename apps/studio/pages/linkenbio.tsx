@@ -55,7 +55,7 @@ export default function LinkEnBio({ locale, setTitle, pt }: LinkEnBioProps) {
 
   const BioLink = ({ url, title, subtitle, image }: BioLinkProps) => (
     <Resource>
-      {typeof image === 'object' && 'src' in image ? (
+      {image != null && typeof image === 'object' && 'src' in image ? (
         <Image width={415} height={135} src={image} alt={title} />
       ) : (
         image

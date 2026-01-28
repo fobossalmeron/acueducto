@@ -7,7 +7,7 @@ export type ButtonSubmitRef = HTMLInputElement;
 
 export const ButtonSubmit = React.forwardRef<
   ButtonSubmitRef,
-  ButtonProps & React.InputHTMLAttributes<HTMLInputElement>
+  ButtonProps & Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>
 >(
   (
     { variant = 'primary', text, className, size = 'default', ...rest },

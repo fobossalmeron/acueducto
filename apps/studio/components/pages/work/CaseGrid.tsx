@@ -11,9 +11,9 @@ const CaseGrid = ({
   early?: number;
 }) => {
   return (
-    <Case reverse={reverse} early={early}>
-      <Img>{children[0]}</Img>
-      <Info>{children[1]}</Info>
+    <Case reverse={reverse ?? false} early={early ?? 0}>
+      <Img>{Array.isArray(children) ? children[0] : null}</Img>
+      <Info>{Array.isArray(children) ? children[1] : null}</Info>
     </Case>
   );
 };

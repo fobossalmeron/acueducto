@@ -7,3 +7,5 @@ declare module "*.mjs" {
   const content: any;
   export default content;
 }
+
+declare module 'shader-doodle';

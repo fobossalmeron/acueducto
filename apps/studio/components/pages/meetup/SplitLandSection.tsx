@@ -39,7 +39,7 @@ export function SplitLandSection({ nextEvent }: { nextEvent: any }) {
         <div className="mt-10">
           <p className="text-foreground-low mb-4! text-base">Con charlas de</p>
           <div className="flex flex-col gap-4">
-            {nextEvent.talks.map((talk) => (
+            {nextEvent.talks.map((talk: { guest: string; role: string; image: string }) => (
               <TalkCard
                 key={talk.guest}
                 guest={talk.guest}

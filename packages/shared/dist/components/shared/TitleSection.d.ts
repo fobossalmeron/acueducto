@@ -1,5 +1,5 @@
 import React from 'react';
-interface TitleProps {
+export interface TitleProps {
     title: string;
     p?: string;
     link?: string;

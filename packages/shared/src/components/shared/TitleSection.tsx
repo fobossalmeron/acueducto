@@ -4,7 +4,7 @@ import Grid, { Container } from './TitleSectionGrid';
 import LinkWithArrow from './LinkWithArrow';
 import { Fade } from 'react-awesome-reveal';
 
-interface TitleProps {
+export interface TitleProps {
   title: string;
   p?: string;
   link?: string;

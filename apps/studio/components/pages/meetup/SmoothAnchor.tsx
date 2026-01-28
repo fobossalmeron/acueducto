@@ -21,11 +21,13 @@ export const SmoothAnchor: React.FC<SmoothAnchorProps> = ({
 
   const handleSmoothScroll = (e: React.MouseEvent) => {
     e.preventDefault();
-    lenis.scrollTo(targetSelector, {
-      offset,
-      duration,
-      immediate: false,
-    });
+    if (lenis) {
+      lenis.scrollTo(targetSelector, {
+        offset,
+        duration,
+        immediate: false,
+      });
+    }
   };
 
   return (

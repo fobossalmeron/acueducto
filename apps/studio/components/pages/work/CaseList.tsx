@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import Link from 'next/link';
 import Image, { StaticImageData } from 'next/image';
 import { Fade } from 'react-awesome-reveal';
-import LangContext from '../../../../utils/LangContext';
+import LangContext from '../../../utils/LangContext';
 import { P, H2 } from '@acueducto/shared/components/shared/Dangerously';
 import BorderLink from '@acueducto/shared/components/shared/BorderedLink';
 import Arrow from '@acueducto/shared/components/shared/Arrow';
@@ -60,6 +60,7 @@ function SingleCase({ link, title, tags, locale }: SingleCaseProps) {
         <VidContainer>
           {locale === 'en' ? 'go to project' : 'visitar proyecto'}
           <div className="img_container">
+            {cover && (
             <Image
               src={cover}
               alt={link}
@@ -70,6 +71,7 @@ function SingleCase({ link, title, tags, locale }: SingleCaseProps) {
                 objectFit: 'cover',
               }}
             />
+            )}
           </div>
         </VidContainer>
       </PortfolioLink>

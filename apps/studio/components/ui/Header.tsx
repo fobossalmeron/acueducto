@@ -4,14 +4,30 @@ import styled from "styled-components";
 import Logo from "public/assets/img/layout/logo.svg";
 import { useLenis } from "@acueducto/shared/utils/LenisContext";
 
-function Header({ hasLoaded, headerTitle, isOpen, closeNav, locale, route }) {
+function Header({
+  hasLoaded,
+  headerTitle,
+  isOpen,
+  closeNav,
+  locale,
+  route,
+}: {
+  hasLoaded: boolean;
+  headerTitle: string;
+  isOpen: boolean;
+  closeNav: () => void;
+  locale: string;
+  route: string;
+}) {
   const { lenis } = useLenis();
 
-  const backUp = useCallback((e) => {
+  const backUp = useCallback((e: React.MouseEvent) => {
     closeNav();
     if (route === "/" || route === "/eng") {
       e.preventDefault();
-      lenis.scrollTo(0, { immediate: false });
+      if (lenis) {
+        lenis.scrollTo(0, { immediate: false });
+      }
     }
   }, [closeNav, route, lenis]);
 

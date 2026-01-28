@@ -1,5 +1,11 @@
 const nextConfig = {
   productionBrowserSourceMaps: true,
+  images: {
+    // Sin sharp/libvips en local: unoptimized en dev; en build local usar NEXT_IMAGE_UNOPTIMIZED=1 para que pase
+    unoptimized:
+      process.env.NODE_ENV === 'development' ||
+      process.env.NEXT_IMAGE_UNOPTIMIZED === '1',
+  },
   compiler: {
     styledComponents: {
       displayName: true,

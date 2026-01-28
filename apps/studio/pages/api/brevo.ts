@@ -2,17 +2,120 @@ import type { NextApiRequest, NextApiResponse } from 'next';
 import { capitalize, capitalizeAll } from '@acueducto/shared/utils/capitalize';
 import { NewContact, MailContact, EmailToContact } from '@acueducto/shared/types/BrevoProps';
 
+async function verifyRecaptcha(token: string): Promise<boolean> {
+  if (!token) {
+    console.error('Token de reCAPTCHA no proporcionado');
+    return false;
+  }
+
+  const secretKey = process.env.RECAPTCHA_SECRET_KEY;
+  if (!secretKey) {
+    console.error(
+      'Error de configuración: RECAPTCHA_SECRET_KEY no está configurada en verifyRecaptcha',
+    );
+    return false;
+  }
+
+  try {
+    const response = await fetch(
+      'https://www.google.com/recaptcha/api/siteverify',
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `secret=${secretKey}&response=${token}`,
+      },
+    );
+
+    const data = (await response.json()) as {
+      success?: boolean;
+      score?: number;
+      'error-codes'?: string[];
+    };
+
+    if (data.success) {
+      const score = data.score ?? 0;
+      if (score >= 0.5) {
+        console.log(`reCAPTCHA v3 verificado exitosamente. Score: ${score}`);
+        return true;
+      }
+      console.warn(`reCAPTCHA v3 score bajo: ${score}. Posible bot.`);
+      return false;
+    }
+    console.warn('reCAPTCHA verificación fallida:', data['error-codes']);
+    return false;
+  } catch (error) {
+    console.error('Error verificando reCAPTCHA:', error);
+    return false;
+  }
+}
+
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Método no permitido' });
   }
 
-  const { action, data } = req.body;
+  const { action, data, recaptchaToken } = req.body;
 
   // Safe logging of the API key
   const apiKey = process.env.BREVO_API || '';
   const lastThreeDigits = apiKey.slice(-3);
   console.log(`BREVO_API configured: ${apiKey ? 'Yes' : 'No'}, Last 3 digits: ${lastThreeDigits}`);
+
+  if (action === 'sendEmail' || action === 'SendEmailToContact') {
+    const recaptchaRequired = !!process.env.RECAPTCHA_SECRET_KEY;
+
+    if (recaptchaRequired && !recaptchaToken) {
+      console.error('Intento de envío bloqueado: token de reCAPTCHA requerido', {
+        action,
+        email: data?.email,
+        timestamp: new Date().toISOString(),
+      });
+      return res.status(403).json({
+        message: 'Token de reCAPTCHA requerido',
+        error: 'reCAPTCHA token required',
+      });
+    }
+
+    if (!recaptchaRequired) {
+      console.error(
+        'Error de configuración: RECAPTCHA_SECRET_KEY no está configurada',
+        {
+          action,
+          email: data?.email,
+          timestamp: new Date().toISOString(),
+        },
+      );
+      return res.status(500).json({
+        message: 'Error de configuración del servidor',
+        error: 'Server configuration error',
+      });
+    }
+
+    if (recaptchaToken) {
+      const isValid = await verifyRecaptcha(recaptchaToken);
+      if (!isValid) {
+        console.error(
+          'Intento de envío bloqueado: verificación reCAPTCHA fallida',
+          {
+            action,
+            email: data?.email,
+            timestamp: new Date().toISOString(),
+          },
+        );
+        return res.status(403).json({
+          message: 'Verificación reCAPTCHA fallida',
+          error: 'reCAPTCHA verification failed',
+        });
+      }
+      console.log('Envío de email verificado con reCAPTCHA exitosamente', {
+        action,
+        email: data?.email,
+        timestamp: new Date().toISOString(),
+      });
+    }
+  }
 
   switch (action) {
     case 'createContact':
@@ -27,16 +130,22 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 }
 
 async function handleCreateContact(data: NewContact, res: NextApiResponse) {
+  const apiKey = process.env.BREVO_API;
+  if (!apiKey) {
+    console.error('BREVO_API is not configured');
+    return res.status(500).json({ message: 'Error de configuración del servidor' });
+  }
+
   const { firstName, lastName, email, listIds, updateEnabled, attributes } = data;
   let capitalizedName = firstName ? capitalize(firstName) : " ";
   let capitalizedLastName = lastName ? capitalize(lastName) : " ";
 
-  let requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.BREVO_API,
+      "api-key": apiKey,
     },
     body: JSON.stringify({
       updateEnabled: updateEnabled,
@@ -50,11 +159,6 @@ async function handleCreateContact(data: NewContact, res: NextApiResponse) {
   };
 
   try {
-    if (!process.env.BREVO_API) {
-      console.error('BREVO_API is not configured');
-      return res.status(500).json({ message: 'Error de configuración del servidor' });
-    }
-
     const response = await fetch("https://api.brevo.com/v3/contacts", requestOptions);
 
     console.log('Complete response from Brevo API:', response.status, response.statusText, response.body, response);
@@ -87,11 +191,18 @@ async function handleCreateContact(data: NewContact, res: NextApiResponse) {
     }
   } catch (error) {
     console.error('Detailed error:', error);
-    return res.status(500).json({ message: 'Error interno del servidor', error: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    return res.status(500).json({ message: 'Error interno del servidor', error: errorMessage });
   }
 }
 
 async function handleSendEmail(data: MailContact, res: NextApiResponse) {
+  const apiKey = process.env.BREVO_API;
+  if (!apiKey) {
+    console.error('BREVO_API is not configured');
+    return res.status(500).json({ message: 'Error de configuración del servidor' });
+  }
+
   const { firstName, lastName, email, company, job, message } = data;
 
   let completeName = capitalize(firstName) + " " + capitalizeAll(lastName);
@@ -105,12 +216,12 @@ async function handleSendEmail(data: MailContact, res: NextApiResponse) {
     Mensaje: ${message}</p>
   `;
 
-  let requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.BREVO_API,
+      "api-key": apiKey,
     },
     body: JSON.stringify({
       sender: {
@@ -125,11 +236,6 @@ async function handleSendEmail(data: MailContact, res: NextApiResponse) {
   };
 
   try {
-    if (!process.env.BREVO_API) {
-      console.error('BREVO_API is not configured');
-      return res.status(500).json({ message: 'Error de configuración del servidor' });
-    }
-
     const response = await fetch("https://api.brevo.com/v3/smtp/email", requestOptions);
     if (!response.ok) {
       const errorData = await response.json();
@@ -140,19 +246,26 @@ async function handleSendEmail(data: MailContact, res: NextApiResponse) {
     return res.status(response.status).json(data);
   } catch (error) {
     console.error('Detailed error:', error);
-    return res.status(500).json({ message: 'Error al enviar el correo', error: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    return res.status(500).json({ message: 'Error al enviar el correo', error: errorMessage });
   }
 }
 
 async function handleSendEmailToContact(data: EmailToContact, res: NextApiResponse) {
+  const apiKey = process.env.BREVO_API;
+  if (!apiKey) {
+    console.error('BREVO_API is not configured');
+    return res.status(500).json({ message: 'Error de configuración del servidor' });
+  }
+
   const { email, message, subject } = data;
 
-  let requestOptions = {
+  const requestOptions = {
     method: "POST",
     headers: {
       accept: "application/json",
       "content-type": "application/json",
-      "api-key": process.env.BREVO_API,
+      "api-key": apiKey,
     },
     body: JSON.stringify({
       sender: {
@@ -167,11 +280,6 @@ async function handleSendEmailToContact(data: EmailToContact, res: NextApiRespon
   };
 
   try {
-    if (!process.env.BREVO_API) {
-      console.error('BREVO_API is not configured');
-      return res.status(500).json({ message: 'Error de configuración del servidor' });
-    }
-
     const response = await fetch("https://api.brevo.com/v3/smtp/email", requestOptions);
     if (!response.ok) {
       const errorData = await response.json();
@@ -182,6 +290,7 @@ async function handleSendEmailToContact(data: EmailToContact, res: NextApiRespon
     return res.status(response.status).json(data);
   } catch (error) {
     console.error('Detailed error:', error);
-    return res.status(500).json({ message: 'Error al enviar el correo', error: error.message });
+    const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
+    return res.status(500).json({ message: 'Error al enviar el correo', error: errorMessage });
   }
 }

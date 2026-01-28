@@ -4,7 +4,11 @@ import PinnedSection from "@acueducto/shared/components/shared/pinnedSections/Pi
 import { P } from "@acueducto/shared/components/shared/Dangerously";
 import { Fade } from "react-awesome-reveal";
 
-const ManifiestoSection = ({ t }) => {
+const ManifiestoSection = ({
+  t,
+}: {
+  t: { intro: { title: string; p: string }; beliefs: Array<{ title: string; p: string }> };
+}) => {
   let { intro, beliefs } = t;
 
   return (

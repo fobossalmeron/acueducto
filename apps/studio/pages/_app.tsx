@@ -26,7 +26,7 @@ function App({ Component, pageProps, router }: CustomAppProps) {
 
   // Usar el hook useLocalizedContent
   const localizedContent = useLocalizedContent({
-    locale: router.locale,
+    locale: router.locale ?? 'es',
     fileName: 'common',
     initialContent: router.locale === 'en' ? en : es,
   });
@@ -70,19 +70,21 @@ function App({ Component, pageProps, router }: CustomAppProps) {
       if (bordered) {
         // Transición de salida
         bordered.classList.add('hidden');
-        logo.style.opacity = '0';
+        if (logo) logo.style.opacity = '0';
 
         setTimeout(() => {
-          revealer.style.pointerEvents = 'none';
-          revealer.style.opacity = '0';
+          if (revealer) {
+            revealer.style.pointerEvents = 'none';
+            revealer.style.opacity = '0';
+          }
           setHasLoaded(true);
         }, 400);
 
         setTimeout(() => {
           // Eliminar elementos de transición del DOM
           bordered.remove();
-          revealer.remove();
-          logo.remove();
+          revealer?.remove();
+          logo?.remove();
         }, 1000);
       }
     });
