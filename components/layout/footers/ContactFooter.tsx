@@ -21,9 +21,9 @@ const ContactFooter = () => {
         <Fade triggerOnce>
           <p>{p}</p>
           <Link
-            href={'/contacto'}
-            as={context.lang === 'en' ? '/contact' : '/contacto'}
-            locale={context.lang}
+            href="https://calendly.com/acueducto/discovery-call-2026"
+            target="_blank"
+            rel="noopener noreferrer"
           >
             <Button text={button_text} variant="secondary" />
           </Link>

@@ -10,7 +10,6 @@ import { Button } from 'components/ui/Button/Button';
 import ContactFooter from 'components/layout/footers/ContactFooter';
 import Head from 'components/layout/Head/Head';
 import { Fade } from 'react-awesome-reveal';
-import { FAQSection } from 'components/pages/index/FAQSection';
 import PageWrapper from 'components/layout/PageWrapper';
 import { ProblemSection } from 'components/pages/index/ProblemSection';
 import { ProcessSection } from 'components/pages/index/ProcessSection';
@@ -55,8 +54,9 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
               <h1 className="h2">{t.landing.tagline}</h1>
               <div className="bg-background border-card-border xs:gap-4 flex w-fit gap-2 rounded-full border p-3 md:p-4">
                 <Link
-                  href={locale === 'en' ? '/contact' : '/contacto'}
-                  locale={locale}
+                  href="https://calendly.com/acueducto/discovery-call-2026"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="flex gap-4"
                 >
                   <Button
@@ -85,9 +85,6 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
         <ProcessSection {...t.process} />
         <StackSection {...t.stack} />
         <SocialProofSection {...t.clients} />
-        <FAQSection t={t.faq} />
-        {locale === 'es' && <JobOpeningsSection {...t.openings} />}
-        <PodcastSection {...t.podcast} />
         <ContactFooter />
       </div>
       {showSpline && <HomeVideo />}
@@ -116,7 +113,7 @@ const Land = styled.section<{ $locale: string }>`
   .h2 {
     font-size: 2.1rem;
     margin-top: 15px;
-    max-width: ${({ $locale }) => ($locale === 'en' ? '27ch' : '28ch')};
+    max-width: ${({ $locale }) => ($locale === 'en' ? '40ch' : '38ch')};
     color: ${(props) => props.theme.colors.white};
     margin-bottom: 2rem;
   }
@@ -124,7 +121,7 @@ const Land = styled.section<{ $locale: string }>`
     color: ${(props) => props.theme.colors.white};
     line-height: 100%;
     font-size: 7rem;
-    max-width: 19ch;
+    max-width: 22ch;
     font-weight: 500;
   }
   @media (max-width: 1115px) {
