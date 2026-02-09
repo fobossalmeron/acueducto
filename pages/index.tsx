@@ -52,7 +52,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
             <Fade cascade delay={0.4}>
               <p className="h1">{t.landing.heading}</p>
               <h1 className="h2">{t.landing.tagline}</h1>
-              <div className="bg-background border-card-border xs:gap-4 flex w-fit gap-2 rounded-full border p-3 md:p-4">
+              <div className="bg-background border-card-border xs:gap-4 xs:max-w-none flex w-max max-w-[222px] flex-wrap gap-2 rounded-[36px] border p-2 md:rounded-full md:p-4">
                 <Link
                   href="https://calendly.com/acueducto/discovery-call-2026"
                   target="_blank"
