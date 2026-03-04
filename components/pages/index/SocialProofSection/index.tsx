@@ -8,7 +8,6 @@ import { useRouter } from 'next/router';
 import Image from 'next/image';
 import { OverlapLayout } from 'components/layout/layouts/OverlapLayout';
 import { Title } from 'components/ui/Title';
-import { Paragraph } from 'components/ui/Paragraph';
 import Quotes1 from 'public/assets/img/layout/home/quotes-3.png';
 import Quotes2 from 'public/assets/img/layout/home/quotes-4.png';
 
@@ -60,20 +59,15 @@ export function SocialProofSection({
       <OverlapLayout className="border-card-border mb-0 content-center overflow-hidden border-t">
         <OverlapLayout.Header>
           <Fade triggerOnce>
-            <Title as="h2" className="max-w-[14ch]">
+            <Title as="h2" className="max-w-[14ch] whitespace-pre-line">
               {intro.title}
             </Title>
           </Fade>
         </OverlapLayout.Header>
-        <OverlapLayout.Content>
-          <Fade triggerOnce>
-            <Paragraph>{intro.p}</Paragraph>
-          </Fade>
-        </OverlapLayout.Content>
 
         <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
-            <span className="text-foreground-lower mb-10 block px-4 text-center sm:mb-14">
+            <span className="text-foreground-lower mt-4 mb-10 block px-4 text-center sm:mb-10">
               {span}
             </span>
             <Image
@@ -85,7 +79,7 @@ export function SocialProofSection({
             />
           </Fade>
           <Fade triggerOnce>
-            <span className="text-foreground-lower mt-24 mb-10 block px-4 text-center sm:mb-14">
+            <span className="text-foreground-lower mt-24 mb-10 block px-4 text-center sm:mb-12">
               {span2}
             </span>
             <div className="relative mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">

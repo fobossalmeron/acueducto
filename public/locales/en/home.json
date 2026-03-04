@@ -6,8 +6,9 @@
   },
   "landing": {
     "seo_h1": "Software development consulting services: Acueducto",
-    "heading": "stop launching products your users hate",
-    "tagline": "We build software that gets adopted without friction to generate value from day one",
+    "heading": "launch digital products twice as fast",
+    "pill": "no UX tradeoffs",
+    "tagline": "Design world-class interfaces, test your hypotheses before building, and leverage AI to develop faster.",
     "ctaContact": "Book a call",
     "ctaWork": "See our work"
   },
@@ -72,11 +73,11 @@
   },
   "clients": {
     "intro": {
-      "title": "for businesses seeking innovation",
-      "p": "We help you execute projects that can transform your organization into one with improved operations, a scalable architecture, and a first-class customer experience."
+      "title": "just like\nthe best do",
+      "p": ""
     },
-    "span": "We have worked with",
-    "span2": "From our clients",
+    "span": "Some of our clients",
+    "span2": "What they say about us",
     "quotes": [
       {
         "text": "No agency had ever understood us like Acueducto does. They're the best studio I've worked with.",

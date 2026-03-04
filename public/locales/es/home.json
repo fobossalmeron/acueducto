@@ -6,13 +6,14 @@
   },
   "landing": {
     "seo_h1": "Empresa de desarrollo de software y apps: Acueducto",
-    "heading": "deja de lanzar productos que tus usuarios odian",
-    "tagline": "Construimos software que se adopta sin fricción para generar valor desde el día uno",
+    "heading": "lanza productos digitales en la mitad de tiempo",
+    "pill": "sin sacrificar UX",
+    "tagline": "Diseña interfaces de talla mundial, prueba tus hipótesis antes de construir y apaláncate de IA para desarrollar más rápido.",
     "ctaContact": "Agenda una llamada",
     "ctaWork": "Ver portafolio"
   },
   "work": {
-    "title": "experiencias tan bellas como poderosas"
+    "title": "como estos\nnegocios innovadores"
   },
   "problem": {
     "title": "integramos negocio, software y diseño",
@@ -72,11 +73,11 @@
   },
   "clients": {
     "intro": {
-      "title": "para negocios que buscan innovar",
-      "p": "Te ayudamos a ejecutar proyectos que pueden transformar tu organización en una con mejores operaciones, una arquitectura escalable y una experiencia de cliente de primer nivel."
+      "title": "como lo hacen\nlos mejores",
+      "p": ""
     },
-    "span": "Hemos trabajado con",
-    "span2": "Lo que nuestros clientes dicen de nosotros",
+    "span": "Algunos de nuestros clientes",
+    "span2": "Lo que dicen de nosotros",
     "quotes": [
       {
         "text": "Nunca nos había entendido una agencia como nos entiende Acueducto. Son el mejor estudio con el que he trabajado.",

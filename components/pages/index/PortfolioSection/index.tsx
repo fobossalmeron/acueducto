@@ -30,7 +30,7 @@ export const PortfolioSection = ({ title }: { title: string }) => {
       <OverlapLayout className="border-foreground-lowest mb-0 content-center overflow-hidden border-t">
         <OverlapLayout.Header>
           <Fade triggerOnce>
-            <Title as="h2" className="max-w-[18ch]">
+            <Title as="h2" className="max-w-[18ch] whitespace-pre-line">
               {title}
             </Title>
           </Fade>
