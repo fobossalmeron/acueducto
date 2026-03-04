@@ -15,6 +15,27 @@
   "work": {
     "title": "as stunning as they are powerful"
   },
+  "stackingCards": {
+    "subtitle": "How is it possible?",
+    "title": "with a product mindset",
+    "cards": [
+      {
+        "label": "strategy",
+        "title": "we align to your business goals and define clear use cases",
+        "p": "We work with clear hypotheses, start with controlled scopes, and validate the product before building."
+      },
+      {
+        "label": "design",
+        "title": "we design, test, and iterate the experience until achieving a clear interface",
+        "p": "We turn hypotheses into real prototypes, validate with users, and continuously adjust until we build a solid, usable experience."
+      },
+      {
+        "label": "development",
+        "title": "we develop faster, cleaner, safer, and with better documentation using AI",
+        "p": "We develop at twice the speed with small teams, using a robust stack that integrates with your infrastructure."
+      }
+    ]
+  },
   "problem": {
     "title": "we speak business, software, and design",
     "p": "We design and build software. Apps, websites, MVPs, and platforms that allow you to save resources in your company or do more with the same.",

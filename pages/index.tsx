@@ -13,6 +13,7 @@ import { ProcessSection } from 'components/pages/index/ProcessSection';
 import { StackSection } from 'components/pages/index/StackSection';
 import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 import { PortfolioSection } from 'components/pages/index/PortfolioSection';
+import { StackingCards } from 'components/pages/index/StackingCards';
 import { PageProps } from 'types/PageProps';
 
 const HomeVideo = dynamic(() => import('../components/pages/index/HomeVideo'), {
@@ -43,6 +44,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
       />
       <div style={{ zIndex: 1 }}>
         <LandSection {...t.landing} locale={locale} />
+        <StackingCards {...t.stackingCards} />
         <div id="removeArrow">
           <PortfolioSection {...t.work} />
         </div>

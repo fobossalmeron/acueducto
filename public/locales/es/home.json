@@ -15,6 +15,27 @@
   "work": {
     "title": "como estos\nnegocios innovadores"
   },
+  "stackingCards": {
+    "subtitle": "¿Cómo es posible?",
+    "title": "con una lógica\nde producto",
+    "cards": [
+      {
+        "label": "estrategia",
+        "title": "nos alineamos a tus objetivos de negocio y definimos casos de uso claros",
+        "p": "Trabajamos con hipótesis claras, empezamos con alcances controlados y validamos el producto antes de construir."
+      },
+      {
+        "label": "diseño",
+        "title": "diseñamos, probamos e iteramos la experiencia hasta lograr una interfaz clara",
+        "p": "Convertimos hipótesis en prototipos reales, validamos con usuarios y ajustamos continuamente hasta construir una experiencia sólida y usable."
+      },
+      {
+        "label": "desarrollo",
+        "title": "desarrollamos más rápido, limpio, seguro y con mejor documentación usando IA",
+        "p": "Desarrollamos al doble de velocidad con equipos pequeños, utilizando un stack robusto que se integra con tu infraestructura."
+      }
+    ]
+  },
   "problem": {
     "title": "integramos negocio, software y diseño",
     "p": "Diseñamos y construimos software. Apps, sitios web, MVPs y plataformas que te permiten ahorrar recursos en tu empresa o hacer más con lo mismo.",
