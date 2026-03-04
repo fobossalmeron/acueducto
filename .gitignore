@@ -37,8 +37,7 @@ yarn-error.log*
 
 # playwright
 .playwright-mcp/
-*.png
-!public/**/*.png
+playwright-report/
 
 # vercel
 .vercel
