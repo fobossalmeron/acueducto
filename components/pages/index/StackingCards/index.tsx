@@ -40,14 +40,14 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
 
         <div className="col-span-full col-start-1 sm:col-span-10 sm:col-start-2">
           <div className="relative">
-            <Fade cascade damping={0.15} triggerOnce>
               {cards.map((card, i) => (
-                <div
-                  key={i}
-                  className="sticky top-24 mb-6 last:mb-0"
-                  style={{ top: `calc(6rem + ${i * 2}rem)` }}
-                >
-                  <div className="card relative flex min-h-[420px] flex-col justify-between overflow-hidden rounded-3xl p-10 md:min-h-[480px] md:p-16">
+                <div key={i} className="pb-6 last:pb-0">
+                  <div
+                    className="sticky top-24"
+                    style={{ top: `calc(6rem + ${i * 2}rem)` }}
+                  >
+                    <Fade triggerOnce>
+                    <div className="card relative flex aspect-video flex-col justify-between overflow-hidden rounded-3xl p-10 md:p-16">
                     {/* Gradient overlay for depth */}
                     <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-card-background to-background opacity-60" />
 
@@ -75,9 +75,10 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
                       {card.p}
                     </Paragraph>
                   </div>
+                    </Fade>
+                  </div>
                 </div>
               ))}
-            </Fade>
           </div>
         </div>
       </OverlapLayout>
