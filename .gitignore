@@ -35,8 +35,10 @@ yarn-error.log*
 .env.test.local
 .env.production.local
 
-# playwright mcp
+# playwright
 .playwright-mcp/
+*.png
+!public/**/*.png
 
 # vercel
 .vercel
