@@ -36,10 +36,7 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
             <p className="text-over-black text-base leading-normal">
               {subtitle}
             </p>
-            <Title
-              as="h2"
-              className="max-w-[14ch] whitespace-pre-line"
-            >
+            <Title as="h2" className="max-w-[14ch] whitespace-pre-line">
               {title}
             </Title>
           </Fade>
@@ -48,17 +45,54 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
           {cards.map((card, i) => (
             <div
               key={i}
-              className="sticky mb-6 last:mb-0"
+              className="sticky"
               style={{
                 top: `calc(6rem + ${i * 2.8}rem)`,
+                marginBottom: `${(cards.length - 1 - i) * 2.8}rem`,
                 zIndex: i + 1,
               }}
             >
               <div
                 className={`${i === 1 ? 'primary-card' : 'card'} relative flex flex-col overflow-hidden rounded-4xl p-6 sm:p-10 lg:min-h-[75vh] lg:justify-between lg:p-16`}
+                style={i === 0 ? { backgroundColor: 'transparent' } : undefined}
               >
+                {/* Radial glow + noise for first card */}
+                {i === 0 && (
+                  <>
+                    <div
+                      className="pointer-events-none absolute inset-0 z-[1] opacity-60"
+                      style={{
+                        background:
+                          'radial-gradient(ellipse 150% 150% at 40% 60%, #4a5060 0%, transparent 50%, transparent 100%)',
+                      }}
+                    />
+                    {/* Inline SVG noise — data URI doesn't render feTurbulence */}
+                    <svg
+                      className="pointer-events-none absolute inset-0 z-[2] h-full w-full"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <filter id="card-noise">
+                        <feTurbulence
+                          type="fractalNoise"
+                          baseFrequency="0.65"
+                          numOctaves="2"
+                          stitchTiles="stitch"
+                        />
+                      </filter>
+                      <rect
+                        width="100%"
+                        height="100%"
+                        filter="url(#card-noise)"
+                        opacity="0.10"
+                      />
+                    </svg>
+                  </>
+                )}
+
                 {/* Gradient overlay for depth */}
-                <div className="from-card-background to-background pointer-events-none absolute inset-0 bg-gradient-to-r opacity-60" />
+                <div
+                  className={`from-card-background to-background pointer-events-none absolute inset-0 bg-gradient-to-r ${i === 0 ? 'opacity-0' : 'opacity-60'}`}
+                />
 
                 {/* Label - above title on mobile */}
                 <p className="text-foreground-low relative z-10 pb-2 text-xs tracking-[0.13em] uppercase lg:hidden">
