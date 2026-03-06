@@ -125,8 +125,13 @@ const Pinned = styled.div<{ $borderTop: boolean; $notSticky: boolean }>`
     letter-spacing: 0px;
     line-height: 100%;
     font-size: 7rem;
-    color: ${(props) => props.theme.colors.accent};
+    background: linear-gradient(to right, #416FF7, #0D35AB);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 500;
+    padding-block: 0.15em;
+    margin-block: -0.15em;
   }
   a {
     text-decoration: none;

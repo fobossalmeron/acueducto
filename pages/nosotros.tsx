@@ -7,14 +7,15 @@ import ssrLocale from 'utils/ssrLocale';
 import { useLocalizedContent } from 'utils/useLocalizedContent';
 
 import Head from 'components/layout/Head/Head';
-import TitleSection from 'components/shared/TitleSection';
 import PageWrapper from 'components/layout/PageWrapper';
 import ContactFooter from 'components/layout/footers/ContactFooter';
 import PinnedSection from 'components/shared/pinnedSections/PinnedSection';
 import { P } from 'components/shared/Dangerously';
 import TitleSectionGrid from 'components/shared/TitleSectionGrid';
-import Recursos from 'components/pages/nosotros/Recursos';
 import ManifiestoSection from 'components/pages/nosotros/ManifiestoSection';
+import { StackSection } from 'components/pages/nosotros/StackSection';
+import { JobOpeningsSection } from 'components/pages/nosotros/JobOpeningsSection';
+import { PodcastSection } from 'components/pages/nosotros/PodcastSection';
 import { PageProps } from 'types/PageProps';
 
 import pTeam from 'public/assets/img/layout/team.png';
@@ -67,9 +68,9 @@ export default function About({ locale, setTitle, pt }: PageProps) {
         </Fade>
       </PaperPlane>
       <ManifiestoSection t={t.manifesto} />
-      <TitleSection {...t.values} borderTop heading={2}>
-        <Recursos />
-      </TitleSection>
+      <StackSection {...t.stack} />
+      <PodcastSection {...t.podcast} />
+      <JobOpeningsSection {...t.openings} />
       <ContactFooter />
     </PageWrapper>
   );

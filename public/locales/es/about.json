@@ -32,6 +32,21 @@
       }
     ]
   },
+  "stack": {
+    "title": ["con un stack poderoso", "que se adapta al tuyo"],
+    "p": "Nos adaptamos a la tecnología que ya usas y desarrollamos tus MVPs con tecnología web moderna lista para escalar.",
+    "sticker": "Acelerado con IA",
+    "lastP": "Otras empresas que utilizan este stack"
+  },
+  "openings": {
+    "title": "forma parte</br> de nuestro equipo",
+    "p": "¿Quieres unirte a nuestro equipo? Revisa nuestras vacantes.",
+    "cta": "Ver vacantes"
+  },
+  "podcast": {
+    "title": "echa un vistazo a cómo pensamos",
+    "p": "Escucha nuestro podcast con más de 200 episodios donde compartimos cómo construyen producto las empresas más importantes de Latinoamérica.<br/><br/>Disponible en todas las plataformas de streaming."
+  },
   "values": {
     "title": "echa un vistazo a cómo pensamos",
     "p": "Consulta conversaciones y reflexiones alrededor de una sola pregunta: ¿cómo construir productos digitales increíbles?"

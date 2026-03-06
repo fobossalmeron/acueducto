@@ -17,7 +17,7 @@ export const Title = <C extends React.ElementType = 'p'>({
   const Component = as || 'p';
   return (
     <Component
-      className={`${className || ''} text-primary relative mb-[4%] text-[3.4rem] leading-[100%] font-bold tracking-[0] md:text-[5rem] lg:text-[6rem] xl:text-[7rem]`}
+      className={`${className || ''} bg-gradient-to-r from-[#416FF7] to-[#0D35AB] bg-clip-text text-transparent relative mb-[4%] text-[3.4rem] leading-[100%] py-[0.15em] -my-[0.15em] font-bold tracking-[0] md:text-[5rem] lg:text-[6rem] xl:text-[7rem]`}
       {...(dangerouslySetInnerHTML && { dangerouslySetInnerHTML })}
       {...props}
     >

@@ -78,6 +78,7 @@
   }
 }
 
+
 /* Para atender la altura que teníamos antes de cambiar a tailwind*/
 @custom-variant mobile-or-landscape (@media (max-width: 768px), @media (max-height: 450px));
 

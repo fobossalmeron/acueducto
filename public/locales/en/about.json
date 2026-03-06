@@ -79,6 +79,21 @@
       }
     ]
   },
+  "stack": {
+    "title": ["a powerful stack", "that adapts to yours"],
+    "p": "We adapt to the technology you already use and develop your MVPs with modern web technology ready to scale.",
+    "sticker": "Accelerated with AI",
+    "lastP": "Other companies using this stack"
+  },
+  "openings": {
+    "title": "join our team",
+    "p": "Want to join our team? Check out our open positions.",
+    "cta": "See openings"
+  },
+  "podcast": {
+    "title": "take a look at how we think",
+    "p": "Listen to our podcast (spanish only) with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
+  },
   "values": {
     "title": "pick our brains</br> for free",
     "p": "Read and listen to our thoughts and conversations around a single question: how to build healthy internet businesses?"

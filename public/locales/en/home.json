@@ -86,12 +86,6 @@
       "button": "Tell us your idea"
     }
   },
-  "stack": {
-    "title": ["a powerful stack", "that adapts to yours"],
-    "p": "We adapt to the technology you already use and develop your MVPs with modern web technology ready to scale.",
-    "sticker": "Accelerated with AI",
-    "lastP": "Other companies using this stack"
-  },
   "clients": {
     "intro": {
       "title": "just like\nthe best do",
@@ -147,14 +141,5 @@
         "p": "Each project has a fixed monthly fee, so you'll know how much you'll spend from the start. We'll need to consider some costs of other tools/services we use to build your project. These costs will be charged directly to you in a transparent manner."
       }
     ]
-  },
-  "openings": {
-    "title": "join our team",
-    "p": "Want to join our team? Check out our open positions.",
-    "cta": "See openings"
-  },
-  "podcast": {
-    "title": "take a look at how we think",
-    "p": "Listen to our podcast (spanish only) with over 200 episodes where we share how the most important companies in Latin America build products.<br/><br/>Available on all streaming platforms."
   }
 }

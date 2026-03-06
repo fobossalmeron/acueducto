@@ -10,7 +10,6 @@ import PageWrapper from 'components/layout/PageWrapper';
 import { LandSection } from 'components/pages/index/LandSection';
 import { ProblemSection } from 'components/pages/index/ProblemSection';
 import { ProcessSection } from 'components/pages/index/ProcessSection';
-import { StackSection } from 'components/pages/index/StackSection';
 import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 import { PortfolioSection } from 'components/pages/index/PortfolioSection';
 import { StackingCards } from 'components/pages/index/StackingCards';
@@ -48,9 +47,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
         <div id="removeArrow">
           <PortfolioSection {...t.work} />
         </div>
-        <ProblemSection {...t.problem} />
         <ProcessSection {...t.process} />
-        <StackSection {...t.stack} />
         <SocialProofSection {...t.clients} />
         <ContactFooter />
       </div>
