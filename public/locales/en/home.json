@@ -86,6 +86,108 @@
       "button": "Tell us your idea"
     }
   },
+  "projectModes": {
+    "title": "your idea to code in record time",
+    "subtitle": "We work in various modes",
+    "modes": [
+      {
+        "name": "UI Integration",
+        "title": "design + front-end",
+        "phases": [
+          {
+            "label": "phase 1", "name": "product design",
+            "pills": [
+              { "text": "Information architecture" },
+              { "text": "UX Strategy" },
+              { "text": "UI Design" },
+              { "text": "High-fidelity wireflows" }
+            ]
+          },
+          {
+            "label": "phase 2", "name": "development",
+            "pills": [
+              { "text": "2x development speed", "highlighted": true },
+              { "text": "AI-assisted" },
+              { "text": "Security" },
+              { "text": "Pixel-perfect front-end", "highlighted": true }
+            ]
+          },
+          {
+            "label": "phase 3", "name": "integration",
+            "pills": [
+              { "text": "Endpoint definition" },
+              { "text": "Internal API connections" },
+              { "text": "Backend integration" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Agile product development",
+        "title": "full product\ndevelopment (fullstack)",
+        "phases": [
+          {
+            "label": "phase 1", "name": "requirements", "duration": "5 days",
+            "pills": [
+              { "text": "Technical scope" },
+              { "text": "User stories" },
+              { "text": "PRD" },
+              { "text": "Tickets" }
+            ]
+          },
+          {
+            "label": "phase 2", "name": "validation", "duration": "10 days",
+            "pills": [
+              { "text": "Dev environment" },
+              { "text": "Frontend" },
+              { "text": "QA" },
+              { "text": "Performance" },
+              { "text": "Backend" }
+            ]
+          },
+          {
+            "label": "phase 3", "name": "deploy", "duration": "20 days",
+            "pills": [
+              { "text": "Documentation" },
+              { "text": "Clean codebase" },
+              { "text": "Production environment" }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "From idea to design",
+        "title": "design only",
+        "phases": [
+          {
+            "label": "phase 1", "name": "structure", "duration": "5 days",
+            "pills": [
+              { "text": "Architecture" },
+              { "text": "Wireframes" },
+              { "text": "Code prototype" }
+            ]
+          },
+          {
+            "label": "phase 2", "name": "validation", "duration": "10 days",
+            "pills": [
+              { "text": "User testing" },
+              { "text": "Interaction" },
+              { "text": "Qualitative insights" },
+              { "text": "Iteration", "highlighted": true }
+            ]
+          },
+          {
+            "label": "phase 3", "name": "final design", "duration": "20 days",
+            "pills": [
+              { "text": "Handoff" },
+              { "text": "UI & visual design" },
+              { "text": "Documentation" }
+            ]
+          }
+        ]
+      }
+    ]
+  },
   "clients": {
     "intro": {
       "title": "just like\nthe best do",

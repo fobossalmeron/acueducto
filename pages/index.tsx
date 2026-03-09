@@ -8,7 +8,7 @@ import ContactFooter from 'components/layout/footers/ContactFooter';
 import Head from 'components/layout/Head/Head';
 import PageWrapper from 'components/layout/PageWrapper';
 import { LandSection } from 'components/pages/index/LandSection';
-import { ProcessSection } from 'components/pages/index/ProcessSection';
+import { ProjectModes } from 'components/pages/index/ProjectModes';
 import { SocialProofSection } from 'components/pages/index/SocialProofSection';
 import { PortfolioSection } from 'components/pages/index/PortfolioSection';
 import { StackingCards } from 'components/pages/index/StackingCards';
@@ -46,7 +46,7 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
         <div id="removeArrow">
           <PortfolioSection {...t.work} />
         </div>
-        <ProcessSection {...t.process} />
+        <ProjectModes {...t.projectModes} />
         <SocialProofSection {...t.clients} />
         <ContactFooter />
       </div>
