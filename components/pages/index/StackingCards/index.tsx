@@ -53,7 +53,7 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
               }}
             >
               <div
-                className={`${i === 1 ? 'primary-card' : 'card'} relative flex flex-col overflow-hidden rounded-4xl p-6 sm:p-10 lg:min-h-[75vh] lg:justify-between lg:p-16`}
+                className={`${i === 1 ? 'primary-card' : 'card'} relative flex flex-col overflow-hidden rounded-4xl p-6 sm:p-10 lg:h-[min(75vh,660px)] lg:justify-between lg:p-16`}
                 style={i === 0 ? { backgroundColor: 'transparent' } : undefined}
               >
                 {/* Radial glow + noise for first card */}
