@@ -12,10 +12,7 @@ export const Pill = ({ text, highlighted }: PillProps) => {
           : 'card text-over-black'
       }`}
     >
-      {highlighted && (
-        <div className="pointer-events-none absolute -top-5 right-5 h-[167px] w-[202px] bg-[linear-gradient(252deg,#0540ed_30%,rgba(0,49,222,0)_103%)] blur-[108px]" />
-      )}
-      <span className="relative">{text}</span>
+      {text}
     </div>
   );
 };
