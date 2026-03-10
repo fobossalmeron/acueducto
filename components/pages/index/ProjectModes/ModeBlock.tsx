@@ -38,7 +38,7 @@ export const ModeBlock = ({ name, title, phases, index }: ModeBlockProps) => {
           <span className="text-foreground-lower text-xs font-medium tracking-widest uppercase">
             {name}
           </span>
-          <h3 className="bg-gradient-to-r from-[#e0e0e0] via-[#e0e0e0] via-[62%] to-[#b2b1b1] bg-clip-text text-[clamp(3rem,1rem+3vw,4rem)] leading-[108%] font-medium tracking-tight whitespace-pre-line text-transparent py-[0.15em] -my-[0.15em]">
+          <h3 className="bg-gradient-to-r from-[#e0e0e0] via-[#e0e0e0] via-[62%] to-[#b2b1b1] bg-clip-text text-[clamp(2.8rem,1rem+3vw,4rem)] leading-[108%] font-medium tracking-tight whitespace-pre-line text-transparent py-[0.15em] -my-[0.15em]">
             {title}
           </h3>
         </div>
