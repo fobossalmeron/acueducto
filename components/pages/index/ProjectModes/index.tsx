@@ -46,7 +46,7 @@ export const ProjectModes = ({ title, subtitle, modes }: ProjectModesProps) => {
           </Fade>
         </OverlapLayout.Header>
 
-        <div className="col-span-12 col-start-1 flex flex-col gap-10 sm:col-span-10 sm:col-start-2 lg:gap-34 md:pt-10 pt-6">
+        <div className="col-span-12 col-start-1 flex flex-col gap-10 sm:col-span-10 sm:col-start-2 md:gap-34 md:pt-10 pt-6">
           {modes.map((mode, i) => (
             <ModeBlock key={mode.name} index={i} {...mode} />
           ))}

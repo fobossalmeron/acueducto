@@ -44,9 +44,9 @@ export const ModeBlock = ({ name, title, phases, index }: ModeBlockProps) => {
         </div>
 
         {/* Phase columns: each has card + pills */}
-        <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
           {phases.map((phase, phaseIdx) => (
-            <div key={phase.label} className="flex flex-col gap-3 mb-8 md:mb-0">
+            <div key={phase.label} className="flex flex-col gap-3 mb-8 lg:mb-0" style={{ zIndex: 30 - phaseIdx * 10 }}>
               {/* Phase card */}
               <PhaseCard
                 label={phase.label}
@@ -70,7 +70,7 @@ export const ModeBlock = ({ name, title, phases, index }: ModeBlockProps) => {
                     const colStart = idx + 1;
                     const style = { gridColumn: `${colStart} / -1` };
                     return Array.isArray(pillOrGroup) ? (
-                      <div key={idx} className="flex flex-wrap gap-2" style={style}>
+                      <div key={idx} className="flex flex-nowrap gap-2" style={style}>
                         {pillOrGroup.map((pill) => (
                           <Pill key={pill.text} {...pill} />
                         ))}
