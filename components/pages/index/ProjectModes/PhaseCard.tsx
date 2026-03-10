@@ -9,7 +9,7 @@ interface PhaseCardProps {
 
 export const PhaseCard = ({ label, name, duration, imageIndex }: PhaseCardProps) => {
   return (
-    <div className="w-[81%] rounded-3xl bg-gradient-to-r from-card-border to-background p-px">
+    <div className="w-[81%] lg:w-[90%] xl:w-[81%] rounded-3xl bg-gradient-to-r from-card-border to-background p-px">
       <div className="relative flex items-start rounded-3xl p-4 md:p-6 bg-gradient-to-r from-card-background to-background">
         <div className="flex flex-col gap-1 md:gap-2.5">
           <div className="flex items-center md:gap-3 gap-2 text-sm text-foreground-lower">
@@ -34,7 +34,7 @@ export const PhaseCard = ({ label, name, duration, imageIndex }: PhaseCardProps)
           alt=""
           width={168}
           height={150}
-          className="absolute -top-5 -right-18 md:h-[150px] h-[120px] w-auto"
+          className="absolute -top-5 -right-18 h-[120px] lg:-right-14 lg:top-1/2 lg:-translate-y-1/2 lg:h-[clamp(50px,9vw,150px)] xl:-top-5 xl:-right-18 xl:translate-y-0 xl:h-[150px] w-auto"
         />
       </div>
     </div>
