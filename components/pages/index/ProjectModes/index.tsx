@@ -30,15 +30,15 @@ interface ProjectModesProps {
 
 export const ProjectModes = ({ title, subtitle, modes }: ProjectModesProps) => {
   return (
-    <section className="relative overflow-hidden bg-background px-5 py-24 sm:px-10 lg:px-[180px] lg:py-[142px]">
-      <div className="relative mx-auto flex max-w-[1080px] flex-col items-center gap-[86px]">
+    <section className="border-foreground-lowest border-t relative overflow-hidden bg-background px-5 py-24 sm:px-10 lg:px-[180px] lg:py-[142px]">
+      <div className="relative mx-auto flex max-w-[1080px] flex-col items-center gap-14 md:gap-[86px]">
         {/* Header */}
         <Fade triggerOnce>
-          <div className="flex flex-col items-center gap-3 text-center">
+          <div className="flex flex-col md:items-center items-start md:gap-3 gap-1 md:text-center text-left">
             <Title as="h2" className="max-w-[14ch]">
               {title}
             </Title>
-            <p className="text-[16.5px] leading-[1.31] text-over-black">
+            <p className="md:text-base text-sm text-over-black">
               {subtitle}
             </p>
           </div>

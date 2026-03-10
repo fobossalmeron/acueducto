@@ -10,21 +10,21 @@ interface PhaseCardProps {
 export const PhaseCard = ({ label, name, duration, imageIndex }: PhaseCardProps) => {
   return (
     <div className="w-[81%] rounded-3xl bg-gradient-to-r from-card-border to-background p-px">
-      <div className="relative flex items-start rounded-3xl p-6 bg-gradient-to-r from-card-background to-background">
-        <div className="flex flex-col gap-2.5">
-          <div className="flex items-center gap-3 text-sm text-foreground-lower">
-            <span className="text-sm font-medium tracking-wider uppercase">
+      <div className="relative flex items-start rounded-3xl p-4 md:p-6 bg-gradient-to-r from-card-background to-background">
+        <div className="flex flex-col gap-1 md:gap-2.5">
+          <div className="flex items-center md:gap-3 gap-2 text-sm text-foreground-lower">
+            <span className="text-xs md:text-sm font-medium tracking-wider uppercase">
               {label}
             </span>
             {duration && (
               <>
-                <span className="leading-[1.31]">-</span>
-                <span className="leading-[1.31]">{duration}</span>
+                <span className="text-xs md:text-sm leading-[1.31]">-</span>
+                <span className="text-xs md:text-sm leading-[1.31]">{duration}</span>
               </>
             )}
           </div>
           <h4
-            className="text-foreground text-xl font-medium"
+            className="text-foreground text-lg md:text-xl font-medium"
           >
             {name}
           </h4>
@@ -34,7 +34,7 @@ export const PhaseCard = ({ label, name, duration, imageIndex }: PhaseCardProps)
           alt=""
           width={168}
           height={150}
-          className="absolute -top-5 -right-18 h-[150px] w-auto"
+          className="absolute -top-5 -right-18 md:h-[150px] h-[120px] w-auto"
         />
       </div>
     </div>
