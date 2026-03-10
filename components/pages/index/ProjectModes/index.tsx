@@ -7,11 +7,13 @@ interface PillData {
   highlighted?: boolean;
 }
 
+type PillRow = PillData | PillData[];
+
 interface Phase {
   label: string;
   name: string;
   duration?: string;
-  pills: PillData[];
+  pills: PillRow[];
 }
 
 interface Mode {

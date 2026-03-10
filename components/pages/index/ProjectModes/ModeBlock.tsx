@@ -9,11 +9,13 @@ interface PillData {
   highlighted?: boolean;
 }
 
+type PillRow = PillData | PillData[];
+
 interface Phase {
   label: string;
   name: string;
   duration?: string;
-  pills: PillData[];
+  pills: PillRow[];
 }
 
 interface ModeBlockProps {
@@ -62,10 +64,22 @@ export const ModeBlock = ({ name, title, phases, index }: ModeBlockProps) => {
                     style={{ objectFit: 'cover', objectPosition: 'center' }}
                   />
                 </div>
-                <div className="relative flex flex-col gap-2 py-2">
-                  {phase.pills.map((pill) => (
-                    <Pill key={pill.text} {...pill} />
-                  ))}
+                <div className="relative grid grid-cols-8 gap-y-2 py-2">
+                  {phase.pills.map((pillOrGroup, idx) => {
+                    const colStart = idx + 1;
+                    const style = { gridColumn: `${colStart} / -1` };
+                    return Array.isArray(pillOrGroup) ? (
+                      <div key={idx} className="flex flex-wrap gap-2" style={style}>
+                        {pillOrGroup.map((pill) => (
+                          <Pill key={pill.text} {...pill} />
+                        ))}
+                      </div>
+                    ) : (
+                      <div key={pillOrGroup.text} style={style}>
+                        <Pill {...pillOrGroup} />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
             </div>

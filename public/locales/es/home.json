@@ -98,8 +98,7 @@
             "label": "fase 1", "name": "diseño de producto",
             "pills": [
               { "text": "Arquitectura de información" },
-              { "text": "Estrategia UX" },
-              { "text": "Diseño UI" },
+              [{ "text": "Estrategia UX" }, { "text": "Diseño UI" }],
               { "text": "Wireflows en alta fidelidad" }
             ]
           },
@@ -107,8 +106,7 @@
             "label": "fase 2", "name": "desarrollo",
             "pills": [
               { "text": "2x velocidad de desarrollo", "highlighted": true },
-              { "text": "Asistido por IA" },
-              { "text": "Seguridad" },
+              [{ "text": "Asistido por IA" }, { "text": "Seguridad" }],
               { "text": "Front-end pixel-perfect", "highlighted": true }
             ]
           },
@@ -130,8 +128,7 @@
             "label": "fase 1", "name": "requerimientos", "duration": "5 días",
             "pills": [
               { "text": "Alcance técnico" },
-              { "text": "Historias" },
-              { "text": "PRD" },
+              [{ "text": "Historias" }, { "text": "PRD" }],
               { "text": "Tickets" }
             ]
           },
@@ -139,10 +136,8 @@
             "label": "fase 2", "name": "validación", "duration": "10 días",
             "pills": [
               { "text": "Ambiente de desarrollo" },
-              { "text": "Frontend" },
-              { "text": "QA" },
-              { "text": "Performance" },
-              { "text": "Backend" }
+              [{ "text": "Frontend" }, { "text": "QA" }],
+              [{ "text": "Performance" }, { "text": "Backend" }]
             ]
           },
           {
@@ -170,8 +165,7 @@
           {
             "label": "fase 2", "name": "validación", "duration": "10 días",
             "pills": [
-              { "text": "User testing" },
-              { "text": "Interacción" },
+              [{ "text": "User testing" }, { "text": "Interacción" }],
               { "text": "Insights cualitativos" },
               { "text": "Iteración", "highlighted": true }
             ]
@@ -179,8 +173,7 @@
           {
             "label": "fase 3", "name": "diseño final", "duration": "20 días",
             "pills": [
-              { "text": "Handoff" },
-              { "text": "UI y diseño visual" },
+              [{ "text": "Handoff" }, { "text": "UI y diseño visual" }],
               { "text": "Documentación" }
             ]
           }

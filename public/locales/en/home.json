@@ -98,8 +98,7 @@
             "label": "phase 1", "name": "product design",
             "pills": [
               { "text": "Information architecture" },
-              { "text": "UX Strategy" },
-              { "text": "UI Design" },
+              [{ "text": "UX Strategy" }, { "text": "UI Design" }],
               { "text": "High-fidelity wireflows" }
             ]
           },
@@ -107,8 +106,7 @@
             "label": "phase 2", "name": "development",
             "pills": [
               { "text": "2x development speed", "highlighted": true },
-              { "text": "AI-assisted" },
-              { "text": "Security" },
+              [{ "text": "AI-assisted" }, { "text": "Security" }],
               { "text": "Pixel-perfect front-end", "highlighted": true }
             ]
           },
@@ -130,8 +128,7 @@
             "label": "phase 1", "name": "requirements", "duration": "5 days",
             "pills": [
               { "text": "Technical scope" },
-              { "text": "User stories" },
-              { "text": "PRD" },
+              [{ "text": "User stories" }, { "text": "PRD" }],
               { "text": "Tickets" }
             ]
           },
@@ -139,10 +136,8 @@
             "label": "phase 2", "name": "validation", "duration": "10 days",
             "pills": [
               { "text": "Dev environment" },
-              { "text": "Frontend" },
-              { "text": "QA" },
-              { "text": "Performance" },
-              { "text": "Backend" }
+              [{ "text": "Frontend" }, { "text": "QA" }],
+              [{ "text": "Performance" }, { "text": "Backend" }]
             ]
           },
           {
@@ -170,8 +165,7 @@
           {
             "label": "phase 2", "name": "validation", "duration": "10 days",
             "pills": [
-              { "text": "User testing" },
-              { "text": "Interaction" },
+              [{ "text": "User testing" }, { "text": "Interaction" }],
               { "text": "Qualitative insights" },
               { "text": "Iteration", "highlighted": true }
             ]
@@ -179,8 +173,7 @@
           {
             "label": "phase 3", "name": "final design", "duration": "20 days",
             "pills": [
-              { "text": "Handoff" },
-              { "text": "UI & visual design" },
+              [{ "text": "Handoff" }, { "text": "UI & visual design" }],
               { "text": "Documentation" }
             ]
           }
