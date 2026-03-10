@@ -92,10 +92,10 @@
     "modes": [
       {
         "name": "UI Integration",
-        "title": "design + front-end",
+        "title": "product design\n+ frontend",
         "phases": [
           {
-            "label": "phase 1", "name": "product design",
+            "label": "phase 1", "name": "design",
             "pills": [
               { "text": "Information architecture" },
               [{ "text": "UX Strategy" }, { "text": "UI Design" }],

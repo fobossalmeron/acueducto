@@ -1,7 +1,7 @@
 const blobStyle: Record<number, string> = {
   0: 'left-[22%] -top-[30%] scale-x-[1.3] scale-y-[0.8] rotate-[20deg]',
   1: '-left-[25%] -top-[15%] ',
-  2: '-right-[25%] -top-[15%] scale-x-[1.2] scale-y-[0.8] rotate-[15deg]',
+  2: '-right-[20%] -top-[25%] scale-x-[1.2] scale-y-[0.8] rotate-[15deg]',
 };
 
 export const GrayBlob = ({ index }: { index: number }) => {

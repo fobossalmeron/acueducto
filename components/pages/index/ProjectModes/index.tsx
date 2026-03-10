@@ -45,7 +45,7 @@ export const ProjectModes = ({ title, subtitle, modes }: ProjectModesProps) => {
         </Fade>
 
         {/* Modes */}
-        <div className="flex w-full flex-col gap-20 lg:gap-[86px]">
+        <div className="flex w-full flex-col gap-20 lg:gap-34">
           {modes.map((mode, i) => (
             <ModeBlock key={mode.name} index={i} {...mode} />
           ))}
