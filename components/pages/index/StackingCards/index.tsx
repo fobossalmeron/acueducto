@@ -41,19 +41,15 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
             </Title>
           </Fade>
         </OverlapLayout.Header>
-        <div className="col-span-12 col-start-1 sm:col-span-10 sm:col-start-2">
+        <div className="col-span-12 col-start-1 sm:col-span-10 sm:col-start-2 flex flex-col gap-15 md:gap-26">
           {cards.map((card, i) => (
             <div
               key={i}
-              className="sticky"
-              style={{
-                top: `calc(6rem + ${i * 2.8}rem)`,
-                marginBottom: `${(cards.length - 1 - i) * 2.8}rem`,
-                zIndex: i + 1,
-              }}
+              className="sticky top-20 md:top-30"
+
             >
               <div
-                className={`${i === 1 ? 'primary-card' : 'card'} relative flex flex-col overflow-hidden rounded-4xl p-6 sm:p-10 lg:h-[min(75vh,660px)] lg:justify-between lg:p-16`}
+                className={`${i === 1 ? 'primary-card' : 'card'} relative flex min-h-[480px] flex-col overflow-hidden rounded-4xl p-6 sm:min-h-0 sm:p-10 lg:h-[min(75vh,660px)] lg:justify-between lg:p-16`}
                 style={i === 0 ? { backgroundColor: 'transparent' } : undefined}
               >
                 {/* Radial glow + noise for first card */}
@@ -120,7 +116,7 @@ export const StackingCards: React.FC<StackingCardsProps> = ({
                   alt={card.label}
                   width={500}
                   height={500}
-                  className="pointer-events-none relative z-10 mt-4 -mr-6 -mb-6 w-[85%] self-end object-contain sm:-mr-10 sm:-mb-10 md:w-[clamp(280px,45%,500px)] lg:absolute lg:right-0 lg:-bottom-1 lg:mt-0 lg:mr-0 lg:mb-0 lg:h-auto lg:self-auto lg:object-right-bottom"
+                  className="pointer-events-none relative z-10 mt-auto -mr-6 -mb-6 w-[85%] self-end object-contain sm:-mr-10 sm:-mb-10 md:w-[clamp(280px,45%,500px)] lg:absolute lg:right-0 lg:-bottom-1 lg:mr-0 lg:mb-0 lg:h-auto lg:self-auto lg:object-right-bottom"
                 />
               </div>
             </div>
