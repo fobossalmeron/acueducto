@@ -67,7 +67,7 @@ export function SocialProofSection({
 
         <div className="col-span-full col-start-1 flex flex-col items-center md:col-span-10 md:col-start-2">
           <Fade triggerOnce>
-            <span className="text-foreground-lower mt-4 mb-10 block px-4 text-center sm:mb-10">
+            <span className="text-foreground-lower mt-4 mb-8 block px-4 text-center sm:mb-10">
               {span}
             </span>
             <Image
@@ -79,7 +79,7 @@ export function SocialProofSection({
             />
           </Fade>
           <Fade triggerOnce>
-            <span className="text-foreground-lower mt-24 mb-10 block px-4 text-center sm:mb-12">
+            <span className="text-foreground-lower mt-16 sm:mt-24 mb-8 block px-4 text-center sm:mb-12">
               {span2}
             </span>
             <div className="relative mb-10 grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
