@@ -42,10 +42,10 @@ export default function Index({ locale, pt, hasLoaded, setTitle }: PageProps) {
       />
       <div style={{ zIndex: 1 }}>
         <LandSection {...t.landing} locale={locale} />
-        <StackingCards {...t.stackingCards} />
         <div id="removeArrow">
-          <PortfolioSection {...t.work} />
+          <StackingCards {...t.stackingCards} />
         </div>
+        <PortfolioSection {...t.work} />
         <ProjectModes {...t.projectModes} />
         <SocialProofSection {...t.clients} />
         <ContactFooter />
