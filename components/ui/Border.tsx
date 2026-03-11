@@ -3,13 +3,35 @@ import styled from 'styled-components';
 function Border() {
   return (
     <div id="PageBorders">
+      <GlassTopHider />
       <DefaultBorder />
       <BlackBorder />
+      <GlassBottomHider />
     </div>
   );
 }
 export default Border;
 
+const GlassBottomHider = styled.div`
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  bottom: -85px;
+  left: 0;
+  background-color: ${(props) => props.theme.colors.background};
+  z-index: 99;
+`;
+
+const GlassTopHider = styled.div`
+  width: 100%;
+  height: 100px;
+  position: fixed;
+  top: -85px;
+  left: 0;
+  background-color: ${(props) => props.theme.colors.background};
+  z-index: 99;
+`;
+   
 const DefaultBorder = styled.div`
   opacity: 1;
   pointer-events: none;
